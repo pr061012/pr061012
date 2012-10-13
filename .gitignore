@@ -1,0 +1,16 @@
+# Compiled document files.
+*.pdf
+doxygen/*
+
+# Compiled object files.
+*.slo
+*.lo
+*.o
+
+# Compiled dynamic libraries.
+*.so
+
+# Compiled static libraries.
+*.lai
+*.la
+*.a
