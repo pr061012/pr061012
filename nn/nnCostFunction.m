@@ -3,9 +3,10 @@ function [J grad] = nnCostFunction(params, ...
                                    hidden_layer_size, ...
                                    output_layer_size, ...
                                    X, y, lambda)
-    % Actually we use Octave's gradient descent implementation (fminunc function),
-    % that prefer theta to be a column vector instead of matrices. Thus we need to
-    % reshape params vector to theta matrices.
+
+    % Actually we use Octave's gradient descent implementation (fminunc
+    % function), that prefers theta to be a column vector instead of matrices.
+    % Thus we need to reshape params vector to theta matrices.
 
     % From input layer to hidden.
     theta1 = reshape(params(1:hidden_layer_size * (input_layer_size + 1)), ...
