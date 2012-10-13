@@ -1,0 +1,221 @@
+\documentclass[12pt]{article}
+
+% Encoding.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Colours.
+\usepackage[usenames]{xcolor}
+
+% Listings.
+\usepackage{listings}
+
+\lstset
+{
+    % Language.
+    language=C++,
+    % Basic style.
+    basicstyle=\footnotesize,
+    backgroundcolor=\color{white},
+    rulecolor=\color{black},
+    %numbers=left,
+    %numberstyle=\color{gray},
+    % Other styles.
+    keywordstyle=\bf\color{blue},
+    commentstyle=\color{darkgray},
+    stringstyle=\color{red},
+    escapeinside={\%*}{*)},
+    morekeywords={},
+    % Misc.
+    tabsize=4,
+    extendedchars=true,
+    breaklines=true,
+    % Indention.
+    xleftmargin=0pt
+}
+
+% New commands for code.
+\definecolor{verylightgray}{rgb}{0.9,0.9,0.9}
+\newcommand{\code}[1]{\colorbox{verylightgray}{\lstinline!#1!}}
+\newcommand{\highlightlesscode}[1]{\colorbox{verylightgray}{#1}}
+\newcommand{\longcode}[1]{\begin{lstlisting}!#1!\end{lstlisting}}
+
+% Document's info.
+\title{Convention Document}
+\author{pr061012}
+\date{Compilation date: \today}
+
+% I fairly copied some rules from qutim's coding style
+% (http://wiki.qutim.org/en/coding_style)
+
+\begin{document}
+	\maketitle
+
+	\section{General}
+		\begin{itemize}
+			\item Keep It Simple, Stupid.
+			\item Everything must be cool and crossplatform.
+			\item Think before you code.
+		\end{itemize}
+
+	\section{Coding Convention}
+		\subsection{General rules}
+			\begin{itemize}
+				\item Avoid short names, use only understandable names.
+				\item Use single character names only for counters and temporaries.
+			\end{itemize}
+
+		\subsection{Variables and constants naming}
+			\begin{itemize}
+				\item Declare each variable on a separate line.
+				\item Use underscores style for variables names (\code{int my_var} instead of \code{int myVar} or \code{int MyVar}).
+				\item Use uppercase style for constant and defines names (\code{const int SOME_MAXIMUM = 5}).
+				\item Object is an object, so the object's name must be a noun.
+			\end{itemize}
+
+		\subsection{Classes naming}
+			\begin{itemize}
+				\item Declare each class in separate pair of \code{*.cpp} and \code{*.h} files.
+				\item Declare all class methods in header file. Code all methods implementations in \code{*.cpp}-file.
+				\item Use abstract classes and inheritance not whenever it's possible, but when it's really needed.
+				\item Use UpperCamelCase style for names (\code{MyClass} instead of \code{myClass}).
+			\end{itemize}
+
+		\subsection{Functions and methods naming}
+			\begin{itemize}
+				\item Use lowerCamelCase style for names (\code{doSomething()} instead of \code{DoSomething()})
+				\item Don't omit variables names in functions declaration (\code{int sum(int a, int b);} instead of \code{int sum(int, int);}).
+				\item Function does something, so the function's name must be a verb.
+			\end{itemize}
+
+		\subsection{Identation and new lines}
+			\begin{itemize}
+				\item Use 4-space identation.
+				\item Use only one statement per line. (If you need to write a big chunk of code with similar statements per line, you're doing something \textbf{wrong}.)
+				\item Use blank lines to group statements.
+				\item Don't use multiple blank lines.
+				\item Don't use new line for function arguments.
+			\end{itemize}
+
+		\subsection{Braces}
+			\begin{itemize}
+				\item Curly brace always must be on a new line.
+				\item Round bracket must be on a new line if conditional statement covers several lines.
+				\item Never omit curly braces for loop and conditional statements, if they contain only one line.
+			\end{itemize}
+
+		\subsection{Loop and conditional statements}
+			\begin{itemize}
+				\item Use several lines for loop and conditional statements if needed:
+					\begin{lstlisting}
+if
+(
+	some_condition == true &&
+	checkThatEverythingIsOkay() == true
+)
+{
+	// Do something!
+}
+
+while
+(
+	some_condition == true &&
+	checkThatEverythingIsOkay() == true
+)
+{
+	// Do something!
+}
+					\end{lstlisting}
+				\item Use these one line statements only when you're \textbf{really} needed:
+\begin{lstlisting}
+if(some_condition) doSomething();
+while(some_condition) doSomething();
+\end{lstlisting}
+			\end{itemize}
+
+	\section{Commenting convention}
+		\begin{itemize}
+			\item Comment each function, class and namespace.
+			\item Use Doxygen for class and functions commenting. Few Doxygen commenting examples:
+\begin{lstlisting}
+/**
+ * @brief Another class description.
+ */
+class MyClass
+{
+	private:
+		/// Variable.
+		int var;
+
+	public:
+		/**
+		 * @brief Cool MyClass constructor.
+		 * @param some_var some parameter
+		 */
+		MyClass(int some_var);
+
+		/**
+		 * @brief  Returns var.
+		 * @return var
+		 */
+		int getVar();
+};
+\end{lstlisting}
+			\item Use three-slash comment (\code{///}) for variables commenting.
+			\item Use multiline comment (\code{/** */}) for functions and classes.
+			\item Add star char at the begining of each line in multiline comment:
+\begin{lstlisting}
+/**
+ * @brief It's a long decscription. Really. You
+ *        don't believe me?
+ */
+\end{lstlisting}
+			\item Align all information by one column, like so:
+\begin{lstlisting}
+/**
+ * @brief  Why you're reading this? You have
+ *         nothing to do?
+ * @param  one_param     one thing
+ * @param  another_param another thing
+ * @return returned value
+ */
+\end{lstlisting}
+			\item Omit \code{@brief} in one-line comments for variables. Correct examples:
+\begin{lstlisting}
+/// Yet another variable.
+int var;
+
+/// @brief A long variable's description may contain
+///        many different things.
+int var;
+\end{lstlisting}
+				Incorrect example:
+\begin{lstlisting}
+/// @brief Yet another variable.
+int var;
+\end{lstlisting}
+			\item You can use Markdown in comments if needed.
+			\item Don't be affraid to describe an complicated algorithm in doxygen-comment.
+\begin{lstlisting}
+/**
+ * @brief Very complicated function. *Algorithm*:
+ *        1. One step.
+ *        2. Another step.
+ *        3. ???
+ *        4. Maybe profit!
+ */
+\end{lstlisting}
+			\item Create additional pages in Markdown markup with description about project's struct. (Or use something else for this, e.g. wiki).
+		\end{itemize}
+
+	\section{Git convention}
+		\begin{itemize}
+			\item Use git.
+			\item Use different branches for different things.
+			\item Create a new branch for each bug fix or new feature.
+			\item Merge to \code{master} code, that \textit{really} works.
+			\item Add module name, issue/bug number to commit text: \highlightlesscode{[Object] Add new attribute.} or \highlightlesscode{[Issue 24] Fix.}.
+			\item Push commits to global repo as soon as possible: anyone must pull your changes.
+		\end{itemize}
+\end{document}
