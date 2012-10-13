@@ -1,16 +1,16 @@
-function [theta1 theta2] = nnCostFunction(input_layer_size, ...
-                                          hidden_layer_size, ...
-                                          output_layer_size, ...
-                                          X, y, lambda)
+function [theta1 theta2] = nnTrain(input_layer_size, ...
+                                   hidden_layer_size, ...
+                                   output_layer_size, ...
+                                   X, y, lambda)
 
     % Initializing random theta matrices by values between -0.5 and 0.5.
-    initial_theta1 = rand(input_layer_size, hidden_layer_size + 1) - 0.5;
-    initial_theta2 = rand(hidden_layer_size, output_layer_size + 1) - 0.5;
+    initial_theta1 = rand(hidden_layer_size, input_layer_size + 1) - 0.5;
+    initial_theta2 = rand(output_layer_size, hidden_layer_size + 1) - 0.5;
 
     % Unrolling theta.
     initial_params = [initial_theta1(:); initial_theta2(:)];
 
-    % Settings options for fmincg() function.
+    % Settings options for fminunc() function.
     options = optimset('MaxIter', 100);
 
     % Creating a short hand: costFunction will receive only one parameter (p --
