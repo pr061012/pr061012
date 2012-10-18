@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+
+% Encoding.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Colours.
+\usepackage[usenames]{xcolor}
+
+% Listings.
+\usepackage{listings}
+
+\lstset
+{
+    % Language.
+    language=C++,
+    % Basic style.
+    basicstyle=\footnotesize,
+    backgroundcolor=\color{white},
+    rulecolor=\color{black},
+    %numbers=left,
+    %numberstyle=\color{gray},
+    % Other styles.
+    keywordstyle=\bf\color{blue},
+    commentstyle=\color{darkgray},
+    stringstyle=\color{red},
+    escapeinside={\%*}{*)},
+    morekeywords={},
+    % Misc.
+    tabsize=4,
+    extendedchars=true,
+    breaklines=true,
+    % Indention.
+    xleftmargin=0pt
+}
+
+% New commands for code.
+\definecolor{verylightgray}{rgb}{0.9,0.9,0.9}
+\newcommand{\code}[1]{\colorbox{verylightgray}{\lstinline!#1!}}
+\newcommand{\highlightlesscode}[1]{\colorbox{verylightgray}{#1}}
+
+% For ToDos.
+\newcommand{\todo}[1]
+{
+    \marginpar
+    {
+        \textbf{\small{\textcolor{red}{#1}}}
+    }
+}
+
+% Document's info.
+\title{Concept \& algorithm documentation}
+\author{pr061012 team}
+\date{Compilation date: \today}
