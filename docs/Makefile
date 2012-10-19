@@ -1,14 +1,13 @@
 all:
 	# Making manually-written docs.
-	make convention.pdf
+	for file in `ls *.tex`; do pdflatex $$file; done;
 
 	# TODO Making Doxygen-latex docs.
 
-	# Clean up.
-	rm *.log *.aux
-
-convention.pdf: convention.tex
-	pdflatex convention.tex
+	# Creating directory for docs.
+	rm -rf pdf/
+	mkdir pdf/
+	mv *.pdf pdf/
 
 clean:
-	rm -f *.log *.aux *.pdf
+	rm -rf docs *.log *.aux *.pdf
