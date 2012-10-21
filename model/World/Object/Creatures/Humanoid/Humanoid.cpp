@@ -5,9 +5,10 @@
 
 #include "Humanoid.h"
 
-Humanoid::Humanoid(const DecisionMaker & dmaker) : Creature(dmaker)
+Humanoid::Humanoid(const DecisionMaker & dmaker) :
+    Creature(dmaker)
 {
-
+    this -> type = HUMANOID;
 }
 
 Humanoid::~Humanoid()

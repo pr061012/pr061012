@@ -5,9 +5,10 @@
 
 #include "NonHumanoid.h"
 
-NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) : Creature(dmaker)
+NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
+    Creature(dmaker)
 {
-
+    this -> type = NONHUMANOID;
 }
 
 NonHumanoid::~NonHumanoid()

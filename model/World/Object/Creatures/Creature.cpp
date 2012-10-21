@@ -6,13 +6,14 @@
 #include "Creature.h"
 
 Creature::Creature(const DecisionMaker & dmaker) :
-    brains(brains)
+    brains(dmaker),
+    inventory(new ObjectHeap)
 {
-
 }
 
 Creature::~Creature()
 {
+    delete inventory;
 }
 
 void Creature::setWindow(ObjectHeap * window)
