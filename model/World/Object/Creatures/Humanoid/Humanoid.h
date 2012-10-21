@@ -41,6 +41,42 @@ public:
      * @brief Makes a next step.
      */
     void step();
+
+private:
+    //**************************************************************************
+    // RELATIVE COEFFICIENTS.
+    // May have any value. In decision maker we use only quotient of them.
+    // One coefficient is declared in Object class -- health and max_health.
+    //**************************************************************************
+
+    /// Current value of satiety.
+    unsigned int satiety;
+    /// Maximum possible value of satiety.
+    unsigned int max_satiety;
+
+    /// Current value of sleepiness.
+    unsigned int sleepiness;
+    /// Maximum possible value of sleepiness.
+    unsigned int max_sleepiness;
+
+    /// Current sociability.
+    unsigned int sociability;
+    /// Maximum possible value of sociability.
+    unsigned int max_sociability;
+
+    //**************************************************************************
+    // ABSOLUTE COEFFICIENTS.
+    // May take only value in range [0, 100].
+    //**************************************************************************
+
+    /// Current safety.
+    unsigned int safety;
+
+    /// Diligence (const during time).
+    unsigned int diligence;
+
+    // TODO: Add * contentment of house
+    //           * resource availability
 };
 
 #endif // HUMANOID_H

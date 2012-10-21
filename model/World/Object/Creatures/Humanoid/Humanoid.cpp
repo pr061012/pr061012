@@ -36,5 +36,10 @@ Humanoid::~Humanoid()
 
 void Humanoid::step()
 {
+    // Preparing main attributes.
+    unsigned int relative_satiety     = 100 * satiety     / max_satiety;
+    unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
+    unsigned int relative_sociability = 100 * sociability / max_sociability;
 
+    // TODO Preparing Vector of attributes.
 }
