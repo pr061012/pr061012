@@ -23,15 +23,22 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Creature(dmaker)
 {
-    this -> type = HUMANOID;
+    type = HUMANOID;
 
     // Randomly initialize some values.
-    this -> max_health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
-    this -> max_age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);
+    max_health      = randFromRange(HUM_HEALTH_MIN,      HUM_HEALTH_MAX);
+    max_age         = randFromRange(HUM_AGE_MIN,         HUM_AGE_MAX);
+    max_satiety     = randFromRange(HUM_SATIETY_MIN,     HUM_SATIETY_MAX);
+    max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);
+    max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
+    diligence       = randFromRange(HUM_DILIGENCE_MIN,   HUM_DILIGENCE_MAX);
 
     // Initialize other values.
-    this -> health = this -> max_health;
-    this -> age    = this -> max_age;
+    health      = max_health;
+    age         = max_age;
+    satiety     = max_satiety;
+    sleepiness  = max_sleepiness;
+    sociability = max_sociability;
 }
 
 Humanoid::~Humanoid()
