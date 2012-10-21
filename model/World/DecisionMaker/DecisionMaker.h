@@ -12,12 +12,6 @@
   */
 class DecisionMaker
 {
-private:
-    /// @brief Matrix for decision making. In the nutshell, it's a SM or
-    /// no-hidden-layer NN matrix.
-    // TODO: Move here and in constructo Matrix by own or armadillo type.
-    Matrix theta;
-
 public:
     /**
      * @brief Constructor.
@@ -36,6 +30,12 @@ public:
 	 */
     // TODO: Add enum for creatures's actions.
     int makeDecision(Vector attrs);
+
+private:
+    /// @brief Matrix for decision making. In the nutshell, it's a SM or
+    /// no-hidden-layer NN matrix.
+    // TODO: Move here and in constructo Matrix by own or armadillo type.
+    Matrix theta;
 };
 
 #endif // DECISION_MAKER_H
