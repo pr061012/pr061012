@@ -5,16 +5,25 @@
 
 #include "Creature.h"
 
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR.
+//******************************************************************************
+
 Creature::Creature(const DecisionMaker & dmaker) :
     brains(dmaker),
     inventory(new ObjectHeap)
 {
+
 }
 
 Creature::~Creature()
 {
     delete inventory;
 }
+
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
 
 void Creature::setWindow(ObjectHeap * window)
 {

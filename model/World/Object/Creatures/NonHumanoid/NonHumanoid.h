@@ -10,11 +10,16 @@
 
 /**
  * @class NonHumanoid
- * @brief
+ * @brief NonHumanoid is silly creature, has only few goals in its life: food
+ *        and sleep.
  */
 class NonHumanoid : virtual public Creature
 {
 public:
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
+
     /**
      * @brief Random constructor (creates NonHumanoid with really random
      *        attributes).
@@ -26,6 +31,10 @@ public:
      * @brief Destructor
      */
     ~Humanoid();
+
+    //**************************************************************************
+    // NON-HUMANOID'S LOGICS.
+    //**************************************************************************
 
     /**
      * @brief Makes a next step.

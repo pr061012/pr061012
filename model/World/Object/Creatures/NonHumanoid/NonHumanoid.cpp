@@ -7,6 +7,10 @@
 #include "../Defines.h"
 #include "NonHumanoid.h"
 
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR.
+//******************************************************************************
+
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     Creature(dmaker)
 {
@@ -25,6 +29,10 @@ NonHumanoid::~NonHumanoid()
 {
 
 }
+
+//******************************************************************************
+// NON-HUMANOID'S LOGICS.
+//******************************************************************************
 
 void NonHumanoid::step()
 {

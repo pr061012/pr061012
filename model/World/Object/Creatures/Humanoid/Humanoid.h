@@ -10,11 +10,17 @@
 
 /**
  * @class Humanoid
- * @brief
+ * @brief Humanoid is clever creature, has own ideals, thoughts and preferences.
+ *        Humanoids are base element in game, they makes their own decisions
+ *        and influence and change world around them.
  */
 class Humanoid : virtual public Creature
 {
 public:
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
+
     /**
      * @brief Random constructor (creates Humanoid with really random
      *        attributes).
@@ -26,6 +32,10 @@ public:
      * @brief Destructor
 	 */
     ~Humanoid();
+
+    //**************************************************************************
+    // HUMANOID'S LOGICS.
+    //**************************************************************************
 
     /**
      * @brief Makes a next step.
