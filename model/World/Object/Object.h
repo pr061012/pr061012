@@ -10,13 +10,7 @@
 #include "../../Utilities/VisualState/VisualState.h"
 #include "../../BasicTypes.h"
 
-/*
- * Some notes:
- *  - It's better to swap private and public chunks of code.
- *  - You should use `immortality` instead of `immortal` for variable's name.
- *  - I think initAttributes() is silly thing (in case of only one constructor).
- *  - Maybe it's better to use unsigned int for health.
- */
+
 
 /**
  * @class Object
@@ -24,35 +18,6 @@
  */
 class Object
 {
-private:
-    /// Object's type.
-    ObjectType type;
-
-    /// Object's coordinates and frame.
-    Frame frame;
-
-    /// Object's visual state (for View).
-    VisualState visual_state;
-
-    /// Is object destroyed or not.
-    bool destroyed;
-
-    /// @brief Object's health.
-    ///        * buildings and creatures -- health
-    ///        * weather -- living time
-    ///        * resource -- amount of resource
-    ///        * tool -- durability
-    int health;
-
-    /// Maximum amount of health.
-    int max_health;
-
-    /// Immortality.
-    bool immortal;
-
-    /// Angle of rotation.
-    double angle;
-
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -77,9 +42,8 @@ public:
      * @brief Damages object.
      * @param harm  about of damage
      */
-    void damage(int harm);
+    void damage(unsigned int harm);
 
-    void initAttributes();
 
     //**************************************************************************
     // ACCESSORS.
@@ -137,12 +101,12 @@ public:
      * @brief Set the value of health.
 	 * @param new_var the new value of health
 	 */
-    void setHealth(int new_var);
+    void setHealth(unsigned int new_var);
 
 	/**
      * @brief Get the value of health.
 	 */
-    int getHealth();
+    unsigned int getHealth();
 
 	/**
      * @brief Set the value of immortal.
@@ -160,13 +124,13 @@ public:
      * @brief Set the value of max_health.
      * @param new_var   the new value of max_health
 	 */
-    void setMaxHealth(int new_var);
+    void setMaxHealth(unsigned int new_var);
 
 	/**
      * @brief Get the value of max_health.
 	 * @return the value of max_health
 	 */
-    int getMaxHealth();
+    unsigned int getMaxHealth();
 
 	/**
      * @brief Set the value of angle.
@@ -179,6 +143,37 @@ public:
 	 * @return the value of angle
 	 */
     double getAngle();
+    
+private:
+    /// Object's type.
+    ObjectType type;
+
+    /// Object's coordinates and frame.
+    Frame frame;
+
+    /// Object's visual state (for View).
+    VisualState visual_state;
+
+    /// Is object destroyed or not.
+    bool destroyed;
+
+    /// @brief Object's health.
+    ///        * buildings and creatures -- health
+    ///        * weather -- living time
+    ///        * resource -- amount of resource
+    ///        * tool -- durability
+    unsigned int health;
+
+    /// Maximum amount of health.
+    unsigned int max_health;
+
+    /// Immortality.
+    bool immortality;
+
+    /// Angle of rotation.
+    double angle;
+
+
 };
 
 #endif // OBJECT_H

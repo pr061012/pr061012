@@ -11,7 +11,7 @@
 
 Object::Object()
 {
-    initAttributes();
+    this -> destroyed = false;
 }
 
 Object::~Object()
@@ -24,12 +24,8 @@ void Object::destroy()
 
 }
 
-void Object::initAttributes()
-{
-    this -> destroyed = false;
-}
 
-void Object::damage(int harm)
+void Object::damage(unsigned int harm)
 {
     this -> health -= harm;
 }
@@ -78,32 +74,32 @@ bool Object::getDestroyed()
     return this -> destroyed;
 }
 
-void Object::setHealth(int new_var)
+void Object::setHealth(unsigned int new_var)
 {
     this -> health = new_var;
 }
 
-int Object::getHealth()
+unsigned int Object::getHealth()
 {
     return this -> health;
 }
 
 void Object::setImmortal(bool new_var)
 {
-    this -> immortal = new_var;
+    this -> immortality = new_var;
 }
 
 bool Object::getImmortal()
 {
-    return this -> immortal;
+    return this -> immortality;
 }
 
-void Object::setMaxHealth(int new_var)
+void Object::setMaxHealth(unsigned int new_var)
 {
     this -> max_health = new_var;
 }
 
-int Object::getMaxHealth()
+unsigned int Object::getMaxHealth()
 {
     return this -> max_health;
 }
