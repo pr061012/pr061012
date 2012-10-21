@@ -20,6 +20,9 @@
 /// Maximum possible value of humanoid's max_health.
 #define HUM_HEALTH_MAX      100
 
+/// Minimum possible value of humanoid's max_age.
+#define HUM_MIN_AGE         40
+
 /// Maximum possible value of humanoid's max_age.
 #define HUM_MAX_AGE         50
 
@@ -37,7 +40,10 @@
 /// Maximum possible value of non-humanoid's max_health.
 #define NHUM_HEALTH_MAX     100
 
+/// Minimum possible value of non-humanoid's max_age.
+#define NHUM_MIN_AGE        10
+
 /// Maximum possible value of non-humanoid's max_age.
-#define NHUM_MAX_AGE        50
+#define NHUM_MAX_AGE        20
 
 #endif // DEFINES_H
