@@ -24,7 +24,6 @@ void Object::destroy()
 
 }
 
-
 void Object::damage(unsigned int harm)
 {
     this -> health -= harm;

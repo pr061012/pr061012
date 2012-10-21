@@ -38,14 +38,12 @@ public:
 	 */
     Object* next();
 
-
 	/**
      * @brief Work as next(), but return object with certain type.
      * @return Object*
 	 * @param  type
 	 */
     Object* next(int type);
-
 
 	/**
      * @brief Push object to heap.
@@ -54,14 +52,12 @@ public:
 	 */
     bool push(Object* object);
 
-
 	/**
      * @brief Remove object from heap.
 	 * @param  object
      * @return
 	 */
     bool remove(Object* object);
-
 };
 
 #endif // OBJECTHEAP_H
