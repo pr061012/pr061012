@@ -20,9 +20,9 @@ public:
 	/**
      * @brief Random constructor (creates Creature with really random
      *        attributes).
-     * @param brains    creature's decision maker
+     * @param dmaker    creature's decision maker
 	 */
-    Creature(const DecisionMaker & brains);
+    Creature(const DecisionMaker & dmaker);
 
 	/**
      * @brief Destructor.
@@ -30,7 +30,7 @@ public:
     ~Creature();
 
     /**
-     * @brief Make a next step.
+     * @brief Makes a next step.
      */
     virtual void step() = 0;
 

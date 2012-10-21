@@ -5,8 +5,10 @@
 
 #include "Creature.h"
 
-Creature::Creature(const DecisionMaker & brains)
+Creature::Creature(const DecisionMaker & dmaker) :
+    brains(brains)
 {
+
 }
 
 Creature::~Creature()
