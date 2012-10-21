@@ -86,6 +86,12 @@ private:
 
     /// Current creature's action.
     ActionType current_action;
+
+    /// Current age.
+    unsigned int age;
+
+    /// Maximum possible age.
+    unsigned int max_age;
 };
 
 #endif // CREATURE_H

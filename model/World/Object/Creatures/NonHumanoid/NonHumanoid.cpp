@@ -8,6 +8,15 @@
 #include "NonHumanoid.h"
 
 //******************************************************************************
+// STATIC FUNCTIONS.
+//******************************************************************************
+
+static inline int randFromRange(int low_boundary, int top_boundary)
+{
+    return rand() % (top_boundary - low_boundary) + low_boundary + 1;
+}
+
+//******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
@@ -16,13 +25,16 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 {
     this -> type = NONHUMANOID;
 
+    // Initialize some inhereted things.
+    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
+    setMaxHealth(health);
+    setHealth(health);
+
     // Randomly initialize some values.
-    this -> max_health = rand() % (NHUM_HEALTH_MAX - NHUM_HEALTH_MIN) + NHUM_HEALTH_MIN + 1;
-    this -> max_age    = rand() % (NHUM_AGE_MAX - NHUM_AGE_MIN) + NHUM_AGE_MIN + 1;
+    this -> max_age = randFromRange(NHUM_AGE_MIN, NHUM_AGE_MAX);
 
     // Initialize other values.
-    this -> health = this -> max_health;
-    this -> age    = this -> max_age;
+    this -> age = this -> max_age;
 }
 
 NonHumanoid::~NonHumanoid()

@@ -25,8 +25,12 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
 {
     type = HUMANOID;
 
+    // Initialize some inhereted things.
+    int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
+    setMaxHealth(health);
+    setHealth(health);
+
     // Randomly initialize some values.
-    max_health      = randFromRange(HUM_HEALTH_MIN,      HUM_HEALTH_MAX);
     max_age         = randFromRange(HUM_AGE_MIN,         HUM_AGE_MAX);
     max_satiety     = randFromRange(HUM_SATIETY_MIN,     HUM_SATIETY_MAX);
     max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);
@@ -34,7 +38,6 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     diligence       = randFromRange(HUM_DILIGENCE_MIN,   HUM_DILIGENCE_MAX);
 
     // Initialize other values.
-    health      = max_health;
     age         = max_age;
     satiety     = max_satiety;
     sleepiness  = max_sleepiness;
