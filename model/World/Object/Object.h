@@ -10,196 +10,174 @@
 #include "../../Utilities/VisualState/VisualState.h"
 #include "../../BasicTypes.h"
 
+/*
+ * Some notes:
+ *  - It's better to swap private and public chunks of code.
+ *  - You should use `immortality` instead of `immortal` for variable's name.
+ *  - I think initAttributes() is silly thing (in case of only one constructor).
+ */
+
 /**
  * @class Object
  * @brief Abstract Object class
  */
-
-
 class Object
 {
 private:
+    /// Object's type.
+    ObjectType type;
 
-    /// Type of object
-    int type;
-
-    /// Сoordinatesобъекта.
+    /// Object's coordinates and frame.
     Frame frame;
 
-    /// Отображение объекта для графики.
+    /// Object's visual state (for View).
     VisualState visual_state;
 
-    ///
+    /// Is object destroyed or not.
     bool destroyed;
 
-    /**
-     * @brief Существа/здания - здоровье.
-     * Погода - время жизни.
-     * Ресурс - кол-во ресурса.
-     * Инструмент - прочность.
-    */
-
-    /// Health of object
+    /// @brief Object's health.
+    ///        * buildings and creatures -- health
+    ///        * weather -- living time
+    ///        * resource -- amount of resource
+    ///        * tool -- durability
     int health;
 
-    /// Бессмертие.
-    bool immortal;
+    /// Maximum amount of health.
     int max_health;
-    /// Угол поворота.
+
+    /// Immortality.
+    bool immortal;
+
+    /// Angle of rotation.
     double angle;
 
 public:
-
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
     /**
-     * @brief Constructor
+     * @brief Constructor.
      */
     Object();
 
-	/**
-     * @brief Destructor
-	 */
+    /**
+     * @brief Destructor.
+     */
     ~Object();
 
-	/**
-     * @brief Destroy object
-	 */
+    /**
+     * @brief Destroy object.
+     */
     void destroy();
 
-
-	/**
-     * @brief
-     * @param harm
-	 */
+    /**
+     * @brief Damages object.
+     * @param harm  about of damage
+     */
     void damage(int harm);
 
     void initAttributes();
-public:
 
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
-
 	/**
-	 * Set the value of type
-	 * @param new_var the new value of type
+     * @brief Set the value of type.
+     * @param new_var   the new value of type
 	 */
-
     void setType(int new_var);
 
 	/**
-	 * Get the value of type
+     * @brief Get the value of type.
 	 * @return the value of type
 	 */
     int getType();
 
 	/**
-     * @brief Set the value of frame
-	 * Координаты и область объекта.
-	 * @param new_var the new value of frame
+     * @brief Set the value of frame.
+     * @param new_var   the new value of frame
 	 */
     void setFrame(Frame new_var);
 
 	/**
-     * @brief Get the value of frame
-	 * Координаты и область объекта.
+     * @brief Get the value of frame.
 	 * @return the value of frame
 	 */
-
     Frame getFrame();
 
 	/**
-	 * Set the value of visual_state
-	 * Отображение объекта для графики.
-	 * @param new_var the new value of visual_state
+     * @brief Set the value of visual_state.
+     * @param new_var   the new value of visual_state
 	 */
     void setVisualState(VisualState new_var);
 
 	/**
-	 * Get the value of visual_state
-	 * Отображение объекта для графики.
+     * @brief Get the value of visual_state.
 	 * @return the value of visual_state
 	 */
-
     VisualState getVisualState();
 
 	/**
-	 * Set the value of destroyed
-	 * @param new_var the new value of destroyed
+     * @brief Set the value of destroyed.
+     * @param new_var   the new value of destroyed
 	 */
     void setDestroyed(bool new_var);
 
 	/**
-	 * Get the value of destroyed
+     * @brief Get the value of destroyed.
 	 * @return the value of destroyed
 	 */
     bool getDestroyed();
 
-
 	/**
-	 * Set the value of health
-	 * Существа/здания - здоровье.
-	 * Погода - время жизни.
-	 * Ресурс - кол-во ресурса.
-	 * Инструмент - прочность.
+     * @brief Set the value of health.
 	 * @param new_var the new value of health
 	 */
     void setHealth(int new_var);
 
 	/**
-	 * Get the value of health
-	 * Существа/здания - здоровье.
-	 * Погода - время жизни.
-	 * Ресурс - кол-во ресурса.
-	 * Инструмент - прочность.
-	 * @return the value of health
+     * @brief Get the value of health.
 	 */
     int getHealth();
 
 	/**
-	 * Set the value of immortal
-	 * Бессмертие.
-	 * @param new_var the new value of immortal
+     * @brief Set the value of immortal.
+     * @param new_var   the new value of immortal
 	 */
     void setImmortal(bool new_var);
 
 	/**
-	 * Get the value of immortal
-	 * Бессмертие.
+     * @brief Get the value of immortal.
 	 * @return the value of immortal
 	 */
     bool getImmortal();
 
 	/**
-	 * Set the value of max_health
-	 * @param new_var the new value of max_health
+     * @brief Set the value of max_health.
+     * @param new_var   the new value of max_health
 	 */
     void setMaxHealth(int new_var);
 
 	/**
-	 * Get the value of max_health
+     * @brief Get the value of max_health.
 	 * @return the value of max_health
 	 */
     int getMaxHealth();
 
 	/**
-	 * Set the value of angle
-	 * Угол поворота.
-	 * @param new_var the new value of angle
+     * @brief Set the value of angle.
+     * @param new_var   the new value of angle
 	 */
     void setAngle(double new_var);
 
 	/**
-	 * Get the value of angle
-	 * Угол поворота.
+     * @brief Get the value of angle.
 	 * @return the value of angle
 	 */
     double getAngle();
-
 };
 
 #endif // OBJECT_H
