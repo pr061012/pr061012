@@ -15,6 +15,7 @@
  *  - It's better to swap private and public chunks of code.
  *  - You should use `immortality` instead of `immortal` for variable's name.
  *  - I think initAttributes() is silly thing (in case of only one constructor).
+ *  - Maybe it's better to use unsigned int for health.
  */
 
 /**
