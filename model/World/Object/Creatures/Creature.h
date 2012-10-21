@@ -9,6 +9,7 @@
 #include "../Object.h"
 #include "../../DecisionMaker/DecisionMaker.h"
 #include "../../ObjectHeap/ObjectHeap.h"
+#include "../../../BasicTypes.h"
 
 /**
  * @class Creature
@@ -82,6 +83,9 @@ private:
 
     /// View area for Indexator.
     Frame view_area;
+
+    /// Current creature's action.
+    ActionType current_action;
 };
 
 #endif // CREATURE_H
