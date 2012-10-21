@@ -11,10 +11,9 @@
 #include "../../ObjectHeap/ObjectHeap.h"
 
 /**
-  * @class Creature
-  * @brief Abstract Creature class.
-  */
-
+ * @class Creature
+ * @brief Abstract Creature class.
+ */
 class Creature : virtual public Object
 {
 public:

@@ -7,9 +7,9 @@
 #define DECISION_MAKER_H
 
 /**
-  * @class DecisionMaker
-  * @brief Makes a prediction about next creature's action.
-  */
+ * @class DecisionMaker
+ * @brief Makes a prediction about next creature's action.
+ */
 class DecisionMaker
 {
 public:
