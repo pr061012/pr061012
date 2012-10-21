@@ -19,29 +19,29 @@
 #define HUM_HEALTH_MAX      100
 
 /// Minimum possible value of humanoid's max_age.
-#define HUM_MIN_AGE         40
+#define HUM_AGE_MIN         40
 /// Maximum possible value of humanoid's max_age.
-#define HUM_MAX_AGE         50
+#define HUM_AGE_MAX         50
 
 /// Minimum possible value of humanoid's max_satiety.
-#define HUM_MIN_SATIETY     50
+#define HUM_SATIETY_MIN     50
 /// Maximum possible value of humanoid's max_satiety.
-#define HUM_MAX_SATIETY     100
+#define HUM_SATIETY_MAX     100
 
 /// Minimum possible value of humanoid's max_sleepiness.
-#define HUM_MIN_SLEEPINESS  50
+#define HUM_SLEEPINESS_MIN  50
 /// Maximum possible value of humanoid's max_sleepiness.
-#define HUM_MAX_SLEEPINESS  100
+#define HUM_SLEEPINESS_MAX  100
 
 /// Minimum possible value of humanoid's max_sociability.
-#define HUM_MIN_SOCIABILITY 50
+#define HUM_SOCIABILITY_MIN 50
 /// Maximum possible value of humanoid's max_sociability.
-#define HUM_MAX_SOCIABILITY 100
+#define HUM_SOCIABILITY_MAX 100
 
 /// Minimum possible value of humanoid's diligence.
-#define HUM_MIN_DILIGENCE   50
+#define HUM_DILIGENCE_MIN   50
 /// Maximum possible value of humanoid's diligence.
-#define HUM_MAX_DILIGENCE   100
+#define HUM_DILIGENCE_MAX   100
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
@@ -56,8 +56,8 @@
 #define NHUM_HEALTH_MAX     100
 
 /// Minimum possible value of non-humanoid's max_age.
-#define NHUM_MIN_AGE        10
+#define NHUM_AGE_MIN        10
 /// Maximum possible value of non-humanoid's max_age.
-#define NHUM_MAX_AGE        20
+#define NHUM_AGE_MAX        20
 
 #endif // DEFINES_H

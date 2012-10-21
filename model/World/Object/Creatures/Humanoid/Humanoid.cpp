@@ -26,8 +26,8 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     this -> type = HUMANOID;
 
     // Randomly initialize some values.
-    this -> max_health = randFromRange(HUM_HEALTH_MAX, HUM_HEALTH_MIN);
-    this -> max_age    = randFromRange(HUM_MAX_AGE,    HUM_MIN_AGE);
+    this -> max_health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
+    this -> max_age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);
 
     // Initialize other values.
     this -> health = this -> max_health;

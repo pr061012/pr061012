@@ -18,7 +18,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 
     // Randomly initialize some values.
     this -> max_health = rand() % (NHUM_HEALTH_MAX - NHUM_HEALTH_MIN) + NHUM_HEALTH_MIN + 1;
-    this -> max_age    = rand() % (NHUM_MAX_AGE - NHUM_MIN_AGE) + NHUM_MIN_AGE + 1;
+    this -> max_age    = rand() % (NHUM_AGE_MAX - NHUM_AGE_MIN) + NHUM_AGE_MIN + 1;
 
     // Initialize other values.
     this -> health = this -> max_health;
