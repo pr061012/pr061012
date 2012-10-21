@@ -23,36 +23,32 @@ Weather::~Weather()
 // ACCESSORS.
 //******************************************************************************
 
-void setSubtype(WeatherType new_var)
+void Weather::setSubtype(WeatherType new_var)
 {
     this -> subtype = new_var;
 }
 
-
-WeatherType getSubtype()
+WeatherType Weather::getSubtype()
 {
-    return subtype;
+    return this -> subtype;
 }
 
-void setWindow(ObjectHeap * new_var)
+void Weather::setWindow(ObjectHeap * new_var)
 {
     this -> window = new_var;
 }
 
-
-ObjectHeap * getWindow()
+ObjectHeap* Weather::getWindow()
 {
-    return window;
+    return this -> window;
 }
 
-
-void setViewArea(Frame new_var)
+void Weather::setViewArea(Frame new_var)
 {
     this -> view_area = new_var;
 }
 
-
-Frame getViewArea()
+Frame Weather::getViewArea()
 {
-    return view_area;
+    return this -> view_area;
 }
