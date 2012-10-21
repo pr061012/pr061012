@@ -38,4 +38,17 @@ enum ObjectType
     RESOURCE, TOOL, WEATHER, BUILDING, HUMANOID, NONHUMANOID
 };
 
+/**
+ * @brief The ActionType enum
+ */
+enum ActionType
+{
+    // Special action (means that action isn't specified yet)
+    NONE,
+
+    // Common actions.
+    SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
+    DO_NOTHING
+};
+
 #endif // BASIC_TYPES_H
