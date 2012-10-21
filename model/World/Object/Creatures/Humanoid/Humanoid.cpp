@@ -8,6 +8,15 @@
 #include "Humanoid.h"
 
 //******************************************************************************
+// STATIC FUNCTIONS.
+//******************************************************************************
+
+static inline int randFromRange(int low_boundary, int top_boundary)
+{
+    return rand() % (top_boundary - low_boundary) + low_boundary + 1;
+}
+
+//******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
@@ -17,8 +26,8 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     this -> type = HUMANOID;
 
     // Randomly initialize some values.
-    this -> max_health = rand() % (HUM_HEALTH_MAX - HUM_HEALTH_MIN) + HUM_HEALTH_MIN + 1;
-    this -> max_age    = rand() % (HUM_MAX_AGE - HUM_MIN_AGE) + HUM_MIN_AGE + 1;
+    this -> max_health = randFromRange(HUM_HEALTH_MAX, HUM_HEALTH_MIN);
+    this -> max_age    = randFromRange(HUM_MAX_AGE,    HUM_MIN_AGE);
 
     // Initialize other values.
     this -> health = this -> max_health;
