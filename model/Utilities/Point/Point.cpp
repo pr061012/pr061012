@@ -1,8 +1,16 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
+
 #include "Point.h"
 #include <cmath>
 
-// Constructors/Destructors
-//  
+
+//**************************************************************************
+// CONSTRUCTOR/DESTRUCTOR.
+//**************************************************************************
+
 
 Point::Point (double x, double y )
 {
@@ -16,17 +24,18 @@ Point::~Point ( ) { }
 // Methods
 //  
 
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
 
-// Accessor methods
-//  
 double Point::getX()
 {
-    return x;
+    return this -> x;
 }
 
 double Point::getY()
 {
-    return y;
+    return this -> y;
 }
 
 void Point::setX(double x)
@@ -43,7 +52,7 @@ void Point::setY(double y)
 //
 double Point::getDistance(Point point)
 {
-    return sqrt(pow(x - point.getX(), 2) + pow (y - point.getY(), 2));
+    return sqrt(pow(this -> x - point.getX(), 2) + pow (this -> y - point.getY(), 2));
 }
 
 

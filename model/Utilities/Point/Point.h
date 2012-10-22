@@ -1,28 +1,32 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
 
 #ifndef POINT_H
 #define POINT_H
 
 
 /**
-  * class Point
-  * 
+  * @class Point
+  * @brief Point class
   */
 
 class Point
 {
 public:
 
-	// Constructors/Destructors
-	//  
-
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
 
 	/**
-	 * Empty Constructor
+     * @brief Empty Constructor
 	 */
     Point (double x, double y );
 
 	/**
-	 * Empty Destructor
+     * @brief Empty Destructor
 	 */
     ~Point ( );
 
@@ -31,11 +35,9 @@ public:
      */
     double getDistance(Point point);
 
-    // Accessors methods
-    //
-
-    // Getters
-    //
+    //******************************************************************************
+    // ACCESSORS.
+    //******************************************************************************
 
     /**
      *  @brief Get X
@@ -43,17 +45,14 @@ public:
     double getX();
 
     /**
-     *  @brief Get Y
-     */
-    double getY();
-
-    // Setters
-    //
-
-    /**
      *  @brief Set X
      */
     void setX(double x);
+
+    /**
+     *  @brief Get Y
+     */
+    double getY();
 
     /**
      *  @brief Set Y
@@ -62,11 +61,9 @@ public:
 
 private:
 
-    // Private attributes
-
-    // Coordinate X
+    /// Coordinate X
     double x;
-    // Coordinate Y
+    /// Coordinate Y
     double y;
 };
 
