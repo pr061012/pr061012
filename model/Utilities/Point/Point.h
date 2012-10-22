@@ -6,38 +6,40 @@
 #ifndef POINT_H
 #define POINT_H
 
-
 /**
-  * @class Point
-  * @brief Point class
-  */
-
+ * @class Point
+ * @brief Point class
+ */
 class Point
 {
 public:
-
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
 	/**
-     * @brief Empty Constructor
+     * @brief Constructor.
 	 */
-    Point (double x, double y );
+    Point(double x, double y);
 
 	/**
-     * @brief Empty Destructor
+     * @brief Destructor.
 	 */
-    ~Point ( );
+    ~Point();
 
+    //**************************************************************************
+    // DISTANCE.
+    //**************************************************************************
+
+    // TODO: Maybe a good way to do that is to implement operator-()?
     /**
      *  @brief Compute distance to another point
      */
     double getDistance(Point point);
 
-    //******************************************************************************
+    //**************************************************************************
     // ACCESSORS.
-    //******************************************************************************
+    //**************************************************************************
 
     /**
      *  @brief Get X
@@ -60,10 +62,10 @@ public:
     void setY(double y);
 
 private:
-
-    /// Coordinate X
+    /// Coordinate X.
     double x;
-    /// Coordinate Y
+
+    /// Coordinate Y.
     double y;
 };
 
