@@ -7,7 +7,7 @@
 #define WORLD_H
 
 #include <string>
-#include "ObjectHeap/ObjectHeap.h"
+#include "../ObjectHeap/ObjectHeap.h"
 
 
 /**
