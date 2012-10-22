@@ -6,27 +6,28 @@
 #ifndef GOD_H
 #define GOD_H
 
-
 #include "../World/World.h"
 
-
 /**
-  * @class God
-  * @brief God class
-  */
-
+ * @class God
+ * @brief God class
+ */
 class God
 {
 public:
-
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
+    /**
+     * @brief Constructor.
+     */
     God();
 
+    /**
+     * @brief Destructor.
+     */
     ~God();
-
 };
 
 #endif // GOD_H
