@@ -5,9 +5,9 @@
 
 #include "Building.h"
 
-//**************************************************************************
+//******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
-//**************************************************************************
+//******************************************************************************
 
 Building::Building()
 {
@@ -29,7 +29,6 @@ bool Building::takeOut(Object * object)
 
 }
 
-
 void Building::maintain(Tool tool)
 {
 
@@ -41,10 +40,10 @@ void Building::maintain(Tool tool)
 
 void Building::setContents(ObjectHeap new_var)
 {
- this -> contents = new_var;
+    this -> contents = new_var;
 }
 
-ObjectHeap getContents()
+ObjectHeap Building::getContents()
 {
     return this -> contents;
 }
@@ -69,14 +68,12 @@ int Building::getMaxSpace()
     return this -> max_space;
 }
 
-void Building::setIsFinished(bool new_var)
+void Building::setCompleteness(bool new_var)
 {
-    this -> isFinished = new_var;
+    this -> completeness = new_var;
 }
 
-bool Building::getIsFinished()
+bool Building::getCompleteness()
 {
-    return this -> isFinished;
+    return this -> completeness;
 }
-
-

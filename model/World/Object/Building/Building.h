@@ -96,16 +96,16 @@ public:
     int getMaxSpace();
 
     /**
-     * @brief Set the value of isFinished.
-     * @param new_var the new value of isFinished
+     * @brief Set the value of completeness.
+     * @param new_var the new value of completeness
      */
-    void setIsFinished(bool new_var);
+    void setCompleteness(bool new_var);
 
     /**
      * @brief  Get the value of isFinished.
      * @return the value of isFinished
      */
-    bool getIsFinished();
+    bool getCompleteness();
 
 private:
     // TODO: Maybe you should use ObjectHeap * instead of ObjectHeap. ObjectHeap
@@ -119,7 +119,7 @@ private:
     int max_space;
 
     /// Completeness of the building.
-    bool isFinished;
+    bool completeness;
 };
 
 #endif // BUILDING_H
