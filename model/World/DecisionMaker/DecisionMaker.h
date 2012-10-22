@@ -23,11 +23,11 @@ public:
      */
     ~DecisionMaker();
 
-	/**
+    /**
      * @brief  Makes a creature's decision about next action.
      * @param  attrs    vector of creature's attributes
      * @return int      next action
-	 */
+     */
     // TODO: Add enum for creatures's actions.
     int makeDecision(Vector attrs);
 
