@@ -19,12 +19,55 @@ public:
 	/**
 	 * Empty Constructor
 	 */
-	Point ( );
+    Point (double x, double y );
 
 	/**
 	 * Empty Destructor
 	 */
-	virtual ~Point ( );
+    ~Point ( );
+
+    /**
+     *  @brief Compute distance to another point
+     */
+    double getDistance(Point point);
+
+    // Accessors methods
+    //
+
+    // Getters
+    //
+
+    /**
+     *  @brief Get X
+     */
+    double getX();
+
+    /**
+     *  @brief Get Y
+     */
+    double getY();
+
+    // Setters
+    //
+
+    /**
+     *  @brief Set X
+     */
+    void setX(double x);
+
+    /**
+     *  @brief Set Y
+     */
+    void setY(double y);
+
+private:
+
+    // Private attributes
+
+    // Coordinate X
+    double x;
+    // Coordinate Y
+    double y;
 };
 
 #endif // POINT_H
