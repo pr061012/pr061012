@@ -28,9 +28,9 @@ public:
      */
     Humanoid(const DecisionMaker & dmaker);
 
-	/**
+    /**
      * @brief Destructor
-	 */
+     */
     ~Humanoid();
 
     //**************************************************************************

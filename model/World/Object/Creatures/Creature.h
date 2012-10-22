@@ -22,16 +22,16 @@ public:
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
-	/**
+    /**
      * @brief Random constructor (creates Creature with really random
      *        attributes).
      * @param dmaker    creature's decision maker
-	 */
+     */
     Creature(const DecisionMaker & dmaker);
 
-	/**
+    /**
      * @brief Destructor.
-	 */
+     */
     ~Creature();
 
     //**************************************************************************
@@ -79,7 +79,7 @@ private:
     const ObjectHeap * window;
 
     /// Creature's inventory.
-	ObjectHeap * inventory;
+    ObjectHeap * inventory;
 
     /// View area for Indexator.
     Frame view_area;
