@@ -3,23 +3,24 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef OBJECTFACTORY_H
-#define OBJECTFACTORY_H
+// NOTE:
+//  - You should use ObjectType for type.
+
+#ifndef OBJECT_FACTORY_H
+#define OBJECT_FACTORY_H
 
 #include "../Object/Object.h"
 
 /**
-  * @class ObjectFactory
-  * @brief ObjectFactory Class
-  */
-
+ * @class ObjectFactory
+ * @brief ObjectFactory Class
+ */
 class ObjectFactory
 {
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
-
 
     /**
      * @brief Constructor.
@@ -31,14 +32,17 @@ public:
      */
     ~ObjectFactory();
 
-    /**
-     * @brief Create object
-     * @return Object*
-     * @param  type
-     * @param  params
-     */
-    Object* createObject(int type, std::map<std::string,void*> params);
+    //**************************************************************************
+    // OBJECTS CREATION.
+    //**************************************************************************
 
+    /**
+     * @brief  Creates new object.
+     * @param  type     object type
+     * @param  params   map with object params
+     * @return pointer to created object
+     */
+    Object* createObject(int type, std::map<std::string, void*> params);
 };
 
-#endif // OBJECTFACTORY_H
+#endif // OBJECT_FACTORY_H

@@ -10,8 +10,6 @@
 #include "../../Utilities/VisualState/VisualState.h"
 #include "../../BasicTypes.h"
 
-
-
 /**
  * @class Object
  * @brief Abstract Object class
@@ -32,6 +30,10 @@ public:
      * @brief Destructor.
      */
     ~Object();
+
+    //**************************************************************************
+    // OBJECT'S LIFE.
+    //**************************************************************************
 
     /**
      * @brief Destroy object.
@@ -171,8 +173,6 @@ private:
 
     /// Angle of rotation.
     double angle;
-
-
 };
 
 #endif // OBJECT_H
