@@ -1,26 +1,44 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
+
 #include "Window.h"
 
-// Constructors/Destructors
-//  
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR.
+//******************************************************************************
 
-Window::Window ( ) {
-initAttributes();
+Window::Window()
+{
+
 }
 
-Window::~Window ( ) { }
+Window::~Window()
+{
 
-//  
-// Methods
-//  
-
-
-// Accessor methods
-//  
-
-
-// Other methods
-//  
-
-void Window::initAttributes ( ) {
 }
 
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
+
+void Window::setParent(Object * new_var)
+{
+    this -> parent = new_var;
+}
+
+Object * Window::getParent()
+{
+    return this -> parent;
+}
+
+void Window::setContents(ObjectHeap new_var)
+{
+    this -> contents = new_var;
+}
+
+ObjectHeap Window::getContents()
+{
+    return this -> contents;
+}
