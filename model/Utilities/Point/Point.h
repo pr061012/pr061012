@@ -15,9 +15,13 @@ public:
 	// Constructors/Destructors
 	//  
 
+    /**
+     * @brief Empty constructor
+     */
+    Point () {}
 
 	/**
-	 * Empty Constructor
+     * @brief Point constructor
 	 */
     Point (double x, double y );
 
@@ -28,8 +32,45 @@ public:
 
     /**
      *  @brief Compute distance to another point
+     *  @param point another point
+     *  @return distance
      */
     double getDistance(Point point);
+
+    /// Compare two points
+    bool equals(Point point);
+
+    // Operators
+
+    /**
+     *  @brief Operator +
+     */
+    Point operator + (Point);
+
+    /**
+     *  @brief Operator -
+     */
+    Point operator - (Point);
+
+    /**
+     *  @brief Operator -
+     */
+    Point& operator -= (Point);
+
+    /**
+     *  @brief Operator -
+     */
+    Point& operator += (Point);
+
+    /**
+     *  @brief Operator ==
+     */
+    bool operator == (Point);
+
+    /**
+     * @brief Operator !=
+     */
+    bool operator != (Point);
 
     // Accessors methods
     //
