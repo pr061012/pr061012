@@ -44,6 +44,13 @@ public:
 
 private:
     //**************************************************************************
+    // COMMON INFORMATION.
+    //**************************************************************************
+
+    /// Humanoid's name.
+    std::string name;
+
+    //**************************************************************************
     // RELATIVE COEFFICIENTS.
     // May have any value. In decision maker we use only quotient of them.
     // One coefficient is declared in Object class -- health and max_health.

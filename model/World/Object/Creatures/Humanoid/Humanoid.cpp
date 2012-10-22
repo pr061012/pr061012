@@ -23,12 +23,14 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Creature(dmaker)
 {
-    type = HUMANOID;
-
     // Initialize some inhereted things.
+    type = HUMANOID;
     int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
     setMaxHealth(health);
     setHealth(health);
+
+    // TODO: Randomly initializate humanoid's name.
+    name = "Name";
 
     // Randomly initialize some values.
     max_age         = randFromRange(HUM_AGE_MIN,         HUM_AGE_MAX);
