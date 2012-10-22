@@ -31,12 +31,12 @@ public:
      */
     ~ObjectFactory();
 
-	/**
+    /**
      * @brief Create object
      * @return Object*
-	 * @param  type
-	 * @param  params
-	 */
+     * @param  type
+     * @param  params
+     */
     Object* createObject(int type, std::map<std::string,void*> params);
 
 };

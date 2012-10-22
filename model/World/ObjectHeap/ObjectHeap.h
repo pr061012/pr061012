@@ -30,33 +30,33 @@ public:
     /**
      * @brief Destructor.
      */
-     ~ObjectHeap();
+    ~ObjectHeap();
 
-	/**
+    /**
      * @brief Return next object in world.
      * @return Object*
-	 */
+     */
     Object* next();
 
-	/**
+    /**
      * @brief Work as next(), but return object with certain type.
      * @return Object*
-	 * @param  type
-	 */
+     * @param  type
+     */
     Object* next(int type);
 
-	/**
+    /**
      * @brief Push object to heap.
      * @param  object
      * @return
-	 */
+     */
     bool push(Object* object);
 
-	/**
+    /**
      * @brief Remove object from heap.
-	 * @param  object
+     * @param  object
      * @return
-	 */
+     */
     bool remove(Object* object);
 };
 
