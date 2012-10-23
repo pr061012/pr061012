@@ -1,7 +1,13 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
+
 #include "Frame.h"
 
-// Constructors/Destructors
-//  
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR
+//******************************************************************************
 
 Frame::Frame (Point center, int type, double size )
 {
@@ -12,10 +18,14 @@ Frame::Frame (Point center, int type, double size )
     switch(type)
     {
         case CIRCLE:
-            left_bottom = Point(size, size);
-             = Point(size, size);
+            left_bottom = Point(-size, -size);
+            right_top = -left_bottom;
+            break;
+        case SQUARE:
+            left_bottom = Point(-size/2, -size/2);
+            right_top = - left_bottom;
+            break;
     }
-    left_bottom = center
 }
 
 Frame::~Frame ()

@@ -20,116 +20,126 @@ class Frame
 {
 public:
 
-	// Constructors/Destructors
-	//  
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
 
 	/**
-     *  @brief Frame constructor
+     *  @brief Constructor
      *  @param type type of the shape
      *  @param center center of the frame
      *  @param size size of the frame
 	 */
-    Frame (Point center, int type, double size );
-
-	/**
-	 * Empty Destructor
-	 */
-    ~Frame ( );
-
-    // Private attribute accessor methods
-    //
+    Frame(Point center, int type, double size);
 
     /**
-     * @brief Set the value of center
-     * Координаты рамки.
-     * @param new_var the new value of center
+     *  @brief Constructor
+     */
+    Frame();
+
+	/**
+     *  @brief Destructor
+	 */
+    ~Frame();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
+
+    /**
+     * @brief Set the value of center.
+     * @param new_var the new value of center.
      */
 
     void setCenter ( Point new_var );
 
     /**
-     * @brief Get the value of center
-     * Координаты рамки.
-     * @return the value of center
+     * @brief Get the value of center.
+     * @return the value of center.
      */
 
     Point getCenter ( );
 
     /**
-     * @brief Get type of the shape
-     * @return type of the shape
+     * @brief Get type of the shape.
+     * @return type of the shape.
      */
 
     int getType();
 
     /**
-     * @brief Set type
-     * @param type new type
+     * @brief Set type.
+     * @param type new type.
      */
 
     void setType(int type);
 
     /**
-     * @brief Get size (edge length for polygons, radius for circle)
+     * @brief Get size (edge length for polygons, radius for circle).
      * @return size
      */
 
     double getSize();
 
     /**
-     * @brief Set size (edge length for polygons, radius for circle)
+     * @brief Set size (edge length for polygons, radius for circle).
      * @param size new size
      */
 
     void setSize(double size);
 
-    // Other methods
-    //
+    //**************************************************************************
+    // HIT-TEST METHODS.
+    //**************************************************************************
 
 	/**
-     * @brief Проверка пересечеия с точкой.
-	 * @return bool
-	 * @param  point
+     * @brief   Tests if a frame includes a point.
+     * @return  true or false
+     * @param   point    point to test
 	 */
     bool hitTest (Point point );
 
 	/**
-     * @brief Проверка пересечения с рамкой.
-	 * @return bool
-	 * @param  frame
+     * @brief   Tests if a frame intersects with another frame.
+     * @return  true or false
+     * @param   frame   frame to test
 	 */
     bool hitTest (Frame frame );
 
     /**
-     * @brief Get the left bottom point of the shape
+     * @brief Gets the left bottom point of the shape.
      */
     Point getLeftBottom();
 
     /**
-     * @brief Get the right top point of the shape
+     * @brief Gets the right top point of the shape.
      */
     Point getRightTop();
 
     /**
-     * @brief Get intersections with another frame
-     * @param frame another frame
-     * @return flags of intersections
+     * @brief   Get intersections of minimal bounding boxes with another frame.
+     * @param   frame   another frame
+     * @return  flags of intersections
      */
     int intersect(Frame frame);
 
 private:
-
-    /// Координаты рамки.
+    /// Coordinates of the center of the frame.
     Point center;
-    /// Type of shape
+
+    /// Type of shape.
     ShapeType type;
-    /// Size of shape
+
+    /// Size of shape.
     double size;
-    /// Left bottom point related to center
+
+    /// Left bottom point related to center.
     Point left_bottom;
-    /// Right top point relatef to center
+
+    /// Right top point related to center.
     Point right_top;
-    /// Last coordinates
+
+    /// Last coordinates.
     Point last_center;
 
 
