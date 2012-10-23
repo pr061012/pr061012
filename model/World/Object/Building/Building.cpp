@@ -11,7 +11,7 @@
 
 Building::Building()
 {
-    this -> isFinished = false;
+    this -> completeness = false;
 }
 
 Building::~Building()
