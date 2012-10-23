@@ -3,9 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../../../../BasicTypes.h"
-#include "../Defines.h"
+#include <cstdlib>
+
 #include "NonHumanoid.h"
+#include "../Defines.h"
+#include "../../../../BasicTypes.h"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -23,18 +25,16 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     Creature(dmaker)
 {
-    this -> type = NONHUMANOID;
+    // Randomly initialize some values.
+    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
+    int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
+    setType(NONHUMANOID);
     setMaxHealth(health);
     setHealth(health);
-
-    // Randomly initialize some values.
-    this -> max_age = randFromRange(NHUM_AGE_MIN, NHUM_AGE_MAX);
-
-    // Initialize other values.
-    this -> age = this -> max_age;
+    setMaxAge(age);
+    setAge(0);
 }
 
 NonHumanoid::~NonHumanoid()
