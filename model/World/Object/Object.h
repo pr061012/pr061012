@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Object();
+    Object(ObjectType type);
 
     /**
      * @brief Destructor.
@@ -50,11 +50,6 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
-    /**
-     * @brief Set the value of type.
-     * @param new_var   the new value of type
-     */
-    void setType(ObjectType new_var);
 
     /**
      * @brief Get the value of type.
@@ -147,7 +142,7 @@ public:
     
 private:
     /// Object's type.
-    ObjectType type;
+    const ObjectType type;
 
     /// Object's coordinates and frame.
     Frame frame;

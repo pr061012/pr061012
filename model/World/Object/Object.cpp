@@ -9,8 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object()
+Object::Object(ObjectType type)
 {
+    this -> type = type;
     this -> destroyed = false;
 }
 
@@ -37,10 +38,7 @@ void Object::damage(unsigned int harm)
 // ACCESSORS.
 //******************************************************************************
 
-void Object::setType(ObjectType new_var)
-{
-    this -> type = new_var;
-}
+
 
 int Object::getType()
 {
