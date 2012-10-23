@@ -9,11 +9,13 @@ Frame::Frame (Point center, int type, double size )
     this -> center = center;
     this -> size = size;
     this -> last_center = center;
-}
-
-Frame::Frame()
-{
-
+    switch(type)
+    {
+        case CIRCLE:
+            left_bottom = Point(size, size);
+             = Point(size, size);
+    }
+    left_bottom = center
 }
 
 Frame::~Frame ()
@@ -47,6 +49,18 @@ int Frame::getType()
 {
     return type;
 }
+
+double Frame::setSize()
+{
+    this -> size = size;
+}
+
+double Frame::getSize()
+{
+    return size;
+}
+
+
 
 // Other methods
 //

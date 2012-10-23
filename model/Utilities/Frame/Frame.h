@@ -24,17 +24,12 @@ public:
 	//  
 
 	/**
-     * @brief Frame constructor
-     * @param type type of the shape
-     * @param center center of the frame
-     * @param size size of the frame
+     *  @brief Frame constructor
+     *  @param type type of the shape
+     *  @param center center of the frame
+     *  @param size size of the frame
 	 */
     Frame (Point center, int type, double size );
-
-    /**
-     * @brief Empty constructor.
-     */
-    Frame();
 
 	/**
 	 * Empty Destructor
@@ -130,9 +125,9 @@ private:
     ShapeType type;
     /// Size of shape
     double size;
-    /// Left bottom point
+    /// Left bottom point related to center
     Point left_bottom;
-    /// Right top point
+    /// Right top point relatef to center
     Point right_top;
     /// Last coordinates
     Point last_center;
