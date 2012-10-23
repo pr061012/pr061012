@@ -77,6 +77,11 @@ public:
     Point& operator+=(Point);
 
     /**
+     *  @brief Operator unary -
+     */
+    Point operator-();
+
+    /**
      * @brief Operator ==.
      */
     bool operator==(Point);
