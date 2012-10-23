@@ -54,7 +54,7 @@ public:
     void setWindow(const ObjectHeap * window);
 
     /**
-     * @brief Get the value of creature's window.
+     * @brief  Get the value of creature's window.
      * @return the window
      */
     const ObjectHeap * getWindow();
@@ -66,10 +66,34 @@ public:
     void setViewArea(Frame view_area);
 
     /**
-     * @brief Get the value of view_area.
+     * @brief  Get the value of view_area.
      * @return the value of view_area
      */
     Frame getViewArea();
+
+    /**
+     * @brief Set the value of age.
+     * @param age   new value of age
+     */
+    void setAge(unsigned int age);
+
+    /**
+     * @brief  Get the value of age.
+     * @return the value of age
+     */
+    unsigned int getAge();
+
+    /**
+     * @brief Set the value of max age.
+     * @param age   new value of max age
+     */
+    void setMaxAge(unsigned int max_age);
+
+    /**
+     * @brief  Get the value of max age.
+     * @return the value of max age
+     */
+    unsigned int getMaxAge();
 
 private:
     /// Link to creature's DecisionMaker.
