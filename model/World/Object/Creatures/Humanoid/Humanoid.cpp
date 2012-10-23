@@ -3,9 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../../../../BasicTypes.h"
-#include "../Defines.h"
+#include <cstdlib>
+
 #include "Humanoid.h"
+#include "../Defines.h"
+#include "../../../../BasicTypes.h"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -22,25 +24,27 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Creature(dmaker)
-{
-    // Initialize some inhereted things.
-    type = HUMANOID;
+{    
     int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
+    int age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);
+
+    // Initialize some inhereted things.
+    setType(HUMANOID);
     setMaxHealth(health);
     setHealth(health);
+    setMaxAge(age);
+    setMaxAge(0);
 
     // TODO: Randomly initializate humanoid's name.
     name = "Name";
 
     // Randomly initialize some values.
-    max_age         = randFromRange(HUM_AGE_MIN,         HUM_AGE_MAX);
     max_satiety     = randFromRange(HUM_SATIETY_MIN,     HUM_SATIETY_MAX);
     max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);
     max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
     diligence       = randFromRange(HUM_DILIGENCE_MIN,   HUM_DILIGENCE_MAX);
 
     // Initialize other values.
-    age         = max_age;
     satiety     = max_satiety;
     sleepiness  = max_sleepiness;
     sociability = max_sociability;

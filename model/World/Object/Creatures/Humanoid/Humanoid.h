@@ -6,6 +6,8 @@
 #ifndef HUMANOID_H
 #define HUMANOID_H
 
+#include <string>
+
 #include "../Creature.h"
 
 /**
