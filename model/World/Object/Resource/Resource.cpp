@@ -39,7 +39,7 @@ void Resource::setProgress(int new_var)
 }
 
 
-int Resource::getProgres()
+int Resource::getProgress()
 {
     return this -> progress;
 }
