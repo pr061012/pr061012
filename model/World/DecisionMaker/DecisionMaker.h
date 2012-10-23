@@ -6,6 +6,11 @@
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
 
+// Temporary workaround.
+#include <vector>
+typedef std::vector <int> Vector;
+typedef std::vector < std::vector <int> > Matrix;
+
 /**
  * @class DecisionMaker
  * @brief Makes a prediction about next creature's action.
@@ -13,6 +18,10 @@
 class DecisionMaker
 {
 public:
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
+
     /**
      * @brief Constructor.
      */
@@ -22,6 +31,10 @@ public:
      * @brief Destructor.
      */
     ~DecisionMaker();
+
+    //**************************************************************************
+    // PREDICTION.
+    //**************************************************************************
 
     /**
      * @brief  Makes a creature's decision about next action.
