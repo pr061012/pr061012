@@ -5,6 +5,10 @@
 
 #include "DecisionMaker.h"
 
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR.
+//******************************************************************************
+
 DecisionMaker::DecisionMaker(Matrix m)
 {
 
@@ -15,7 +19,11 @@ DecisionMaker::~DecisionMaker()
 
 }
 
-DecisionMaker::makeDecision(Vector attrs)
+//******************************************************************************
+// PREDICTION.
+//******************************************************************************
+
+int DecisionMaker::makeDecision(Vector attrs)
 {
 
 }
