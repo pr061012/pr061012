@@ -25,12 +25,12 @@ public:
      *        attributes).
      * @param dmaker    non-humanoid's decision maker
      */
-    Humanoid(const DecisionMaker & dmaker);
+    NonHumanoid(const DecisionMaker & dmaker);
 
     /**
      * @brief Destructor
      */
-    ~Humanoid();
+    ~NonHumanoid();
 
     //**************************************************************************
     // NON-HUMANOID'S LOGICS.
