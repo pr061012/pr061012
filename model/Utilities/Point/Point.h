@@ -1,113 +1,115 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
 
 #ifndef POINT_H
 #define POINT_H
 
-
 /**
-  * class Point
-  * 
-  */
-
+ * @class Point
+ * @brief Point class
+ */
 class Point
 {
 public:
-
-	// Constructors/Destructors
-	//  
-
-    /**
-     * @brief Empty constructor
-     */
-    Point () {}
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
 
 	/**
-     * @brief Point constructor
+     * @brief Constructor.
+     * @param x X-coordinate
+     * @param y Y-coordinate
 	 */
-    Point (double x, double y );
+    Point(double x, double y);
 
 	/**
-	 * Empty Destructor
+     * @brief Destructor.
 	 */
-    ~Point ( );
+    ~Point();
+
+    //**************************************************************************
+    // DISTANCE.
+    //**************************************************************************
 
     /**
-     *  @brief Compute distance to another point
-     *  @param point another point
+     *  @brief  Compute distance to another point
+     *  @param  point   another point
      *  @return distance
      */
     double getDistance(Point point);
 
-    /// Compare two points
+    /**
+     * @brief  Compares two points.
+     * @param  point    point to compare with
+     * @return true or false
+     */
     bool equals(Point point);
 
-    // Operators
+    //**************************************************************************
+    // OPERATORS.
+    //**************************************************************************
 
     /**
-     *  @brief Operator +
+     * @brief Operator +.
      */
-    Point operator + (Point);
+    Point operator+(Point);
 
     /**
-     *  @brief Operator -
+     * @brief Operator -.
      */
-    Point operator - (Point);
+    Point operator-(Point);
 
     /**
-     *  @brief Operator -
+     *  @brief Operator -=.
      */
-    Point& operator -= (Point);
+    Point& operator-=(Point);
 
     /**
-     *  @brief Operator -
+     * @brief Operator +=.
      */
-    Point& operator += (Point);
+    Point& operator+=(Point);
 
     /**
-     *  @brief Operator ==
+     * @brief Operator ==.
      */
-    bool operator == (Point);
+    bool operator==(Point);
 
     /**
-     * @brief Operator !=
+     * @brief Operator !=.
      */
-    bool operator != (Point);
+    bool operator!=(Point);
 
-    // Accessors methods
-    //
-
-    // Getters
-    //
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
     /**
-     *  @brief Get X
+     * @brief Get X.
      */
     double getX();
 
     /**
-     *  @brief Get Y
-     */
-    double getY();
-
-    // Setters
-    //
-
-    /**
-     *  @brief Set X
+     * @brief Set X.
      */
     void setX(double x);
 
     /**
-     *  @brief Set Y
+     * @brief Get Y.
+     */
+    double getY();
+
+    /**
+     * @brief Set Y.
      */
     void setY(double y);
 
 private:
-
-    // Private attributes
-
-    // Coordinate X
+    /// Coordinate X.
     double x;
-    // Coordinate Y
+
+    /// Coordinate Y.
     double y;
 };
 

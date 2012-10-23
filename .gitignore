@@ -1,5 +1,6 @@
 # Compiled document files.
 *.pdf
+*.aux
 doxygen/*
 
 # Compiled object files.
@@ -14,3 +15,6 @@ doxygen/*
 *.lai
 *.la
 *.a
+
+# Logs.
+*.log

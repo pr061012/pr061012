@@ -1,26 +1,56 @@
 #include "Indexator.h"
 
-// Constructors/Destructors
-//  
+//******************************************************************************
+// CONSTRUCTORS/DESTRUCTOR.
+//******************************************************************************
 
-Indexator::Indexator ( ) {
-initAttributes();
+Indexator::Indexator()
+{
 }
 
-Indexator::~Indexator ( ) { }
+Indexator::Indexator(ObjectHeap *list)
+{
 
-//  
-// Methods
-//  
-
-
-// Accessor methods
-//  
-
-
-// Other methods
-//  
-
-void Indexator::initAttributes ( ) {
 }
 
+Indexator::~Indexator()
+{
+
+}
+
+//******************************************************************************
+// GETTING OBJECTS.
+//******************************************************************************
+
+ObjectHeap * Indexator::getFrameContents(Frame frame)
+{
+
+}
+
+ObjectHeap * Indexator::createWindow(Object * object)
+{
+
+}
+
+//******************************************************************************
+// STEP.
+//******************************************************************************
+
+void Indexator::step()
+{
+
+}
+
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
+
+void Indexator::setWindows(std::vector <Window> new_var)
+{
+    this -> windows = new_var;
+}
+
+std::vector <Window> Indexator::getWindows()
+{
+    return this -> windows;
+}

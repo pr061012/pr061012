@@ -39,11 +39,10 @@
 \definecolor{verylightgray}{rgb}{0.9,0.9,0.9}
 \newcommand{\code}[1]{\colorbox{verylightgray}{\lstinline!#1!}}
 \newcommand{\highlightlesscode}[1]{\colorbox{verylightgray}{#1}}
-\newcommand{\longcode}[1]{\begin{lstlisting}!#1!\end{lstlisting}}
 
 % Document's info.
-\title{Convention Document}
-\author{pr061012}
+\title{Convention documentation}
+\author{pr061012 team}
 \date{Compilation date: \today}
 
 % I fairly copied some rules from qutim's coding style
@@ -80,6 +79,12 @@
 				\item Declare all class methods in header file. Code all methods implementations in \code{*.cpp}-file.
 				\item Use abstract classes and inheritance not whenever it's possible, but when it's really needed.
 				\item Use UpperCamelCase style for names (\code{MyClass} instead of \code{myClass}).
+			\end{itemize}
+
+		\subsection{Enumerations naming}
+			\begin{itemize}
+				\item Enums are classes to, so all rules in \S2.3 relate to enums too.
+				\item We treat values of enum as constants, thus you should use uppercase style for enum's elements.
 			\end{itemize}
 
 		\subsection{Functions and methods naming}

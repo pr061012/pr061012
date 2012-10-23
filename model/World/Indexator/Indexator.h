@@ -1,3 +1,7 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
 
 #ifndef INDEXATOR_H
 #define INDEXATOR_H
@@ -8,99 +12,80 @@
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
-
 /**
-  * class Indexator
-  * 
-  */
-
+ * @class Indexator
+ * @brief
+ */
 class Indexator
 {
 public:
-
-	// Constructors/Destructors
-	//  
-
+    //**************************************************************************
+    // CONSTRUCTORS/DESTRUCTOR.
+    //**************************************************************************
 
     /**
-	 * Empty Constructor
-	 */
-	Indexator ( );
-
-	/**
-	 * Empty Destructor
-	 */
-	virtual ~Indexator ( );
-
-
-	/**
-	 * Создаёт сетку и индексирует по ней объекты.
-	 * @param  list
-	 */
-	 Indexator (ObjectHeap * list )
-	{
-	}
-
-
-	/**
-	 * Даёт объекты в заданной рамке.
-	 * @return ObjectHeap *
-	 * @param  frame
-	 */
-    ObjectHeap * getFrameContents (Frame frame );
-
-
-	/**
-	 * Переиндексирует объекты, меняет содержимое окон.
-	 */
-    void step ( );
-
-
-	/**
-	 * Создает в windows окно для данного объекта и возвращает указатель "вид из окна".
-	 * Объект должен иметь view_area : Frame.
-	 * @return ObjectHeap *
-	 * @param  object
-	 */
-    ObjectHeap * createWindow (Object * object );
-
-private:
-
-	// Private attributes
-	//  
-
-	// Список всех окон.
-    std::vector<Window> windows;
-
-public:
-
-
-	// Private attribute accessor methods
-	//  
-
-
-	/**
-	 * Set the value of windows
-	 * Список всех окон.
-	 * @param new_var the new value of windows
-	 */
-    void setWindows ( std::vector<Window> new_var )	 {
-			windows = new_var;
-	}
-
-	/**
-	 * Get the value of windows
-	 * Список всех окон.
-	 * @return the value of windows
+     * @brief Constructor.
      */
-    std::vector<Window> getWindows ( )	 {
-		return windows;
-	}
+    Indexator();
+
+    /**
+     * @brief Creates grid and indexates object from heap.
+     * @param list  heap with objects
+     */
+    Indexator(ObjectHeap * list);
+
+    /**
+     * @brief Destructor.
+     */
+    ~Indexator();
+
+    //**************************************************************************
+    // GETTING OBJECTS.
+    //**************************************************************************
+
+    /**
+     * @brief  Returns heap with objects from the certain frame.
+     * @param  frame    from to find objects from
+     * @return heap with objects
+     */
+    ObjectHeap * getFrameContents(Frame frame);
+
+    /**
+     * @brief Creates window in windows for certain object and returns pointer
+     *        "view from window". Object must have view_area (Frame).
+     * @param  object   pointer to object
+     * @return visible objects
+     */
+    ObjectHeap * createWindow(Object * object);
+
+    //**************************************************************************
+    // STEP.
+    //**************************************************************************
+
+    /**
+     * @brief Reindexes objects and changes window's positions.
+     */
+    void step();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
+
+    /**
+     * @brief Set the value of windows.
+     * @param new_var the new value of windows
+     */
+    void setWindows(std::vector <Window> new_var);
+
+    /**
+     * @brief Get the value of windows.
+     * @return the value of windows
+     */
+    std::vector <Window> getWindows();
+
 private:
-
-
-	void initAttributes ( ) ;
-
+    /// List with all windows.
+    std::vector <Window> windows;
 };
 
 #endif // INDEXATOR_H
