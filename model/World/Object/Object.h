@@ -54,7 +54,7 @@ public:
      * @brief Set the value of type.
      * @param new_var   the new value of type
      */
-    void setType(int new_var);
+    void setType(ObjectType new_var);
 
     /**
      * @brief Get the value of type.
