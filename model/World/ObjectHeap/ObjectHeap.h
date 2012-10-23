@@ -4,12 +4,15 @@
 */
 
 // NOTE:
-//  - You should use ObjectType for type.
+//  - You should add subtype : ObjectType.
 
 #ifndef OBJECT_HEAP_H
 #define OBJECT_HEAP_H
 
+#include <vector>
+
 #include "../Object/Object.h"
+#include "../../BasicTypes.h"
 
 /**
  * @class ObjectHeap
@@ -47,7 +50,7 @@ public:
      * @param  type object type
      * @return pointer to object
      */
-    Object* next(int type);
+    Object* next(ObjectType type);
 
     //**************************************************************************
     // ADDING/REMOVING ELEMENTS.
@@ -66,9 +69,10 @@ public:
      * @return
      */
     bool remove(Object* object);
+
 private:
-    std::vector< std::vector<Object*>*> data;
-    std::vector<unsigned int> position;
+    std::vector < std::vector <Object*> *> data;
+    std::vector <unsigned int> position;
 };
 
 #endif // OBJECTHEAP_H
