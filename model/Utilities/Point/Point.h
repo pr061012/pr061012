@@ -17,16 +17,21 @@ public:
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
-	/**
+    /**
      * @brief Constructor.
      * @param x X-coordinate
      * @param y Y-coordinate
-	 */
+     */
     Point(double x, double y);
 
-	/**
+    /**
+     * @brief Constructor.
+     */
+    Point();
+
+    /**
      * @brief Destructor.
-	 */
+     */
     ~Point();
 
     //**************************************************************************
