@@ -37,7 +37,7 @@ void Object::damage(unsigned int harm)
 // ACCESSORS.
 //******************************************************************************
 
-void Object::setType(int new_var)
+void Object::setType(ObjectType new_var)
 {
     this -> type = new_var;
 }
