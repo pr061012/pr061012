@@ -9,6 +9,9 @@
 #ifndef OBJECT_FACTORY_H
 #define OBJECT_FACTORY_H
 
+#include <string>
+#include <map>
+
 #include "../Object/Object.h"
 
 /**
@@ -42,7 +45,7 @@ public:
      * @param  params   map with object params
      * @return pointer to created object
      */
-    Object* createObject(int type, std::map<std::string, void*> params);
+    Object* createObject(int type, std::map <std::string, void*> params);
 };
 
 #endif // OBJECT_FACTORY_H
