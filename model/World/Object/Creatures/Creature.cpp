@@ -25,7 +25,7 @@ Creature::~Creature()
 // ACCESSORS.
 //******************************************************************************
 
-void Creature::setWindow(ObjectHeap * window)
+void Creature::setWindow(const ObjectHeap * window)
 {
     this -> window = window;
 }
