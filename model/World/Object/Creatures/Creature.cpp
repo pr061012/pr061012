@@ -44,3 +44,23 @@ Frame Creature::getViewArea()
 {
     return this -> view_area;
 }
+
+void Creature::setAge(unsigned int age)
+{
+    this -> age = age;
+}
+
+unsigned int Creature::getAge()
+{
+    return this -> age;
+}
+
+void Creature::setMaxAge(unsigned int max_age)
+{
+    this -> max_age = max_age;
+}
+
+unsigned int Creature::getMaxAge()
+{
+    return this -> max_age;
+}
