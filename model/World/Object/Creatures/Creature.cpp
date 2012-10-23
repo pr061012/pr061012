@@ -3,46 +3,44 @@
     See the LICENSE file for copying permission.
 */
 
-#include "ObjectHeap.h"
+#include "Creature.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ObjectHeap::ObjectHeap()
+Creature::Creature(const DecisionMaker & dmaker) :
+    brains(dmaker),
+    inventory(new ObjectHeap)
 {
 
 }
 
-ObjectHeap::~ObjectHeap()
+Creature::~Creature()
 {
-
-}
-
-//******************************************************************************
-// GETTING NEXT ELEMENTS.
-//******************************************************************************
-
-Object* ObjectHeap::next()
-{
-
-}
-
-Object* ObjectHeap::next(int type)
-{
-
+    delete inventory;
 }
 
 //******************************************************************************
-// ADDING/REMOVING ELEMENTS.
+// ACCESSORS.
 //******************************************************************************
 
-bool ObjectHeap::push(Object* object)
+void Creature::setWindow(ObjectHeap * window)
 {
-
+    this -> window = window;
 }
 
-bool ObjectHeap::remove(Object* object)
+const ObjectHeap * Creature::getWindow()
 {
+    return this -> window;
+}
 
+void Creature::setViewArea(Frame view_area)
+{
+    this -> view_area = view_area;
+}
+
+Frame Creature::getViewArea()
+{
+    return this -> view_area;
 }

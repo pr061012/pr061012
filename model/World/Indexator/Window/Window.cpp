@@ -3,27 +3,42 @@
     See the LICENSE file for copying permission.
 */
 
-#include "ObjectFactory.h"
+#include "Window.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ObjectFactory::ObjectFactory()
+Window::Window()
 {
 
 }
 
-ObjectFactory::~ObjectFactory()
+Window::~Window()
 {
 
 }
 
 //******************************************************************************
-// OBJECT'S CREATION.
+// ACCESSORS.
 //******************************************************************************
 
-ObjectFactory::createObject(int type, std::map<std::string, void *> params)
+void Window::setParent(Object * new_var)
 {
+    this -> parent = new_var;
+}
 
+Object * Window::getParent()
+{
+    return this -> parent;
+}
+
+void Window::setContents(ObjectHeap new_var)
+{
+    this -> contents = new_var;
+}
+
+ObjectHeap Window::getContents()
+{
+    return this -> contents;
 }

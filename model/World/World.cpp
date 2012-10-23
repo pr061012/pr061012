@@ -3,46 +3,57 @@
     See the LICENSE file for copying permission.
 */
 
-#include "ObjectHeap.h"
+#include "World.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ObjectHeap::ObjectHeap()
+World::World()
+{
+    World(0);
+}
+
+World::~World()
 {
 
 }
 
-ObjectHeap::~ObjectHeap()
+World::World(int rand_seed)
 {
 
 }
 
-//******************************************************************************
-// GETTING NEXT ELEMENTS.
-//******************************************************************************
-
-Object* ObjectHeap::next()
-{
-
-}
-
-Object* ObjectHeap::next(int type)
+World::World(std::string filepath)
 {
 
 }
 
 //******************************************************************************
-// ADDING/REMOVING ELEMENTS.
+// BASE METHODS.
 //******************************************************************************
 
-bool ObjectHeap::push(Object* object)
+void World::step()
+{
+    // Initiate descending update of world objects contained in all_objects
+}
+
+void World::save(std::string filepath)
 {
 
 }
 
-bool ObjectHeap::remove(Object* object)
-{
 
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
+
+void World::setAllObjects(ObjectHeap new_var)
+{
+    this -> all_objects = new_var;
+}
+
+ObjectHeap World::getAllObjects()
+{
+    return this -> all_objects;
 }
