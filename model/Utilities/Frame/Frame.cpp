@@ -11,6 +11,11 @@ Frame::Frame (Point center, int type, double size )
     this -> last_center = center;
 }
 
+Frame::Frame()
+{
+
+}
+
 Frame::~Frame ()
 {
 }

@@ -24,12 +24,17 @@ public:
 	//  
 
 	/**
-     *  @brief Frame constructor
-     *  @param type type of the shape
-     *  @param center center of the frame
-     *  @param size size of the frame
+     * @brief Frame constructor
+     * @param type type of the shape
+     * @param center center of the frame
+     * @param size size of the frame
 	 */
     Frame (Point center, int type, double size );
+
+    /**
+     * @brief Empty constructor.
+     */
+    Frame();
 
 	/**
 	 * Empty Destructor
