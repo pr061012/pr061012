@@ -9,6 +9,7 @@
 #ifndef OBJECT_HEAP_H
 #define OBJECT_HEAP_H
 
+#include <vector>
 #include "../Object/Object.h"
 
 /**
