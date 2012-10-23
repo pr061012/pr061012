@@ -28,7 +28,7 @@ Object* ObjectHeap::next()
 
 }
 
-Object* ObjectHeap::next(int type)
+Object* ObjectHeap::next(ObjectType type)
 {
 
 }
