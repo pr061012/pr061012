@@ -56,7 +56,7 @@ int Shape::getType()
     return type;
 }
 
-double Shape::setSize()
+void Shape::setSize(double size)
 {
     this -> size = size;
 }
