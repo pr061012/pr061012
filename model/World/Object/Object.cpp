@@ -101,12 +101,12 @@ unsigned int Object::getHealth()
     return this -> health;
 }
 
-void Object::setImmortal(bool new_var)
+void Object::setImmortality(bool new_var)
 {
     this -> immortality = new_var;
 }
 
-bool Object::getImmortal()
+bool Object::getImmortality()
 {
     return this -> immortality;
 }
