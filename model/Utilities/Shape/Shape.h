@@ -8,7 +8,8 @@
 enum ShapeType {CIRCLE, SQUARE};
 
 /// Intersection flags
-enum IntersectionFlags {LEFT = 1, RIGHT = 2, BOTTOM = 4, TOP = 8};
+enum IntersectionFlag {NO_INTERSECTION = -1, LEFT = 1, RIGHT = 2,
+                        BOTTOM = 4, TOP = 8};
 
 /**
   * class Shape
@@ -87,6 +88,13 @@ public:
      */
 
     void setSize(double size);
+
+    /**
+     * @brief Get last position of shape
+     * @return coordinates of the last position
+     */
+
+    Point getLastCenter();
 
     //**************************************************************************
     // HIT-TEST METHODS.
