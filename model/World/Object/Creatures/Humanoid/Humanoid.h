@@ -84,8 +84,11 @@ private:
     /// Diligence (const during time).
     unsigned int diligence;
 
-    // TODO: Add * contentment of house
-    //           * resource availability
+    /// Contentment by house.
+    unsigned int cont_by_house;
+
+    /// Resource availability.
+    unsigned int res_availability;
 };
 
 #endif // HUMANOID_H
