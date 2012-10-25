@@ -40,13 +40,13 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     name = "Name";
 
     // Randomly initialize some values.
-    max_satiety     = randFromRange(HUM_SATIETY_MIN,     HUM_SATIETY_MAX);
+    max_hunger      = randFromRange(HUM_HUNGER_MIN,     HUM_HUNGER_MAX);
     max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);
     max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
-    diligence       = randFromRange(HUM_DILIGENCE_MIN,   HUM_DILIGENCE_MAX);
+    laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
 
     // Initialize other values.
-    satiety     = max_satiety;
+    hunger      = max_hunger;
     sleepiness  = max_sleepiness;
     sociability = max_sociability;
 }
@@ -63,14 +63,14 @@ Humanoid::~Humanoid()
 void Humanoid::step()
 {
     // Preparing main attributes.
-    unsigned int relative_satiety     = 100 * satiety     / max_satiety;
+    unsigned int relative_hunger      = 100 * hunger      / max_hunger;
     unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
     unsigned int relative_sociability = 100 * sociability / max_sociability;
 
     // Preparing vector of attributes.
     arma::vec <int> attrs(9);
-    attrs << relative_satiety << relative_sleepiness << cont_by_house <<
-             res_availability << diligence << health << relative_sociability <<
+    attrs << relative_satiety << relative_sleepiness << need_in_house <<
+             need_in_res << laziness << health << relative_sociability <<
              safety;
 
     // TODO Spawning desicion maker.
