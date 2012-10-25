@@ -4,6 +4,7 @@
 */
 
 #include <cstdlib>
+#include <armadillo>
 
 #include "Humanoid.h"
 #include "../Defines.h"
@@ -35,7 +36,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     setMaxAge(age);
     setMaxAge(0);
 
-    // TODO: Randomly initializate humanoid's name.
+    // TODO: Randomly initialize humanoid's name.
     name = "Name";
 
     // Randomly initialize some values.
@@ -66,5 +67,11 @@ void Humanoid::step()
     unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
     unsigned int relative_sociability = 100 * sociability / max_sociability;
 
-    // TODO Preparing Vector of attributes.
+    // Preparing vector of attributes.
+    arma::vec <int> attrs(9);
+    attrs << relative_satiety << relative_sleepiness << cont_by_house <<
+             res_availability << diligence << health << relative_sociability <<
+             safety;
+
+    // TODO Spawning desicion maker.
 }
