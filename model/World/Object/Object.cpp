@@ -25,28 +25,30 @@ Object::~Object()
 
 void Object::destroy()
 {
-
+    this -> destroyed = true;
 }
 
 void Object::damage(unsigned int harm)
 {
-    if (this -> health - harm > 0)
+    if(!immortality)
     {
-        this -> health -= harm;
-    }
-    else
-    {
-        this -> health = 0;
-        this -> destroyed = true;
+        if(this -> health > harm)
+        {
+            this -> health -= harm;
+        }
+        else
+        {
+            this -> health = 0;
+            destroy();
+        }
     }
 }
 
 void Object::treat(unsigned int point)
 {
-    if (this -> health + point < this->max_health)
+    if(this -> health + point < this->max_health)
     {
         this -> health += point;
-        this -> destroyed = false;
     }
     else
     {
@@ -57,8 +59,6 @@ void Object::treat(unsigned int point)
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
-
-
 
 int Object::getType()
 {

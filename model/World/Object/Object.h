@@ -51,10 +51,14 @@ public:
      */
     void treat(unsigned int point);
 
+    /**
+     * @brief Virtual step action
+     */
+    void step()=0;
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
-
 
     /**
      * @brief Get the value of type.
@@ -94,24 +98,25 @@ public:
 
     /**
      * @brief Get the value of health.
+     * @return the value of health
      */
     unsigned int getHealth();
 
     /**
-     * @brief Set the value of immortal.
-     * @param new_var   the new value of immortal
+     * @brief Set the value of immortality.
+     * @param new_var   the new value of immortality
      */
-    void setImmortal(bool new_var);
+    void setImmortality(bool new_var);
 
     /**
-     * @brief Get the value of immortal.
-     * @return the value of immortal
+     * @brief Get the value of immortality.
+     * @return the value of immortality
      */
-    bool getImmortal();
+    bool getImmortality();
 
     /**
      * @brief Set the value of max_health.
-     * @param new_var   the new value of max_health
+     * @param new_var the new value of max_health
      */
     void setMaxHealth(unsigned int new_var);
 
@@ -143,11 +148,12 @@ private:
     /// Is object destroyed or not.
     bool destroyed;
 
-    /// @brief Object's health.
-    ///        * buildings and creatures -- health
-    ///        * weather -- living time
-    ///        * resource -- amount of resource
-    ///        * tool -- durability
+    /** @brief Object's health.
+     *        * buildings and creatures -- health
+     *        * weather -- living time
+     *        * resource -- amount of resource
+     *        * tool -- durability
+     */
     unsigned int health;
 
     /// Maximum amount of health.
