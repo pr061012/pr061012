@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Object(ObjectType type);
+    Object();
 
     /**
      * @brief Destructor.
@@ -54,11 +54,17 @@ public:
     /**
      * @brief Virtual step action
      */
-    void step()=0;
+    void virtual step()=0;
 
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
+
+    /**
+     * @brief Set the value of type.
+     * @param type     the value of type
+     */
+    void setType(ObjectType type);
 
     /**
      * @brief Get the value of type.
@@ -140,7 +146,7 @@ public:
     
 private:
     /// Object's type.
-    const ObjectType type;
+    ObjectType type;
 
     /// Object's coordinates and frame.
     Shape shape;
