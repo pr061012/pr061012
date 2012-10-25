@@ -9,9 +9,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type)
+Object::Object(ObjectType type): type(type)
 {
-    this -> type = type;
     this -> destroyed = false;
 }
 
@@ -31,7 +30,28 @@ void Object::destroy()
 
 void Object::damage(unsigned int harm)
 {
-    this -> health -= harm;
+    if (this -> health - harm > 0)
+    {
+        this -> health -= harm;
+    }
+    else
+    {
+        this -> health = 0;
+        this -> destroyed = true;
+    }
+}
+
+void Object::treat(unsigned int point)
+{
+    if (this -> health + point < this->max_health)
+    {
+        this -> health += point;
+        this -> destroyed = false;
+    }
+    else
+    {
+        this -> health = this -> max_health;
+    }
 }
 
 //******************************************************************************
@@ -45,24 +65,14 @@ int Object::getType()
     return this -> type;
 }
 
-void Object::setFrame(Frame new_var)
+void Object::setShape(Shape new_var)
 {
-    this -> frame = new_var;
+    this -> shape = new_var;
 }
 
-Frame Object::getFrame()
+Shape Object::getShape()
 {
-    return this -> frame;
-}
-
-void Object::setVisualState(VisualState new_var)
-{
-    this -> visual_state = new_var;
-}
-
-VisualState Object::getVisualState()
-{
-    return this -> visual_state;
+    return this -> shape;
 }
 
 void Object::setDestroyed(bool new_var)

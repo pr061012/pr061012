@@ -6,8 +6,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "../../Utilities/Frame/Frame.h"
-#include "../../Utilities/VisualState/VisualState.h"
+#include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
 
 /**
@@ -46,6 +45,12 @@ public:
      */
     void damage(unsigned int harm);
 
+    /**
+     * @brief Treat object
+     * @param point point of treat
+     */
+    void treat(unsigned int point);
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
@@ -58,28 +63,16 @@ public:
     int getType();
 
     /**
-     * @brief Set the value of frame.
-     * @param new_var   the new value of frame
+     * @brief Set the value of shape.
+     * @param new_var   the new value of shape
      */
-    void setFrame(Frame new_var);
+    void setShape(Shape new_var);
 
     /**
-     * @brief Get the value of frame.
-     * @return the value of frame
+     * @brief Get the value of shape.
+     * @return the value of shape
      */
-    Frame getFrame();
-
-    /**
-     * @brief Set the value of visual_state.
-     * @param new_var   the new value of visual_state
-     */
-    void setVisualState(VisualState new_var);
-
-    /**
-     * @brief Get the value of visual_state.
-     * @return the value of visual_state
-     */
-    VisualState getVisualState();
+    Shape getShape();
 
     /**
      * @brief Set the value of destroyed.
@@ -145,10 +138,7 @@ private:
     const ObjectType type;
 
     /// Object's coordinates and frame.
-    Frame frame;
-
-    /// Object's visual state (for View).
-    VisualState visual_state;
+    Shape shape;
 
     /// Is object destroyed or not.
     bool destroyed;
