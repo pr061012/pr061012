@@ -1,0 +1,148 @@
+
+#ifndef SHAPE_H
+#define SHAPE_H
+
+#include "../Point/Point.h"
+
+/// Shape types
+enum ShapeType {CIRCLE, SQUARE};
+
+/// Intersection flags
+enum IntersectionFlags {LEFT = 1, RIGHT = 2, BOTTOM = 4, TOP = 8};
+
+/**
+  * class Shape
+  * Фигура. Используется для задания размеров и координат объектов, а также для
+  * областей просмотра и воздействия.
+  */
+
+class Shape
+{
+public:
+
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR.
+    //**************************************************************************
+
+	/**
+     *  @brief Constructor
+     *  @param type type of the shape
+     *  @param center center of the Shape
+     *  @param size size of the Shape
+	 */
+    Shape(Point center, int type, double size);
+
+    /**
+     *  @brief Constructor
+     */
+    Shape();
+
+	/**
+     *  @brief Destructor
+	 */
+    ~Shape();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
+
+    /**
+     * @brief Set the value of center.
+     * @param new_var the new value of center.
+     */
+
+    void setCenter ( Point new_var );
+
+    /**
+     * @brief Get the value of center.
+     * @return the value of center.
+     */
+
+    Point getCenter ( );
+
+    /**
+     * @brief Get type of the shape.
+     * @return type of the shape.
+     */
+
+    int getType();
+
+    /**
+     * @brief Set type.
+     * @param type new type.
+     */
+
+    void setType(int type);
+
+    /**
+     * @brief Get size (edge length for polygons, radius for circle).
+     * @return size
+     */
+
+    double getSize();
+
+    /**
+     * @brief Set size (edge length for polygons, radius for circle).
+     * @param size new size
+     */
+
+    void setSize(double size);
+
+    //**************************************************************************
+    // HIT-TEST METHODS.
+    //**************************************************************************
+
+	/**
+     * @brief   Tests if a Shape includes a point.
+     * @return  true or false
+     * @param   point    point to test
+	 */
+    bool hitTest (Point point );
+
+	/**
+     * @brief   Tests if a Shape intersects with another Shape.
+     * @return  true or false
+     * @param   Shape   Shape to test
+	 */
+    bool hitTest (Shape shape );
+
+    /**
+     * @brief Gets the left bottom point of the shape.
+     */
+    Point getLeftBottom();
+
+    /**
+     * @brief Gets the right top point of the shape.
+     */
+    Point getRightTop();
+
+    /**
+     * @brief   Get intersections of minimal bounding boxes with another shape.
+     * @param   Shape   another shape
+     * @return  flags of intersections
+     */
+    int intersect(Shape shape);
+
+private:
+    /// Coordinates of the center of the Shape.
+    Point center;
+
+    /// Type of shape.
+    ShapeType type;
+
+    /// Size of shape.
+    double size;
+
+    /// Left bottom point related to center.
+    Point left_bottom;
+
+    /// Right top point related to center.
+    Point right_top;
+
+    /// Last coordinates.
+    Point last_center;
+
+
+};
+
+#endif // SHAPE_H
