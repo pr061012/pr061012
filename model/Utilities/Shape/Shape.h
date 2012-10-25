@@ -1,6 +1,6 @@
 
-#ifndef FRAME_H
-#define FRAME_H
+#ifndef SHAPE_H
+#define SHAPE_H
 
 #include "../Point/Point.h"
 
@@ -11,12 +11,12 @@ enum ShapeType {CIRCLE, SQUARE};
 enum IntersectionFlags {LEFT = 1, RIGHT = 2, BOTTOM = 4, TOP = 8};
 
 /**
-  * class Frame
-  * Рамка. Используется для задания размеров и координат объектов, а также для
+  * class Shape
+  * Фигура. Используется для задания размеров и координат объектов, а также для
   * областей просмотра и воздействия.
   */
 
-class Frame
+class Shape
 {
 public:
 
@@ -27,20 +27,20 @@ public:
 	/**
      *  @brief Constructor
      *  @param type type of the shape
-     *  @param center center of the frame
-     *  @param size size of the frame
+     *  @param center center of the Shape
+     *  @param size size of the Shape
 	 */
-    Frame(Point center, int type, double size);
+    Shape(Point center, int type, double size);
 
     /**
      *  @brief Constructor
      */
-    Frame();
+    Shape();
 
 	/**
      *  @brief Destructor
 	 */
-    ~Frame();
+    ~Shape();
 
     //**************************************************************************
     // ACCESSORS.
@@ -93,18 +93,18 @@ public:
     //**************************************************************************
 
 	/**
-     * @brief   Tests if a frame includes a point.
+     * @brief   Tests if a Shape includes a point.
      * @return  true or false
      * @param   point    point to test
 	 */
     bool hitTest (Point point );
 
 	/**
-     * @brief   Tests if a frame intersects with another frame.
+     * @brief   Tests if a Shape intersects with another Shape.
      * @return  true or false
-     * @param   frame   frame to test
+     * @param   Shape   Shape to test
 	 */
-    bool hitTest (Frame frame );
+    bool hitTest (Shape shape );
 
     /**
      * @brief Gets the left bottom point of the shape.
@@ -117,14 +117,14 @@ public:
     Point getRightTop();
 
     /**
-     * @brief   Get intersections of minimal bounding boxes with another frame.
-     * @param   frame   another frame
+     * @brief   Get intersections of minimal bounding boxes with another shape.
+     * @param   Shape   another shape
      * @return  flags of intersections
      */
-    int intersect(Frame frame);
+    int intersect(Shape shape);
 
 private:
-    /// Coordinates of the center of the frame.
+    /// Coordinates of the center of the Shape.
     Point center;
 
     /// Type of shape.
@@ -145,4 +145,4 @@ private:
 
 };
 
-#endif // FRAME_H
+#endif // SHAPE_H
