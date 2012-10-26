@@ -8,7 +8,7 @@
 enum ShapeType {CIRCLE, SQUARE};
 
 /// Intersection flags
-enum IntersectionFlag {NO_INTERSECTION = -1, LEFT = 1, RIGHT = 2,
+enum IntersectionFlag {NO_INTERSECTION = 16, LEFT = 1, RIGHT = 2,
                         BOTTOM = 4, TOP = 8};
 
 /**
@@ -26,11 +26,12 @@ public:
     //**************************************************************************
 
 	/**
-     *  @brief Constructor
-     *  @param type type of the shape
-     *  @param center center of the Shape
-     *  @param size size of the Shape
-	 */
+     *  @brief  Constructor
+     *  @param  type type of the shape
+     *  @param  center center of the Shape
+     *  @param  size size of the Shape
+     *          (edge length for polygons, diameter for circle).
+     */
     Shape(Point center, int type, double size);
 
     /**
@@ -76,7 +77,7 @@ public:
     void setType(int type);
 
     /**
-     * @brief Get size (edge length for polygons, radius for circle).
+     * @brief Get size (edge length for polygons, diameter for circle).
      * @return size
      */
 
@@ -115,6 +116,17 @@ public:
     bool hitTest (Shape shape );
 
     /**
+     * @brief   Get intersections of minimal bounding boxes with another shape.
+     * @param   Shape   another shape
+     * @return  flags of intersections
+     */
+    int intersect(Shape shape);
+
+    //**************************************************************************
+    // CORNER METHODS
+    //**************************************************************************
+
+    /**
      * @brief Gets the left bottom point of the shape.
      */
     Point getLeftBottom();
@@ -123,13 +135,6 @@ public:
      * @brief Gets the right top point of the shape.
      */
     Point getRightTop();
-
-    /**
-     * @brief   Get intersections of minimal bounding boxes with another shape.
-     * @param   Shape   another shape
-     * @return  flags of intersections
-     */
-    int intersect(Shape shape);
 
 private:
     /// Coordinates of the center of the Shape.
@@ -150,6 +155,15 @@ private:
     /// Last coordinates.
     Point last_center;
 
+    //**************************************************************************
+    // CORNER METHODS
+    //**************************************************************************
+
+    /**
+     * @brief Computes new corner points related to center
+     */
+
+    void computeCorners();
 
 };
 
