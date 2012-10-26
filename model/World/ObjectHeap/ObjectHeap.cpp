@@ -33,6 +33,11 @@ Object* ObjectHeap::next(ObjectType type)
 
 }
 
+unsigned int ObjectHeap::getTypeAmount(ObjectType)
+{
+
+}
+
 //******************************************************************************
 // ADDING/REMOVING ELEMENTS.
 //******************************************************************************
