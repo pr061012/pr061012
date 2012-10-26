@@ -58,70 +58,101 @@
 \begin{document}
     \maketitle
 
-	\todo{Use ''model'' instead of ''concept''?}
+    \todo{Use ''model'' instead of ''concept''?}
 
-	\section*{Introduction}
+    \section*{Introduction}
 
-	\section{Concept}
-		\subsection{Brief concept description}
-		\subsection{World's struct}
-			\subsubsection{Objects (vector layer)}
-			\subsubsection{Indexator (raster layer)}
-		\subsection{Objects}
-			\subsubsection{Resources}
-			\subsubsection{Buildings}
-			\subsubsection{Weather}
-			\subsubsection{Creatures as objects}
-		\subsection{Creatures}
-			\subsubsection{Humanoids}
-			\subsubsection{Non-humanoids}
-		\subsection{Player's capabilities}
+    \section{Concept}
+        \subsection{Brief concept description}
+        \subsection{World's struct}
+            \subsubsection{Objects (vector layer)}
+            \subsubsection{Indexator (raster layer)}
+        \subsection{Objects}
+            \subsubsection{Resources}
+            \subsubsection{Buildings}
+            \subsubsection{Weather}
+            \subsubsection{Creatures as objects}
+        \subsection{Creatures}
+            \subsubsection{Humanoids}
+            \subsubsection{Non-humanoids}
+        \subsection{Player's capabilities}
 
-	\section{Some algorithms}
-		\subsection{Humanoids' logics}
-			In concept of strategy with indirect control humanoids are \textbf{clever} creatures (or they just pretend to be such). In that case we need some algorithms, that will predict \textbf{humanoid's action} (or action sequence).
+    \section{Some algorithms}
+        \subsection{Humanoids' logics}
+            In concept of strategy with indirect control humanoids are \textbf{clever} creatures (or they just pretend to be such). In that case we need some algorithms, that will predict \textbf{humanoid's action} (or action sequence).
 
-			We have several variants of this:
-				\begin{itemize}
-					\item State machine
-					\item Neural network
-					\item Combination of them
-				\end{itemize}
+            We have several variants of this:
+                \begin{itemize}
+                    \item State machine
+                    \item Neural network
+                    \item Combination of them
+                \end{itemize}
 
-			Each of them is detailed described in this section.
+            Each of them is detailed described in this section.
 
-			\subsubsection{State machine (SM)}
-				The first idea is \textbf{state machine} (or just SM). Every humanoid have \textbf{current state} and by analyzing this state SM can decide the next state of humanoid.
+            \subsubsection{State machine (SM)}
+                The first idea is \textbf{state machine} (or just SM). Every humanoid have \textbf{current state} and by analyzing this state SM can decide the next state of humanoid.
 
-				In the simplest case SM is a bunch of \textit{if... else...} statements. Apparently, this variant isn't good at all because of plenty of humanoid's attributes. This SM may be implemented by a big chunk of code with many \textit{if} statements (also with nested statements).
+                In the simplest case SM is a bunch of \textit{if... else...} statements. Apparently, this variant isn't good at all because of plenty of humanoid's attributes. This SM may be implemented by a big chunk of code with many \textit{if} statements (also with nested statements).
 
-				However we have a possibility to implement \textbf{several SMs}. One SM will be the main and decide a type of action, that humanoid need to do, others SMs will predict particular actions (respectively one SM for one type of action).
+                However we have a possibility to implement \textbf{several SMs}. One SM will be the main and decide a type of action, that humanoid need to do, others SMs will predict particular actions (respectively one SM for one type of action).
 
-				In terms of code, this variant means separation of all our \textit{if} statements into groups.
+                In terms of code, this variant means separation of all our \textit{if} statements into groups.
 
-				It's pretty good option, but it doesn't seems to be enough realistic.
+                It's pretty good option, but it doesn't seems to be enough realistic.
 
-			\subsubsection{Neural network (NN)}
-				Because we want our humanoids to be more realistic, we come up with \textbf{neural network} (NN). In that case we need to prepare some training examples to train NN on.
+            \subsubsection{Neural network (NN)}
+                Because we want our humanoids to be more realistic, we come up with \textbf{neural network} (NN). In that case we need to prepare some training examples to train NN on.
 
-				For those, who are familiar with NNs, it's obvious, what we will need a lot of training data to train a good NN (because of plenty of attributes). If we don't have enough data, we will get NN, that will predict sometimes strange actions for our humanoids.
+                For those, who are familiar with NNs, it's obvious, what we will need a lot of training data to train a good NN (because of plenty of attributes). If we don't have enough data, we will get NN, that will predict sometimes strange actions for our humanoids.
 
-				It's very difficult variant to do, but here we can end up with the same possibility as in SM paragraph. We can train \textbf{many NNs}: one (main) for prediction of action type, others for particular actions prediction.
+                It's very difficult variant to do, but here we can end up with the same possibility as in SM paragraph. We can train \textbf{many NNs}: one (main) for prediction of action type, others for particular actions prediction.
 
-				It isn't a more easy variant to implement: in general it requires the same amount of data like for one NN.
+                It isn't a more easy variant to implement: in general it requires the same amount of data like for one NN.
 
-				Thus this option is very good, but very difficult to implement.
+                Thus this option is very good, but very difficult to implement.
 
-			\subsubsection{NN\&SM method}
-				Here we end up with a pretty good variant and enough easy to implement.
+            \subsubsection{NN\&SM method}
+                Here we end up with a pretty good variant and enough easy to implement.
 
-				It's a combination of NN and SMs. We use NN to predict action type (we will need a few training data in comparison with previous option). For particular action prediction we will use several SMs.
+                It's a combination of NN and SMs. We use NN to predict action type (we will need a few training data in comparison with previous option). For particular action prediction we will use several SMs.
 
-				This option is easier to implement than previous because: 1) we need small training set for NN, 2) it's easy to implement and debug several small SMs.
+                This option is easier to implement than previous because: 1) we need small training set for NN, 2) it's easy to implement and debug several small SMs.
 
-				\note{In despite of bad realism, we will use SMs instead of NN\&SM. If we have enough time, we will implement NN\&SM method.}
+                \note{In despite of bad realism, we will use SMs instead of NN\&SM. If we have enough time, we will implement NN\&SM method.}
 
-		\todo{What else?}
+        \section{Building a house}
+            When humanoid has ate, slept and others his needs are satisfied, humanoid starts to take care about his safety. Humanoid wants to build a house, location of which is chosen by algorithm described in this paragraph.
 
+            \textbf{Brief description of algorithm:}
+                \begin{enumerate}
+                    \item Humanoid has certain \textit{time to choose} location of his house.
+                    \item Since the moment of birth humanoid looks at cells around him and remembers the best of them. Each humanoid has his own idea about what the ''best'' place is (depends on his preferences).
+                    \item As time expired, humanoid goes to the best place, that he has found.
+                    \item Humanoid starts building.
+                \end{enumerate}
+
+            \subsection{Choice of house location}
+                The main part of this algorithm is decision: is that cell best humanoid has ever seen or not?
+
+                In our concept cell level of goodness depends on several things:
+                    \begin{itemize}
+                        \item closeness to friends
+                        \item remoteness from enemies
+                        \item tendency to collectivization, which is calculated by this formula:
+                            $$tendency = (people ~ nearby) \times (sociability),$$
+                        where $people ~ nearby$ is amount of other humanoids houses nearby.
+                        \item availability of certain resources (woodman prefers forests, fisherman tends to settle near water, etc.)
+                        \item total amount of resources around
+                    \end{itemize}
+
+            \subsection{Building process}
+                Building is a long process and requires a various resources.
+
+                Humanoid decides house parameters as size. Amount of resources, which he needs to build house, depends on these parameters.
+
+                As humanoid decided where to build house, he starts to build by bringing resources to construction site. Building completed only when all needed resources are brought.
+
+                \note{Other humanoids can steal resources, which builder brought to building site.}
 
 \end{document}

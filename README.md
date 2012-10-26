@@ -9,8 +9,6 @@ ToDo
 ====
 
 1. Write a common documentation tex-file with:
-    * code convention (**done**)
     * main concept
-    * detailed descriptions of some algorithms: NN/SM, choosing home location
+    * detailed descriptions of some algorithms: choosing home location
       (*what else?*)
-2. Draw an UML diagram with model structure.
