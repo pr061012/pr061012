@@ -11,7 +11,7 @@
 
 ObjectFactory::ObjectFactory()
 {
-
+    ObjectFactory(NULL);
 }
 
 ObjectFactory::ObjectFactory(ObjectHeap *list)
@@ -21,7 +21,6 @@ ObjectFactory::ObjectFactory(ObjectHeap *list)
 
 ObjectFactory::~ObjectFactory()
 {
-
 }
 
 //******************************************************************************
