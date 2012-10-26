@@ -42,7 +42,7 @@ void World::step()
     // Initiate descending update of world objects contained in all_objects
     while(object = all_objects.next())
     {
-        object->
+        object->step();
     }
 }
 
