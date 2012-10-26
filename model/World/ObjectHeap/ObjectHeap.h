@@ -10,7 +10,7 @@
 #define OBJECT_HEAP_H
 
 #include <vector>
-
+#include <cstdlib>
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
 

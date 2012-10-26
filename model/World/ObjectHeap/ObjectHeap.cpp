@@ -25,15 +25,12 @@ ObjectHeap::~ObjectHeap()
 
 Object* ObjectHeap::next()
 {
-    Object* object = new Object();
-    return object;
+    return NULL;
 }
 
 Object* ObjectHeap::next(ObjectType type)
 {
-    Object* object = new Object();
-    object -> setType(type);
-    return object;
+    return NULL;
 }
 
 unsigned int ObjectHeap::getTypeAmount(ObjectType)
