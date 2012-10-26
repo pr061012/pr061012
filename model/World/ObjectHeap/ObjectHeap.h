@@ -52,6 +52,13 @@ public:
      */
     Object* next(ObjectType type);
 
+    /**
+     * @brief  get amount of element this type
+     * @param  type object type
+     * @return amount of element
+     */
+    unsigned int getTypeAmount(ObjectType);
+
     //**************************************************************************
     // ADDING/REMOVING ELEMENTS.
     //**************************************************************************
