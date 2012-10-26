@@ -15,8 +15,9 @@ World::World()
 }
 
 World::~World()
-{
-
+{    
+    delete object_factory;
+    delete indexator;
 }
 
 World::World(std::string filepath)
@@ -32,9 +33,12 @@ World::World(int rand_seed)
 World::World(int rand_seed, int width, int height)
 {
     srand(rand_seed);
-    // TODO: add a check for positive arguments
-    this->width  = width;
-    this->height = height;
+
+    this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
+    this->height = height > 0 ? height : DEFAULT_HEIGHT;
+
+    object_factory = new ObjectFactory(&all_objects);
+    indexator = new Indexator(all_objects);
 
     // For now, just generate a group of humans in a row.
 
@@ -44,13 +48,13 @@ World::World(int rand_seed, int width, int height)
     params["x"] = &pos[0];
     params["y"] = &pos[1];
 
-    createObject(HUMANOID, params);
+    object_factory->createObject(HUMANOID, params);
 
     pos[0] = 10;
-    createObject(HUMANOID, params);
+    object_factory->createObject(HUMANOID, params);
 
     pos[0] = 20;
-    createObject(HUMANOID, params);
+    object_factory->createObject(HUMANOID, params);
 }
 
 //******************************************************************************
@@ -93,3 +97,11 @@ ObjectHeap World::getAllObjects()
 //******************************************************************************
 // VIEW METHODS.
 //******************************************************************************
+
+ViewObject **World::getViewObjectsInRange(double x, double y, double radius)
+{
+}
+
+ViewWeather World::getWeatherAtPoint(double x, double y)
+{
+}

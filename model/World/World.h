@@ -6,9 +6,11 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 #include "ObjectHeap/ObjectHeap.h"
+#include "ObjectFactory/ObjectFactory.h"
+#include "Indexator/Indexator.h"
 
 
 /**
@@ -79,8 +81,15 @@ public:
 
 private:
 
+    // TODO: consider if it's necessary to chane ObjectHeap to ObjectHeap*
     /// Heap containing all World's objects
     ObjectHeap all_objects;
+
+    /// Global world indexator
+    Indexator* indexator;
+
+    /// Our world's ObjectFactory
+    ObjectFactory* object_factory;
 
 public:
 
