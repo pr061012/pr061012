@@ -35,7 +35,15 @@ World::World(std::string filepath)
 
 void World::step()
 {
+    Object* object;
+
+    all_objects.cleanPosition();
+
     // Initiate descending update of world objects contained in all_objects
+    while(object = all_objects.next())
+    {
+        object->
+    }
 }
 
 void World::save(std::string filepath)
@@ -57,3 +65,7 @@ ObjectHeap World::getAllObjects()
 {
     return this -> all_objects;
 }
+
+//******************************************************************************
+// VIEW METHODS.
+//******************************************************************************
