@@ -19,14 +19,38 @@ World::~World()
 
 }
 
-World::World(int rand_seed)
+World::World(std::string filepath)
 {
 
 }
 
-World::World(std::string filepath)
+World::World(int rand_seed)
 {
+    World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+}
 
+World::World(int rand_seed, int width, int height)
+{
+    srand(rand_seed);
+    // TODO: add a check for positive arguments
+    this->width  = width;
+    this->height = height;
+
+    // For now, just generate a group of humans in a row.
+
+    std::map <std::string, void*> params;
+    int pos[] = {0, 0};
+
+    params["x"] = &pos[0];
+    params["y"] = &pos[1];
+
+    createObject(HUMANOID, params);
+
+    pos[0] = 10;
+    createObject(HUMANOID, params);
+
+    pos[0] = 20;
+    createObject(HUMANOID, params);
 }
 
 //******************************************************************************
