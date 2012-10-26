@@ -6,6 +6,8 @@
 #include "Point.h"
 #include <cmath>
 
+#define EPSILON 0.00000001
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -36,9 +38,14 @@ double Point::getDistance(Point point)
     return sqrt(pow(this -> x - point.getX(), 2) + pow (this -> y - point.getY(), 2));
 }
 
+//******************************************************************************
+// COMPARING
+//******************************************************************************
+
 bool Point::equals(Point point)
 {
-    return (x == point.getX()) && (y == point.getY());
+    return  (fabs(x - point.getX()) < EPSILON) &&
+            (fabs(y - point.getY()) < EPSILON);
 }
 
 //******************************************************************************
