@@ -25,17 +25,20 @@ ObjectHeap::~ObjectHeap()
 
 Object* ObjectHeap::next()
 {
-
+    Object* object = new Object();
+    return object;
 }
 
 Object* ObjectHeap::next(ObjectType type)
 {
-
+    Object* object = new Object();
+    object -> setType(type);
+    return object;
 }
 
 unsigned int ObjectHeap::getTypeAmount(ObjectType)
 {
-
+    return 0;
 }
 
 //******************************************************************************
@@ -44,10 +47,10 @@ unsigned int ObjectHeap::getTypeAmount(ObjectType)
 
 bool ObjectHeap::push(Object* object)
 {
-
+    return True;
 }
 
 bool ObjectHeap::remove(Object* object)
 {
-
+    return True;
 }
