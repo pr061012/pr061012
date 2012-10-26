@@ -47,10 +47,10 @@ unsigned int ObjectHeap::getTypeAmount(ObjectType)
 
 bool ObjectHeap::push(Object* object)
 {
-    return True;
+    return true;
 }
 
 bool ObjectHeap::remove(Object* object)
 {
-    return True;
+    return true;
 }
