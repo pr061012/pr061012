@@ -44,16 +44,16 @@ public:
     //**************************************************************************
 
     /**
-     * @brief  Returns heap with objects from the certain frame.
-     * @param  frame    from to find objects from
-     * @return heap with objects
+     * @brief  Returns heap with objects from the certain area.
+     * @param  area where to look for objects
+     * @return heap with objects in given area
      */
-    ObjectHeap * getFrameContents(Frame frame);
+    ObjectHeap * getAreaContents(Shape area);
 
     /**
      * @brief Creates window in windows for certain object and returns pointer
-     *        "view from window". Object must have view_area (Frame).
-     * @param  object   pointer to object
+     *        "view from window". Object must have view_area (shape).
+     * @param  object  pointer to object
      * @return visible objects
      */
     ObjectHeap * createWindow(Object * object);
@@ -66,22 +66,6 @@ public:
      * @brief Reindexes objects and changes window's positions.
      */
     void step();
-
-    //**************************************************************************
-    // ACCESSORS.
-    //**************************************************************************
-
-    /**
-     * @brief Set the value of windows.
-     * @param new_var the new value of windows
-     */
-    void setWindows(std::vector <Window> new_var);
-
-    /**
-     * @brief Get the value of windows.
-     * @return the value of windows
-     */
-    std::vector <Window> getWindows();
 
 private:
     /// List with all windows.

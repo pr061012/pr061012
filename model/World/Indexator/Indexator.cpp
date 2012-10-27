@@ -22,14 +22,14 @@ Indexator::~Indexator()
 // GETTING OBJECTS.
 //******************************************************************************
 
-ObjectHeap * Indexator::getFrameContents(Frame frame)
+ObjectHeap * Indexator::getAreaContents(Shape area)
 {
-
+    return 0;
 }
 
 ObjectHeap * Indexator::createWindow(Object * object)
 {
-
+    return 0;
 }
 
 //******************************************************************************
@@ -39,18 +39,4 @@ ObjectHeap * Indexator::createWindow(Object * object)
 void Indexator::step()
 {
 
-}
-
-//******************************************************************************
-// ACCESSORS.
-//******************************************************************************
-
-void Indexator::setWindows(std::vector <Window> new_var)
-{
-    this -> windows = new_var;
-}
-
-std::vector <Window> Indexator::getWindows()
-{
-    return this -> windows;
 }
