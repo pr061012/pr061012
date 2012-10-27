@@ -59,6 +59,11 @@ public:
      */
     unsigned int getTypeAmount(ObjectType);
 
+    /**
+     * @brief  Resets position to the first heap element.
+     */
+    void cleanPosition();
+
     //**************************************************************************
     // ADDING/REMOVING ELEMENTS.
     //**************************************************************************
