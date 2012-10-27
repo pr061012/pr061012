@@ -63,13 +63,13 @@ public:
      * @brief Set the value of view_area.
      * @param view_area the new value of view_area
      */
-    void setViewArea(Frame view_area);
+    void setViewArea(Shape view_area);
 
     /**
      * @brief  Get the value of view_area.
      * @return the value of view_area
      */
-    Frame getViewArea();
+    Shape getViewArea();
 
     /**
      * @brief Set the value of age.
@@ -106,7 +106,7 @@ private:
     ObjectHeap * inventory;
 
     /// View area for Indexator.
-    Frame view_area;
+    Shape view_area;
 
     /// Current creature's action.
     ActionType current_action;
