@@ -35,12 +35,12 @@ const ObjectHeap * Creature::getWindow()
     return this -> window;
 }
 
-void Creature::setViewArea(Frame view_area)
+void Creature::setViewArea(Shape view_area)
 {
     this -> view_area = view_area;
 }
 
-Frame Creature::getViewArea()
+Shape Creature::getViewArea()
 {
     return this -> view_area;
 }
