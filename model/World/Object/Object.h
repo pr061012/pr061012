@@ -6,8 +6,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "../../Utilities/Frame/Frame.h"
-#include "../../Utilities/VisualState/VisualState.h"
+#include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
 
 /**
@@ -46,15 +45,26 @@ public:
      */
     void damage(unsigned int harm);
 
+    /**
+     * @brief Treat object
+     * @param point point of treat
+     */
+    void treat(unsigned int point);
+
+    /**
+     * @brief Virtual step action
+     */
+    void virtual step()=0;
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
     /**
      * @brief Set the value of type.
-     * @param new_var   the new value of type
+     * @param type     the value of type
      */
-    void setType(ObjectType new_var);
+    void setType(ObjectType type);
 
     /**
      * @brief Get the value of type.
@@ -63,28 +73,16 @@ public:
     int getType();
 
     /**
-     * @brief Set the value of frame.
-     * @param new_var   the new value of frame
+     * @brief Set the value of shape.
+     * @param new_var   the new value of shape
      */
-    void setFrame(Frame new_var);
+    void setShape(Shape new_var);
 
     /**
-     * @brief Get the value of frame.
-     * @return the value of frame
+     * @brief Get the value of shape.
+     * @return the value of shape
      */
-    Frame getFrame();
-
-    /**
-     * @brief Set the value of visual_state.
-     * @param new_var   the new value of visual_state
-     */
-    void setVisualState(VisualState new_var);
-
-    /**
-     * @brief Get the value of visual_state.
-     * @return the value of visual_state
-     */
-    VisualState getVisualState();
+    Shape getShape();
 
     /**
      * @brief Set the value of destroyed.
@@ -106,24 +104,25 @@ public:
 
     /**
      * @brief Get the value of health.
+     * @return the value of health
      */
     unsigned int getHealth();
 
     /**
-     * @brief Set the value of immortal.
-     * @param new_var   the new value of immortal
+     * @brief Set the value of immortality.
+     * @param new_var   the new value of immortality
      */
-    void setImmortal(bool new_var);
+    void setImmortality(bool new_var);
 
     /**
-     * @brief Get the value of immortal.
-     * @return the value of immortal
+     * @brief Get the value of immortality.
+     * @return the value of immortality
      */
-    bool getImmortal();
+    bool getImmortality();
 
     /**
      * @brief Set the value of max_health.
-     * @param new_var   the new value of max_health
+     * @param new_var the new value of max_health
      */
     void setMaxHealth(unsigned int new_var);
 
@@ -150,19 +149,17 @@ private:
     ObjectType type;
 
     /// Object's coordinates and frame.
-    Frame frame;
-
-    /// Object's visual state (for View).
-    VisualState visual_state;
+    Shape shape;
 
     /// Is object destroyed or not.
     bool destroyed;
 
-    /// @brief Object's health.
-    ///        * buildings and creatures -- health
-    ///        * weather -- living time
-    ///        * resource -- amount of resource
-    ///        * tool -- durability
+    /** @brief Object's health.
+     *        * buildings and creatures -- health
+     *        * weather -- living time
+     *        * resource -- amount of resource
+     *        * tool -- durability
+     */
     unsigned int health;
 
     /// Maximum amount of health.

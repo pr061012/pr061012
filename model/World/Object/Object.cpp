@@ -25,46 +25,60 @@ Object::~Object()
 
 void Object::destroy()
 {
-
+    this -> destroyed = true;
 }
 
 void Object::damage(unsigned int harm)
 {
-    this -> health -= harm;
+    if(!immortality)
+    {
+        if(this -> health > harm)
+        {
+            this -> health -= harm;
+        }
+        else
+        {
+            this -> health = 0;
+            destroy();
+        }
+    }
+}
+
+void Object::treat(unsigned int point)
+{
+    if(this -> health + point < this->max_health)
+    {
+        this -> health += point;
+    }
+    else
+    {
+        this -> health = this -> max_health;
+    }
 }
 
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
 
-void Object::setType(ObjectType new_var)
+void Object::setType(ObjectType type)
 {
-    this -> type = new_var;
+    this -> type = type;
 }
+
 
 int Object::getType()
 {
     return this -> type;
 }
 
-void Object::setFrame(Frame new_var)
+void Object::setShape(Shape new_var)
 {
-    this -> frame = new_var;
+    this -> shape = new_var;
 }
 
-Frame Object::getFrame()
+Shape Object::getShape()
 {
-    return this -> frame;
-}
-
-void Object::setVisualState(VisualState new_var)
-{
-    this -> visual_state = new_var;
-}
-
-VisualState Object::getVisualState()
-{
-    return this -> visual_state;
+    return this -> shape;
 }
 
 void Object::setDestroyed(bool new_var)
@@ -87,12 +101,12 @@ unsigned int Object::getHealth()
     return this -> health;
 }
 
-void Object::setImmortal(bool new_var)
+void Object::setImmortality(bool new_var)
 {
     this -> immortality = new_var;
 }
 
-bool Object::getImmortal()
+bool Object::getImmortality()
 {
     return this -> immortality;
 }
