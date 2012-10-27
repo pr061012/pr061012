@@ -52,12 +52,12 @@ ObjectHeap* Weather::getWindow()
     return this -> window;
 }
 
-void Weather::setViewArea(Frame new_var)
+void Weather::setViewArea(Shape new_var)
 {
     this -> view_area = new_var;
 }
 
-Frame Weather::getViewArea()
+Shape Weather::getViewArea()
 {
     return this -> view_area;
 }

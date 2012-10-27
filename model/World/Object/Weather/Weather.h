@@ -71,13 +71,13 @@ public:
      * @brief Set the value of view_area.
      * @param new_var   the new value of view_area
 	 */
-    void setViewArea(Frame new_var);
+    void setViewArea(Shape new_var);
 
 	/**
      * @brief  Get the value of view_area
 	 * @return the value of view_area
 	 */
-    Frame getViewArea();
+    Shape getViewArea();
 
 private:
     /// Weather type.
@@ -87,7 +87,7 @@ private:
     ObjectHeap * window;
 
     /// Effect area. Needed for Indexator for window's contents finding.
-    Frame view_area;
+    Shape view_area;
 };
 
 #endif // WEATHER_H
