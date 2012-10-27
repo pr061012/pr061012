@@ -68,9 +68,9 @@ void Humanoid::step()
     unsigned int relative_sociability = 100 * sociability / max_sociability;
 
     // Preparing vector of attributes.
-    arma::vec <int> attrs(9);
-    attrs << relative_satiety << relative_sleepiness << need_in_house <<
-             need_in_res << laziness << health << relative_sociability <<
+    arma::vec attrs(9);
+    attrs << relative_hunger << relative_sleepiness << need_in_house <<
+             need_in_res << laziness << getHealth() << relative_sociability <<
              safety;
 
     // TODO Spawning desicion maker.
