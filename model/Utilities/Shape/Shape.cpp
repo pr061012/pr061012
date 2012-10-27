@@ -21,6 +21,10 @@ Shape::Shape (Point center, int type, double size )
     this -> computeCorners();
 }
 
+Shape::Shape()
+{
+}
+
 Shape::~Shape ()
 {
 }
