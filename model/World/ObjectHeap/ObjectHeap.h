@@ -10,7 +10,7 @@
 #define OBJECT_HEAP_H
 
 #include <vector>
-
+#include <cstdlib>
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
 
@@ -51,6 +51,13 @@ public:
      * @return pointer to object
      */
     Object* next(ObjectType type);
+
+    /**
+     * @brief  get amount of element this type
+     * @param  type object type
+     * @return amount of element
+     */
+    unsigned int getTypeAmount(ObjectType);
 
     //**************************************************************************
     // ADDING/REMOVING ELEMENTS.
