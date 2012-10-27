@@ -63,14 +63,21 @@ public:
      *  @return cell neighbours
      */
 
-    Cell ** getNeighbours();
+    Cell * getNeighbours();
 
     /**
      *  @brief  Sets cell neighbours
      *  @param  neighbours new cell neighbours (four)
      */
 
-    void setNeighbours(const Cell ** neighbours);
+    void setNeighbours(Cell * neighbours);
+
+    /**
+     *  @brief  Gets objects inside cell
+     *  @return objects a pointer to object list
+     */
+
+    ObjectHeap * getObjects();
 
     //**************************************************************************
     // OTHER
@@ -95,7 +102,7 @@ private:
     Shape area;
 
     /// Cell neighbours
-    Cell * neighbours[4];
+    Cell * neighbours;
 
     /// A list of objects that lie within cell area
     ObjectHeap objects;
