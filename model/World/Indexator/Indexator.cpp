@@ -27,6 +27,10 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
     return 0;
 }
 
+void Indexator::addObject(Object * object)
+{
+}
+
 ObjectHeap * Indexator::createWindow(Object * object)
 {
     return 0;
