@@ -56,12 +56,6 @@ private:
     ObjectType getType();
 
     /**
-     * @brief Set the type of current object.
-     * @param new_var the new value of type
-     */
-    void setType(ObjectType new_var);
-
-    /**
      * @brief Get the x coordinate.
      * @return the value of x
      */
