@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    ViewObject();
+    ViewObject(ObjectType type);
 
     /**
      * @brief Destructor
