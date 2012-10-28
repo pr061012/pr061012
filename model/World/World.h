@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
+#include "../../view/ViewObject.h"
 #include "Indexator/Indexator.h"
 
 
@@ -128,7 +129,7 @@ public:
      * @param y y coordinate of screen center
      * @return ViewWeather - enum indicating weather at specified location
      */
-    ViewWeather getWeatherAtPoint(double x, double y);
+    WeatherType getWeatherAtPoint(double x, double y);
 
 };
 
