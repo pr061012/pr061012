@@ -29,7 +29,7 @@ public:
     /**
      * @brief Destructor
      */
-    ViewObject();
+    ~ViewObject();
 
     //**************************************************************************
     // ACCESSORS.
