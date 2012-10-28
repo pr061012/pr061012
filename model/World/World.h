@@ -82,7 +82,7 @@ public:
 
 private:
 
-    // TODO: consider if it's necessary to chane ObjectHeap to ObjectHeap*
+    // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
     /// Heap containing all World's objects
     ObjectHeap all_objects;
 
