@@ -3,18 +3,18 @@
     See the LICENSE file for copying permission.
 */
 
-#include "Window.h"
+#include "../Indexator.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Window::Window()
+Indexator::Window::Window()
 {
 
 }
 
-Window::~Window()
+Indexator::Window::~Window()
 {
 
 }
@@ -23,22 +23,22 @@ Window::~Window()
 // ACCESSORS.
 //******************************************************************************
 
-void Window::setParent(Object * new_var)
+void Indexator::Window::setParent(Object * new_var)
 {
     this -> parent = new_var;
 }
 
-Object * Window::getParent()
+Object * Indexator::Window::getParent()
 {
     return this -> parent;
 }
 
-void Window::setContents(ObjectHeap new_var)
+void Indexator::Window::setContents(ObjectHeap new_var)
 {
     this -> contents = new_var;
 }
 
-ObjectHeap Window::getContents()
+ObjectHeap Indexator::Window::getContents()
 {
     return this -> contents;
 }

@@ -8,7 +8,6 @@
 
 #include <string>
 #include <vector>
-#include "Window/Window.h"
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
@@ -18,19 +17,31 @@
  */
 class Indexator
 {
+
+//******************************************************************************
+// NESTED CLASSES
+//******************************************************************************
+
+class Window;
+#include "Window/Window.h"
+
+class Cell;
+#include "Cell/Cell.h"
+
 public:
     //**************************************************************************
     // CONSTRUCTORS/DESTRUCTOR.
     //**************************************************************************
 
     /**
-     * @brief Constructor.
+     *  @brief Constructor.
      */
     Indexator();
 
     /**
-     * @brief Creates grid and indexates object from heap.
-     * @param list  heap with objects
+     *  @brief  Creates grid, visible areas for creatures and weather
+     *          and indexates object from heap.
+     *  @param  list heap with objects
      */
     Indexator(ObjectHeap * list);
 
@@ -44,17 +55,23 @@ public:
     //**************************************************************************
 
     /**
-     * @brief  Returns heap with objects from the certain frame.
-     * @param  frame    from to find objects from
-     * @return heap with objects
+     *  @brief  Returns heap with objects from the certain area.
+     *  @param  area where to look for objects
+     *  @return heap with objects in given area
      */
-    ObjectHeap * getFrameContents(Frame frame);
+    ObjectHeap * getAreaContents(Shape area);
 
     /**
-     * @brief Creates window in windows for certain object and returns pointer
-     *        "view from window". Object must have view_area (Frame).
-     * @param  object   pointer to object
-     * @return visible objects
+     *  @brief  Add new object to the index
+     *  @param  object an object to add
+     */
+    void addObject(Object * object);
+
+    /**
+     * @brief   Creates a list of objects that are visible to the given object
+     *          and returns a pointer to it.
+     * @param   object  pointer to object
+     * @return  visible objects
      */
     ObjectHeap * createWindow(Object * object);
 
@@ -63,25 +80,9 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Reindexes objects and changes window's positions.
+     * @brief   Reindexes objects.
      */
     void step();
-
-    //**************************************************************************
-    // ACCESSORS.
-    //**************************************************************************
-
-    /**
-     * @brief Set the value of windows.
-     * @param new_var the new value of windows
-     */
-    void setWindows(std::vector <Window> new_var);
-
-    /**
-     * @brief Get the value of windows.
-     * @return the value of windows
-     */
-    std::vector <Window> getWindows();
 
 private:
     /// List with all windows.
