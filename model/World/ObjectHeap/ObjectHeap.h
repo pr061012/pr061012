@@ -83,7 +83,7 @@ public:
     bool remove(Object* object);
 
 private:
-    std::vector < std::vector <Object*> *> data;
+    std::vector < std::vector <Object*>* > data;
     std::vector <unsigned int> position;
 };
 
