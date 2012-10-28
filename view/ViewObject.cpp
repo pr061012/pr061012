@@ -7,8 +7,8 @@
 ViewObject::ViewObject(ObjectType newtype, double newx, double newy)
 {
     type = newtype;
-    x    = x;
-    y    = y;
+    newx    = x;
+    newy    = y;
 }
 
 
