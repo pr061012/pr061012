@@ -39,6 +39,7 @@ private:
     /// This variable tells what animation to render
     // ObjectState cur_state;
 
+public:
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
