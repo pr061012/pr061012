@@ -23,14 +23,13 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 //******************************************************************************
 
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
-    Creature(dmaker)
+    Creature(NON_HUMANOID, dmaker)
 {
     // Randomly initialize some values.
     int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
     int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setType(NONHUMANOID);
     setMaxHealth(health);
     setHealth(health);
     setMaxAge(age);
@@ -38,15 +37,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 }
 
 NonHumanoid::~NonHumanoid()
-{
-
-}
-
-//******************************************************************************
-// NON-HUMANOID'S LOGICS.
-//******************************************************************************
-
-void NonHumanoid::step()
 {
 
 }

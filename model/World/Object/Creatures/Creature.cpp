@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Creature::Creature(const DecisionMaker & dmaker) :
+Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
+    Object(CREATURE),
+    subtype(type),
     brains(dmaker),
     inventory(new ObjectHeap)
 {

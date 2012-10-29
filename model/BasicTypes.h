@@ -35,7 +35,7 @@ enum ResourceType
  */
 enum ObjectType
 {
-    RESOURCE, TOOL, WEATHER, BUILDING, HUMANOID, NONHUMANOID
+    RESOURCE, TOOL, WEATHER, BUILDING, CREATURE
 };
 
 /**
@@ -58,4 +58,5 @@ enum CreatureType
 {
 	HUMANOID, NON_HUMANOID
 };
+
 #endif // BASIC_TYPES_H

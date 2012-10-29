@@ -24,13 +24,12 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 //******************************************************************************
 
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
-    Creature(dmaker)
+    Creature(HUMANOID, dmaker)
 {
     int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
     int age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setType(HUMANOID);
     setMaxHealth(health);
     setHealth(health);
     setMaxAge(age);
@@ -60,18 +59,18 @@ Humanoid::~Humanoid()
 // HUMANOID'S LOGICS.
 //******************************************************************************
 
-void Humanoid::step()
-{
-    // Preparing main attributes.
-    unsigned int relative_hunger      = 100 * hunger      / max_hunger;
-    unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
-    unsigned int relative_sociability = 100 * sociability / max_sociability;
-
-    // Preparing vector of attributes.
-    arma::vec attrs(9);
-    attrs << relative_hunger << relative_sleepiness << need_in_house <<
-             need_in_res << laziness << getHealth() << relative_sociability <<
-             safety;
-
-    // TODO Spawning desicion maker.
-}
+//~ void Humanoid::step()
+//~ {
+    //~ // Preparing main attributes.
+    //~ unsigned int relative_hunger      = 100 * hunger      / max_hunger;
+    //~ unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
+    //~ unsigned int relative_sociability = 100 * sociability / max_sociability;
+//~ 
+    //~ // Preparing vector of attributes.
+    //~ arma::vec attrs(9);
+    //~ attrs << relative_hunger << relative_sleepiness << need_in_house <<
+             //~ need_in_res << laziness << getHealth() << relative_sociability <<
+             //~ safety;
+//~ 
+    //~ // TODO Spawning desicion maker.
+//~ }
