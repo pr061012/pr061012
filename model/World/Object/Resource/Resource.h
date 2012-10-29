@@ -38,12 +38,6 @@ public:
      */
     unsigned int gather(Tool tool);
 
-    /**
-     * @brief Make a resource's step in the world.
-     *        (Maybe in this method we can regenerate resource.)
-     */
-    void step();
-
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************

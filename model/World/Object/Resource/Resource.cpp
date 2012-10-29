@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource()
+Resource::Resource():Object(RESOURCE)
 {
 
 }
@@ -20,11 +20,6 @@ Resource::~Resource()
 }
 
 unsigned int Resource::gather(Tool tool)
-{
-
-}
-
-void Resource::step()
 {
 
 }
