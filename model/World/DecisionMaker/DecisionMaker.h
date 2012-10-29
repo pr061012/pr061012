@@ -5,11 +5,21 @@
 
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
-
+#define ATR_CONST_HUM 9
+#define ACT_CONST_HUM 9
+#define ATR_CONST_NON_HUM 5
+#define ACT_CONST_NON_HUM 5
 // Temporary workaround.
-#include <vector>
-typedef std::vector <int> Vector;
-typedef std::vector < std::vector <int> > Matrix;
+
+#include <armadillo>
+#include<fstream>
+#include"BasicTypes.h"
+#include<vector>
+#include<random>
+
+using namespace std;
+using namespace arma;
+
 
 /**
  * @class DecisionMaker
@@ -18,6 +28,7 @@ typedef std::vector < std::vector <int> > Matrix;
 class DecisionMaker
 {
 public:
+
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
@@ -25,7 +36,7 @@ public:
     /**
      * @brief Constructor.
      */
-    DecisionMaker(Matrix m);
+    DecisionMaker(CreatureType type);
 
     /**
      * @brief Destructor.
@@ -42,13 +53,14 @@ public:
      * @return int      next action
      */
     // TODO: Add enum for creatures's actions.
-    int makeDecision(Vector attrs);
+    int makeDecision(mat attrs);
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
     /// no-hidden-layer NN matrix.
     // TODO: Move here and in constructo Matrix by own or armadillo type.
-    Matrix theta;
+    mat theta;
+
 };
 
 #endif // DECISION_MAKER_H
