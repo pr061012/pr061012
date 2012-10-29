@@ -20,30 +20,8 @@ ObjectHeap::~ObjectHeap()
 }
 
 //******************************************************************************
-// GETTING NEXT ELEMENTS.
+// GETTING TYPE AMOUNT
 //******************************************************************************
-
-Object* ObjectHeap::next()
-{
-    Object* ret;
-
-    ret = data[0][position[0]];
-    position[0]++;
-
-    return ret;
-}
-
-Object* ObjectHeap::next(ObjectType type)
-{
-    Object* ret;
-    /// Get type of object
-    int type_int = static_cast<int>(type) + 1;
-
-    ret = data[type_int][position[type_int]];
-    position[type_int]++;
-
-    return ret;
-}
 
 unsigned int ObjectHeap::getTypeAmount(ObjectType type)
 {
