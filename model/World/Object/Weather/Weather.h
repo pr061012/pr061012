@@ -31,15 +31,6 @@ public:
     ~Weather();
 
     //**************************************************************************
-    // STEP.
-    //**************************************************************************
-
-	/**
-     * @brief Does something with objects in window.
-	 */
-    void step();
-
-    //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
@@ -59,7 +50,7 @@ public:
      * @brief Set the value of window.
      * @param new_var   the new value of window
 	 */
-    void setWindow(ObjectHeap * new_var);
+    void setWindow(ObjectHeap* new_var);
 
 	/**
      * @brief  Get the value of window.
