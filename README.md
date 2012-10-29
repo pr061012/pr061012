@@ -9,6 +9,15 @@ ToDo
 ====
 
 1. Write a common documentation tex-file with:
-    * main concept
-    * detailed descriptions of some algorithms: choosing home location
-      (*what else?*)
+   * main concept
+   * UML diagram with description about how it works
+2. Delete methods step() in all objects.
+3. Add logger (or just use cerr?)
+4. Add classes:
+   * Action
+   * Controller & PossibilityChecker
+   * ObjectHeap::iterator
+   * SpellTree
+5. Add interfaces:
+   * IWorld
+   * IGod
