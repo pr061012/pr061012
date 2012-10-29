@@ -3,14 +3,12 @@
     See the LICENSE file for copying permission.
 */
 
-// NOTE:
-//  - You should add subtype : ObjectType.
-
 #ifndef OBJECT_HEAP_H
 #define OBJECT_HEAP_H
 
 #include <vector>
 #include <cstdlib>
+
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
 
@@ -36,21 +34,8 @@ public:
     ~ObjectHeap();
 
     //**************************************************************************
-    // GETTING NEXT ELEMENTS.
+    // GETTING TYPE AMOUNT
     //**************************************************************************
-
-    /**
-     * @brief  Return next object in heap.
-     * @return pointer to object
-     */
-    Object* next();
-
-    /**
-     * @brief  Work as next(), but return object with certain type.
-     * @param  type object type
-     * @return pointer to object
-     */
-    Object* next(ObjectType type);
 
     /**
      * @brief  get amount of element this type
@@ -84,7 +69,6 @@ public:
 
 private:
     std::vector < std::vector <Object*>* > data;
-    std::vector <unsigned int> position;
 };
 
 #endif // OBJECTHEAP_H
