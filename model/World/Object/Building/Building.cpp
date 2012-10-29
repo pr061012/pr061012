@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building()
+Building::Building():Object(BUILDING)
 {
     this -> completeness = false;
 }
