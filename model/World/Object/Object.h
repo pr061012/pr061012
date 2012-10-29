@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Object();
+    Object(ObjectType type);
 
     /**
      * @brief Destructor.
@@ -50,11 +50,6 @@ public:
      * @param point point of treat
      */
     void treat(unsigned int point);
-
-    /**
-     * @brief Virtual step action
-     */
-    void virtual step()=0;
 
     //**************************************************************************
     // ACCESSORS.
@@ -146,7 +141,7 @@ public:
     
 private:
     /// Object's type.
-    ObjectType type;
+    const ObjectType type;
 
     /// Object's coordinates and frame.
     Shape shape;

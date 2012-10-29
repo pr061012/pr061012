@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object()
+Object::Object(ObjectType type):type(type)
 {
     this -> destroyed = false;
 }
