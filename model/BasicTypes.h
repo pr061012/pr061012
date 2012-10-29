@@ -51,4 +51,11 @@ enum ActionType
     DO_NOTHING
 };
 
+/**
+ * @brief The CreatureType enum
+ */
+enum CreatureType 
+{
+	HUMANOID, NON_HUMANOID
+};
 #endif // BASIC_TYPES_H
