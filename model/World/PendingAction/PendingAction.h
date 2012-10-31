@@ -18,7 +18,21 @@
 class PendingAction
 {
 public:
-    PendingAction();
+    //**************************************************************************
+    // CONSTRUCTOR/DESTRUCTOR
+    //**************************************************************************
+
+    /**
+     * @brief Constructor.
+     * @param actor action's actor
+     * @param type  action type
+     */
+    PendingAction(const Object * actor, const PendingActionType type);
+
+    /**
+     * @brief Destructor,
+     */
+    ~PendingAction();
 
 private:
     /// Action's actor.

@@ -5,6 +5,18 @@
 
 #include "PendingAction.h"
 
-PendingAction::PendingAction()
+//******************************************************************************
+// CONSTRUCTOR/DESTRUCTOR
+//******************************************************************************
+
+PendingAction::PendingAction(const Object * actor, const PendingActionType type) :
+    actor(actor),
+    type(type)
 {
+
+}
+
+PendingAction::~PendingAction()
+{
+
 }
