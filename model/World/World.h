@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
+#include "../../view/ViewObject.h"
 #include "Indexator/Indexator.h"
 
 
@@ -60,6 +61,7 @@ public:
     World(int rand_seed, int width, int height);
 
 private:
+    /// Size of World's region
     const int height;
     const int width;
 
@@ -81,7 +83,7 @@ public:
 
 private:
 
-    // TODO: consider if it's necessary to chane ObjectHeap to ObjectHeap*
+    // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
     /// Heap containing all World's objects
     ObjectHeap all_objects;
 
@@ -128,7 +130,7 @@ public:
      * @param y y coordinate of screen center
      * @return ViewWeather - enum indicating weather at specified location
      */
-    ViewWeather getWeatherAtPoint(double x, double y);
+    WeatherType getWeatherAtPoint(double x, double y);
 
 };
 

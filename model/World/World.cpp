@@ -38,9 +38,11 @@ World::World(int rand_seed, int width, int height)
     this->height = height > 0 ? height : DEFAULT_HEIGHT;
 
     object_factory = new ObjectFactory(&all_objects);
-    indexator = new Indexator(all_objects);
 
-    // For now, just generate a group of humans in a row.
+    // FIXME: No such constructor for indexator?
+    // indexator = new Indexator(&all_objects);
+
+    // For now, just generating a group of humans in a row.
 
     std::map <std::string, void*> params;
     int pos[] = {0, 0};
@@ -48,13 +50,13 @@ World::World(int rand_seed, int width, int height)
     params["x"] = &pos[0];
     params["y"] = &pos[1];
 
-    object_factory->createObject(HUMANOID, params);
+    // object_factory->createObject(HUMANOID, params);
 
-    pos[0] = 10;
-    object_factory->createObject(HUMANOID, params);
+    // pos[0] = 10;
+    // object_factory->createObject(HUMANOID, params);
 
-    pos[0] = 20;
-    object_factory->createObject(HUMANOID, params);
+    // pos[0] = 20;
+    // object_factory->createObject(HUMANOID, params);
 }
 
 //******************************************************************************
@@ -63,20 +65,12 @@ World::World(int rand_seed, int width, int height)
 
 void World::step()
 {
-    Object* object;
-
-    all_objects.cleanPosition();
-
-    // Initiate descending update of world objects contained in all_objects
-    while(object = all_objects.next())
-    {
-        object->step();
-    }
+    // TODO: Prepare the queue of actions for controller.
 }
 
 void World::save(std::string filepath)
 {
-
+    // TODO: Create file at filepath and save it (format?)
 }
 
 
@@ -100,8 +94,14 @@ ObjectHeap World::getAllObjects()
 
 ViewObject **World::getViewObjectsInRange(double x, double y, double radius)
 {
+    // Check all_objects in certain range and create array
+    // of (tiny) objects containing neccessary parameters.
+    return NULL;
 }
 
-ViewWeather World::getWeatherAtPoint(double x, double y)
+WeatherType World::getWeatherAtPoint(double x, double y)
 {
+    // TODO: Cycle through weather objects
+    // and return the closest type of weather for this area.
+    return RAIN;
 }
