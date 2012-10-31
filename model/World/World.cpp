@@ -21,7 +21,7 @@ World::World(std::string filepath) :
 
 }
 
-World::World(int rand_seed = 0) :
+World::World(int rand_seed) :
     width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT)
 {
     srand(rand_seed);
