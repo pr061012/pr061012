@@ -33,14 +33,9 @@ public:
     //**************************************************************************
 
 	/**
-     * @brief Constructor
-	 */
-    World();
-
-	/**
      * @brief Destructor
 	 */
-    virtual ~World();
+    ~World();
 
     /**
      * @brief Load saved world from file.
@@ -52,7 +47,7 @@ public:
      * @brief World generation by given seed.
      * @param rand_seed
 	 */
-    World(int rand_seed);
+    World(int rand_seed = 0);
 
     /**
      * @brief World generation by given seed and by specific width/height.
