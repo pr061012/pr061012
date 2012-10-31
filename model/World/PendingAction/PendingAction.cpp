@@ -20,3 +20,27 @@ PendingAction::~PendingAction()
 {
 
 }
+
+//******************************************************************************
+// STATE'S CHECKERS
+//******************************************************************************
+
+PendingActionStateType PendingAction::getState()
+{
+    return this -> state;
+}
+
+bool PendingAction::isPending()
+{
+    return (this -> state == PENDING);
+}
+
+bool PendingAction::isFailed()
+{
+    return (this -> state == FAILED);
+}
+
+bool PendingAction::isSucceed()
+{
+    return (this -> state == SUCCEED);
+}

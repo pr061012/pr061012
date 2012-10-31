@@ -34,6 +34,34 @@ public:
      */
     ~PendingAction();
 
+    //**************************************************************************
+    // STATE'S CHECKERS
+    //**************************************************************************
+
+    /**
+     * @brief  Gets current state of action.
+     * @return current state of action
+     */
+    PendingActionStateType getState();
+
+    /**
+     * @brief  Pending state checker.
+     * @return true, if action is pending
+     */
+    bool isPending();
+
+    /**
+     * @brief  Failed state checker.
+     * @return true, if action is failed
+     */
+    bool isFailed();
+
+    /**
+     * @brief  Succeed state checker.
+     * @return true, if action is succeed
+     */
+    bool isSucceed();
+
 private:
     /// Action's actor.
     const Object * actor;
@@ -48,7 +76,7 @@ private:
     const PendingActionType type;
 
     /// Result type.
-    PendingActionResultType result;
+    PendingActionStateType state;
 };
 
 #endif // PENDINGACTION_H
