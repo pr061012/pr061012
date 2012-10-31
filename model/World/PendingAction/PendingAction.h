@@ -6,6 +6,7 @@
 #ifndef PENDING_ACTION_H
 #define PENDING_ACTION_H
 
+#include <string>
 #include <vector>
 #include <map>
 
@@ -93,6 +94,9 @@ public:
     int getParam(std::string param);
 
 private:
+    /// Action type.
+    const PendingActionType type;
+
     /// Action's actor.
     const Object * actor;
 
@@ -101,9 +105,6 @@ private:
 
     /// Parameters.
     const std::map <std::string, int> params;
-
-    /// Action type.
-    const PendingActionType type;
 
     /// Result type.
     PendingActionStateType state;
