@@ -63,7 +63,8 @@ public:
     bool remove(Object* object);
 
 private:
-    std::vector < std::vector <Object*>* > data;
+    /// Vector with all objects.
+    std::vector < std::vector <Object*> > data;
 };
 
 #endif // OBJECTHEAP_H
