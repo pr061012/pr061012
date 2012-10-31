@@ -56,12 +56,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Set the value of type.
-     * @param type     the value of type
-     */
-    void setType(ObjectType type);
-
-    /**
      * @brief Get the value of type.
      * @return the value of type
      */
