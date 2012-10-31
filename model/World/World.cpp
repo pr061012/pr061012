@@ -9,38 +9,40 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-World::World()
-{
-    World(0);
-}
-
 World::~World()
 {    
     delete object_factory;
     delete indexator;
 }
 
-World::World(std::string filepath)
+World::World(std::string filepath) :
+    width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT)
 {
 
 }
 
-World::World(int rand_seed)
+World::World(int rand_seed = 0) :
+    width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT)
 {
-    World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    srand(rand_seed);
+   // World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 }
 
-World::World(int rand_seed, int width, int height)
+World::World(int rand_seed, int width, int height) :
+    width(width  > 0 ? width  : DEFAULT_WIDTH),
+    height(height > 0 ? height : DEFAULT_HEIGHT)
 {
     srand(rand_seed);
 
-    this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
-    this->height = height > 0 ? height : DEFAULT_HEIGHT;
+    //this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
+    //this->height = height > 0 ? height : DEFAULT_HEIGHT;
 
     object_factory = new ObjectFactory(&all_objects);
-    indexator = new Indexator(all_objects);
 
-    // For now, just generate a group of humans in a row.
+    // FIXME: No such constructor for indexator?
+    // indexator = new Indexator(&all_objects);
+
+    // For now, just generating a group of humans in a row.
 
     std::map <std::string, void*> params;
     int pos[] = {0, 0};
@@ -48,13 +50,13 @@ World::World(int rand_seed, int width, int height)
     params["x"] = &pos[0];
     params["y"] = &pos[1];
 
-    object_factory->createObject(HUMANOID, params);
+    // object_factory->createObject(HUMANOID, params);
 
-    pos[0] = 10;
-    object_factory->createObject(HUMANOID, params);
+    // pos[0] = 10;
+    // object_factory->createObject(HUMANOID, params);
 
-    pos[0] = 20;
-    object_factory->createObject(HUMANOID, params);
+    // pos[0] = 20;
+    // object_factory->createObject(HUMANOID, params);
 }
 
 //******************************************************************************
@@ -63,20 +65,12 @@ World::World(int rand_seed, int width, int height)
 
 void World::step()
 {
-    Object* object;
-
-    all_objects.cleanPosition();
-
-    // Initiate descending update of world objects contained in all_objects
-    while(object = all_objects.next())
-    {
-        object->step();
-    }
+    // TODO: Prepare the queue of actions for controller.
 }
 
 void World::save(std::string filepath)
 {
-
+    // TODO: Create file at filepath and save it (format?)
 }
 
 
@@ -100,8 +94,14 @@ ObjectHeap World::getAllObjects()
 
 ViewObject **World::getViewObjectsInRange(double x, double y, double radius)
 {
+    // Check all_objects in certain range and create array
+    // of (tiny) objects containing neccessary parameters.
+    return NULL;
 }
 
-ViewWeather World::getWeatherAtPoint(double x, double y)
+WeatherType World::getWeatherAtPoint(double x, double y)
 {
+    // TODO: Cycle through weather objects
+    // and return the closest type of weather for this area.
+    return RAIN;
 }
