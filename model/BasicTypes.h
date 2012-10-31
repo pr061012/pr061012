@@ -56,7 +56,7 @@ enum ActionType
  */
 enum CreatureType 
 {
-	HUMANOID, NON_HUMANOID
+    HUMANOID, NON_HUMANOID
 };
 
 #endif // BASIC_TYPES_H
