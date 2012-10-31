@@ -61,7 +61,7 @@ void Object::treat(unsigned int point)
 // ACCESSORS.
 //******************************************************************************
 
-int Object::getType()
+ObjectType Object::getType()
 {
     return this -> type;
 }

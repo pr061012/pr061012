@@ -59,7 +59,7 @@ public:
      * @brief Get the value of type.
      * @return the value of type
      */
-    int getType();
+    ObjectType getType();
 
     /**
      * @brief Set the value of shape.
