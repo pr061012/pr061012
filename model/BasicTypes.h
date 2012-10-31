@@ -31,7 +31,7 @@ enum ToolType
     SHOVEL, PICKAXE, HOE, FISHING_ROD,
 
     // Weapons.
-    BOW, SWORD, SHIELD, HOE, AXE
+    BOW, SWORD, SHIELD, AXE
 };
 
 /**
