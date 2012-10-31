@@ -1,5 +1,5 @@
 CC         = g++
-CFLAGS     = -g -c -Wall -O2
+CFLAGS     = -g -c -Wall -O2 -std=c++11
 LFLAGS     =
 
 INPUT_DIR  = ./
