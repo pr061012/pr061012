@@ -79,10 +79,10 @@ enum PendingActionType
 };
 
 /**
- * @brief The PendingActionResultType enum
+ * @brief The PendingActionStateType enum
  */
 // TODO: D'oh! Need to rename this.
-enum PendingActionResultType
+enum PendingActionStateType
 {
     PENDING, FAILED, SUCCEED
 };
