@@ -7,6 +7,14 @@
 #define BASIC_TYPES_H
 
 /**
+ * @brief The ObjectType enum
+ */
+enum ObjectType
+{
+    RESOURCE, TOOL, WEATHER, BUILDING, CREATURE
+};
+
+/**
  * @brief The WeatherType enum
  */
 enum WeatherType
@@ -28,14 +36,6 @@ enum ToolType
 enum ResourceType
 {
     GOLD, SILVER, BRONZE, COAL, WOOD, BERRIES, IRON, STONE
-};
-
-/**
- * @brief The ObjectType enum
- */
-enum ObjectType
-{
-    RESOURCE, TOOL, WEATHER, BUILDING, CREATURE
 };
 
 /**
