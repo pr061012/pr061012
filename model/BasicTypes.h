@@ -51,6 +51,7 @@ enum ResourceType
 /**
  * @brief The ActionType enum
  */
+// TODO: Rename to CreatureActionType?
 enum ActionType
 {
     // Special action (means that action isn't specified yet)
@@ -67,6 +68,23 @@ enum ActionType
 enum CreatureType 
 {
     HUMANOID, NON_HUMANOID
+};
+
+/**
+ * @brief The PendingActionType enum
+ */
+enum PendingActionType
+{
+    GO, MINE, HARM, REPAIR, CREATE, DROP, PICK_UP
+};
+
+/**
+ * @brief The PendingActionResultType enum
+ */
+// TODO: D'oh! Need to rename this.
+enum PendingActionResultType
+{
+    PENDING, FAILED, SUCCEED
 };
 
 #endif // BASIC_TYPES_H
