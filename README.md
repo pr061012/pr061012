@@ -12,7 +12,7 @@ ToDo
 
 1. Add logger (or just use cerr?)
 2. Add classes:
-   * Action
+   * Action (exception)
    * Controller & PossibilityChecker
    * ObjectHeap::iterator
    * SpellTree
