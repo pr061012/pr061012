@@ -49,6 +49,20 @@ bool PendingAction::isSucceed()
     return (this -> state == SUCCEED);
 }
 
+//**************************************************************************
+// STATE'S CHANGERS.
+//**************************************************************************
+
+void PendingAction::markAsFailed()
+{
+    this -> state = FAILED;
+}
+
+void PendingAction::markAsSucceed()
+{
+    this -> state = SUCCEED;
+}
+
 //******************************************************************************
 // ACCESSING PARAMS.
 //******************************************************************************
