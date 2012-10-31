@@ -51,13 +51,13 @@ bool ObjectHeap::remove(Object* object)
 {
     bool del = false;
 
-    for(int i=0; i < data.size();i++)
+    for(int i=0; i < data.size(); i++)
     {
-        for(int j=0; j<data[i]->size();j++)
+        for(int j=0; j < data[i].size(); j++)
         {
-            if (data[i][j]==object)
+            if (data[i][j] == object)
             {
-                data[i]->erase(j);
+                data[i].erase(j);
             }
 
             del = true;
