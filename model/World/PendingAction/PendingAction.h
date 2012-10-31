@@ -24,10 +24,14 @@ public:
 
     /**
      * @brief Constructor.
-     * @param actor action's actor
-     * @param type  action type
+     * @param type          action's type
+     * @param actor         action's actor
+     * @param participants  action's participants
+     * @param params        map action's params
      */
-    PendingAction(const Object * actor, const PendingActionType type);
+    PendingAction(const PendingActionType type, const Object * actor,
+                  const std::vector <const Object *> participants,
+                  const std::map <std::string, int> params);
 
     /**
      * @brief Destructor,
@@ -79,10 +83,10 @@ private:
     const Object * actor;
 
     /// Action's participants (without actor).
-    std::vector <const Object *> participants;
+    const std::vector <const Object *> participants;
 
     /// Parameters.
-    std::map <std::string, int> params;
+    const std::map <std::string, int> params;
 
     /// Action type.
     const PendingActionType type;

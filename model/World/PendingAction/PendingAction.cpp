@@ -9,9 +9,13 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-PendingAction::PendingAction(const Object * actor, const PendingActionType type) :
+PendingAction::PendingAction(const PendingActionType type, const Object * actor,
+                             const std::vector <const Object *> participants,
+                             const std::map <std::string, int> params) :
+    type(type),
     actor(actor),
-    type(type)
+    participants(participants),
+    params(params)
 {
 
 }
@@ -51,7 +55,7 @@ bool PendingAction::isSucceed()
 
 int PendingAction::getParam(std::string param)
 {
-    std::map <std::string, int> :: iterator iter = this -> params.find(param);
+    const std::map <std::string, int> :: const_iterator iter = this -> params.find(param);
 
     if(iter == this -> params.end())
     {
