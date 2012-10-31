@@ -23,7 +23,8 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 //******************************************************************************
 
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
-    Creature(NON_HUMANOID, dmaker)
+    Object(CREATURE),
+    Creature(HUMANOID, dmaker)
 {
     // Randomly initialize some values.
     int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);

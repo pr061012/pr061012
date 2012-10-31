@@ -24,6 +24,7 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 //******************************************************************************
 
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
+    Object(CREATURE),
     Creature(HUMANOID, dmaker)
 {
     int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
