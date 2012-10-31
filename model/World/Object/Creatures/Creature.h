@@ -28,7 +28,7 @@ public:
      * @param type      creature's type
      * @param dmaker    creature's decision maker
      */
-    Creature::Creature(CreatureType type, const DecisionMaker & dmaker);
+    Creature(CreatureType type, const DecisionMaker & dmaker);
 
     /**
      * @brief Destructor.
