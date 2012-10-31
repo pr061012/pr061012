@@ -9,7 +9,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type):type(type)
+Object::Object(ObjectType type) :
+    type(type)
 {
     this -> destroyed = false;
 }
@@ -60,13 +61,7 @@ void Object::treat(unsigned int point)
 // ACCESSORS.
 //******************************************************************************
 
-void Object::setType(ObjectType type)
-{
-    this -> type = type;
-}
-
-
-int Object::getType()
+ObjectType Object::getType()
 {
     return this -> type;
 }
