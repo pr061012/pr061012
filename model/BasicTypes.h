@@ -27,7 +27,11 @@ enum WeatherType
  */
 enum ToolType
 {
-    SHOVEL, PICKAXE, SWORD, SHIELD, HOE, AXE, FISHING_ROD
+    // Tools.
+    SHOVEL, PICKAXE, HOE, FISHING_ROD,
+
+    // Weapons.
+    BOW, SWORD, SHIELD, HOE, AXE
 };
 
 /**
@@ -35,7 +39,13 @@ enum ToolType
  */
 enum ResourceType
 {
-    GOLD, SILVER, BRONZE, COAL, WOOD, BERRIES, IRON, STONE
+    // Minable resources.
+    BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
+
+    // Pickable resources.
+    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE
+
+    // TODO: Add food.
 };
 
 /**
