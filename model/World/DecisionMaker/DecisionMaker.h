@@ -5,21 +5,21 @@
 
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
+
 #define ATR_CONST_HUM 9
 #define ACT_CONST_HUM 9
 #define ATR_CONST_NON_HUM 5
 #define ACT_CONST_NON_HUM 5
-// Temporary workaround.
 
 #include <armadillo>
-#include<fstream>
-#include"BasicTypes.h"
-#include<vector>
-#include<random>
+#include <fstream>
+#include <vector>
+#include <random>
+
+#include "../../BasicTypes.h"
 
 using namespace std;
 using namespace arma;
-
 
 /**
  * @class DecisionMaker
