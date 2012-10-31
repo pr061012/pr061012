@@ -44,3 +44,19 @@ bool PendingAction::isSucceed()
 {
     return (this -> state == SUCCEED);
 }
+
+//******************************************************************************
+// ACCESSING PARAMS.
+//******************************************************************************
+
+int PendingAction::getParam(std::string param)
+{
+    std::map <std::string, int> :: iterator iter = this -> params.find(param);
+
+    if(iter == this -> params.end())
+    {
+        // TODO: Throw an exception.
+    }
+
+    return iter -> second;
+}

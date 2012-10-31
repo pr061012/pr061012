@@ -62,6 +62,18 @@ public:
      */
     bool isSucceed();
 
+    //**************************************************************************
+    // ACCESSING PARAMS.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets value of param.
+     * @param  param    param name
+     * @return value of param
+     */
+    // TODO: Throw an exception when param isn't specified.
+    int getParam(std::string param);
+
 private:
     /// Action's actor.
     const Object * actor;
