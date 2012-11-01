@@ -13,18 +13,15 @@
 #define PATH_TO_HUM_MATRIX "/../../../res/humanoid_matrix_decision.txt"
 #define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_matrix_decision.txt"
 
-// Temporary workaround.
-
 #include <armadillo>
-#include<fstream>
-#include "../../BasicTypes.h"
-#include<vector>
-#include <stdlib.h>
+#include <fstream>
+#include <vector>
+#include <random>
 
+#include "../../BasicTypes.h"
 
 using namespace std;
 using namespace arma;
-
 
 /**
  * @class DecisionMaker
