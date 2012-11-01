@@ -5,7 +5,6 @@ LFLAGS     =
 
 # Paths.
 INPUT_DIR  = ./
-EXECUTABLE = pr061012
 MODEL_DIR  = $(INPUT_DIR)model/
 
 # Files with sources.
@@ -14,6 +13,9 @@ SOURCES   += main.cpp
 
 # Object files.
 OBJECTS    = $(SOURCES:.cpp=.o)
+
+# Executable file.
+EXECUTABLE = pr061012
 
 # Rules.
 
