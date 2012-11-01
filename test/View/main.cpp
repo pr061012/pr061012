@@ -14,7 +14,7 @@
 #include <GL/glfw.h>
 #include <GL/gl.h>
 
-#include "view/ViewObject.h"
+#include "../../view/ViewObject.h"
 
 #include "gui_main.h"
 
