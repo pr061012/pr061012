@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource():Object(RESOURCE)
+Resource::Resource(const ResourceType type) :
+    Object(RESOURCE),
+    type(type)
 {
 
 }
@@ -19,7 +21,16 @@ Resource::~Resource()
 
 }
 
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
+
 unsigned int Resource::gather(Tool tool)
+{
+
+}
+
+std::vector <PendingAction *> Resource::getPendingActions()
 {
 
 }
