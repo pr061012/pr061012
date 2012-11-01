@@ -100,10 +100,10 @@ int main()
 //            glRectd(x-0.15, y-0.15, x+0.15, y+0.15); // before it just drew a white square. How ugly...
 
             glBegin(GL_POLYGON); // Drawing human at specific place
-                glTexCoord2f(0.0, 0.0);            glVertex2f(x-0.65, y-0.28);
-                glTexCoord2f(14.0f/64, 0);         glVertex2f(x+0.65, y-0.28);
-                glTexCoord2f(14.0f/64, 26.0f/121); glVertex2f(x+0.65, y+0.28);
-                glTexCoord2f(0.0, 26.0f/121);      glVertex2f(x-0.65, y+0.28);
+                glTexCoord2f(0.0, 0.0);            glVertex2f(x-0.33, y-0.65);
+                glTexCoord2f(14.0f/64, 0);         glVertex2f(x+0.33, y-0.65);
+                glTexCoord2f(14.0f/64, 26.0f/121); glVertex2f(x+0.33, y+0.65);
+                glTexCoord2f(0.0, 26.0f/121);      glVertex2f(x-0.33, y+0.65);
             glEnd();
         }
         glDisable(GL_BLEND);

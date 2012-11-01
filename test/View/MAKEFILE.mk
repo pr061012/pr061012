@@ -1,2 +1,6 @@
+CFLAGS = -g -Wall
+COBJS = gui_main.h gui_main.cpp main.cpp ../../view/ViewObject.h ../../view/ViewObject.cpp
+
+
 all: main.cpp
-	g++ -g -Wall main.cpp -L"$(CURDIR)" -lGL -lGLU -lglfw -lSOIL
+	g++ $(CFLAGS) $(COBJS) -L"$(CURDIR)" -lGL -lGLU -lglfw -lSOIL
