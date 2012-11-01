@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../../model/World/Indexator/Indexator.h"
 
 using namespace std;
 
