@@ -112,7 +112,10 @@ private:
     /// Maximum available space.
     int max_space;
 
-    /// Completeness of the building.
+    /// @brief Completeness of the building. As building is founded, it gets 0
+    ///        health. Building proccess is equivalent to repairing proccess.
+    ///        After first repairing (as health becomes equals to max_health)
+    ///        completeness value changes to true and building becomes complete.
     bool completeness;
 };
 
