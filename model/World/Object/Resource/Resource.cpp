@@ -21,7 +21,16 @@ Resource::~Resource()
 
 }
 
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
+
 unsigned int Resource::gather(Tool tool)
+{
+
+}
+
+std::vector <PendingAction *> Resource::getPendingActions()
 {
 
 }

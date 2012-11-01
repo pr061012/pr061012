@@ -30,12 +30,22 @@ public:
      */
     ~Resource();
 
+    //**************************************************************************
+    // RESOURCE'S LIFE.
+    //**************************************************************************
+
     /**
      * @brief  Resource gathering. Should be spawned only by Tool.
      * @param  tool that spawned gathering
      * @return amount of gathered resource
      */
     unsigned int gather(Tool tool);
+
+    /**
+     * @brief  Gets array with pending actions.
+     * @return array with pending actions
+     */
+    std::vector <PendingAction *> getPendingActions();
 
     //**************************************************************************
     // ACCESSORS.
@@ -126,6 +136,9 @@ private:
 
     /// Amount of resources received on each gather step.
     unsigned int amount_per_gather;
+
+    /// Array with pending actions.
+    std::vector <PendingAction *> actions;
 };
 
 #endif // RESOURCE_H
