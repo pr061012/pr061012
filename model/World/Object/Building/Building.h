@@ -50,26 +50,18 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
-    // TODO: Do we need this setter? We already have putInside() and takeOut()
-    //       methods.
-    /**
-     * @brief Set the value of contents.
-     * @param new_var the new value of contents
-     */
-    void setContents(ObjectHeap new_var);
-
     /**
      * @brief  Get the value of contents.
      * @return the value of contents
      */
-    ObjectHeap getContents();
+    const ObjectHeap & getContents();
 
     // TODO: Do we need that? Seems like to be a pretty bad thing.
     /**
      * @brief Set the value of free_space.
      * @param new_var the new value of free_space
      */
-    void setFreeSpace (int new_var);
+    void setFreeSpace(int new_var);
 
     /**
      * @brief  Get the value of free_space.
@@ -102,10 +94,8 @@ public:
     bool getCompleteness();
 
 private:
-    // TODO: Maybe you should use ObjectHeap * instead of ObjectHeap. ObjectHeap
-    //       may have enourmous size. It's obviously silly to copy big objects.
     /// Building contents.
-    ObjectHeap contents;
+    ObjectHeap & contents;
 
     /// Free space.
     int free_space;

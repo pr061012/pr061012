@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building():Object(BUILDING)
+Building::Building() :
+    Object(BUILDING),
+    contents(new ObjectHeap)
 {
     this -> completeness = false;
 }
@@ -33,12 +35,7 @@ bool Building::takeOut(Object * object)
 // ACCESSORS.
 //******************************************************************************
 
-void Building::setContents(ObjectHeap new_var)
-{
-    this -> contents = new_var;
-}
-
-ObjectHeap Building::getContents()
+const ObjectHeap & Building::getContents()
 {
     return this -> contents;
 }
