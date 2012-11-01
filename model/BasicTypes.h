@@ -7,6 +7,14 @@
 #define BASIC_TYPES_H
 
 /**
+ * @brief The ObjectType enum
+ */
+enum ObjectType
+{
+    RESOURCE, TOOL, WEATHER, BUILDING, CREATURE
+};
+
+/**
  * @brief The WeatherType enum
  */
 enum WeatherType
@@ -19,7 +27,11 @@ enum WeatherType
  */
 enum ToolType
 {
-    SHOVEL, PICKAXE, SWORD, SHIELD, HOE, AXE, FISHING_ROD
+    // Tools.
+    SHOVEL, PICKAXE, HOE, FISHING_ROD,
+
+    // Weapons.
+    BOW, SWORD, SHIELD, AXE
 };
 
 /**
@@ -27,20 +39,19 @@ enum ToolType
  */
 enum ResourceType
 {
-    GOLD, SILVER, BRONZE, COAL, WOOD, BERRIES, IRON, STONE
-};
+    // Minable resources.
+    BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 
-/**
- * @brief The ObjectType enum
- */
-enum ObjectType
-{
-    RESOURCE, TOOL, WEATHER, BUILDING, HUMANOID, NONHUMANOID
+    // Pickable resources.
+    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE
+
+    // TODO: Add food.
 };
 
 /**
  * @brief The ActionType enum
  */
+// TODO: Rename to CreatureActionType?
 enum ActionType
 {
     // Special action (means that action isn't specified yet)
@@ -49,6 +60,31 @@ enum ActionType
     // Common actions.
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
     DO_NOTHING
+};
+
+/**
+ * @brief The CreatureType enum
+ */
+enum CreatureType 
+{
+    HUMANOID, NON_HUMANOID
+};
+
+/**
+ * @brief The PendingActionType enum
+ */
+enum PendingActionType
+{
+    GO, MINE, HARM, REPAIR, CREATE, DROP, PICK_UP
+};
+
+/**
+ * @brief The PendingActionStateType enum
+ */
+// TODO: D'oh! Need to rename this.
+enum PendingActionStateType
+{
+    PENDING, FAILED, SUCCEED
 };
 
 #endif // BASIC_TYPES_H

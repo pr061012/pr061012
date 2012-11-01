@@ -8,9 +8,10 @@
 
 #include <string>
 #include <vector>
-#include "Window/Window.h"
+#include <map>
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
+
 
 /**
  * @class Indexator
@@ -18,21 +19,29 @@
  */
 class Indexator
 {
+
+private:
+//**************************************************************************
+// FOR TEST USE ONLY!!!
+typedef std::vector<Object*> ObjectHeap;
+//**************************************************************************
+
 public:
     //**************************************************************************
     // CONSTRUCTORS/DESTRUCTOR.
     //**************************************************************************
 
     /**
-     * @brief Constructor.
+     *  @brief Constructor.
      */
     Indexator();
 
     /**
-     * @brief Creates grid and indexates object from heap.
-     * @param list  heap with objects
+     *  @brief  Creates grid and indexates object from heap.
+     *  @param  list heap with objects
+     *  @param  size size of the world
      */
-    Indexator(ObjectHeap * list);
+    Indexator(double size, ObjectHeap * list = 0);
 
     /**
      * @brief Destructor.
@@ -44,48 +53,47 @@ public:
     //**************************************************************************
 
     /**
-     * @brief  Returns heap with objects from the certain frame.
-     * @param  frame    from to find objects from
-     * @return heap with objects
+     *  @brief  Returns heap with objects from the certain area.
+     *  @param  area where to look for objects
+     *  @return heap with objects in given area
      */
-    ObjectHeap * getFrameContents(Frame frame);
-
-    /**
-     * @brief Creates window in windows for certain object and returns pointer
-     *        "view from window". Object must have view_area (Frame).
-     * @param  object   pointer to object
-     * @return visible objects
-     */
-    ObjectHeap * createWindow(Object * object);
+    ObjectHeap * getAreaContents(Shape area);
 
     //**************************************************************************
-    // STEP.
+    // REINDEXATING
     //**************************************************************************
 
     /**
-     * @brief Reindexes objects and changes window's positions.
+     *  @brief  Creates an index for all given objects.
+     *  @param  objects heap of objects
      */
-    void step();
-
-    //**************************************************************************
-    // ACCESSORS.
-    //**************************************************************************
+    void reindexate(ObjectHeap * objects);
 
     /**
-     * @brief Set the value of windows.
-     * @param new_var the new value of windows
+     *  @brief  Reindexates an object or adds new object to index.
+     *  @param  object an object t reindexate
      */
-    void setWindows(std::vector <Window> new_var);
-
-    /**
-     * @brief Get the value of windows.
-     * @return the value of windows
-     */
-    std::vector <Window> getWindows();
+    void reindexate(Object * object);
 
 private:
-    /// List with all windows.
-    std::vector <Window> windows;
+
+
+    /// Maximimum size of the cell
+    static const double MAX_CELL_SIZE = 100;
+
+    /// Cell size
+    double cell_size;
+
+    /// Ammount of cells on a row
+    int row_size;
+
+    /// Type of an index structure
+    typedef int Area[4];
+    typedef std::map<Object *, Area> Index;
+
+    /// Index structure
+    Index index;
+    ObjectHeap ** cells;
 };
 
 #endif // INDEXATOR_H

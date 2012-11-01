@@ -20,25 +20,16 @@ ObjectHeap::~ObjectHeap()
 }
 
 //******************************************************************************
-// GETTING NEXT ELEMENTS.
+// GETTING TYPE AMOUNT
 //******************************************************************************
 
-Object* ObjectHeap::next()
+unsigned int ObjectHeap::getTypeAmount(ObjectType type)
 {
-    Object* object = new Object();
-    return object;
-}
+    // Get type of object.
+    int type_id = static_cast<int>(type);
+    int size = data[type_id].size();
 
-Object* ObjectHeap::next(ObjectType type)
-{
-    Object* object = new Object();
-    object -> setType(type);
-    return object;
-}
-
-unsigned int ObjectHeap::getTypeAmount(ObjectType)
-{
-    return 0;
+    return size;
 }
 
 //******************************************************************************
@@ -47,10 +38,31 @@ unsigned int ObjectHeap::getTypeAmount(ObjectType)
 
 bool ObjectHeap::push(Object* object)
 {
-    return True;
+    // Getting type of the object.
+    int type_id = static_cast<int>(object -> getType());
+
+    data[type_id + 1].push_back(object);
+    data[0].push_back(object);
+
+    return true;
 }
 
 bool ObjectHeap::remove(Object* object)
 {
-    return True;
+    bool del = false;
+
+    for(int i = 0; i < data.size(); i++)
+    {
+        for(int j = 0; j < data[i].size(); j++)
+        {
+            if (data[i][j] == object)
+            {
+                data[i].erase(data[i].begin() + j);
+            }
+
+            del = true;
+        }
+    }
+
+    return del;
 }

@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource()
+Resource::Resource(const ResourceType type) :
+    Object(RESOURCE),
+    subtype(type)
 {
 
 }
@@ -19,12 +21,23 @@ Resource::~Resource()
 
 }
 
-unsigned int Resource::gather(Tool tool)
-{
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
 
+void Resource::decreaseAmount(unsigned int delta)
+{
+    if(this -> amount >= delta)
+    {
+        this -> amount -= delta;
+    }
+    else
+    {
+        this -> amount = 0;
+    }
 }
 
-void Resource::step()
+std::vector <PendingAction *> Resource::getPendingActions()
 {
 
 }
@@ -33,20 +46,14 @@ void Resource::step()
 // ACCESSORS.
 //******************************************************************************
 
-void Resource::setProgress(int new_var)
+void Resource::setProgress(unsigned int new_var)
 {
     this -> progress = new_var;
 }
 
-
-int Resource::getProgress()
+unsigned int Resource::getProgress()
 {
     return this -> progress;
-}
-
-void Resource::setSubtype(ResourceType new_var)
-{
-    this -> subtype = new_var;
 }
 
 ResourceType Resource::getSubtype()
@@ -54,12 +61,12 @@ ResourceType Resource::getSubtype()
     return this -> subtype;
 }
 
-void Resource::setRegenerationRate(int new_var)
+void Resource::setRegenerationRate(unsigned int new_var)
 {
     this -> regeneration_rate = new_var;
 }
 
-int Resource::getRegenerationRate()
+unsigned int Resource::getRegenerationRate()
 {
     return this -> regeneration_rate;
 }
@@ -74,22 +81,22 @@ bool Resource::getGathered()
     return this -> gathered;
 }
 
-void Resource::setDifficulty(int new_var)
+void Resource::setDifficulty(unsigned int new_var)
 {
     this -> difficulty = new_var;
 }
 
-int Resource::getDifficulty()
+unsigned int Resource::getDifficulty()
 {
     return this -> difficulty;
 }
 
-void Resource::setAmountPerGather(int new_var)
+void Resource::setAmountPerGather(unsigned int new_var)
 {
     this -> amount_per_gather = new_var;
 }
 
-int Resource::getAmountPerGather()
+unsigned int Resource::getAmountPerGather()
 {
     return this -> amount_per_gather;
 }

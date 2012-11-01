@@ -46,28 +46,43 @@ public:
 
 private:
     //**************************************************************************
+    // IDS.
+    //**************************************************************************
+
+    static int CURRENT_ID;
+
+    const unsigned int id;
+
+    //**************************************************************************
     // COMMON INFORMATION.
     //**************************************************************************
+
+    /// Current humanoid's action.
+    ActionType action;
 
     /// Humanoid's name.
     std::string name;
 
     //**************************************************************************
     // RELATIVE COEFFICIENTS.
-    // May have any value. In decision maker we use only quotient of them.
+    // May have any value. In decision maker we use only quotient of them (in
+    // percents).
     // One coefficient is declared in Object class -- health and max_health.
     //**************************************************************************
 
-    /// Current value of satiety.
-    unsigned int satiety;
-    /// Maximum possible value of satiety.
-    unsigned int max_satiety;
+    // Quotient = 100 => humanoid wants eat.
+    /// Current value of hunger.
+    unsigned int hunger;
+    /// Maximum possible value of hunger.
+    unsigned int max_hunger;
 
+    // Quotient = 100 => humanoid wants sleep.
     /// Current value of sleepiness.
     unsigned int sleepiness;
     /// Maximum possible value of sleepiness.
     unsigned int max_sleepiness;
 
+    // Quotient = 100 => humanoid wants to talk with somebody.
     /// Current sociability.
     unsigned int sociability;
     /// Maximum possible value of sociability.
@@ -78,14 +93,21 @@ private:
     // May take only value in range [0, 100].
     //**************************************************************************
 
+    // If = 100, humanoid is in danger.
     /// Current safety.
     unsigned int safety;
 
-    /// Diligence (const during time).
-    unsigned int diligence;
+    // If = 100, humanoid is very lazy.
+    /// Laziness (const during time).
+    unsigned int laziness;
 
-    // TODO: Add * contentment of house
-    //           * resource availability
+    // If = 100, humanoid needs new house.
+    /// Need in house.
+    unsigned int need_in_house;
+
+    // If = 100, humanoid needs resources.
+    /// Need in resources.
+    unsigned int need_in_res;
 };
 
 #endif // HUMANOID_H

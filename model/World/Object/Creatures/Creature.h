@@ -25,23 +25,15 @@ public:
     /**
      * @brief Random constructor (creates Creature with really random
      *        attributes).
+     * @param type      creature's type
      * @param dmaker    creature's decision maker
      */
-    Creature(const DecisionMaker & dmaker);
+    Creature(CreatureType type, const DecisionMaker & dmaker);
 
     /**
      * @brief Destructor.
      */
     ~Creature();
-
-    //**************************************************************************
-    // CREATURE'S LOGICS.
-    //**************************************************************************
-
-    /**
-     * @brief Makes a next step.
-     */
-    virtual void step() = 0;
 
     //**************************************************************************
     // ACCESSORS.
@@ -63,13 +55,13 @@ public:
      * @brief Set the value of view_area.
      * @param view_area the new value of view_area
      */
-    void setViewArea(Frame view_area);
+    void setViewArea(Shape view_area);
 
     /**
      * @brief  Get the value of view_area.
      * @return the value of view_area
      */
-    Frame getViewArea();
+    Shape getViewArea();
 
     /**
      * @brief Set the value of age.
@@ -96,7 +88,10 @@ public:
     unsigned int getMaxAge();
 
 private:
-    /// Link to creature's DecisionMaker.
+    /// Creature's type.
+    const CreatureType subtype;
+
+    /// Reference to creature's DecisionMaker.
     const DecisionMaker & brains;
 
     /// Creature's window with visible objects.
@@ -106,7 +101,7 @@ private:
     ObjectHeap * inventory;
 
     /// View area for Indexator.
-    Frame view_area;
+    Shape view_area;
 
     /// Current creature's action.
     ActionType current_action;
