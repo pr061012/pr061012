@@ -6,8 +6,11 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include <vector>
+
 #include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
+#include "../PendingAction/PendingAction.h"
 
 /**
  * @class Object
@@ -50,6 +53,12 @@ public:
      * @param point point of treat
      */
     void treat(unsigned int point);
+
+    /**
+     * @brief  Gets objects pending actions.
+     * @return vector with pending actions.
+     */
+    virtual std::vector <PendingAction *> getPendingActions() = 0;
 
     //**************************************************************************
     // ACCESSORS.
@@ -159,6 +168,9 @@ private:
 
     /// Angle of rotation.
     double angle;
+
+    /// Array with pending actions.
+    std::vector <PendingAction *> actions;
 };
 
 #endif // OBJECT_H
