@@ -46,7 +46,7 @@ public:
      * @brief Set the value of progress.
      * @param new_var the new value of progress
      */
-    void setProgress(int new_var);
+    void setProgress(unsigned int new_var);
 
     /**
      * @brief Get the value of progress.
@@ -70,13 +70,13 @@ public:
      * @brief Set the value of regeneration_rate.
      * @param new_var the new value of regeneration_rate
      */
-    void setRegenerationRate(int new_var);
+    void setRegenerationRate(unsigned int new_var);
 
     /**
      * @brief Get the value of regeneration_rate.
      * @return the value of regeneration_rate
      */
-    int getRegenerationRate();
+    unsigned int getRegenerationRate();
 
     /**
      * @brief Set the value of gathered.
@@ -94,30 +94,33 @@ public:
      * @brief Set the value of difficulty.
      * @param new_var the new value of difficulty
      */
-    void setDifficulty(int new_var);
+    void setDifficulty(unsigned int new_var);
 
     /**
      * @brief Get the value of difficulty.
      * @return the value of difficulty
      */
-    int getDifficulty();
+    unsigned int getDifficulty();
 
     /**
      * @brief Set the value of amount_per_gather.
      * @param new_var the new value of amount_per_gather
      */
-    void setAmountPerGather(int new_var);
+    void setAmountPerGather(unsigned int new_var);
 
     /**
      * @brief Get the value of amount_per_gather.
      * @return the value of amount_per_gather
      */
-    int getAmountPerGather();
+    unsigned int getAmountPerGather();
 
 private:
     /// @brief Resource gathering process (Wood can't be hacked by one hit.
     ///        Humanoid needs several hits to do that.)
-    int progress;
+    unsigned int progress;
+
+    /// Amount of resource.
+    unsigned int amount;
 
     /// Type of resource
     ResourceType subtype;
@@ -125,17 +128,17 @@ private:
     /// @brief Resource regeneration rate. (Either amount of steps to restore
     ///        1 resource unit or amount of steps to full regeneration or smth
     ///        else).
-    int regeneration_rate;
+    unsigned int regeneration_rate;
 
     /// @brief Resource maybe gathered (trees, mountains, mines) or not (stones,
     ///        log, ore).
     bool gathered;
 
     /// Amount of steps to gather this resource.
-    int difficulty;
+    unsigned int difficulty;
 
     /// Amount of resources received on each gather step.
-    int amount_per_gather;
+    unsigned int amount_per_gather;
 };
 
 #endif // RESOURCE_H
