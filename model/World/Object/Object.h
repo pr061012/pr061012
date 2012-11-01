@@ -60,6 +60,12 @@ public:
      */
     virtual std::vector <PendingAction *> getPendingActions() = 0;
 
+    /**
+     * @brief Receives message.
+     * @param action    message
+     */
+    virtual void receiveMessage(PendingAction * action) = 0;
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
@@ -168,9 +174,6 @@ private:
 
     /// Angle of rotation.
     double angle;
-
-    /// Array with pending actions.
-    std::vector <PendingAction *> actions;
 };
 
 #endif // OBJECT_H
