@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource():Object(RESOURCE)
+Resource::Resource(const ResourceType type) :
+    Object(RESOURCE),
+    type(type)
 {
 
 }

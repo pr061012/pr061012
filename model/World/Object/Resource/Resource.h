@@ -5,6 +5,7 @@
 
 #ifndef RESOURCE_H
 #define RESOURCE_H
+
 #include "../Object.h"
 #include "../Tool/Tool.h"
 
@@ -19,12 +20,10 @@ public:
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
-    // TODO: Maybe constructor should receive some args?
-
     /**
      * @brief Constructor.
      */
-    Resource();
+    Resource(const ResourceType type);
 
     /**
      * @brief Destructor.
@@ -53,18 +52,6 @@ public:
      * @return the value of progress
      */
     int getProgress();
-
-    /**
-     * @brief Set the value of subtype.
-     * @param new_var the new value of subtype
-     */
-    void setSubtype(ResourceType new_var);
-
-    /**
-     * @brief Get the value of subtype.
-     * @return the value of subtype
-     */
-    ResourceType getSubtype();
 
     /**
      * @brief Set the value of regeneration_rate.
@@ -123,7 +110,7 @@ private:
     unsigned int amount;
 
     /// Type of resource
-    ResourceType subtype;
+    const ResourceType subtype;
 
     /// @brief Resource regeneration rate. (Either amount of steps to restore
     ///        1 resource unit or amount of steps to full regeneration or smth
