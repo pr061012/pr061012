@@ -11,8 +11,9 @@
 #include <map>
 
 // NOTE: In Object.h this file is included. To prevent compiler crash we need to
-//       declare Object first. Maybe not a good solution.
+//       declare Object and PendingAction first. Maybe not a good solution.
 class Object;
+class PendingAction;
 
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
