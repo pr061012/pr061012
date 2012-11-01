@@ -11,12 +11,16 @@
 
 ObjectFactory::ObjectFactory()
 {
+    ObjectFactory(NULL);
+}
 
+ObjectFactory::ObjectFactory(ObjectHeap *list)
+{
+    this -> list = list;
 }
 
 ObjectFactory::~ObjectFactory()
 {
-
 }
 
 //******************************************************************************
@@ -25,7 +29,5 @@ ObjectFactory::~ObjectFactory()
 
 Object* ObjectFactory::createObject(ObjectType type, std::map<std::string, void *> params)
 {
-    std::map<std::string, void *>::iterator iter;
-
 
 }

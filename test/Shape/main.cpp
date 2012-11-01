@@ -9,6 +9,7 @@ int main()
 {
     Shape sh1(Point(1, 1), SQUARE, 10);
     Shape sh2(Point(-5, -7.5), CIRCLE, 12);
+    Shape sh3;
 
     //Accessors tests
     //
@@ -69,8 +70,6 @@ int main()
     assert(sh1.intersect(sh2) & BOTTOM &&
            sh2.intersect(sh1) & (TOP | LEFT | RIGHT));
 
-
-    cout << "Hello World!" << endl;
     return 0;
 }
 

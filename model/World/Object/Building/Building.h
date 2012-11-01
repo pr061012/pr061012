@@ -46,12 +46,6 @@ public:
      */
     bool takeOut(Object * object);
 
-    /**
-     * @brief Builds or repaires building. Must be spawned only by tool.use();
-     * @param tool
-     */
-    void maintain(Tool tool);
-
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************

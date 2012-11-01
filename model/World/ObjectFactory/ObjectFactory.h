@@ -13,6 +13,7 @@
 #include <map>
 
 #include "../Object/Object.h"
+#include "../ObjectHeap/ObjectHeap.h"
 
 /**
  * @class ObjectFactory
@@ -20,6 +21,9 @@
  */
 class ObjectFactory
 {
+    /// If not NULL, all objects will be automatically added in this ObjectHeap
+    ObjectHeap* list;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -29,6 +33,11 @@ public:
      * @brief Constructor.
      */
     ObjectFactory();
+
+    /**
+     * @brief Create ObjectFactory which will automatically add created objects in ObjectHeap provided.
+     */
+    ObjectFactory(ObjectHeap* list);
 
     /**
      * @brief Destructor.

@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building()
+Building::Building():Object(BUILDING)
 {
     this -> completeness = false;
 }
@@ -25,11 +25,6 @@ bool Building::putInside(Object * object)
 }
 
 bool Building::takeOut(Object * object)
-{
-
-}
-
-void Building::maintain(Tool tool)
 {
 
 }
