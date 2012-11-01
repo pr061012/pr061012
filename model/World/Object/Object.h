@@ -6,8 +6,11 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include <vector>
+
 #include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
+#include "../PendingAction/PendingAction.h"
 
 /**
  * @class Object
@@ -23,7 +26,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Object();
+    Object(ObjectType type);
 
     /**
      * @brief Destructor.
@@ -52,25 +55,20 @@ public:
     void treat(unsigned int point);
 
     /**
-     * @brief Virtual step action
+     * @brief  Gets objects pending actions.
+     * @return vector with pending actions.
      */
-    void virtual step()=0;
+    virtual std::vector <PendingAction *> getPendingActions() = 0;
 
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
     /**
-     * @brief Set the value of type.
-     * @param type     the value of type
-     */
-    void setType(ObjectType type);
-
-    /**
      * @brief Get the value of type.
      * @return the value of type
      */
-    int getType();
+    ObjectType getType();
 
     /**
      * @brief Set the value of shape.
@@ -146,7 +144,7 @@ public:
     
 private:
     /// Object's type.
-    ObjectType type;
+    const ObjectType type;
 
     /// Object's coordinates and frame.
     Shape shape;
@@ -170,6 +168,9 @@ private:
 
     /// Angle of rotation.
     double angle;
+
+    /// Array with pending actions.
+    std::vector <PendingAction *> actions;
 };
 
 #endif // OBJECT_H

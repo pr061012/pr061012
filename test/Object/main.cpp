@@ -10,14 +10,9 @@
 class AnyObject : public Object
 {
 public:
-    void virtual step()
+    AnyObject(ObjectType type):Object(type)
     {
-        this -> setHealth(this -> getHealth() + 10);
-    }
 
-    AnyObject(ObjectType type)
-    {
-        this -> setType(type);
     }
 };
 
@@ -106,11 +101,6 @@ int main()
     /// Test treat when treat point more then harm.
     object.treat(100);
     assert(object.getHealth() == object.getMaxHealth());
-
-    /// Test step function
-    object.setHealth(100);
-    object.step();
-    assert(object.getHealth() == 110);
 
     return 0;
 }

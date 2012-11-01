@@ -23,7 +23,9 @@ ObjectFactory::~ObjectFactory()
 // OBJECT'S CREATION.
 //******************************************************************************
 
-Object* ObjectFactory::createObject(int type, std::map <std::string, void *> params)
+Object* ObjectFactory::createObject(ObjectType type, std::map<std::string, void *> params)
 {
+    std::map<std::string, void *>::iterator iter;
+
 
 }
