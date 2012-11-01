@@ -29,7 +29,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
     int a;
     int i, j;
 
-    if (type == HUMANOIDS)
+    if (type == HUMANOID)
     {
         some_matrix.open (PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
