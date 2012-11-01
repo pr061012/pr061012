@@ -35,11 +35,10 @@ public:
     //**************************************************************************
 
     /**
-     * @brief  Resource gathering. Should be spawned only by Tool.
-     * @param  tool that spawned gathering
-     * @return amount of gathered resource
+     * @brief Decreases amount of resource.
+     * @param delta amount of resource to decrease
      */
-    unsigned int gather(Tool tool);
+    void decreaseAmount(unsigned int delta);
 
     /**
      * @brief  Gets array with pending actions.
@@ -61,7 +60,13 @@ public:
      * @brief Get the value of progress.
      * @return the value of progress
      */
-    int getProgress();
+    unsigned int getProgress();
+
+    /**
+     * @brief  Gets the value of subtype.
+     * @return the value of subtype
+     */
+    ResourceType getSubtype();
 
     /**
      * @brief Set the value of regeneration_rate.
