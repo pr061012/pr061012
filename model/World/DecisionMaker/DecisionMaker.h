@@ -5,17 +5,22 @@
 
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
+
 #define ATR_CONST_HUM 9
 #define ACT_CONST_HUM 9
 #define ATR_CONST_NON_HUM 5
 #define ACT_CONST_NON_HUM 5
+#define PATH_TO_HUM_MATRIX "/../../../res/humanoid_matrix_decision.txt"
+#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_matrix_decision.txt"
+
 // Temporary workaround.
 
 #include <armadillo>
 #include<fstream>
-#include"BasicTypes.h"
+#include "../../BasicTypes.h"
 #include<vector>
-#include<random>
+#include <stdlib.h>
+
 
 using namespace std;
 using namespace arma;
