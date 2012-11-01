@@ -2,6 +2,7 @@
 CC         = g++
 CFLAGS     = -g -c -Wall -O2 -std=c++11
 LFLAGS     =
+LIBS       = -larmadillo
 
 # Paths.
 INPUT_DIR  = ./
@@ -22,7 +23,7 @@ EXECUTABLE = pr061012
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LFLAGS) $(OBJECTS) -o $@
+	$(CC) $(LFLAGS) $(OBJECTS) -o $@ $(LIBS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
