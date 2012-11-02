@@ -25,7 +25,7 @@ Action::~Action()
 // STATE'S CHECKERS
 //******************************************************************************
 
-PendingActionStateType Action::getState()
+ActionState Action::getState()
 {
     return this -> state;
 }

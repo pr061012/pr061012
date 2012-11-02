@@ -48,7 +48,7 @@ public:
      * @brief  Gets current state of action.
      * @return current state of action
      */
-    PendingActionStateType getState();
+    ActionState getState();
 
     /**
      * @brief  Pending state checker.
@@ -121,7 +121,7 @@ private:
     std::map <std::string, int> params;
 
     /// Result type.
-    PendingActionStateType state;
+    ActionState state;
 };
 
 #endif // ACTION_H
