@@ -18,6 +18,7 @@ doxygen/*
 
 # Compiled binaries.
 pr061012*
+*.out
 
 # Logs.
 *.log
