@@ -7,7 +7,7 @@
 #define INDEXATOR_H
 
 #include <string>
-#include <vector>
+#include <set>
 #include <map>
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
@@ -19,14 +19,13 @@
  */
 class Indexator
 {
-
-private:
-//**************************************************************************
-// FOR TEST USE ONLY!!!
-typedef std::vector<Object*> ObjectHeap;
-//**************************************************************************
-
 public:
+    //**************************************************************************
+    // FOR TEST USE ONLY!!!
+    typedef std::set<Object*> ObjectHeap;
+    //**************************************************************************
+
+
     //**************************************************************************
     // CONSTRUCTORS/DESTRUCTOR.
     //**************************************************************************
@@ -75,8 +74,12 @@ public:
      */
     void reindexate(Object * object);
 
+
 private:
 
+    //**************************************************************************
+    // ATTRIBUTES
+    //**************************************************************************
 
     /// Maximimum size of the cell
     static const double MAX_CELL_SIZE;
@@ -88,12 +91,25 @@ private:
     int row_size;
 
     /// Type of an index structure
-    typedef int Area[4];
-    typedef std::map<Object *, Area> Index;
+    typedef std::map<Object *, int *> Index;
 
     /// Index structure
     Index index;
     ObjectHeap ** cells;
+
+    //**************************************************************************
+    // UTILITIES
+    //**************************************************************************
+
+    /// Returns minimum of two integers
+    int min (int a, int b);
+
+    /// Returns maximum of to integers
+    int max (int a, int b);
+
+    /// Returns cells within wich the shape lies
+    int * getCellsArea(Shape shape);
+
 };
 
 #endif // INDEXATOR_H
