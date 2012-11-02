@@ -49,7 +49,7 @@ enum ResourceType
 };
 
 /**
- * @brief The ActionType enum
+ * @brief The CreatureType enum
  */
 enum CreatureAction
 {
@@ -70,9 +70,9 @@ enum CreatureType
 };
 
 /**
- * @brief The PendingActionType enum
+ * @brief The ActionType enum
  */
-enum PendingActionType
+enum ActionType
 {
     GO, MINE, HARM, REPAIR, CREATE, DROP, PICK_UP
 };

@@ -33,7 +33,7 @@ public:
      * @param type          action's type
      * @param actor         action's actor
      */
-    Action(const PendingActionType type, const Object * actor);
+    Action(const ActionType type, const Object * actor);
 
     /**
      * @brief Destructor,
@@ -109,7 +109,7 @@ public:
 
 private:
     /// Action type.
-    const PendingActionType type;
+    const ActionType type;
 
     /// Action's actor.
     const Object * actor;
