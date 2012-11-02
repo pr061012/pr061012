@@ -18,7 +18,7 @@ Building::Building() :
 
 Building::~Building()
 {
-
+    delete contents;
 }
 
 bool Building::putInside(Object * object)
@@ -35,7 +35,7 @@ bool Building::takeOut(Object * object)
 // ACCESSORS.
 //******************************************************************************
 
-const ObjectHeap & Building::getContents()
+const ObjectHeap * Building::getContents()
 {
     return this -> contents;
 }

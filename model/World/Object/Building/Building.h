@@ -54,7 +54,7 @@ public:
      * @brief  Get the value of contents.
      * @return the value of contents
      */
-    const ObjectHeap & getContents();
+    const ObjectHeap * getContents();
 
     // TODO: Do we need that? Seems like to be a pretty bad thing.
     /**
@@ -95,7 +95,7 @@ public:
 
 private:
     /// Building contents.
-    ObjectHeap & contents;
+    ObjectHeap * contents;
 
     /// Free space.
     int free_space;
