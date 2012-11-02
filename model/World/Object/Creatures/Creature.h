@@ -104,7 +104,7 @@ private:
     Shape view_area;
 
     /// Current creature's action.
-    ActionType current_action;
+    CreatureAction current_action;
 
     /// Current age.
     unsigned int age;

@@ -51,8 +51,7 @@ enum ResourceType
 /**
  * @brief The ActionType enum
  */
-// TODO: Rename to CreatureActionType?
-enum ActionType
+enum CreatureAction
 {
     // Special action (means that action isn't specified yet)
     NONE,

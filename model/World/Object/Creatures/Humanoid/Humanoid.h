@@ -57,9 +57,6 @@ private:
     // COMMON INFORMATION.
     //**************************************************************************
 
-    /// Current humanoid's action.
-    ActionType action;
-
     /// Humanoid's name.
     std::string name;
 
