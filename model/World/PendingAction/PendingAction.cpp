@@ -9,13 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-PendingAction::PendingAction(const PendingActionType type, const Object * actor,
-                             const std::vector <const Object *> participants,
-                             const std::map <std::string, int> params) :
+PendingAction::PendingAction(const PendingActionType type, const Object * actor) :
     type(type),
-    actor(actor),
-    participants(participants),
-    params(params)
+    actor(actor)
 {
 
 }
@@ -64,8 +60,18 @@ void PendingAction::markAsSucceed()
 }
 
 //******************************************************************************
-// ACCESSING PARAMS.
+// ACCESSING PARAMS/PARTICIPANTS.
 //******************************************************************************
+
+void PendingAction::addParticipant(Object * obj)
+{
+    this -> participants.push_back(obj);
+}
+
+void PendingAction::addParam(std::string param, int value)
+{
+    this -> params[param] = value;
+}
 
 int PendingAction::getParam(std::string param)
 {

@@ -32,12 +32,8 @@ public:
      * @brief Constructor.
      * @param type          action's type
      * @param actor         action's actor
-     * @param participants  action's participants
-     * @param params        map action's params
      */
-    PendingAction(const PendingActionType type, const Object * actor,
-                  const std::vector <const Object *> participants,
-                  const std::map <std::string, int> params);
+    PendingAction(const PendingActionType type, const Object * actor);
 
     /**
      * @brief Destructor,
@@ -87,8 +83,21 @@ public:
     void markAsSucceed();
 
     //**************************************************************************
-    // ACCESSING PARAMS.
+    // ACCESSING PARAMS/PARTICIPANTS.
     //**************************************************************************
+
+    /**
+     * @brief Adds action participant.
+     * @param obj   participant
+     */
+    void addParticipant(Object * obj);
+
+    /**
+     * @brief Adds param.
+     * @param param param name
+     * @param value param value
+     */
+    void addParam(std::string param, int value);
 
     /**
      * @brief  Gets value of param.
@@ -106,10 +115,10 @@ private:
     const Object * actor;
 
     /// Action's participants (without actor).
-    const std::vector <const Object *> participants;
+    std::vector <const Object *> participants;
 
     /// Parameters.
-    const std::map <std::string, int> params;
+    std::map <std::string, int> params;
 
     /// Result type.
     PendingActionStateType state;
