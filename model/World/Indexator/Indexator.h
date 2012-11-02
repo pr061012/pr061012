@@ -19,14 +19,13 @@
  */
 class Indexator
 {
-
-private:
-//**************************************************************************
-// FOR TEST USE ONLY!!!
-typedef std::set<Object*> ObjectHeap;
-//**************************************************************************
-
 public:
+    //**************************************************************************
+    // FOR TEST USE ONLY!!!
+    typedef std::set<Object*> ObjectHeap;
+    //**************************************************************************
+
+
     //**************************************************************************
     // CONSTRUCTORS/DESTRUCTOR.
     //**************************************************************************
@@ -75,6 +74,7 @@ public:
      */
     void reindexate(Object * object);
 
+
 private:
 
     //**************************************************************************
@@ -92,7 +92,6 @@ private:
 
     /// Type of an index structure
     typedef std::map<Object *, int *> Index;
-    typedef std::pair<Object *, int *> IndexPair;
 
     /// Index structure
     Index index;

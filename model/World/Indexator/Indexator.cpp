@@ -191,10 +191,10 @@ int * Indexator::getCellsArea(Shape shape)
 
     // Compute the cells it intersects
     int * area = new int[4];
-    area[0] = ceil(lb.getX() / cell_size);
-    area[1] = ceil(lb.getY() / cell_size);
-    area[2] = ceil(rt.getX() / cell_size);
-    area[3] = ceil(rt.getY() / cell_size);
+    area[0] = int(floor(lb.getX() / cell_size)) % row_size;
+    area[1] = int(floor(lb.getY() / cell_size)) % row_size;
+    area[2] = int(floor(rt.getX() / cell_size)) % row_size;
+    area[3] = int(floor(rt.getY() / cell_size)) % row_size;
 
     return area;
 }
