@@ -79,7 +79,7 @@ private:
 
 
     /// Maximimum size of the cell
-    static const double MAX_CELL_SIZE = 100;
+    static const double MAX_CELL_SIZE;
 
     /// Cell size
     double cell_size;
