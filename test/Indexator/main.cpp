@@ -6,8 +6,12 @@ using namespace std;
 class testObject : public Object
 {
 public:
+    static int test_id;
+
     testObject() : Object(CREATURE)
     {
+        setShape(Shape(Point(test_id, test_id), CIRCLE, 2));
+        test_id++;
     }
     vector<PendingAction*> getPendingActions()
     {
@@ -16,15 +20,20 @@ public:
     }
 };
 
+int testObject::test_id = 0;
+
 int main()
 {
 //**************************************************************************
 // FOR TEST USE ONLY!!!
-typedef std::vector<Object*> ObjectHeap;
+typedef std::set<Object*> ObjectHeap;
 //**************************************************************************
     cout << "Hello World!" << endl;
     ObjectHeap a;
-    a.push_back(new testObject());
+    for (int i = 0; i < 10; i++)
+    {
+        a.insert(new testObject());
+    }
     Indexator index(1000, &a);
     return 0;
 }

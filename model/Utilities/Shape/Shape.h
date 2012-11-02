@@ -13,8 +13,7 @@ enum IntersectionFlag {NO_INTERSECTION = 16, LEFT = 1, RIGHT = 2,
 
 /**
   * class Shape
-  * Фигура. Используется для задания размеров и координат объектов, а также для
-  * областей просмотра и воздействия.
+  * Shape are needed for objects' bounds and view areas
   */
 
 class Shape
