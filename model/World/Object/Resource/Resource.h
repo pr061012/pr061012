@@ -44,7 +44,7 @@ public:
      * @brief  Gets array with pending actions.
      * @return array with pending actions
      */
-    std::vector <PendingAction *> getPendingActions();
+    std::vector <Action *> getActions();
 
     //**************************************************************************
     // ACCESSORS.
@@ -141,9 +141,6 @@ private:
 
     /// Amount of resources received on each gather step.
     unsigned int amount_per_gather;
-
-    /// Array with pending actions.
-    std::vector <PendingAction *> actions;
 };
 
 #endif // RESOURCE_H

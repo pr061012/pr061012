@@ -37,7 +37,7 @@ void Resource::decreaseAmount(unsigned int delta)
     }
 }
 
-std::vector <PendingAction *> Resource::getPendingActions()
+std::vector <Action *> Resource::getActions()
 {
 
 }

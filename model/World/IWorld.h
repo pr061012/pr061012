@@ -3,7 +3,7 @@
 
 #include "../BasicTypes.h"
 #include "../../view/ViewObject.h"
-#include "PendingAction/PendingAction.h"
+#include "Action/Action.h"
 #include "../God/God.h"
 
 class IWorld
@@ -16,7 +16,7 @@ public:
 
     // TODO: Ask my fellow team members if we are going to
     //       have multiple gods support.
-    virtual void addGodAction(/*IGod* god, */PendingAction* action) = 0;
+    virtual void addGodAction(/*IGod* god, */Action* action) = 0;
 
     //******************************************************************************
     // WORLD <-> VIEW METHODS.

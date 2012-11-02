@@ -3,25 +3,25 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef PENDING_ACTION_H
-#define PENDING_ACTION_H
+#ifndef ACTION_H
+#define ACTION_H
 
 #include <string>
 #include <vector>
 #include <map>
 
 // NOTE: In Object.h this file is included. To prevent compiler crash we need to
-//       declare Object and PendingAction first. Maybe not a good solution.
+//       declare Object and Action first. Maybe not a good solution.
 class Object;
-class PendingAction;
+class Action;
 
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
 
 /**
- * @brief PendingAction contains information about object's pending action.
+ * @brief Action contains information about object's pending action.
  */
-class PendingAction
+class Action
 {
 public:
     //**************************************************************************
@@ -33,12 +33,12 @@ public:
      * @param type          action's type
      * @param actor         action's actor
      */
-    PendingAction(const PendingActionType type, const Object * actor);
+    Action(const PendingActionType type, const Object * actor);
 
     /**
      * @brief Destructor,
      */
-    ~PendingAction();
+    ~Action();
 
     //**************************************************************************
     // STATE'S CHECKERS
@@ -124,4 +124,4 @@ private:
     PendingActionStateType state;
 };
 
-#endif // PENDINGACTION_H
+#endif // ACTION_H

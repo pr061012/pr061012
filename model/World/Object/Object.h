@@ -10,7 +10,7 @@
 
 #include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
-#include "../PendingAction/PendingAction.h"
+#include "../Action/Action.h"
 
 /**
  * @class Object
@@ -58,13 +58,13 @@ public:
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector <PendingAction *> getPendingActions() = 0;
+    virtual std::vector <Action *> getActions() = 0;
 
     /**
      * @brief Receives message.
      * @param action    message
      */
-    virtual void receiveMessage(PendingAction * action) = 0;
+    virtual void receiveMessage(Action * action) = 0;
 
     //**************************************************************************
     // ACCESSORS.

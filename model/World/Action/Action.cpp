@@ -3,20 +3,20 @@
     See the LICENSE file for copying permission.
 */
 
-#include "PendingAction.h"
+#include "Action.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-PendingAction::PendingAction(const PendingActionType type, const Object * actor) :
+Action::Action(const PendingActionType type, const Object * actor) :
     type(type),
     actor(actor)
 {
 
 }
 
-PendingAction::~PendingAction()
+Action::~Action()
 {
 
 }
@@ -25,22 +25,22 @@ PendingAction::~PendingAction()
 // STATE'S CHECKERS
 //******************************************************************************
 
-PendingActionStateType PendingAction::getState()
+PendingActionStateType Action::getState()
 {
     return this -> state;
 }
 
-bool PendingAction::isPending()
+bool Action::isPending()
 {
     return (this -> state == PENDING);
 }
 
-bool PendingAction::isFailed()
+bool Action::isFailed()
 {
     return (this -> state == FAILED);
 }
 
-bool PendingAction::isSucceed()
+bool Action::isSucceed()
 {
     return (this -> state == SUCCEED);
 }
@@ -49,12 +49,12 @@ bool PendingAction::isSucceed()
 // STATE'S CHANGERS.
 //**************************************************************************
 
-void PendingAction::markAsFailed()
+void Action::markAsFailed()
 {
     this -> state = FAILED;
 }
 
-void PendingAction::markAsSucceed()
+void Action::markAsSucceed()
 {
     this -> state = SUCCEED;
 }
@@ -63,17 +63,17 @@ void PendingAction::markAsSucceed()
 // ACCESSING PARAMS/PARTICIPANTS.
 //******************************************************************************
 
-void PendingAction::addParticipant(Object * obj)
+void Action::addParticipant(Object * obj)
 {
     this -> participants.push_back(obj);
 }
 
-void PendingAction::addParam(std::string param, int value)
+void Action::addParam(std::string param, int value)
 {
     this -> params[param] = value;
 }
 
-int PendingAction::getParam(std::string param)
+int Action::getParam(std::string param)
 {
     const std::map <std::string, int> :: const_iterator iter = this -> params.find(param);
 
