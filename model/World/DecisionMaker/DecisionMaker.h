@@ -7,14 +7,17 @@
 #define DECISION_MAKER_H
 #define ATR_CONST 9
 #define ACT_CONST 9
+#define PATH_TO_HUM_MATRIX "/../../../res/humanoid_matrix_decision.txt"
+#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_matrix_decision.txt"
+
 // Temporary workaround.
 
 #include <armadillo>
 #include<fstream>
-#include"BasicTypes.h"
+#include "../../BasicTypes.h"
 #include<vector>
 #include <stdlib.h>
-//#include <time.h>
+
 
 /**
  * @class DecisionMaker

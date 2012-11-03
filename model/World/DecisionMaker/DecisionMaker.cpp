@@ -4,6 +4,9 @@
 */
 
 #include "DecisionMaker.h"
+  	
+using namespace std;
+using namespace arma;
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -18,7 +21,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
 
     if (type == HUMANOIDS)
     {
-        some_matrix.open ("humanoid_decision_matrix.txt");
+        some_matrix.open (PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
         {
             cerr << "[ERROR] DecisionMaker: cannot open file 'humanoid_decision_matrix.txt'" << endl;
@@ -34,7 +37,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
 
     if (type == NON_HUMANOID)
     {
-        some_matrix.open ("non_humanoid_decision_matrix.txt");
+        some_matrix.open (PATH_TO_NON_HUM_MATRIX);
         if (some_matrix == NULL)
         {
             cerr << "[ERROR] DecisionMaker: cannot open file 'non_humanoid_decision_matrix.txt'" << endl;
