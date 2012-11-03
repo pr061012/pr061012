@@ -13,6 +13,12 @@ Object::Object(ObjectType type) :
     type(type)
 {
     this -> destroyed = false;
+    this -> immortality = false;
+
+    this -> angle = 0;
+
+    this -> health = 0;
+    this -> max_health = 0;
 }
 
 Object::~Object()
