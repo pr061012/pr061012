@@ -5,23 +5,16 @@
 
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
-
-#define ATR_CONST_HUM 9
-#define ACT_CONST_HUM 9
-#define ATR_CONST_NON_HUM 5
-#define ACT_CONST_NON_HUM 5
-#define PATH_TO_HUM_MATRIX "/../../../res/humanoid_matrix_decision.txt"
-#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_matrix_decision.txt"
+#define ATR_CONST 9
+#define ACT_CONST 9
+// Temporary workaround.
 
 #include <armadillo>
-#include <fstream>
-#include <vector>
-#include <random>
-
-#include "../../BasicTypes.h"
-
-using namespace std;
-using namespace arma;
+#include<fstream>
+#include"BasicTypes.h"
+#include<vector>
+#include <stdlib.h>
+//#include <time.h>
 
 /**
  * @class DecisionMaker
@@ -55,14 +48,15 @@ public:
      * @return int      next action
      */
     // TODO: Add enum for creatures's actions.
-    int makeDecision(mat attrs);
+    int makeDecision (arma::mat attrs);
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
     /// no-hidden-layer NN matrix.
     // TODO: Move here and in constructo Matrix by own or armadillo type.
-    mat theta;
+    arma:: mat theta;
 
 };
 
 #endif // DECISION_MAKER_H
+
