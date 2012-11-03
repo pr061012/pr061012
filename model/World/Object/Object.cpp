@@ -30,11 +30,6 @@ Object::~Object()
 // OBJECT'S LIFE.
 //******************************************************************************
 
-void Object::destroy()
-{
-    this -> destroyed = true;
-}
-
 void Object::decreaseHealth(unsigned int delta)
 {
     if(!immortality)
