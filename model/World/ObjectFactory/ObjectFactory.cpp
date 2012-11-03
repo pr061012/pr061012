@@ -3,6 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
+#include "../Object/Building/Building.h"
 #include "ObjectFactory.h"
 
 //******************************************************************************
@@ -54,5 +55,5 @@ Object * ObjectFactory::createObject(ObjectType type, const std::map <std::strin
 
 Object * createBuilding(const std::map <std::string, int> & params)
 {
-
+    Building * building = new Building;
 }
