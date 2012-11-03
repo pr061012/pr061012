@@ -58,5 +58,5 @@ Object * createBuilding(const ParamArray & params)
     unsigned int max_space = params.getValue("max_space");
     unsigned int max_health = params.getValue("max_health");
 
-    Building * building = new Building(max_health, max_space);
+    return new Building(max_health, max_space);
 }
