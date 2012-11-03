@@ -15,6 +15,7 @@
 class Object;
 class Action;
 
+#include "../ParamArray/ParamArray.h"
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
 
@@ -118,7 +119,7 @@ private:
     std::vector <const Object *> participants;
 
     /// Parameters.
-    std::map <std::string, int> params;
+    ParamArray params;
 
     /// Result type.
     ActionState state;
