@@ -10,10 +10,20 @@
 class AnyObject : public Object
 {
 public:
-    AnyObject(ObjectType type):Object(type)
-    {
+    AnyObject(ObjectType type) : Object(type) {}
+    ~AnyObject() {}
 
+    void destroy()
+    {
+        this -> setDestroyed(true);
     }
+
+    std::vector <Action> * getActions()
+    {
+        return &this -> actions;
+    }
+
+    void receiveMessage(Action * action) {}
 };
 
 int main()
@@ -21,6 +31,7 @@ int main()
     //**************************************************************************
     // TEST CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
+
     /// Create helper var.
     ObjectType type = RESOURCE;
 
@@ -28,7 +39,7 @@ int main()
     AnyObject object(type);
 
     /// Test create ptr for object.
-    AnyObject* object_2 = new AnyObject(type);
+    AnyObject * object_2 = new AnyObject(type);
     assert(object_2 != 0);
 
     /// Test delete object
@@ -70,37 +81,6 @@ int main()
     /// Set some states.
     object.setHealth(100);
     object.setMaxHealth(150);
-
-    /// Test damage.
-    object.damage(10);
-    assert(object.getHealth() == 140);
-
-    /// Test damage when object has Immortality.
-    object.setHealth(100);
-    object.setImmortality(true);
-
-    object.damage(10);
-    assert(object.getHealth() == 100);
-
-    /// Test damage when harm > health.
-    object.setImmortality(false);
-    object.damage(150);
-
-    assert(object.getHealth() == 0);
-    assert(object.getDestroyed() == true);
-
-    /// Set some states
-    object.setHealth(100);
-    object.setMaxHealth(150);
-    object.setDestroyed(false);
-
-    /// Test treat
-    object.treat(10);
-    assert(object.getHealth() == 110);
-
-    /// Test treat when treat point more then harm.
-    object.treat(100);
-    assert(object.getHealth() == object.getMaxHealth());
 
     return 0;
 }

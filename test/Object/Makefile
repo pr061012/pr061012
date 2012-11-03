@@ -10,6 +10,9 @@ MODEL_DIR  = ../../model/
 # Files with sources.
 SOURCES    = $(MODEL_DIR)World/Object/Object.cpp
 SOURCES	  += $(MODEL_DIR)World/Action/Action.cpp
+SOURCES	  += $(MODEL_DIR)World/ParamArray/ParamArray.cpp
+SOURCES	  += $(MODEL_DIR)Utilities/Shape/Shape.cpp
+SOURCES	  += $(MODEL_DIR)Utilities/Point/Point.cpp
 SOURCES   += main.cpp
 
 # Object files.
