@@ -44,6 +44,18 @@ public:
      * @return pointer to created object
      */
     Object * createObject(ObjectType type, const std::map <std::string, int> & params);
+
+private:
+    //**************************************************************************
+    // OBJECTS CREATION (INNER METHODS).
+    //**************************************************************************
+
+    /**
+     * @brief  Creates building.
+     * @param  params    map with object params
+     * @return pointer to created building
+     */
+    Object * createBuilding(const std::map <std::string, int> & params);
 };
 
 #endif // OBJECT_FACTORY_H
