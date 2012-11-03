@@ -3,9 +3,6 @@
     See the LICENSE file for copying permission.
 */
 
-// NOTE:
-//  - You should use ObjectType for type.
-
 #ifndef OBJECT_FACTORY_H
 #define OBJECT_FACTORY_H
 
@@ -46,7 +43,7 @@ public:
      * @param  params   map with object params
      * @return pointer to created object
      */
-    Object * createObject(ObjectType type, std::map <std::string, int> params);
+    Object * createObject(ObjectType type, const std::map <std::string, int> & params);
 };
 
 #endif // OBJECT_FACTORY_H
