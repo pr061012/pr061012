@@ -9,12 +9,13 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building(unsigned int max_space) :
+Building::Building(unsigned int max_space, unsigned int max_health) :
     Object(BUILDING),
     contents(new ObjectHeap),
     max_space(max_space),
     completeness(false)
 {
+    this -> setMaxHealth(max_health);
 }
 
 Building::~Building()

@@ -25,7 +25,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Building();
+    Building(unsigned int max_space, unsigned int max_health);
 
     /**
      * @brief Destructor.
