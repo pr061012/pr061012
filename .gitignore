@@ -22,3 +22,6 @@ pr061012*
 
 # Logs.
 *.log
+
+# Backups.
+*~
