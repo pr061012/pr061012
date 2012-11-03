@@ -46,6 +46,15 @@ public:
     double getDistance(const Point& point) const;
 
     /**
+     *  @brief  Compute distance to a line formed by two points
+     *  @param  line_start  first point of the line
+     *  @param  line_end    second point of the line
+     *  @return distance
+     */
+
+    double getDistanceToLine(const Point& line_start,
+                                const Point& line_end) const;
+    /**
      * @brief  Compares two points.
      * @param  point    point to compare with
      * @return true or false

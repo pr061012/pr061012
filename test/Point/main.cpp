@@ -6,6 +6,9 @@
 #include <iostream>
 #include "../../model/Utilities/Point/Point.h"
 #include <assert.h>
+#include <cmath>
+
+#define EPSILON 0.00000001
 
 using namespace std;
 
@@ -36,6 +39,12 @@ int main()
 
     // Distance
     assert(p1.getDistance(p2) == 5);
+
+    // Distance between a line and a point
+    Point p3(4, 4);
+    assert(fabs(p1.getDistanceToLine(p2, p3) - 1/sqrt(2)) < EPSILON);
+    assert(fabs(p1.getDistanceToLine(p3, p2) -
+                p1.getDistanceToLine(p2, p3)) < EPSILON);
 
     // Operators +=, -=, unary -
     p1 += Point(10, 5) -= Point(1, 13);

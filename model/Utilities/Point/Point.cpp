@@ -39,6 +39,16 @@ double Point::getDistance(const Point& point) const
                 pow(this -> y - point.getY(), 2));
 }
 
+// get distance to line using vector product
+double Point::getDistanceToLine(const Point& line_start,
+                                const Point& line_end) const
+{
+    Point a = *this - line_start;
+    Point b = line_end - line_start;
+    return fabs(a.getX() * b.getY() - a.getY() * b.getX()) /
+            line_start.getDistance(line_end);
+}
+
 //******************************************************************************
 // COMPARING
 //******************************************************************************
