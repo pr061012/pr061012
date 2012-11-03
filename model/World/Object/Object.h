@@ -89,6 +89,18 @@ public:
     Shape getShape();
 
     /**
+     * @brief   Set object's coordinates
+     * @param   coords  new coordinates
+     */
+    void setCoords(const Point& coords);
+
+    /**
+     * @brief   Get object's coordinates
+     * @return  object's coordinates
+     */
+    const Point& getCoords() const;
+
+    /**
      * @brief Set the value of destroyed.
      * @param new_var   the new value of destroyed
      */

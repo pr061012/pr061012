@@ -126,3 +126,13 @@ double Object::getAngle()
 {
     return this -> angle;
 }
+
+void Object::setCoords(const Point& coords)
+{
+    shape.setCenter(coords);
+}
+
+const Point& Object::getCoords() const
+{
+    return shape.getCenter();
+}
