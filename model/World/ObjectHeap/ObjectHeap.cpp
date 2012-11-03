@@ -11,7 +11,7 @@
 
 ObjectHeap::ObjectHeap()
 {
-
+    data.resize(10);
 }
 
 ObjectHeap::~ObjectHeap()
@@ -59,7 +59,6 @@ bool ObjectHeap::remove(Object* object)
             {
                 data[i].erase(data[i].begin() + j);
             }
-
             del = true;
         }
     }
