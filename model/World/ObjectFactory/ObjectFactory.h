@@ -21,9 +21,6 @@
  */
 class ObjectFactory
 {
-    /// If not NULL, all objects will be automatically added in this ObjectHeap
-    ObjectHeap* list;
-
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -33,11 +30,6 @@ public:
      * @brief Constructor.
      */
     ObjectFactory();
-
-    /**
-     * @brief Create ObjectFactory which will automatically add created objects in ObjectHeap provided.
-     */
-    ObjectFactory(ObjectHeap* list);
 
     /**
      * @brief Destructor.
@@ -54,7 +46,7 @@ public:
      * @param  params   map with object params
      * @return pointer to created object
      */
-    Object* createObject(ObjectType type, std::map<std::string, void*> params);
+    Object * createObject(ObjectType type, std::map <std::string, int> params);
 };
 
 #endif // OBJECT_FACTORY_H
