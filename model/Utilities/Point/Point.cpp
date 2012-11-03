@@ -33,16 +33,17 @@ Point::~Point()
 // DISTANCE.
 //******************************************************************************
 
-double Point::getDistance(Point point)
+double Point::getDistance(const Point& point) const
 {
-    return sqrt(pow(this -> x - point.getX(), 2) + pow (this -> y - point.getY(), 2));
+    return sqrt(pow(this -> x - point.getX(), 2) +
+                pow(this -> y - point.getY(), 2));
 }
 
 //******************************************************************************
 // COMPARING
 //******************************************************************************
 
-bool Point::equals(Point point)
+bool Point::equals(const Point& point) const
 {
     return  (fabs(x - point.getX()) < EPSILON) &&
             (fabs(y - point.getY()) < EPSILON);
@@ -52,12 +53,12 @@ bool Point::equals(Point point)
 // OPERATORS.
 //******************************************************************************
 
-Point Point::operator+(Point point)
+Point Point::operator+(Point point) const
 {
     return Point(point.getX() + x, point.getY() + y);
 }
 
-Point Point::operator-(Point point)
+Point Point::operator-(Point point) const
 {
     return Point(x - point.getX(), y - point.getY());
 }
@@ -76,17 +77,17 @@ Point& Point::operator+=(Point point)
     return *this;
 }
 
-bool Point::operator==(Point point)
+bool Point::operator==(Point point) const
 {
     return this -> equals(point);
 }
 
-bool Point::operator!=(Point point)
+bool Point::operator!=(Point point) const
 {
     return !(this -> equals(point));
 }
 
-Point Point::operator -()
+Point Point::operator -() const
 {
     return (Point(-x, -y));
 }
@@ -95,12 +96,12 @@ Point Point::operator -()
 // ACCESSORS.
 //******************************************************************************
 
-double Point::getX()
+double Point::getX() const
 {
     return this -> x;
 }
 
-double Point::getY()
+double Point::getY() const
 {
     return this -> y;
 }

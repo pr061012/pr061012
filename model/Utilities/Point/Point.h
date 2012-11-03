@@ -43,14 +43,14 @@ public:
      *  @param  point   another point
      *  @return distance
      */
-    double getDistance(Point point);
+    double getDistance(const Point& point) const;
 
     /**
      * @brief  Compares two points.
      * @param  point    point to compare with
      * @return true or false
      */
-    bool equals(Point point);
+    bool equals(const Point &point) const;
 
     //**************************************************************************
     // OPERATORS.
@@ -59,12 +59,12 @@ public:
     /**
      * @brief Operator +.
      */
-    Point operator+(Point);
+    Point operator+(Point) const;
 
     /**
      * @brief Operator -.
      */
-    Point operator-(Point);
+    Point operator-(Point) const;
 
     /**
      *  @brief Operator -=.
@@ -79,17 +79,17 @@ public:
     /**
      *  @brief Operator unary -
      */
-    Point operator-();
+    Point operator-() const;
 
     /**
      * @brief Operator ==.
      */
-    bool operator==(Point);
+    bool operator==(Point) const;
 
     /**
      * @brief Operator !=.
      */
-    bool operator!=(Point);
+    bool operator!=(Point) const;
 
     //**************************************************************************
     // ACCESSORS.
@@ -98,7 +98,7 @@ public:
     /**
      * @brief Get X.
      */
-    double getX();
+    double getX() const;
 
     /**
      * @brief Set X.
@@ -108,7 +108,7 @@ public:
     /**
      * @brief Get Y.
      */
-    double getY();
+    double getY() const;
 
     /**
      * @brief Set Y.

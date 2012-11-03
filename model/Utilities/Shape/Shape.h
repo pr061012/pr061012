@@ -59,14 +59,14 @@ public:
      * @return the value of center.
      */
 
-    Point getCenter ( );
+    const Point& getCenter( ) const;
 
     /**
      * @brief Get type of the shape.
      * @return type of the shape.
      */
 
-    int getType();
+    int getType() const;
 
     /**
      * @brief Set type.
@@ -80,7 +80,7 @@ public:
      * @return size
      */
 
-    double getSize();
+    double getSize() const;
 
     /**
      * @brief Set size (edge length for polygons, radius for circle).
@@ -105,21 +105,21 @@ public:
      * @return  true or false
      * @param   point    point to test
 	 */
-    bool hitTest (Point point );
+    bool hitTest (const Point& point) const;
 
 	/**
      * @brief   Tests if a Shape intersects with another Shape.
      * @return  true or false
      * @param   Shape   Shape to test
 	 */
-    bool hitTest (Shape shape );
+    bool hitTest (const Shape& shape) const;
 
     /**
      * @brief   Get intersections of minimal bounding boxes with another shape.
      * @param   Shape   another shape
      * @return  flags of intersections
      */
-    int intersect(Shape shape);
+    int intersect(const Shape& shape);
 
     //**************************************************************************
     // CORNER METHODS
@@ -128,12 +128,12 @@ public:
     /**
      * @brief Gets the left bottom point of the shape.
      */
-    Point getLeftBottom();
+    Point getLeftBottom() const;
 
     /**
      * @brief Gets the right top point of the shape.
      */
-    Point getRightTop();
+    Point getRightTop() const;
 
 private:
     /// Coordinates of the center of the Shape.
@@ -163,6 +163,12 @@ private:
      */
 
     void computeCorners();
+
+    /**
+     * @brief Checks square-circle hit test
+     */
+
+    bool squareCircleHitTest(const Shape& square, const Shape& circle) const;
 
 };
 

@@ -39,7 +39,7 @@ void Shape::setCenter ( Point new_var )
     center = new_var;
 }
 
-Point Shape::getCenter ( )
+const Point& Shape::getCenter ( ) const
 {
     return center;
 }
@@ -49,7 +49,7 @@ void Shape::setType(int type)
     this -> type = (ShapeType) type;
 }
 
-int Shape::getType()
+int Shape::getType() const
 {
     return type;
 }
@@ -61,7 +61,7 @@ void Shape::setSize(double size)
 
 }
 
-double Shape::getSize()
+double Shape::getSize() const
 {
     return size;
 }
@@ -81,12 +81,12 @@ void Shape::computeCorners()
     }
 }
 
-Point Shape::getLeftBottom()
+Point Shape::getLeftBottom() const
 {
     return center + left_bottom;
 }
 
-Point Shape::getRightTop()
+Point Shape::getRightTop() const
 {
     return center + right_top;
 }
@@ -101,7 +101,7 @@ Point Shape::getLastCenter()
 //******************************************************************************
 
 // blank implementations of hittset
-bool Shape::hitTest (Point point)
+bool Shape::hitTest (const Point& point) const
 {
     switch(type)
     {
@@ -123,13 +123,89 @@ bool Shape::hitTest (Point point)
     return false;
 }
 
-bool Shape::hitTest (Shape shape)
+bool Shape::hitTest (const Shape& shape) const
+{
+    switch(type)
+    {
+        case CIRCLE:
+            switch(shape.getType())
+            {
+                case CIRCLE:
+                    if (center.getDistance(shape.getCenter()) <
+                        (size + shape.getSize())/ 2)
+                    {
+                        return true;
+                    }
+
+                case SQUARE:
+                    return squareCircleHitTest(shape, *this);
+                    break;
+            }
+            break;
+
+        case SQUARE:
+            switch(shape.getType())
+            {
+                case CIRCLE:
+                    return squareCircleHitTest(*this, shape);
+                    break;
+
+                case SQUARE:
+                    Point lb = getLeftBottom();
+                    if (shape.hitTest(lb))
+                    {
+                        return true;
+                    }
+
+                    Point rt = getRightTop();
+                    if (shape.hitTest(rt))
+                    {
+                        return true;
+                    }
+
+                    Point lt = (Point(lb.getX(), rt.getY()));
+                    Point rb = Point(rt.getX(), rt.getY());
+
+                    if (shape.hitTest(lt) ||
+                        shape.hitTest(rb))
+                    {
+                        return true;
+                    }
+
+                    lb = shape.getLeftBottom();
+                    if (this -> hitTest(lb))
+                    {
+                        return true;
+                    }
+
+                    rt = shape.getRightTop();
+                    if (this -> hitTest(rb))
+                    {
+                        return true;
+                    }
+
+                    lt = (Point(lb.getX(), rt.getY()));
+                    rb = Point(rt.getX(), rt.getY());
+
+                    if (this -> hitTest(lt) ||
+                        this -> hitTest(rb))
+                    {
+                        return true;
+                    }
+            }
+            break;
+    }
+    return false;
+}
+
+// hittest of square and circle
+bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
 {
     return false;
 }
 
 // Calculates intersections
-int Shape::intersect(Shape shape)
+int Shape::intersect(const Shape& shape)
 {
     // copy data
     Point this_lb = this -> getLeftBottom();
@@ -170,6 +246,5 @@ int Shape::intersect(Shape shape)
 
     return result;
 }
-
 
 
