@@ -70,17 +70,10 @@ void Action::addParticipant(Object * obj)
 
 void Action::addParam(std::string param, int value)
 {
-    this -> params[param] = value;
+    this -> params.addKey(param, value);
 }
 
 int Action::getParam(std::string param)
 {
-    const std::map <std::string, int> :: const_iterator iter = this -> params.find(param);
-
-    if(iter == this -> params.end())
-    {
-        // TODO: Throw an exception.
-    }
-
-    return iter -> second;
+    return this -> params.getValue(param);
 }
