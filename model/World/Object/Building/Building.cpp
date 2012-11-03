@@ -21,6 +21,10 @@ Building::~Building()
     delete contents;
 }
 
+//******************************************************************************
+// CONTENTS MANIPULATION.
+//******************************************************************************
+
 bool Building::putInside(Object * object)
 {
     return this -> contents -> push(object);
@@ -53,11 +57,6 @@ void Building::setMaxSpace(unsigned int new_var)
 unsigned int Building::getMaxSpace()
 {
     return this -> max_space;
-}
-
-void Building::setCompleteness(bool new_var)
-{
-    this -> completeness = new_var;
 }
 
 bool Building::getCompleteness()

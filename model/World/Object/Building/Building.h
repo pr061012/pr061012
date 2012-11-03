@@ -32,6 +32,10 @@ public:
      */
     ~Building();
 
+    //**************************************************************************
+    // CONTENTS MANIPULATION.
+    //**************************************************************************
+
     /**
      * @brief  Puts object inside building.
      * @param  object   object to put inside
@@ -73,12 +77,6 @@ public:
      * @return the value of max_space
      */
     unsigned int getMaxSpace();
-
-    /**
-     * @brief Set the value of completeness.
-     * @param new_var the new value of completeness
-     */
-    void setCompleteness(bool new_var);
 
     /**
      * @brief  Get the value of isFinished.
