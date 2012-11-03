@@ -38,11 +38,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Destroy object.
-     */
-    void destroy();
-
-    /**
      * @brief Decreases object's health.
      * @param delta health to decrease
      */
@@ -53,6 +48,11 @@ public:
      * @param delta health to increase
      */
     void increaseHealth(unsigned int delta);
+
+    /**
+     * @brief Destroys object.
+     */
+    virtual void destroy() = 0;
 
     /**
      * @brief  Gets objects pending actions.
