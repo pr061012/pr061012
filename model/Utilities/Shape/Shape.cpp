@@ -100,12 +100,14 @@ Point Shape::getLastCenter()
 // HIT-TEST METHODS.
 //******************************************************************************
 
-// blank implementations of hittset
+// checks hittest with a point
 bool Shape::hitTest (const Point& point) const
 {
     switch(type)
     {
         case CIRCLE:
+            // if a distance between a point and a circle center is less than
+            // radius, return true
             if (center.getDistance(point) - size/2 <= EPSILON)
             {
                 return true;
@@ -113,6 +115,7 @@ bool Shape::hitTest (const Point& point) const
             break;
 
         case SQUARE:
+            // if a point lies nearer than sides of a square, return true
             if (fabs(center.getY() - point.getY()) - size/2 <= EPSILON &&
                 fabs(center.getX() - point.getX()) - size/2 <= EPSILON)
             {
@@ -123,6 +126,7 @@ bool Shape::hitTest (const Point& point) const
     return false;
 }
 
+// check hittest with another shape
 bool Shape::hitTest (const Shape& shape) const
 {
     switch(type)
@@ -130,6 +134,8 @@ bool Shape::hitTest (const Shape& shape) const
         case CIRCLE:
             switch(shape.getType())
             {
+                // if sum of radiuses is more than distance between centers,
+                // return true
                 case CIRCLE:
                     if (center.getDistance(shape.getCenter()) <
                         (size + shape.getSize())/ 2)
@@ -150,6 +156,8 @@ bool Shape::hitTest (const Shape& shape) const
                     return squareCircleHitTest(*this, shape);
                     break;
 
+                // if a corner of one square lies inside another square,
+                // return true (this way won't work for abstract rectangles)
                 case SQUARE:
                     Point lb = getLeftBottom();
                     if (shape.hitTest(lb))
@@ -164,7 +172,7 @@ bool Shape::hitTest (const Shape& shape) const
                     }
 
                     Point lt = (Point(lb.getX(), rt.getY()));
-                    Point rb = Point(rt.getX(), rt.getY());
+                    Point rb = Point(rt.getX(), lb.getY());
 
                     if (shape.hitTest(lt) ||
                         shape.hitTest(rb))
@@ -179,19 +187,20 @@ bool Shape::hitTest (const Shape& shape) const
                     }
 
                     rt = shape.getRightTop();
-                    if (this -> hitTest(rb))
+                    if (this -> hitTest(rt))
                     {
                         return true;
                     }
 
                     lt = (Point(lb.getX(), rt.getY()));
-                    rb = Point(rt.getX(), rt.getY());
+                    rb = Point(rt.getX(), lb.getY());
 
                     if (this -> hitTest(lt) ||
                         this -> hitTest(rb))
                     {
                         return true;
                     }
+                    break;
             }
             break;
     }
@@ -201,6 +210,37 @@ bool Shape::hitTest (const Shape& shape) const
 // hittest of square and circle
 bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
 {
+    Point lb = square.getLeftBottom();
+    Point rt = square.getRightTop();
+    Point lt = Point(lb.getX(), rt.getY());
+    Point rb = Point(rt.getX(), lb.getY());
+
+    const Point &cs = circle.getCenter();
+    double radius = circle.getSize() / 2;
+
+    // if a corner is closer to a circle's center than radius length,
+    // return true
+    if (cs.getDistance(lb) <= radius || cs.getDistance(rt) <= radius ||
+        cs.getDistance(lt) <= radius || cs.getDistance(rb) <= radius)
+    {
+        return true;
+    }
+
+    // a circle can intersect a square on its side but only if a circle's 
+    // center x or y lies between corners x ,y
+    double csx = cs.getX();
+    double csy = cs.getY();
+
+    if ((lb.getX() <= csx && rt.getX() >= csx &&
+         (cs.getDistanceToLine(lt, rt) <= radius ||
+          cs.getDistanceToLine(lb, rb) <= radius)) ||
+        (lb.getY() <= csy && rt.getY() >= csy &&
+         (cs.getDistanceToLine(lb, lt) <= radius ||
+          cs.getDistanceToLine(rb, rt) <= radius)))
+    {
+        return true;
+    }
+
     return false;
 }
 
@@ -246,5 +286,3 @@ int Shape::intersect(const Shape& shape)
 
     return result;
 }
-
-

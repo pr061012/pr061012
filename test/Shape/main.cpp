@@ -9,7 +9,7 @@ int main()
 {
     Shape sh1(Point(1, 1), SQUARE, 10);
     Shape sh2(Point(-5, -7.5), CIRCLE, 12);
-    Shape sh3;
+    Shape sh0;
 
     //Accessors tests
     //
@@ -37,6 +37,7 @@ int main()
 
     // Hit-test methods
     //
+    // Points
 
     assert(sh1.hitTest(Point(8, -10.14))
            && !sh1.hitTest(Point(7, -10.14)));
@@ -47,6 +48,40 @@ int main()
 
     assert(sh2.hitTest(sh2.getCenter()) &&
            sh2.hitTest(sh2.getRightTop()));
+
+    // Shapes
+
+    Shape sh3(Point(0, -3.14), CIRCLE, 10);
+    Shape sh4(Point(2.71, 10), SQUARE, 8);
+
+    assert(sh1.hitTest(sh3) && sh3.hitTest(sh1));
+    assert(sh2.hitTest(sh4) && sh4.hitTest(sh2));
+    assert(sh1.hitTest(sh2) && sh2.hitTest(sh1));
+    assert(sh2.hitTest(sh3) && sh3.hitTest(sh2));
+    assert(!sh1.hitTest(sh4) && !sh4.hitTest(sh1));
+    assert(!sh3.hitTest(sh4) && !sh4.hitTest(sh3));
+
+    sh3.setCenter(Point(-8, 6));
+    sh4.setCenter(Point(-1 ,14));
+    assert(sh3.hitTest(sh4) && sh4.hitTest(sh3));
+    assert(sh3.hitTest(sh2) && sh2.hitTest(sh3));
+
+    sh4.setCenter(Point(-1000, 0));
+    assert(!sh4.hitTest(sh2) && !sh2.hitTest(sh4));
+
+    sh4.setCenter(Point(-7.29, 10));
+    assert(sh4.hitTest(sh2) && sh2.hitTest(sh4));
+
+    sh4.setCenter(Point(-7.29, 11));
+    assert(!sh4.hitTest(sh2) && !sh2.hitTest(sh4));
+
+    sh4.setCenter(Point(8, 9));
+    assert(sh4.hitTest(sh2) && sh2.hitTest(sh4));
+
+    sh4.setCenter(Point(-7, 9));
+    assert(sh4.hitTest(sh2) && sh2.hitTest(sh4));
+    
+    assert(!sh1.hitTest(sh3) && !sh3.hitTest(sh1));
 
     // Intersect
     sh1.setCenter(Point(0, 0));
