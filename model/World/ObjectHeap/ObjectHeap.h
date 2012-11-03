@@ -66,11 +66,10 @@ private:
     /// Vector with all objects.
     std::vector < std::vector <Object*> > data;
 
-public:
     //**************************************************************************
     // ITERATOR
     //**************************************************************************
-
+public:
     typedef std::vector <Object*>::iterator iterator;
     typedef std::vector <Object*>::const_iterator const_iterator;
 
