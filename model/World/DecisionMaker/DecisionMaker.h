@@ -13,9 +13,9 @@
 // Temporary workaround.
 
 #include <armadillo>
-#include<fstream>
+#include <fstream>
 #include "../../BasicTypes.h"
-#include<vector>
+#include <vector>
 #include <stdlib.h>
 
 
