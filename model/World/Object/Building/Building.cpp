@@ -23,12 +23,12 @@ Building::~Building()
 
 bool Building::putInside(Object * object)
 {
-
+    return this -> contents -> push(object);
 }
 
 bool Building::takeOut(Object * object)
 {
-
+    return this -> contents -> remove(object);
 }
 
 //******************************************************************************
