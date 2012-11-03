@@ -33,6 +33,22 @@ public:
     ~Building();
 
     //**************************************************************************
+    // ACTIONS ACCESSING.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets objects pending actions.
+     * @return vector with pending actions.
+     */
+    std::vector <Action *> getActions();
+
+    /**
+     * @brief Receives message.
+     * @param action    message
+     */
+    void receiveMessage(Action * action);
+
+    //**************************************************************************
     // CONTENTS MANIPULATION.
     //**************************************************************************
 
