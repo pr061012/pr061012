@@ -74,22 +74,22 @@ private:
     typedef std::vector< std::vector <Object*> >::iterator iterator;
     typedef std::vector< std::vector <Object*> >::const_iterator const_iterator;
 
-    iterator begin(type)
+    iterator begin(ObjectType type)
     {
         return data[type+1].begin();
     }
 
-    const_iterator begin(type) const
+    const_iterator begin(ObjectType type) const
     {
         return data[type+1].begin();
     }
 
-    iterator end(type)
+    iterator end(ObjectType type)
     {
         return data[type+1].end();
     }
 
-    const_iterator end(type) const
+    const_iterator end(ObjectType type) const
     {
         return data[type+1].end();
     }
