@@ -10,7 +10,7 @@
 
 #include "../../Utilities/Shape/Shape.h"
 #include "../../BasicTypes.h"
-#include "../PendingAction/PendingAction.h"
+#include "../Action/Action.h"
 
 /**
  * @class Object
@@ -38,27 +38,33 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Destroy object.
+     * @brief Decreases object's health.
+     * @param delta health to decrease
      */
-    void destroy();
+    void decreaseHealth(unsigned int delta);
 
     /**
-     * @brief Damages object.
-     * @param harm  about of damage
+     * @brief Increases object's health.
+     * @param delta health to increase
      */
-    void damage(unsigned int harm);
+    void increaseHealth(unsigned int delta);
 
     /**
-     * @brief Treat object
-     * @param point point of treat
+     * @brief Destroys object.
      */
-    void treat(unsigned int point);
+    virtual void destroy() = 0;
 
     /**
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector <PendingAction *> getPendingActions() = 0;
+    virtual std::vector <Action> * getActions() = 0;
+
+    /**
+     * @brief Receives message.
+     * @param action    message
+     */
+    virtual void receiveMessage(Action * action) = 0;
 
     //**************************************************************************
     // ACCESSORS.
@@ -152,11 +158,12 @@ private:
     /// Is object destroyed or not.
     bool destroyed;
 
-    /** @brief Object's health.
-     *        * buildings and creatures -- health
-     *        * weather -- living time
-     *        * resource -- amount of resource
-     *        * tool -- durability
+    /**
+     * @brief Object's health.
+     *          * buildings and creatures -- health
+     *          * weather -- living time
+     *          * resource -- amount of resource
+     *          * tool -- durability
      */
     unsigned int health;
 
@@ -169,8 +176,9 @@ private:
     /// Angle of rotation.
     double angle;
 
-    /// Array with pending actions.
-    std::vector <PendingAction *> actions;
+protected:
+    /// Array with actions.
+    std::vector <Action> actions;
 };
 
 #endif // OBJECT_H

@@ -3,15 +3,13 @@
     See the LICENSE file for copying permission.
 */
 
-// NOTE:
-//  - You should use ObjectType for type.
-
 #ifndef OBJECT_FACTORY_H
 #define OBJECT_FACTORY_H
 
 #include <string>
 #include <map>
 
+#include "../ParamArray/ParamArray.h"
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
@@ -21,9 +19,6 @@
  */
 class ObjectFactory
 {
-    /// If not NULL, all objects will be automatically added in this ObjectHeap
-    ObjectHeap* list;
-
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -33,11 +28,6 @@ public:
      * @brief Constructor.
      */
     ObjectFactory();
-
-    /**
-     * @brief Create ObjectFactory which will automatically add created objects in ObjectHeap provided.
-     */
-    ObjectFactory(ObjectHeap* list);
 
     /**
      * @brief Destructor.
@@ -54,7 +44,19 @@ public:
      * @param  params   map with object params
      * @return pointer to created object
      */
-    Object* createObject(ObjectType type, std::map<std::string, void*> params);
+    Object * createObject(ObjectType type, const ParamArray & params);
+
+private:
+    //**************************************************************************
+    // OBJECTS CREATION (INNER METHODS).
+    //**************************************************************************
+
+    /**
+     * @brief  Creates building.
+     * @param  params    map with object params
+     * @return pointer to created building
+     */
+    Object * createBuilding(const ParamArray & params);
 };
 
 #endif // OBJECT_FACTORY_H

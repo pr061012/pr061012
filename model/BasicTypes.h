@@ -49,10 +49,9 @@ enum ResourceType
 };
 
 /**
- * @brief The ActionType enum
+ * @brief The CreatureType enum
  */
-// TODO: Rename to CreatureActionType?
-enum ActionType
+enum CreatureAction
 {
     // Special action (means that action isn't specified yet)
     NONE,
@@ -71,18 +70,17 @@ enum CreatureType
 };
 
 /**
- * @brief The PendingActionType enum
+ * @brief The ActionType enum
  */
-enum PendingActionType
+enum ActionType
 {
     GO, MINE, HARM, REPAIR, CREATE, DROP, PICK_UP
 };
 
 /**
- * @brief The PendingActionStateType enum
+ * @brief The ActionState enum
  */
-// TODO: D'oh! Need to rename this.
-enum PendingActionStateType
+enum ActionState
 {
     PENDING, FAILED, SUCCEED
 };

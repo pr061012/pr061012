@@ -44,11 +44,6 @@ public:
      */
     unsigned int getTypeAmount(ObjectType);
 
-    /**
-     * @brief  Resets position to the first heap element.
-     */
-    void cleanPosition();
-
     //**************************************************************************
     // ADDING/REMOVING ELEMENTS.
     //**************************************************************************
@@ -70,6 +65,54 @@ public:
 private:
     /// Vector with all objects.
     std::vector < std::vector <Object*> > data;
+
+    //**************************************************************************
+    // ITERATOR
+    //**************************************************************************
+public:
+    typedef std::vector <Object*>::iterator iterator;
+    typedef std::vector <Object*>::const_iterator const_iterator;
+
+    iterator begin(ObjectType type)
+    {
+        return data[type+1].begin();
+    }
+
+    const_iterator begin(ObjectType type) const
+    {
+        return data[type+1].begin();
+    }
+
+    iterator end(ObjectType type)
+    {
+        return data[type+1].end();
+    }
+
+    const_iterator end(ObjectType type) const
+    {
+        return data[type+1].end();
+    }
+
+    iterator begin()
+    {
+        return data[0].begin();
+    }
+
+    const_iterator begin() const
+    {
+        return data[0].begin();
+    }
+
+    iterator end()
+    {
+        return data[0].end();
+    }
+
+    const_iterator end() const
+    {
+        return data[0].end();
+    }
+
 };
 
 #endif // OBJECTHEAP_H

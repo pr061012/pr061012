@@ -44,7 +44,7 @@ int main()
     Indexator index(1000, &heap);
 
     // Create an area for looking for objects
-    Shape area(Point(500, 500), CIRCLE, 300);
+    Shape area(Point(500, 500), CIRCLE, 400);
 
     // Get contents
     Indexator::ObjectHeap * contents = index.getAreaContents(area);

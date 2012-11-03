@@ -25,12 +25,32 @@ public:
     /**
      * @brief Constructor.
      */
-    Building();
+    Building(unsigned int max_space, unsigned int max_health);
 
     /**
      * @brief Destructor.
      */
     ~Building();
+
+    //**************************************************************************
+    // ACTIONS ACCESSING.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets objects pending actions.
+     * @return vector with pending actions.
+     */
+    std::vector <Action *> getActions();
+
+    /**
+     * @brief Receives message.
+     * @param action    message
+     */
+    void receiveMessage(Action * action);
+
+    //**************************************************************************
+    // CONTENTS MANIPULATION.
+    //**************************************************************************
 
     /**
      * @brief  Puts object inside building.
@@ -47,53 +67,42 @@ public:
     bool takeOut(Object * object);
 
     //**************************************************************************
-    // ACCESSORS.
+    // REPAIRING.
     //**************************************************************************
 
-    // TODO: Do we need this setter? We already have putInside() and takeOut()
-    //       methods.
     /**
-     * @brief Set the value of contents.
-     * @param new_var the new value of contents
+     * @brief Repairs building (adds delta to building health).
+     * @param delta health to add
      */
-    void setContents(ObjectHeap new_var);
+    void repair(unsigned int delta);
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
     /**
      * @brief  Get the value of contents.
      * @return the value of contents
      */
-    ObjectHeap getContents();
-
-    // TODO: Do we need that? Seems like to be a pretty bad thing.
-    /**
-     * @brief Set the value of free_space.
-     * @param new_var the new value of free_space
-     */
-    void setFreeSpace (int new_var);
+    const ObjectHeap * getContents();
 
     /**
      * @brief  Get the value of free_space.
      * @return the value of free_space
      */
-    int getFreeSpace();
+    unsigned int getFreeSpace();
 
     /**
      * @brief Set the value of max_space.
      * @param new_var the new value of max_space
      */
-    void setMaxSpace(int new_var);
+    void setMaxSpace(unsigned int new_var);
 
     /**
      * @brief  Get the value of max_space.
      * @return the value of max_space
      */
-    int getMaxSpace();
-
-    /**
-     * @brief Set the value of completeness.
-     * @param new_var the new value of completeness
-     */
-    void setCompleteness(bool new_var);
+    unsigned int getMaxSpace();
 
     /**
      * @brief  Get the value of isFinished.
@@ -102,17 +111,18 @@ public:
     bool getCompleteness();
 
 private:
-    // TODO: Maybe you should use ObjectHeap * instead of ObjectHeap. ObjectHeap
-    //       may have enourmous size. It's obviously silly to copy big objects.
     /// Building contents.
-    ObjectHeap contents;
+    ObjectHeap * contents;
 
     /// Free space.
-    int free_space;
+    unsigned int free_space;
     /// Maximum available space.
-    int max_space;
+    unsigned int max_space;
 
-    /// Completeness of the building.
+    /// @brief Completeness of the building. As building is founded, it gets 0
+    ///        health. Building proccess is equivalent to repairing proccess.
+    ///        After first repairing (as health becomes equals to max_health)
+    ///        completeness value changes to true and building becomes complete.
     bool completeness;
 };
 

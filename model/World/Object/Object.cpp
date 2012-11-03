@@ -13,6 +13,12 @@ Object::Object(ObjectType type) :
     type(type)
 {
     this -> destroyed = false;
+    this -> immortality = false;
+
+    this -> angle = 0;
+
+    this -> health = 0;
+    this -> max_health = 0;
 }
 
 Object::~Object()
@@ -24,18 +30,13 @@ Object::~Object()
 // OBJECT'S LIFE.
 //******************************************************************************
 
-void Object::destroy()
-{
-    this -> destroyed = true;
-}
-
-void Object::damage(unsigned int harm)
+void Object::decreaseHealth(unsigned int delta)
 {
     if(!immortality)
     {
-        if(this -> health > harm)
+        if(this -> health > delta)
         {
-            this -> health -= harm;
+            this -> health -= delta;
         }
         else
         {
@@ -45,11 +46,11 @@ void Object::damage(unsigned int harm)
     }
 }
 
-void Object::treat(unsigned int point)
+void Object::increaseHealth(unsigned int delta)
 {
-    if(this -> health + point < this->max_health)
+    if(this -> health + delta < this->max_health)
     {
-        this -> health += point;
+        this -> health += delta;
     }
     else
     {

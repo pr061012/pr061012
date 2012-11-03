@@ -23,9 +23,12 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
+int Humanoid::CURRENT_ID = 0;
+
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Object(CREATURE),
-    Creature(HUMANOID, dmaker)
+    Creature(HUMANOID, dmaker),
+    id(CURRENT_ID++)
 {
     int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
     int age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);

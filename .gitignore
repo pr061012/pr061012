@@ -18,7 +18,12 @@ doxygen/*
 
 # Compiled binaries.
 pr061012*
+*.out
 test/*/test
 
 # Logs.
 *.log
+
+# Backups.
+*~
+*.swp
