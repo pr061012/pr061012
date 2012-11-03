@@ -23,7 +23,7 @@ ObjectFactory::~ObjectFactory()
 // OBJECT'S CREATION.
 //******************************************************************************
 
-Object * ObjectFactory::createObject(ObjectType type, const std::map <std::string, int> & params)
+Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 {
     Object * object;
 
@@ -53,7 +53,7 @@ Object * ObjectFactory::createObject(ObjectType type, const std::map <std::strin
 // OBJECTS CREATION (INNER METHODS).
 //******************************************************************************
 
-Object * createBuilding(const std::map <std::string, int> & params)
+Object * createBuilding(const ParamArray & params)
 {
     Building * building = new Building;
 }

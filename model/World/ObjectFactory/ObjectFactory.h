@@ -9,6 +9,7 @@
 #include <string>
 #include <map>
 
+#include "../ParamArray/ParamArray.h"
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
@@ -43,7 +44,7 @@ public:
      * @param  params   map with object params
      * @return pointer to created object
      */
-    Object * createObject(ObjectType type, const std::map <std::string, int> & params);
+    Object * createObject(ObjectType type, const ParamArray & params);
 
 private:
     //**************************************************************************
@@ -55,7 +56,7 @@ private:
      * @param  params    map with object params
      * @return pointer to created building
      */
-    Object * createBuilding(const std::map <std::string, int> & params);
+    Object * createBuilding(const ParamArray & params);
 };
 
 #endif // OBJECT_FACTORY_H
