@@ -71,8 +71,8 @@ private:
     // ITERATOR
     //**************************************************************************
 
-    typedef std::vector< std::vector <Object*> >::iterator iterator;
-    typedef std::vector< std::vector <Object*> >::const_iterator const_iterator;
+    typedef std::vector <Object*>::iterator iterator;
+    typedef std::vector <Object*>::const_iterator const_iterator;
 
     iterator begin(ObjectType type)
     {
