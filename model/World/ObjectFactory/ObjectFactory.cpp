@@ -55,5 +55,8 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 
 Object * createBuilding(const ParamArray & params)
 {
-    Building * building = new Building;
+    unsigned int max_space = params.getValue("max_space");
+    unsigned int max_health = params.getValue("max_health");
+
+    Building * building = new Building(max_health, max_space);
 }
