@@ -76,42 +76,42 @@ private:
 
     iterator begin(type)
     {
-        return data[type+1].container.begin();
+        return data[type+1].begin();
     }
 
     const_iterator begin(type) const
     {
-        return data[type+1].container.begin();
+        return data[type+1].begin();
     }
 
     iterator end(type)
     {
-        return data[type+1].container.end();
+        return data[type+1].end();
     }
 
     const_iterator end(type) const
     {
-        return data[type+1].const_container.end();
+        return data[type+1].end();
     }
 
     iterator begin()
     {
-        return data[0].container.begin();
+        return data[0].begin();
     }
 
     const_iterator begin() const
     {
-        return data[0].container.begin();
+        return data[0].begin();
     }
 
     iterator end()
     {
-        return data[0].container.end();
+        return data[0].end();
     }
 
     const_iterator end() const
     {
-        return data[0].const_container.end();
+        return data[0].end();
     }
 
 };
