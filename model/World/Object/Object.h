@@ -43,16 +43,16 @@ public:
     void destroy();
 
     /**
-     * @brief Damages object.
-     * @param harm  about of damage
+     * @brief Decreases object's health.
+     * @param delta health to decrease
      */
-    void damage(unsigned int harm);
+    void decreaseHealth(unsigned int delta);
 
     /**
-     * @brief Treat object
-     * @param point point of treat
+     * @brief Increases object's health.
+     * @param delta health to increase
      */
-    void treat(unsigned int point);
+    void increaseHealth(unsigned int delta);
 
     /**
      * @brief  Gets objects pending actions.
