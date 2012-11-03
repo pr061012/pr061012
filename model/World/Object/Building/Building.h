@@ -56,30 +56,23 @@ public:
      */
     const ObjectHeap * getContents();
 
-    // TODO: Do we need that? Seems like to be a pretty bad thing.
-    /**
-     * @brief Set the value of free_space.
-     * @param new_var the new value of free_space
-     */
-    void setFreeSpace(int new_var);
-
     /**
      * @brief  Get the value of free_space.
      * @return the value of free_space
      */
-    int getFreeSpace();
+    unsigned int getFreeSpace();
 
     /**
      * @brief Set the value of max_space.
      * @param new_var the new value of max_space
      */
-    void setMaxSpace(int new_var);
+    void setMaxSpace(unsigned int new_var);
 
     /**
      * @brief  Get the value of max_space.
      * @return the value of max_space
      */
-    int getMaxSpace();
+    unsigned int getMaxSpace();
 
     /**
      * @brief Set the value of completeness.
@@ -98,9 +91,9 @@ private:
     ObjectHeap * contents;
 
     /// Free space.
-    int free_space;
+    unsigned int free_space;
     /// Maximum available space.
-    int max_space;
+    unsigned int max_space;
 
     /// @brief Completeness of the building. As building is founded, it gets 0
     ///        health. Building proccess is equivalent to repairing proccess.

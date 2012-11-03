@@ -40,22 +40,17 @@ const ObjectHeap * Building::getContents()
     return this -> contents;
 }
 
-void Building::setFreeSpace(int new_var)
-{
-    this -> free_space = new_var;
-}
-
-int Building::getFreeSpace()
+unsigned int Building::getFreeSpace()
 {
     return this -> free_space;
 }
 
-void Building::setMaxSpace(int new_var)
+void Building::setMaxSpace(unsigned int new_var)
 {
     this -> max_space = new_var;
 }
 
-int Building::getMaxSpace()
+unsigned int Building::getMaxSpace()
 {
     return this -> max_space;
 }
