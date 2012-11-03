@@ -28,48 +28,34 @@ public:
 
 int main()
 {
-    //**************************************************************************
-    // TEST CONSTRUCTOR/DESTRUCTOR.
-    //**************************************************************************
-
-    /// Create helper var.
     ObjectType type = RESOURCE;
-
-    /// Test create Object.
     AnyObject object(type);
-
-    /// Test create ptr for object.
-    AnyObject * object_2 = new AnyObject(type);
-    assert(object_2 != 0);
-
-    /// Test delete object
-    delete object_2;
 
     //**************************************************************************
     // TEST ACCESSORS.
     //**************************************************************************
 
-    /// Test Health state.
+    // Test Health state.
     object.setHealth(100);
     assert(object.getHealth() == 100);
 
-    /// Test MaxHealth state.
+    // Test MaxHealth state.
     object.setMaxHealth(200);
     assert(object.getMaxHealth() == 200);
 
-    /// Test Angle state.
+    // Test Angle state.
     object.setAngle(20);
     assert(object.getAngle() == 20);
 
-    /// Test Destroyed state .
+    // Test Destroyed state.
     object.setDestroyed(true);
     assert(object.getDestroyed() == true);
     object.setDestroyed(false);
 
-    /// Test Type state.
+    // Test Type state.
     assert(object.getType() == RESOURCE);
 
-    /// Test Immortality state.
+    // Test Immortality state.
     object.setImmortality(true);
     assert(object.getImmortality() == true);
     object.setImmortality(false);
@@ -78,9 +64,23 @@ int main()
     // TEST OBJECT'S LIFE.
     //**************************************************************************
 
-    /// Set some states.
+    // Set some states.
     object.setHealth(100);
     object.setMaxHealth(150);
+
+    // Test increaseHealth() method.
+    object.increaseHealth(10);
+    assert(object.getHealth() == 110);
+
+    object.increaseHealth(50);
+    assert(object.getHealth() == object.getMaxHealth());
+
+    // Test decreaseHealth() method.
+    object.decreaseHealth(10);
+    assert(object.getHealth() == 140);
+
+    object.decreaseHealth(150);
+    assert(object.getHealth() == 0);
 
     return 0;
 }
