@@ -9,11 +9,12 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building() :
+Building::Building(unsigned int max_space) :
     Object(BUILDING),
-    contents(new ObjectHeap)
+    contents(new ObjectHeap),
+    max_space(max_space),
+    completeness(false)
 {
-    this -> completeness = false;
 }
 
 Building::~Building()
