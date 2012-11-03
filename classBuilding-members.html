@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classBuilding.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,35 +107,35 @@ $(document).ready(function(){initNavTree('classBuilding.html','');});
 
 <p>This is the complete list of members for <a class="el" href="classBuilding.html">Building</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#ab570ec0a203ee621f9f522c678a147d9">Building</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#a71bb28ec849ea1c459205fd578d81eca">damage</a>(unsigned int harm)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#ad14022400495b1f902037890e7a1cba8">destroy</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classBuilding.html#adb0a57e2aeee35fd205ee81e00400101">Building</a>(unsigned int max_space, unsigned int max_health)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">decreaseHealth</a>(unsigned int delta)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">destroy</a>()=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">getActions</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a">getAngle</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88">getCompleteness</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#a4f4b5ecec51cf42c6322ecf48c9e0c95">getContents</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classBuilding.html#aa535efda305f43307f5f45ef96b3645f">getContents</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac">getDestroyed</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#abb1a829cebb62cef91cf75812afe43e2">getFreeSpace</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classBuilding.html#a454e3401224e1c5a25b1c3725f171b34">getFreeSpace</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd">getHealth</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a93a09ce1b01ddb6ad1aa2a323759e0b9">getImmortality</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#ae5f24d6c22631610683220c5de98900a">getMaxHealth</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#a8c167deebb00f96592c96611ded11484">getMaxSpace</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#adc92f8e0d82eeafbddfc436d2ce01353">getPendingActions</a>()=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classBuilding.html#a4ef686203c7477e7e2a7107962e95f28">getMaxSpace</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">increaseHealth</a>(unsigned int delta)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a>(ObjectType type)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#a4c019de587cb657f2566cbb27623fc6f">putInside</a>(Object *object)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#a76d5d2b490c0f570784b4a054b930603">receiveMessage</a>(PendingAction *action)=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">setAngle</a>(double new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#ae7e11f77364abae851de1fedd521f2a3">setCompleteness</a>(bool new_var)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classBuilding.html#ababe8155388e3157a188e33cacd12a24">receiveMessage</a>(Action *action)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d">repair</a>(unsigned int delta)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">setAngle</a>(double new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#a70c98c94d50248990784d702e928d0c7">setDestroyed</a>(bool new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#a1d6f3e0a6df6f2dd1f0002a310092a68">setFreeSpace</a>(int new_var)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a6f9b8d361352cb120883b126a95f164a">setHealth</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#aae137fc66968bc847076a988071053f5">setImmortality</a>(bool new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28">setMaxHealth</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#aa2b8a4ff31894f711921113fa8703ad6">setMaxSpace</a>(int new_var)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a>(Shape new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2">takeOut</a>(Object *object)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a0b50545267fbf577cf4d7c125d467168">treat</a>(unsigned int point)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a6f9b8d361352cb120883b126a95f164a">setHealth</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#aae137fc66968bc847076a988071053f5">setImmortality</a>(bool new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28">setMaxHealth</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#a51fd96027936ec87312e185b8c195bfc">setMaxSpace</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a>(Shape new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2">takeOut</a>(Object *object)</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classBuilding.html#ab675c6a382e110b84031956cda708439">~Building</a>()</td><td class="entry"><a class="el" href="classBuilding.html">Building</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('classBuilding.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:14 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:23 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

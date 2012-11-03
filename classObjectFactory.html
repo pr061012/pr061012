@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classObjectFactory.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,21 +118,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa04d4cb5cab832f0d8c1771e750126f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa04d4cb5cab832f0d8c1771e750126f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#aaa04d4cb5cab832f0d8c1771e750126f">ObjectFactory</a> ()</td></tr>
 <tr class="memdesc:aaa04d4cb5cab832f0d8c1771e750126f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="memitem:aaf35c45bc2ef849b5a16086c030d895c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf35c45bc2ef849b5a16086c030d895c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#aaf35c45bc2ef849b5a16086c030d895c">ObjectFactory</a> (<a class="el" href="classObjectHeap.html">ObjectHeap</a> *list)</td></tr>
-<tr class="memdesc:aaf35c45bc2ef849b5a16086c030d895c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="classObjectFactory.html" title="ObjectFactory Class.">ObjectFactory</a> which will automatically add created objects in <a class="el" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> provided. <br/></td></tr>
 <tr class="memitem:a04a1138c18e740b8f0fd580b3d52af1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04a1138c18e740b8f0fd580b3d52af1c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a04a1138c18e740b8f0fd580b3d52af1c">~ObjectFactory</a> ()</td></tr>
 <tr class="memdesc:a04a1138c18e740b8f0fd580b3d52af1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:a8a664e143fb763791376090d01ebb370"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a8a664e143fb763791376090d01ebb370">createObject</a> (ObjectType type, std::map&lt; std::string, void * &gt; params)</td></tr>
-<tr class="memdesc:a8a664e143fb763791376090d01ebb370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new object.  <a href="#a8a664e143fb763791376090d01ebb370"></a><br/></td></tr>
+<tr class="memitem:a6c7102f01ee8e5bf6a3ca562e2b2aba0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">createObject</a> (ObjectType type, const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:a6c7102f01ee8e5bf6a3ca562e2b2aba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new object.  <a href="#a6c7102f01ee8e5bf6a3ca562e2b2aba0"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classObjectFactory.html" title="ObjectFactory Class.">ObjectFactory</a> Class. </p>
 
-<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00022">22</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00020">20</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
 </div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a8a664e143fb763791376090d01ebb370"></a>
+<a class="anchor" id="a6c7102f01ee8e5bf6a3ca562e2b2aba0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -145,7 +142,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; std::string, void * &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
           <td class="paramname"><em>params</em>&#160;</td>
         </tr>
         <tr>
@@ -166,7 +163,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to created object </dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00030">30</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00026">26</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
 
 </div>
 </div>
@@ -180,7 +177,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObjectFactory.html">ObjectFactory</a></li>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:16 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:24 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

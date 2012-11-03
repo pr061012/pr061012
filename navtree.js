@@ -1,14 +1,14 @@
 var NAVTREE =
 [
   [ "pr061012", "index.html", [
-    [ "SOIL", "index.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", null, [
@@ -19,8 +19,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"BasicTypes_8h_source.html",
-"dir_9923bd3d458225bfbecb7bb54867ce10.html"
+"Action_8cpp_source.html",
+"dir_2e1d10ed092d23f9054f7fda553d11e2.html"
 ];
 
 var navTreeSubIndices = new Array();

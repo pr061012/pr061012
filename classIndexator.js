@@ -1,5 +1,6 @@
 var classIndexator =
 [
+    [ "ObjectHeap", "classIndexator.html#a1530a6e31d5e8fbc523ebde4763ab011", null ],
     [ "Indexator", "classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc", null ],
     [ "Indexator", "classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417", null ],
     [ "~Indexator", "classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b", null ],

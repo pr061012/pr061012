@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../Utilities/Shape/Shape.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../BasicTypes.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../PendingAction/PendingAction.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../Action/Action.h&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classObject.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classObject.html" title="Abstract Object class.">Object</a></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
@@ -130,15 +130,15 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// OBJECT&#39;S LIFE.</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#ad14022400495b1f902037890e7a1cba8" title="Destroy object.">destroy</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a71bb28ec849ea1c459205fd578d81eca" title="Damages object.">damage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> harm);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a0b50545267fbf577cf4d7c125d467168" title="Treat object.">treat</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> point);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457" title="Decreases object&#39;s health.">decreaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a739711d23cbac25768a02db17270a875" title="Increases object&#39;s health.">increaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e" title="Destroys object.">destroy</a>() = 0;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> std::vector &lt;PendingAction *&gt; <a class="code" href="classObject.html#adc92f8e0d82eeafbddfc436d2ce01353" title="Gets objects pending actions.">getPendingActions</a>() = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> std::vector &lt;Action&gt; * <a class="code" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7" title="Gets objects pending actions.">getActions</a>() = 0;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classObject.html#a76d5d2b490c0f570784b4a054b930603" title="Receives message.">receiveMessage</a>(<a class="code" href="classPendingAction.html" title="PendingAction contains information about object&#39;s pending action.">PendingAction</a> * action) = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba" title="Receives message.">receiveMessage</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a> * action) = 0;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// ACCESSORS.</span></div>
@@ -177,23 +177,26 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">bool</span> destroyed;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> health;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_health;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">double</span> angle;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;};</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> health;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_health;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">double</span> angle;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">  181</a></span>&#160;    std::vector &lt;Action&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;};</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><b>Object.h</b></li>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:13 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><b>Object.h</b></li>
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

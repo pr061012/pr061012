@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classWeather.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,21 +107,23 @@ $(document).ready(function(){initNavTree('classWeather.html','');});
 
 <p>This is the complete list of members for <a class="el" href="classWeather.html">Weather</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a71bb28ec849ea1c459205fd578d81eca">damage</a>(unsigned int harm)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#ad14022400495b1f902037890e7a1cba8">destroy</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">decreaseHealth</a>(unsigned int delta)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">destroy</a>()=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a>()=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a">getAngle</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac">getDestroyed</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd">getHealth</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a93a09ce1b01ddb6ad1aa2a323759e0b9">getImmortality</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#ae5f24d6c22631610683220c5de98900a">getMaxHealth</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classObject.html#adc92f8e0d82eeafbddfc436d2ce01353">getPendingActions</a>()=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classWeather.html#af58b615d71607a647255147d594f32be">getSubtype</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7">getViewArea</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classWeather.html#ae223c3712029d994797ea826821562cb">getWindow</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWeather.html#af58b615d71607a647255147d594f32be">getSubtype</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7">getViewArea</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classWeather.html#ae223c3712029d994797ea826821562cb">getWindow</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">increaseHealth</a>(unsigned int delta)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a>(ObjectType type)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a76d5d2b490c0f570784b4a054b930603">receiveMessage</a>(PendingAction *action)=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba">receiveMessage</a>(Action *action)=0</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">setAngle</a>(double new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.html#a70c98c94d50248990784d702e928d0c7">setDestroyed</a>(bool new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.html#a6f9b8d361352cb120883b126a95f164a">setHealth</a>(unsigned int new_var)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
@@ -131,16 +133,15 @@ $(document).ready(function(){initNavTree('classWeather.html','');});
   <tr><td class="entry"><a class="el" href="classWeather.html#a8ffabcfbe91aa86dad05b97406cb438a">setSubtype</a>(WeatherType new_var)</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classWeather.html#a2ca811010083ca9b944a32983a01031d">setViewArea</a>(Shape new_var)</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classWeather.html#afb277c0f5ec8b34ba549d74fd8fe4c0c">setWindow</a>(ObjectHeap *new_var)</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#a0b50545267fbf577cf4d7c125d467168">treat</a>(unsigned int point)</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classWeather.html#aa404c94fec05b825454a7309827767c6">Weather</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">~Weather</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWeather.html#aa404c94fec05b825454a7309827767c6">Weather</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a>()</td><td class="entry"><a class="el" href="classObject.html">Object</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">~Weather</a>()</td><td class="entry"><a class="el" href="classWeather.html">Weather</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:16 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

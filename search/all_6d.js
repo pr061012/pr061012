@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['makedecision',['makeDecision',['../classDecisionMaker.html#ae43a353baa7eadc1b95f667b3e55cc7a',1,'DecisionMaker']]],
-  ['markasfailed',['markAsFailed',['../classPendingAction.html#a5b94d04a99f2f3fbb2701aed428d1f8e',1,'PendingAction']]],
-  ['markassucceed',['markAsSucceed',['../classPendingAction.html#a74b57ba5a45c6b30de3aa7e0924ed23b',1,'PendingAction']]]
+  ['makedecision',['makeDecision',['../classDecisionMaker.html#abdb0b373663c412ee865b53e039706a4',1,'DecisionMaker']]],
+  ['markasfailed',['markAsFailed',['../classAction.html#aae9f9b7922b0c2dffafba4f13402312c',1,'Action']]],
+  ['markassucceed',['markAsSucceed',['../classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946',1,'Action']]]
 ];

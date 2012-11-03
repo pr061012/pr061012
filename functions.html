@@ -74,10 +74,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
@@ -118,7 +120,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -130,19 +132,35 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <div class="contents">
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>Action()
+: <a class="el" href="classAction.html#afd4547376b96ba4655e991d6ee25ef3f">Action</a>
+</li>
+<li>actions
+: <a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">Object</a>
+</li>
+<li>addKey()
+: <a class="el" href="classParamArray.html#ab29b077a3105569b3d5cc7586227dccb">ParamArray</a>
+</li>
+<li>addParam()
+: <a class="el" href="classAction.html#a711e42db6699325d9ca7af100158d350">Action</a>
+</li>
+<li>addParticipant()
+: <a class="el" href="classAction.html#aae2912142691704bc9a61108fcb83205">Action</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>Building()
-: <a class="el" href="classBuilding.html#ab570ec0a203ee621f9f522c678a147d9">Building</a>
+: <a class="el" href="classBuilding.html#adb0a57e2aeee35fd205ee81e00400101">Building</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>cleanPosition()
-: <a class="el" href="classObjectHeap.html#a5c9c655547626ed037f36785a3415ece">ObjectHeap</a>
-</li>
 <li>createObject()
-: <a class="el" href="classObjectFactory.html#a8a664e143fb763791376090d01ebb370">ObjectFactory</a>
+: <a class="el" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">ObjectFactory</a>
 </li>
 <li>Creature()
 : <a class="el" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9">Creature</a>
@@ -151,17 +169,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>damage()
-: <a class="el" href="classObject.html#a71bb28ec849ea1c459205fd578d81eca">Object</a>
-</li>
 <li>DecisionMaker()
 : <a class="el" href="classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c">DecisionMaker</a>
 </li>
 <li>decreaseAmount()
 : <a class="el" href="classResource.html#a2cb3df2c376a3d53e6ed899eeea03472">Resource</a>
 </li>
+<li>decreaseHealth()
+: <a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">Object</a>
+</li>
 <li>destroy()
-: <a class="el" href="classObject.html#ad14022400495b1f902037890e7a1cba8">Object</a>
+: <a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">Object</a>
 </li>
 </ul>
 
@@ -174,6 +192,11 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>getActions()
+: <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>
+, <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>
+, <a class="el" href="classResource.html#ae7ad8f4bc41d3aba1bbd029a5a05c3d7">Resource</a>
+</li>
 <li>getAge()
 : <a class="el" href="classCreature.html#a7ca491811af9fa7069720b739cfc0592">Creature</a>
 </li>
@@ -196,7 +219,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88">Building</a>
 </li>
 <li>getContents()
-: <a class="el" href="classBuilding.html#a4f4b5ecec51cf42c6322ecf48c9e0c95">Building</a>
+: <a class="el" href="classBuilding.html#aa535efda305f43307f5f45ef96b3645f">Building</a>
 </li>
 <li>getDestroyed()
 : <a class="el" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac">Object</a>
@@ -208,7 +231,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classPoint.html#af0b3ba4c05476027b11d89ce3e231a62">Point</a>
 </li>
 <li>getFreeSpace()
-: <a class="el" href="classBuilding.html#abb1a829cebb62cef91cf75812afe43e2">Building</a>
+: <a class="el" href="classBuilding.html#a454e3401224e1c5a25b1c3725f171b34">Building</a>
 </li>
 <li>getGathered()
 : <a class="el" href="classResource.html#a980b8485d37d8748cc6550ae55ff1fd2">Resource</a>
@@ -235,14 +258,10 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classObject.html#ae5f24d6c22631610683220c5de98900a">Object</a>
 </li>
 <li>getMaxSpace()
-: <a class="el" href="classBuilding.html#a8c167deebb00f96592c96611ded11484">Building</a>
+: <a class="el" href="classBuilding.html#a4ef686203c7477e7e2a7107962e95f28">Building</a>
 </li>
 <li>getParam()
-: <a class="el" href="classPendingAction.html#a318768636cf92dabb152dde8d67dcf53">PendingAction</a>
-</li>
-<li>getPendingActions()
-: <a class="el" href="classObject.html#adc92f8e0d82eeafbddfc436d2ce01353">Object</a>
-, <a class="el" href="classResource.html#a8dc37fc05b8c2414b1197bdf9299639a">Resource</a>
+: <a class="el" href="classAction.html#a1688de86a6210a5cdae356eb0ff14ed4">Action</a>
 </li>
 <li>getProgress()
 : <a class="el" href="classResource.html#ad1ca9e2c109c8ab094799b851432fb4c">Resource</a>
@@ -263,20 +282,23 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classShape.html#a179e7d52e53af6c447e5211c81b8e986">Shape</a>
 </li>
 <li>getState()
-: <a class="el" href="classPendingAction.html#af1b46de048c7ffce0d58a04bc99279e9">PendingAction</a>
+: <a class="el" href="classAction.html#a7ca30541e8f73e9ec9ea7fabe40d592c">Action</a>
 </li>
 <li>getSubtype()
-: <a class="el" href="classResource.html#ae10a86b12cd7cfb5a23fe748fa8f40b9">Resource</a>
+: <a class="el" href="classWeather.html#af58b615d71607a647255147d594f32be">Weather</a>
+, <a class="el" href="classResource.html#ae10a86b12cd7cfb5a23fe748fa8f40b9">Resource</a>
 , <a class="el" href="classTool.html#ad625946e905932b90f68d9ec9a452782">Tool</a>
-, <a class="el" href="classWeather.html#af58b615d71607a647255147d594f32be">Weather</a>
 </li>
 <li>getType()
-: <a class="el" href="classShape.html#a2f68603c2fbfa03fd1129b8ef1e0f9f2">Shape</a>
-, <a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">Object</a>
+: <a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">Object</a>
+, <a class="el" href="classShape.html#a2f68603c2fbfa03fd1129b8ef1e0f9f2">Shape</a>
 , <a class="el" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">ViewObject</a>
 </li>
 <li>getTypeAmount()
 : <a class="el" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a">ObjectHeap</a>
+</li>
+<li>getValue()
+: <a class="el" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0">ParamArray</a>
 </li>
 <li>getViewArea()
 : <a class="el" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7">Weather</a>
@@ -293,8 +315,8 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="classWeather.html#ae223c3712029d994797ea826821562cb">Weather</a>
 </li>
 <li>getX()
-: <a class="el" href="classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab">ViewObject</a>
-, <a class="el" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6">Point</a>
+: <a class="el" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6">Point</a>
+, <a class="el" href="classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab">ViewObject</a>
 </li>
 <li>getY()
 : <a class="el" href="classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1">ViewObject</a>
@@ -317,6 +339,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>increaseHealth()
+: <a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">Object</a>
+</li>
 <li>Indexator()
 : <a class="el" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc">Indexator</a>
 </li>
@@ -324,26 +349,26 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classShape.html#a7c1b991114c1f018e350eafcbf23ff64">Shape</a>
 </li>
 <li>isFailed()
-: <a class="el" href="classPendingAction.html#af00008ce34a1d6679bc999367202630f">PendingAction</a>
+: <a class="el" href="classAction.html#a858fc10604423eaba08c821fb6cb1363">Action</a>
 </li>
 <li>isPending()
-: <a class="el" href="classPendingAction.html#a8526099e53568ecf7425426062195768">PendingAction</a>
+: <a class="el" href="classAction.html#ac7e86bafd8e554095f5bc54addcd20e8">Action</a>
 </li>
 <li>isSucceed()
-: <a class="el" href="classPendingAction.html#a3057bb0b2f6cb8aebf15fdfb62538d2a">PendingAction</a>
+: <a class="el" href="classAction.html#a40ca81fac0476acb32dccc6f519bc8af">Action</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>makeDecision()
-: <a class="el" href="classDecisionMaker.html#ae43a353baa7eadc1b95f667b3e55cc7a">DecisionMaker</a>
+: <a class="el" href="classDecisionMaker.html#abdb0b373663c412ee865b53e039706a4">DecisionMaker</a>
 </li>
 <li>markAsFailed()
-: <a class="el" href="classPendingAction.html#a5b94d04a99f2f3fbb2701aed428d1f8e">PendingAction</a>
+: <a class="el" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c">Action</a>
 </li>
 <li>markAsSucceed()
-: <a class="el" href="classPendingAction.html#a74b57ba5a45c6b30de3aa7e0924ed23b">PendingAction</a>
+: <a class="el" href="classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946">Action</a>
 </li>
 </ul>
 
@@ -375,7 +400,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classPoint.html#ae54aab25250505089e9d179e512b9122">Point</a>
 </li>
 <li>operator-()
-: <a class="el" href="classPoint.html#a970cb5728847486b91cad0fabc07f6ef">Point</a>
+: <a class="el" href="classPoint.html#a4cf356a57e2a7ddfe276137b4f351fbe">Point</a>
 </li>
 <li>operator-=()
 : <a class="el" href="classPoint.html#adfae003b0a76e7f55b265a33925077a9">Point</a>
@@ -387,8 +412,8 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
-<li>PendingAction()
-: <a class="el" href="classPendingAction.html#a4f4f115ceacea29024ca0748f0a75355">PendingAction</a>
+<li>ParamArray()
+: <a class="el" href="classParamArray.html#a673c28a4afd5a62afe89ea2a2bab0459">ParamArray</a>
 </li>
 <li>Point()
 : <a class="el" href="classPoint.html#a78b55e8d5466bb8c2cf60fa55f2562ff">Point</a>
@@ -404,13 +429,20 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>receiveMessage()
-: <a class="el" href="classObject.html#a76d5d2b490c0f570784b4a054b930603">Object</a>
+: <a class="el" href="classBuilding.html#ababe8155388e3157a188e33cacd12a24">Building</a>
+, <a class="el" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba">Object</a>
 </li>
 <li>reindexate()
-: <a class="el" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127">Indexator</a>
+: <a class="el" href="classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8">Indexator</a>
 </li>
 <li>remove()
 : <a class="el" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">ObjectHeap</a>
+</li>
+<li>removeKey()
+: <a class="el" href="classParamArray.html#a9d6dc10184d036a0b4c02b0622a296a7">ParamArray</a>
+</li>
+<li>repair()
+: <a class="el" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d">Building</a>
 </li>
 <li>Resource()
 : <a class="el" href="classResource.html#a6720320df426fa8a1b0a4c95b07122b1">Resource</a>
@@ -437,17 +469,11 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>setCenter()
 : <a class="el" href="classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf">Shape</a>
 </li>
-<li>setCompleteness()
-: <a class="el" href="classBuilding.html#ae7e11f77364abae851de1fedd521f2a3">Building</a>
-</li>
 <li>setDestroyed()
 : <a class="el" href="classObject.html#a70c98c94d50248990784d702e928d0c7">Object</a>
 </li>
 <li>setDifficulty()
 : <a class="el" href="classResource.html#a4748b03b7f575de4bcab15c099ff659e">Resource</a>
-</li>
-<li>setFreeSpace()
-: <a class="el" href="classBuilding.html#a1d6f3e0a6df6f2dd1f0002a310092a68">Building</a>
 </li>
 <li>setGathered()
 : <a class="el" href="classResource.html#a5a8e2501d8f891ad1c2450a91cd21698">Resource</a>
@@ -468,7 +494,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28">Object</a>
 </li>
 <li>setMaxSpace()
-: <a class="el" href="classBuilding.html#aa2b8a4ff31894f711921113fa8703ad6">Building</a>
+: <a class="el" href="classBuilding.html#a51fd96027936ec87312e185b8c195bfc">Building</a>
 </li>
 <li>setProgress()
 : <a class="el" href="classResource.html#a0d93088b64bcc0f2e6f53e24a14e3caa">Resource</a>
@@ -502,12 +528,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162">Creature</a>
 </li>
 <li>setX()
-: <a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">ViewObject</a>
-, <a class="el" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906">Point</a>
+: <a class="el" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906">Point</a>
+, <a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">ViewObject</a>
 </li>
 <li>setY()
-: <a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">ViewObject</a>
-, <a class="el" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d">Point</a>
+: <a class="el" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d">Point</a>
+, <a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">ViewObject</a>
 </li>
 <li>Shape()
 : <a class="el" href="classShape.html#a8e8680c7a68edeb2826e9e72cfa9adbf">Shape</a>
@@ -526,9 +552,6 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>Tool()
 : <a class="el" href="classTool.html#a33dabf2428a98104084741a0f024a033">Tool</a>
-</li>
-<li>treat()
-: <a class="el" href="classObject.html#a0b50545267fbf577cf4d7c125d467168">Object</a>
 </li>
 </ul>
 
@@ -561,6 +584,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~Action()
+: <a class="el" href="classAction.html#acdb06775d157339256a8ecd55749226c">Action</a>
+</li>
 <li>~Building()
 : <a class="el" href="classBuilding.html#ab675c6a382e110b84031956cda708439">Building</a>
 </li>
@@ -591,8 +617,8 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>~ObjectHeap()
 : <a class="el" href="classObjectHeap.html#a601b8bace5f8e425c90cc018b083b751">ObjectHeap</a>
 </li>
-<li>~PendingAction()
-: <a class="el" href="classPendingAction.html#ae81cd8edf1404fc49e1373d55527883a">PendingAction</a>
+<li>~ParamArray()
+: <a class="el" href="classParamArray.html#a4d5619b3bdf2a29f2e3c0f98221831ac">ParamArray</a>
 </li>
 <li>~Point()
 : <a class="el" href="classPoint.html#a395fa04b4ec126b66fc053f829a30cc1">Point</a>
@@ -624,7 +650,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:17 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

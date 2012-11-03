@@ -1,14 +1,13 @@
 var hierarchy =
 [
+    [ "Action", "classAction.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
     [ "IWorld", "classIWorld.html", null ],
     [ "Object", "classObject.html", [
-      [ "AnyObject", "classAnyObject.html", null ],
       [ "Building", "classBuilding.html", null ],
       [ "Creature", "classCreature.html", [
-        [ "CreatureTest", "classCreatureTest.html", null ],
         [ "Humanoid", "classHumanoid.html", null ],
         [ "NonHumanoid", "classNonHumanoid.html", null ]
       ] ],
@@ -18,7 +17,7 @@ var hierarchy =
     ] ],
     [ "ObjectFactory", "classObjectFactory.html", null ],
     [ "ObjectHeap", "classObjectHeap.html", null ],
-    [ "PendingAction", "classPendingAction.html", null ],
+    [ "ParamArray", "classParamArray.html", null ],
     [ "Point", "classPoint.html", null ],
     [ "Shape", "classShape.html", null ],
     [ "ViewObject", "classViewObject.html", null ],

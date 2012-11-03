@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classIndexator.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('classIndexator.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classIndexator-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -108,6 +109,11 @@ $(document).ready(function(){initNavTree('classIndexator.html','');});
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1530a6e31d5e8fbc523ebde4763ab011"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1530a6e31d5e8fbc523ebde4763ab011"></a>
+typedef std::set&lt; <a class="el" href="classObject.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectHeap</b></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9dcdada0f0fb6890b0fd10f589b442cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9dcdada0f0fb6890b0fd10f589b442cc"></a>
@@ -162,7 +168,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00012">12</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00014">14</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -190,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>heap with objects in given area </dd></dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00038">38</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00040">40</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +222,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00047">47</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00068">68</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +248,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00058">58</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00084">84</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +262,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIndexator.html">Indexator</a></li>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:15 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:23 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

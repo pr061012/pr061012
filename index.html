@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>pr061012: SOIL</title>
+<title>pr061012: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,7 +82,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,37 +93,15 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SOIL </div>  </div>
+<div class="title">pr061012 Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Jonathan Dummer 2007-07-26-10.36</p>
-<p>Simple OpenGL Image Library</p>
-<p>A tiny c library for uploading images as textures into OpenGL. Also saving and loading of images is supported.</p>
-<p>I'm using Sean's <a class="el" href="classTool.html" title="Tool class.">Tool</a> Box image loader as a base: <a href="http://www.nothings.org/">http://www.nothings.org/</a></p>
-<p>I'm upgrading it to load TGA and DDS files, and a direct path for loading DDS files straight into OpenGL textures, when applicable.</p>
-<p>Image Formats:</p>
-<ul>
-<li>BMP load &amp; save</li>
-<li>TGA load &amp; save</li>
-<li>DDS load &amp; save</li>
-<li>PNG load</li>
-<li>JPG load</li>
-</ul>
-<p>OpenGL Texture Features:</p>
-<ul>
-<li>resample to power-of-two sizes</li>
-<li>MIPmap generation</li>
-<li>compressed texture S3TC formats (if supported)</li>
-<li>can pre-multiply alpha for you, for better compositing</li>
-<li>can flip image about the y-axis (except pre-compressed DDS files)</li>
-</ul>
-<p>Thanks to: Sean Barret - for the awesome stb_image Dan Venkitachalam - for finding some non-compliant DDS files, and patching some explicit casts everybody at gamedev.net </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:17 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

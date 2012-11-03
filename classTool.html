@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classTool.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -146,18 +146,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8f5483f459e46687bd01e6f9977afd3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:ad14022400495b1f902037890e7a1cba8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad14022400495b1f902037890e7a1cba8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad14022400495b1f902037890e7a1cba8">destroy</a> ()</td></tr>
-<tr class="memdesc:ad14022400495b1f902037890e7a1cba8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy object. <br/></td></tr>
-<tr class="memitem:a71bb28ec849ea1c459205fd578d81eca inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a71bb28ec849ea1c459205fd578d81eca">damage</a> (unsigned int harm)</td></tr>
-<tr class="memdesc:a71bb28ec849ea1c459205fd578d81eca inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a71bb28ec849ea1c459205fd578d81eca"></a><br/></td></tr>
-<tr class="memitem:a0b50545267fbf577cf4d7c125d467168 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a0b50545267fbf577cf4d7c125d467168">treat</a> (unsigned int point)</td></tr>
-<tr class="memdesc:a0b50545267fbf577cf4d7c125d467168 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treat object.  <a href="#a0b50545267fbf577cf4d7c125d467168"></a><br/></td></tr>
-<tr class="memitem:adc92f8e0d82eeafbddfc436d2ce01353 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::vector<br class="typebreak"/>
-&lt; <a class="el" href="classPendingAction.html">PendingAction</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#adc92f8e0d82eeafbddfc436d2ce01353">getPendingActions</a> ()=0</td></tr>
-<tr class="memdesc:adc92f8e0d82eeafbddfc436d2ce01353 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#adc92f8e0d82eeafbddfc436d2ce01353"></a><br/></td></tr>
-<tr class="memitem:a76d5d2b490c0f570784b4a054b930603 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a76d5d2b490c0f570784b4a054b930603">receiveMessage</a> (<a class="el" href="classPendingAction.html">PendingAction</a> *action)=0</td></tr>
-<tr class="memdesc:a76d5d2b490c0f570784b4a054b930603 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a76d5d2b490c0f570784b4a054b930603"></a><br/></td></tr>
+<tr class="memitem:a5ef92b4a17eeb9cc95307282db770457 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">decreaseHealth</a> (unsigned int delta)</td></tr>
+<tr class="memdesc:a5ef92b4a17eeb9cc95307282db770457 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases object's health.  <a href="#a5ef92b4a17eeb9cc95307282db770457"></a><br/></td></tr>
+<tr class="memitem:a739711d23cbac25768a02db17270a875 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">increaseHealth</a> (unsigned int delta)</td></tr>
+<tr class="memdesc:a739711d23cbac25768a02db17270a875 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases object's health.  <a href="#a739711d23cbac25768a02db17270a875"></a><br/></td></tr>
+<tr class="memitem:a69e91bef2c9f048aa4509329dc44948e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69e91bef2c9f048aa4509329dc44948e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">destroy</a> ()=0</td></tr>
+<tr class="memdesc:a69e91bef2c9f048aa4509329dc44948e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys object. <br/></td></tr>
+<tr class="memitem:addf0658ee2f8da579d10a6682dc097d7 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
+<tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
+<tr class="memitem:a25508c923e2927b2c94ae3fee0ee5dba inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba">receiveMessage</a> (<a class="el" href="classAction.html">Action</a> *action)=0</td></tr>
+<tr class="memdesc:a25508c923e2927b2c94ae3fee0ee5dba inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a25508c923e2927b2c94ae3fee0ee5dba"></a><br/></td></tr>
 <tr class="memitem:a2a2eb240d06d980e59945abfadea996e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a> ()</td></tr>
 <tr class="memdesc:a2a2eb240d06d980e59945abfadea996e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a2a2eb240d06d980e59945abfadea996e"></a><br/></td></tr>
 <tr class="memitem:a4e048add0d93a603d19216485553f869 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a> (<a class="el" href="classShape.html">Shape</a> new_var)</td></tr>
@@ -184,6 +183,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a075891336e08ea144917d8468f8480f1 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of angle.  <a href="#a075891336e08ea144917d8468f8480f1"></a><br/></td></tr>
 <tr class="memitem:a6784e88edab8591cdce5f5f33ff8677a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a">getAngle</a> ()</td></tr>
 <tr class="memdesc:a6784e88edab8591cdce5f5f33ff8677a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of angle.  <a href="#a6784e88edab8591cdce5f5f33ff8677a"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classObject')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classObject.html">Object</a></td></tr>
+<tr class="memitem:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fa5bd0db11056aac9440fa9f6eb2690"></a>
+std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td></tr>
+<tr class="memdesc:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with actions. <br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classTool.html" title="Tool class.">Tool</a> class. </p>
@@ -332,7 +338,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classTool.html">Tool</a></li>
-    <li class="footer">Generated on Fri Nov 2 2012 16:00:16 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 02:38:24 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

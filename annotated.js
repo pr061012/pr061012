@@ -1,9 +1,8 @@
 var annotated =
 [
-    [ "AnyObject", "classAnyObject.html", "classAnyObject" ],
+    [ "Action", "classAction.html", "classAction" ],
     [ "Building", "classBuilding.html", "classBuilding" ],
     [ "Creature", "classCreature.html", "classCreature" ],
-    [ "CreatureTest", "classCreatureTest.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", "classDecisionMaker" ],
     [ "God", "classGod.html", "classGod" ],
     [ "Humanoid", "classHumanoid.html", "classHumanoid" ],
@@ -13,7 +12,7 @@ var annotated =
     [ "Object", "classObject.html", "classObject" ],
     [ "ObjectFactory", "classObjectFactory.html", "classObjectFactory" ],
     [ "ObjectHeap", "classObjectHeap.html", "classObjectHeap" ],
-    [ "PendingAction", "classPendingAction.html", "classPendingAction" ],
+    [ "ParamArray", "classParamArray.html", "classParamArray" ],
     [ "Point", "classPoint.html", "classPoint" ],
     [ "Resource", "classResource.html", "classResource" ],
     [ "Shape", "classShape.html", "classShape" ],
