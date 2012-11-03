@@ -48,7 +48,7 @@ public:
      * @param  key  key
      * @return key value
      */
-    int getValue(std::string key);
+    int getValue(std::string key) const;
 
     /**
      * @brief  Removes key from param array.

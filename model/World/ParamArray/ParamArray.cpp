@@ -14,9 +14,9 @@ void ParamArray::addKey(std::string key, int value)
     this -> map[key] = value;
 }
 
-int ParamArray::getValue(std::string key)
+int ParamArray::getValue(std::string key) const
 {
-    std::map <std::string, int> :: iterator iter = this -> map.find(key);
+    std::map <std::string, int> :: const_iterator iter = this -> map.find(key);
 
     if(iter == map.end())
     {
@@ -28,7 +28,7 @@ int ParamArray::getValue(std::string key)
 
 bool ParamArray::removeKey(std::string key)
 {
-    std::map <std::string, int> :: iterator iter = this -> map.find(key);
+    std::map <std::string, int> :: const_iterator iter = this -> map.find(key);
 
     if(iter == map.end())
     {
