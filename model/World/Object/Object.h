@@ -38,11 +38,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Destroy object.
-     */
-    void destroy();
-
-    /**
      * @brief Decreases object's health.
      * @param delta health to decrease
      */
@@ -55,10 +50,15 @@ public:
     void increaseHealth(unsigned int delta);
 
     /**
+     * @brief Destroys object.
+     */
+    virtual void destroy() = 0;
+
+    /**
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector <Action *> getActions() = 0;
+    virtual std::vector <Action> * getActions() = 0;
 
     /**
      * @brief Receives message.
@@ -158,11 +158,12 @@ private:
     /// Is object destroyed or not.
     bool destroyed;
 
-    /** @brief Object's health.
-     *        * buildings and creatures -- health
-     *        * weather -- living time
-     *        * resource -- amount of resource
-     *        * tool -- durability
+    /**
+     * @brief Object's health.
+     *          * buildings and creatures -- health
+     *          * weather -- living time
+     *          * resource -- amount of resource
+     *          * tool -- durability
      */
     unsigned int health;
 
@@ -174,6 +175,10 @@ private:
 
     /// Angle of rotation.
     double angle;
+
+protected:
+    /// Array with actions.
+    std::vector <Action> actions;
 };
 
 #endif // OBJECT_H

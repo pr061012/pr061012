@@ -58,7 +58,7 @@ enum CreatureAction
 
     // Common actions.
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
-    DO_NOTHING
+    ESCAPE, CONTINUE_GENDER, DO_NOTHING
 };
 
 /**
