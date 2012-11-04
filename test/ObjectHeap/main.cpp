@@ -39,9 +39,9 @@ public:
         std::cout << id << std::endl;
     }
 
-    std::vector <Action *> getActions()
+    std::vector <Action>* getActions()
     {
-        std::vector<Action*> ret;
+        std::vector<Action> *ret;
         return ret;
     }
 
