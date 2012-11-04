@@ -11,14 +11,25 @@
 
 Weather::Weather(WeatherType type) :
     Object(WEATHER),
-    subtype(type)
+    subtype(type),
+    covered_objs(new ObjectHeap)
 {
-
 }
 
 Weather::~Weather()
 {
+    delete covered_objs;
+}
 
+//******************************************************************************
+// WEATHER ACTIONS.
+//******************************************************************************
+
+std::vector <Action> * Object::getActions()
+{
+    // TODO: Add actions generation.
+
+    return &(this -> actions);
 }
 
 //******************************************************************************
@@ -34,13 +45,7 @@ WeatherType Weather::getSubtype()
 // ACCESSORS.
 //******************************************************************************
 
-void Weather::setWindow(ObjectHeap* new_var)
+ObjectHeap * Weather::getCoveredObjects()
 {
-    this -> window = new_var;
+    return this -> covered_objs;
 }
-
-ObjectHeap* Weather::getWindow()
-{
-    return this -> window;
-}
-

@@ -31,7 +31,7 @@ public:
     ~Weather();
 
     //**************************************************************************
-    // INHERETED THINGS.
+    // WEATHER ACTIONS.
     //**************************************************************************
 
     /**
@@ -55,22 +55,17 @@ public:
     //**************************************************************************
 
 	/**
-     * @brief Set the value of window.
-     * @param new_var   the new value of window
+     * @brief  Get reference to heap with covered objects. This heap can be
+     *         modified (in fact, Controller modify it by using Weather shape).
+     * @return reference to heap with covered objects
 	 */
-    void setWindow(ObjectHeap* new_var);
-
-	/**
-     * @brief  Get the value of window.
-	 * @return the value of window
-	 */
-    ObjectHeap * getWindow();
+    ObjectHeap * getCoveredObjects();
 
 private:
     /// Weather type.
     const WeatherType subtype;
 
-    /// Covered objects. Is setted up by Controller using Weather shape.
+    /// Covered objects. Is setted up by Controller by using Weather shape.
     ObjectHeap * covered_objs;
 };
 
