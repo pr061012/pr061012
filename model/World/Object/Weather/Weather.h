@@ -31,8 +31,14 @@ public:
     ~Weather();
 
     //**************************************************************************
-    // ACCESSORS.
+    // INHERETED THINGS.
     //**************************************************************************
+
+    /**
+     * @brief  Gets actions.
+     * @return vector with actions.
+     */
+    std::vector <Action> * getActions();
 
     //**************************************************************************
     // WEATHER TYPE.
@@ -58,29 +64,14 @@ public:
      * @brief  Get the value of window.
 	 * @return the value of window
 	 */
-    ObjectHeap* getWindow();
-
-	/**
-     * @brief Set the value of view_area.
-     * @param new_var   the new value of view_area
-	 */
-    void setViewArea(Shape new_var);
-
-	/**
-     * @brief  Get the value of view_area
-	 * @return the value of view_area
-	 */
-    Shape getViewArea();
+    ObjectHeap * getWindow();
 
 private:
     /// Weather type.
     const WeatherType subtype;
 
-    /// Pointer to the window in Indexator. Initializes in constructor.
-    ObjectHeap * window;
-
-    /// Effect area. Needed for Indexator for window's contents finding.
-    Shape view_area;
+    /// Covered objects. Is setted up by Controller using Weather shape.
+    ObjectHeap * covered_objs;
 };
 
 #endif // WEATHER_H

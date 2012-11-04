@@ -44,12 +44,3 @@ ObjectHeap* Weather::getWindow()
     return this -> window;
 }
 
-void Weather::setViewArea(Shape new_var)
-{
-    this -> view_area = new_var;
-}
-
-Shape Weather::getViewArea()
-{
-    return this -> view_area;
-}
