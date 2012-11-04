@@ -9,46 +9,43 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather():Object(WEATHER)
+Weather::Weather(WeatherType type) :
+    Object(WEATHER),
+    subtype(type),
+    covered_objs(new ObjectHeap)
 {
-
 }
 
 Weather::~Weather()
 {
-
+    delete covered_objs;
 }
 
 //******************************************************************************
-// ACCESSORS.
+// WEATHER ACTIONS.
 //******************************************************************************
 
-void Weather::setSubtype(WeatherType new_var)
+std::vector <Action> * Object::getActions()
 {
-    this -> subtype = new_var;
+    // TODO: Add actions generation.
+
+    return &(this -> actions);
 }
+
+//******************************************************************************
+// WEATHER TYPE.
+//******************************************************************************
 
 WeatherType Weather::getSubtype()
 {
     return this -> subtype;
 }
 
-void Weather::setWindow(ObjectHeap* new_var)
-{
-    this -> window = new_var;
-}
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
 
-ObjectHeap* Weather::getWindow()
+ObjectHeap * Weather::getCoveredObjects()
 {
-    return this -> window;
-}
-
-void Weather::setViewArea(Shape new_var)
-{
-    this -> view_area = new_var;
-}
-
-Shape Weather::getViewArea()
-{
-    return this -> view_area;
+    return this -> covered_objs;
 }
