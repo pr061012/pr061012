@@ -15,7 +15,8 @@
 Resource::Resource(ResourceType type, unsigned int res_amount) :
     Object(RESOURCE),
     subtype(type),
-    progress(0)
+    progress(0),
+    steps_to_reg(0)
 {
     // FIXME: Foolish code.
     switch(this -> subtype)
@@ -101,6 +102,13 @@ unsigned int Resource::getAmount() const
 
 std::vector <Action> * Resource::getActions()
 {
+    if(this -> steps_to_reg-- == 0)
+    {
+        // TODO: We don't have top boundary yet. Do we need it?
+        this -> amount += this -> reg_amount;
+        this -> steps_to_reg = RES_REGENERATION_RATE;
+    }
+
     this -> actions.clear();
 
     return &(this -> actions);
