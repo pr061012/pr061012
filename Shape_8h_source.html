@@ -132,13 +132,13 @@ $(document).ready(function(){initNavTree('Shape_8h_source.html','');});
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf" title="Set the value of center.">setCenter</a> ( <a class="code" href="classPoint.html" title="Point class.">Point</a> new_var );</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classShape.html#a040a8da0d815165252c3578e23b8d0f8" title="Get the value of center.">getCenter</a> ( );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; <a class="code" href="classShape.html#a178ba40bdc7f20c1342f34450257f740" title="Get the value of center.">getCenter</a>( ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classShape.html#a2f68603c2fbfa03fd1129b8ef1e0f9f2" title="Get type of the shape.">getType</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classShape.html#ace78f87ad50bac4ea2592e730a7e9630" title="Get type of the shape.">getType</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classShape.html#a44bfca3ef6564ff0f34badc77f594862" title="Set type.">setType</a>(<span class="keywordtype">int</span> type);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classShape.html#a179e7d52e53af6c447e5211c81b8e986" title="Get size (edge length for polygons, diameter for circle).">getSize</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c" title="Get size (edge length for polygons, diameter for circle).">getSize</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classShape.html#aaee049351828e1209697bb2b357ca61a" title="Set size (edge length for polygons, radius for circle).">setSize</a>(<span class="keywordtype">double</span> size);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
@@ -148,19 +148,19 @@ $(document).ready(function(){initNavTree('Shape_8h_source.html','');});
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// HIT-TEST METHODS.</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classShape.html#afe336a1e1487d0c4fbc3adfaa18aeae3" title="Tests if a Shape includes a point.">hitTest</a> (<a class="code" href="classPoint.html" title="Point class.">Point</a> point );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classShape.html#a0ff4bb8b9d0a6e6ad47ab3b7037b0302" title="Tests if a Shape includes a point.">hitTest</a> (<span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; point) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classShape.html#afe336a1e1487d0c4fbc3adfaa18aeae3" title="Tests if a Shape includes a point.">hitTest</a> (<a class="code" href="classShape.html">Shape</a> shape );</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classShape.html#a0ff4bb8b9d0a6e6ad47ab3b7037b0302" title="Tests if a Shape includes a point.">hitTest</a> (<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; shape) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classShape.html#a7c1b991114c1f018e350eafcbf23ff64" title="Get intersections of minimal bounding boxes with another shape.">intersect</a>(<a class="code" href="classShape.html">Shape</a> shape);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98" title="Get intersections of minimal bounding boxes with another shape.">intersect</a>(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; shape);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// CORNER METHODS</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classShape.html#a74952046fc93a8f160f2dee34088207b" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classShape.html#aab4459fa7eb1ed03c052e6f5a99c231f" title="Gets the left bottom point of the shape.">getLeftBottom</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classShape.html#a755212bd813efcf413f85f022741d67f" title="Gets the right top point of the shape.">getRightTop</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classShape.html#a97c5436ae38f0994f0eb3b6a2c1eed08" title="Gets the right top point of the shape.">getRightTop</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> center;</div>
@@ -181,16 +181,18 @@ $(document).ready(function(){initNavTree('Shape_8h_source.html','');});
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> computeCorners();</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;};</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif // SHAPE_H</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">bool</span> squareCircleHitTest(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; square, <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; circle) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#endif // SHAPE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_d08c33fd06dbac8d495d8594c2baa8e2.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_941ab054a5b8152185c3c852fc2ec603.html">Shape</a></li><li class="navelem"><b>Shape.h</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 22:15:27 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

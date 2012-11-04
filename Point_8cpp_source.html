@@ -136,94 +136,105 @@ $(document).ready(function(){initNavTree('Point_8cpp_source.html','');});
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// DISTANCE.</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classPoint.html#af0b3ba4c05476027b11d89ce3e231a62">   36</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#af0b3ba4c05476027b11d89ce3e231a62" title="Compute distance to another point.">Point::getDistance</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> sqrt(pow(<span class="keyword">this</span> -&gt; x - point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>(), 2) + pow (<span class="keyword">this</span> -&gt; y - point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>(), 2));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// COMPARING</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classPoint.html#a501d78200dc33313f738dd738d7a254f">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#a501d78200dc33313f738dd738d7a254f" title="Compares two points.">Point::equals</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span>  (fabs(x - point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>()) &lt; EPSILON) &amp;&amp;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            (fabs(y - point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>()) &lt; EPSILON);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// OPERATORS.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classPoint.html#a501a88bddc39eb556214ed06d062721a">   55</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#a501a88bddc39eb556214ed06d062721a" title="Operator +.">Point::operator+</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>() + x, point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>() + y);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classPoint.html#a4cf356a57e2a7ddfe276137b4f351fbe">   60</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#a970cb5728847486b91cad0fabc07f6ef" title="Operator unary -.">Point::operator-</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(x - point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>(), y - point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classPoint.html#adfae003b0a76e7f55b265a33925077a9">   65</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; <a class="code" href="classPoint.html#adfae003b0a76e7f55b265a33925077a9" title="Operator -=.">Point::operator-=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    x -= point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    y -= point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classPoint.html#ae54aab25250505089e9d179e512b9122">   72</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; <a class="code" href="classPoint.html#ae54aab25250505089e9d179e512b9122" title="Operator +=.">Point::operator+=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    x += point.<a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    y += point.<a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classPoint.html#ae25ad7c187c90acece9b1e92cd6afbf4">   79</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#ae25ad7c187c90acece9b1e92cd6afbf4" title="Operator ==.">Point::operator==</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classPoint.html#a501d78200dc33313f738dd738d7a254f" title="Compares two points.">equals</a>(point);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classPoint.html#a5763f029835c73100c2fabfb7a7b397d">   84</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#a5763f029835c73100c2fabfb7a7b397d" title="Operator !=.">Point::operator!=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> !(<span class="keyword">this</span> -&gt; <a class="code" href="classPoint.html#a501d78200dc33313f738dd738d7a254f" title="Compares two points.">equals</a>(point));</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classPoint.html#a970cb5728847486b91cad0fabc07f6ef">   89</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#a970cb5728847486b91cad0fabc07f6ef" title="Operator unary -.">Point::operator -</a>()</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(-x, -y));</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">// ACCESSORS.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6">   98</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6" title="Get X.">Point::getX</a>()</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; x;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547">  103</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547" title="Get Y.">Point::getY</a>()</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; y;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906">  108</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906" title="Set X.">Point::setX</a>(<span class="keywordtype">double</span> x)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">this</span> -&gt; x = x;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d" title="Set Y.">Point::setY</a>(<span class="keywordtype">double</span> y)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">this</span> -&gt; y = y;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classPoint.html#a945326d198e635f9fcd0c5828b1c74c3">   36</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#a945326d198e635f9fcd0c5828b1c74c3" title="Compute distance to another point.">Point::getDistance</a>(<span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> sqrt(pow(<span class="keyword">this</span> -&gt; x - point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>(), 2) +</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                pow(<span class="keyword">this</span> -&gt; y - point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>(), 2));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// get distance to line using vector product</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classPoint.html#ae16c6310ac1207f57370824f70e0a3f9">   43</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#ae16c6310ac1207f57370824f70e0a3f9" title="Compute distance to a line formed by two points.">Point::getDistanceToLine</a>(<span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; line_start,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; line_end)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> a = *<span class="keyword">this</span> - line_start;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> b = line_end - line_start;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> fabs(a.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>() * b.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>() - a.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>() * b.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>()) /</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            line_start.<a class="code" href="classPoint.html#a945326d198e635f9fcd0c5828b1c74c3" title="Compute distance to another point.">getDistance</a>(line_end);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// COMPARING</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe" title="Compares two points.">Point::equals</a>(<span class="keyword">const</span> <a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span>  (fabs(x - point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>()) &lt; EPSILON) &amp;&amp;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            (fabs(y - point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>()) &lt; EPSILON);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// OPERATORS.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classPoint.html#aa4a980a7f31a40cdf54029a3eda81dc8">   66</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#aa4a980a7f31a40cdf54029a3eda81dc8" title="Operator +.">Point::operator+</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>() + x, point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>() + y);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classPoint.html#a99f3ba7fa9ae4368a2a0ccba32aadf90">   71</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#a99380b62b682c34a88713556df1287cf" title="Operator unary -.">Point::operator-</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(x - point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>(), y - point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>());</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classPoint.html#adfae003b0a76e7f55b265a33925077a9">   76</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; <a class="code" href="classPoint.html#adfae003b0a76e7f55b265a33925077a9" title="Operator -=.">Point::operator-=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    x -= point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    y -= point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classPoint.html#ae54aab25250505089e9d179e512b9122">   83</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a>&amp; <a class="code" href="classPoint.html#ae54aab25250505089e9d179e512b9122" title="Operator +=.">Point::operator+=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    x += point.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    y += point.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classPoint.html#a5292afa0565b291f2c9805387caff55f">   90</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#a5292afa0565b291f2c9805387caff55f" title="Operator ==.">Point::operator==</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe" title="Compares two points.">equals</a>(point);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classPoint.html#afabdf8f492eed98971d66ef6e63a4b59">   95</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPoint.html#afabdf8f492eed98971d66ef6e63a4b59" title="Operator !=.">Point::operator!=</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a> point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> !(<span class="keyword">this</span> -&gt; <a class="code" href="classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe" title="Compares two points.">equals</a>(point));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classPoint.html#a99380b62b682c34a88713556df1287cf">  100</a></span>&#160;<a class="code" href="classPoint.html" title="Point class.">Point</a> <a class="code" href="classPoint.html#a99380b62b682c34a88713556df1287cf" title="Operator unary -.">Point::operator -</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classPoint.html#ad92f2337b839a94ce97dcdb439b4325a" title="Constructor.">Point</a>(-x, -y));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">// ACCESSORS.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812">  109</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">Point::getX</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; x;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7">  114</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">Point::getY</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; y;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906" title="Set X.">Point::setX</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">this</span> -&gt; x = x;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d">  124</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPoint.html#a7d1ee63237f361d41e697f87c3cb051d" title="Set Y.">Point::setY</a>(<span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">this</span> -&gt; y = y;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_d08c33fd06dbac8d495d8594c2baa8e2.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_2e728c6af92272c1dd07065b19471a28.html">Point</a></li><li class="navelem"><b>Point.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 22:15:27 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

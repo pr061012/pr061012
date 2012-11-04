@@ -121,7 +121,7 @@ Inheritance diagram for Object:</div>
   <map id="Object_map" name="Object_map">
 <area href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)..." alt="Building" shape="rect" coords="0,56,91,80"/>
 <area href="classCreature.html" title="Abstract Creature class." alt="Creature" shape="rect" coords="101,56,192,80"/>
-<area href="classResource.html" title="Resource class contains information about one mineral deposit." alt="Resource" shape="rect" coords="202,56,293,80"/>
+<area href="classResource.html" title="This class contains information about mineable or pickable resource." alt="Resource" shape="rect" coords="202,56,293,80"/>
 <area href="classTool.html" title="Tool class." alt="Tool" shape="rect" coords="303,56,394,80"/>
 <area href="classWeather.html" title="Weather class." alt="Weather" shape="rect" coords="404,56,495,80"/>
 <area href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ..." alt="Humanoid" shape="rect" coords="50,112,141,136"/>
@@ -141,26 +141,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
-<tr class="memitem:a5d93664b6f77c6581757f201e59f9e3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a5d93664b6f77c6581757f201e59f9e3c">isDestroyed</a> ()</td></tr>
-<tr class="memdesc:a5d93664b6f77c6581757f201e59f9e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is destroyed.  <a href="#a5d93664b6f77c6581757f201e59f9e3c"></a><br/></td></tr>
+<tr class="memitem:a1e1a162b817f0c134836cca3a473e295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
+<tr class="memdesc:a1e1a162b817f0c134836cca3a473e295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is destroyed.  <a href="#a1e1a162b817f0c134836cca3a473e295"></a><br/></td></tr>
 <tr class="memitem:ab810f6d0305506bb0803afcde852c1c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab810f6d0305506bb0803afcde852c1c8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8">makeMortal</a> ()</td></tr>
 <tr class="memdesc:ab810f6d0305506bb0803afcde852c1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object mortal. <br/></td></tr>
 <tr class="memitem:ad73c94472b9a43a629ae4cd6d2def67e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad73c94472b9a43a629ae4cd6d2def67e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e">makeImmortal</a> ()</td></tr>
 <tr class="memdesc:ad73c94472b9a43a629ae4cd6d2def67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immortal. <br/></td></tr>
-<tr class="memitem:a2a9a253ef0e1407453e847c530f6a233"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a2a9a253ef0e1407453e847c530f6a233">isImmortal</a> ()</td></tr>
-<tr class="memdesc:a2a9a253ef0e1407453e847c530f6a233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is immortal.  <a href="#a2a9a253ef0e1407453e847c530f6a233"></a><br/></td></tr>
-<tr class="memitem:a2a2eb240d06d980e59945abfadea996e"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a> ()</td></tr>
-<tr class="memdesc:a2a2eb240d06d980e59945abfadea996e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a2a2eb240d06d980e59945abfadea996e"></a><br/></td></tr>
+<tr class="memitem:a7a38ff74620fa8c16a21e46149027e6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7a38ff74620fa8c16a21e46149027e6a">isImmortal</a> () const </td></tr>
+<tr class="memdesc:a7a38ff74620fa8c16a21e46149027e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is immortal.  <a href="#a7a38ff74620fa8c16a21e46149027e6a"></a><br/></td></tr>
+<tr class="memitem:a7660dc25529325326bc280e5f5fb0194"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
+<tr class="memdesc:a7660dc25529325326bc280e5f5fb0194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a4e048add0d93a603d19216485553f869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a> (<a class="el" href="classShape.html">Shape</a> new_var)</td></tr>
 <tr class="memdesc:a4e048add0d93a603d19216485553f869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of shape.  <a href="#a4e048add0d93a603d19216485553f869"></a><br/></td></tr>
-<tr class="memitem:aac9a478301e0ec50a9e5580d33732a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a> ()</td></tr>
-<tr class="memdesc:aac9a478301e0ec50a9e5580d33732a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of shape.  <a href="#aac9a478301e0ec50a9e5580d33732a21"></a><br/></td></tr>
+<tr class="memitem:ab55fd6193bbe9f7f4deb793222e79ca7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7">getShape</a> () const </td></tr>
+<tr class="memdesc:ab55fd6193bbe9f7f4deb793222e79ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of shape.  <a href="#ab55fd6193bbe9f7f4deb793222e79ca7"></a><br/></td></tr>
 <tr class="memitem:a075891336e08ea144917d8468f8480f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">setAngle</a> (double new_var)</td></tr>
 <tr class="memdesc:a075891336e08ea144917d8468f8480f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of angle.  <a href="#a075891336e08ea144917d8468f8480f1"></a><br/></td></tr>
-<tr class="memitem:a6784e88edab8591cdce5f5f33ff8677a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a">getAngle</a> ()</td></tr>
-<tr class="memdesc:a6784e88edab8591cdce5f5f33ff8677a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of angle.  <a href="#a6784e88edab8591cdce5f5f33ff8677a"></a><br/></td></tr>
+<tr class="memitem:aaba7ccef31e74246abda5ef9cb2e202c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aaba7ccef31e74246abda5ef9cb2e202c">getAngle</a> () const </td></tr>
+<tr class="memdesc:aaba7ccef31e74246abda5ef9cb2e202c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of angle.  <a href="#aaba7ccef31e74246abda5ef9cb2e202c"></a><br/></td></tr>
+<tr class="memitem:a67d41327686c2018494ea788379db9aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a67d41327686c2018494ea788379db9aa">setCoords</a> (const <a class="el" href="classPoint.html">Point</a> &amp;coords)</td></tr>
+<tr class="memdesc:a67d41327686c2018494ea788379db9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set object's coordinates.  <a href="#a67d41327686c2018494ea788379db9aa"></a><br/></td></tr>
+<tr class="memitem:a64bb5b1d10c6cd338a65a8dd62473de1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classPoint.html">Point</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a64bb5b1d10c6cd338a65a8dd62473de1">getCoords</a> () const </td></tr>
+<tr class="memdesc:a64bb5b1d10c6cd338a65a8dd62473de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a64bb5b1d10c6cd338a65a8dd62473de1"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -197,11 +201,11 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <p>Gets objects pending actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#ae7ad8f4bc41d3aba1bbd029a5a05c3d7">Resource</a>, <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6784e88edab8591cdce5f5f33ff8677a"></a>
+<a class="anchor" id="aaba7ccef31e74246abda5ef9cb2e202c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -209,7 +213,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
           <td class="memname">double Object::getAngle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -221,7 +225,27 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a class="anchor" id="aac9a478301e0ec50a9e5580d33732a21"></a>
+<a class="anchor" id="a64bb5b1d10c6cd338a65a8dd62473de1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classPoint.html">Point</a> &amp; Object::getCoords </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get object's coordinates. </p>
+<dl class="section return"><dt>Returns</dt><dd>object's coordinates </dd></dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00097">97</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab55fd6193bbe9f7f4deb793222e79ca7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -229,7 +253,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
           <td class="memname"><a class="el" href="classShape.html">Shape</a> Object::getShape </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -241,7 +265,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a class="anchor" id="a2a2eb240d06d980e59945abfadea996e"></a>
+<a class="anchor" id="a7660dc25529325326bc280e5f5fb0194"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -249,7 +273,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
           <td class="memname">ObjectType Object::getType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -261,7 +285,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a class="anchor" id="a5d93664b6f77c6581757f201e59f9e3c"></a>
+<a class="anchor" id="a1e1a162b817f0c134836cca3a473e295"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -269,7 +293,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
           <td class="memname">bool Object::isDestroyed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -281,7 +305,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a class="anchor" id="a2a9a253ef0e1407453e847c530f6a233"></a>
+<a class="anchor" id="a7a38ff74620fa8c16a21e46149027e6a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -289,7 +313,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
           <td class="memname">bool Object::isImmortal </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -352,6 +376,32 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 </div>
 </div>
+<a class="anchor" id="a67d41327686c2018494ea788379db9aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::setCoords </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPoint.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>coords</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set object's coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>new coordinates </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00092">92</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4e048add0d93a603d19216485553f869"></a>
 <div class="memitem">
 <div class="memproto">
@@ -388,7 +438,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 17:19:43 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 22:15:31 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
