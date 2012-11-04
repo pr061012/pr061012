@@ -11,7 +11,7 @@
 
 /**
  * @class Resource
- * @brief Resource class contains information about one mineral deposit.
+ * @brief This class contains information about mineable or pickable resource.
  */
 class Resource : public Object
 {
@@ -100,12 +100,12 @@ private:
 
     /// Amount of resource.
     unsigned int amount;
-    /// Amount of resources received on each gather step.
-    unsigned int amount_per_gather;
+    /// Amount of resources received on each mining.
+    unsigned int amount_per_drop;
 
-    /// @brief Resource regeneration rate (amount of resource we regenerate on
-    ///        each step).
-    unsigned int regeneration_rate;
+    /// @brief Resource regeneration amount (amount of resource we regenerate on
+    ///        each regeneration).
+    unsigned int reg_amount;
 
     /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
     ///        ResourceType enum for details.

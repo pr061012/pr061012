@@ -5,30 +5,28 @@
 
 #include "Resource.h"
 
+#include "../../../BasicDefines.h"
+#include "../../../BasicFunc.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
 Resource::Resource(ResourceType type) :
     Object(RESOURCE),
-    subtype(type)
+    subtype(type),
+    progress(0)
 {
-    // Mineable resources.
-    if
-    (
-        this -> subtype == BRONZE_ORE ||
-        this -> subtype == IRON_ORE ||
-        this -> subtype == SILVER_ORE ||
-        this -> subtype == GOLD_ORE ||
-        this -> subtype == WOOD
-    )
+    switch(this -> subtype)
     {
-        this -> mineable = true;
-    }
-    // Pickable resources.
-    else
-    {
-        this -> mineable = false;
+        // TODO Case for each res. type.
+
+        default:
+            this -> mineable        = false;
+            this -> difficulty      = 0;
+            this -> amount_per_drop = 0;
+            this -> reg_amount      = 0;
+        break;
     }
 }
 
