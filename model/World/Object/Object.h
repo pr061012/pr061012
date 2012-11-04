@@ -116,14 +116,11 @@ private:
     /// Object's type.
     const ObjectType type;
 
-    /// Object's coordinates and frame.
+    /// Object's coordinates and shape.
     Shape shape;
 
     /// Is object destroyed or not.
     bool destroyed;
-
-    /// Maximum amount of health.
-    unsigned int max_health;
 
     /// Immortality.
     bool immortality;
