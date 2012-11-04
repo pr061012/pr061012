@@ -16,13 +16,15 @@ World::~World()
 }
 
 World::World(std::string filepath) :
-    width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT)
+    width(DEFAULT_WIDTH),
+    height(DEFAULT_HEIGHT)
 {
 
 }
 
 World::World(int rand_seed) :
-    width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT)
+    width(DEFAULT_WIDTH),
+    height(DEFAULT_HEIGHT)
 {
     srand(rand_seed);
    // World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -37,10 +39,10 @@ World::World(int rand_seed, int width, int height) :
     //this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
     //this->height = height > 0 ? height : DEFAULT_HEIGHT;
 
-    object_factory = new ObjectFactory(&all_objects);
+    object_factory = new ObjectFactory();
 
     // FIXME: No such constructor for indexator?
-    // indexator = new Indexator(&all_objects);
+    indexator = new Indexator();
 
     // For now, just generating a group of humans in a row.
 

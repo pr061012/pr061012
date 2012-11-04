@@ -57,8 +57,8 @@ public:
 
 private:
     /// Size of World's region
-    const int height;
     const int width;
+    const int height;
 
     //******************************************************************************
     // BASE METHODS.
