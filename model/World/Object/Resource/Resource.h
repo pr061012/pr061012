@@ -31,7 +31,7 @@ public:
     ~Resource();
 
     //**************************************************************************
-    // RESOURCE'S LIFE.
+    // CHANGING AMOUNT.
     //**************************************************************************
 
     /**
@@ -39,6 +39,16 @@ public:
      * @param delta amount of resource to decrease
      */
     void decreaseAmount(unsigned int delta);
+
+    /**
+     * @brief  Gets amount of resource.
+     * @return amount of resource
+     */
+    unsigned int getAmount() const;
+
+    //**************************************************************************
+    // RESOURCE'S LIFE.
+    //**************************************************************************
 
     /**
      * @brief  Gets array with pending actions.

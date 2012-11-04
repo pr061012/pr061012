@@ -38,7 +38,7 @@ Resource::~Resource()
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
+// CHANGING AMOUNT.
 //******************************************************************************
 
 void Resource::decreaseAmount(unsigned int delta)
@@ -52,6 +52,15 @@ void Resource::decreaseAmount(unsigned int delta)
         this -> amount = 0;
     }
 }
+
+unsigned int Resource::getAmount() const
+{
+    return this -> amount;
+}
+
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
 
 std::vector <Action> * Resource::getActions()
 {
