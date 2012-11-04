@@ -12,18 +12,58 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(ResourceType type) :
+Resource::Resource(ResourceType type, unsigned int res_amount) :
     Object(RESOURCE),
     subtype(type),
     progress(0)
 {
+    // FIXME: Foolish code.
     switch(this -> subtype)
     {
-        // TODO Case for each res. type.
+        case WOOD:
+            this -> mineable        = true;
+            this -> difficulty      = RES_WOOD_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> amount_per_drop = randFromRange(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
+            this -> reg_amount      = RES_WOOD_REG_AMOUNT;
+        break;
+
+        case BRONZE_ORE:
+            this -> mineable        = true;
+            this -> difficulty      = RES_BRONZE_ORE_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_BRONZE_ORE_AMOUNT_MIN, RES_BRONZE_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = randFromRange(RES_BRONZE_ORE_DROP_MIN, RES_BRONZE_ORE_DROP_MAX);
+            this -> reg_amount      = RES_BRONZE_ORE_REG_AMOUNT;
+        break;
+
+        case IRON_ORE:
+            this -> mineable        = true;
+            this -> difficulty      = RES_IRON_ORE_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_IRON_ORE_AMOUNT_MIN, RES_IRON_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = randFromRange(RES_IRON_ORE_DROP_MIN, RES_IRON_ORE_DROP_MAX);
+            this -> reg_amount      = RES_IRON_ORE_REG_AMOUNT;
+        break;
+
+        case SILVER_ORE:
+            this -> mineable        = true;
+            this -> difficulty      = RES_SILVER_ORE_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_SILVER_ORE_AMOUNT_MIN, RES_SILVER_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = randFromRange(RES_SILVER_ORE_DROP_MIN, RES_SILVER_ORE_DROP_MAX);
+            this -> reg_amount      = RES_SILVER_ORE_REG_AMOUNT;
+        break;
+
+        case GOLD_ORE:
+            this -> mineable        = true;
+            this -> difficulty      = RES_GOLD_ORE_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_GOLD_ORE_AMOUNT_MIN, RES_GOLD_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = randFromRange(RES_GOLD_ORE_DROP_MIN, RES_GOLD_ORE_DROP_MAX);
+            this -> reg_amount      = RES_GOLD_ORE_REG_AMOUNT;
+        break;
 
         default:
             this -> mineable        = false;
             this -> difficulty      = 0;
+            this -> amount          = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -32,7 +72,6 @@ Resource::Resource(ResourceType type) :
 
 Resource::~Resource()
 {
-
 }
 
 //******************************************************************************

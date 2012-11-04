@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Resource(ResourceType type);
+    Resource(ResourceType type, unsigned int res_amount = 0);
 
     /**
      * @brief Destructor.
