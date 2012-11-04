@@ -38,11 +38,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Destroys object.
-     */
-    virtual void destroy() = 0;
-
-    /**
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
@@ -55,7 +50,42 @@ public:
     virtual void receiveMessage(Action * action) = 0;
 
     //**************************************************************************
-    // ACCESSORS.
+    // DESTROYED FLAG.
+    //**************************************************************************
+
+    /**
+     * @brief Marks this object as destroyed.
+     */
+    void markAsDestroyed();
+
+    /**
+     * @brief  Returns true if object is destroyed.
+     * @return is object destroyed or not
+     */
+    bool isDestroyed();
+
+    //**************************************************************************
+    // IMMORTALITY FLAG.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object mortal.
+     */
+    void makeMortal();
+
+    /**
+     * @brief Makes object immortal.
+     */
+    void makeImmortal();
+
+    /**
+     * @brief  Returns true if object is immortal.
+     * @return is object immortal or not
+     */
+    bool isImmortal();
+
+    //**************************************************************************
+    // OBJECT TYPE.
     //**************************************************************************
 
     /**
@@ -64,6 +94,10 @@ public:
      */
     ObjectType getType();
 
+    //**************************************************************************
+    // OBJECT SHAPE AND ANGLE.
+    //**************************************************************************
+
     /**
      * @brief Set the value of shape.
      * @param new_var   the new value of shape
@@ -71,34 +105,10 @@ public:
     void setShape(Shape new_var);
 
     /**
-     * @brief Get the value of shape.
+     * @brief  Get the value of shape.
      * @return the value of shape
      */
     Shape getShape();
-
-    /**
-     * @brief Set the value of destroyed.
-     * @param new_var   the new value of destroyed
-     */
-    void setDestroyed(bool new_var);
-
-    /**
-     * @brief Get the value of destroyed.
-     * @return the value of destroyed
-     */
-    bool getDestroyed();
-
-    /**
-     * @brief Set the value of immortality.
-     * @param new_var   the new value of immortality
-     */
-    void setImmortality(bool new_var);
-
-    /**
-     * @brief Get the value of immortality.
-     * @return the value of immortality
-     */
-    bool getImmortality();
 
     /**
      * @brief Set the value of angle.
@@ -107,11 +117,11 @@ public:
     void setAngle(double new_var);
 
     /**
-     * @brief Get the value of angle.
+     * @brief  Get the value of angle.
      * @return the value of angle
      */
     double getAngle();
-    
+
 private:
     /// Object's type.
     const ObjectType type;
