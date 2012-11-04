@@ -17,7 +17,7 @@
  */
 
 
-class Creature : virtual public Object
+class Creature : public Object
 {
 public:
     //**************************************************************************
