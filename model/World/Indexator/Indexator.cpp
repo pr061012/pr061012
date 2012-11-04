@@ -13,11 +13,12 @@ Indexator::Indexator()
 
 Indexator::Indexator(double size, ObjectHeap *list)
 {
+    world_size = size;
     row_size = ceil(size/MAX_CELL_SIZE);
     cell_size = size / row_size;
     cells = new ObjectHeap*[row_size];
 
-    for (int i = 0; i< row_size; i++)
+    for (unsigned int i = 0; i< row_size; i++)
     {
         cells[i] = new ObjectHeap[row_size];
     }
@@ -30,7 +31,7 @@ Indexator::Indexator(double size, ObjectHeap *list)
 
 Indexator::~Indexator()
 {
-    for (int i = 0; i < row_size; i++)
+    for (unsigned int i = 0; i < row_size; i++)
     {
         delete[] cells[i];
     }
@@ -44,15 +45,15 @@ Indexator::~Indexator()
 
 ObjectHeap * Indexator::getAreaContents(Shape area)
 {
-    int * cells_area = getCellsArea(area);
+    unsigned int * cells_area = getCellsArea(area);
     ObjectHeap * result = new ObjectHeap();
 
-    for (int x = cells_area[0]; x <= cells_area[2]; x++)
+    for (unsigned int x = cells_area[0]; x <= cells_area[2]; x++)
     {
-        for (int y = cells_area[1]; y <= cells_area[3]; y++)
+        for (unsigned int y = cells_area[1]; y <= cells_area[3]; y++)
         {
-            for (ObjectHeap::iterator i = cells[x][y].begin();
-                 i != cells[x][y].end(); i++)
+            for (ObjectHeap::iterator i = cells[x % row_size][y % row_size].begin();
+                 i != cells[x % row_size][y % row_size].end(); i++)
             {
                 if (area.hitTest((*i) -> getShape()))
                 {
@@ -88,9 +89,9 @@ void Indexator::reindexate(ObjectHeap * objects)
  */
 void Indexator::reindexate(Object * object)
 {
-    int j,k;
+    unsigned int j,k;
 
-    int * area = getCellsArea(object -> getShape());
+    unsigned int * area = getCellsArea(object -> getShape());
 
     // Check if an object exists in our index
     Index::iterator i = index.find(object); 
@@ -104,14 +105,14 @@ void Indexator::reindexate(Object * object)
         {
             for (k = area[1]; k <= area[3]; k++)
             {
-                cells[j][k].push(object);
+                cells[j % row_size][k % row_size].push(object);
             }
         }
         return;
     }
 
     // Check if an object moved to another cells
-    int * &old_area = index[object];
+    unsigned int * &old_area = index[object];
     k = 0;
     for (j = 0; j < 4; j++)
     {
@@ -130,14 +131,14 @@ void Indexator::reindexate(Object * object)
     }
 
     // Change cells
-    int minx = min(area[0], old_area[0]);
-    int maxx = max(area[2], old_area[2]);
-    int miny = min(area[1], old_area[1]);
-    int maxy = max(area[3], old_area[3]);
+    unsigned int minx = min(area[0], old_area[0]);
+    unsigned int maxx = max(area[2], old_area[2]);
+    unsigned int miny = min(area[1], old_area[1]);
+    unsigned int maxy = max(area[3], old_area[3]);
 
-    for (int x = minx; x < maxx; x++)
+    for (unsigned int x = minx; x <= maxx; x++)
     {
-        for(int y = miny; y < maxy; y++)
+        for(unsigned int y = miny; y <= maxy; y++)
         {
             // delete object from cells tha don't contain it
             if ((x < area[0] || x > area[2] ||
@@ -145,7 +146,7 @@ void Indexator::reindexate(Object * object)
                 (x >= old_area[0] && x <= old_area[2] &&
                  y >= old_area[1] && y <= old_area[3]))
             {
-                cells[x][y].remove(object);
+                cells[x % row_size][y % row_size].remove(object);
             }
             // push object in cells that did not contain it
             else if ((x >= area[0] && x <= area[2] &&
@@ -153,7 +154,7 @@ void Indexator::reindexate(Object * object)
                      (x < old_area[0] || x > old_area[2] ||
                       y < old_area[1] || y > old_area[3]))
             {
-                cells[x][y].push(object);
+                cells[x % row_size][y % row_size].push(object);
             }
         }
     }
@@ -167,7 +168,7 @@ void Indexator::reindexate(Object * object)
 // UTILITIES
 //******************************************************************************
 
-inline int Indexator::min(int a, int b)
+inline unsigned int Indexator::min(unsigned int a, unsigned int b)
 {
     if (a < b)
         return a;
@@ -175,7 +176,7 @@ inline int Indexator::min(int a, int b)
         return b;
 }
 
-inline int Indexator::max(int a, int b)
+inline unsigned int Indexator::max(unsigned int a, unsigned int b)
 {
     if (a > b)
         return a;
@@ -185,18 +186,36 @@ inline int Indexator::max(int a, int b)
 
 // Get cells wich given object hits
 
-int * Indexator::getCellsArea(Shape shape)
+unsigned int * Indexator::getCellsArea(Shape shape)
 {
     // Get object boundaries
     Point rt = shape.getRightTop();
     Point lb = shape.getLeftBottom();
 
     // Compute the cells it intersects
-    int * area = new int[4];
-    area[0] = int(floor(lb.getX() / cell_size)) % row_size;
-    area[1] = int(floor(lb.getY() / cell_size)) % row_size;
-    area[2] = int(floor(rt.getX() / cell_size)) % row_size;
-    area[3] = int(floor(rt.getY() / cell_size)) % row_size;
+    unsigned int * area = new unsigned int[4];
+    area[0] = getRow(lb.getX());
+    area[1] = getRow(lb.getY());
+    area[2] = getRow(rt.getX());
+    area[3] = getRow(rt.getY());
+    if (lb.getX() < 0 && rt.getX() >= 0)
+    {
+        area[2] += row_size;
+    }
+    else if (lb.getY() < 0 && rt.getY() >= 0)
+    {
+        area[3] += row_size;
+    }
 
     return area;
+}
+
+// Gets the row index for given coordinate.
+// It is assumed that world controls that 0 <= coordinate < world_size
+// and size < world_size for any shape.
+// Row's index >= 0
+unsigned int Indexator::getRow(double coordinate)
+{
+    return (unsigned int)(floor((coordinate + world_size) / cell_size)) 
+                            % row_size;
 }

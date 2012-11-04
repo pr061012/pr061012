@@ -67,6 +67,9 @@ int main()
     // Get contents
     ObjectHeap * contents = index.getAreaContents(area);
 
+    //*************************************************************************
+    // check indexing
+    //*************************************************************************
     // Middle 8 objects in area
     assert(contents -> getTypeAmount(ObjectType(-1)) == 8);
     for (int i = 6; i < 14; i++)
@@ -96,8 +99,10 @@ int main()
         assert(find(contents, vec[i]));
     }
     
+    //*************************************************************************
     // move objects a little bit so they don't chnage their cells, 
     // then reindex them
+    //*************************************************************************
     
     for (int i = 0; i < 20; i++)
     {
@@ -144,9 +149,101 @@ int main()
         assert(find(contents, vec[i]));
     }
     
+    //*************************************************************************
     // Now tests with intersecting multiple grid cells
+    //*************************************************************************
     delete contents;
     vec.clear();
+
+    form.setSize(100);
+    vec.push_back(new testObject(Point(300, 300), form));
+    Indexator index1(1000);
+    index1.reindexate(vec[0]);
+
+    area.setSize(100);
+    area.setCenter(Point(200, 200));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+
+    delete contents;
+    area.setCenter(Point(220, 220));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(find(contents, vec[0]));
+    
+    delete contents;
+    area.setCenter(Point(400, 400));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+
+    delete contents;
+    area.setCenter(Point(380, 380));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(find(contents, vec[0]));
+
+    delete contents;
+    area.setCenter(Point(200, 400));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+
+    delete contents;
+    area.setCenter(Point(220, 380));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(find(contents, vec[0]));
+
+    delete contents;
+    area.setCenter(Point(400, 200));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+
+    delete contents;
+    area.setCenter(Point(380, 220));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(find(contents, vec[0]));
+
+    //*************************************************************************
+    // Testing moving objects
+    //*************************************************************************
+
+    area.setCenter(Point(500, 500));
+    area.setSize(600);
+    vec.push_back(new testObject(Point(700, 1000), form));
+    vec.push_back(new testObject(Point(500, 400), form));
+
+    ObjectHeap heap1;
+    heap1.push(vec[0]);
+    heap1.push(vec[1]);
+    heap1.push(vec[2]);
+
+    for (int t = 0; t < 1000; t++)
+    {
+        delete contents;
+        /* #0 goes on the line y = 500
+         * #1 goes on the circle (x = 700, y = 800, r = 200)
+         * #2 goes on the parabola y = (500 - x)^2 / 100 + 400
+         */
+        vec[0] -> setCoords(Point(t, 500));
+        vec[1] -> setCoords(Point(700 + cos(t) * 200, 700 + sin(t) * 200));
+        // this also checks world for cycling :)
+        vec[2] -> setCoords(Point(t * 0.4 + 200,
+                                 -pow((t * 0.4 + 200) - 500, 2) / 100 + 400));
+        
+        index1.reindexate(&heap1);
+        contents = index1.getAreaContents(area);
+        unsigned int k = 0;
+        
+        for (int j = 0; j < 3; j++)
+        {
+            if (area.hitTest(vec[j] -> getShape()))
+            {
+                k++;
+                assert(find(contents, vec[j]));
+            }
+        }
+    }
 
     return 0;
 }

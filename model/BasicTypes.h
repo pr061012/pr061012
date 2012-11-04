@@ -7,6 +7,7 @@
 #define BASIC_TYPES_H
 
 /**
+ * @enum ObjectType
  * @brief The ObjectType enum
  */
 enum ObjectType
@@ -15,6 +16,7 @@ enum ObjectType
 };
 
 /**
+ * @enum WeatherType
  * @brief The WeatherType enum
  */
 enum WeatherType
@@ -23,6 +25,7 @@ enum WeatherType
 };
 
 /**
+ * @enum ToolType
  * @brief The ToolType enum
  */
 enum ToolType
@@ -35,6 +38,7 @@ enum ToolType
 };
 
 /**
+ * @enum ResourceType
  * @brief The ResourceType enum
  */
 enum ResourceType
@@ -49,7 +53,8 @@ enum ResourceType
 };
 
 /**
- * @brief The CreatureType enum
+ * @enum CreatureAction
+ * @brief The CreatureAction enum
  */
 enum CreatureAction
 {
@@ -62,6 +67,7 @@ enum CreatureAction
 };
 
 /**
+ * @enum CreatureType
  * @brief The CreatureType enum
  */
 enum CreatureType 
@@ -70,6 +76,7 @@ enum CreatureType
 };
 
 /**
+ * @enum ActionType
  * @brief The ActionType enum
  */
 enum ActionType
@@ -79,6 +86,7 @@ enum ActionType
 };
 
 /**
+ * @enum ActionState
  * @brief The ActionState enum
  */
 enum ActionState
