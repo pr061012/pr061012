@@ -37,9 +37,11 @@ void Resource::decreaseAmount(unsigned int delta)
     }
 }
 
-std::vector <Action *> Resource::getActions()
+std::vector <Action> * Resource::getActions()
 {
+    this -> actions.clear();
 
+    return &(this -> actions);
 }
 
 //******************************************************************************

@@ -12,7 +12,7 @@
  * @class Tool
  * @brief Tool class
  */
-class Tool : virtual public Object
+class Tool : public Object
 {
 public:
     //**************************************************************************

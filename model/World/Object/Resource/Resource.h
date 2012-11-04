@@ -13,7 +13,7 @@
  * @class Resource
  * @brief Resource class contains information about one mineral deposit.
  */
-class Resource : virtual public Object
+class Resource : public Object
 {
 public:
     //**************************************************************************
@@ -44,7 +44,7 @@ public:
      * @brief  Gets array with pending actions.
      * @return array with pending actions
      */
-    std::vector <Action *> getActions();
+    std::vector <Action> * getActions();
 
     //**************************************************************************
     // ACCESSORS.
