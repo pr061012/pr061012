@@ -12,7 +12,7 @@
  * @class Tool
  * @brief Tool class
  */
-class Tool : virtual public Object
+class Tool : public Object
 {
 public:
     //**************************************************************************
@@ -47,13 +47,13 @@ public:
      * @brief  Gets current tool's strength.
      * @return the value of current strength
      */
-    unsigned int getStrength();
+    unsigned int getStrength() const;
 
     /**
      * @brief  Gets maximum possible tool's strength.
      * @return the value of maximum strength
      */
-    unsigned int getMaxStrength();
+    unsigned int getMaxStrength() const;
 
     /**
      * @brief Decreases current tool's strength.
@@ -75,13 +75,13 @@ public:
      * @brief  Gets tool's type.
      * @return tool's type
 	 */
-    ToolType getSubtype();
+    ToolType getSubtype() const;
 
     /**
      * @brief  Gets tool's material.
      * @return tool's material
 	 */
-    ResourceType getMaterial();
+    ResourceType getMaterial() const;
 
 private:
     /// Tool type.

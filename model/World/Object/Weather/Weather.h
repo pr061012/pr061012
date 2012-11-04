@@ -13,7 +13,7 @@
  * @class Weather
  * @brief Weather class
  */
-class Weather : virtual public Object
+class Weather : public Object
 {
 public:
     //**************************************************************************
@@ -48,7 +48,7 @@ public:
      * @brief  Get the value of subtype.
 	 * @return the value of subtype
 	 */
-    WeatherType getSubtype();
+    WeatherType getSubtype() const;
 
     //**************************************************************************
     // ACCESSORS.
@@ -65,7 +65,7 @@ public:
      * @brief  Gets amount of living steps.
      * @return amount of living steps.
      */
-    unsigned int getLivingSteps();
+    unsigned int getLivingSteps() const;
 
 private:
     /// Weather type.

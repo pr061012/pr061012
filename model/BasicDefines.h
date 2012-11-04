@@ -31,6 +31,64 @@
 #define TOOL_GOLD_STRENGTH      1600
 
 //******************************************************************************
+// RESOURCE DEFINES.
+// Prefix: RES.
+//******************************************************************************
+
+// Regeneration rate (amount of world steps to regenerate).
+#define RES_REGENERATION_RATE       160
+
+// Ranges of amount of resource.
+
+#define RES_WOOD_AMOUNT_MIN         10
+#define RES_WOOD_AMOUNT_MAX         20
+
+#define RES_BRONZE_ORE_AMOUNT_MIN   50
+#define RES_BRONZE_ORE_AMOUNT_MAX   60
+
+#define RES_IRON_ORE_AMOUNT_MIN     50
+#define RES_IRON_ORE_AMOUNT_MAX     60
+
+#define RES_SILVER_ORE_AMOUNT_MIN   30
+#define RES_SILVER_ORE_AMOUNT_MAX   40
+
+#define RES_GOLD_ORE_AMOUNT_MIN     10
+#define RES_GOLD_ORE_AMOUNT_MAX     20
+
+// Amount of resource to regenerate on each regeneration step.
+
+#define RES_WOOD_REG_AMOUNT         2
+#define RES_BRONZE_ORE_REG_AMOUNT   3
+#define RES_IRON_ORE_REG_AMOUNT     3
+#define RES_SILVER_ORE_REG_AMOUNT   2
+#define RES_GOLD_ORE_REG_AMOUNT     1
+
+// Amount of steps to mine resource.
+
+#define RES_WOOD_DIFFICULTY         16
+#define RES_BRONZE_ORE_DIFFICULTY   32
+#define RES_IRON_ORE_DIFFICULTY     48
+#define RES_SILVER_ORE_DIFFICULTY   64
+#define RES_GOLD_ORE_DIFFICULTY     80
+
+// Ranges of amount of resource what will drop at each mining.
+
+#define RES_WOOD_DROP_MIN           1
+#define RES_WOOD_DROP_MAX           3
+
+#define RES_BRONZE_ORE_DROP_MIN     10
+#define RES_BRONZE_ORE_DROP_MAX     15
+
+#define RES_IRON_ORE_DROP_MIN       10
+#define RES_IRON_ORE_DROP_MAX       15
+
+#define RES_SILVER_ORE_DROP_MIN     5
+#define RES_SILVER_ORE_DROP_MAX     10
+
+#define RES_GOLD_ORE_DROP_MIN       3
+#define RES_GOLD_ORE_DROP_MAX       8
+
+//******************************************************************************
 // CREATURE DEFINES.
 // Prefix: CREAT.
 //******************************************************************************

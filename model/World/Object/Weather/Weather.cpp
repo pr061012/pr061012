@@ -68,7 +68,7 @@ std::vector <Action> * Weather::getActions()
 // WEATHER TYPE.
 //******************************************************************************
 
-WeatherType Weather::getSubtype()
+WeatherType Weather::getSubtype() const
 {
     return this -> subtype;
 }
@@ -82,7 +82,7 @@ ObjectHeap * Weather::getCoveredObjects()
     return this -> covered_objs;
 }
 
-unsigned int Weather::getLivingSteps()
+unsigned int Weather::getLivingSteps() const
 {
     return this -> steps;
 }

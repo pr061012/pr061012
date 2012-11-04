@@ -4,6 +4,11 @@
 */
 
 #include "../Object/Building/Building.h"
+#include "../Object/Creatures/Creature.h"
+#include "../Object/Resource/Resource.h"
+#include "../Object/Tool/Tool.h"
+#include "../Object/Weather/Weather.h"
+
 #include "ObjectFactory.h"
 
 //******************************************************************************
@@ -34,15 +39,19 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
         break;
 
         case CREATURE:
+            object = createCreature(params);
         break;
 
         case RESOURCE:
+            object = createResource(params);
         break;
 
         case TOOL:
+            object = createTool(params);
         break;
 
         case WEATHER:
+            object = createWeather(params);
         break;
     }
 
@@ -53,10 +62,40 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 // OBJECTS CREATION (INNER METHODS).
 //******************************************************************************
 
-Object * createBuilding(const ParamArray & params)
+Object * ObjectFactory::createBuilding(const ParamArray & params)
 {
     unsigned int max_space = params.getValue("max_space");
     unsigned int max_health = params.getValue("max_health");
 
     return new Building(max_health, max_space);
 }
+
+Object * ObjectFactory::createCreature(const ParamArray & params)
+{
+
+}
+
+Object * ObjectFactory::createResource(const ParamArray & params)
+{
+    ResourceType type = static_cast<ResourceType>(params.getValue("type"));
+
+    return new Resource(type);
+}
+
+Object * ObjectFactory::createTool(const ParamArray & params)
+{
+    ToolType type = static_cast<ToolType>(params.getValue("type"));
+    ResourceType resource_type = static_cast<ResourceType>(params.getValue("resource_type"));
+
+    return new Tool(type,resource_type);
+}
+
+Object * ObjectFactory::createWeather(const ParamArray & params)
+{
+    WeatherType type = static_cast<WeatherType>(params.getValue("type"));
+
+    return new Weather(type);
+}
+
+
+
