@@ -9,7 +9,10 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Tool::Tool():Object(TOOL)
+Tool::Tool(ToolType type, ResourceType material) :
+    Object(TOOL),
+    subtype(type),
+    material(material)
 {
 
 }

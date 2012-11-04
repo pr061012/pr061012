@@ -5,6 +5,7 @@
 
 #ifndef TOOL_H
 #define TOOL_H
+
 #include "../Object.h"
 
 /**
@@ -21,7 +22,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Tool();
+    Tool(ToolType type);
 
     /**
      * @brief Destructor.
@@ -38,14 +39,8 @@ public:
     void use();
 
     //**************************************************************************
-    // ACCESSORS.
+    // TYPE ACCESSORS.
     //**************************************************************************
-
-	/**
-	 * Set the value of subtype
-	 * @param new_var the new value of subtype
-	 */
-    void setSubtype(ToolType new_var);
 
 	/**
 	 * Get the value of subtype
@@ -54,16 +49,14 @@ public:
     ToolType getSubtype();
 
 	/**
-	 * Set the value of material
-	 * @param new_var the new value of material
-	 */
-    void setMaterial(ResourceType new_var);
-
-	/**
 	 * Get the value of material
 	 * @return the value of material
 	 */
     ResourceType getMaterial();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
 	/**
 	 * Set the value of quality
@@ -81,10 +74,10 @@ public:
 
 private:
     /// Tool type.
-    ToolType subtype;
+    const ToolType subtype;
 
-    /// Tool material.
-    ResourceType material;
+    /// Material of which tool is made.
+    const ResourceType material;
 
     /// Tool quality.
     int quality;
