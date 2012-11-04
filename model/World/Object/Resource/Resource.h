@@ -117,30 +117,27 @@ public:
     unsigned int getAmountPerGather();
 
 private:
-    /// @brief Resource gathering process (Wood can't be hacked by one hit.
-    ///        Humanoid needs several hits to do that.)
-    unsigned int progress;
-
-    /// Amount of resource.
-    unsigned int amount;
-
     /// Type of resource
     const ResourceType subtype;
 
-    /// @brief Resource regeneration rate. (Either amount of steps to restore
-    ///        1 resource unit or amount of steps to full regeneration or smth
-    ///        else).
+    /// @brief Resource gathering process (Wood can't be hacked by one hit.
+    ///        Humanoid needs several hits to do that.)
+    unsigned int progress;
+    /// Amount of steps to gather this resource.
+    unsigned int difficulty;
+
+    /// Amount of resource.
+    unsigned int amount;
+    /// Amount of resources received on each gather step.
+    unsigned int amount_per_gather;
+
+    /// @brief Resource regeneration rate (amount of resource we regenerate on
+    ///        each step).
     unsigned int regeneration_rate;
 
     /// @brief Resource maybe gathered (trees, mountains, mines) or not (stones,
     ///        log, ore).
     bool gathered;
-
-    /// Amount of steps to gather this resource.
-    unsigned int difficulty;
-
-    /// Amount of resources received on each gather step.
-    unsigned int amount_per_gather;
 };
 
 #endif // RESOURCE_H
