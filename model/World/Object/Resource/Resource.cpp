@@ -5,15 +5,29 @@
 
 #include "Resource.h"
 
+#include "../../../BasicDefines.h"
+#include "../../../BasicFunc.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(const ResourceType type) :
+Resource::Resource(ResourceType type) :
     Object(RESOURCE),
-    subtype(type)
+    subtype(type),
+    progress(0)
 {
+    switch(this -> subtype)
+    {
+        // TODO Case for each res. type.
 
+        default:
+            this -> mineable        = false;
+            this -> difficulty      = 0;
+            this -> amount_per_drop = 0;
+            this -> reg_amount      = 0;
+        break;
+    }
 }
 
 Resource::~Resource()
@@ -22,7 +36,7 @@ Resource::~Resource()
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
+// CHANGING AMOUNT.
 //******************************************************************************
 
 void Resource::decreaseAmount(unsigned int delta)
@@ -37,6 +51,15 @@ void Resource::decreaseAmount(unsigned int delta)
     }
 }
 
+unsigned int Resource::getAmount() const
+{
+    return this -> amount;
+}
+
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
+
 std::vector <Action> * Resource::getActions()
 {
     this -> actions.clear();
@@ -45,60 +68,29 @@ std::vector <Action> * Resource::getActions()
 }
 
 //******************************************************************************
-// ACCESSORS.
+// RESOURCE TYPE.
 //******************************************************************************
 
-void Resource::setProgress(unsigned int new_var)
-{
-    this -> progress = new_var;
-}
-
-unsigned int Resource::getProgress()
-{
-    return this -> progress;
-}
-
-ResourceType Resource::getSubtype()
+ResourceType Resource::getSubtype() const
 {
     return this -> subtype;
 }
 
-void Resource::setRegenerationRate(unsigned int new_var)
+//******************************************************************************
+// MINING.
+//******************************************************************************
+
+unsigned int Resource::getProgress() const
 {
-    this -> regeneration_rate = new_var;
+    return this -> progress;
 }
 
-unsigned int Resource::getRegenerationRate()
-{
-    return this -> regeneration_rate;
-}
-
-void Resource::setGathered(bool new_var)
-{
-    this -> gathered = new_var;
-}
-
-bool Resource::getGathered()
-{
-    return this -> gathered;
-}
-
-void Resource::setDifficulty(unsigned int new_var)
-{
-    this -> difficulty = new_var;
-}
-
-unsigned int Resource::getDifficulty()
+unsigned int Resource::getDifficulty() const
 {
     return this -> difficulty;
 }
 
-void Resource::setAmountPerGather(unsigned int new_var)
+bool Resource::isMineable() const
 {
-    this -> amount_per_gather = new_var;
-}
-
-unsigned int Resource::getAmountPerGather()
-{
-    return this -> amount_per_gather;
+    return this -> mineable;
 }

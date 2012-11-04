@@ -11,7 +11,7 @@
 
 /**
  * @class Resource
- * @brief Resource class contains information about one mineral deposit.
+ * @brief This class contains information about mineable or pickable resource.
  */
 class Resource : public Object
 {
@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Resource(const ResourceType type);
+    Resource(ResourceType type);
 
     /**
      * @brief Destructor.
@@ -31,7 +31,7 @@ public:
     ~Resource();
 
     //**************************************************************************
-    // RESOURCE'S LIFE.
+    // CHANGING AMOUNT.
     //**************************************************************************
 
     /**
@@ -41,106 +41,75 @@ public:
     void decreaseAmount(unsigned int delta);
 
     /**
+     * @brief  Gets amount of resource.
+     * @return amount of resource
+     */
+    unsigned int getAmount() const;
+
+    //**************************************************************************
+    // RESOURCE'S LIFE.
+    //**************************************************************************
+
+    /**
      * @brief  Gets array with pending actions.
      * @return array with pending actions
      */
     std::vector <Action> * getActions();
 
     //**************************************************************************
-    // ACCESSORS.
+    // RESOURCE TYPE.
     //**************************************************************************
-
-    /**
-     * @brief Set the value of progress.
-     * @param new_var the new value of progress
-     */
-    void setProgress(unsigned int new_var);
-
-    /**
-     * @brief Get the value of progress.
-     * @return the value of progress
-     */
-    unsigned int getProgress();
 
     /**
      * @brief  Gets the value of subtype.
      * @return the value of subtype
      */
-    ResourceType getSubtype();
+    ResourceType getSubtype() const;
+
+    //**************************************************************************
+    // MINING.
+    //**************************************************************************
 
     /**
-     * @brief Set the value of regeneration_rate.
-     * @param new_var the new value of regeneration_rate
+     * @brief  Get the value of progress.
+     * @return the value of progress
      */
-    void setRegenerationRate(unsigned int new_var);
+    unsigned int getProgress() const;
 
     /**
-     * @brief Get the value of regeneration_rate.
-     * @return the value of regeneration_rate
-     */
-    unsigned int getRegenerationRate();
-
-    /**
-     * @brief Set the value of gathered.
-     * @param new_var the new value of gathered
-     */
-    void setGathered(bool new_var);
-
-    /**
-     * @brief Get the value of gathered.
-     * @return the value of gathered
-     */
-    bool getGathered();
-
-    /**
-     * @brief Set the value of difficulty.
-     * @param new_var the new value of difficulty
-     */
-    void setDifficulty(unsigned int new_var);
-
-    /**
-     * @brief Get the value of difficulty.
+     * @brief  Get the value of difficulty.
      * @return the value of difficulty
      */
-    unsigned int getDifficulty();
+    unsigned int getDifficulty() const;
 
     /**
-     * @brief Set the value of amount_per_gather.
-     * @param new_var the new value of amount_per_gather
+     * @brief  Returns true if resource is mineable.
+     * @return is mineable or not
      */
-    void setAmountPerGather(unsigned int new_var);
-
-    /**
-     * @brief Get the value of amount_per_gather.
-     * @return the value of amount_per_gather
-     */
-    unsigned int getAmountPerGather();
+    bool isMineable() const;
 
 private:
-    /// @brief Resource gathering process (Wood can't be hacked by one hit.
-    ///        Humanoid needs several hits to do that.)
-    unsigned int progress;
-
-    /// Amount of resource.
-    unsigned int amount;
-
     /// Type of resource
     const ResourceType subtype;
 
-    /// @brief Resource regeneration rate. (Either amount of steps to restore
-    ///        1 resource unit or amount of steps to full regeneration or smth
-    ///        else).
-    unsigned int regeneration_rate;
-
-    /// @brief Resource maybe gathered (trees, mountains, mines) or not (stones,
-    ///        log, ore).
-    bool gathered;
-
+    /// @brief Resource gathering process (Wood can't be hacked by one hit.
+    ///        Humanoid needs several hits to do that.)
+    unsigned int progress;
     /// Amount of steps to gather this resource.
     unsigned int difficulty;
 
-    /// Amount of resources received on each gather step.
-    unsigned int amount_per_gather;
+    /// Amount of resource.
+    unsigned int amount;
+    /// Amount of resources received on each mining.
+    unsigned int amount_per_drop;
+
+    /// @brief Resource regeneration amount (amount of resource we regenerate on
+    ///        each regeneration).
+    unsigned int reg_amount;
+
+    /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
+    ///        ResourceType enum for details.
+    bool mineable;
 };
 
 #endif // RESOURCE_H
