@@ -47,7 +47,8 @@ public:
      * @brief Receives message.
      * @param action    message
      */
-    virtual void receiveMessage(Action * action) = 0;
+    // TODO: Uncomment when we need it.
+    //virtual void receiveMessage(Action * action) = 0;
 
     //**************************************************************************
     // DESTROYED FLAG.
