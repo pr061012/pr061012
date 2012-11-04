@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather();
+    Weather(WeatherType type);
 
     /**
      * @brief Destructor.
@@ -31,14 +31,18 @@ public:
     ~Weather();
 
     //**************************************************************************
-    // ACCESSORS.
+    // WEATHER ACTIONS.
     //**************************************************************************
 
-	/**
-     * @brief Set the value of subtype.
-     * @param new_var   the new value of subtype
+    /**
+     * @brief  Gets actions.
+     * @return vector with actions.
      */
-    void setSubtype(WeatherType new_var);
+    std::vector <Action> * getActions();
+
+    //**************************************************************************
+    // WEATHER TYPE.
+    //**************************************************************************
 
 	/**
      * @brief  Get the value of subtype.
@@ -46,39 +50,32 @@ public:
 	 */
     WeatherType getSubtype();
 
-	/**
-     * @brief Set the value of window.
-     * @param new_var   the new value of window
-	 */
-    void setWindow(ObjectHeap* new_var);
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
 	/**
-     * @brief  Get the value of window.
-	 * @return the value of window
+     * @brief  Gets reference to heap with covered objects. This heap can be
+     *         modified (in fact, Controller modify it by using Weather shape).
+     * @return reference to heap with covered objects
 	 */
-    ObjectHeap* getWindow();
+    ObjectHeap * getCoveredObjects();
 
-	/**
-     * @brief Set the value of view_area.
-     * @param new_var   the new value of view_area
-	 */
-    void setViewArea(Shape new_var);
-
-	/**
-     * @brief  Get the value of view_area
-	 * @return the value of view_area
-	 */
-    Shape getViewArea();
+    /**
+     * @brief  Gets amount of living steps.
+     * @return amount of living steps.
+     */
+    unsigned int getLivingSteps();
 
 private:
     /// Weather type.
-    WeatherType subtype;
+    const WeatherType subtype;
 
-    /// Pointer to the window in Indexator. Initializes in constructor.
-    ObjectHeap * window;
+    /// Covered objects. Is setted up by Controller by using Weather shape.
+    ObjectHeap * covered_objs;
 
-    /// Effect area. Needed for Indexator for window's contents finding.
-    Shape view_area;
+    /// Steps for living.
+    unsigned int steps;
 };
 
 #endif // WEATHER_H

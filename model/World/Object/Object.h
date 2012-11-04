@@ -38,23 +38,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Decreases object's health.
-     * @param delta health to decrease
-     */
-    void decreaseHealth(unsigned int delta);
-
-    /**
-     * @brief Increases object's health.
-     * @param delta health to increase
-     */
-    void increaseHealth(unsigned int delta);
-
-    /**
-     * @brief Destroys object.
-     */
-    virtual void destroy() = 0;
-
-    /**
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
@@ -64,29 +47,27 @@ public:
      * @brief Receives message.
      * @param action    message
      */
-    virtual void receiveMessage(Action * action) = 0;
+    // TODO: Uncomment when we need it.
+    //virtual void receiveMessage(Action * action) = 0;
 
     //**************************************************************************
-    // ACCESSORS.
+    // DESTROYED FLAG.
     //**************************************************************************
 
     /**
-     * @brief Get the value of type.
-     * @return the value of type
+     * @brief Marks this object as destroyed.
      */
-    ObjectType getType();
+    void markAsDestroyed();
 
     /**
-     * @brief Set the value of shape.
-     * @param new_var   the new value of shape
+     * @brief  Returns true if object is destroyed.
+     * @return is object destroyed or not
      */
-    void setShape(Shape new_var);
+    bool isDestroyed();
 
-    /**
-     * @brief Get the value of shape.
-     * @return the value of shape
-     */
-    Shape getShape();
+    //**************************************************************************
+    // IMMORTALITY FLAG.
+    //**************************************************************************
 
     /**
      * @brief   Set object's coordinates
@@ -101,52 +82,46 @@ public:
     const Point& getCoords() const;
 
     /**
-     * @brief Set the value of destroyed.
-     * @param new_var   the new value of destroyed
+     * @brief Makes object mortal.
      */
-    void setDestroyed(bool new_var);
+    void makeMortal();
 
     /**
-     * @brief Get the value of destroyed.
-     * @return the value of destroyed
+     * @brief Makes object immortal.
      */
-    bool getDestroyed();
+    void makeImmortal();
 
     /**
-     * @brief Set the value of health.
-     * @param new_var the new value of health
+     * @brief  Returns true if object is immortal.
+     * @return is object immortal or not
      */
-    void setHealth(unsigned int new_var);
+    bool isImmortal();
+
+    //**************************************************************************
+    // OBJECT TYPE.
+    //**************************************************************************
 
     /**
-     * @brief Get the value of health.
-     * @return the value of health
+     * @brief Get the value of type.
+     * @return the value of type
      */
-    unsigned int getHealth();
+    ObjectType getType();
+
+    //**************************************************************************
+    // OBJECT SHAPE AND ANGLE.
+    //**************************************************************************
 
     /**
-     * @brief Set the value of immortality.
-     * @param new_var   the new value of immortality
+     * @brief Set the value of shape.
+     * @param new_var   the new value of shape
      */
-    void setImmortality(bool new_var);
+    void setShape(Shape new_var);
 
     /**
-     * @brief Get the value of immortality.
-     * @return the value of immortality
+     * @brief  Get the value of shape.
+     * @return the value of shape
      */
-    bool getImmortality();
-
-    /**
-     * @brief Set the value of max_health.
-     * @param new_var the new value of max_health
-     */
-    void setMaxHealth(unsigned int new_var);
-
-    /**
-     * @brief Get the value of max_health.
-     * @return the value of max_health
-     */
-    unsigned int getMaxHealth();
+    Shape getShape();
 
     /**
      * @brief Set the value of angle.
@@ -155,32 +130,20 @@ public:
     void setAngle(double new_var);
 
     /**
-     * @brief Get the value of angle.
+     * @brief  Get the value of angle.
      * @return the value of angle
      */
     double getAngle();
-    
+
 private:
     /// Object's type.
     const ObjectType type;
 
-    /// Object's coordinates and frame.
+    /// Object's coordinates and shape.
     Shape shape;
 
     /// Is object destroyed or not.
     bool destroyed;
-
-    /**
-     * @brief Object's health.
-     *          * buildings and creatures -- health
-     *          * weather -- living time
-     *          * resource -- amount of resource
-     *          * tool -- durability
-     */
-    unsigned int health;
-
-    /// Maximum amount of health.
-    unsigned int max_health;
 
     /// Immortality.
     bool immortality;

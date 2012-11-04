@@ -7,8 +7,8 @@
 #define DECISION_MAKER_H
 #define ATR_CONST 9
 #define ACT_CONST 9
-#define PATH_TO_HUM_MATRIX "/../../../res/humanoid_matrix_decision.txt"
-#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_matrix_decision.txt"
+#define PATH_TO_HUM_MATRIX "../../../res/humanoid_decision_matrix.txt"
+#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_decision_matri.txt"
 
 // Temporary workaround.
 
@@ -51,7 +51,7 @@ public:
      * @return int      next action
      */
     // TODO: Add enum for creatures's actions.
-    int makeDecision (arma::mat attrs);
+    CreatureAction makeDecision (arma::mat attrs);
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or

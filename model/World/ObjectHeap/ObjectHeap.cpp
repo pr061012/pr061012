@@ -67,19 +67,19 @@ bool ObjectHeap::remove(Object* object)
     // Position in TypeObject array.
     unsigned int pos = 0;
     // Type remove object.
-    const ObjectType type = object -> getType();
+    const ObjectType my_type = object -> getType();
     // Getting type of the object in int.
-    type_int = static_cast<int>(type);
+    int type_int = static_cast<int>(my_type);
 
     // Find object.
     for(unsigned int i = 0; i < data[0].size(); i++)
     {
-        if (data[0][i] -> type == type)
+        if ((data[0][i] -> getType()) == my_type)
         {
             pos++;
             if (data[0][i] == object)
             {
-                    data[i].erase(data[i].begin() + j);
+                    data[0].erase(data[0].begin() + i);
                     del = true;
                     break;
             }
@@ -89,7 +89,7 @@ bool ObjectHeap::remove(Object* object)
     // Delete object from type array.
     if (del)
     {
-        data[type_int + 1].erase(data[type_int + 1] + pos);
+        data[type_int + 1].erase(data[type_int + 1].begin() + pos);
     }
 
     return del;

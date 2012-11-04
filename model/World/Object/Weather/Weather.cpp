@@ -5,50 +5,84 @@
 
 #include "Weather.h"
 
+#include "../../../BasicFunc.h"
+#include "../../../BasicDefines.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather():Object(WEATHER)
+Weather::Weather(WeatherType type) :
+    Object(WEATHER),
+    subtype(type),
+    covered_objs(new ObjectHeap)
 {
-
+    this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
 }
 
 Weather::~Weather()
 {
-
+    delete covered_objs;
 }
 
 //******************************************************************************
-// ACCESSORS.
+// WEATHER ACTIONS.
 //******************************************************************************
 
-void Weather::setSubtype(WeatherType new_var)
+std::vector <Action> * Weather::getActions()
 {
-    this -> subtype = new_var;
+    if(this -> steps > 0)
+    {
+        this -> steps--;
+    }
+
+    this -> actions.clear();
+
+    // TODO: Add actions for RAIN, CLOUDS, SNOW.
+
+    if
+    (
+        this -> subtype == METEOR_SHOWER ||
+        this -> subtype == STORM ||
+        this -> subtype == HURRICANE ||
+        this -> subtype == HAIL ||
+        this -> subtype == EARTHQUAKE
+    )
+    {
+        Action act(HARM_OBJS, this);
+
+        // Add all objects to this action.
+        ObjectHeap::const_iterator iter;
+        for(iter = covered_objs -> begin(); iter != covered_objs -> end(); iter++)
+        {
+            act.addParticipant(*iter);
+        }
+
+        this -> actions.push_back(act);
+    }
+
+    return &(this -> actions);
 }
+
+//******************************************************************************
+// WEATHER TYPE.
+//******************************************************************************
 
 WeatherType Weather::getSubtype()
 {
     return this -> subtype;
 }
 
-void Weather::setWindow(ObjectHeap* new_var)
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
+
+ObjectHeap * Weather::getCoveredObjects()
 {
-    this -> window = new_var;
+    return this -> covered_objs;
 }
 
-ObjectHeap* Weather::getWindow()
+unsigned int Weather::getLivingSteps()
 {
-    return this -> window;
-}
-
-void Weather::setViewArea(Shape new_var)
-{
-    this -> view_area = new_var;
-}
-
-Shape Weather::getViewArea()
-{
-    return this -> view_area;
+    return this -> steps;
 }

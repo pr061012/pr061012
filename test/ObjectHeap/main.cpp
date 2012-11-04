@@ -15,9 +15,21 @@ private:
     int id;
 
 public:
-    AnyObject():Object(RESOURCE)
+    AnyObject(ObjectType type):Object(type)
     {
-        id = count;
+        if ( type == RESOURCE )
+        {
+            id = count;
+        }
+        else
+        {
+            id = -count;
+        }
+        count++;
+    }
+    AnyObject():Object(BUILDING)
+    {
+        id = -count;
         count++;
     }
 
@@ -54,11 +66,22 @@ int main()
 
     for (int i = 0; i<5; i++)
     {
-        AnyObject* var = new AnyObject();
-        heap -> push(dynamic_cast<Object*>(var));
+        AnyObject* var = new AnyObject(RESOURCE);
+        heap -> push(var);
+    }
+    for (int i = 0; i<5; i++)
+    {
+        AnyObject* var = new AnyObject(BUILDING);
+        heap -> push(var);
     }
     for (iter = heap -> begin(RESOURCE); iter != heap -> end(RESOURCE); iter++)
     {
         (dynamic_cast<AnyObject*>(*iter))->print();
     }
+    for (iter = heap ->begin(); iter != heap ->end(); iter++)
+    {
+        (dynamic_cast<AnyObject*>(*iter))->print();
+    }
+
+
 }

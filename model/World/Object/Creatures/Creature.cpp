@@ -4,6 +4,9 @@
 */
 
 #include "Creature.h"
+#include "../../../BasicFunc.h"
+#include "../../../BasicDefines.h"
+
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -15,7 +18,19 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     brains(dmaker),
     inventory(new ObjectHeap)
 {
+    // Randomly initialize some values.
+    max_hunger      = randFromRange(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);
+    max_sleepiness  = randFromRange(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);
+    int health      = randFromRange(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);
 
+    // Initialize other values.
+    hunger      = 100 - max_hunger;
+    sleepiness  = 100 - max_sleepiness;
+    safety      = 0; //we need in function to calculate it
+                     //different for HUM and NON_HUM?
+    // Initialize some inhereted things.
+    setMaxHealth(health);
+    setHealth(100 - health);
 }
 
 Creature::~Creature()
@@ -65,4 +80,54 @@ void Creature::setMaxAge(unsigned int max_age)
 unsigned int Creature::getMaxAge()
 {
     return this -> max_age;
+}
+
+
+void Creature::setHealth(unsigned int health)
+{
+    this -> health = health;
+}
+
+unsigned int Creature::getHealth()
+{
+    return this -> health;
+}
+
+void Creature::setMaxHealth(unsigned int max_health)
+{
+    this -> max_health = max_health;
+}
+
+unsigned int Creature::getMaxHealth()
+{
+    return this -> max_health;
+}
+
+
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
+
+void Creature::decreaseHealth(unsigned int delta)
+{
+    if(this -> health > delta)
+    {
+        this -> health -= delta;
+    }
+    else
+    {
+        this -> health = 0;
+    }
+}
+
+void Creature::increaseHealth(unsigned int delta)
+{
+    if(this -> health + delta < this -> max_health)
+    {
+        this -> health += delta;
+    }
+    else
+    {
+        this -> health = this -> max_health;
+    }
 }

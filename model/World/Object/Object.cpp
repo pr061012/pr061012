@@ -16,9 +16,6 @@ Object::Object(ObjectType type) :
     this -> immortality = false;
 
     this -> angle = 0;
-
-    this -> health = 0;
-    this -> max_health = 0;
 }
 
 Object::~Object()
@@ -27,45 +24,50 @@ Object::~Object()
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
+// DESTROYED FLAG.
 //******************************************************************************
 
-void Object::decreaseHealth(unsigned int delta)
+void Object::markAsDestroyed()
 {
-    if(!immortality)
-    {
-        if(this -> health > delta)
-        {
-            this -> health -= delta;
-        }
-        else
-        {
-            this -> health = 0;
-            destroy();
-        }
-    }
+    this -> destroyed = true;
 }
 
-void Object::increaseHealth(unsigned int delta)
+bool Object::isDestroyed()
 {
-    if(this -> health + delta < this->max_health)
-    {
-        this -> health += delta;
-    }
-    else
-    {
-        this -> health = this -> max_health;
-    }
+    return this -> destroyed;
 }
 
 //******************************************************************************
-// ACCESSORS.
+// IMMORTALITY FLAG.
+//******************************************************************************
+
+void Object::makeMortal()
+{
+    this -> immortality = false;
+}
+
+void Object::makeImmortal()
+{
+    this -> immortality = true;
+}
+
+bool Object::isImmortal()
+{
+    return this -> immortality;
+}
+
+//******************************************************************************
+// OBJECT TYPE.
 //******************************************************************************
 
 ObjectType Object::getType()
 {
     return this -> type;
 }
+
+//******************************************************************************
+// OBJECT SHAPE AND ANGLE.
+//******************************************************************************
 
 void Object::setShape(Shape new_var)
 {
@@ -75,46 +77,6 @@ void Object::setShape(Shape new_var)
 Shape Object::getShape()
 {
     return this -> shape;
-}
-
-void Object::setDestroyed(bool new_var)
-{
-    this -> destroyed = new_var;
-}
-
-bool Object::getDestroyed()
-{
-    return this -> destroyed;
-}
-
-void Object::setHealth(unsigned int new_var)
-{
-    this -> health = new_var;
-}
-
-unsigned int Object::getHealth()
-{
-    return this -> health;
-}
-
-void Object::setImmortality(bool new_var)
-{
-    this -> immortality = new_var;
-}
-
-bool Object::getImmortality()
-{
-    return this -> immortality;
-}
-
-void Object::setMaxHealth(unsigned int new_var)
-{
-    this -> max_health = new_var;
-}
-
-unsigned int Object::getMaxHealth()
-{
-    return this -> max_health;
 }
 
 void Object::setAngle(double new_var)

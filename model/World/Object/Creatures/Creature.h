@@ -15,6 +15,8 @@
  * @class Creature
  * @brief Abstract Creature class.
  */
+
+
 class Creature : virtual public Object
 {
 public:
@@ -87,6 +89,46 @@ public:
      */
     unsigned int getMaxAge();
 
+    /**
+     * @brief Set the value of health.
+     * @param health   new value of health
+     */
+    void setHealth(unsigned int age);
+
+    /**
+     * @brief  Get the value of health.
+     * @return the value of health
+     */
+    unsigned int getHealth();
+
+    /**
+     * @brief Set the value of max health.
+     * @param age   new value of max health
+     */
+    void setMaxHealth(unsigned int max_age);
+
+    /**
+     * @brief  Get the value of max age.
+     * @return the value of max age
+     */
+    unsigned int getMaxHealth();
+
+    //**************************************************************************
+    // OBJECT'S LIFE.
+    //**************************************************************************
+
+    /**
+     * @brief Decreases object's health.
+     * @param delta health to decrease
+     */
+    void decreaseHealth(unsigned int delta);
+
+    /**
+     * @brief Increases object's health.
+     * @param delta health to increase
+     */
+    void increaseHealth(unsigned int delta);
+
 private:
     /// Creature's type.
     const CreatureType subtype;
@@ -111,6 +153,33 @@ private:
 
     /// Maximum possible age.
     unsigned int max_age;
+
+    /// Current health.
+    unsigned int health;
+
+    /// Maximum possible health.
+    unsigned int max_health;
+
+	// Quotient = 100 => creature wants sleep.
+
+    /// Current value of sleepiness.
+    unsigned int sleepiness;
+    /// Maximum possible value of sleepiness.
+    unsigned int max_sleepiness;
+
+	///Current value of need_in_descendants (0-100)
+	unsigned int need_in_descendants;
+
+	// If = 100, creature is in danger.
+    /// Current safety.
+    unsigned int safety;
+
+	// Quotient = 100 => creature wants eat.
+    /// Current value of hunger.
+    unsigned int hunger;
+    /// Maximum possible value of hunger.
+    unsigned int max_hunger;
+
 };
 
 #endif // CREATURE_H
