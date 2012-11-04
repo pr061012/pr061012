@@ -4,6 +4,11 @@
 */
 
 #include "../Object/Building/Building.h"
+#include "../Object/Creatures/Creature.h"
+#include "../Object/Resource/Resource.h"
+#include "../Object/Tool/Tool.h"
+#include "../Object/Weather/Weather.h"
+
 #include "ObjectFactory.h"
 
 //******************************************************************************
@@ -72,17 +77,24 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 
 Object * ObjectFactory::createResource(const ParamArray & params)
 {
+    ResourceType type = static_cast<ResourceType>(params.getValue("type"));
 
+    return new Resource(type);
 }
 
 Object * ObjectFactory::createTool(const ParamArray & params)
 {
+    ToolType type = static_cast<ToolType>(params.getValue("type"));
+    ResourceType resource_type = static_cast<ResourceType>(params.getValue("resource_type"));
 
+    return new Tool(type,resource_type);
 }
 
 Object * ObjectFactory::createWeather(const ParamArray & params)
 {
+    WeatherType type = static_cast<WeatherType>(params.getValue("type"));
 
+    return new Weather(type);
 }
 
 
