@@ -30,14 +30,19 @@ Indexator::Indexator(double size, ObjectHeap *list)
 
 Indexator::~Indexator()
 {
-
+    for (int i = 0; i < row_size; i++)
+    {
+        delete[] cells[i];
+    }
+    delete cells;
+    index.clear();
 }
 
 //******************************************************************************
 // GETTING OBJECTS.
 //******************************************************************************
 
-Indexator::ObjectHeap * Indexator::getAreaContents(Shape area)
+ObjectHeap * Indexator::getAreaContents(Shape area)
 {
     int * cells_area = getCellsArea(area);
     ObjectHeap * result = new ObjectHeap();
@@ -51,7 +56,7 @@ Indexator::ObjectHeap * Indexator::getAreaContents(Shape area)
             {
                 if (area.hitTest((*i) -> getShape()))
                 {
-                    result -> insert(*i);
+                    result -> push(*i);
                 }
             }
         }
@@ -92,18 +97,14 @@ void Indexator::reindexate(Object * object)
     if (i == index.end())
     {
         // Add the cells coordinates lies in
-        index[object] = new int[4];
-        for (j = 0; j < 4; j++)
-        {
-            index[object][j] = area[j];
-        }
+        index[object] = area;
 
         // Add object to cells
         for (j = area[0]; j <= area[2]; j++)
         {
             for (k = area[1]; k <= area[3]; k++)
             {
-                cells[j][k].insert(object);
+                cells[j][k].push(object);
             }
         }
         return;
@@ -124,6 +125,7 @@ void Indexator::reindexate(Object * object)
     // If object did not move, don't do anything.
     if (!k)
     {
+        delete area;
         return;
     }
 
@@ -143,7 +145,7 @@ void Indexator::reindexate(Object * object)
                 (x >= old_area[0] && x <= old_area[2] &&
                  y >= old_area[1] && y <= old_area[3]))
             {
-                cells[x][y].erase(object);
+                cells[x][y].remove(object);
             }
             // push object in cells that did not contain it
             else if ((x >= area[0] && x <= area[2] &&
@@ -151,7 +153,7 @@ void Indexator::reindexate(Object * object)
                      (x < old_area[0] || x > old_area[2] ||
                       y < old_area[1] || y > old_area[3]))
             {
-                cells[x][y].insert(object);
+                cells[x][y].push(object);
             }
         }
     }

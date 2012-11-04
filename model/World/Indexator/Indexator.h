@@ -10,7 +10,7 @@
 #include <set>
 #include <map>
 #include "../Object/Object.h"
-//#include "../ObjectHeap/ObjectHeap.h"
+#include "../ObjectHeap/ObjectHeap.h"
 
 
 /**
@@ -20,12 +20,6 @@
 class Indexator
 {
 public:
-    //**************************************************************************
-    // FOR TEST USE ONLY!!!
-    typedef std::set<Object*> ObjectHeap;
-    //**************************************************************************
-
-
     //**************************************************************************
     // CONSTRUCTORS/DESTRUCTOR.
     //**************************************************************************

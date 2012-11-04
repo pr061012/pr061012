@@ -10,7 +10,7 @@ MODEL_DIR  = ../../model/
 # Files with sources.
 SOURCES    = $(MODEL_DIR)Utilities/Point/Point.cpp $(MODEL_DIR)Utilities/Shape/Shape.cpp
 SOURCES   += $(MODEL_DIR)World/Object/Object.cpp 
-#SOURCES   += $(MODEL_DIR)World/ObjectHeap/ObjectHeap.cpp
+SOURCES   += $(MODEL_DIR)World/ObjectHeap/ObjectHeap.cpp
 SOURCES   += $(MODEL_DIR)World/Indexator/Indexator.cpp
 SOURCES   += main.cpp
 
