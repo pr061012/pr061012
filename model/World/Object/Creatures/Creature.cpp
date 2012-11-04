@@ -4,15 +4,7 @@
 */
 
 #include "Creature.h"
-
-//******************************************************************************
-// STATIC FUNCTIONS.
-//******************************************************************************
-
-static inline int randFromRange(int low_boundary, int top_boundary)
-{
-    return rand() % (top_boundary - low_boundary) + low_boundary + 1;
-}
+#include "../../../BasicFunc.h"
 
 
 //******************************************************************************
@@ -21,22 +13,21 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
-    subtype(type),
     brains(dmaker),
     inventory(new ObjectHeap)
 {
-	// Randomly initialize some values.
+    // Randomly initialize some values.
     max_hunger      = randFromRange(HUNGER_MIN,     HUNGER_MAX);
     max_sleepiness  = randFromRange(SLEEPINESS_MIN, SLEEPINESS_MAX);
-	int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
+    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
 
     // Initialize other values.
-	hunger      = 100 - max_hunger;
+    hunger      = 100 - max_hunger;
     sleepiness  = 100 - max_sleepiness;
-	safety		= 0; //we need in function to calculate it
-					 //different for HUM and NON_HUM?
-	// Initialize some inhereted things.
-	setMaxHealth(health);
+    safety      = 0; //we need in function to calculate it
+                     //different for HUM and NON_HUM?
+    // Initialize some inhereted things.
+    setMaxHealth(health);
     setHealth(100 - health);
 }
 
@@ -130,7 +121,7 @@ void Object::decreaseHealth(unsigned int delta)
 
 void Object::increaseHealth(unsigned int delta)
 {
-    if(this -> health + delta < this->max_health)
+    if(this -> health + delta < this -> max_health)
     {
         this -> health += delta;
     }
@@ -139,4 +130,3 @@ void Object::increaseHealth(unsigned int delta)
         this -> health = this -> max_health;
     }
 }
-
