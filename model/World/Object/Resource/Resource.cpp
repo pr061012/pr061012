@@ -111,6 +111,27 @@ std::vector <Action> * Resource::getActions()
 
     this -> actions.clear();
 
+    if(this -> progress == this -> difficulty)
+    {
+        this -> progress = 0;
+
+        unsigned int drop_amount;
+        if(this -> amount_per_drop > this -> amount)
+        {
+            drop_amount = this -> amount;
+        }
+        else
+        {
+            drop_amount = this -> amount_per_drop;
+        }
+
+        Action act(CREATE_OBJ, this);
+        act.addParam("obj_type", RESOURCE);
+        act.addParam("res_type", this -> subtype);
+        act.addParam("res_amount", drop_amount);
+        this -> actions.push_back(act);
+    }
+
     return &(this -> actions);
 }
 
