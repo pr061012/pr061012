@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('ViewObject_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,13 +102,13 @@ $(document).ready(function(){initNavTree('ViewObject_8cpp_source.html','');});
 <div class="title">ViewObject.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;ViewObject.h&quot;</span></div>
+<a href="ViewObject_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ViewObject_8h.html">ViewObject.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7">    7</a></span>&#160;<a class="code" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7" title="Constructor.">ViewObject::ViewObject</a>(ObjectType newtype, <span class="keywordtype">double</span> newx, <span class="keywordtype">double</span> newy)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="code" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7">    7</a></span>&#160;<a class="code" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7" title="Constructor.">ViewObject::ViewObject</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> newtype, <span class="keywordtype">double</span> newx, <span class="keywordtype">double</span> newy)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    type = newtype;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    newx    = x;</div>
@@ -124,12 +125,12 @@ $(document).ready(function(){initNavTree('ViewObject_8cpp_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// ACCESSORS.</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8" title="This variable tells what animation to render.">ViewObject::setType</a>(ObjectType new_var)</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8" title="This variable tells what animation to render.">ViewObject::setType</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> new_var)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    type = new_var;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">   29</a></span>&#160;ObjectType <a class="code" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7" title="Get the type of current object.">ViewObject::getType</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">   29</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> <a class="code" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7" title="Get the type of current object.">ViewObject::getType</a>()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> type;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
@@ -144,12 +145,12 @@ $(document).ready(function(){initNavTree('ViewObject_8cpp_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> y;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8" title="Set y coordinate of an object.">ViewObject::setY</a>(ObjectType new_var)</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8" title="Set y coordinate of an object.">ViewObject::setY</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> new_var)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    y = new_var;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d" title="Set x coordinate of an object.">ViewObject::setX</a>(ObjectType new_var)</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d" title="Set x coordinate of an object.">ViewObject::setX</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> new_var)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    x = new_var;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
@@ -158,8 +159,8 @@ $(document).ready(function(){initNavTree('ViewObject_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f003339c516cc00c8cadcafbe82f13.html">view</a></li><li class="navelem"><b>ViewObject.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_b2f003339c516cc00c8cadcafbe82f13.html">view</a></li><li class="navelem"><a class="el" href="ViewObject_8cpp.html">ViewObject.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

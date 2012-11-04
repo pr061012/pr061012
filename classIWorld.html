@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classIWorld.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,20 +107,118 @@ $(document).ready(function(){initNavTree('classIWorld.html','');});
 <div class="title">IWorld Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="IWorld_8h_source.html">IWorld.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6da384ca49e6b67d41b35047e34dad8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6da384ca49e6b67d41b35047e34dad8c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addGodAction</b> (<a class="el" href="classAction.html">Action</a> *action)=0</td></tr>
-<tr class="memitem:a17a2c0449e33f2a0ac230df909ccd9f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17a2c0449e33f2a0ac230df909ccd9f8"></a>
-virtual <a class="el" href="classViewObject.html">ViewObject</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>getViewObjectsInRange</b> (double x, double y, double radius)=0</td></tr>
-<tr class="memitem:ac3c29f9aba4066efbe3bbfce51030ad5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3c29f9aba4066efbe3bbfce51030ad5"></a>
-virtual WeatherType&#160;</td><td class="memItemRight" valign="bottom"><b>getWeatherAtPoint</b> (double x, double y)=0</td></tr>
+<tr class="memitem:a6da384ca49e6b67d41b35047e34dad8c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a6da384ca49e6b67d41b35047e34dad8c">addGodAction</a> (<a class="el" href="classAction.html">Action</a> *action)=0</td></tr>
+<tr class="memitem:a17a2c0449e33f2a0ac230df909ccd9f8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classViewObject.html">ViewObject</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a17a2c0449e33f2a0ac230df909ccd9f8">getViewObjectsInRange</a> (double x, double y, double radius)=0</td></tr>
+<tr class="memitem:ac3c29f9aba4066efbe3bbfce51030ad5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#ac3c29f9aba4066efbe3bbfce51030ad5">getWeatherAtPoint</a> (double x, double y)=0</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="IWorld_8h_source.html#l00009">9</a> of file <a class="el" href="IWorld_8h_source.html">IWorld.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2>Member Function Documentation</h2>
+<a class="anchor" id="a6da384ca49e6b67d41b35047e34dad8c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IWorld::addGodAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAction.html">Action</a> *&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a17a2c0449e33f2a0ac230df909ccd9f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classViewObject.html">ViewObject</a>** IWorld::getViewObjectsInRange </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac3c29f9aba4066efbe3bbfce51030ad5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a> IWorld::getWeatherAtPoint </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>model/World/<a class="el" href="IWorld_8h_source.html">IWorld.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -129,7 +227,7 @@ virtual WeatherType&#160;</td><td class="memItemRight" valign="bottom"><b>getWea
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIWorld.html">IWorld</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:42 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:26 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

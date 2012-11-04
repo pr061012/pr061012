@@ -5,6 +5,8 @@ var dir_fcce2b2cb33171f40a63d701b1457ef1 =
     [ "Resource", "dir_9291f7c9a1cff7f8887bfc8a43850f7b.html", "dir_9291f7c9a1cff7f8887bfc8a43850f7b" ],
     [ "Tool", "dir_5040a7779a43e11f35043d4bcf9c842b.html", "dir_5040a7779a43e11f35043d4bcf9c842b" ],
     [ "Weather", "dir_a24cae6636abf4aaf6f192bef9bfda24.html", "dir_a24cae6636abf4aaf6f192bef9bfda24" ],
-    [ "Object.cpp", "Object_8cpp_source.html", null ],
-    [ "Object.h", "Object_8h_source.html", null ]
+    [ "Object.cpp", "Object_8cpp.html", null ],
+    [ "Object.h", "Object_8h.html", [
+      [ "Object", "classObject.html", "classObject" ]
+    ] ]
 ];

@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,12 +102,12 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="title">Weather.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="Weather_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright (c) 2012, pr061012 Team.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    See the LICENSE file for copying permission.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Weather.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Weather_8h.html">Weather.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../../BasicFunc.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../BasicDefines.h&quot;</span></div>
@@ -115,12 +116,12 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead">   15</a></span>&#160;<a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead" title="Constructor.">Weather::Weather</a>(WeatherType type) :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(WEATHER),</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead">   15</a></span>&#160;<a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead" title="Constructor.">Weather::Weather</a>(<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> type) :</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    covered_objs(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">this</span> -&gt; steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">this</span> -&gt; steps = randFromRange(<a class="code" href="BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f" title="Minimum amount of living steps for weather.">WEAT_STEPS_MIN</a>, <a class="code" href="BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c" title="Maximum amount of living steps for weather.">WEAT_STEPS_MAX</a>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">   23</a></span>&#160;<a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22" title="Destructor.">Weather::~Weather</a>()</div>
@@ -145,17 +146,17 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    (</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">this</span> -&gt; subtype == METEOR_SHOWER ||</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">this</span> -&gt; subtype == STORM ||</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">this</span> -&gt; subtype == HURRICANE ||</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">this</span> -&gt; subtype == HAIL ||</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">this</span> -&gt; subtype == EARTHQUAKE</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">this</span> -&gt; subtype == <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a1142a5e72ceed9f7c5aa3d7fa6f93225">METEOR_SHOWER</a> ||</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">this</span> -&gt; subtype == <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a018159d526e860dc987901467c8660cb">STORM</a> ||</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">this</span> -&gt; subtype == <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a36abd3d0e25831fb6a51172f650de239">HURRICANE</a> ||</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">this</span> -&gt; subtype == <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a22c225df59b2950b47f8ced249c5b7cd">HAIL</a> ||</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">this</span> -&gt; subtype == <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516ad051caba41c36ea659e90402156ed899">EARTHQUAKE</a></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    )</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a> act(HARM_OBJS, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a> act(<a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b">HARM_OBJS</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Add all objects to this action.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        ObjectHeap::const_iterator iter;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">ObjectHeap::const_iterator</a> iter;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span>(iter = covered_objs -&gt; begin(); iter != covered_objs -&gt; end(); iter++)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            act.<a class="code" href="classAction.html#aae2912142691704bc9a61108fcb83205" title="Adds action participant.">addParticipant</a>(*iter);</div>
@@ -171,7 +172,7 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// WEATHER TYPE.</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a">   71</a></span>&#160;WeatherType <a class="code" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a" title="Get the value of subtype.">Weather::getSubtype</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a">   71</a></span>&#160;<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> <a class="code" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a" title="Get the value of subtype.">Weather::getSubtype</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; subtype;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
@@ -194,8 +195,8 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_a24cae6636abf4aaf6f192bef9bfda24.html">Weather</a></li><li class="navelem"><b>Weather.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_a24cae6636abf4aaf6f192bef9bfda24.html">Weather</a></li><li class="navelem"><a class="el" href="Weather_8cpp.html">Weather.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

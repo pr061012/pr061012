@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('World_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,12 +102,12 @@ $(document).ready(function(){initNavTree('World_8cpp_source.html','');});
 <div class="title">World.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="World_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright (c) 2012, pr061012 Team.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    See the LICENSE file for copying permission.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;World.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">World.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
@@ -119,23 +120,23 @@ $(document).ready(function(){initNavTree('World_8cpp_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61">   18</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(std::string filepath) :</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    width(DEFAULT_WIDTH),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    height(DEFAULT_HEIGHT)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    width(<a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    height(<a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classWorld.html#acec79c2f42aff7fd9d88208d06bad135">   25</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(<span class="keywordtype">int</span> rand_seed) :</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    width(DEFAULT_WIDTH),</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    height(DEFAULT_HEIGHT)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    width(<a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    height(<a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    srand(rand_seed);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;   <span class="comment">// World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classWorld.html#a736fa349417918f4774d4df2495c87f5">   33</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(<span class="keywordtype">int</span> rand_seed, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) :</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    width(width  &gt; 0 ? width  : DEFAULT_WIDTH),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    height(height &gt; 0 ? height : DEFAULT_HEIGHT)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    width(width  &gt; 0 ? width  : <a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    height(height &gt; 0 ? height : <a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    srand(rand_seed);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
@@ -204,19 +205,19 @@ $(document).ready(function(){initNavTree('World_8cpp_source.html','');});
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">  104</a></span>&#160;WeatherType <a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85" title="Get weather state at certain coordinates.">World::getWeatherAtPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">  104</a></span>&#160;<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> <a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85" title="Get weather state at certain coordinates.">World::getWeatherAtPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">// TODO: Cycle through weather objects</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// and return the closest type of weather for this area.</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> RAIN;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe">RAIN</a>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><b>World.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="World_8cpp.html">World.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

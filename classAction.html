@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classAction.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,12 +115,11 @@ $(document).ready(function(){initNavTree('classAction.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd4547376b96ba4655e991d6ee25ef3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#afd4547376b96ba4655e991d6ee25ef3f">Action</a> (const ActionType type, const <a class="el" href="classObject.html">Object</a> *actor)</td></tr>
+<tr class="memitem:afd4547376b96ba4655e991d6ee25ef3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#afd4547376b96ba4655e991d6ee25ef3f">Action</a> (const <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b">ActionType</a> type, const <a class="el" href="classObject.html">Object</a> *actor)</td></tr>
 <tr class="memdesc:afd4547376b96ba4655e991d6ee25ef3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#afd4547376b96ba4655e991d6ee25ef3f"></a><br/></td></tr>
-<tr class="memitem:acdb06775d157339256a8ecd55749226c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdb06775d157339256a8ecd55749226c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#acdb06775d157339256a8ecd55749226c">~Action</a> ()</td></tr>
-<tr class="memdesc:acdb06775d157339256a8ecd55749226c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor,. <br/></td></tr>
-<tr class="memitem:a08cc1ad2958501d86057c16cc6a6d7cf"><td class="memItemLeft" align="right" valign="top">ActionState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#a08cc1ad2958501d86057c16cc6a6d7cf">getState</a> () const </td></tr>
+<tr class="memitem:acdb06775d157339256a8ecd55749226c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#acdb06775d157339256a8ecd55749226c">~Action</a> ()</td></tr>
+<tr class="memdesc:acdb06775d157339256a8ecd55749226c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor,.  <a href="#acdb06775d157339256a8ecd55749226c"></a><br/></td></tr>
+<tr class="memitem:a08cc1ad2958501d86057c16cc6a6d7cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e">ActionState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#a08cc1ad2958501d86057c16cc6a6d7cf">getState</a> () const </td></tr>
 <tr class="memdesc:a08cc1ad2958501d86057c16cc6a6d7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current state of action.  <a href="#a08cc1ad2958501d86057c16cc6a6d7cf"></a><br/></td></tr>
 <tr class="memitem:ae0e419e952716c6ba3d88bcd68b8859b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#ae0e419e952716c6ba3d88bcd68b8859b">isPending</a> () const </td></tr>
 <tr class="memdesc:ae0e419e952716c6ba3d88bcd68b8859b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pending state checker.  <a href="#ae0e419e952716c6ba3d88bcd68b8859b"></a><br/></td></tr>
@@ -128,12 +127,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9c8b3fb9d7133c60449c2ad380f491fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Failed state checker.  <a href="#a9c8b3fb9d7133c60449c2ad380f491fe"></a><br/></td></tr>
 <tr class="memitem:acee504bea174175f1fc12593228e1096"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#acee504bea174175f1fc12593228e1096">isSucceed</a> () const </td></tr>
 <tr class="memdesc:acee504bea174175f1fc12593228e1096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Succeed state checker.  <a href="#acee504bea174175f1fc12593228e1096"></a><br/></td></tr>
-<tr class="memitem:aae9f9b7922b0c2dffafba4f13402312c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae9f9b7922b0c2dffafba4f13402312c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c">markAsFailed</a> ()</td></tr>
-<tr class="memdesc:aae9f9b7922b0c2dffafba4f13402312c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks action as failed. <br/></td></tr>
-<tr class="memitem:a1a6c4d0b7d71385a0759ae7e7dcb9946"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a6c4d0b7d71385a0759ae7e7dcb9946"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946">markAsSucceed</a> ()</td></tr>
-<tr class="memdesc:a1a6c4d0b7d71385a0759ae7e7dcb9946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks action as succeed. <br/></td></tr>
+<tr class="memitem:aae9f9b7922b0c2dffafba4f13402312c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c">markAsFailed</a> ()</td></tr>
+<tr class="memdesc:aae9f9b7922b0c2dffafba4f13402312c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks action as failed.  <a href="#aae9f9b7922b0c2dffafba4f13402312c"></a><br/></td></tr>
+<tr class="memitem:a1a6c4d0b7d71385a0759ae7e7dcb9946"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946">markAsSucceed</a> ()</td></tr>
+<tr class="memdesc:a1a6c4d0b7d71385a0759ae7e7dcb9946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks action as succeed.  <a href="#a1a6c4d0b7d71385a0759ae7e7dcb9946"></a><br/></td></tr>
 <tr class="memitem:aae2912142691704bc9a61108fcb83205"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#aae2912142691704bc9a61108fcb83205">addParticipant</a> (<a class="el" href="classObject.html">Object</a> *obj)</td></tr>
 <tr class="memdesc:aae2912142691704bc9a61108fcb83205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds action participant.  <a href="#aae2912142691704bc9a61108fcb83205"></a><br/></td></tr>
 <tr class="memitem:a711e42db6699325d9ca7af100158d350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAction.html#a711e42db6699325d9ca7af100158d350">addParam</a> (std::string param, int value)</td></tr>
@@ -153,7 +150,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="memname">Action::Action </td>
           <td>(</td>
-          <td class="paramtype">const ActionType&#160;</td>
+          <td class="paramtype">const <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b">ActionType</a>&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
@@ -180,6 +177,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="Action_8cpp_source.html#l00012">12</a> of file <a class="el" href="Action_8cpp_source.html">Action.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdb06775d157339256a8ecd55749226c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Action::~Action </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor,. </p>
+
+<p>Definition at line <a class="el" href="Action_8cpp_source.html#l00019">19</a> of file <a class="el" href="Action_8cpp_source.html">Action.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,7 +295,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ActionState Action::getState </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e">ActionState</a> Action::getState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -354,6 +370,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="aae9f9b7922b0c2dffafba4f13402312c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::markAsFailed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marks action as failed. </p>
+
+<p>Definition at line <a class="el" href="Action_8cpp_source.html#l00052">52</a> of file <a class="el" href="Action_8cpp_source.html">Action.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a6c4d0b7d71385a0759ae7e7dcb9946"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Action::markAsSucceed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marks action as succeed. </p>
+
+<p>Definition at line <a class="el" href="Action_8cpp_source.html#l00057">57</a> of file <a class="el" href="Action_8cpp_source.html">Action.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>model/World/Action/<a class="el" href="Action_8h_source.html">Action.h</a></li>
 <li>model/World/Action/<a class="el" href="Action_8cpp_source.html">Action.cpp</a></li>
@@ -364,7 +418,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classAction.html">Action</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

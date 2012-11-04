@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('Creature_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,12 +102,12 @@ $(document).ready(function(){initNavTree('Creature_8cpp_source.html','');});
 <div class="title">Creature.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="Creature_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright (c) 2012, pr061012 Team.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    See the LICENSE file for copying permission.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Creature.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Creature_8h.html">Creature.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../../../BasicFunc.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../../BasicDefines.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
@@ -115,16 +116,16 @@ $(document).ready(function(){initNavTree('Creature_8cpp_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9">   15</a></span>&#160;<a class="code" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9" title="Random constructor (creates Creature with really random attributes).">Creature::Creature</a>(CreatureType type, <span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; dmaker) :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(CREATURE),</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9">   15</a></span>&#160;<a class="code" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9" title="Random constructor (creates Creature with really random attributes).">Creature::Creature</a>(<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a> type, <span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; dmaker) :</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    brains(dmaker),</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    inventory(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    max_hunger      = randFromRange(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    max_sleepiness  = randFromRange(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> health      = randFromRange(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    max_hunger      = randFromRange(<a class="code" href="BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8" title="Minimum possible value of max_satiety.">CREAT_HUNGER_MIN</a>,     <a class="code" href="BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef" title="Maximum possible value of max_satiety.">CREAT_HUNGER_MAX</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    max_sleepiness  = randFromRange(<a class="code" href="BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25" title="Minimum possible value of max_sleepiness.">CREAT_SLEEPINESS_MIN</a>, <a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77" title="Maximum possible value of max_sleepiness.">CREAT_SLEEPINESS_MAX</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> health      = randFromRange(<a class="code" href="BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136" title="Minimum possible value of max_health.">CREAT_HEALTH_MIN</a>,     <a class="code" href="BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911" title="Maximum possible value of max_health.">CREAT_HEALTH_MAX</a>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Initialize other values.</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    hunger      = 100 - max_hunger;</div>
@@ -239,8 +240,8 @@ $(document).ready(function(){initNavTree('Creature_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_d09306fddf1a9ff3a2effd7b3fdd7bdf.html">Creatures</a></li><li class="navelem"><b>Creature.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_d09306fddf1a9ff3a2effd7b3fdd7bdf.html">Creatures</a></li><li class="navelem"><a class="el" href="Creature_8cpp.html">Creature.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

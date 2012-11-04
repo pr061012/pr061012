@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classViewObject.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,25 +107,26 @@ $(document).ready(function(){initNavTree('classViewObject.html','');});
 <div class="title">ViewObject Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ViewObject_8h_source.html">ViewObject.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af0967b283bea1626055db213a2fd8ff7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7">ViewObject</a> (ObjectType newtype, double newx, double newy)</td></tr>
+<tr class="memitem:af0967b283bea1626055db213a2fd8ff7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af0967b283bea1626055db213a2fd8ff7">ViewObject</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> newtype, double newx, double newy)</td></tr>
 <tr class="memdesc:af0967b283bea1626055db213a2fd8ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af0967b283bea1626055db213a2fd8ff7"></a><br/></td></tr>
-<tr class="memitem:af4f968a145747cc2b84fd224ac72122b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4f968a145747cc2b84fd224ac72122b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af4f968a145747cc2b84fd224ac72122b">~ViewObject</a> ()</td></tr>
-<tr class="memdesc:af4f968a145747cc2b84fd224ac72122b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:a6326cc5b3e2151479f8f57149d67bcd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8">setType</a> (ObjectType new_var)</td></tr>
+<tr class="memitem:af4f968a145747cc2b84fd224ac72122b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af4f968a145747cc2b84fd224ac72122b">~ViewObject</a> ()</td></tr>
+<tr class="memdesc:af4f968a145747cc2b84fd224ac72122b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#af4f968a145747cc2b84fd224ac72122b"></a><br/></td></tr>
+<tr class="memitem:a6326cc5b3e2151479f8f57149d67bcd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8">setType</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> new_var)</td></tr>
 <tr class="memdesc:a6326cc5b3e2151479f8f57149d67bcd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable tells what animation to render.  <a href="#a6326cc5b3e2151479f8f57149d67bcd8"></a><br/></td></tr>
-<tr class="memitem:a4036d3daa7bdd910dc0aa6c6bf5326c7"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">getType</a> ()</td></tr>
+<tr class="memitem:a4036d3daa7bdd910dc0aa6c6bf5326c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">getType</a> ()</td></tr>
 <tr class="memdesc:a4036d3daa7bdd910dc0aa6c6bf5326c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of current object.  <a href="#a4036d3daa7bdd910dc0aa6c6bf5326c7"></a><br/></td></tr>
 <tr class="memitem:a3bb8e2fe8dbd3860d0c3fbda48ad9aab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab">getX</a> ()</td></tr>
 <tr class="memdesc:a3bb8e2fe8dbd3860d0c3fbda48ad9aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the x coordinate.  <a href="#a3bb8e2fe8dbd3860d0c3fbda48ad9aab"></a><br/></td></tr>
-<tr class="memitem:a280ef0f29dd3a14d285e816b1798639d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">setX</a> (ObjectType new_var)</td></tr>
+<tr class="memitem:a280ef0f29dd3a14d285e816b1798639d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">setX</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> new_var)</td></tr>
 <tr class="memdesc:a280ef0f29dd3a14d285e816b1798639d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set x coordinate of an object.  <a href="#a280ef0f29dd3a14d285e816b1798639d"></a><br/></td></tr>
 <tr class="memitem:a4823c2380b8cb092a56ce896a235b7c1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1">getY</a> ()</td></tr>
 <tr class="memdesc:a4823c2380b8cb092a56ce896a235b7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the y coordinate.  <a href="#a4823c2380b8cb092a56ce896a235b7c1"></a><br/></td></tr>
-<tr class="memitem:af7e0d64500d95544654420876d7f85b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">setY</a> (ObjectType new_var)</td></tr>
+<tr class="memitem:af7e0d64500d95544654420876d7f85b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">setY</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> new_var)</td></tr>
 <tr class="memdesc:af7e0d64500d95544654420876d7f85b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set y coordinate of an object.  <a href="#af7e0d64500d95544654420876d7f85b8"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -139,7 +140,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">ViewObject::ViewObject </td>
           <td>(</td>
-          <td class="paramtype">ObjectType&#160;</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
           <td class="paramname"><em>newtype</em>, </td>
         </tr>
         <tr>
@@ -176,13 +177,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af4f968a145747cc2b84fd224ac72122b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ViewObject::~ViewObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="ViewObject_8cpp_source.html#l00015">15</a> of file <a class="el" href="ViewObject_8cpp_source.html">ViewObject.cpp</a>.</p>
+
+</div>
+</div>
 <h2>Member Function Documentation</h2>
 <a class="anchor" id="a4036d3daa7bdd910dc0aa6c6bf5326c7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ObjectType ViewObject::getType </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> ViewObject::getType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -244,7 +264,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ViewObject::setType </td>
           <td>(</td>
-          <td class="paramtype">ObjectType&#160;</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
           <td class="paramname"><em>new_var</em></td><td>)</td>
           <td></td>
         </tr>
@@ -271,7 +291,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ViewObject::setX </td>
           <td>(</td>
-          <td class="paramtype">ObjectType&#160;</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
           <td class="paramname"><em>new_var</em></td><td>)</td>
           <td></td>
         </tr>
@@ -297,7 +317,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ViewObject::setY </td>
           <td>(</td>
-          <td class="paramtype">ObjectType&#160;</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
           <td class="paramname"><em>new_var</em></td><td>)</td>
           <td></td>
         </tr>
@@ -326,7 +346,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classViewObject.html">ViewObject</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:43 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:27 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

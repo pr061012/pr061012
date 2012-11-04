@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +102,7 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
 <div class="title">ObjectFactory.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="ObjectFactory_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright (c) 2012, pr061012 Team.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    See the LICENSE file for copying permission.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
@@ -112,7 +113,7 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Object/Tool/Tool.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../Object/Weather/Weather.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;ObjectFactory.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ObjectFactory_8h.html">ObjectFactory.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
@@ -131,29 +132,29 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// OBJECT&#39;S CREATION.</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">   31</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <a class="code" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0" title="Creates new object.">ObjectFactory::createObject</a>(ObjectType type, <span class="keyword">const</span> <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> &amp; params)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">   31</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <a class="code" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0" title="Creates new object.">ObjectFactory::createObject</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> type, <span class="keyword">const</span> <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> &amp; params)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * object;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">switch</span>(type)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> BUILDING:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">object</span> = createBuilding(params);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> CREATURE:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordtype">object</span> = createCreature(params);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">case</span> RESOURCE:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>:</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordtype">object</span> = createResource(params);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">case</span> TOOL:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">object</span> = createTool(params);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">case</span> WEATHER:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordtype">object</span> = createWeather(params);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
@@ -180,22 +181,22 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * ObjectFactory::createResource(<span class="keyword">const</span> <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> &amp; params)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    ResourceType type = <span class="keyword">static_cast&lt;</span>ResourceType<span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> type = <span class="keyword">static_cast&lt;</span><a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a><span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>(type);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * ObjectFactory::createTool(<span class="keyword">const</span> <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> &amp; params)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ToolType type = <span class="keyword">static_cast&lt;</span>ToolType<span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    ResourceType resource_type = <span class="keyword">static_cast&lt;</span>ResourceType<span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;resource_type&quot;</span>));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> type = <span class="keyword">static_cast&lt;</span><a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a><span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> resource_type = <span class="keyword">static_cast&lt;</span><a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a><span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;resource_type&quot;</span>));</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classTool.html" title="Tool class.">Tool</a>(type,resource_type);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * ObjectFactory::createWeather(<span class="keyword">const</span> <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> &amp; params)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    WeatherType type = <span class="keyword">static_cast&lt;</span>WeatherType<span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> type = <span class="keyword">static_cast&lt;</span><a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a><span class="keyword">&gt;</span>(params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(<span class="stringliteral">&quot;type&quot;</span>));</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classWeather.html" title="Weather class.">Weather</a>(type);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
@@ -207,8 +208,8 @@ $(document).ready(function(){initNavTree('ObjectFactory_8cpp_source.html','');})
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_f374219426d77b3223a2abebad673641.html">ObjectFactory</a></li><li class="navelem"><b>ObjectFactory.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_f374219426d77b3223a2abebad673641.html">ObjectFactory</a></li><li class="navelem"><a class="el" href="ObjectFactory_8cpp.html">ObjectFactory.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

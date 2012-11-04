@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('classResource.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -124,22 +124,19 @@ Inheritance diagram for Resource:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a886ea3f6a8d4d7a38983f7c2fcf441dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a886ea3f6a8d4d7a38983f7c2fcf441dd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a886ea3f6a8d4d7a38983f7c2fcf441dd">Resource</a> (ResourceType type, unsigned int res_amount=0)</td></tr>
-<tr class="memdesc:a886ea3f6a8d4d7a38983f7c2fcf441dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="memitem:a0e5ec475e2601bdb33644468e86f6f10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e5ec475e2601bdb33644468e86f6f10"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a0e5ec475e2601bdb33644468e86f6f10">~Resource</a> ()</td></tr>
-<tr class="memdesc:a0e5ec475e2601bdb33644468e86f6f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:a6eb73f19cd1f3cf7485dc659256fe239"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6eb73f19cd1f3cf7485dc659256fe239"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a6eb73f19cd1f3cf7485dc659256fe239">incrementProgress</a> ()</td></tr>
-<tr class="memdesc:a6eb73f19cd1f3cf7485dc659256fe239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment progress of mining by one. <br/></td></tr>
+<tr class="memitem:a886ea3f6a8d4d7a38983f7c2fcf441dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a886ea3f6a8d4d7a38983f7c2fcf441dd">Resource</a> (<a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> type, unsigned int res_amount=0)</td></tr>
+<tr class="memdesc:a886ea3f6a8d4d7a38983f7c2fcf441dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a886ea3f6a8d4d7a38983f7c2fcf441dd"></a><br/></td></tr>
+<tr class="memitem:a0e5ec475e2601bdb33644468e86f6f10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a0e5ec475e2601bdb33644468e86f6f10">~Resource</a> ()</td></tr>
+<tr class="memdesc:a0e5ec475e2601bdb33644468e86f6f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a0e5ec475e2601bdb33644468e86f6f10"></a><br/></td></tr>
+<tr class="memitem:a6eb73f19cd1f3cf7485dc659256fe239"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a6eb73f19cd1f3cf7485dc659256fe239">incrementProgress</a> ()</td></tr>
+<tr class="memdesc:a6eb73f19cd1f3cf7485dc659256fe239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment progress of mining by one.  <a href="#a6eb73f19cd1f3cf7485dc659256fe239"></a><br/></td></tr>
 <tr class="memitem:a2cb3df2c376a3d53e6ed899eeea03472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a2cb3df2c376a3d53e6ed899eeea03472">decreaseAmount</a> (unsigned int delta)</td></tr>
 <tr class="memdesc:a2cb3df2c376a3d53e6ed899eeea03472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases amount of resource.  <a href="#a2cb3df2c376a3d53e6ed899eeea03472"></a><br/></td></tr>
 <tr class="memitem:a03548c06cd69be4b326fc47e0df17c94"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a03548c06cd69be4b326fc47e0df17c94">getAmount</a> () const </td></tr>
 <tr class="memdesc:a03548c06cd69be4b326fc47e0df17c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets amount of resource.  <a href="#a03548c06cd69be4b326fc47e0df17c94"></a><br/></td></tr>
 <tr class="memitem:a4c4cc169461d76de8787c97276665168"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">getActions</a> ()</td></tr>
 <tr class="memdesc:a4c4cc169461d76de8787c97276665168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets array with pending actions.  <a href="#a4c4cc169461d76de8787c97276665168"></a><br/></td></tr>
-<tr class="memitem:ae3b7847e943a7b82f90bcf32ecd1e797"><td class="memItemLeft" align="right" valign="top">ResourceType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797">getSubtype</a> () const </td></tr>
+<tr class="memitem:ae3b7847e943a7b82f90bcf32ecd1e797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797">getSubtype</a> () const </td></tr>
 <tr class="memdesc:ae3b7847e943a7b82f90bcf32ecd1e797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of subtype.  <a href="#ae3b7847e943a7b82f90bcf32ecd1e797"></a><br/></td></tr>
 <tr class="memitem:a952ac33ed0c75b87610c11a27206b5b8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a952ac33ed0c75b87610c11a27206b5b8">getProgress</a> () const </td></tr>
 <tr class="memdesc:a952ac33ed0c75b87610c11a27206b5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of progress.  <a href="#a952ac33ed0c75b87610c11a27206b5b8"></a><br/></td></tr>
@@ -148,25 +145,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ad87877637e96514ddefed5cae8adaa99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ad87877637e96514ddefed5cae8adaa99">isMineable</a> () const </td></tr>
 <tr class="memdesc:ad87877637e96514ddefed5cae8adaa99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if resource is mineable.  <a href="#ad87877637e96514ddefed5cae8adaa99"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
-<tr class="memitem:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07e8b69a7746aa44c1e7784a08583729"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a> (ObjectType type)</td></tr>
-<tr class="memdesc:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8f5483f459e46687bd01e6f9977afd3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
-<tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="memitem:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
+<tr class="memdesc:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a07e8b69a7746aa44c1e7784a08583729"></a><br/></td></tr>
+<tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
+<tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
 <tr class="memitem:a1e1a162b817f0c134836cca3a473e295 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
 <tr class="memdesc:a1e1a162b817f0c134836cca3a473e295 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is destroyed.  <a href="#a1e1a162b817f0c134836cca3a473e295"></a><br/></td></tr>
-<tr class="memitem:ab810f6d0305506bb0803afcde852c1c8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab810f6d0305506bb0803afcde852c1c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8">makeMortal</a> ()</td></tr>
-<tr class="memdesc:ab810f6d0305506bb0803afcde852c1c8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object mortal. <br/></td></tr>
-<tr class="memitem:ad73c94472b9a43a629ae4cd6d2def67e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad73c94472b9a43a629ae4cd6d2def67e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e">makeImmortal</a> ()</td></tr>
-<tr class="memdesc:ad73c94472b9a43a629ae4cd6d2def67e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immortal. <br/></td></tr>
+<tr class="memitem:ab810f6d0305506bb0803afcde852c1c8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8">makeMortal</a> ()</td></tr>
+<tr class="memdesc:ab810f6d0305506bb0803afcde852c1c8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object mortal.  <a href="#ab810f6d0305506bb0803afcde852c1c8"></a><br/></td></tr>
+<tr class="memitem:ad73c94472b9a43a629ae4cd6d2def67e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e">makeImmortal</a> ()</td></tr>
+<tr class="memdesc:ad73c94472b9a43a629ae4cd6d2def67e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immortal.  <a href="#ad73c94472b9a43a629ae4cd6d2def67e"></a><br/></td></tr>
 <tr class="memitem:a7a38ff74620fa8c16a21e46149027e6a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7a38ff74620fa8c16a21e46149027e6a">isImmortal</a> () const </td></tr>
 <tr class="memdesc:a7a38ff74620fa8c16a21e46149027e6a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is immortal.  <a href="#a7a38ff74620fa8c16a21e46149027e6a"></a><br/></td></tr>
-<tr class="memitem:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
+<tr class="memitem:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a4e048add0d93a603d19216485553f869 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a> (<a class="el" href="classShape.html">Shape</a> new_var)</td></tr>
 <tr class="memdesc:a4e048add0d93a603d19216485553f869 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of shape.  <a href="#a4e048add0d93a603d19216485553f869"></a><br/></td></tr>
@@ -184,15 +177,64 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classObject')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classObject.html">Object</a></td></tr>
-<tr class="memitem:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fa5bd0db11056aac9440fa9f6eb2690"></a>
-std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td></tr>
-<tr class="memdesc:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with actions. <br/></td></tr>
+<tr class="memitem:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td></tr>
+<tr class="memdesc:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with actions.  <a href="#a7fa5bd0db11056aac9440fa9f6eb2690"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class contains information about mineable or pickable resource. </p>
 
 <p>Definition at line <a class="el" href="Resource_8h_source.html#l00016">16</a> of file <a class="el" href="Resource_8h_source.html">Resource.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a886ea3f6a8d4d7a38983f7c2fcf441dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Resource::Resource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>res_amount</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00015">15</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e5ec475e2601bdb33644468e86f6f10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Resource::~Resource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00074">74</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Function Documentation</h2>
 <a class="anchor" id="a2cb3df2c376a3d53e6ed899eeea03472"></a>
 <div class="memitem">
 <div class="memproto">
@@ -314,7 +356,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ResourceType Resource::getSubtype </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> Resource::getSubtype </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -326,6 +368,25 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <dl class="section return"><dt>Returns</dt><dd>the value of subtype </dd></dl>
 
 <p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00151">151</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6eb73f19cd1f3cf7485dc659256fe239"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Resource::incrementProgress </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increment progress of mining by one. </p>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00082">82</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -359,7 +420,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classResource.html">Resource</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:43 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:27 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

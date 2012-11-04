@@ -65,6 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,32 +102,32 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <div class="title">Tool.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="Tool_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright (c) 2012, pr061012 Team.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    See the LICENSE file for copying permission.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Tool.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Tool_8h.html">Tool.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../BasicDefines.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847">   15</a></span>&#160;<a class="code" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847" title="Constructor.">Tool::Tool</a>(ToolType type, ResourceType material) :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(TOOL),</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847">   15</a></span>&#160;<a class="code" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847" title="Constructor.">Tool::Tool</a>(<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> type, <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> material) :</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    material(material)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">switch</span>(material)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">case</span> STONE:  max_strength = TOOL_STONE_STRENGTH;  <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">case</span> BRONZE: max_strength = TOOL_BRONZE_STRENGTH; <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">case</span> IRON:   max_strength = TOOL_IRON_STRENGTH;   <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">case</span> SILVER: max_strength = TOOL_SILVER_STRENGTH; <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">case</span> GOLD:   max_strength = TOOL_GOLD_STRENGTH;   <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d">STONE</a>:  max_strength = <a class="code" href="BasicDefines_8h.html#a3a8daf0f2ae33fde98c16ca352c45df5">TOOL_STONE_STRENGTH</a>;  <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ad983993c64c637c2a38b49dfb94048b3">BRONZE</a>: max_strength = <a class="code" href="BasicDefines_8h.html#a4163c010f138107c64bb231e31844061">TOOL_BRONZE_STRENGTH</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a1c1fdce1593af16402fd482beb1e1497">IRON</a>:   max_strength = <a class="code" href="BasicDefines_8h.html#a0a8c1d8b0b62890248f9b466920d9a1e">TOOL_IRON_STRENGTH</a>;   <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a6c87736f9fe31c8d2650db184cb2097f">SILVER</a>: max_strength = <a class="code" href="BasicDefines_8h.html#abaeafa25ebe3281253066a4a55a91a3e">TOOL_SILVER_STRENGTH</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1aa7790837e9c1f7cb78b55743b9a67623">GOLD</a>:   max_strength = <a class="code" href="BasicDefines_8h.html#aac7265b3c052ad36d06e5c96b3692ab3">TOOL_GOLD_STRENGTH</a>;   <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;[ERROR] Tool: tried to create tool with material &quot;</span> &lt;&lt;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                         <span class="stringliteral">&quot;different from mine resource. Maybe it&#39;s &quot;</span> &lt;&lt;</div>
@@ -196,12 +197,12 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">// TYPE ACCESSORS.</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732">   96</a></span>&#160;ToolType <a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732" title="Gets tool&#39;s type.">Tool::getSubtype</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732">   96</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> <a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732" title="Gets tool&#39;s type.">Tool::getSubtype</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; subtype;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944">  101</a></span>&#160;ResourceType <a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944" title="Gets tool&#39;s material.">Tool::getMaterial</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944">  101</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944" title="Gets tool&#39;s material.">Tool::getMaterial</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; material;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
@@ -210,8 +211,8 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_5040a7779a43e11f35043d4bcf9c842b.html">Tool</a></li><li class="navelem"><b>Tool.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 22:33:41 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_5040a7779a43e11f35043d4bcf9c842b.html">Tool</a></li><li class="navelem"><a class="el" href="Tool_8cpp.html">Tool.cpp</a></li>
+    <li class="footer">Generated on Sun Nov 4 2012 23:09:25 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
