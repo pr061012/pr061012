@@ -5,6 +5,7 @@
 
 #include "Creature.h"
 #include "../../../BasicFunc.h"
+#include "Defines.h"
 
 
 //******************************************************************************
@@ -12,6 +13,7 @@
 //******************************************************************************
 
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
+    subtype(type),
     Object(CREATURE),
     brains(dmaker),
     inventory(new ObjectHeap)
