@@ -7,25 +7,25 @@
 #define DEFINES_H
 //******************************************************************************
 // COMMON DEFINES.
-// Without any prefix
+// Prefix: CREAT.
 //******************************************************************************
 
 // Values of these coeffiecients should lay in range [CREAT_*_MIN, CREAT_*_MAX].
 
 /// Minimum possible value of max_health.
-#define HEALTH_MIN      50
+#define CREAT_HEALTH_MIN      50
 /// Maximum possible value of max_health.
-#define HEALTH_MAX      100
+#define CREAT_HEALTH_MAX      100
 
 /// Minimum possible value of max_satiety.
-#define HUNGER_MIN      50
+#define CREAT_HUNGER_MIN      50
 /// Maximum possible value of max_satiety
-#define HUNGER_MAX      100
+#define CREAT_HUNGER_MAX      100
 
 /// Minimum possible value of max_sleepiness.
-#define SLEEPINESS_MIN  50
+#define CREAT_SLEEPINESS_MIN  50
 /// Maximum possible value of max_sleepiness.
-#define SLEEPINESS_MAX  100
+#define CREAT_SLEEPINESS_MAX  100
 
 //******************************************************************************
 // HUMANOID'S DEFINES.
