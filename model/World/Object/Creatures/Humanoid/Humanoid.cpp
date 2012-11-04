@@ -9,6 +9,7 @@
 #include "Humanoid.h"
 #include "../Defines.h"
 #include "../../../../BasicTypes.h"
+#include "../../../../BasicFunc.h"
 
 
 //******************************************************************************
