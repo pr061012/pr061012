@@ -49,25 +49,25 @@ public:
      * @brief  Gets current state of action.
      * @return current state of action
      */
-    ActionState getState();
+    ActionState getState() const;
 
     /**
      * @brief  Pending state checker.
      * @return true, if action is pending
      */
-    bool isPending();
+    bool isPending() const;
 
     /**
      * @brief  Failed state checker.
      * @return true, if action is failed
      */
-    bool isFailed();
+    bool isFailed() const;
 
     /**
      * @brief  Succeed state checker.
      * @return true, if action is succeed
      */
-    bool isSucceed();
+    bool isSucceed() const;
 
     //**************************************************************************
     // STATE'S CHANGERS.
@@ -106,7 +106,7 @@ public:
      * @return value of param
      */
     // TODO: Throw an exception when param isn't specified.
-    int getParam(std::string param);
+    int getParam(std::string param) const;
 
 private:
     /// Action type.

@@ -25,22 +25,22 @@ Action::~Action()
 // STATE'S CHECKERS
 //******************************************************************************
 
-ActionState Action::getState()
+ActionState Action::getState() const
 {
     return this -> state;
 }
 
-bool Action::isPending()
+bool Action::isPending() const
 {
     return (this -> state == PENDING);
 }
 
-bool Action::isFailed()
+bool Action::isFailed() const
 {
     return (this -> state == FAILED);
 }
 
-bool Action::isSucceed()
+bool Action::isSucceed() const
 {
     return (this -> state == SUCCEED);
 }
@@ -73,7 +73,7 @@ void Action::addParam(std::string param, int value)
     this -> params.addKey(param, value);
 }
 
-int Action::getParam(std::string param)
+int Action::getParam(std::string param) const
 {
     return this -> params.getValue(param);
 }
