@@ -55,11 +55,17 @@ public:
     //**************************************************************************
 
 	/**
-     * @brief  Get reference to heap with covered objects. This heap can be
+     * @brief  Gets reference to heap with covered objects. This heap can be
      *         modified (in fact, Controller modify it by using Weather shape).
      * @return reference to heap with covered objects
 	 */
     ObjectHeap * getCoveredObjects();
+
+    /**
+     * @brief  Gets amount of living steps.
+     * @return amount of living steps.
+     */
+    unsigned int getLivingSteps();
 
 private:
     /// Weather type.

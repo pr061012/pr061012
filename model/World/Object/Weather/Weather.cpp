@@ -81,3 +81,8 @@ ObjectHeap * Weather::getCoveredObjects()
 {
     return this -> covered_objs;
 }
+
+unsigned int Weather::getLivingSteps()
+{
+    return this -> steps;
+}
