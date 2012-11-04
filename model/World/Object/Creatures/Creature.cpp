@@ -19,7 +19,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // Randomly initialize some values.
     max_hunger      = randFromRange(HUNGER_MIN,     HUNGER_MAX);
     max_sleepiness  = randFromRange(SLEEPINESS_MIN, SLEEPINESS_MAX);
-    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
+    int health      = randFromRange(HEALTH_MIN,     HEALTH_MAX);
 
     // Initialize other values.
     hunger      = 100 - max_hunger;
