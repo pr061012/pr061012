@@ -76,13 +76,13 @@ bool ObjectHeap::remove(Object* object)
     {
         if ((data[0][i] -> getType()) == my_type)
         {
-            pos++;
             if (data[0][i] == object)
             {
                     data[0].erase(data[0].begin() + i);
                     del = true;
                     break;
             }
+            pos++;
         }
     }
 
