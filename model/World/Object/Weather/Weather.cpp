@@ -36,7 +36,28 @@ std::vector <Action> * Weather::getActions()
         this -> steps--;
     }
 
-    // TODO: Add actions generation.
+    this -> actions.clear();
+
+    if
+    (
+        this -> subtype == METEOR_SHOWER ||
+        this -> subtype == STORM ||
+        this -> subtype == HURRICANE ||
+        this -> subtype == HAIL ||
+        this -> subtype == EARTHQUAKE
+    )
+    {
+        Action act(HARM_OBJS, this);
+
+        // Add all objects to this action.
+        ObjectHeap::const_iterator iter;
+        for(iter = covered_objs -> begin(); iter != covered_objs -> end(); iter++)
+        {
+            act.addParticipant(*iter);
+        }
+
+        this -> actions.push_back(act);
+    }
 
     return &(this -> actions);
 }
