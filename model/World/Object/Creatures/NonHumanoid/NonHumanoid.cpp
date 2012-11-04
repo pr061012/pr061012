@@ -108,14 +108,3 @@ void NonHumanoid::updateSafety()
     ;
 }
 
-
-
-
-
-
-
-
-
-
-
-
