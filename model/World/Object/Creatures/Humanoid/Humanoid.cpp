@@ -10,14 +10,6 @@
 #include "../Defines.h"
 #include "../../../../BasicTypes.h"
 
-//******************************************************************************
-// STATIC FUNCTIONS.
-//******************************************************************************
-
-static inline int randFromRange(int low_boundary, int top_boundary)
-{
-    return rand() % (top_boundary - low_boundary) + low_boundary + 1;
-}
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -30,12 +22,9 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Creature(HUMANOID, dmaker),
     id(CURRENT_ID++)
 {
-    int health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);
     int age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setMaxHealth(health);
-    setHealth(health);
     setMaxAge(age);
     setMaxAge(0);
 
@@ -43,14 +32,10 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     name = "Name";
 
     // Randomly initialize some values.
-    max_hunger      = randFromRange(HUM_HUNGER_MIN,     HUM_HUNGER_MAX);
-    max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);
     max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
     laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
 
     // Initialize other values.
-    hunger      = max_hunger;
-    sleepiness  = max_sleepiness;
     sociability = max_sociability;
 }
 

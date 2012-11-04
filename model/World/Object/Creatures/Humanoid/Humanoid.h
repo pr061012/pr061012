@@ -64,20 +64,9 @@ private:
     // RELATIVE COEFFICIENTS.
     // May have any value. In decision maker we use only quotient of them (in
     // percents).
-    // One coefficient is declared in Object class -- health and max_health.
+    // Some coefficients are declared in Object class -- health and max_health,
+	// sleepiness and max_sleepiness, hunger and max_hunger.
     //**************************************************************************
-
-    // Quotient = 100 => humanoid wants eat.
-    /// Current value of hunger.
-    unsigned int hunger;
-    /// Maximum possible value of hunger.
-    unsigned int max_hunger;
-
-    // Quotient = 100 => humanoid wants sleep.
-    /// Current value of sleepiness.
-    unsigned int sleepiness;
-    /// Maximum possible value of sleepiness.
-    unsigned int max_sleepiness;
 
     // Quotient = 100 => humanoid wants to talk with somebody.
     /// Current sociability.
@@ -90,21 +79,19 @@ private:
     // May take only value in range [0, 100].
     //**************************************************************************
 
-    // If = 100, humanoid is in danger.
-    /// Current safety.
-    unsigned int safety;
-
     // If = 100, humanoid is very lazy.
     /// Laziness (const during time).
-    unsigned int laziness;
+    unsigned int laziness;  //const?
 
     // If = 100, humanoid needs new house.
     /// Need in house.
     unsigned int need_in_house;
 
     // If = 100, humanoid needs resources.
-    /// Need in resources.
-    unsigned int need_in_res;
+    /// Need in points.
+    unsigned int need_in_points;
+
+
 };
 
 #endif // HUMANOID_H
