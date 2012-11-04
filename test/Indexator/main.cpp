@@ -228,7 +228,8 @@ int main()
         vec[0] -> setCoords(Point(t, 500));
         vec[1] -> setCoords(Point(700 + cos(t) * 200, 700 + sin(t) * 200));
         // this also checks world for cycling :)
-        vec[2] -> setCoords(Point(t, (500 - t) * (500 - t) / 100 + 400));
+        vec[2] -> setCoords(Point(t * 0.6 + 200,
+                                 -pow((t * 0.6 + 200) - 500, 2) / 100 + 400));
         
         index1.reindexate(&heap1);
         contents = index1.getAreaContents(area);

@@ -82,10 +82,13 @@ private:
     double cell_size;
 
     /// Ammount of cells on a row
-    int row_size;
+    unsigned int row_size;
+
+    /// Size of world
+    double world_size;
 
     /// Type of an index structure
-    typedef std::map<Object *, int *> Index;
+    typedef std::map<Object *, unsigned int *> Index;
 
     /// Index structure
     Index index;
@@ -96,13 +99,16 @@ private:
     //**************************************************************************
 
     /// Returns minimum of two integers
-    int min (int a, int b);
+    unsigned int min (unsigned int a, unsigned int b);
 
     /// Returns maximum of to integers
-    int max (int a, int b);
+    unsigned int max (unsigned int a, unsigned int b);
 
     /// Returns cells within wich the shape lies
-    int * getCellsArea(Shape shape);
+    unsigned int * getCellsArea(Shape shape);
+
+    /// Returns row index for coodinate
+    unsigned int getRow(double coordinate);
 
 };
 
