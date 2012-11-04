@@ -67,6 +67,9 @@ private:
 
     /// Covered objects. Is setted up by Controller by using Weather shape.
     ObjectHeap * covered_objs;
+
+    /// Steps for living.
+    unsigned int steps;
 };
 
 #endif // WEATHER_H

@@ -5,7 +5,7 @@
 
 #include "Creature.h"
 #include "../../../BasicFunc.h"
-#include "Defines.h"
+#include "../../../BasicDefines.h"
 
 
 //******************************************************************************

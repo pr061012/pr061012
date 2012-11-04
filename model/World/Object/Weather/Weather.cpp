@@ -25,8 +25,13 @@ Weather::~Weather()
 // WEATHER ACTIONS.
 //******************************************************************************
 
-std::vector <Action> * Object::getActions()
+std::vector <Action> * Weather::getActions()
 {
+    if(this -> steps > 0)
+    {
+        this -> steps--;
+    }
+
     // TODO: Add actions generation.
 
     return &(this -> actions);
