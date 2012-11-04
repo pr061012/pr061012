@@ -5,6 +5,27 @@
 
 #ifndef DEFINES_H
 #define DEFINES_H
+//******************************************************************************
+// COMMON DEFINES.
+// Without any prefix
+//******************************************************************************
+
+// Values of these coeffiecients should lay in range [CREAT_*_MIN, CREAT_*_MAX].
+
+/// Minimum possible value of max_health.
+#define HEALTH_MIN      50
+/// Maximum possible value of max_health.
+#define HEALTH_MAX      100
+
+/// Minimum possible value of max_satiety.
+#define HUNGER_MIN      50
+/// Maximum possible value of max_satiety
+#define HUNGER_MAX      100
+
+/// Minimum possible value of max_sleepiness.
+#define SLEEPINESS_MIN  50
+/// Maximum possible value of max_sleepiness.
+#define SLEEPINESS_MAX  100
 
 //******************************************************************************
 // HUMANOID'S DEFINES.
@@ -13,33 +34,19 @@
 
 // Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].
 
-/// Minimum possible value of humanoid's max_health.
-#define HUM_HEALTH_MIN      50
-/// Maximum possible value of humanoid's max_health.
-#define HUM_HEALTH_MAX      100
 
 /// Minimum possible value of humanoid's max_age.
 #define HUM_AGE_MIN         40
 /// Maximum possible value of humanoid's max_age.
 #define HUM_AGE_MAX         50
 
-/// Minimum possible value of humanoid's max_satiety.
-#define HUM_HUNGER_MIN      50
-/// Maximum possible value of humanoid's max_satiety.
-#define HUM_HUNGER_MAX      100
-
-/// Minimum possible value of humanoid's max_sleepiness.
-#define HUM_SLEEPINESS_MIN  50
-/// Maximum possible value of humanoid's max_sleepiness.
-#define HUM_SLEEPINESS_MAX  100
-
 /// Minimum possible value of humanoid's max_sociability.
-#define HUM_SOCIABILITY_MIN 50
+#define HUM_SOCIABILITY_MIN 0
 /// Maximum possible value of humanoid's max_sociability.
 #define HUM_SOCIABILITY_MAX 100
 
 /// Minimum possible value of humanoid's diligence.
-#define HUM_LAZINESS_MIN    50
+#define HUM_LAZINESS_MIN    0
 /// Maximum possible value of humanoid's diligence.
 #define HUM_LAZINESS_MAX    100
 
@@ -49,11 +56,6 @@
 //******************************************************************************
 
 // Values of these coeffiecients should lay in range [NHUM_*_MIN, NHUM_*_MAX].
-
-/// Minimum possible value of non-humanoid's max_health.
-#define NHUM_HEALTH_MIN     50
-/// Maximum possible value of non-humanoid's max_health.
-#define NHUM_HEALTH_MAX     100
 
 /// Minimum possible value of non-humanoid's max_age.
 #define NHUM_AGE_MIN        10
