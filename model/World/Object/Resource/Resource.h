@@ -51,12 +51,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Set the value of progress.
-     * @param new_var the new value of progress
-     */
-    void setProgress(unsigned int new_var);
-
-    /**
      * @brief Get the value of progress.
      * @return the value of progress
      */
@@ -69,22 +63,10 @@ public:
     ResourceType getSubtype();
 
     /**
-     * @brief Set the value of regeneration_rate.
-     * @param new_var the new value of regeneration_rate
-     */
-    void setRegenerationRate(unsigned int new_var);
-
-    /**
      * @brief Get the value of regeneration_rate.
      * @return the value of regeneration_rate
      */
     unsigned int getRegenerationRate();
-
-    /**
-     * @brief Set the value of gathered.
-     * @param new_var the new value of gathered
-     */
-    void setGathered(bool new_var);
 
     /**
      * @brief Get the value of gathered.
@@ -93,22 +75,10 @@ public:
     bool getGathered();
 
     /**
-     * @brief Set the value of difficulty.
-     * @param new_var the new value of difficulty
-     */
-    void setDifficulty(unsigned int new_var);
-
-    /**
      * @brief Get the value of difficulty.
      * @return the value of difficulty
      */
     unsigned int getDifficulty();
-
-    /**
-     * @brief Set the value of amount_per_gather.
-     * @param new_var the new value of amount_per_gather
-     */
-    void setAmountPerGather(unsigned int new_var);
 
     /**
      * @brief Get the value of amount_per_gather.
