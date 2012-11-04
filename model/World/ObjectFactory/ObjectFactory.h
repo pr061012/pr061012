@@ -15,7 +15,33 @@
 
 /**
  * @class ObjectFactory
- * @brief ObjectFactory Class
+ * @brief Object factory allows to creates any objects (you need to provide
+ *        ParamArray with parameters to do this).
+ *
+ *        To create object with type T first of all you need to provide
+ *        parameter `obj_type`. Value of this param is ObjectType (converted to
+ *        int). For each object type a few parameters more are needed.
+ *
+ *        TODO: We need to add more parameters!
+ *
+ *        **Creature**
+ *          * *creat_type* -- CreatureType (converted to int).
+ *
+ *        **Building**
+ *          * *max_health* -- Building health.
+ *          * *max_space* -- Building space.
+ *
+ *        **Resource**
+ *          * *res_type* -- ResourceType (converted to int).
+ *          * *res_amount* -- amount of resource (leave 0 to pick random
+ *            generated value)
+ *
+ *        **Tool**
+ *          * *tool_type* -- ToolType (converted to int)
+ *          * *mat_type* -- ResourceType (converted to int) of material
+ *
+ *        **Weather**
+ *          * *weat_type* -- WeatherType (converted to int)
  */
 class ObjectFactory
 {
