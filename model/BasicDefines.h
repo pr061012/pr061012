@@ -5,6 +5,17 @@
 
 #ifndef DEFINES_H
 #define DEFINES_H
+
+//******************************************************************************
+// WEATHER DEFINES.
+// Prefix: WEAT.
+//******************************************************************************
+
+/// Minimum amount of living steps for weather.
+#define WEAT_STEPS_MIN      3200
+/// Maximum amount of living steps for weather.
+#define WEAT_STEPS_MAX      6400
+
 //******************************************************************************
 // COMMON DEFINES.
 // Prefix: CREAT.

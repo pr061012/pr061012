@@ -5,6 +5,9 @@
 
 #include "Weather.h"
 
+#include "../../../BasicFunc.h"
+#include "../../../BasicDefines.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -14,6 +17,7 @@ Weather::Weather(WeatherType type) :
     subtype(type),
     covered_objs(new ObjectHeap)
 {
+    this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
 }
 
 Weather::~Weather()

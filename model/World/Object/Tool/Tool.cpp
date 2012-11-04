@@ -9,55 +9,78 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Tool::Tool():Object(TOOL)
+Tool::Tool(ToolType type, ResourceType material) :
+    Object(TOOL),
+    subtype(type),
+    material(material)
 {
-
+    // TODO Initialize max_strength and strength.
 }
 
 Tool::~Tool()
 {
-
 }
 
 //******************************************************************************
-// USAGE.
+// TOOL ACTIONS.
 //******************************************************************************
 
-void Tool::use()
+std::vector <Action> * Tool::getActions()
 {
+    // Tool doens't have any actions.
+    this -> actions.clear();
 
+    return &(this -> actions);
 }
 
 //******************************************************************************
-// ACCESSORS.
+// STRENGTH.
 //******************************************************************************
 
-void Tool::setSubtype(ToolType new_var)
+unsigned int Tool::getStrength()
 {
-    this -> subtype = new_var;
+    return this -> current_strength;
 }
+
+unsigned int Tool::getMaxStrength()
+{
+    return this -> max_strength;
+}
+
+void Tool::decreaseStrength(unsigned int delta)
+{
+    if(this -> current_strength >= delta)
+    {
+        this -> current_strength -= delta;
+    }
+    else
+    {
+        this -> current_strength = 0;
+    }
+}
+
+void Tool::increaseStrength(unsigned int delta)
+{
+    if(this -> current_strength + delta <= this -> max_strength)
+    {
+        this -> current_strength += delta;
+    }
+    else
+    {
+        this -> current_strength = this -> max_strength;
+    }
+}
+
+//******************************************************************************
+// TYPE ACCESSORS.
+//******************************************************************************
 
 ToolType Tool::getSubtype()
 {
     return this -> subtype;
 }
 
-void Tool::setMaterial(ResourceType new_var)
-{
-    this -> material = new_var;
-}
-
 ResourceType Tool::getMaterial()
 {
     return this -> material;
-}
-
-void Tool::setQuality(int new_var)
-{
-    this -> quality = new_var;
-}
-
-int Tool::getQuality()
-{
-    return this -> quality;
 }
