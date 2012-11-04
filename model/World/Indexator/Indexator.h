@@ -12,6 +12,10 @@
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
+//*****************************************************************************
+// TODO
+// - fix getAreaContents so it works with toroidal world
+//*****************************************************************************
 
 /**
  * @class Indexator
