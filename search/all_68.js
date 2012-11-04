@@ -1,7 +1,6 @@
 var searchData=
 [
   ['hail',['HAIL',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a22c225df59b2950b47f8ced249c5b7cd',1,'BasicTypes.h']]],
-  ['harm_5fobj',['HARM_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba2bde9d8c560c1338837a2c8341cd6e18',1,'BasicTypes.h']]],
   ['harm_5fobjs',['HARM_OBJS',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b',1,'BasicTypes.h']]],
   ['hittest',['hitTest',['../classShape.html#a0ff4bb8b9d0a6e6ad47ab3b7037b0302',1,'Shape::hitTest(const Point &amp;point) const '],['../classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8',1,'Shape::hitTest(const Shape &amp;shape) const ']]],
   ['hoe',['HOE',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a067001b7a28d81d13ae33b430e76cf3d',1,'BasicTypes.h']]],

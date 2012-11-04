@@ -8,14 +8,10 @@ var BasicTypes_8h =
     [ "ActionType", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b", [
       [ "GO", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985", null ],
       [ "MINE", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069", null ],
-      [ "HARM_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba2bde9d8c560c1338837a2c8341cd6e18", null ],
-      [ "HARM_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b", null ],
       [ "REPAIR", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba5eb9ee68da6f53f093f426c049b5eee0", null ],
+      [ "HARM_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b", null ],
       [ "CREATE_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff", null ],
-      [ "CREATE_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba1c13d3383a5f5bd1a9768f5ca3a6724e", null ],
-      [ "DROP_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba641f8702156a5ef0fb5a2be5aa379526", null ],
       [ "DROP_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba3cf84148e5f0e4be54e30cee67546602", null ],
-      [ "PICK_UP_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baa2740385aca7682ed8a0437c70784f58", null ],
       [ "PICK_UP_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba29fb3ed81fd7105b4664ad336e15a5ea", null ]
     ] ],
     [ "CreatureAction", "BasicTypes_8h.html#a5303344c79577371e13252b373606706", [

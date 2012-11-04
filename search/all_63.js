@@ -13,7 +13,6 @@ var searchData=
   ['creat_5fsleepiness_5fmax',['CREAT_SLEEPINESS_MAX',['../BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmin',['CREAT_SLEEPINESS_MIN',['../BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25',1,'BasicDefines.h']]],
   ['create_5fobj',['CREATE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff',1,'BasicTypes.h']]],
-  ['create_5fobjs',['CREATE_OBJS',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba1c13d3383a5f5bd1a9768f5ca3a6724e',1,'BasicTypes.h']]],
   ['createobject',['createObject',['../classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0',1,'ObjectFactory']]],
   ['creature',['Creature',['../classCreature.html',1,'Creature'],['../classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9',1,'Creature::Creature()'],['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8',1,'CREATURE():&#160;BasicTypes.h']]],
   ['creature_2ecpp',['Creature.cpp',['../Creature_8cpp.html',1,'']]],

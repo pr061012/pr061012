@@ -6,6 +6,5 @@ var searchData=
   ['communicate',['COMMUNICATE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a27d572ab3e817bd504ce3b47f1627630',1,'BasicTypes.h']]],
   ['continue_5fgender',['CONTINUE_GENDER',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a4f1715bad2e1952e07a8ae75bcfe9c63',1,'BasicTypes.h']]],
   ['create_5fobj',['CREATE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff',1,'BasicTypes.h']]],
-  ['create_5fobjs',['CREATE_OBJS',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba1c13d3383a5f5bd1a9768f5ca3a6724e',1,'BasicTypes.h']]],
   ['creature',['CREATURE',['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8',1,'BasicTypes.h']]]
 ];
