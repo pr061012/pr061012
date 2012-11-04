@@ -55,12 +55,12 @@ std::vector <Action> * Tool::getActions()
 // STRENGTH.
 //******************************************************************************
 
-unsigned int Tool::getStrength()
+unsigned int Tool::getStrength() const
 {
     return this -> current_strength;
 }
 
-unsigned int Tool::getMaxStrength()
+unsigned int Tool::getMaxStrength() const
 {
     return this -> max_strength;
 }
@@ -93,12 +93,12 @@ void Tool::increaseStrength(unsigned int delta)
 // TYPE ACCESSORS.
 //******************************************************************************
 
-ToolType Tool::getSubtype()
+ToolType Tool::getSubtype() const
 {
     return this -> subtype;
 }
 
-ResourceType Tool::getMaterial()
+ResourceType Tool::getMaterial() const
 {
     return this -> material;
 }
