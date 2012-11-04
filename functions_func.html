@@ -94,7 +94,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
-      <li><a href="#index_u"><span>u</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
       <li><a href="#index_w"><span>w</span></a></li>
       <li><a href="#index_0x7e"><span>~</span></a></li>
@@ -173,10 +172,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classResource.html#a2cb3df2c376a3d53e6ed899eeea03472">Resource</a>
 </li>
 <li>decreaseHealth()
-: <a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">Object</a>
+: <a class="el" href="classCreature.html#a3ec5be7c20b7efd56fb29faa8f6bb026">Creature</a>
 </li>
-<li>destroy()
-: <a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">Object</a>
+<li>decreaseStrength()
+: <a class="el" href="classTool.html#a517865591911445743c57fe4a482c78c">Tool</a>
 </li>
 </ul>
 
@@ -192,6 +191,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>getActions()
 : <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>
 , <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>
+, <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>
+, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>
 , <a class="el" href="classResource.html#ae7ad8f4bc41d3aba1bbd029a5a05c3d7">Resource</a>
 </li>
 <li>getAge()
@@ -218,8 +219,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>getContents()
 : <a class="el" href="classBuilding.html#aa535efda305f43307f5f45ef96b3645f">Building</a>
 </li>
-<li>getDestroyed()
-: <a class="el" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac">Object</a>
+<li>getCoveredObjects()
+: <a class="el" href="classWeather.html#a2b0841a5845ca5abf437d44c828830dd">Weather</a>
 </li>
 <li>getDifficulty()
 : <a class="el" href="classResource.html#a42c593d4d998832c7a39e4bb02c14d92">Resource</a>
@@ -234,10 +235,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classResource.html#a980b8485d37d8748cc6550ae55ff1fd2">Resource</a>
 </li>
 <li>getHealth()
-: <a class="el" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd">Object</a>
-</li>
-<li>getImmortality()
-: <a class="el" href="classObject.html#a93a09ce1b01ddb6ad1aa2a323759e0b9">Object</a>
+: <a class="el" href="classCreature.html#ab3bd9e0a68cf71544890e408549e16a7">Creature</a>
 </li>
 <li>getLastCenter()
 : <a class="el" href="classShape.html#ac28a20365613c955cfb3ebc3f452b6c6">Shape</a>
@@ -252,19 +250,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classCreature.html#aa15adb4431641f8f63ad8fe3b313c8cb">Creature</a>
 </li>
 <li>getMaxHealth()
-: <a class="el" href="classObject.html#ae5f24d6c22631610683220c5de98900a">Object</a>
+: <a class="el" href="classCreature.html#aa2dd92c40095a112895dc342ff3c6e4e">Creature</a>
 </li>
 <li>getMaxSpace()
 : <a class="el" href="classBuilding.html#a4ef686203c7477e7e2a7107962e95f28">Building</a>
+</li>
+<li>getMaxStrength()
+: <a class="el" href="classTool.html#a0e2a4fdf65aca2deac304097e7a309a0">Tool</a>
 </li>
 <li>getParam()
 : <a class="el" href="classAction.html#a1688de86a6210a5cdae356eb0ff14ed4">Action</a>
 </li>
 <li>getProgress()
 : <a class="el" href="classResource.html#ad1ca9e2c109c8ab094799b851432fb4c">Resource</a>
-</li>
-<li>getQuality()
-: <a class="el" href="classTool.html#a160c3326f8299017c8c58957530fa04f">Tool</a>
 </li>
 <li>getRegenerationRate()
 : <a class="el" href="classResource.html#a576402332f470039f910a14f4b9bc4bf">Resource</a>
@@ -281,15 +279,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>getState()
 : <a class="el" href="classAction.html#a7ca30541e8f73e9ec9ea7fabe40d592c">Action</a>
 </li>
+<li>getStrength()
+: <a class="el" href="classTool.html#a95b5d7489fd4a6151334b3c032479b1c">Tool</a>
+</li>
 <li>getSubtype()
 : <a class="el" href="classWeather.html#af58b615d71607a647255147d594f32be">Weather</a>
 , <a class="el" href="classResource.html#ae10a86b12cd7cfb5a23fe748fa8f40b9">Resource</a>
 , <a class="el" href="classTool.html#ad625946e905932b90f68d9ec9a452782">Tool</a>
 </li>
 <li>getType()
-: <a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">Object</a>
+: <a class="el" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">ViewObject</a>
 , <a class="el" href="classShape.html#a2f68603c2fbfa03fd1129b8ef1e0f9f2">Shape</a>
-, <a class="el" href="classViewObject.html#a4036d3daa7bdd910dc0aa6c6bf5326c7">ViewObject</a>
+, <a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">Object</a>
 </li>
 <li>getTypeAmount()
 : <a class="el" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a">ObjectHeap</a>
@@ -298,8 +299,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0">ParamArray</a>
 </li>
 <li>getViewArea()
-: <a class="el" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7">Weather</a>
-, <a class="el" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec">Creature</a>
+: <a class="el" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec">Creature</a>
 </li>
 <li>getViewObjectsInRange()
 : <a class="el" href="classWorld.html#acdb10ab4fa6538a25336ac585e3802e0">World</a>
@@ -309,15 +309,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>getWindow()
 : <a class="el" href="classCreature.html#a68169dcb8be3a2d1348d5e0895c30996">Creature</a>
-, <a class="el" href="classWeather.html#ae223c3712029d994797ea826821562cb">Weather</a>
 </li>
 <li>getX()
 : <a class="el" href="classPoint.html#a8de35a6098cdd7267b4167776da83da6">Point</a>
 , <a class="el" href="classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab">ViewObject</a>
 </li>
 <li>getY()
-: <a class="el" href="classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1">ViewObject</a>
-, <a class="el" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547">Point</a>
+: <a class="el" href="classPoint.html#aa278c8bcb8aeb4101023a4baf473b547">Point</a>
+, <a class="el" href="classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1">ViewObject</a>
 </li>
 <li>God()
 : <a class="el" href="classGod.html#addc6776ed9e06891a0a19f28e945e5c3">God</a>
@@ -337,16 +336,25 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>increaseHealth()
-: <a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">Object</a>
+: <a class="el" href="classCreature.html#a9d0002d250cb47bd78326c4bafc8199a">Creature</a>
+</li>
+<li>increaseStrength()
+: <a class="el" href="classTool.html#ab02b9c56eb12de598b250a2dd622ac33">Tool</a>
 </li>
 <li>Indexator()
-: <a class="el" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc">Indexator</a>
+: <a class="el" href="classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417">Indexator</a>
 </li>
 <li>intersect()
 : <a class="el" href="classShape.html#a7c1b991114c1f018e350eafcbf23ff64">Shape</a>
 </li>
+<li>isDestroyed()
+: <a class="el" href="classObject.html#a5d93664b6f77c6581757f201e59f9e3c">Object</a>
+</li>
 <li>isFailed()
 : <a class="el" href="classAction.html#a858fc10604423eaba08c821fb6cb1363">Action</a>
+</li>
+<li>isImmortal()
+: <a class="el" href="classObject.html#a2a9a253ef0e1407453e847c530f6a233">Object</a>
 </li>
 <li>isPending()
 : <a class="el" href="classAction.html#ac7e86bafd8e554095f5bc54addcd20e8">Action</a>
@@ -360,6 +368,15 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>makeDecision()
 : <a class="el" href="classDecisionMaker.html#abdb0b373663c412ee865b53e039706a4">DecisionMaker</a>
+</li>
+<li>makeImmortal()
+: <a class="el" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e">Object</a>
+</li>
+<li>makeMortal()
+: <a class="el" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8">Object</a>
+</li>
+<li>markAsDestroyed()
+: <a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">Object</a>
 </li>
 <li>markAsFailed()
 : <a class="el" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c">Action</a>
@@ -427,10 +444,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>receiveMessage()
 : <a class="el" href="classBuilding.html#ababe8155388e3157a188e33cacd12a24">Building</a>
-, <a class="el" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba">Object</a>
 </li>
 <li>reindexate()
-: <a class="el" href="classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8">Indexator</a>
+: <a class="el" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127">Indexator</a>
 </li>
 <li>remove()
 : <a class="el" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">ObjectHeap</a>
@@ -466,9 +482,6 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>setCenter()
 : <a class="el" href="classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf">Shape</a>
 </li>
-<li>setDestroyed()
-: <a class="el" href="classObject.html#a70c98c94d50248990784d702e928d0c7">Object</a>
-</li>
 <li>setDifficulty()
 : <a class="el" href="classResource.html#a4748b03b7f575de4bcab15c099ff659e">Resource</a>
 </li>
@@ -476,28 +489,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classResource.html#a5a8e2501d8f891ad1c2450a91cd21698">Resource</a>
 </li>
 <li>setHealth()
-: <a class="el" href="classObject.html#a6f9b8d361352cb120883b126a95f164a">Object</a>
-</li>
-<li>setImmortality()
-: <a class="el" href="classObject.html#aae137fc66968bc847076a988071053f5">Object</a>
-</li>
-<li>setMaterial()
-: <a class="el" href="classTool.html#adbd6a15da9b3aa67b4ca67be76645a70">Tool</a>
+: <a class="el" href="classCreature.html#acef644bc6abdf179e032d8c7dd1f435a">Creature</a>
 </li>
 <li>setMaxAge()
 : <a class="el" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692">Creature</a>
 </li>
 <li>setMaxHealth()
-: <a class="el" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28">Object</a>
+: <a class="el" href="classCreature.html#ab4c664328e6159f7f46781505e205a90">Creature</a>
 </li>
 <li>setMaxSpace()
 : <a class="el" href="classBuilding.html#a51fd96027936ec87312e185b8c195bfc">Building</a>
 </li>
 <li>setProgress()
 : <a class="el" href="classResource.html#a0d93088b64bcc0f2e6f53e24a14e3caa">Resource</a>
-</li>
-<li>setQuality()
-: <a class="el" href="classTool.html#a2b429404ab084a9b6a2fd849aa1699e0">Tool</a>
 </li>
 <li>setRegenerationRate()
 : <a class="el" href="classResource.html#ab30a2a407609602d5ad538716e7f83dc">Resource</a>
@@ -508,21 +512,15 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>setSize()
 : <a class="el" href="classShape.html#aaee049351828e1209697bb2b357ca61a">Shape</a>
 </li>
-<li>setSubtype()
-: <a class="el" href="classTool.html#a772c227d2451ffc5092d8b440ddbd149">Tool</a>
-, <a class="el" href="classWeather.html#a8ffabcfbe91aa86dad05b97406cb438a">Weather</a>
-</li>
 <li>setType()
 : <a class="el" href="classShape.html#a44bfca3ef6564ff0f34badc77f594862">Shape</a>
 , <a class="el" href="classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8">ViewObject</a>
 </li>
 <li>setViewArea()
 : <a class="el" href="classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277">Creature</a>
-, <a class="el" href="classWeather.html#a2ca811010083ca9b944a32983a01031d">Weather</a>
 </li>
 <li>setWindow()
-: <a class="el" href="classWeather.html#afb277c0f5ec8b34ba549d74fd8fe4c0c">Weather</a>
-, <a class="el" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162">Creature</a>
+: <a class="el" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162">Creature</a>
 </li>
 <li>setX()
 : <a class="el" href="classPoint.html#a9aa66c310860d038cb1258dc5cd80906">Point</a>
@@ -533,11 +531,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">ViewObject</a>
 </li>
 <li>Shape()
-: <a class="el" href="classShape.html#a8e8680c7a68edeb2826e9e72cfa9adbf">Shape</a>
+: <a class="el" href="classShape.html#aaa8d87171e65e0d8ba3c5459978992a7">Shape</a>
 </li>
 <li>step()
-: <a class="el" href="classNonHumanoid.html#ae188abe909c4f3a6419128a50386fc37">NonHumanoid</a>
-, <a class="el" href="classHumanoid.html#aec3c4dfae4c2f0b6573f0e0e70c4f0d9">Humanoid</a>
+: <a class="el" href="classHumanoid.html#aec3c4dfae4c2f0b6573f0e0e70c4f0d9">Humanoid</a>
 , <a class="el" href="classWorld.html#a63a22c1ea89297d49095004c79d40ce6">World</a>
 </li>
 </ul>
@@ -548,14 +545,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2">Building</a>
 </li>
 <li>Tool()
-: <a class="el" href="classTool.html#a33dabf2428a98104084741a0f024a033">Tool</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
-<li>use()
-: <a class="el" href="classTool.html#aa979f31566ea20958ae3d01718956f2c">Tool</a>
+: <a class="el" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847">Tool</a>
 </li>
 </ul>
 
@@ -572,7 +562,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
 <li>Weather()
-: <a class="el" href="classWeather.html#aa404c94fec05b825454a7309827767c6">Weather</a>
+: <a class="el" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead">Weather</a>
 </li>
 <li>World()
 : <a class="el" href="classWorld.html#a736fa349417918f4774d4df2495c87f5">World</a>
@@ -647,7 +637,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:25 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:44 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

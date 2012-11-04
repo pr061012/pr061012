@@ -110,84 +110,70 @@ $(document).ready(function(){initNavTree('Humanoid_8cpp_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;armadillo&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Humanoid.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../Defines.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../../BasicDefines.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../../BasicTypes.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// STATIC FUNCTIONS.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../../../BasicFunc.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> randFromRange(<span class="keywordtype">int</span> low_boundary, <span class="keywordtype">int</span> top_boundary)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> rand() % (top_boundary - low_boundary) + low_boundary + 1;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> Humanoid::CURRENT_ID = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> Humanoid::CURRENT_ID = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classHumanoid.html#af3565e2c74410d3c411bc94224e5de29">   21</a></span>&#160;<a class="code" href="classHumanoid.html#af3565e2c74410d3c411bc94224e5de29" title="Random constructor (creates Humanoid with really random attributes).">Humanoid::Humanoid</a>(<span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; dmaker) :</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(CREATURE),</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>(HUMANOID, dmaker),</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    id(CURRENT_ID++)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classHumanoid.html#af3565e2c74410d3c411bc94224e5de29">   28</a></span>&#160;<a class="code" href="classHumanoid.html#af3565e2c74410d3c411bc94224e5de29" title="Random constructor (creates Humanoid with really random attributes).">Humanoid::Humanoid</a>(<span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; dmaker) :</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(CREATURE),</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>(HUMANOID, dmaker),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    id(CURRENT_ID++)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> health = randFromRange(HUM_HEALTH_MIN, HUM_HEALTH_MAX);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> age    = randFromRange(HUM_AGE_MIN,    HUM_AGE_MAX);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28" title="Set the value of max_health.">setMaxHealth</a>(health);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classObject.html#a6f9b8d361352cb120883b126a95f164a" title="Set the value of health.">setHealth</a>(health);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(age);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(0);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// TODO: Randomly initialize humanoid&#39;s name.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    name = <span class="stringliteral">&quot;Name&quot;</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    max_hunger      = randFromRange(HUM_HUNGER_MIN,     HUM_HUNGER_MAX);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    max_sleepiness  = randFromRange(HUM_SLEEPINESS_MIN,  HUM_SLEEPINESS_MAX);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Initialize other values.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    hunger      = max_hunger;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sleepiness  = max_sleepiness;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    sociability = max_sociability;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classHumanoid.html#a72dbc95208cb84fc3a70691f310e61ee">   57</a></span>&#160;<a class="code" href="classHumanoid.html#a72dbc95208cb84fc3a70691f310e61ee" title="Destructor.">Humanoid::~Humanoid</a>()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// HUMANOID&#39;S LOGICS.</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//~ void Humanoid::step()</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//~ {</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//~ // Preparing main attributes.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">//~ unsigned int relative_hunger      = 100 * hunger      / max_hunger;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//~ unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//~ unsigned int relative_sociability = 100 * sociability / max_sociability;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">//~ </span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//~ // Preparing vector of attributes.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//~ arma::vec attrs(9);</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//~ attrs &lt;&lt; relative_hunger &lt;&lt; relative_sleepiness &lt;&lt; need_in_house &lt;&lt;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;             <span class="comment">//~ need_in_res &lt;&lt; laziness &lt;&lt; getHealth() &lt;&lt; relative_sociability &lt;&lt;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;             <span class="comment">//~ safety;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">//~ </span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//~ // TODO Spawning desicion maker.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//~ }</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(age);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(0);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// TODO: Randomly initialize humanoid&#39;s name.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    name = <span class="stringliteral">&quot;Name&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Initialize other values.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    sociability = max_sociability;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classHumanoid.html#a72dbc95208cb84fc3a70691f310e61ee">   43</a></span>&#160;<a class="code" href="classHumanoid.html#a72dbc95208cb84fc3a70691f310e61ee" title="Destructor.">Humanoid::~Humanoid</a>()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// HUMANOID&#39;S LOGICS.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//~ void Humanoid::step()</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//~ {</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//~ // Preparing main attributes.</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//~ unsigned int relative_hunger      = 100 * hunger      / max_hunger;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//~ unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//~ unsigned int relative_sociability = 100 * sociability / max_sociability;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//~ </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">//~ // Preparing vector of attributes.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//~ arma::vec attrs(9);</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//~ attrs &lt;&lt; relative_hunger &lt;&lt; relative_sleepiness &lt;&lt; need_in_house &lt;&lt;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;             <span class="comment">//~ need_in_res &lt;&lt; laziness &lt;&lt; getHealth() &lt;&lt; relative_sociability &lt;&lt;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;             <span class="comment">//~ safety;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//~ </span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//~ // TODO Spawning desicion maker.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//~ }</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_d09306fddf1a9ff3a2effd7b3fdd7bdf.html">Creatures</a></li><li class="navelem"><a class="el" href="dir_0ac812eeb401e63ed110d8e72f2ecf97.html">Humanoid</a></li><li class="navelem"><b>Humanoid.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

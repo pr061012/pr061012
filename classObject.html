@@ -137,39 +137,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8f5483f459e46687bd01e6f9977afd3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:a5ef92b4a17eeb9cc95307282db770457"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457">decreaseHealth</a> (unsigned int delta)</td></tr>
-<tr class="memdesc:a5ef92b4a17eeb9cc95307282db770457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases object's health.  <a href="#a5ef92b4a17eeb9cc95307282db770457"></a><br/></td></tr>
-<tr class="memitem:a739711d23cbac25768a02db17270a875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a739711d23cbac25768a02db17270a875">increaseHealth</a> (unsigned int delta)</td></tr>
-<tr class="memdesc:a739711d23cbac25768a02db17270a875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases object's health.  <a href="#a739711d23cbac25768a02db17270a875"></a><br/></td></tr>
-<tr class="memitem:a69e91bef2c9f048aa4509329dc44948e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69e91bef2c9f048aa4509329dc44948e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e">destroy</a> ()=0</td></tr>
-<tr class="memdesc:a69e91bef2c9f048aa4509329dc44948e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys object. <br/></td></tr>
 <tr class="memitem:addf0658ee2f8da579d10a6682dc097d7"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
 <tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
-<tr class="memitem:a25508c923e2927b2c94ae3fee0ee5dba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba">receiveMessage</a> (<a class="el" href="classAction.html">Action</a> *action)=0</td></tr>
-<tr class="memdesc:a25508c923e2927b2c94ae3fee0ee5dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a25508c923e2927b2c94ae3fee0ee5dba"></a><br/></td></tr>
+<tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
+<tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
+<tr class="memitem:a5d93664b6f77c6581757f201e59f9e3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a5d93664b6f77c6581757f201e59f9e3c">isDestroyed</a> ()</td></tr>
+<tr class="memdesc:a5d93664b6f77c6581757f201e59f9e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is destroyed.  <a href="#a5d93664b6f77c6581757f201e59f9e3c"></a><br/></td></tr>
+<tr class="memitem:ab810f6d0305506bb0803afcde852c1c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab810f6d0305506bb0803afcde852c1c8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8">makeMortal</a> ()</td></tr>
+<tr class="memdesc:ab810f6d0305506bb0803afcde852c1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object mortal. <br/></td></tr>
+<tr class="memitem:ad73c94472b9a43a629ae4cd6d2def67e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad73c94472b9a43a629ae4cd6d2def67e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e">makeImmortal</a> ()</td></tr>
+<tr class="memdesc:ad73c94472b9a43a629ae4cd6d2def67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immortal. <br/></td></tr>
+<tr class="memitem:a2a9a253ef0e1407453e847c530f6a233"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a2a9a253ef0e1407453e847c530f6a233">isImmortal</a> ()</td></tr>
+<tr class="memdesc:a2a9a253ef0e1407453e847c530f6a233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is immortal.  <a href="#a2a9a253ef0e1407453e847c530f6a233"></a><br/></td></tr>
 <tr class="memitem:a2a2eb240d06d980e59945abfadea996e"><td class="memItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a2a2eb240d06d980e59945abfadea996e">getType</a> ()</td></tr>
 <tr class="memdesc:a2a2eb240d06d980e59945abfadea996e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a2a2eb240d06d980e59945abfadea996e"></a><br/></td></tr>
 <tr class="memitem:a4e048add0d93a603d19216485553f869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4e048add0d93a603d19216485553f869">setShape</a> (<a class="el" href="classShape.html">Shape</a> new_var)</td></tr>
 <tr class="memdesc:a4e048add0d93a603d19216485553f869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of shape.  <a href="#a4e048add0d93a603d19216485553f869"></a><br/></td></tr>
 <tr class="memitem:aac9a478301e0ec50a9e5580d33732a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21">getShape</a> ()</td></tr>
 <tr class="memdesc:aac9a478301e0ec50a9e5580d33732a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of shape.  <a href="#aac9a478301e0ec50a9e5580d33732a21"></a><br/></td></tr>
-<tr class="memitem:a70c98c94d50248990784d702e928d0c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a70c98c94d50248990784d702e928d0c7">setDestroyed</a> (bool new_var)</td></tr>
-<tr class="memdesc:a70c98c94d50248990784d702e928d0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of destroyed.  <a href="#a70c98c94d50248990784d702e928d0c7"></a><br/></td></tr>
-<tr class="memitem:a038d5a58427b4f6a6a90c87413a3b7ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac">getDestroyed</a> ()</td></tr>
-<tr class="memdesc:a038d5a58427b4f6a6a90c87413a3b7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of destroyed.  <a href="#a038d5a58427b4f6a6a90c87413a3b7ac"></a><br/></td></tr>
-<tr class="memitem:a6f9b8d361352cb120883b126a95f164a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a6f9b8d361352cb120883b126a95f164a">setHealth</a> (unsigned int new_var)</td></tr>
-<tr class="memdesc:a6f9b8d361352cb120883b126a95f164a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of health.  <a href="#a6f9b8d361352cb120883b126a95f164a"></a><br/></td></tr>
-<tr class="memitem:acfaf918d67677e9deec7d61654fb41fd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd">getHealth</a> ()</td></tr>
-<tr class="memdesc:acfaf918d67677e9deec7d61654fb41fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of health.  <a href="#acfaf918d67677e9deec7d61654fb41fd"></a><br/></td></tr>
-<tr class="memitem:aae137fc66968bc847076a988071053f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aae137fc66968bc847076a988071053f5">setImmortality</a> (bool new_var)</td></tr>
-<tr class="memdesc:aae137fc66968bc847076a988071053f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of immortality.  <a href="#aae137fc66968bc847076a988071053f5"></a><br/></td></tr>
-<tr class="memitem:a93a09ce1b01ddb6ad1aa2a323759e0b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a93a09ce1b01ddb6ad1aa2a323759e0b9">getImmortality</a> ()</td></tr>
-<tr class="memdesc:a93a09ce1b01ddb6ad1aa2a323759e0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of immortality.  <a href="#a93a09ce1b01ddb6ad1aa2a323759e0b9"></a><br/></td></tr>
-<tr class="memitem:ac8ed44cfc9f9e2f1d345e7c0e05cdd28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28">setMaxHealth</a> (unsigned int new_var)</td></tr>
-<tr class="memdesc:ac8ed44cfc9f9e2f1d345e7c0e05cdd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of max_health.  <a href="#ac8ed44cfc9f9e2f1d345e7c0e05cdd28"></a><br/></td></tr>
-<tr class="memitem:ae5f24d6c22631610683220c5de98900a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae5f24d6c22631610683220c5de98900a">getMaxHealth</a> ()</td></tr>
-<tr class="memdesc:ae5f24d6c22631610683220c5de98900a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of max_health.  <a href="#ae5f24d6c22631610683220c5de98900a"></a><br/></td></tr>
 <tr class="memitem:a075891336e08ea144917d8468f8480f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">setAngle</a> (double new_var)</td></tr>
 <tr class="memdesc:a075891336e08ea144917d8468f8480f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of angle.  <a href="#a075891336e08ea144917d8468f8480f1"></a><br/></td></tr>
 <tr class="memitem:a6784e88edab8591cdce5f5f33ff8677a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a">getAngle</a> ()</td></tr>
@@ -186,32 +173,6 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 
 <p>Definition at line <a class="el" href="Object_8h_source.html#l00019">19</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5ef92b4a17eeb9cc95307282db770457"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Object::decreaseHealth </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>delta</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Decreases object's health. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">delta</td><td>health to decrease </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00033">33</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="addf0658ee2f8da579d10a6682dc097d7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +197,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <p>Gets objects pending actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#ae7ad8f4bc41d3aba1bbd029a5a05c3d7">Resource</a>, and <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>.</p>
+<p>Implemented in <a class="el" href="classResource.html#ae7ad8f4bc41d3aba1bbd029a5a05c3d7">Resource</a>, <a class="el" href="classBuilding.html#aec99e6668e898eab68e83afb466fc669">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
 
 </div>
 </div>
@@ -256,87 +217,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <p>Get the value of angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of angle </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00125">125</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a038d5a58427b4f6a6a90c87413a3b7ac"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Object::getDestroyed </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of destroyed. </p>
-<dl class="section return"><dt>Returns</dt><dd>the value of destroyed </dd></dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00085">85</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acfaf918d67677e9deec7d61654fb41fd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Object::getHealth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of health. </p>
-<dl class="section return"><dt>Returns</dt><dd>the value of health </dd></dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00095">95</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a93a09ce1b01ddb6ad1aa2a323759e0b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Object::getImmortality </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of immortality. </p>
-<dl class="section return"><dt>Returns</dt><dd>the value of immortality </dd></dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00105">105</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae5f24d6c22631610683220c5de98900a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Object::getMaxHealth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of max_health. </p>
-<dl class="section return"><dt>Returns</dt><dd>the value of max_health </dd></dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00115">115</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00087">87</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -356,7 +237,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <p>Get the value of shape. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of shape </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00075">75</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00077">77</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -376,67 +257,72 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <p>Get the value of type. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of type </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00065">65</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00063">63</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a739711d23cbac25768a02db17270a875"></a>
+<a class="anchor" id="a5d93664b6f77c6581757f201e59f9e3c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Object::increaseHealth </td>
+          <td class="memname">bool Object::isDestroyed </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Increases object's health. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">delta</td><td>health to increase </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Returns true if object is destroyed. </p>
+<dl class="section return"><dt>Returns</dt><dd>is object destroyed or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00049">49</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00035">35</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a25508c923e2927b2c94ae3fee0ee5dba"></a>
+<a class="anchor" id="a2a9a253ef0e1407453e847c530f6a233"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Object::receiveMessage </td>
+          <td class="memname">bool Object::isImmortal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classAction.html">Action</a> *&#160;</td>
-          <td class="paramname"><em>action</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+<p>Returns true if object is immortal. </p>
+<dl class="section return"><dt>Returns</dt><dd>is object immortal or not </dd></dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00054">54</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9df0b8f5aef27057192b874ebd0d361e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::markAsDestroyed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 <p>Receives message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">action</td><td>message </td></tr>
+    <tr><td class="paramname">action</td><td>message Marks this object as destroyed. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classBuilding.html#ababe8155388e3157a188e33cacd12a24">Building</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00030">30</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -462,111 +348,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00120">120</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a70c98c94d50248990784d702e928d0c7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Object::setDestroyed </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>new_var</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the value of destroyed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_var</td><td>the new value of destroyed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00080">80</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6f9b8d361352cb120883b126a95f164a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Object::setHealth </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>new_var</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the value of health. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_var</td><td>the new value of health </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00090">90</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aae137fc66968bc847076a988071053f5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Object::setImmortality </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>new_var</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the value of immortality. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_var</td><td>the new value of immortality </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00100">100</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac8ed44cfc9f9e2f1d345e7c0e05cdd28"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Object::setMaxHealth </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>new_var</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the value of max_health. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_var</td><td>the new value of max_health </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00110">110</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00082">82</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -592,7 +374,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00070">70</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00072">72</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -606,7 +388,7 @@ std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:24 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:43 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

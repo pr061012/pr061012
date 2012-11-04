@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['receivemessage',['receiveMessage',['../classBuilding.html#ababe8155388e3157a188e33cacd12a24',1,'Building::receiveMessage()'],['../classObject.html#a25508c923e2927b2c94ae3fee0ee5dba',1,'Object::receiveMessage()']]],
+  ['receivemessage',['receiveMessage',['../classBuilding.html#ababe8155388e3157a188e33cacd12a24',1,'Building']]],
   ['reindexate',['reindexate',['../classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127',1,'Indexator::reindexate(ObjectHeap *objects)'],['../classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8',1,'Indexator::reindexate(Object *object)']]],
   ['remove',['remove',['../classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028',1,'ObjectHeap']]],
   ['removekey',['removeKey',['../classParamArray.html#a9d6dc10184d036a0b4c02b0622a296a7',1,'ParamArray']]],

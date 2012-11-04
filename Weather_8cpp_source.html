@@ -108,60 +108,66 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Weather.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classWeather.html#aa404c94fec05b825454a7309827767c6">   12</a></span>&#160;<a class="code" href="classWeather.html#aa404c94fec05b825454a7309827767c6" title="Constructor.">Weather::Weather</a>():<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(WEATHER)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../../BasicFunc.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../BasicDefines.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">   17</a></span>&#160;<a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22" title="Destructor.">Weather::~Weather</a>()</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// ACCESSORS.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classWeather.html#a8ffabcfbe91aa86dad05b97406cb438a">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWeather.html#a8ffabcfbe91aa86dad05b97406cb438a" title="Set the value of subtype.">Weather::setSubtype</a>(WeatherType new_var)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">this</span> -&gt; subtype = new_var;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classWeather.html#af58b615d71607a647255147d594f32be">   31</a></span>&#160;WeatherType <a class="code" href="classWeather.html#af58b615d71607a647255147d594f32be" title="Get the value of subtype.">Weather::getSubtype</a>()</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; subtype;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classWeather.html#afb277c0f5ec8b34ba549d74fd8fe4c0c">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWeather.html#afb277c0f5ec8b34ba549d74fd8fe4c0c" title="Set the value of window.">Weather::setWindow</a>(<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* new_var)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">this</span> -&gt; window = new_var;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead">   15</a></span>&#160;<a class="code" href="classWeather.html#ae62d95409bbb85ced5456ae736a53ead" title="Constructor.">Weather::Weather</a>(WeatherType type) :</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(WEATHER),</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type),</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    covered_objs(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">this</span> -&gt; steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">   23</a></span>&#160;<a class="code" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22" title="Destructor.">Weather::~Weather</a>()</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">delete</span> covered_objs;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// WEATHER ACTIONS.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">   32</a></span>&#160;std::vector &lt;Action&gt; * <a class="code" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef" title="Gets actions.">Weather::getActions</a>()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; steps &gt; 0)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">this</span> -&gt; steps--;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// TODO: Add actions generation.</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classWeather.html#ae223c3712029d994797ea826821562cb">   41</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* <a class="code" href="classWeather.html#ae223c3712029d994797ea826821562cb" title="Get the value of window.">Weather::getWindow</a>()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; window;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classWeather.html#a2ca811010083ca9b944a32983a01031d">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWeather.html#a2ca811010083ca9b944a32983a01031d" title="Set the value of view_area.">Weather::setViewArea</a>(<a class="code" href="classShape.html">Shape</a> new_var)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">this</span> -&gt; view_area = new_var;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7">   51</a></span>&#160;<a class="code" href="classShape.html">Shape</a> <a class="code" href="classWeather.html#a84e394d2f17ae526f350b34ad1dd92f7" title="Get the value of view_area.">Weather::getViewArea</a>()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; view_area;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> &amp;(<span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// WEATHER TYPE.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classWeather.html#af58b615d71607a647255147d594f32be">   48</a></span>&#160;WeatherType <a class="code" href="classWeather.html#af58b615d71607a647255147d594f32be" title="Get the value of subtype.">Weather::getSubtype</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; subtype;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// ACCESSORS.</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classWeather.html#a2b0841a5845ca5abf437d44c828830dd">   57</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * <a class="code" href="classWeather.html#a2b0841a5845ca5abf437d44c828830dd" title="Get reference to heap with covered objects. This heap can be modified (in fact, Controller modify it ...">Weather::getCoveredObjects</a>()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; covered_objs;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_a24cae6636abf4aaf6f192bef9bfda24.html">Weather</a></li><li class="navelem"><b>Weather.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

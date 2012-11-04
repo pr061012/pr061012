@@ -130,73 +130,70 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// OBJECT&#39;S LIFE.</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a5ef92b4a17eeb9cc95307282db770457" title="Decreases object&#39;s health.">decreaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> std::vector &lt;Action&gt; * <a class="code" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7" title="Gets objects pending actions.">getActions</a>() = 0;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a739711d23cbac25768a02db17270a875" title="Increases object&#39;s health.">increaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classObject.html#a69e91bef2c9f048aa4509329dc44948e" title="Destroys object.">destroy</a>() = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// TODO: Uncomment when we need it.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//virtual void receiveMessage(Action * action) = 0;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// DESTROYED FLAG.</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> std::vector &lt;Action&gt; * <a class="code" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7" title="Gets objects pending actions.">getActions</a>() = 0;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classObject.html#a25508c923e2927b2c94ae3fee0ee5dba" title="Receives message.">receiveMessage</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a> * action) = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// ACCESSORS.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    ObjectType <a class="code" href="classObject.html#a2a2eb240d06d980e59945abfadea996e" title="Get the value of type.">getType</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a4e048add0d93a603d19216485553f869" title="Set the value of shape.">setShape</a>(<a class="code" href="classShape.html">Shape</a> new_var);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classShape.html">Shape</a> <a class="code" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21" title="Get the value of shape.">getShape</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a70c98c94d50248990784d702e928d0c7" title="Set the value of destroyed.">setDestroyed</a>(<span class="keywordtype">bool</span> new_var);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a038d5a58427b4f6a6a90c87413a3b7ac" title="Get the value of destroyed.">getDestroyed</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a6f9b8d361352cb120883b126a95f164a" title="Set the value of health.">setHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> new_var);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd" title="Get the value of health.">getHealth</a>();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#aae137fc66968bc847076a988071053f5" title="Set the value of immortality.">setImmortality</a>(<span class="keywordtype">bool</span> new_var);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a93a09ce1b01ddb6ad1aa2a323759e0b9" title="Get the value of immortality.">getImmortality</a>();</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28" title="Set the value of max_health.">setMaxHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> new_var);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e" title="Receives message.">markAsDestroyed</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a5d93664b6f77c6581757f201e59f9e3c" title="Returns true if object is destroyed.">isDestroyed</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// IMMORTALITY FLAG.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#ab810f6d0305506bb0803afcde852c1c8" title="Makes object mortal.">makeMortal</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#ad73c94472b9a43a629ae4cd6d2def67e" title="Makes object immortal.">makeImmortal</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a2a9a253ef0e1407453e847c530f6a233" title="Returns true if object is immortal.">isImmortal</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// OBJECT TYPE.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ObjectType <a class="code" href="classObject.html#a2a2eb240d06d980e59945abfadea996e" title="Get the value of type.">getType</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// OBJECT SHAPE AND ANGLE.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a4e048add0d93a603d19216485553f869" title="Set the value of shape.">setShape</a>(<a class="code" href="classShape.html">Shape</a> new_var);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classShape.html">Shape</a> <a class="code" href="classObject.html#aac9a478301e0ec50a9e5580d33732a21" title="Get the value of shape.">getShape</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a075891336e08ea144917d8468f8480f1" title="Set the value of angle.">setAngle</a>(<span class="keywordtype">double</span> new_var);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a" title="Get the value of angle.">getAngle</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">const</span> ObjectType type;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="classShape.html">Shape</a> shape;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classObject.html#ae5f24d6c22631610683220c5de98900a" title="Get the value of max_health.">getMaxHealth</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> destroyed;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a075891336e08ea144917d8468f8480f1" title="Set the value of angle.">setAngle</a>(<span class="keywordtype">double</span> new_var);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classObject.html#a6784e88edab8591cdce5f5f33ff8677a" title="Get the value of angle.">getAngle</a>();</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">const</span> ObjectType type;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="classShape.html">Shape</a> shape;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">bool</span> destroyed;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> health;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_health;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">double</span> angle;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">  181</a></span>&#160;    std::vector &lt;Action&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;};</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">double</span> angle;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">  144</a></span>&#160;    std::vector &lt;Action&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;};</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><b>Object.h</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

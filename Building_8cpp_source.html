@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    max_space(max_space),</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    completeness(false)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28" title="Set the value of max_health.">setMaxHealth</a>(max_health);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">this</span> -&gt; setMaxHealth(max_health);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439">   21</a></span>&#160;<a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439" title="Destructor.">Building::~Building</a>()</div>
@@ -160,9 +160,9 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d" title="Repairs building (adds delta to building health).">Building::repair</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta)</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a739711d23cbac25768a02db17270a875" title="Increases object&#39;s health.">increaseHealth</a>(delta);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">this</span> -&gt; increaseHealth(delta);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#ae5f24d6c22631610683220c5de98900a" title="Get the value of max_health.">getMaxHealth</a>() == <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#acfaf918d67677e9deec7d61654fb41fd" title="Get the value of health.">getHealth</a>())</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; getMaxHealth() == <span class="keyword">this</span> -&gt; getHealth())</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">this</span> -&gt; completeness = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_e2341d3e0e7d5d5cfd43865311f6d1d1.html">Building</a></li><li class="navelem"><b>Building.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

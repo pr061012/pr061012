@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('NonHumanoid_8cpp_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;NonHumanoid.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Defines.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../../BasicDefines.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../../BasicTypes.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//******************************************************************************</span></div>
@@ -130,27 +130,24 @@ $(document).ready(function(){initNavTree('NonHumanoid_8cpp_source.html','');});
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>(HUMANOID, dmaker)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classObject.html#ac8ed44cfc9f9e2f1d345e7c0e05cdd28" title="Set the value of max_health.">setMaxHealth</a>(health);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classObject.html#a6f9b8d361352cb120883b126a95f164a" title="Set the value of health.">setHealth</a>(health);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(age);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classCreature.html#a7be5dc2ed7d471d8851a59cdf67c1501" title="Set the value of age.">setAge</a>(0);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classCreature.html#a89f306ba0ec624fa6c8a67863c37a692" title="Set the value of max age.">setMaxAge</a>(age);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classCreature.html#a7be5dc2ed7d471d8851a59cdf67c1501" title="Set the value of age.">setAge</a>(0);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1">   37</a></span>&#160;<a class="code" href="classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1" title="Destructor.">NonHumanoid::~NonHumanoid</a>()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1">   40</a></span>&#160;<a class="code" href="classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1" title="Destructor.">NonHumanoid::~NonHumanoid</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_d09306fddf1a9ff3a2effd7b3fdd7bdf.html">Creatures</a></li><li class="navelem"><a class="el" href="dir_2e1d10ed092d23f9054f7fda553d11e2.html">NonHumanoid</a></li><li class="navelem"><b>NonHumanoid.cpp</b></li>
-    <li class="footer">Generated on Sun Nov 4 2012 02:38:20 for pr061012 by
+    <li class="footer">Generated on Sun Nov 4 2012 17:19:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
