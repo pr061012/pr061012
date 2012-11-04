@@ -27,12 +27,9 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     Creature(HUMANOID, dmaker)
 {
     // Randomly initialize some values.
-    int health = randFromRange(NHUM_HEALTH_MIN, NHUM_HEALTH_MAX);
     int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setMaxHealth(health);
-    setHealth(health);
     setMaxAge(age);
     setAge(0);
 }

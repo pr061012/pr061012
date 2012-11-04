@@ -36,10 +36,8 @@ public:
     // NON-HUMANOID'S LOGICS.
     //**************************************************************************
 
-    /**
-     * @brief Makes a next step.
-     */
-    void step();
+private:
+
 };
 
 #endif // NON_HUMANOID_H
