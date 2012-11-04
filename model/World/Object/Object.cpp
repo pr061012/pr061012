@@ -27,38 +27,6 @@ Object::~Object()
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
-//******************************************************************************
-
-void Object::decreaseHealth(unsigned int delta)
-{
-    if(!immortality)
-    {
-        if(this -> health > delta)
-        {
-            this -> health -= delta;
-        }
-        else
-        {
-            this -> health = 0;
-            destroy();
-        }
-    }
-}
-
-void Object::increaseHealth(unsigned int delta)
-{
-    if(this -> health + delta < this->max_health)
-    {
-        this -> health += delta;
-    }
-    else
-    {
-        this -> health = this -> max_health;
-    }
-}
-
-//******************************************************************************
 // ACCESSORS.
 //******************************************************************************
 
@@ -87,16 +55,6 @@ bool Object::getDestroyed()
     return this -> destroyed;
 }
 
-void Object::setHealth(unsigned int new_var)
-{
-    this -> health = new_var;
-}
-
-unsigned int Object::getHealth()
-{
-    return this -> health;
-}
-
 void Object::setImmortality(bool new_var)
 {
     this -> immortality = new_var;
@@ -105,16 +63,6 @@ void Object::setImmortality(bool new_var)
 bool Object::getImmortality()
 {
     return this -> immortality;
-}
-
-void Object::setMaxHealth(unsigned int new_var)
-{
-    this -> max_health = new_var;
-}
-
-unsigned int Object::getMaxHealth()
-{
-    return this -> max_health;
 }
 
 void Object::setAngle(double new_var)

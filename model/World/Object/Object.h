@@ -38,18 +38,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Decreases object's health.
-     * @param delta health to decrease
-     */
-    void decreaseHealth(unsigned int delta);
-
-    /**
-     * @brief Increases object's health.
-     * @param delta health to increase
-     */
-    void increaseHealth(unsigned int delta);
-
-    /**
      * @brief Destroys object.
      */
     virtual void destroy() = 0;
@@ -101,18 +89,6 @@ public:
     bool getDestroyed();
 
     /**
-     * @brief Set the value of health.
-     * @param new_var the new value of health
-     */
-    void setHealth(unsigned int new_var);
-
-    /**
-     * @brief Get the value of health.
-     * @return the value of health
-     */
-    unsigned int getHealth();
-
-    /**
      * @brief Set the value of immortality.
      * @param new_var   the new value of immortality
      */
@@ -123,18 +99,6 @@ public:
      * @return the value of immortality
      */
     bool getImmortality();
-
-    /**
-     * @brief Set the value of max_health.
-     * @param new_var the new value of max_health
-     */
-    void setMaxHealth(unsigned int new_var);
-
-    /**
-     * @brief Get the value of max_health.
-     * @return the value of max_health
-     */
-    unsigned int getMaxHealth();
 
     /**
      * @brief Set the value of angle.
@@ -157,15 +121,6 @@ private:
 
     /// Is object destroyed or not.
     bool destroyed;
-
-    /**
-     * @brief Object's health.
-     *          * buildings and creatures -- health
-     *          * weather -- living time
-     *          * resource -- amount of resource
-     *          * tool -- durability
-     */
-    unsigned int health;
 
     /// Maximum amount of health.
     unsigned int max_health;
