@@ -9,11 +9,27 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(const ResourceType type) :
+Resource::Resource(ResourceType type) :
     Object(RESOURCE),
     subtype(type)
 {
-
+    // Mineable resources.
+    if
+    (
+        this -> subtype == BRONZE_ORE ||
+        this -> subtype == IRON_ORE ||
+        this -> subtype == SILVER_ORE ||
+        this -> subtype == GOLD_ORE ||
+        this -> subtype == WOOD
+    )
+    {
+        this -> mineable = true;
+    }
+    // Pickable resources.
+    else
+    {
+        this -> mineable = false;
+    }
 }
 
 Resource::~Resource()

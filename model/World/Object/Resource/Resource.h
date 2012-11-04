@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Resource(const ResourceType type);
+    Resource(ResourceType type);
 
     /**
      * @brief Destructor.
@@ -105,9 +105,9 @@ private:
     ///        each step).
     unsigned int regeneration_rate;
 
-    /// @brief Resource maybe gathered (trees, mountains, mines) or not (stones,
-    ///        log, ore).
-    bool gathered;
+    /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
+    ///        ResourceType enum for details.
+    bool mineable;
 };
 
 #endif // RESOURCE_H

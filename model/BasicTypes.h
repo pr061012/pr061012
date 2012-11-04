@@ -39,7 +39,7 @@ enum ToolType
  */
 enum ResourceType
 {
-    // Minable resources.
+    // Mineable resources.
     BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 
     // Pickable resources.
