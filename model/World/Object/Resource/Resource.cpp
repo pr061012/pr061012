@@ -61,35 +61,29 @@ std::vector <Action> * Resource::getActions()
 }
 
 //******************************************************************************
-// ACCESSORS.
+// RESOURCE TYPE.
 //******************************************************************************
 
-unsigned int Resource::getProgress()
-{
-    return this -> progress;
-}
-
-ResourceType Resource::getSubtype()
+ResourceType Resource::getSubtype() const
 {
     return this -> subtype;
 }
 
-unsigned int Resource::getRegenerationRate()
+//******************************************************************************
+// MINING.
+//******************************************************************************
+
+unsigned int Resource::getProgress() const
 {
-    return this -> regeneration_rate;
+    return this -> progress;
 }
 
-bool Resource::getGathered()
-{
-    return this -> gathered;
-}
-
-unsigned int Resource::getDifficulty()
+unsigned int Resource::getDifficulty() const
 {
     return this -> difficulty;
 }
 
-unsigned int Resource::getAmountPerGather()
+bool Resource::isMineable() const
 {
-    return this -> amount_per_gather;
+    return this -> mineable;
 }

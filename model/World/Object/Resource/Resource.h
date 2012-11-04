@@ -47,44 +47,36 @@ public:
     std::vector <Action> * getActions();
 
     //**************************************************************************
-    // ACCESSORS.
+    // RESOURCE TYPE.
     //**************************************************************************
-
-    /**
-     * @brief Get the value of progress.
-     * @return the value of progress
-     */
-    unsigned int getProgress();
 
     /**
      * @brief  Gets the value of subtype.
      * @return the value of subtype
      */
-    ResourceType getSubtype();
+    ResourceType getSubtype() const;
+
+    //**************************************************************************
+    // MINING.
+    //**************************************************************************
 
     /**
-     * @brief Get the value of regeneration_rate.
-     * @return the value of regeneration_rate
+     * @brief  Get the value of progress.
+     * @return the value of progress
      */
-    unsigned int getRegenerationRate();
+    unsigned int getProgress() const;
 
     /**
-     * @brief Get the value of gathered.
-     * @return the value of gathered
-     */
-    bool getGathered();
-
-    /**
-     * @brief Get the value of difficulty.
+     * @brief  Get the value of difficulty.
      * @return the value of difficulty
      */
-    unsigned int getDifficulty();
+    unsigned int getDifficulty() const;
 
     /**
-     * @brief Get the value of amount_per_gather.
-     * @return the value of amount_per_gather
+     * @brief  Returns true if resource is mineable.
+     * @return is mineable or not
      */
-    unsigned int getAmountPerGather();
+    bool isMineable() const;
 
 private:
     /// Type of resource
