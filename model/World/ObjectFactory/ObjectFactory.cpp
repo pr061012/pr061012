@@ -34,15 +34,19 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
         break;
 
         case CREATURE:
+            object = createCreature(params);
         break;
 
         case RESOURCE:
+            object = createResource(params);
         break;
 
         case TOOL:
+            object = createTool(params);
         break;
 
         case WEATHER:
+            object = createWeather(params);
         break;
     }
 
@@ -53,10 +57,33 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 // OBJECTS CREATION (INNER METHODS).
 //******************************************************************************
 
-Object * createBuilding(const ParamArray & params)
+Object * ObjectFactory::createBuilding(const ParamArray & params)
 {
     unsigned int max_space = params.getValue("max_space");
     unsigned int max_health = params.getValue("max_health");
 
     return new Building(max_health, max_space);
 }
+
+Object * ObjectFactory::createCreature(const ParamArray & params)
+{
+
+}
+
+Object * ObjectFactory::createResource(const ParamArray & params)
+{
+
+}
+
+Object * ObjectFactory::createTool(const ParamArray & params)
+{
+
+}
+
+Object * ObjectFactory::createWeather(const ParamArray & params)
+{
+
+}
+
+
+
