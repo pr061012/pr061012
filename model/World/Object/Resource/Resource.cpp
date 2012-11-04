@@ -76,6 +76,15 @@ Resource::~Resource()
 }
 
 //******************************************************************************
+// CHANGING PROGRESS.
+//******************************************************************************
+
+void Resource::incrementProgress()
+{
+    this -> progress++;
+}
+
+//******************************************************************************
 // CHANGING AMOUNT.
 //******************************************************************************
 
@@ -111,7 +120,7 @@ std::vector <Action> * Resource::getActions()
 
     this -> actions.clear();
 
-    if(this -> progress == this -> difficulty)
+    if(this -> progress >= this -> difficulty)
     {
         this -> progress = 0;
 
