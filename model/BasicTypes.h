@@ -74,7 +74,8 @@ enum CreatureType
  */
 enum ActionType
 {
-    GO, MINE, HARM, REPAIR, CREATE, DROP, PICK_UP
+    GO, MINE, HARM_OBJ, HARM_OBJS, REPAIR, CREATE_OBJ, CREATE_OBJS, DROP_OBJ,
+    DROP_OBJS, PICK_UP_OBJ, PICK_UP_OBJS
 };
 
 /**
