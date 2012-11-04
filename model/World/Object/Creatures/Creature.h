@@ -93,7 +93,7 @@ public:
      * @brief Set the value of health.
      * @param health   new value of health
      */
-    void setHealth(unsigned int age);
+    void setHealth(unsigned int health);
 
     /**
      * @brief  Get the value of health.
@@ -103,9 +103,9 @@ public:
 
     /**
      * @brief Set the value of max health.
-     * @param age   new value of max health
+     * @param health   new value of max health
      */
-    void setMaxHealth(unsigned int max_age);
+    void setMaxHealth(unsigned int max_health);
 
     /**
      * @brief  Get the value of max age.
@@ -130,6 +130,11 @@ public:
     void increaseHealth(unsigned int delta);
 
 private:
+    /**
+     * @brief Matrix of attributes
+     */
+    arma::mat attrs;
+
     /// Creature's type.
     const CreatureType subtype;
 
@@ -180,6 +185,6 @@ private:
     /// Maximum possible value of hunger.
     unsigned int max_hunger;
 
-};
+
 
 #endif // CREATURE_H
