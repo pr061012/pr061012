@@ -23,12 +23,21 @@ public:
     /**
      * @brief Constructor.
      */
-    Resource(ResourceType type);
+    Resource(ResourceType type, unsigned int res_amount = 0);
 
     /**
      * @brief Destructor.
      */
     ~Resource();
+
+    //**************************************************************************
+    // CHANGING PROGRESS.
+    //**************************************************************************
+
+    /**
+     * @brief Increment progress of mining by one.
+     */
+    void incrementProgress();
 
     //**************************************************************************
     // CHANGING AMOUNT.
@@ -106,6 +115,8 @@ private:
     /// @brief Resource regeneration amount (amount of resource we regenerate on
     ///        each regeneration).
     unsigned int reg_amount;
+    /// Amount of steps to regeneration.
+    unsigned int steps_to_reg;
 
     /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
     ///        ResourceType enum for details.
