@@ -38,6 +38,8 @@ std::vector <Action> * Weather::getActions()
 
     this -> actions.clear();
 
+    // TODO: Add actions for RAIN, CLOUDS, SNOW.
+
     if
     (
         this -> subtype == METEOR_SHOWER ||
