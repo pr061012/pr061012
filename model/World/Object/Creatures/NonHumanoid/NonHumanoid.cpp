@@ -6,7 +6,7 @@
 #include <cstdlib>
 
 #include "NonHumanoid.h"
-#include "../Defines.h"
+#include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
 
 //******************************************************************************

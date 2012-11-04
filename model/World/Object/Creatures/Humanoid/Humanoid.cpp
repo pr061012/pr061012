@@ -7,7 +7,7 @@
 #include <armadillo>
 
 #include "Humanoid.h"
-#include "../Defines.h"
+#include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
 
 
