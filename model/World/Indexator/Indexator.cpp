@@ -198,11 +198,11 @@ unsigned int * Indexator::getCellsArea(Shape shape)
     area[1] = getRow(lb.getY());
     area[2] = getRow(rt.getX());
     area[3] = getRow(rt.getY());
-    if (lb.getX() < 0)
+    if (lb.getX() < 0 && rt.getX() >= 0)
     {
         area[2] += row_size;
     }
-    else if (lb.getY() < 0)
+    else if (lb.getY() < 0 && rt.getY() >= 0)
     {
         area[3] += row_size;
     }
