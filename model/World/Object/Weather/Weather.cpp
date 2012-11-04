@@ -9,7 +9,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather():Object(WEATHER)
+Weather::Weather(WeatherType type) :
+    Object(WEATHER),
+    subtype(type)
 {
 
 }
@@ -20,18 +22,17 @@ Weather::~Weather()
 }
 
 //******************************************************************************
-// ACCESSORS.
+// WEATHER TYPE.
 //******************************************************************************
-
-void Weather::setSubtype(WeatherType new_var)
-{
-    this -> subtype = new_var;
-}
 
 WeatherType Weather::getSubtype()
 {
     return this -> subtype;
 }
+
+//******************************************************************************
+// ACCESSORS.
+//******************************************************************************
 
 void Weather::setWindow(ObjectHeap* new_var)
 {

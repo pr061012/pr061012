@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather();
+    Weather(WeatherType type);
 
     /**
      * @brief Destructor.
@@ -34,17 +34,19 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
-	/**
-     * @brief Set the value of subtype.
-     * @param new_var   the new value of subtype
-     */
-    void setSubtype(WeatherType new_var);
+    //**************************************************************************
+    // WEATHER TYPE.
+    //**************************************************************************
 
 	/**
      * @brief  Get the value of subtype.
 	 * @return the value of subtype
 	 */
     WeatherType getSubtype();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
 	/**
      * @brief Set the value of window.
@@ -72,7 +74,7 @@ public:
 
 private:
     /// Weather type.
-    WeatherType subtype;
+    const WeatherType subtype;
 
     /// Pointer to the window in Indexator. Initializes in constructor.
     ObjectHeap * window;
