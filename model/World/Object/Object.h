@@ -70,18 +70,6 @@ public:
     //**************************************************************************
 
     /**
-     * @brief   Set object's coordinates
-     * @param   coords  new coordinates
-     */
-    void setCoords(const Point& coords);
-
-    /**
-     * @brief   Get object's coordinates
-     * @return  object's coordinates
-     */
-    const Point& getCoords() const;
-
-    /**
      * @brief Makes object mortal.
      */
     void makeMortal();
@@ -134,6 +122,18 @@ public:
      * @return the value of angle
      */
     double getAngle();
+
+    /**
+     * @brief   Set object's coordinates
+     * @param   coords  new coordinates
+     */
+    void setCoords(const Point& coords);
+
+    /**
+     * @brief   Get object's coordinates
+     * @return  object's coordinates
+     */
+    const Point& getCoords() const;
 
 private:
     /// Object's type.
