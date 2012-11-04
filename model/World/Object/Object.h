@@ -63,7 +63,7 @@ public:
      * @brief  Returns true if object is destroyed.
      * @return is object destroyed or not
      */
-    bool isDestroyed();
+    bool isDestroyed() const;
 
     //**************************************************************************
     // IMMORTALITY FLAG.
@@ -83,7 +83,7 @@ public:
      * @brief  Returns true if object is immortal.
      * @return is object immortal or not
      */
-    bool isImmortal();
+    bool isImmortal() const;
 
     //**************************************************************************
     // OBJECT TYPE.
@@ -93,7 +93,7 @@ public:
      * @brief Get the value of type.
      * @return the value of type
      */
-    ObjectType getType();
+    ObjectType getType() const;
 
     //**************************************************************************
     // OBJECT SHAPE AND ANGLE.
@@ -109,7 +109,7 @@ public:
      * @brief  Get the value of shape.
      * @return the value of shape
      */
-    Shape getShape();
+    Shape getShape() const;
 
     /**
      * @brief Set the value of angle.
@@ -121,7 +121,7 @@ public:
      * @brief  Get the value of angle.
      * @return the value of angle
      */
-    double getAngle();
+    double getAngle() const;
 
     /**
      * @brief   Set object's coordinates

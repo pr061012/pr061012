@@ -32,7 +32,7 @@ void Object::markAsDestroyed()
     this -> destroyed = true;
 }
 
-bool Object::isDestroyed()
+bool Object::isDestroyed() const
 {
     return this -> destroyed;
 }
@@ -51,7 +51,7 @@ void Object::makeImmortal()
     this -> immortality = true;
 }
 
-bool Object::isImmortal()
+bool Object::isImmortal() const
 {
     return this -> immortality;
 }
@@ -60,7 +60,7 @@ bool Object::isImmortal()
 // OBJECT TYPE.
 //******************************************************************************
 
-ObjectType Object::getType()
+ObjectType Object::getType() const
 {
     return this -> type;
 }
@@ -74,7 +74,7 @@ void Object::setShape(Shape new_var)
     this -> shape = new_var;
 }
 
-Shape Object::getShape()
+Shape Object::getShape() const
 {
     return this -> shape;
 }
@@ -84,7 +84,7 @@ void Object::setAngle(double new_var)
     this -> angle = new_var;
 }
 
-double Object::getAngle()
+double Object::getAngle() const
 {
     return this -> angle;
 }
