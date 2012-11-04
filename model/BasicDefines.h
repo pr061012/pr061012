@@ -17,7 +17,21 @@
 #define WEAT_STEPS_MAX      6400
 
 //******************************************************************************
-// COMMON DEFINES.
+// TOOL DEFINES.
+// Prefix: TOOL.
+// These defines describes value of tool's max strength. They are defined there
+// for each mine resource type, for list of them look for BasicTypes.h file
+// (ResourceType enum).
+//******************************************************************************
+
+#define TOOL_STONE_STRENGTH     100
+#define TOOL_BRONZE_STRENGTH    200
+#define TOOL_IRON_STRENGTH      400
+#define TOOL_SILVER_STRENGTH    800
+#define TOOL_GOLD_STRENGTH      1600
+
+//******************************************************************************
+// CREATURE DEFINES.
 // Prefix: CREAT.
 //******************************************************************************
 
