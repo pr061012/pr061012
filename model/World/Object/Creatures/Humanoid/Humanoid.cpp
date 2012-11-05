@@ -36,18 +36,18 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
 
     // Initialize other values.
-    sociability    = max_sociability;
+    sociability    = 100 - max_sociability;
     need_in_points = 100;
     need_in_house  = 100;
 
     //Initialize of matrix of attr
-    attrs(ATTR_HEALTH,0)         = (100 - hunger) / max_hunger * 100;
-    attrs(ATTR_SLEEPINESS,0)     = (100 - sleepiness) / max_sleepiness * 100;
+    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
+    attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
     attrs(ATTR_NEED_IN_POINTS,0) = need_in_points;
     attrs(ATTR_LAZINESS,0)       = laziness;
-    attrs(ATTR_HEALTH,0)         = (100 - health) / max_health * 100;
-    attrs(ATTR_COMMUNICATION,0)  = (100 - sociability) / max_sociability * 100;
+    attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
+    attrs(ATTR_COMMUNICATION,0)  = 100 * sociability / max_sociability;
     attrs(ATTR_SAFETY,0)         = safety;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 }
@@ -91,13 +91,13 @@ void Humanoid::updateNeedInDesc()
 
 void Humanoid::updateCommonAttrs()
 {
-    this -> hunger      -= CREAT_DELTA_HUNGER; // so if hunger = 0 NHum is died we need to decrease this attr
-    this -> sleepiness  -= CREAT_DELTA_SLEEP;
-    this -> sociability -= HUM_DELTA_SOC;
+    this -> hunger      += CREAT_DELTA_HUNGER;
+    this -> sleepiness  += CREAT_DELTA_SLEEP;
+    this -> sociability += HUM_DELTA_SOC;
 
-    this -> attrs(ATTR_HUNGER,0)        = (100 - hunger) / max_hunger * 100; // transformation to matrix attr
-    this -> attrs(ATTR_SLEEPINESS,0)    = (100 - sleepiness) / max_sleepiness * 100; // what about health?
-    this -> attrs(ATTR_COMMUNICATION,0) = (100 - sociability) / max_sociability * 100;
+    this -> attrs(ATTR_HUNGER,0)        = 100 * hunger / max_hunger;
+    this -> attrs(ATTR_SLEEPINESS,0)    = 100 * sleepiness / max_sleepiness; // what about health?
+    this -> attrs(ATTR_COMMUNICATION,0) = 100 * sociability / max_sociability;
 
     this -> common_steps = CREAT_STEPS;
     // TODO: func to calculate health, need in house and need in points
