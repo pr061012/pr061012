@@ -62,7 +62,7 @@ DecisionMaker::~DecisionMaker()
 // PREDICTION.
 //******************************************************************************
 
-CreatureAction DecisionMaker::makeDecision (mat attrs)
+CreatureAction DecisionMaker::makeDecision (mat attrs) const
 {
     vector <int> vect_of_actions;
     int max = -1000;
