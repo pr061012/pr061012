@@ -8,17 +8,9 @@
 #include "NonHumanoid.h"
 #include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
+#include "../../../../BasicFuncs.h"
 
 using namespace arma; //?
-
-//******************************************************************************
-// STATIC FUNCTIONS.
-//******************************************************************************
-
-static inline int randFromRange(int low_boundary, int top_boundary)
-{
-    return rand() % (top_boundary - low_boundary) + low_boundary + 1;
-}
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -44,7 +36,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(6,0) = 0;
     attrs(7,0) = safety;
     attrs(8,0) = need_in_descendants;
-
 
     //Initialize of steps
     age_steps    = CREAT_AGE_STEPS;
@@ -76,6 +67,8 @@ std::vector <Action>* NonHumanoid::getActions()
 
     if(safety_steps == 0)
         updateSafety();
+
+    return &actions;
 
 }
 

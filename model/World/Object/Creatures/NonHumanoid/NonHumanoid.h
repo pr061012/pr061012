@@ -45,35 +45,11 @@ public:
     //**************************************************************************
     // NON-HUMANOID'S LOGICS.
     //**************************************************************************
-
-
 private:
-    //Steps for updates
-    unsigned int common_steps;
-    unsigned int age_steps;
-    unsigned int desc_steps;
-    unsigned int safety_steps;
-
-    /**
-     * @brief Updates age
-     */
     void updateAge();
-
-    /**
-     * @brief Updates need_in_descendants
-     */
-    void updateNeedInDesc();
-
-    /**
-     * @brief Updates safety
-     */
-    void updateSafety();
-
-    /**
-     * @brief Updates hunger, sleepiness, health
-     */
     void updateCommonAttrs();
-
+    void updateNeedInDesc();
+    void updateSafety();
 };
 
 #endif // NON_HUMANOID_H
