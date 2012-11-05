@@ -42,4 +42,4 @@ private:
     
     /// Size of the world
     double world_size;
-}
+};

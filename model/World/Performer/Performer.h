@@ -22,7 +22,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~Perfomer();
+    ~Performer();
 
     /**
      * @brief Empty constructor
@@ -36,4 +36,4 @@ public:
      * @brief Performs an action if it is possible
      */
     virtual void perform(Action& action) = 0;
-}
+};
