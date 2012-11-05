@@ -148,8 +148,6 @@
 /// Attribute need in descendant
 #define ATTR_NEED_IN_DESC        8
 
-
-
 //
 //******************************************************************************
 // HUMANOID'S DEFINES.
