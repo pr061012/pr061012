@@ -6,7 +6,7 @@
 #include "Resource.h"
 
 #include "../../../BasicDefines.h"
-#include "../../../BasicFunc.h"
+#include "../../../BasicFuncs.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
