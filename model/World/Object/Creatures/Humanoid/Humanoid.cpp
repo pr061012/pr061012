@@ -111,8 +111,7 @@ void Humanoid::updateSafety()
 CreatureAction Humanoid::chooseAction()
 {
     CreatureAction action = NONE;
-    // action = brains -> makeDecision(attrs);
-    // error!!
+    action = brains.makeDecision(attrs);
 
     // Draft of father processing
     switch(action)
