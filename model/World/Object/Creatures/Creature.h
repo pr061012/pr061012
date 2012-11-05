@@ -184,7 +184,7 @@ private:
     unsigned int hunger;
     /// Maximum possible value of hunger.
     unsigned int max_hunger;
-
+}
 
 
 #endif // CREATURE_H
