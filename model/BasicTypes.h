@@ -3,6 +3,10 @@
     See the LICENSE file for copying permission.
 */
 
+/**
+ * @file BasicTypes.h
+ */
+
 #ifndef BASIC_TYPES_H
 #define BASIC_TYPES_H
 
@@ -76,13 +80,60 @@ enum CreatureType
 };
 
 /**
- * @enum ActionType
- * @brief The ActionType enum
+ * @enum  ActionType
+ * @brief The ActionType enum. In some cases there are ids in parameters. These
+ *        ids denote index of object in participants array. *Example*: action
+ *        MINE, actor is Humanoid, participants are Resource (index is 0) and
+ *        Tool (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id
+ *        (= 1).
  */
 enum ActionType
 {
-    GO, MINE, HARM_OBJ, HARM_OBJS, REPAIR, CREATE_OBJ, CREATE_OBJS, DROP_OBJ,
-    DROP_OBJS, PICK_UP_OBJ, PICK_UP_OBJS
+    /// @brief Description:     Move object to (x+delta_x, y+delta_y) point. \n
+    ///        Actor:           Creature \n
+    ///        Participants:    none \n
+    ///        Parameters:      delta_x, delta_y
+    GO,
+
+    /// @brief Description:     Resource mining by tool. \n
+    ///        Actor:           Humanoid \n
+    ///        Participants:    Resource, Tool (PICKAXE) \n
+    ///        Parameters:      res_id, tool_id
+    MINE,
+
+    /// @brief Description:     Repair building. \n
+    ///        Actor:           Humanoid \n
+    ///        Participants:    Building, Tool \n
+    ///        Parameters:      building_id, tool_id
+    REPAIR,
+
+    /// @brief Description:     Harm one or more objects. \n
+    ///        Actor:           Creature/Weather \n
+    ///        Participants:    several objects \n
+    ///        Parameters:      none
+    HARM_OBJS,
+
+    /// @brief Description:     Create object. \n
+    ///        Actor:           Humanoid/Resource \n
+    ///        Participants:    none \n
+    ///        Parameters:
+    ///                         * obj_type, x and y
+    ///                         * for Resource creation: res_type, res_amount
+    ///                         * for Tool creation: tool_type, mat_type
+    ///                         * for Creature creation: creat_type
+    CREATE_OBJ,
+
+    /// @brief Description:     Drop objects to ground. \n
+    ///        Actor:           Creature \n
+    ///        Participants:    several objects \n
+    ///        Parameters:      none
+    DROP_OBJS,
+
+    /// @brief Description:     Pick up objects from the ground. \n
+    ///        Actor:           Creature \n
+    ///        Participants:    several objects \n
+    ///        Parameters:      none
+    PICK_UP_OBJS
 };
 
 /**

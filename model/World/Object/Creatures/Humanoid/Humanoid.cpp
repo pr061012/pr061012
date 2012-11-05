@@ -9,7 +9,7 @@
 #include "Humanoid.h"
 #include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
-#include "../../../../BasicFunc.h"
+#include "../../../../BasicFuncs.h"
 
 
 //******************************************************************************
@@ -19,7 +19,6 @@
 int Humanoid::CURRENT_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
-    Object(CREATURE),
     Creature(HUMANOID, dmaker),
     id(CURRENT_ID++)
 {

@@ -4,7 +4,7 @@
 */
 
 #include "Creature.h"
-#include "../../../BasicFunc.h"
+#include "../../../BasicFuncs.h"
 #include "../../../BasicDefines.h"
 
 
@@ -18,6 +18,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     brains(dmaker),
     inventory(new ObjectHeap)
 {
+    attrs = arma::mat(ATR_CONST, 1);
     // Randomly initialize some values.
     max_hunger      = randFromRange(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);
     max_sleepiness  = randFromRange(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);
@@ -31,6 +32,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // Initialize some inhereted things.
     setMaxHealth(health);
     setHealth(100 - health);
+
+
 }
 
 Creature::~Creature()
@@ -103,7 +106,6 @@ unsigned int Creature::getMaxHealth()
     return this -> max_health;
 }
 
-
 //******************************************************************************
 // OBJECT'S LIFE.
 //******************************************************************************
@@ -131,3 +133,5 @@ void Creature::increaseHealth(unsigned int delta)
         this -> health = this -> max_health;
     }
 }
+
+

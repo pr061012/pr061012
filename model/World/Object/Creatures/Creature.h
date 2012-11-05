@@ -93,7 +93,7 @@ public:
      * @brief Set the value of health.
      * @param health   new value of health
      */
-    void setHealth(unsigned int age);
+    void setHealth(unsigned int health);
 
     /**
      * @brief  Get the value of health.
@@ -103,9 +103,9 @@ public:
 
     /**
      * @brief Set the value of max health.
-     * @param age   new value of max health
+     * @param health   new value of max health
      */
-    void setMaxHealth(unsigned int max_age);
+    void setMaxHealth(unsigned int max_health);
 
     /**
      * @brief  Get the value of max age.
@@ -148,6 +148,12 @@ private:
     /// Current creature's action.
     CreatureAction current_action;
 
+protected:
+    /**
+     * @brief Matrix of attributes
+     */
+    arma::mat attrs;
+
     /// Current age.
     unsigned int age;
 
@@ -167,7 +173,7 @@ private:
     /// Maximum possible value of sleepiness.
     unsigned int max_sleepiness;
 
-	///Current value of need_in_descendants (0-100)
+    /// Current value of need_in_descendants (0-100)
 	unsigned int need_in_descendants;
 
 	// If = 100, creature is in danger.
@@ -180,6 +186,35 @@ private:
     /// Maximum possible value of hunger.
     unsigned int max_hunger;
 
+    /// Amount for steps to common update.
+    unsigned int common_steps;
+    /// Amount for steps to age update.
+    unsigned int age_steps;
+    /// Amount for steps to need_in_descendant update.
+    unsigned int desc_steps;
+    /// Amount for steps to safety update.
+    unsigned int safety_steps;
+
+    /**
+     * @brief Updates age
+     */
+    virtual void updateAge() = 0;
+
+    /**
+     * @brief Updates need_in_descendants
+     */
+    virtual void updateNeedInDesc() = 0;
+
+    /**
+     * @brief Updates safety
+     */
+    virtual void updateSafety() = 0;
+
+    /**
+     * @brief Updates hunger, sleepiness, health
+     */
+    virtual void updateCommonAttrs() = 0;
 };
+
 
 #endif // CREATURE_H

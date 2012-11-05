@@ -6,7 +6,7 @@
 #include "Resource.h"
 
 #include "../../../BasicDefines.h"
-#include "../../../BasicFunc.h"
+#include "../../../BasicFuncs.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -134,8 +134,11 @@ std::vector <Action> * Resource::getActions()
             drop_amount = this -> amount_per_drop;
         }
 
+        // TODO: Add x and y.
         Action act(CREATE_OBJ, this);
         act.addParam("obj_type", RESOURCE);
+        // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
+        // that?
         act.addParam("res_type", this -> subtype);
         act.addParam("res_amount", drop_amount);
         this -> actions.push_back(act);

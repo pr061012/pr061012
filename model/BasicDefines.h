@@ -110,6 +110,45 @@
 /// Maximum possible value of max_sleepiness.
 #define CREAT_SLEEPINESS_MAX  100
 
+/// Amount of steps before updates basic attrs for creature.
+#define CREAT_STEPS           150
+/// Amount of steps before updates safety
+#define CREAT_SAFETY_STEPS    16
+/// Amount of steps before updates need_in_descendants.
+#define CREAT_DESC_STEPS      1500
+/// Amount of steps before updates age.
+#define CREAT_AGE_STEPS       5000 //it is taken from my ceiling
+
+/// Changes of hunger for one step
+#define CREAT_DELTA_HUNGER    2
+/// Changes of sleepiness for one step
+#define CREAT_DELTA_SLEEP     1
+
+//******************************************************************************
+// CREATURES ATTRIBUTES DEFINES.
+// Prefix: ATTR.
+//******************************************************************************
+
+/// Attribute hunger
+#define ATTR_HUNGER              0
+/// Attribute sleepiness
+#define ATTR_SLEEPINESS          1
+///Attribute need_in_house
+#define ATTR_NEED_IN_HOUSE       2
+/// Attribute need in points
+#define ATTR_NEED_IN_POINTS      3
+/// Attribute laziness
+#define ATTR_LAZINESS            4
+/// Attribute health
+#define ATTR_HEALTH              5
+/// Attribute communication
+#define ATTR_COMMUNICATION       6
+/// Attribute safety
+#define ATTR_SAFETY              7
+/// Attribute need in descendant
+#define ATTR_NEED_IN_DESC        8
+
+//
 //******************************************************************************
 // HUMANOID'S DEFINES.
 // Prefix: HUM.
@@ -133,6 +172,9 @@
 /// Maximum possible value of humanoid's diligence.
 #define HUM_LAZINESS_MAX    100
 
+/// Changes of need in descendant for one step
+#define HUM_DELTA_NEED_IN_DESC    1
+
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
@@ -144,5 +186,8 @@
 #define NHUM_AGE_MIN        10
 /// Maximum possible value of non-humanoid's max_age.
 #define NHUM_AGE_MAX        20
+
+/// Changes of need_in_descendant for one step
+#define NHUM_DELTA_NEED_IN_DESC   2
 
 #endif // DEFINES_H

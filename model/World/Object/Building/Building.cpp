@@ -12,10 +12,11 @@
 Building::Building(unsigned int max_space, unsigned int max_health) :
     Object(BUILDING),
     contents(new ObjectHeap),
+    health(0),
+    max_health(max_health),
     max_space(max_space),
     completeness(false)
 {
-    this -> setMaxHealth(max_health);
 }
 
 Building::~Building()
@@ -27,14 +28,38 @@ Building::~Building()
 // ACTIONS ACCESSING.
 //******************************************************************************
 
-std::vector <Action *> Building::getActions()
+std::vector <Action> * Building::getActions()
 {
-
+    this -> actions.clear();
+    return &(this -> actions);
 }
 
-void Building::receiveMessage(Action * action)
-{
+//******************************************************************************
+// HEALTH MANIPULATION.
+//******************************************************************************
 
+void Building::decreaseHealth(unsigned int delta)
+{
+    if(this -> health > delta)
+    {
+        this -> health -= delta;
+    }
+    else
+    {
+        this -> health = 0;
+    }
+}
+
+void Building::increaseHealth(unsigned int delta)
+{
+    if(this -> health + delta < this -> max_health)
+    {
+        this -> health += delta;
+    }
+    else
+    {
+        this -> health = this -> max_health;
+    }
 }
 
 //******************************************************************************
@@ -59,17 +84,17 @@ void Building::repair(unsigned int delta)
 {
     this -> increaseHealth(delta);
 
-    if(this -> getMaxHealth() == this -> getHealth())
+    if(this -> health == this -> max_health)
     {
         this -> completeness = true;
     }
 }
 
 //******************************************************************************
-// ACCESSORS.
+// CONTENTS AND SPACE ACCESSORS.
 //******************************************************************************
 
-const ObjectHeap * Building::getContents()
+ObjectHeap * Building::getContents()
 {
     return this -> contents;
 }
@@ -77,11 +102,6 @@ const ObjectHeap * Building::getContents()
 unsigned int Building::getFreeSpace()
 {
     return this -> free_space;
-}
-
-void Building::setMaxSpace(unsigned int new_var)
-{
-    this -> max_space = new_var;
 }
 
 unsigned int Building::getMaxSpace()

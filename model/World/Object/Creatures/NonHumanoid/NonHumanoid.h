@@ -13,7 +13,7 @@
  * @brief NonHumanoid is silly creature, has only few goals in its life: food
  *        and sleep.
  */
-class NonHumanoid : virtual public Creature
+class NonHumanoid : public Creature
 {
 public:
     //**************************************************************************
@@ -33,11 +33,23 @@ public:
     ~NonHumanoid();
 
     //**************************************************************************
-    // NON-HUMANOID'S LOGICS.
+    // NON_HUMANOID ACTIONS.
     //**************************************************************************
 
-private:
+    /**
+     * @brief  Gets actions.
+     * @return vector with actions.
+     */
+    std::vector <Action> * getActions();
 
+    //**************************************************************************
+    // NON-HUMANOID'S LOGICS.
+    //**************************************************************************
+private:
+    void updateAge();
+    void updateCommonAttrs();
+    void updateNeedInDesc();
+    void updateSafety();
 };
 
 #endif // NON_HUMANOID_H
