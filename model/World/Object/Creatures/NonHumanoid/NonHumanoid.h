@@ -13,7 +13,7 @@
  * @brief NonHumanoid is silly creature, has only few goals in its life: food
  *        and sleep.
  */
-class NonHumanoid : virtual public Creature
+class NonHumanoid : public Creature
 {
 public:
     //**************************************************************************
@@ -48,11 +48,6 @@ public:
 
 
 private:
-    /**
-     * @brief Updates hunger, sleepiness, health
-     */
-    void updateCommonAttrs();
-
     //Steps for updates
     unsigned int common_steps;
     unsigned int age_steps;
@@ -75,7 +70,7 @@ private:
     void updateSafety();
 
     /**
-     * @brief Updates common attrs
+     * @brief Updates hunger, sleepiness, health
      */
     void updateCommonAttrs();
 

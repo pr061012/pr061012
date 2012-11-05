@@ -25,8 +25,7 @@ static inline int randFromRange(int low_boundary, int top_boundary)
 //******************************************************************************
 
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
-    Object(CREATURE),
-    Creature(HUMANOID, dmaker)
+    Creature(NON_HUMANOID, dmaker)
 {
     // Randomly initialize some values.
     int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
@@ -45,6 +44,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(6,0) = 0;
     attrs(7,0) = safety;
     attrs(8,0) = need_in_descendants;
+
 
     //Initialize of steps
     age_steps    = CREAT_AGE_STEPS;

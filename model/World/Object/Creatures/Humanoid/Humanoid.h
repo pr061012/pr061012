@@ -16,7 +16,7 @@
  *        Humanoids are base element in game, they makes their own decisions
  *        and influence and change world around them.
  */
-class Humanoid : virtual public Creature
+class Humanoid : public Creature
 {
 public:
     //**************************************************************************

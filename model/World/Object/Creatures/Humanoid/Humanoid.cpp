@@ -19,7 +19,6 @@
 int Humanoid::CURRENT_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker & dmaker) :
-    Object(CREATURE),
     Creature(HUMANOID, dmaker),
     id(CURRENT_ID++)
 {
