@@ -110,6 +110,15 @@
 /// Maximum possible value of max_sleepiness.
 #define CREAT_SLEEPINESS_MAX  100
 
+/// Amount of steps before updates basic attrs for creature.
+#define CREAT_STEPS           150
+// Amount of steps before updates safety
+#define CREAT_SAFETY_STEPS    16
+// Amount of steps before updates need_in_descendants.
+#define CREAT_DESC_STEPS      1500
+// Amount of steps before updates age.
+#define CREAT_AGE_STEPS      5000 //it is taken from my ceiling
+
 //******************************************************************************
 // HUMANOID'S DEFINES.
 // Prefix: HUM.
