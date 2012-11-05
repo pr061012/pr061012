@@ -40,7 +40,23 @@ public:
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    std::vector <Action *> getActions();
+    std::vector <Action> * getActions();
+
+    //**************************************************************************
+    // HEALTH MANIPULATION.
+    //**************************************************************************
+
+    /**
+     * @brief Decreases building's health.
+     * @param delta health to decrease
+     */
+    void decreaseHealth(unsigned int delta);
+
+    /**
+     * @brief Increases building's health.
+     * @param delta health to increase
+     */
+    void increaseHealth(unsigned int delta);
 
     //**************************************************************************
     // CONTENTS MANIPULATION.
@@ -71,7 +87,7 @@ public:
     void repair(unsigned int delta);
 
     //**************************************************************************
-    // ACCESSORS.
+    // CONTENTS AND SPACE ACCESSORS.
     //**************************************************************************
 
     /**
