@@ -40,9 +40,9 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Makes a next step.
+     * @brief Virtual method of Object class.
      */
-    void step();
+    std::vector <Action>* getActions();
 
 private:
     //**************************************************************************
@@ -90,7 +90,11 @@ private:
     // If = 100, humanoid needs resources.
     /// Need in points.
     unsigned int need_in_points;
-
+private:
+    void updateAge();
+    void updateCommonAttrs();
+    void updateNeedInDesc();
+    void updateSafety();
 
 };
 
