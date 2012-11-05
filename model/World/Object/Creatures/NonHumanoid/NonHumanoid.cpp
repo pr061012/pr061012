@@ -27,8 +27,8 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     setAge(0);
 
     //Initialize of matrix of attr
-    attrs(ATTR_HEALTH,0)         = hunger / max_hunger * 100;
-    attrs(ATTR_SLEEPINESS,0)     = sleepiness / max_sleepiness * 100;
+    attrs(ATTR_HEALTH,0)         = (100 - hunger) / max_hunger * 100;
+    attrs(ATTR_SLEEPINESS,0)     = (100 - sleepiness) / max_sleepiness * 100;
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
     attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy, so it always wants to relax
@@ -71,24 +71,24 @@ std::vector <Action>* NonHumanoid::getActions()
 
 void NonHumanoid::updateAge()
 {
-    this -> age--;
+    this -> age--; // age 0 - NHum is died
     this -> age_steps = CREAT_AGE_STEPS;
 }
 
 void NonHumanoid::updateNeedInDesc()
 {
-    this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
-    this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
+    this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC; // need 0 NHum dont need in descendant
+    this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants; // we dont need in transformation this attr
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
 void NonHumanoid::updateCommonAttrs()
 {
-    this -> hunger     += CREAT_DELTA_HUNGER;
-    this -> sleepiness += CREAT_DELTA_SLEEP;
+    this -> hunger     -= CREAT_DELTA_HUNGER; // so if hunger = 0 NHum is died we need to decrease this attr
+    this -> sleepiness -= CREAT_DELTA_SLEEP;
 
-    this -> attrs(ATTR_HUNGER,0)     = hunger / max_hunger * 100;
-    this -> attrs(ATTR_SLEEPINESS,0) = sleepiness / max_sleepiness * 100; // what about health?
+    this -> attrs(ATTR_HUNGER,0)     = (100 - hunger) / max_hunger * 100; // transformation to matrix attr
+    this -> attrs(ATTR_SLEEPINESS,0) = (100 - sleepiness) / max_sleepiness * 100; // what about health?
 
     this -> common_steps = CREAT_STEPS;
 }
