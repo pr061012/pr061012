@@ -66,7 +66,7 @@ CreatureAction DecisionMaker::makeDecision (mat attrs)
 {
     vector <int> vect_of_actions;
     int max = -1000;
-    CreatureAction decision;
+    CreatureAction decision = NONE;
     int numb_of_decision;
     mat act(ACT_CONST,1);
     act = this->theta*attrs;
