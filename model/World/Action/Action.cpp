@@ -56,7 +56,7 @@ void Action::markAsFailed()
 
 void Action::markAsSucceeded()
 {
-    this -> state = SUCCEED;
+    this -> state = SUCCEEDED;
 }
 
 //******************************************************************************
