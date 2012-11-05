@@ -36,12 +36,13 @@ public:
     ~Humanoid();
 
     //**************************************************************************
-    // HUMANOID'S LOGICS.
+    // HUMANOID'S ACTIONS
     //**************************************************************************
 
     /**
-     * @brief Virtual method of Object class.
-     */
+    * @brief  Gets actions.
+    * @return vector with actions.
+    */
     std::vector <Action>* getActions();
 
 private:
@@ -95,6 +96,16 @@ private:
     void updateCommonAttrs();
     void updateNeedInDesc();
     void updateSafety();
+
+    //**************************************************************************
+    // HUMANOID'S LOGICS.
+    //**************************************************************************
+    /**
+     * @brief Humanoid chooses the next action
+     * @return CratureAction action
+     */
+    CreatureAction chooseAction(); // is it good name?
+
 
 };
 

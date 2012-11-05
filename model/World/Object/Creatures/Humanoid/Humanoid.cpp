@@ -108,6 +108,30 @@ void Humanoid::updateSafety()
     ;
 }
 
+CreatureAction Humanoid::chooseAction()
+{
+    CreatureAction action = NONE;
+    // action = brains -> makeDecision(attrs);
+    // error!!
+
+    // Draft of father processing
+    switch(action)
+    {
+    case EAT: ; break;
+    case SLEEP: ; break;
+    case COMMUNICATE: ; break;
+    case RELAX: ; break;
+    case WORK: ; break;
+    case REALIZE_DREAM: ; break;
+    case ESCAPE: ; break;
+    case BUILD: ; break;
+    case CONTINUE_GENDER: ; break;
+    default: ;
+    }
+
+    return action;
+}
+
 //******************************************************************************
 // HUMANOID'S LOGICS.
 //******************************************************************************
