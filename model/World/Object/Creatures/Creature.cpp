@@ -15,8 +15,9 @@
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
-    brains(dmaker),
-    inventory(new ObjectHeap)
+    inventory(new ObjectHeap),
+    brains(dmaker)
+
 {
     attrs = arma::mat(ATR_CONST, 1);
     // Randomly initialize some values.
@@ -25,14 +26,13 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     int health      = randFromRange(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);
 
     // Initialize other values.
-    hunger      = max_hunger;
-    sleepiness  = max_sleepiness;
+    hunger      = 100 - max_hunger;
+    sleepiness  = 100 - max_sleepiness;
     safety      = 0; // we need in function to calculate it
                      // different for HUM and NON_HUM?
     // Initialize some inhereted things.
     setMaxHealth(health);
     setHealth(health);
-
 
 }
 
