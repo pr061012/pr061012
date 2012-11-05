@@ -97,7 +97,7 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 Object * ObjectFactory::createResource(const ParamArray & params)
 {
     ResourceType type = static_cast<ResourceType>(params.getValue("res_type"));
-    int amount = params.getValue("res_amount");
+    unsigned int amount = params.getValue("res_amount");
 
     return new Resource(type, amount);
 }
@@ -114,6 +114,7 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 Object * ObjectFactory::createWeather(const ParamArray & params)
 {
     WeatherType type = static_cast<WeatherType>(params.getValue("weat_type"));
+    unsigned int steps = params.getValue("weat_steps");
 
-    return new Weather(type);
+    return new Weather(type, steps);
 }

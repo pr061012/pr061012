@@ -12,12 +12,19 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather(WeatherType type) :
+Weather::Weather(WeatherType type, unsigned int living_steps) :
     Object(WEATHER),
     subtype(type),
     covered_objs(new ObjectHeap)
 {
-    this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
+    if(living_steps == 0)
+    {
+        this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
+    }
+    else
+    {
+        this -> steps = living_steps;
+    }
 }
 
 Weather::~Weather()

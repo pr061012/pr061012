@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather(WeatherType type);
+    Weather(WeatherType type, unsigned int living_steps = 0);
 
     /**
      * @brief Destructor.
