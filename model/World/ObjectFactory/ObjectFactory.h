@@ -34,14 +34,16 @@
  *        **Resource**
  *          * *res_type* -- ResourceType (converted to int).
  *          * *res_amount* -- amount of resource (leave 0 to pick random
- *            generated value)
+ *            generated value).
  *
  *        **Tool**
- *          * *tool_type* -- ToolType (converted to int)
- *          * *mat_type* -- ResourceType (converted to int) of material
+ *          * *tool_type* -- ToolType (converted to int).
+ *          * *mat_type* -- ResourceType (converted to int) of material.
+ *          * *tool_str* -- Tool's strength (leave 0 to pick random generated
+ *            value).
  *
  *        **Weather**
- *          * *weat_type* -- WeatherType (converted to int)
+ *          * *weat_type* -- WeatherType (converted to int).
  */
 class ObjectFactory
 {

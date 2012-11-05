@@ -106,8 +106,9 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 {
     ToolType type = static_cast<ToolType>(params.getValue("tool_type"));
     ResourceType mat_type = static_cast<ResourceType>(params.getValue("mat_type"));
+    unsigned int max_strength = params.getValue("tool_str");
 
-    return new Tool(type, mat_type);
+    return new Tool(type, mat_type, max_strength);
 }
 
 Object * ObjectFactory::createWeather(const ParamArray & params)
