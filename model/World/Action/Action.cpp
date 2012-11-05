@@ -40,7 +40,7 @@ bool Action::isFailed() const
     return (this -> state == FAILED);
 }
 
-bool Action::isSucceed() const
+bool Action::isSucceeded() const
 {
     return (this -> state == SUCCEED);
 }
@@ -54,7 +54,7 @@ void Action::markAsFailed()
     this -> state = FAILED;
 }
 
-void Action::markAsSucceed()
+void Action::markAsSucceeded()
 {
     this -> state = SUCCEED;
 }
@@ -77,3 +77,15 @@ int Action::getParam(std::string param) const
 {
     return this -> params.getValue(param);
 }
+
+Object const * Action::getActor() const
+{
+    return actor;
+}
+
+ActionType Action::getType() const
+{
+    return type;
+}
+
+

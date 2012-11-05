@@ -64,10 +64,10 @@ public:
     bool isFailed() const;
 
     /**
-     * @brief  Succeed state checker.
+     * @brief  Succeeded state checker.
      * @return true, if action is succeed
      */
-    bool isSucceed() const;
+    bool isSucceeded() const;
 
     //**************************************************************************
     // STATE'S CHANGERS.
@@ -79,9 +79,9 @@ public:
     void markAsFailed();
 
     /**
-     * @brief Marks action as succeed.
+     * @brief Marks action as succeeded.
      */
-    void markAsSucceed();
+    void markAsSucceeded();
 
     //**************************************************************************
     // ACCESSING PARAMS/PARTICIPANTS.
@@ -108,12 +108,25 @@ public:
     // TODO: Throw an exception when param isn't specified.
     int getParam(std::string param) const;
 
+    /**
+     * @brief  Gets actor
+     * @return action actor
+     */
+    Object const * getActor() const;
+
+    /**
+     * @brief  Gets type of action
+     * @return type of action
+     */
+
+    ActionType getType() const;
+
 private:
     /// Action type.
     const ActionType type;
 
     /// Action's actor.
-    const Object * actor;
+    Object const * actor;
 
     /// Action's participants (without actor).
     std::vector <const Object *> participants;
