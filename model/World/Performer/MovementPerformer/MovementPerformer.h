@@ -1,4 +1,5 @@
 #include "../Performer.h"
+#include "../../Indexator/Indexator.h"
 
 /*
  * @class MovementPerformer
@@ -17,7 +18,8 @@ public:
      * @brief Constructor for a particular world
      * @param world_size size of the world
      */
-    MovementPerformer(double world_size);
+    MovementPerformer(const double world_size,
+                      Indexator& indexator);
 
     /**
      * @brief Destructor
@@ -41,5 +43,8 @@ private:
     //*************************************************************************
     
     /// Size of the world
-    double world_size;
+    const double world_size;
+    
+    /// The reference to worlds indexator
+    Indexator& indexator;
 };

@@ -34,7 +34,7 @@ public:
      * @param type          action's type
      * @param actor         action's actor
      */
-    Action(const ActionType type, const Object * actor);
+    Action(const ActionType type, Object * const actor);
 
     /**
      * @brief Destructor,
@@ -112,7 +112,7 @@ public:
      * @brief  Gets actor
      * @return action actor
      */
-    Object const * getActor() const;
+    Object * const getActor() const;
 
     /**
      * @brief  Gets type of action
@@ -126,7 +126,7 @@ private:
     const ActionType type;
 
     /// Action's actor.
-    Object const * actor;
+    Object * const actor;
 
     /// Action's participants (without actor).
     std::vector <const Object *> participants;

@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-Action::Action(const ActionType type, const Object * actor) :
+Action::Action(const ActionType type, Object * const actor) :
     type(type),
     actor(actor)
 {
@@ -78,7 +78,7 @@ int Action::getParam(std::string param) const
     return this -> params.getValue(param);
 }
 
-Object const * Action::getActor() const
+Object * const Action::getActor() const
 {
     return actor;
 }
