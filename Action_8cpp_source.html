@@ -144,9 +144,9 @@ $(document).ready(function(){initNavTree('Action_8cpp_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">this</span> -&gt; state == <a class="code" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaecedb56d1405a60c6069f4a0139bdec5">FAILED</a>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classAction.html#acee504bea174175f1fc12593228e1096">   43</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classAction.html#acee504bea174175f1fc12593228e1096" title="Succeed state checker.">Action::isSucceed</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266">   43</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266" title="Succeeded state checker.">Action::isSucceeded</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">this</span> -&gt; state == <a class="code" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaac386e3f7922fe3b345dd299a606e3c5">SUCCEED</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">this</span> -&gt; state == <a class="code" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307">SUCCEEDED</a>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//**************************************************************************</span></div>
@@ -158,9 +158,9 @@ $(document).ready(function(){initNavTree('Action_8cpp_source.html','');});
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">this</span> -&gt; state = <a class="code" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaecedb56d1405a60c6069f4a0139bdec5">FAILED</a>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classAction.html#a1a6c4d0b7d71385a0759ae7e7dcb9946" title="Marks action as succeed.">Action::markAsSucceed</a>()</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">Action::markAsSucceeded</a>()</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">this</span> -&gt; state = <a class="code" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaac386e3f7922fe3b345dd299a606e3c5">SUCCEED</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">this</span> -&gt; state = SUCCEED;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//******************************************************************************</span></div>
@@ -181,13 +181,25 @@ $(document).ready(function(){initNavTree('Action_8cpp_source.html','');});
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; params.<a class="code" href="classParamArray.html#a3a190b6df1838a8a4c325d12474fccb0" title="Gets key value by key.">getValue</a>(param);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="classAction.html#a95b6c3cf0a2b80e9f042bed7d60385f5">   81</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> <span class="keyword">const</span> * <a class="code" href="classAction.html#a95b6c3cf0a2b80e9f042bed7d60385f5" title="Gets actor.">Action::getActor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> actor;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b">   86</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b" title="The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in p...">ActionType</a> <a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b" title="Gets type of action.">Action::getType</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> type;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_8acd4a8e73f500427343721508913f2e.html">Action</a></li><li class="navelem"><a class="el" href="Action_8cpp.html">Action.cpp</a></li>
-    <li class="footer">Generated on Mon Nov 5 2012 00:14:59 for pr061012 by
+    <li class="footer">Generated on Mon Nov 5 2012 14:09:58 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['basicdefines_2eh',['BasicDefines.h',['../BasicDefines_8h.html',1,'']]],
-  ['basicfunc_2eh',['BasicFunc.h',['../BasicFunc_8h.html',1,'']]],
+  ['basicfuncs_2eh',['BasicFuncs.h',['../BasicFuncs_8h.html',1,'']]],
   ['basictypes_2eh',['BasicTypes.h',['../BasicTypes_8h.html',1,'']]],
   ['begin',['begin',['../classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15',1,'ObjectHeap::begin(ObjectType type)'],['../classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35',1,'ObjectHeap::begin(ObjectType type) const '],['../classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b',1,'ObjectHeap::begin()'],['../classObjectHeap.html#aa27cac54482c7bf5aab561eddbcaa97a',1,'ObjectHeap::begin() const ']]],
   ['berries',['BERRIES',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444',1,'BasicTypes.h']]],

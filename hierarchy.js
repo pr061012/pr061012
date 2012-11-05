@@ -18,6 +18,9 @@ var hierarchy =
     [ "ObjectFactory", "classObjectFactory.html", null ],
     [ "ObjectHeap", "classObjectHeap.html", null ],
     [ "ParamArray", "classParamArray.html", null ],
+    [ "Performer", "classPerformer.html", [
+      [ "MovementPerformer", "classMovementPerformer.html", null ]
+    ] ],
     [ "Point", "classPoint.html", null ],
     [ "Shape", "classShape.html", null ],
     [ "ViewObject", "classViewObject.html", null ],

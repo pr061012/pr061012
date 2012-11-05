@@ -2,7 +2,6 @@ var searchData=
 [
   ['rain',['RAIN',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe',1,'BasicTypes.h']]],
   ['realize_5fdream',['REALIZE_DREAM',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a6df69f33ea9d53566423bb7d23e6374c',1,'BasicTypes.h']]],
-  ['receivemessage',['receiveMessage',['../classBuilding.html#ababe8155388e3157a188e33cacd12a24',1,'Building']]],
   ['reindexate',['reindexate',['../classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127',1,'Indexator::reindexate(ObjectHeap *objects)'],['../classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8',1,'Indexator::reindexate(Object *object)']]],
   ['relax',['RELAX',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a8abca54580953356d3e1548ddd04a97b',1,'BasicTypes.h']]],
   ['remove',['remove',['../classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028',1,'ObjectHeap']]],
