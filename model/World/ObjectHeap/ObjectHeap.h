@@ -38,6 +38,12 @@ public:
     //**************************************************************************
 
     /**
+     * @brief  get amount of element
+     * @return amount of element
+     */
+    unsigned int getAmount();
+
+    /**
      * @brief  get amount of element this type
      * @param  type object type
      * @return amount of element

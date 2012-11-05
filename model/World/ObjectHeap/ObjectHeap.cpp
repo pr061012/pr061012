@@ -23,6 +23,11 @@ ObjectHeap::~ObjectHeap()
 // GETTING TYPE AMOUNT
 //******************************************************************************
 
+unsigned int ObjectHeap::getAmount()
+{
+    return data[0].size();
+}
+
 unsigned int ObjectHeap::getTypeAmount(ObjectType type)
 {
     // Get type of object.
