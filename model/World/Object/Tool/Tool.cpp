@@ -12,26 +12,48 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Tool::Tool(ToolType type, ResourceType material) :
+Tool::Tool(ToolType type, ResourceType material, unsigned int max_strength) :
     Object(TOOL),
     subtype(type),
     material(material)
 {
-    switch(material)
+    // Trying to create Tool from non-mine resource.
+    if
+    (
+        material != STONE &&
+        material != BRONZE &&
+        material != IRON &&
+        material != SILVER &&
+        material != GOLD
+    )
     {
-        case STONE:  max_strength = TOOL_STONE_STRENGTH;  break;
-        case BRONZE: max_strength = TOOL_BRONZE_STRENGTH; break;
-        case IRON:   max_strength = TOOL_IRON_STRENGTH;   break;
-        case SILVER: max_strength = TOOL_SILVER_STRENGTH; break;
-        case GOLD:   max_strength = TOOL_GOLD_STRENGTH;   break;
-        default:
-            std::cerr << "[ERROR] Tool: tried to create tool with material " <<
-                         "different from mine resource. Maybe it's " <<
-                         "Controller error" << std::endl;
-            max_strength = 0;
-        break;
+        std::cerr << "[ERROR] Tool: tried to create tool with material " <<
+                     "different from mine resource. Maybe it's " <<
+                     "Controller error" << std::endl;
+
+        this -> max_strength     = 0;
+        this -> current_strength = 0;
+        return;
     }
 
+    // Param max_strength is given, ignoring pre-defined values.
+    if(max_strength != 0)
+    {
+        this -> max_strength     = max_strength;
+        this -> current_strength = max_strength;
+        return;
+    }
+
+    // Param max_strength isn't specified, using pre-defined instead.
+    switch(material)
+    {
+        case STONE:  this -> max_strength = TOOL_STONE_STRENGTH;  break;
+        case BRONZE: this -> max_strength = TOOL_BRONZE_STRENGTH; break;
+        case IRON:   this -> max_strength = TOOL_IRON_STRENGTH;   break;
+        case SILVER: this -> max_strength = TOOL_SILVER_STRENGTH; break;
+        case GOLD:   this -> max_strength = TOOL_GOLD_STRENGTH;   break;
+        default: break;
+    }
     this -> current_strength = this -> max_strength;
 }
 
