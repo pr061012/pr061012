@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <cstdlib>
+
 #include "../Object/Building/Building.h"
 #include "../Object/Creatures/Creature.h"
 #include "../Object/Resource/Resource.h"
@@ -17,7 +19,6 @@
 
 ObjectFactory::ObjectFactory()
 {
-
 }
 
 ObjectFactory::~ObjectFactory()
@@ -30,7 +31,7 @@ ObjectFactory::~ObjectFactory()
 
 Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 {
-    Object * object;
+    Object * object = NULL;
 
     switch(type)
     {
