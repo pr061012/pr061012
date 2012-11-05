@@ -50,6 +50,12 @@ private:
     void updateCommonAttrs();
     void updateNeedInDesc();
     void updateSafety();
+
+    /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
+    unsigned int decr_sleep_step;
+
+    /// Current decision of non_hum
+    CreatureAction current_decision;
 };
 
 #endif // NON_HUMANOID_H
