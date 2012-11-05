@@ -77,7 +77,7 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 {
     CreatureType type = static_cast<CreatureType>(params.getValue("creat_type"));
 
-    Object * obj;
+    Object * obj = NULL;
 
     // TODO: How to pass DecisionMaker?
     switch(type)
