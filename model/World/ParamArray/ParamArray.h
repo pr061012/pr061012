@@ -9,6 +9,8 @@
 #include <string>
 #include <map>
 
+#include "EParamArrayBadKey.h"
+
 /**
  * @class ParamArray
  * @brief Assoсiative array (keys are strings, values are ints). Used in
@@ -48,7 +50,7 @@ public:
      * @param  key  key
      * @return key value
      */
-    int getValue(std::string key) const;
+    int getValue(std::string key) const throw(EParamArrayBadKey);
 
     /**
      * @brief  Removes key from param array.
