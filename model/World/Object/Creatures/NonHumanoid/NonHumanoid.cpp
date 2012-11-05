@@ -27,15 +27,15 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     setAge(0);
 
     //Initialize of matrix of attr
-    attrs(0,0) = hunger/max_hunger;
-    attrs(1,0) = sleepiness/max_sleepiness;
-    attrs(2,0) = 0;
-    attrs(3,0) = 0;
-    attrs(4,0) = 100; // our animal is very lazy, so it always wants to relax
-    attrs(5,0) = health/max_health;
-    attrs(6,0) = 0;
-    attrs(7,0) = safety;
-    attrs(8,0) = need_in_descendants;
+    attrs(ATTR_HEALTH,0)         = hunger / max_hunger * 100;
+    attrs(ATTR_SLEEPINESS,0)     = sleepiness / max_sleepiness * 100;
+    attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
+    attrs(ATTR_NEED_IN_POINTS,0) = 0;
+    attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy, so it always wants to relax
+    attrs(ATTR_HEALTH,0)         = (100 - health) / max_health * 100;
+    attrs(ATTR_COMMUNICATION,0)  = 0;
+    attrs(ATTR_SAFETY,0)         = safety;
+    attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
     //Initialize of steps
     age_steps    = CREAT_AGE_STEPS;
@@ -58,13 +58,10 @@ std::vector <Action>* NonHumanoid::getActions()
 
     if(age_steps == 0)
         updateAge();
-
     if(desc_steps == 0)
         updateNeedInDesc();
-
     if(common_steps == 0)
         updateCommonAttrs();
-
     if(safety_steps == 0)
         updateSafety();
 
@@ -80,18 +77,18 @@ void NonHumanoid::updateAge()
 
 void NonHumanoid::updateNeedInDesc()
 {
-    this -> need_in_descendants += 2;
-    this -> attrs(8,0) = need_in_descendants;
+    this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
+    this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
 void NonHumanoid::updateCommonAttrs()
 {
-    this -> hunger     += 2;
-    this -> sleepiness += 1;
+    this -> hunger     += CREAT_DELTA_HUNGER;
+    this -> sleepiness += CREAT_DELTA_SLEEP;
 
-    this -> attrs(0,0) = hunger/max_hunger;
-    this -> attrs(1,0) = sleepiness/max_sleepiness;
+    this -> attrs(ATTR_HUNGER,0)     = hunger / max_hunger * 100;
+    this -> attrs(ATTR_SLEEPINESS,0) = sleepiness / max_sleepiness * 100; // what about health?
 
     this -> common_steps = CREAT_STEPS;
 }
