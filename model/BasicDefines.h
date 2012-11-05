@@ -174,6 +174,8 @@
 
 /// Changes of need in descendant for one step
 #define HUM_DELTA_NEED_IN_DESC    1
+/// Changes of sociability for one step
+#define HUM_DELTA_SOC             1
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.

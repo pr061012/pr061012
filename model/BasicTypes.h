@@ -11,6 +11,11 @@
 #define BASIC_TYPES_H
 
 /**
+ * @brief For more shortness of the code.
+ */
+typedef unsigned int uint;
+
+/**
  * @enum ObjectType
  * @brief The ObjectType enum
  */
@@ -74,7 +79,7 @@ enum CreatureAction
  * @enum CreatureType
  * @brief The CreatureType enum
  */
-enum CreatureType 
+enum CreatureType
 {
     HUMANOID, NON_HUMANOID
 };
@@ -142,7 +147,7 @@ enum ActionType
  */
 enum ActionState
 {
-    PENDING, FAILED, SUCCEED
+    PENDING, FAILED, SUCCEEDED
 };
 
 #endif // BASIC_TYPES_H

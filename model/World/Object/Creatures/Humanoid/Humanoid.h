@@ -36,13 +36,14 @@ public:
     ~Humanoid();
 
     //**************************************************************************
-    // HUMANOID'S LOGICS.
+    // HUMANOID'S ACTIONS
     //**************************************************************************
 
     /**
-     * @brief Makes a next step.
-     */
-    void step();
+    * @brief  Gets actions.
+    * @return vector with actions.
+    */
+    std::vector <Action>* getActions();
 
 private:
     //**************************************************************************
@@ -90,6 +91,20 @@ private:
     // If = 100, humanoid needs resources.
     /// Need in points.
     unsigned int need_in_points;
+private:
+    void updateAge();
+    void updateCommonAttrs();
+    void updateNeedInDesc();
+    void updateSafety();
+
+    //**************************************************************************
+    // HUMANOID'S LOGICS.
+    //**************************************************************************
+    /**
+     * @brief Humanoid chooses the next action
+     * @return CratureAction action
+     */
+    CreatureAction chooseAction(); // is it good name?
 
 
 };

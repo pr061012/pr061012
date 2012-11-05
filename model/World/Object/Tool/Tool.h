@@ -22,7 +22,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Tool(ToolType type, ResourceType material);
+    Tool(ToolType type, ResourceType material, unsigned int max_strength = 0);
 
     /**
      * @brief Destructor.

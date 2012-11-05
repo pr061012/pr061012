@@ -25,13 +25,13 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     int health      = randFromRange(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);
 
     // Initialize other values.
-    hunger      = 100 - max_hunger;
-    sleepiness  = 100 - max_sleepiness;
-    safety      = 0; //we need in function to calculate it
-                     //different for HUM and NON_HUM?
+    hunger      = max_hunger;
+    sleepiness  = max_sleepiness;
+    safety      = 0; // we need in function to calculate it
+                     // different for HUM and NON_HUM?
     // Initialize some inhereted things.
     setMaxHealth(health);
-    setHealth(100 - health);
+    setHealth(health);
 
 
 }

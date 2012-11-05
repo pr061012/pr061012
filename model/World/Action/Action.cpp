@@ -42,7 +42,7 @@ bool Action::isFailed() const
 
 bool Action::isSucceeded() const
 {
-    return (this -> state == SUCCEED);
+    return (this -> state == SUCCEEDED);
 }
 
 //**************************************************************************
@@ -56,7 +56,7 @@ void Action::markAsFailed()
 
 void Action::markAsSucceeded()
 {
-    this -> state = SUCCEED;
+    this -> state = SUCCEEDED;
 }
 
 //******************************************************************************

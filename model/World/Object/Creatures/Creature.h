@@ -133,9 +133,6 @@ private:
     /// Creature's type.
     const CreatureType subtype;
 
-    /// Reference to creature's DecisionMaker.
-    const DecisionMaker & brains;
-
     /// Creature's window with visible objects.
     const ObjectHeap * window;
 
@@ -153,6 +150,9 @@ protected:
      * @brief Matrix of attributes
      */
     arma::mat attrs;
+
+    /// Reference to creature's DecisionMaker.
+    const DecisionMaker & brains;
 
     /// Current age.
     unsigned int age;
