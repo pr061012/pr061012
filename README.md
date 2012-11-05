@@ -10,24 +10,14 @@ ToDo
 
 *Right now!*
 
-1. Add logger (or just use cerr?)
-2. Add classes:
+1. Add classes:
    * Action (exception)
    * Controller & PossibilityChecker
-   * ObjectHeap::iterator
    * SpellTree
-3. Add interfaces:
-   * IWorld
+2. Add interfaces:
    * IGod
-4. Decide about:
-   * Tool::material_type is needed?
-   * Tool::max_quality?
-   * Humanoid::owned_objs and viewed_objs are ObjectHeaps or vectors?
+3. Decide about:
    * SpeelTree -- inner struct
-   * IWorld -- methods
-   * how Controller changes world?
-   * ObjectFactory -- map[string] -> void * or int?
-   * Indexator -- inner struct
 
 *In future:*
 
