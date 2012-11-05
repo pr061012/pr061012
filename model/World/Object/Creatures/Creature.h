@@ -187,4 +187,5 @@ private:
 
 };
 
+
 #endif // CREATURE_H
