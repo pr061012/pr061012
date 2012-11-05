@@ -11,6 +11,11 @@
 #define BASIC_TYPES_H
 
 /**
+ * @brief For more shortness of the code.
+ */
+typedef unsigned int uint;
+
+/**
  * @enum ObjectType
  * @brief The ObjectType enum
  */
