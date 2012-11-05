@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <iostream>
+
 #include "ParamArray.h"
 
 //**************************************************************************
@@ -21,6 +23,9 @@ int ParamArray::getValue(std::string key) const
     if(iter == map.end())
     {
         // TODO: Throw an exception.
+        std::cerr << "[WARN] ParamArray: tried to get value by key, which " <<
+                     "doesn't seem to be existed (key is '" << key << "')." <<
+                     std::endl;
     }
 
     return iter -> second;
@@ -32,6 +37,9 @@ bool ParamArray::removeKey(std::string key)
 
     if(iter == map.end())
     {
+        std::cerr << "[WARN] ParamArray: tried to delete key, which doesn't " <<
+                     "seem to be be existed (key is '" << key << "')." <<
+                     std::endl;
         return false;
     }
 
