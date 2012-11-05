@@ -12,6 +12,8 @@
 Building::Building(unsigned int max_space, unsigned int max_health) :
     Object(BUILDING),
     contents(new ObjectHeap),
+    health(0),
+    max_health(max_health),
     max_space(max_space),
     completeness(false)
 {
@@ -29,12 +31,8 @@ Building::~Building()
 
 std::vector <Action *> Building::getActions()
 {
-
-}
-
-void Building::receiveMessage(Action * action)
-{
-
+    this -> actions.clear();
+    return &(this -> actions);
 }
 
 //******************************************************************************
@@ -69,7 +67,7 @@ void Building::repair(unsigned int delta)
 // ACCESSORS.
 //******************************************************************************
 
-const ObjectHeap * Building::getContents()
+ObjectHeap * Building::getContents()
 {
     return this -> contents;
 }
@@ -77,11 +75,6 @@ const ObjectHeap * Building::getContents()
 unsigned int Building::getFreeSpace()
 {
     return this -> free_space;
-}
-
-void Building::setMaxSpace(unsigned int new_var)
-{
-    this -> max_space = new_var;
 }
 
 unsigned int Building::getMaxSpace()

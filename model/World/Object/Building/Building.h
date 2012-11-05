@@ -42,12 +42,6 @@ public:
      */
     std::vector <Action *> getActions();
 
-    /**
-     * @brief Receives message.
-     * @param action    message
-     */
-    void receiveMessage(Action * action);
-
     //**************************************************************************
     // CONTENTS MANIPULATION.
     //**************************************************************************
@@ -84,19 +78,13 @@ public:
      * @brief  Get the value of contents.
      * @return the value of contents
      */
-    const ObjectHeap * getContents();
+    ObjectHeap * getContents();
 
     /**
      * @brief  Get the value of free_space.
      * @return the value of free_space
      */
     unsigned int getFreeSpace();
-
-    /**
-     * @brief Set the value of max_space.
-     * @param new_var the new value of max_space
-     */
-    void setMaxSpace(unsigned int new_var);
 
     /**
      * @brief  Get the value of max_space.
@@ -113,6 +101,11 @@ public:
 private:
     /// Building contents.
     ObjectHeap * contents;
+
+    /// Building's health.
+    unsigned int health;
+    /// Building's maximum health.
+    unsigned int max_health;
 
     /// Free space.
     unsigned int free_space;
