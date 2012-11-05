@@ -124,6 +124,9 @@
 /// Changes of sleepiness for one step
 #define CREAT_DELTA_SLEEP     1
 
+/// When safety is more than this const, creature makes new decision
+#define CREAT_SAF_CRIT_CONST  50
+
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
 // Prefix: ATTR.
@@ -191,5 +194,8 @@
 
 /// Changes of need_in_descendant for one step
 #define NHUM_DELTA_NEED_IN_DESC   2
+
+/// Amount of steps to decrease sleepiness
+#define NHUM_DECR_SLEEP_STEPS     100
 
 #endif // DEFINES_H
