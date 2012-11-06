@@ -136,7 +136,7 @@
 #define ATTR_HUNGER              0
 /// Attribute sleepiness
 #define ATTR_SLEEPINESS          1
-///Attribute need_in_house
+/// Attribute need_in_house
 #define ATTR_NEED_IN_HOUSE       2
 /// Attribute need in points
 #define ATTR_NEED_IN_POINTS      3
@@ -151,14 +151,12 @@
 /// Attribute need in descendant
 #define ATTR_NEED_IN_DESC        8
 
-//
 //******************************************************************************
 // HUMANOID'S DEFINES.
 // Prefix: HUM.
 //******************************************************************************
 
 // Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].
-
 
 /// Minimum possible value of humanoid's max_age.
 #define HUM_AGE_MIN         40
