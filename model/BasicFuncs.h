@@ -7,7 +7,7 @@
 #define BASIC_FUNC_H
 
 /**
- * @brief The generator of random value
+ * @brief Returns random number from range [low_boundary, top_boundary].
  */
 static inline int randFromRange(int low_boundary, int top_boundary)
 {
