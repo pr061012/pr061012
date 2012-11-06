@@ -1,3 +1,11 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
+
+#ifndef MOVEMENT_PERFORMER_H__
+#define MOVEMENT_PERFORMER_H__
+
 #include "../Performer.h"
 #include "../../../../model/World/Indexator/Indexator.h"
 
@@ -48,3 +56,5 @@ private:
     /// The reference to worlds indexator
     Indexator& indexator;
 };
+
+#endif

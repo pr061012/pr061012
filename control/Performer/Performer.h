@@ -3,6 +3,9 @@
     See the LICENSE file for copying permission.
 */
 
+#ifndef PERFORMER_H__
+#define PERFORMER_H__
+
 #include "../../model/World/Action/Action.h"
 
 /**
@@ -37,3 +40,5 @@ public:
      */
     virtual void perform(Action& action) = 0;
 };
+
+#endif

@@ -1,5 +1,10 @@
-#ifndef CONTROLLER_H_
-#define CONTROLLER_H_
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
+
+#ifndef CONTROLLER_H__
+#define CONTROLLER_H__
 
 #include "../../model/World/World.h"
 #include "../Performer/Performer.h"
