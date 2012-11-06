@@ -147,7 +147,33 @@ enum ActionType
  */
 enum ActionState
 {
-    PENDING, FAILED, SUCCEEDED
+    /// Action is pending.
+    PENDING,
+
+    /// Action is failed (not allowed to do this action).
+    FAILED,
+
+    /// Action is succeeded (allowed to do this action).
+    SUCCEEDED,
+
+    /// @brief Action is not entirely succeeded (there were errors, but the part
+    ///        of the action was done).
+    SUCCEEDED_WITH_ERRORS
+};
+
+/**
+ * @enum  ActionError
+ * @brief The ActionError enum
+ */
+enum ActionError
+{
+    OBJ_IS_OUT_OF_RANGE,
+    OBJ_IS_OUT_OF_VIEW,
+    OBJ_IS_IMMORTAL,
+    OBJ_IS_NOT_REPAIRABLE,
+    OBJ_IS_NOT_MINEABLE,
+    OBJ_IS_NOT_CREATABLE,
+    OBJ_IS_NOT_PICKABLE
 };
 
 #endif // BASIC_TYPES_H
