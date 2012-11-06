@@ -124,6 +124,9 @@
 /// Changes of sleepiness for one step
 #define CREAT_DELTA_SLEEP     1
 
+/// When safety is more than this const, creature makes new decision
+#define CREAT_SAF_CRIT_CONST  50
+
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
 // Prefix: ATTR.
@@ -133,7 +136,7 @@
 #define ATTR_HUNGER              0
 /// Attribute sleepiness
 #define ATTR_SLEEPINESS          1
-///Attribute need_in_house
+/// Attribute need_in_house
 #define ATTR_NEED_IN_HOUSE       2
 /// Attribute need in points
 #define ATTR_NEED_IN_POINTS      3
@@ -148,14 +151,12 @@
 /// Attribute need in descendant
 #define ATTR_NEED_IN_DESC        8
 
-//
 //******************************************************************************
 // HUMANOID'S DEFINES.
 // Prefix: HUM.
 //******************************************************************************
 
 // Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].
-
 
 /// Minimum possible value of humanoid's max_age.
 #define HUM_AGE_MIN         40
@@ -191,5 +192,8 @@
 
 /// Changes of need_in_descendant for one step
 #define NHUM_DELTA_NEED_IN_DESC   2
+
+/// Amount of steps to decrease sleepiness
+#define NHUM_DECR_SLEEP_STEPS     100
 
 #endif // DEFINES_H
