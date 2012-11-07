@@ -9,11 +9,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <vector>
+#include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
 #include "../../view/ViewObject.h"
 #include "Indexator/Indexator.h"
-#include "IWorld.h"
 
 
 /**
@@ -27,7 +27,7 @@
   * @brief Class containing methods for primary model interaction
   */
 
-class World : IWorld
+class World : public IWorld
 {
 public:
     //**************************************************************************
@@ -56,6 +56,12 @@ public:
      * @param rand_seed
      */
     World(int rand_seed, int width, int height);
+
+    /**
+     * @brief Performs god action
+     * @param action
+     */
+    void addGodAction(/*IGod* god, */Action* action);
 
 private:
     /// Size of World's region

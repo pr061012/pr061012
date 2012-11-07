@@ -1,11 +1,11 @@
-//#include "../../model/World/IWorld.h"
+#include "../../model/World/IWorld.h"
 #include "../../model/World/World.h"
-//#include "../../view/WorldRenderer.h"
+#include "../../view/WorldRenderer.h"
 
 int main()
 {
     World* w = new World();
-//    WorldRenderer* view = new WorldRenderer(w);
+    WorldRenderer* view = new WorldRenderer(w);
 
-//    view->drawingLoop();
+    view->drawingLoop();
 }

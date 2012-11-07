@@ -4,7 +4,7 @@
 #include "../BasicTypes.h"
 #include "../../view/ViewObject.h"
 #include "Action/Action.h"
-#include "../God/God.h"
+//#include "../God/God.h"
 
 class IWorld
 {

@@ -61,6 +61,10 @@ World::World(int rand_seed, int width, int height) :
     // object_factory->createObject(HUMANOID, params);
 }
 
+void World::addGodAction(Action *action)
+{
+}
+
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
