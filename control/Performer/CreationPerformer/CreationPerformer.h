@@ -3,14 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef MOVEMENT_PERFORMER_H__
-#define MOVEMENT_PERFORMER_H__
+#ifndef CREATION_PERFORMER_H__
+#define CREATION_PERFORMER_H__
 
 #include "../Performer.h"
 
 /**
  * @class CreationPerformer
- * @brief Performs a create if it is possible
+ * @brief Performs a creation if it is possible
  */
 class CreationPerformer : public Performer
 {
