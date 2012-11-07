@@ -7,16 +7,30 @@
  * @file BasicTypes.h
  */
  
-#ifndef DEFINES_H
-#define DEFINES_H
+#ifndef BASIC_DEFINES_H
+#define BASIC_DEFINES_H
 
 //******************************************************************************
 // TIME DEFINES.
-// Prefix: TIME.
+// Prefix: TM.
 //******************************************************************************
 
 /// Amount of controller ticks (which change the world) in one second.
-#define TIME_TICKS_PER_SECOND   32
+#define TM_TICKS_PER_SECOND     32
+
+//******************************************************************************
+// SIZE DEFINES.
+// Prefix: SZ.
+//******************************************************************************
+
+/// Humanoid size.
+#define SZ_HUMANOID_DIAMETER    (double) 1
+
+/// Building side (minimum size).
+#define SZ_BUILDING_SIDE_MIN    3 * SZ_HUMANOID_DIAMETER
+
+/// Building side (maximum size).
+#define SZ_BUILDING_SIDE_MAX    10 * SZ_HUMANOID_DIAMETER
 
 //******************************************************************************
 // WEATHER DEFINES.
@@ -208,4 +222,4 @@
 /// Amount of steps to decrease sleepiness
 #define NHUM_DECR_SLEEP_STEPS     100
 
-#endif // DEFINES_H
+#endif // BASIC_DEFINES_H
