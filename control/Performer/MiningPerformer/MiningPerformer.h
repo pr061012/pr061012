@@ -3,14 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef MOVEMENT_PERFORMER_H__
-#define MOVEMENT_PERFORMER_H__
+#ifndef MINING_PERFORMER_H__
+#define MINING_PERFORMER_H__
 
 #include "../Performer.h"
 
 /**
  * @class MiningPerformer
- * @brief Performs a mine if it is possible
+ * @brief Performs a mining if it is possible
  */
 class MiningPerformer : public Performer
 {
