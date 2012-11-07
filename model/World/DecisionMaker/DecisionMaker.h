@@ -50,8 +50,14 @@ public:
      * @param  attrs    vector of creature's attributes
      * @return int      next action
      */
-    // TODO: Add enum for creatures's actions.
     CreatureAction makeDecision (arma::mat attrs) const;
+    /**
+     * @brief  Calculate the difference between current decision and other actions.
+     * @param  attrs           vector of creature's attributes
+     * @param  CreatureAction  current decision of creature
+     * @return bool            true if we need to change our decision
+     */
+    bool changeDecision (arma::mat attrs, CreatureAction current_decision) const;
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
