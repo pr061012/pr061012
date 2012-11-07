@@ -18,6 +18,7 @@ var BasicTypes_8h =
     ] ],
     [ "ActionType", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b", [
       [ "GO", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985", null ],
+      [ "MOVE", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62", null ],
       [ "MINE", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069", null ],
       [ "REPAIR", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba5eb9ee68da6f53f093f426c049b5eee0", null ],
       [ "HARM_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b", null ],

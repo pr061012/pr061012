@@ -139,24 +139,24 @@ $(document).ready(function(){initNavTree('DecisionMaker_8h_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// PREDICTION.</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// TODO: Add enum for creatures&#39;s actions.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> <a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c" title="Makes a creature&#39;s decision about next action.">makeDecision</a> (arma::mat attrs) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// TODO: Move here and in constructo Matrix by own or armadillo type.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    arma:: mat theta;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> <a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c" title="Makes a creature&#39;s decision about next action.">makeDecision</a> (arma::mat attrs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDecisionMaker.html#a2b16c79c954ecc7974eaeabef7de4174" title="Calculate the difference between current decision and other actions.">changeDecision</a> (arma::mat attrs, <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> current_decision) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif // DECISION_MAKER_H</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// TODO: Move here and in constructo Matrix by own or armadillo type.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    arma:: mat theta;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // DECISION_MAKER_H</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_37a7fb4939ea20255b8443f0fa7b8d58.html">DecisionMaker</a></li><li class="navelem"><a class="el" href="DecisionMaker_8h.html">DecisionMaker.h</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 16:16:01 for pr061012 by
+    <li class="footer">Generated on Wed Nov 7 2012 22:13:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

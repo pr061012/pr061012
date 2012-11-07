@@ -27,6 +27,5 @@ var hierarchy =
     [ "Point", "classPoint.html", null ],
     [ "Shape", "classShape.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
-    [ "VisualState", "classVisualState.html", null ],
     [ "World", "classWorld.html", null ]
 ];

@@ -35,5 +35,14 @@ var searchData=
   ['storm',['STORM',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a018159d526e860dc987901467c8660cb',1,'BasicTypes.h']]],
   ['succeeded',['SUCCEEDED',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307',1,'BasicTypes.h']]],
   ['succeeded_5fwith_5ferrors',['SUCCEEDED_WITH_ERRORS',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea770a5f0ee68e10aaa475be60af854ced',1,'BasicTypes.h']]],
-  ['sword',['SWORD',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a498dbd887571859774972f271edfdc3c',1,'BasicTypes.h']]]
+  ['sword',['SWORD',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a498dbd887571859774972f271edfdc3c',1,'BasicTypes.h']]],
+  ['sz_5fbuilding_5fside_5fmax',['SZ_BUILDING_SIDE_MAX',['../BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3',1,'BasicDefines.h']]],
+  ['sz_5fbuilding_5fside_5fmin',['SZ_BUILDING_SIDE_MIN',['../BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f',1,'BasicDefines.h']]],
+  ['sz_5fhumanoid_5fdiam',['SZ_HUMANOID_DIAM',['../BasicDefines_8h.html#ae41e784d873f8eb34ba96081fa2635a7',1,'BasicDefines.h']]],
+  ['sz_5fresource_5fdiam_5fmax',['SZ_RESOURCE_DIAM_MAX',['../BasicDefines_8h.html#a740e950101bb317f2e762106401922bb',1,'BasicDefines.h']]],
+  ['sz_5fresource_5fdiam_5fmin',['SZ_RESOURCE_DIAM_MIN',['../BasicDefines_8h.html#a4bb4a5798963edc76911af93fe3ba291',1,'BasicDefines.h']]],
+  ['sz_5fweather_5fdiam_5fmax',['SZ_WEATHER_DIAM_MAX',['../BasicDefines_8h.html#ae3a928147d93d1af99600183361fdf91',1,'BasicDefines.h']]],
+  ['sz_5fweather_5fdiam_5fmin',['SZ_WEATHER_DIAM_MIN',['../BasicDefines_8h.html#a07348cb586b9d51bade5116a23a93f19',1,'BasicDefines.h']]],
+  ['sz_5fworld_5fhside',['SZ_WORLD_HSIDE',['../BasicDefines_8h.html#a113d8e5b968b4f899b27e7647fff9d46',1,'BasicDefines.h']]],
+  ['sz_5fworld_5fvside',['SZ_WORLD_VSIDE',['../BasicDefines_8h.html#afc389381096b3625e20a7a5116ea63a4',1,'BasicDefines.h']]]
 ];

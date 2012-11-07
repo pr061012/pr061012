@@ -195,11 +195,12 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:a5bc40f1116d89138cda8ebd1a04694df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The CreatureType enum.  <a href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df">More...</a><br/></td></tr>
 <tr class="memitem:a21d5e8f8cdaa838586b31007df0a950b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b">ActionType</a> { <br/>
 &#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985">GO</a>, 
+<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62">MOVE</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069">MINE</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba5eb9ee68da6f53f093f426c049b5eee0">REPAIR</a>, 
-<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b">HARM_OBJS</a>, 
 <br/>
-&#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff">CREATE_OBJ</a>, 
+&#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b">HARM_OBJS</a>, 
+<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff">CREATE_OBJ</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba3cf84148e5f0e4be54e30cee67546602">DROP_OBJS</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba29fb3ed81fd7105b4664ad336e15a5ea">PICK_UP_OBJS</a>
 <br/>
@@ -275,7 +276,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00168">168</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00175">175</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +308,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00148">148</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00155">155</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -324,10 +325,16 @@ Enumerations</h2></td></tr>
 <p>The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in participants array. <em>Example</em>: action MINE, actor is <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>, participants are <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> (index is 0) and <a class="el" href="classTool.html" title="Tool class.">Tool</a> (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id (= 1). </p>
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985"></a>GO</em>&nbsp;</td><td>
-<p>Description: Move object to (x+delta_x, y+delta_y) point. <br/>
- Actor: <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> <br/>
+<p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> goes to to another point (direction is set by angle). <br/>
+ Actor: Creature/Weather <br/>
  Participants: none <br/>
- Parameters: delta_x, delta_y. </p>
+ Parameters: angle, speed. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62"></a>MOVE</em>&nbsp;</td><td>
+<p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> moves another object. <br/>
+ Actor: <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> <br/>
+ Participants: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> <br/>
+ Parameters: angle, speed. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069"></a>MINE</em>&nbsp;</td><td>
 <p>Description: <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> mining by tool. <br/>
@@ -601,7 +608,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="BasicTypes_8h.html">BasicTypes.h</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 16:16:02 for pr061012 by
+    <li class="footer">Generated on Wed Nov 7 2012 22:13:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

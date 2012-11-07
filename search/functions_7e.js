@@ -20,7 +20,6 @@ var searchData=
   ['_7eshape',['~Shape',['../classShape.html#a935afc9e576015f967d90de56977167d',1,'Shape']]],
   ['_7etool',['~Tool',['../classTool.html#a44634ea099b7a49acf87f50e072ce660',1,'Tool']]],
   ['_7eviewobject',['~ViewObject',['../classViewObject.html#af4f968a145747cc2b84fd224ac72122b',1,'ViewObject']]],
-  ['_7evisualstate',['~VisualState',['../classVisualState.html#a382d8a6c302989150871beffaa84f6c4',1,'VisualState']]],
   ['_7eweather',['~Weather',['../classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22',1,'Weather']]],
   ['_7eworld',['~World',['../classWorld.html#a8c73fba541a5817fff65147ba47cd827',1,'World']]]
 ];

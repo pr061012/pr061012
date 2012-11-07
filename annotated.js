@@ -22,7 +22,6 @@ var annotated =
     [ "Shape", "classShape.html", "classShape" ],
     [ "Tool", "classTool.html", "classTool" ],
     [ "ViewObject", "classViewObject.html", "classViewObject" ],
-    [ "VisualState", "classVisualState.html", "classVisualState" ],
     [ "Weather", "classWeather.html", "classWeather" ],
     [ "World", "classWorld.html", "classWorld" ]
 ];
