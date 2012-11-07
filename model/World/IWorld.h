@@ -22,7 +22,7 @@ public:
     // WORLD <-> VIEW METHODS.
     //******************************************************************************
 
-    virtual std::vector <ViewObject*> getViewObjectsInRange(double x, double y, double radius) = 0;
+    virtual Object** getViewObjectsInRange(double x, double y, double radius) = 0;
 
     virtual WeatherType getWeatherAtPoint(double x, double y) = 0;
 };

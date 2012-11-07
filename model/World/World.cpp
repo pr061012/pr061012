@@ -94,7 +94,7 @@ ObjectHeap World::getAllObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-std::vector <ViewObject*> World::getViewObjectsInRange(double x, double y, double radius)
+Object** World::getViewObjectsInRange(double x, double y, double radius)
 {
     // Check all_objects in certain range and create array
     // of (tiny) objects containing neccessary parameters.

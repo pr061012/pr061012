@@ -13,6 +13,7 @@
 #include "ObjectFactory/ObjectFactory.h"
 #include "../../view/ViewObject.h"
 #include "Indexator/Indexator.h"
+#include "IWorld.h"
 
 
 /**
@@ -26,7 +27,7 @@
   * @brief Class containing methods for primary model interaction
   */
 
-class World
+class World : IWorld
 {
 public:
     //**************************************************************************
@@ -118,8 +119,9 @@ public:
      * @param radius maximal distance from screen center at which object is visible
      * @param size number of ViewObject instances created
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
+     *         array is return null-terminated
      */
-    std::vector <ViewObject*> getViewObjectsInRange(double x, double y, double radius);
+    Object** getViewObjectsInRange(double x, double y, double radius);
 
     /**
      * @brief Get weather state at certain coordinates
