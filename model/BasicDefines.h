@@ -151,13 +151,13 @@
 #define CREAT_SLEEPINESS_MAX  100
 
 /// Amount of steps before updates basic attrs for creature.
-#define CREAT_STEPS           150
+#define CREAT_STEPS           15 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates safety
-#define CREAT_SAFETY_STEPS    16
+#define CREAT_SAFETY_STEPS    1 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates need_in_descendants.
-#define CREAT_DESC_STEPS      1500
+#define CREAT_DESC_STEPS      150 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates age.
-#define CREAT_AGE_STEPS       5000 //it is taken from my ceiling
+#define CREAT_AGE_STEPS       500 * TM_TICKS_PER_SECOND
 
 /// Changes of hunger for one step
 #define CREAT_DELTA_HUNGER    2
