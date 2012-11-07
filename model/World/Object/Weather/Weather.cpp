@@ -12,7 +12,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather(WeatherType type, unsigned int living_steps) :
+Weather::Weather(WeatherType type, uint living_steps) :
     Object(WEATHER),
     subtype(type),
     covered_objs(new ObjectHeap)
@@ -89,7 +89,7 @@ ObjectHeap * Weather::getCoveredObjects()
     return this -> covered_objs;
 }
 
-unsigned int Weather::getLivingSteps() const
+uint Weather::getLivingSteps() const
 {
     return this -> steps;
 }
