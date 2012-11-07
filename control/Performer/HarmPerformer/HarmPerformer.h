@@ -3,8 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef MOVEMENT_PERFORMER_H__
-#define MOVEMENT_PERFORMER_H__
+#ifndef HARM_PERFORMER_H__
+#define HARM_PERFORMER_H__
 
 #include "../Performer.h"
 
