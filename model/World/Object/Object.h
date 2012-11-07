@@ -45,7 +45,6 @@ public:
 
     /**
      * @brief Receives message.
-     * @param action    message
      */
     // TODO: Uncomment when we need it.
     //virtual void receiveMessage(Action * action) = 0;

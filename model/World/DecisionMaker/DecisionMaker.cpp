@@ -4,6 +4,7 @@
 */
 
 #include "DecisionMaker.h"
+#include "../../BasicDefines.h"
   	
 using namespace std;
 using namespace arma;
@@ -62,6 +63,36 @@ DecisionMaker::~DecisionMaker()
 // PREDICTION.
 //******************************************************************************
 
+bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_decision) const
+{
+    mat act(ACT_CONST,1);
+    unsigned int index;
+    act = this -> theta * attrs;
+
+    switch(current_decision)
+    {
+    case SLEEP:           index = 0; break;
+    case BUILD:           index = 1; break;
+    case WORK:            index = 2; break;
+    case EAT:             index = 3; break;
+    case RELAX:           index = 4; break;
+    case COMMUNICATE:     index = 5; break;
+    case ESCAPE:          index = 6; break;
+    case REALIZE_DREAM:   index = 7; break;
+    case CONTINUE_GENDER: index = 8; break;
+    default: ;
+    }
+
+    for (int i = 0; i < ACT_CONST; i++)
+    {
+        if(act(i,0) - act(index,i) > CREAT_CRIT_CONST)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 CreatureAction DecisionMaker::makeDecision (mat attrs) const
 {
     vector <int> vect_of_actions;
@@ -69,8 +100,8 @@ CreatureAction DecisionMaker::makeDecision (mat attrs) const
     CreatureAction decision = NONE;
     int numb_of_decision;
     mat act(ACT_CONST,1);
-    act = this->theta*attrs;
-    act(7,0)+=550;
+    act = this -> theta * attrs;
+    act(7,0) += 550;
 
     for(int i = 0; i < ACT_CONST; i++)
     {

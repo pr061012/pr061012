@@ -110,13 +110,13 @@ public:
 	/**
      * @brief   Tests if a Shape intersects with another Shape.
      * @return  true or false
-     * @param   Shape   Shape to test
+     * @param   shape   Shape to test
 	 */
     bool hitTest (const Shape& shape) const;
 
     /**
      * @brief   Get intersections of minimal bounding boxes with another shape.
-     * @param   Shape   another shape
+     * @param   shape   another shape
      * @return  flags of intersections
      */
     int intersect(const Shape& shape);

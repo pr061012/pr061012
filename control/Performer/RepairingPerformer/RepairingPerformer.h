@@ -1,12 +1,18 @@
-#include "../Performer.h"
-#include "../../Indexator/Indexator.h"
-
 /*
- * @class MovementPerformer
- * @brief Performs a move if it is possible
- */
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
 
-class MovementPerformer : public Performer
+#ifndef REPAIRING_PERFORMER_H__
+#define REPAIRING_PERFORMER_H__
+
+#include "../Performer.h"
+
+/**
+ * @class RepairingPerformer
+ * @brief Performs a repair if it is possible
+ */
+class RepairingPerformer : public Performer
 {
 public:
     
@@ -15,25 +21,22 @@ public:
     //*************************************************************************
 
     /**
-     * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @brief Constructor
      */
-    MovementPerformer(const double world_size,
-                      Indexator& indexator);
+    RepairingPerformer();
 
     /**
      * @brief Destructor
      */
-    ~MovementPerformer();
+    ~RepairingPerformer();
 
     //*************************************************************************
     //  PERFORM
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can repair and repair it
+     * @param action a request for repairing
      */
     void perform(Action& action);
 
@@ -42,10 +45,7 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-    
-    /// Size of the world
-    const double world_size;
-    
-    /// The reference to worlds indexator
-    Indexator& indexator;
+
 };
+
+#endif

@@ -54,6 +54,8 @@ public:
     /**
      * @brief World generation by given seed and by specific width/height.
      * @param rand_seed
+     * @param width
+     * @param height
      */
     World(int rand_seed, int width, int height);
 

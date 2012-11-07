@@ -1,12 +1,18 @@
-#include "../Performer.h"
-#include "../../Indexator/Indexator.h"
-
 /*
- * @class MovementPerformer
- * @brief Performs a move if it is possible
- */
+    Copyright (c) 2012, pr061012 Team.
+    See the LICENSE file for copying permission.
+*/
 
-class MovementPerformer : public Performer
+#ifndef MINING_PERFORMER_H__
+#define MINING_PERFORMER_H__
+
+#include "../Performer.h"
+
+/**
+ * @class MiningPerformer
+ * @brief Performs a mining if it is possible
+ */
+class MiningPerformer : public Performer
 {
 public:
     
@@ -15,25 +21,22 @@ public:
     //*************************************************************************
 
     /**
-     * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @brief Constructor
      */
-    MovementPerformer(const double world_size,
-                      Indexator& indexator);
+    MiningPerformer();
 
     /**
      * @brief Destructor
      */
-    ~MovementPerformer();
+    ~MiningPerformer();
 
     //*************************************************************************
     //  PERFORM
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can mine and mine it
+     * @param action a request for mining
      */
     void perform(Action& action);
 
@@ -42,10 +45,6 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-    
-    /// Size of the world
-    const double world_size;
-    
-    /// The reference to worlds indexator
-    Indexator& indexator;
 };
+
+#endif
