@@ -12,6 +12,7 @@ var classObjectHeap =
     [ "end", "classObjectHeap.html#a9e0ace11a93deb7163989cf6e3f4e88f", null ],
     [ "end", "classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe", null ],
     [ "end", "classObjectHeap.html#a366c6aedfc59ff2f84b70e68e1a4d266", null ],
+    [ "getAmount", "classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd", null ],
     [ "getTypeAmount", "classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a", null ],
     [ "push", "classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6", null ],
     [ "remove", "classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028", null ]

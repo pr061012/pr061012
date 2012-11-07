@@ -1,7 +1,9 @@
 var hierarchy =
 [
     [ "Action", "classAction.html", null ],
+    [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
+    [ "EParamArrayBadKey", "classEParamArrayBadKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
     [ "IWorld", "classIWorld.html", null ],
@@ -19,6 +21,7 @@ var hierarchy =
     [ "ObjectHeap", "classObjectHeap.html", null ],
     [ "ParamArray", "classParamArray.html", null ],
     [ "Performer", "classPerformer.html", [
+      [ "MovementPerformer", "classMovementPerformer.html", null ],
       [ "MovementPerformer", "classMovementPerformer.html", null ]
     ] ],
     [ "Point", "classPoint.html", null ],

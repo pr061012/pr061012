@@ -124,8 +124,8 @@ Inheritance diagram for Tool:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e6b6d2a8d082c06deb944f57fbf9847"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847">Tool</a> (<a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a> type, <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> material)</td></tr>
-<tr class="memdesc:a8e6b6d2a8d082c06deb944f57fbf9847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a8e6b6d2a8d082c06deb944f57fbf9847"></a><br/></td></tr>
+<tr class="memitem:afd490690f7bafe348d845b4e37688be4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#afd490690f7bafe348d845b4e37688be4">Tool</a> (<a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a> type, <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> material, unsigned int max_strength=0)</td></tr>
+<tr class="memdesc:afd490690f7bafe348d845b4e37688be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#afd490690f7bafe348d845b4e37688be4"></a><br/></td></tr>
 <tr class="memitem:a44634ea099b7a49acf87f50e072ce660"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a44634ea099b7a49acf87f50e072ce660">~Tool</a> ()</td></tr>
 <tr class="memdesc:a44634ea099b7a49acf87f50e072ce660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a44634ea099b7a49acf87f50e072ce660"></a><br/></td></tr>
 <tr class="memitem:a022fd16d7301835eff8324ef8447d90c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">getActions</a> ()</td></tr>
@@ -183,7 +183,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Tool_8h_source.html#l00015">15</a> of file <a class="el" href="Tool_8h_source.html">Tool.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8e6b6d2a8d082c06deb944f57fbf9847"></a>
+<a class="anchor" id="afd490690f7bafe348d845b4e37688be4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -197,7 +197,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td>
-          <td class="paramname"><em>material</em>&#160;</td>
+          <td class="paramname"><em>material</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>max_strength</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00038">38</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00060">60</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +261,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00068">68</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00090">90</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -285,7 +291,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00046">46</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00068">68</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -305,7 +311,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets tool's material. </p>
 <dl class="section return"><dt>Returns</dt><dd>tool's material </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00101">101</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00123">123</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +331,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets maximum possible tool's strength. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of maximum strength </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00063">63</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00085">85</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +351,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets current tool's strength. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of current strength </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00058">58</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00080">80</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +371,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets tool's type. </p>
 <dl class="section return"><dt>Returns</dt><dd>tool's type </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00096">96</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00118">118</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -391,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00080">80</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00102">102</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -405,7 +411,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classTool.html">Tool</a></li>
-    <li class="footer">Generated on Mon Nov 5 2012 14:10:04 for pr061012 by
+    <li class="footer">Generated on Wed Nov 7 2012 16:16:06 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

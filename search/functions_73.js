@@ -17,5 +17,5 @@ var searchData=
   ['setx',['setX',['../classPoint.html#a9aa66c310860d038cb1258dc5cd80906',1,'Point::setX()'],['../classViewObject.html#a280ef0f29dd3a14d285e816b1798639d',1,'ViewObject::setX()']]],
   ['sety',['setY',['../classPoint.html#a7d1ee63237f361d41e697f87c3cb051d',1,'Point::setY()'],['../classViewObject.html#af7e0d64500d95544654420876d7f85b8',1,'ViewObject::setY()']]],
   ['shape',['Shape',['../classShape.html#a8e8680c7a68edeb2826e9e72cfa9adbf',1,'Shape::Shape(Point center, int type, double size)'],['../classShape.html#aaa8d87171e65e0d8ba3c5459978992a7',1,'Shape::Shape()']]],
-  ['step',['step',['../classHumanoid.html#aec3c4dfae4c2f0b6573f0e0e70c4f0d9',1,'Humanoid::step()'],['../classWorld.html#a63a22c1ea89297d49095004c79d40ce6',1,'World::step()']]]
+  ['step',['step',['../classController.html#aeeadcfa1732d9ff578b7dbda10994ada',1,'Controller::step()'],['../classWorld.html#a63a22c1ea89297d49095004c79d40ce6',1,'World::step()']]]
 ];

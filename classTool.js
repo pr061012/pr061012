@@ -1,6 +1,6 @@
 var classTool =
 [
-    [ "Tool", "classTool.html#a8e6b6d2a8d082c06deb944f57fbf9847", null ],
+    [ "Tool", "classTool.html#afd490690f7bafe348d845b4e37688be4", null ],
     [ "~Tool", "classTool.html#a44634ea099b7a49acf87f50e072ce660", null ],
     [ "decreaseStrength", "classTool.html#a517865591911445743c57fe4a482c78c", null ],
     [ "getActions", "classTool.html#a022fd16d7301835eff8324ef8447d90c", null ],

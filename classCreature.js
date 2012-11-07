@@ -23,6 +23,7 @@ var classCreature =
     [ "age", "classCreature.html#a0c593455500045b63771d93593c09574", null ],
     [ "age_steps", "classCreature.html#a462f0d17789f02162c2857263ef21c9d", null ],
     [ "attrs", "classCreature.html#a641e41105d04d3faf56ca7a0132586e2", null ],
+    [ "brains", "classCreature.html#a8499febfbaad5783181a01000cbc4dc6", null ],
     [ "common_steps", "classCreature.html#ab356b709f363e113a7ad9a251b31ba1d", null ],
     [ "desc_steps", "classCreature.html#ae80e3e077175837d9a1ec9e5e8c59b8f", null ],
     [ "health", "classCreature.html#a0df93c9cf305d0946e8e6481b4d3ceb9", null ],

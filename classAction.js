@@ -1,10 +1,10 @@
 var classAction =
 [
-    [ "Action", "classAction.html#afd4547376b96ba4655e991d6ee25ef3f", null ],
+    [ "Action", "classAction.html#ac830e6271ab661711f7594ce553c1769", null ],
     [ "~Action", "classAction.html#acdb06775d157339256a8ecd55749226c", null ],
     [ "addParam", "classAction.html#a711e42db6699325d9ca7af100158d350", null ],
     [ "addParticipant", "classAction.html#aae2912142691704bc9a61108fcb83205", null ],
-    [ "getActor", "classAction.html#a95b6c3cf0a2b80e9f042bed7d60385f5", null ],
+    [ "getActor", "classAction.html#a9ea7a3e96394109aa59713ce41169b84", null ],
     [ "getParam", "classAction.html#a6e93c7f09b4ff2707c4ee3cfe9df0e54", null ],
     [ "getState", "classAction.html#a08cc1ad2958501d86057c16cc6a6d7cf", null ],
     [ "getType", "classAction.html#ab8311340a2c256db65afa2778b9cbc9b", null ],

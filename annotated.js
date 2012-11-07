@@ -2,8 +2,10 @@ var annotated =
 [
     [ "Action", "classAction.html", "classAction" ],
     [ "Building", "classBuilding.html", "classBuilding" ],
+    [ "Controller", "classController.html", "classController" ],
     [ "Creature", "classCreature.html", "classCreature" ],
     [ "DecisionMaker", "classDecisionMaker.html", "classDecisionMaker" ],
+    [ "EParamArrayBadKey", "classEParamArrayBadKey.html", null ],
     [ "God", "classGod.html", "classGod" ],
     [ "Humanoid", "classHumanoid.html", "classHumanoid" ],
     [ "Indexator", "classIndexator.html", "classIndexator" ],

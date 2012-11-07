@@ -8,6 +8,7 @@ var searchData=
   ['creat_5fhealth_5fmin',['CREAT_HEALTH_MIN',['../BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136',1,'BasicDefines.h']]],
   ['creat_5fhunger_5fmax',['CREAT_HUNGER_MAX',['../BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef',1,'BasicDefines.h']]],
   ['creat_5fhunger_5fmin',['CREAT_HUNGER_MIN',['../BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8',1,'BasicDefines.h']]],
+  ['creat_5fsaf_5fcrit_5fconst',['CREAT_SAF_CRIT_CONST',['../BasicDefines_8h.html#aac8773bb559f63f9055052cb8d44c690',1,'BasicDefines.h']]],
   ['creat_5fsafety_5fsteps',['CREAT_SAFETY_STEPS',['../BasicDefines_8h.html#a7eb218c460ae0d129632ced3a3b6d1ad',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmax',['CREAT_SLEEPINESS_MAX',['../BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmin',['CREAT_SLEEPINESS_MIN',['../BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25',1,'BasicDefines.h']]],

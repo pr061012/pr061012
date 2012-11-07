@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['getactions',['getActions',['../classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf',1,'Building::getActions()'],['../classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc',1,'NonHumanoid::getActions()'],['../classObject.html#addf0658ee2f8da579d10a6682dc097d7',1,'Object::getActions()'],['../classResource.html#a4c4cc169461d76de8787c97276665168',1,'Resource::getActions()'],['../classTool.html#a022fd16d7301835eff8324ef8447d90c',1,'Tool::getActions()'],['../classWeather.html#af6a985a031c55cc9d384fe532bbf69ef',1,'Weather::getActions()']]],
-  ['getactor',['getActor',['../classAction.html#a95b6c3cf0a2b80e9f042bed7d60385f5',1,'Action']]],
+  ['getactions',['getActions',['../classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf',1,'Building::getActions()'],['../classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723',1,'Humanoid::getActions()'],['../classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc',1,'NonHumanoid::getActions()'],['../classObject.html#addf0658ee2f8da579d10a6682dc097d7',1,'Object::getActions()'],['../classResource.html#a4c4cc169461d76de8787c97276665168',1,'Resource::getActions()'],['../classTool.html#a022fd16d7301835eff8324ef8447d90c',1,'Tool::getActions()'],['../classWeather.html#af6a985a031c55cc9d384fe532bbf69ef',1,'Weather::getActions()']]],
+  ['getactor',['getActor',['../classAction.html#a9ea7a3e96394109aa59713ce41169b84',1,'Action']]],
   ['getage',['getAge',['../classCreature.html#a7ca491811af9fa7069720b739cfc0592',1,'Creature']]],
   ['getallobjects',['getAllObjects',['../classWorld.html#a1516d8230238824316a731a7618ab573',1,'World']]],
-  ['getamount',['getAmount',['../classResource.html#a03548c06cd69be4b326fc47e0df17c94',1,'Resource']]],
+  ['getamount',['getAmount',['../classResource.html#a03548c06cd69be4b326fc47e0df17c94',1,'Resource::getAmount()'],['../classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd',1,'ObjectHeap::getAmount()']]],
   ['getangle',['getAngle',['../classObject.html#aaba7ccef31e74246abda5ef9cb2e202c',1,'Object']]],
   ['getareacontents',['getAreaContents',['../classIndexator.html#a21eb2f0f155c5d3fe0560a707a05e450',1,'Indexator']]],
   ['getcenter',['getCenter',['../classShape.html#a178ba40bdc7f20c1342f34450257f740',1,'Shape']]],

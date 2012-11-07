@@ -1,9 +1,20 @@
 var BasicTypes_8h =
 [
+    [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
+    [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
+      [ "OBJ_IS_OUT_OF_RANGE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32", null ],
+      [ "OBJ_IS_OUT_OF_VIEW", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a7df0f4d3180b0e502cd989b1712893fb", null ],
+      [ "OBJ_IS_IMMORTAL", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a377109c095e9b4290095cfa1b4865bf8", null ],
+      [ "OBJ_IS_NOT_REPAIRABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a874ceebc7bb9861356e34c5bb1f411af", null ],
+      [ "OBJ_IS_NOT_MINEABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a10d47f9cc859334f3438fed9815561cf", null ],
+      [ "OBJ_IS_NOT_CREATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a771384e51d7308ede9febd5c755825b2", null ],
+      [ "OBJ_IS_NOT_PICKABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a569f06c27bbbad0dbb2f2d8e09f52272", null ]
+    ] ],
     [ "ActionState", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e", [
       [ "PENDING", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea1869818fd53ff519eb8e429301bdff73", null ],
       [ "FAILED", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaecedb56d1405a60c6069f4a0139bdec5", null ],
-      [ "SUCCEEDED", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307", null ]
+      [ "SUCCEEDED", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307", null ],
+      [ "SUCCEEDED_WITH_ERRORS", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea770a5f0ee68e10aaa475be60af854ced", null ]
     ] ],
     [ "ActionType", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b", [
       [ "GO", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985", null ],

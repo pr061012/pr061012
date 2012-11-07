@@ -10,5 +10,6 @@ var searchData=
   ['stone',['STONE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d',1,'BasicTypes.h']]],
   ['storm',['STORM',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a018159d526e860dc987901467c8660cb',1,'BasicTypes.h']]],
   ['succeeded',['SUCCEEDED',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307',1,'BasicTypes.h']]],
+  ['succeeded_5fwith_5ferrors',['SUCCEEDED_WITH_ERRORS',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea770a5f0ee68e10aaa475be60af854ced',1,'BasicTypes.h']]],
   ['sword',['SWORD',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a498dbd887571859774972f271edfdc3c',1,'BasicTypes.h']]]
 ];

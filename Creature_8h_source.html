@@ -165,18 +165,18 @@ $(document).ready(function(){initNavTree('Creature_8h_source.html','');});
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a> subtype;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; brains;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * window;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * window;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * inventory;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * inventory;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="classShape.html">Shape</a> view_area;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="classShape.html">Shape</a> view_area;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> current_action;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> current_action;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2">  155</a></span>&#160;    arma::mat <a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2" title="Matrix of attributes.">attrs</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2">  152</a></span>&#160;    arma::mat <a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2" title="Matrix of attributes.">attrs</a>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="code" href="classCreature.html#a8499febfbaad5783181a01000cbc4dc6">  155</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a> &amp; <a class="code" href="classCreature.html#a8499febfbaad5783181a01000cbc4dc6" title="Reference to creature&#39;s DecisionMaker.">brains</a>;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="classCreature.html#a0c593455500045b63771d93593c09574">  158</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCreature.html#a0c593455500045b63771d93593c09574" title="Current age.">age</a>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
@@ -221,8 +221,8 @@ $(document).ready(function(){initNavTree('Creature_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_01d30c31ddfe67a27c1ab4dec51b9dc1.html">World</a></li><li class="navelem"><a class="el" href="dir_fcce2b2cb33171f40a63d701b1457ef1.html">Object</a></li><li class="navelem"><a class="el" href="dir_d09306fddf1a9ff3a2effd7b3fdd7bdf.html">Creatures</a></li><li class="navelem"><a class="el" href="Creature_8h.html">Creature.h</a></li>
-    <li class="footer">Generated on Mon Nov 5 2012 14:09:58 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_b062ee4f11b54a9df2bdeb931fc061c8.html">Creatures</a></li><li class="navelem"><a class="el" href="Creature_8h.html">Creature.h</a></li>
+    <li class="footer">Generated on Wed Nov 7 2012 16:16:01 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
