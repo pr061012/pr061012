@@ -6,6 +6,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
+#include <vector>
 #include "../Object.h"
 #include "../Tool/Tool.h"
 

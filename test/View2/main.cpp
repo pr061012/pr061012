@@ -8,4 +8,6 @@ int main()
     WorldRenderer* view = new WorldRenderer(w);
 
     view->drawingLoop();
+
+    glfwTerminate();
 }

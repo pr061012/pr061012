@@ -36,9 +36,12 @@ void WorldRenderer::drawingLoop()
     do
     {
         //step();
-
-        glRectd(-10.0, -10.0, 10.0, 10.0);
+        //glClearColor3f(0.0, 0.0, 0.0);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glColor3f(1.0, 1.0, 0.0);
+        glRectd(-0.1, -0.1, 0.1, 0.1);
         glLoadIdentity();
+        glfwSwapBuffers();
 
         // exit if ESC was pressed or window was closed
     } while(!glfwGetKey(GLFW_KEY_ESC)

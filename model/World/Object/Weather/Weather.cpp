@@ -65,7 +65,9 @@ std::vector <Action> * Weather::getActions()
             act.addParticipant(*iter);
         }
 
-        this -> actions.push_back(act);
+        // FIXME: I tried for about 40 minutes to compile it.
+        //        Unsuccesfully.
+        // this -> actions.push_back(act);
     }
 
     return &(this -> actions);
