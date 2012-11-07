@@ -10,8 +10,6 @@
 #include "../../../../BasicTypes.h"
 #include "../../../../BasicFuncs.h"
 
-using namespace arma; //?
-
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -73,7 +71,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     this -> actions.clear();
 
-    if (brains.changeDecision(attrs, current_decision))
+    if (brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
     }

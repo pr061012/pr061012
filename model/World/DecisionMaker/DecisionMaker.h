@@ -57,7 +57,7 @@ public:
      * @param  CreatureAction  current decision of creature
      * @return bool            true if we need to change our decision
      */
-    bool changeDecision (arma::mat attrs, CreatureAction current_decision) const;
+    bool isDecisionActual (arma::mat attrs, CreatureAction current_decision) const;
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
