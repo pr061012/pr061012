@@ -97,7 +97,7 @@ enum ActionType
     /// @brief Description:     Move object to (x+delta_x, y+delta_y) point. \n
     ///        Actor:           Creature \n
     ///        Participants:    none \n
-    ///        Parameters:      delta_x, delta_y
+    ///        Parameters:      angle, speed
     GO,
 
     /// @brief Description:     Resource mining by tool. \n
