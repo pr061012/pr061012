@@ -32,7 +32,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
     attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy, so it always wants to relax
-    attrs(ATTR_HEALTH,0)         = (100 - health) / max_health;
+    attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
     attrs(ATTR_SAFETY,0)         = safety;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
@@ -73,7 +73,12 @@ std::vector <Action>* NonHumanoid::getActions()
 
     this -> actions.clear();
 
-    if (current_decision == NONE || safety > CREAT_SAF_CRIT_CONST)
+    if (brains.changeDecision(attrs, current_decision))
+    {
+        current_decision = NONE;
+    }
+
+    if (current_decision == NONE)
         current_decision = brains.makeDecision(attrs);
 
     if (current_decision == SLEEP)
@@ -85,12 +90,33 @@ std::vector <Action>* NonHumanoid::getActions()
                 sleepiness--;
             }
             else
-                sleepiness = 0;
+            {
+                current_decision == NONE;
+            }
 
             decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
         }
     }
 
+    if(current_decision == RELAX)
+    {
+
+    }
+
+    if (current_decision == EAT)
+    {
+
+    }
+
+    if (current_decision == ESCAPE)
+    {
+
+    }
+
+    if (current_decision == CONTINUE_GENDER)
+    {
+
+    }
 
     return &actions;
 
@@ -98,7 +124,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
 void NonHumanoid::updateAge()
 {
-    this -> age--; // age 0 - NHum is died
+    this -> age++;
     this -> age_steps = CREAT_AGE_STEPS;
 }
 
