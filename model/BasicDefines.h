@@ -24,13 +24,27 @@
 //******************************************************************************
 
 /// Humanoid size.
-#define SZ_HUMANOID_DIAMETER    (double) 1
+#define SZ_HUMANOID_DIAM        (double) 1
+
+/// World size (vertical side).
+#define SZ_WORLD_VSIDE          1000 * SZ_HUMANOID_DIAM
+/// World size (horizontal size).
+#define SZ_WORLD_HSIDE          1000 * SZ_HUMANOID_DIAM
 
 /// Building side (minimum size).
-#define SZ_BUILDING_SIDE_MIN    3 * SZ_HUMANOID_DIAMETER
-
+#define SZ_BUILDING_SIDE_MIN    3 * SZ_HUMANOID_DIAM
 /// Building side (maximum size).
-#define SZ_BUILDING_SIDE_MAX    10 * SZ_HUMANOID_DIAMETER
+#define SZ_BUILDING_SIDE_MAX    6 * SZ_HUMANOID_DIAM
+
+/// Weather shape diameter (minimum size).
+#define SZ_WEATHER_DIAM_MIN     10 * SZ_HUMANOID_DIAM
+/// Weather shape diameter (maximum size).
+#define SZ_WEATHER_DIAM_MAX     20 * SZ_HUMANOID_DIAM
+
+/// Resource shape diameter (minimum size).
+#define SZ_RESOURCE_DIAM_MIN    5 * SZ_HUMANOID_DIAM
+/// Resource shape diameter (maximum size).
+#define SZ_RESOURCE_DIAM_MAX    10 * SZ_HUMANOID_DIAM
 
 //******************************************************************************
 // WEATHER DEFINES.
