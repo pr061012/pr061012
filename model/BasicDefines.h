@@ -150,8 +150,8 @@
 /// Changes of sleepiness for one step
 #define CREAT_DELTA_SLEEP     1
 
-/// When safety is more than this const, creature makes new decision
-#define CREAT_SAF_CRIT_CONST  50
+/// When delta is more than this const, creature makes new decision
+#define CREAT_CRIT_CONST  50
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
