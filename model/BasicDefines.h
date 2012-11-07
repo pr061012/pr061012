@@ -3,6 +3,10 @@
     See the LICENSE file for copying permission.
 */
 
+/**
+ * @file BasicTypes.h
+ */
+ 
 #ifndef DEFINES_H
 #define DEFINES_H
 

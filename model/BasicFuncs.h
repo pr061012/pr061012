@@ -3,6 +3,10 @@
     See the LICENSE file for copying permission.
 */
 
+/**
+ * @file BasicFuncs.h
+ */
+ 
 #ifndef BASIC_FUNC_H
 #define BASIC_FUNC_H
 
