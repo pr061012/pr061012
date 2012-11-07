@@ -12,7 +12,7 @@ int main()
     // Testing exception throwing for getValue().
     try
     {
-        assert(pa.getValue("key") == 0);
+        assert(pa.getValue<int>("key") == 0);
     }
     catch(EParamArrayBadKey & exc)
     {
@@ -21,10 +21,10 @@ int main()
     assert(exc_was == true);
 
     // Testing adding and getting values.
-    pa.addKey("key", 1);
-    assert(pa.getValue("key") == 1);
-    pa.addKey("another_key", 2);
-    assert(pa.getValue("another_key") == 2);
+    pa.addKey<int>("key", 1);
+    assert(pa.getValue<int>("key") == 1);
+    pa.addKey<double>("another_key", 3.14);
+    assert(pa.getValue<double>("another_key") == 3.14);
 
     // Testing key remove.
     assert(pa.removeKey("key") == true);
@@ -34,13 +34,17 @@ int main()
     exc_was = false;
     try
     {
-        assert(pa.getValue("key") == 0);
+        assert(pa.getValue<int>("key") == 0);
     }
     catch(EParamArrayBadKey & exc)
     {
         exc_was = true;
     }
     assert(exc_was == true);
+
+    pa.addKey<int>("key", 1);
+    pa.addKey<long long>("another_key", 2);
+    pa.addKey<std::string>("a_key", "asdasd");
 
     return 0;
 }
