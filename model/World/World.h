@@ -115,9 +115,10 @@ public:
      * @param x x coordinate of screen center
      * @param y y coordinate of screen center
      * @param radius maximal distance from screen center at which object is visible
+     * @param size number of ViewObject instances created
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
      */
-    ViewObject** getViewObjectsInRange(double x, double y, double radius);
+    ViewObject** getViewObjectsInRange(double x, double y, double radius, int &size);
 
     /**
      * @brief Get weather state at certain coordinates
