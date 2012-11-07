@@ -11,14 +11,15 @@
 // KEYS ACCESSING.
 //**************************************************************************
 
-void ParamArray::addKey(std::string key, int value)
+template <class Type> void ParamArray::addKey(std::string key, Type value)
 {
-    this -> map[key] = value;
+    Type * copy = new Type(value);
+    this -> map[key] = copy;
 }
 
-int ParamArray::getValue(std::string key) const throw(EParamArrayBadKey)
+template <class Type> Type ParamArray::getValue(std::string key) const throw(EParamArrayBadKey)
 {
-    std::map <std::string, int> :: const_iterator iter = this -> map.find(key);
+    std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
     if(iter == map.end())
     {
@@ -29,12 +30,12 @@ int ParamArray::getValue(std::string key) const throw(EParamArrayBadKey)
         throw EParamArrayBadKey();
     }
 
-    return iter -> second;
+    return *(dynamic_cast<Type *>(iter -> second));
 }
 
-bool ParamArray::removeKey(std::string key)
+template <class Type> bool ParamArray::removeKey(std::string key)
 {
-    std::map <std::string, int> :: const_iterator iter = this -> map.find(key);
+    std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
     if(iter == map.end())
     {
@@ -45,6 +46,7 @@ bool ParamArray::removeKey(std::string key)
         return false;
     }
 
+    delete dynamic_cast<Type *>(iter -> second);
     this -> map.erase(iter);
 
     return true;

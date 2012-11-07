@@ -43,14 +43,14 @@ public:
      * @param key   key to add
      * @param value key value
      */
-    void addKey(std::string key, int value);
+    template <class Type> void addKey(std::string key, Type value);
 
     /**
      * @brief  Gets key value by key.
      * @param  key  key
      * @return key value
      */
-    int getValue(std::string key) const throw(EParamArrayBadKey);
+    template <class Type> Type getValue(std::string key) const throw(EParamArrayBadKey);
 
     /**
      * @brief  Removes key from param array.
@@ -58,11 +58,11 @@ public:
      * @return true, if key was existed and succesfully removed
      * @return false, if key wasn't existed
      */
-    bool removeKey(std::string key);
+    template <class Type> bool removeKey(std::string key);
 
 private:
     /// Map with keys.
-    std::map <std::string, int> map;
+    std::map <std::string, void *> map;
 };
 
 #endif // PARAM_ARRAY_H
