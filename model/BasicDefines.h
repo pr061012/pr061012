@@ -236,4 +236,9 @@
 /// Amount of steps to decrease sleepiness
 #define NHUM_DECR_SLEEP_STEPS     100
 
+/// NHum slow speed
+#define SLOW_SPEED  1
+/// NHum fast speed
+#define FAST_SPEED  2
+
 #endif // BASIC_DEFINES_H
