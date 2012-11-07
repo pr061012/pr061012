@@ -94,11 +94,18 @@ enum CreatureType
  */
 enum ActionType
 {
-    /// @brief Description:     Move object to (x+delta_x, y+delta_y) point. \n
-    ///        Actor:           Creature \n
+    /// @brief Description:     Object goes to to another point (direction is
+    ///                         set by angle). \n
+    ///        Actor:           Creature/Weather \n
     ///        Participants:    none \n
     ///        Parameters:      angle, speed
     GO,
+
+    /// @brief Description:     Object moves another object. \n
+    ///        Actor:           Humanoid \n
+    ///        Participants:    Object \n
+    ///        Parameters:      angle, speed
+    MOVE,
 
     /// @brief Description:     Resource mining by tool. \n
     ///        Actor:           Humanoid \n
