@@ -22,7 +22,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Tool(ToolType type, ResourceType material, unsigned int max_strength = 0);
+    Tool(ToolType type, ResourceType material, uint max_strength = 0);
 
     /**
      * @brief Destructor.
@@ -47,25 +47,25 @@ public:
      * @brief  Gets current tool's strength.
      * @return the value of current strength
      */
-    unsigned int getStrength() const;
+    uint getStrength() const;
 
     /**
      * @brief  Gets maximum possible tool's strength.
      * @return the value of maximum strength
      */
-    unsigned int getMaxStrength() const;
+    uint getMaxStrength() const;
 
     /**
      * @brief Decreases current tool's strength.
      * @param delta the value to subtract
      */
-    void decreaseStrength(unsigned int delta);
+    void decreaseStrength(uint delta);
 
     /**
      * @brief Increases current tool's strength.
      * @param delta the value to add
      */
-    void increaseStrength(unsigned int delta);
+    void increaseStrength(uint delta);
 
     //**************************************************************************
     // TYPE ACCESSORS.
@@ -91,9 +91,9 @@ private:
     const ResourceType material;
 
     /// Tool's current strength.
-    unsigned int current_strength;
+    uint current_strength;
     /// Tool's maximum possible strength.
-    unsigned int max_strength;
+    uint max_strength;
 };
 
 #endif // TOOL_H

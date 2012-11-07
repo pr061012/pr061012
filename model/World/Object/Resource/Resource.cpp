@@ -12,7 +12,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(ResourceType type, unsigned int res_amount) :
+Resource::Resource(ResourceType type, uint res_amount) :
     Object(RESOURCE),
     subtype(type),
     progress(0),
@@ -88,7 +88,7 @@ void Resource::incrementProgress()
 // CHANGING AMOUNT.
 //******************************************************************************
 
-void Resource::decreaseAmount(unsigned int delta)
+void Resource::decreaseAmount(uint delta)
 {
     if(this -> amount >= delta)
     {
@@ -100,7 +100,7 @@ void Resource::decreaseAmount(unsigned int delta)
     }
 }
 
-unsigned int Resource::getAmount() const
+uint Resource::getAmount() const
 {
     return this -> amount;
 }
@@ -124,7 +124,7 @@ std::vector <Action> * Resource::getActions()
     {
         this -> progress = 0;
 
-        unsigned int drop_amount;
+        uint drop_amount;
         if(this -> amount_per_drop > this -> amount)
         {
             drop_amount = this -> amount;
@@ -160,12 +160,12 @@ ResourceType Resource::getSubtype() const
 // MINING.
 //******************************************************************************
 
-unsigned int Resource::getProgress() const
+uint Resource::getProgress() const
 {
     return this -> progress;
 }
 
-unsigned int Resource::getDifficulty() const
+uint Resource::getDifficulty() const
 {
     return this -> difficulty;
 }

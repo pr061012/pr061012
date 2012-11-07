@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather(WeatherType type, unsigned int living_steps = 0);
+    Weather(WeatherType type, uint living_steps = 0);
 
     /**
      * @brief Destructor.
@@ -65,7 +65,7 @@ public:
      * @brief  Gets amount of living steps.
      * @return amount of living steps.
      */
-    unsigned int getLivingSteps() const;
+    uint getLivingSteps() const;
 
 private:
     /// Weather type.
@@ -75,7 +75,7 @@ private:
     ObjectHeap * covered_objs;
 
     /// Steps for living.
-    unsigned int steps;
+    uint steps;
 };
 
 #endif // WEATHER_H
