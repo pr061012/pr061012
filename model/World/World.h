@@ -8,6 +8,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <vector>
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
 #include "../../view/ViewObject.h"
@@ -118,7 +119,7 @@ public:
      * @param size number of ViewObject instances created
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
      */
-    ViewObject** getViewObjectsInRange(double x, double y, double radius, int &size);
+    std::vector <ViewObject*> getViewObjectsInRange(double x, double y, double radius);
 
     /**
      * @brief Get weather state at certain coordinates
