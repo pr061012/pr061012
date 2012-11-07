@@ -18,8 +18,8 @@ public:
     /**
      * @brief Constructor
      * @param newtype type of the created object
-     * @param x X coordinate of the created object relative to screen center
-     * @param y Y coordinate of the created object relative to screen center
+     * @param newx X coordinate of the created object relative to screen center
+     * @param newy Y coordinate of the created object relative to screen center
      */
     ViewObject(ObjectType newtype, double newx, double newy);
 

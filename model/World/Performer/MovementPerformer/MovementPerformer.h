@@ -17,6 +17,7 @@ public:
     /**
      * @brief Constructor for a particular world
      * @param world_size size of the world
+     * @param indexator indexator
      */
     MovementPerformer(const double world_size,
                       Indexator& indexator);

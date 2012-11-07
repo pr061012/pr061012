@@ -7,13 +7,12 @@
 #define MOVEMENT_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/Indexator/Indexator.h"
 
-/*
+/**
  * @class MovementPerformer
  * @brief Performs a move if it is possible
  */
-
 class MovementPerformer : public Performer
 {
 public:
@@ -25,9 +24,9 @@ public:
     /**
      * @brief Constructor for a particular world
      * @param world_size size of the world
+     * @param indexator indexator
      */
-    MovementPerformer(const double world_size,
-                      Indexator& indexator);
+    MovementPerformer(const double world_size, Indexator& indexator);
 
     /**
      * @brief Destructor
