@@ -50,8 +50,8 @@ private:
     void updateCommonAttrs();
     void updateNeedInDesc();
     void updateSafety();
-    /// The direction of humanoid
-    float angle;
+    /// The direction of non_humanoid
+    double angle;
 
     /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
     unsigned int decr_sleep_step;

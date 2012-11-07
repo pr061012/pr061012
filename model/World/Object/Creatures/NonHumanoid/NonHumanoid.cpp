@@ -9,6 +9,7 @@
 #include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
 #include "../../../../BasicFuncs.h"
+#include <cmath>
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -107,7 +108,7 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         if (angle == -1)
         {
-            angle = randFromRange(0, 360);
+            angle = doubleRand(2 * M_PI);
         }
         Action act(GO, this);
         act.addParam("angle", angle);
@@ -128,6 +129,11 @@ std::vector <Action>* NonHumanoid::getActions()
     if (current_decision == CONTINUE_GENDER)
     {
 
+    }
+
+    if(age == max_age)
+    {
+        health = 0;
     }
 
     return &actions;
