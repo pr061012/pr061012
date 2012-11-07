@@ -54,7 +54,7 @@ public:
     /**
      * @brief  Calculate the difference between current decision and other actions.
      * @param  attrs           vector of creature's attributes
-     * @param  CreatureAction  current decision of creature
+     * @param  current_decision  current decision of creature
      * @return bool            true if we need to change our decision
      */
     bool isDecisionActual (arma::mat attrs, CreatureAction current_decision) const;

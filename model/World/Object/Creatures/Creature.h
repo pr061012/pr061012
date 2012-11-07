@@ -79,7 +79,7 @@ public:
 
     /**
      * @brief Set the value of max age.
-     * @param age   new value of max age
+     * @param max_age   new value of max age
      */
     void setMaxAge(unsigned int max_age);
 
@@ -103,7 +103,7 @@ public:
 
     /**
      * @brief Set the value of max health.
-     * @param health   new value of max health
+     * @param max_health   new value of max health
      */
     void setMaxHealth(unsigned int max_health);
 
