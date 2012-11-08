@@ -94,6 +94,29 @@
 				\item Function does something, so the function's name must be a verb.
 			\end{itemize}
 
+        \subsection{Spaces}
+            \begin{itemize}
+                \item Put space after if, while and for statements.
+\begin{lstlisting}
+if (some_condition)
+{
+doSomething();
+}
+
+for (int j = 0; j < 10; j++)
+{
+doSomething();
+}
+\end{lstlisting}
+                \item In variables definitions and declarations pointer symbol
+                    (*) and reference symbol (\&) must be near type, like this:
+\begin{lstlisting}
+int* num;
+char* char_str;
+string& str;
+\end{lstlisting}
+            \end{itemize}
+
 		\subsection{Identation and new lines}
 			\begin{itemize}
 				\item Use 4-space identation.
@@ -134,8 +157,8 @@ while
 					\end{lstlisting}
 				\item Use these one line statements only when you're \textbf{really} needed:
 \begin{lstlisting}
-if(some_condition) doSomething();
-while(some_condition) doSomething();
+if (some_condition) doSomething();
+while (some_condition) doSomething();
 \end{lstlisting}
 			\end{itemize}
 

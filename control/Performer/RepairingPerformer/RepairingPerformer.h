@@ -7,6 +7,8 @@
 #define REPAIRING_PERFORMER_H__
 
 #include "../Performer.h"
+#include "../../../model/World/Object/Building/Building.h"
+#include "../../../model/World/Object/Tool/Tool.h"
 
 /**
  * @class RepairingPerformer

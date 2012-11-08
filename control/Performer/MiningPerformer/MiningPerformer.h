@@ -7,6 +7,10 @@
 #define MINING_PERFORMER_H__
 
 #include "../Performer.h"
+#include "../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/World/Object/Tool/Tool.h"
+
 
 /**
  * @class MiningPerformer
@@ -23,7 +27,7 @@ public:
     /**
      * @brief Constructor
      */
-    MiningPerformer();
+    MiningPerformer(Indexator& indexator);
 
     /**
      * @brief Destructor
@@ -45,6 +49,10 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
+
+    /// The reference to worlds indexator
+    Indexator& indexator;
+
 };
 
 #endif
