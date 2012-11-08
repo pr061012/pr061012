@@ -44,7 +44,7 @@ int main()
 
     pa.addKey<int>("key", 1);
     pa.addKey<long long>("another_key", 2);
-    pa.addKey<std::string>("a_key", "asdasd");
+    pa.addKey<std::string>("string key", "string key value");
 
     return 0;
 }

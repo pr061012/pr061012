@@ -15,6 +15,10 @@
  * @class ParamArray
  * @brief Assoсiative array (keys are strings, values are ints). Used in
  *        PendingAction and ObjectFactory.
+ *
+ *        FIXME: It's working variant, but it is ugly because of
+ *               reinterpret_cast<>(). Need to look through boost::any and
+ *               implement something similar.
  */
 class ParamArray
 {
@@ -35,8 +39,9 @@ public:
     {
         std::map <std::string, void*> :: const_iterator i;
 
-        for(i = this -> map.begin(); i != map.end(); i++)
+        for (i = this -> map.begin(); i != map.end(); i++)
         {
+            // FIXME: Won't call destructors!
             delete i -> second;
         }
 
@@ -68,11 +73,11 @@ public:
     {
         std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
-        if(iter == map.end())
+        if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to get value by key, which " <<
-                         "doesn't seem to be existed (key is '" << key << "')." <<
-                         std::endl;
+            std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
+                         "which doesn't seem to be existed (key is '" << key <<
+                         "')." << std::endl;
 
             throw EParamArrayBadKey();
         }
@@ -90,16 +95,17 @@ public:
     {
         std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
-        if(iter == map.end())
+        if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to delete key, which doesn't " <<
-                         "seem to be be existed (key is '" << key << "')." <<
-                         std::endl;
+            std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
+                         "doens't exist (key is '" << key << "')." << std::endl;
 
             return false;
         }
 
+        // FIXME: Won't call destructors!
         delete iter -> second;
+
         this -> map.erase(iter);
 
         return true;
