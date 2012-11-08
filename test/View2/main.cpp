@@ -26,4 +26,5 @@ int main()
     } while(view->isExit());
 
     delete view;
+    delete w;
 }

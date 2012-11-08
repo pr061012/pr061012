@@ -36,7 +36,6 @@ public:
     ~ViewWorld();
 
 private:
-
     //**************************************************************************
     // TEXTURE LOADING.
     //**************************************************************************
@@ -57,12 +56,18 @@ private:
     int frame;
 
 private:
+    //**************************************************************************
+    // DRAWING METHODS.
+    //**************************************************************************
 
     /**
      * @brief draws specific object relative to current coordinates
      */
     void renderObject(Object* object); // TODO: Object -> ViewObject
 
+    /**
+     * @brief render a grass background all over the window
+     */
     void renderBackground();
 
 public:
