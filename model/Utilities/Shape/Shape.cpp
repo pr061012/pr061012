@@ -6,6 +6,8 @@
 #include "Shape.h"
 #include <cmath>
 
+#include <iostream>
+
 #define EPSILON 0.00000001
 
 //******************************************************************************
@@ -129,6 +131,7 @@ bool Shape::hitTest (const Point& point) const
 // check hittest with another shape
 bool Shape::hitTest (const Shape& shape) const
 {
+    std::cout << center.getDistance(shape.getCenter()) - size + shape.getSize()/ 2 << std::endl;
     switch(type)
     {
         case CIRCLE:

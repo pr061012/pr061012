@@ -49,7 +49,7 @@ public:
      * @brief World generation by given seed.
      * @param rand_seed
 	 */
-    World(int rand_seed = 0);
+    //World(int rand_seed = 0);
 
     /**
      * @brief World generation by given seed and by specific width/height.
@@ -57,7 +57,8 @@ public:
      * @param width
      * @param height
      */
-    World(int rand_seed, int width, int height);
+    World(int rand_seed = 0,
+          int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 
     /**
      * @brief Performs god action
@@ -90,7 +91,7 @@ private:
 
     // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
     /// Heap containing all World's objects
-    ObjectHeap all_objects;
+    ObjectHeap* all_objects;
 
     /// Global world indexator
     Indexator* indexator;
@@ -108,13 +109,13 @@ public:
      * @brief Set the value of all_objects.
 	 * @param new_var the new value of all_objects
 	 */
-    void setAllObjects(ObjectHeap new_var);
+    void setAllObjects(ObjectHeap* new_var);
 
 	/**
      * @brief Get the value of all_objects.
 	 * @return the value of all_objects
 	 */
-    ObjectHeap getAllObjects();
+    ObjectHeap* getAllObjects();
 
     //******************************************************************************
     // VIEW METHODS.

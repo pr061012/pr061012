@@ -6,7 +6,7 @@
 #ifndef WORLD_RENDERER_H
 #define WORLD_RENDERER_H
 
-#define CAM_RADIUS 2500
+#define CAM_RADIUS 100
 #define SCREEN_WIDTH  800
 #define SCREEN_HEIGHT 600
 
@@ -44,6 +44,8 @@ private:
     /// X and Y coordinates of center of the game cam
     double x;
     double y;
+
+    int frame;
 
 public:
 

@@ -67,7 +67,7 @@ std::vector <Action> * Weather::getActions()
 
         // FIXME: I tried for about 40 minutes to compile it.
         //        Unsuccesfully.
-        // this -> actions.push_back(act);
+        this -> actions.push_back(act);
     }
 
     return &(this -> actions);
