@@ -98,25 +98,25 @@ enum ActionType
     ///                         set by angle). \n
     ///        Actor:           Creature/Weather \n
     ///        Participants:    none \n
-    ///        Parameters:      angle, speed
+    ///        Parameters:      angle (*double*), speed (*Speed*)
     GO,
 
     /// @brief Description:     Object moves another object. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Object \n
-    ///        Parameters:      angle, speed
+    ///        Parameters:      angle (*double*), speed (*Speed*)
     MOVE,
 
     /// @brief Description:     Resource mining by tool. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Resource, Tool (PICKAXE) \n
-    ///        Parameters:      res_id, tool_id
+    ///        Parameters:      res_id (*uint*), tool_id (*uint*)
     MINE_OBJ,
 
     /// @brief Description:     Repair building. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Building, Tool \n
-    ///        Parameters:      building_id, tool_id
+    ///        Parameters:      building_id (*uint*), tool_id (*uint*)
     REPAIR_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
@@ -129,10 +129,14 @@ enum ActionType
     ///        Actor:           Humanoid/Resource \n
     ///        Participants:    none \n
     ///        Parameters:
-    ///                         * obj_type, x and y
-    ///                         * for Resource creation: res_type, res_amount
-    ///                         * for Tool creation: tool_type, mat_type
+    ///                         * obj_type (*ObjectType*), x (*uint*) and y
+    ///                           (*uint*)
+    ///                         * for Resource creation: res_type
+    ///                           (*ResourceType*), res_amount (*uint*)
+    ///                         * for Tool creation: tool_type (*ToolType*),
+    ///                           mat_type (*uint*)
     ///                         * for Creature creation: creat_type
+    ///                           (*CreatureType*)
     CREATE_OBJ,
 
     /// @brief Description:     Drop objects to ground. \n
