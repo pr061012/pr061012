@@ -9,7 +9,7 @@ INPUT_DIR  = ./
 MODEL_DIR  = $(INPUT_DIR)model/
 
 # Files with sources.
-SOURCES    = $(wildcard $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)/*/*/*/*.cpp $(MODEL_DIR)/*/*/*/*/*.cpp)
+SOURCES    = $(wildcard $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)*/*/*/*.cpp $(MODEL_DIR)*/*/*/*/*.cpp)
 SOURCES   += main.cpp
 
 # Object files.
