@@ -6,6 +6,7 @@
 #ifndef PARAM_ARRAY_H
 #define PARAM_ARRAY_H
 
+#include <iostream>
 #include <string>
 #include <map>
 
