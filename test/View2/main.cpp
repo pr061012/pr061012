@@ -2,6 +2,8 @@
 #include "../../model/World/World.h"
 #include "../../view/WorldRenderer.h"
 
+#include <time.h>
+
 int main()
 {
     World* w = new World();
@@ -11,7 +13,7 @@ int main()
 
     do
     {
-
+        view->redraw();
     } while(view->isExit());
 
     //glfwTerminate();

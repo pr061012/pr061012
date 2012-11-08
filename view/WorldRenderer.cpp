@@ -39,7 +39,6 @@ WorldRenderer::WorldRenderer(IWorld* w)
     y = 50.0;
 
     frame = 0;
-    delay = clock();
 }
 
 WorldRenderer::~WorldRenderer()
@@ -82,15 +81,6 @@ void WorldRenderer::loadTextures()
 void WorldRenderer::step()
 {
     ++frame;
-    int temp = clock();
-    if(temp - delay > 10000)
-    {
-        //std::cout << CLOCKS_PER_SEC << ":";
-        //std::cout << temp << ":";
-        //std::cout << temp - delay << std::endl;
-        //delay = temp;
-//        w->step();
-    }
 
     renderBackground();
 
@@ -116,7 +106,8 @@ void WorldRenderer::redraw()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glTranslatef(0.0f, 0.0f, -16.0f);
-    step();
+    renderBackground();
+
 
     glLoadIdentity();
     glfwSwapBuffers();
@@ -132,9 +123,6 @@ void WorldRenderer::renderObject(Object* object)
 
     double px = p.getX() - x;
     double py = p.getY() - y;
-
-    //std::cout << "Rendering object at screen x = "
-    //          << px << ", y = " << py << std::endl;
 
     glColor3f(1.0, 1.0, 0.0);
 

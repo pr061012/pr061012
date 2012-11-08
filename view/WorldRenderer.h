@@ -13,7 +13,6 @@
 #include "../model/BasicTypes.h"
 #include "../model/World/IWorld.h"
 #include "../model/World/Object/Object.h"
-#include <time.h>
 #include <GL/glfw.h>
 #include <GL/gl.h>
 #include "SOIL.h"
@@ -52,7 +51,6 @@ private:
     double y;
 
     int frame;
-    int delay;
 
 public:
 
@@ -68,7 +66,10 @@ private:
 //    void renderGUI(GUI& gui);
 //    void handleKeyPress();
 
+public:
     bool WorldRenderer::isExit();
+
+    void redraw();
 
 };
 
