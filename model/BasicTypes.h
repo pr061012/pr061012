@@ -111,13 +111,13 @@ enum ActionType
     ///        Actor:           Humanoid \n
     ///        Participants:    Resource, Tool (PICKAXE) \n
     ///        Parameters:      res_id, tool_id
-    MINE,
+    MINE_OBJ,
 
     /// @brief Description:     Repair building. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Building, Tool \n
     ///        Parameters:      building_id, tool_id
-    REPAIR,
+    REPAIR_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
@@ -145,7 +145,13 @@ enum ActionType
     ///        Actor:           Creature \n
     ///        Participants:    several objects \n
     ///        Parameters:      none
-    PICK_UP_OBJS
+    PICK_UP_OBJS,
+
+    /// @brief Description:     Object eats object. \n
+    ///        Actor:           NonHumanoid \n
+    ///        Participants:    Resource \n
+    ///        Parameters:      none \n
+    EAT_OBJ
 };
 
 /**
