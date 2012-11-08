@@ -48,17 +48,17 @@ private:
      */
     void loadTextures();
 
+private:
+    //**************************************************************************
+    // DRAWING METHODS.
+    //**************************************************************************
+
     /// X and Y coordinates of center of the game cam
     double x;
     double y;
 
     /// number of frames drawn
     int frame;
-
-private:
-    //**************************************************************************
-    // DRAWING METHODS.
-    //**************************************************************************
 
     /**
      * @brief draws specific object relative to current coordinates
@@ -71,7 +71,15 @@ private:
     void renderBackground();
 
 public:
+    /**
+     * @brief redraw background and all objects in range of
+     *        the game camera
+     */
     void redraw();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
 
     /**
      * @brief set coordinates of center of the game cam
