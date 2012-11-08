@@ -6,16 +6,17 @@
 #ifndef WORLD_RENDERER_H
 #define WORLD_RENDERER_H
 
-#define CAM_RADIUS 100
+#define CAM_RADIUS 30
 #define SCREEN_WIDTH  800
 #define SCREEN_HEIGHT 600
 
 #include "../model/BasicTypes.h"
 #include "../model/World/IWorld.h"
 #include "../model/World/Object/Object.h"
+#include <time.h>
 #include <GL/glfw.h>
 #include <GL/gl.h>
-//#include "SOIL.h"
+#include "SOIL.h"
 
 class WorldRenderer
 {
@@ -38,6 +39,11 @@ public:
     void drawingLoop();
 
 private:
+    GLuint texture_buf[2];
+
+    void loadTextures();
+
+
     /// World that is rendered by this class
     IWorld* world;
 
@@ -46,6 +52,7 @@ private:
     double y;
 
     int frame;
+    int delay;
 
 public:
 
@@ -56,8 +63,12 @@ private:
     void drawImage();
 
     void renderObject(Object* object);
+
+    void renderBackground();
 //    void renderGUI(GUI& gui);
 //    void handleKeyPress();
+
+    bool WorldRenderer::isExit();
 
 };
 

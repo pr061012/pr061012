@@ -18,37 +18,45 @@ WorldRenderer::WorldRenderer(IWorld* w)
         //throw some exception;
     }
 
+    loadTextures();
+
+    if( 0 == texture_buf[0] )
+    {
+        std::cerr<< "SOIL loading error:'" << SOIL_last_result() << "' \n";
+
+    }
+
     glfwSetWindowTitle("Project 0612");
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
     float aspect_ratio = ((float)SCREEN_HEIGHT) / SCREEN_WIDTH;
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
+    glMatrixMode(GL_MODELVIEW);
 
     world = w;
-    x = 0.0;
-    y = 0.0;
+    x = 50.0;
+    y = 50.0;
+
+    frame = 0;
+    delay = clock();
 }
 
 WorldRenderer::~WorldRenderer()
 {
-
+    glDeleteTextures( 1, texture_buf ); // Clearing textures created
 }
 
 void WorldRenderer::drawingLoop()
 {
     do
     {
-        ++frame;
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glColor3f(1.0, 1.0, 0.0);
 
         //glRectd(-0.1, -0.1, 0.5, 0.5);
-        if(frame > 1000)
-        {
-            step();
-        }
+        glTranslatef(0.0f, 0.0f, -16.0f);
+        step();
 
         glLoadIdentity();
         glfwSwapBuffers();
@@ -58,10 +66,34 @@ void WorldRenderer::drawingLoop()
             && glfwGetWindowParam(GLFW_OPENED));
 }
 
+void WorldRenderer::loadTextures()
+{
+    texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
+    (
+        "../View/grass.png",
+        SOIL_LOAD_RGBA,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
+    );
+}
+
 
 
 void WorldRenderer::step()
 {
+    ++frame;
+    int temp = clock();
+    if(temp - delay > 10000)
+    {
+        //std::cout << CLOCKS_PER_SEC << ":";
+        //std::cout << temp << ":";
+        //std::cout << temp - delay << std::endl;
+        //delay = temp;
+//        w->step();
+    }
+
+    renderBackground();
+
     Object** objects = world->getViewObjectsInRange
             (x, y, CAM_RADIUS);
 
@@ -79,6 +111,17 @@ void WorldRenderer::step()
     //delete[] objects;
 }
 
+void WorldRenderer::redraw()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glTranslatef(0.0f, 0.0f, -16.0f);
+    step();
+
+    glLoadIdentity();
+    glfwSwapBuffers();
+}
+
 void WorldRenderer::drawImage()
 {
 }
@@ -90,10 +133,45 @@ void WorldRenderer::renderObject(Object* object)
     double px = p.getX() - x;
     double py = p.getY() - y;
 
-    std::cout << "Rendering object at screen x = "
-              << px << ", y = " << py << std::endl;
+    //std::cout << "Rendering object at screen x = "
+    //          << px << ", y = " << py << std::endl;
 
     glColor3f(1.0, 1.0, 0.0);
 
-    glRectd(px-0.15, py-0.15, px+0.15, py+0.15);
+    px /= CAM_RADIUS;
+    py /= CAM_RADIUS;
+    px *= 8;
+    py *= 8;
+    glRectd(px-0.2, py-0.2, px+0.2, py+0.2);
+}
+
+void WorldRenderer::renderBackground()
+{
+    glBindTexture(GL_TEXTURE_2D, texture_buf[0]); // Choosing grass texture to render into the window
+
+    // select modulate to mix texture with color for shading
+    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+    // when texture area is small, bilinear filter the closest mipmap
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST );
+    // when texture area is large, bilinear filter the original
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+    glEnable(GL_TEXTURE_2D); // Entering texture drawing environment.
+
+    glBegin(GL_POLYGON); // Texturing window frame with grass
+        glTexCoord2f(0.0,   0.0); glVertex2f(-8.0f, -8.0f);
+        glTexCoord2f(16.0,  0.0); glVertex2f( 8.0f, -8.0f);
+        glTexCoord2f(16.0, 16.0); glVertex2f( 8.0f,  8.0f);
+        glTexCoord2f(0.0,  16.0); glVertex2f(-8.0f,  8.0f);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D); // Fun part is done for this frame, 2D textures are drawn.
+
+    glColor3f(1.0f, 1.0f, 1.0f);
+}
+
+bool WorldRenderer::isExit()
+{
+    return !glfwGetKey(GLFW_KEY_ESC)
+            && glfwGetWindowParam(GLFW_OPENED);
 }

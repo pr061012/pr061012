@@ -7,7 +7,12 @@ int main()
     World* w = new World();
     WorldRenderer* view = new WorldRenderer(w);
 
-    view->drawingLoop();
+//    view->drawingLoop();
 
-    glfwTerminate();
+    do
+    {
+
+    } while(view->isExit());
+
+    //glfwTerminate();
 }

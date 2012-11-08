@@ -38,6 +38,8 @@ World::World(int rand_seed, int width, int height) :
 {
     srand(rand_seed);
 
+    std::cout << "Creating world..." << std::endl;
+
     //this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
     //this->height = height > 0 ? height : DEFAULT_HEIGHT;
 
@@ -58,8 +60,8 @@ World::World(int rand_seed, int width, int height) :
 //    params.addKey("creat_type", HUMANOID);
 
     Object* newobj  = object_factory->createObject(RESOURCE, params);
-    newobj->setCoords(Point(0,0));
-    newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 50.0));
+    newobj->setCoords(Point(60.0,60.0));
+    newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 20.0));
     all_objects->push(newobj);
 
     indexator->reindexate(newobj);
@@ -119,7 +121,7 @@ Object** World::getViewObjectsInRange(double x, double y, double radius)
     Object** retval;
 
     Point center(x, y);
-    Shape area(center, CIRCLE, radius);
+    Shape area(center, CIRCLE, radius*2);
     ObjectHeap* objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects->begin();
 

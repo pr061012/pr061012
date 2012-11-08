@@ -139,9 +139,9 @@ std::vector <Action> * Resource::getActions()
         act.addParam("obj_type", RESOURCE);
         // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
         // that?
-        //act.addParam("res_type", this -> subtype);
-        //act.addParam("res_amount", drop_amount);
-        //this -> actions.push_back(act);
+        act.addParam("res_type", this -> subtype);
+        act.addParam("res_amount", drop_amount);
+        this -> actions.push_back(act);
     }
 
     return &(this -> actions);
