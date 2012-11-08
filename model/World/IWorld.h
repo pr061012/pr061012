@@ -2,7 +2,7 @@
 #define IWORLD_H
 
 #include "../BasicTypes.h"
-#include "../../view/ViewObject.h"
+#include "../../view/ViewObject/ViewObject.h"
 #include "Action/Action.h"
 //#include "../God/God.h"
 

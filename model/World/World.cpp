@@ -15,7 +15,7 @@ World::~World()
 {    
     delete object_factory;
     delete indexator;
-    delete all_objects;
+    delete visible_objs;
 }
 
 World::World(std::string filepath) :
@@ -44,7 +44,7 @@ World::World(int rand_seed, int width, int height) :
     //this->height = height > 0 ? height : DEFAULT_HEIGHT;
 
     object_factory = new ObjectFactory();
-    all_objects = new ObjectHeap();
+    visible_objs = new ObjectHeap();
 
     indexator = new Indexator((double)width);
 
@@ -62,7 +62,7 @@ World::World(int rand_seed, int width, int height) :
     Object* newobj  = object_factory->createObject(RESOURCE, params);
     newobj->setCoords(Point(60.0,60.0));
     newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 20.0));
-    all_objects->push(newobj);
+    visible_objs->push(newobj);
 
     indexator->reindexate(newobj);
 
@@ -79,17 +79,13 @@ World::World(int rand_seed, int width, int height) :
     // object_factory->createObject(HUMANOID, params);
 }
 
-void World::addGodAction(Action *action)
-{
-}
-
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
 
-void World::step()
+void World::setObjectVisibility(Object *obj, bool visibility)
 {
-    // TODO: Prepare the queue of actions for controller.
+    // visible_objs->hasObject(obj);
 }
 
 void World::save(std::string filepath)
@@ -102,15 +98,15 @@ void World::save(std::string filepath)
 // ACCESSORS.
 //******************************************************************************
 
-void World::setAllObjects(ObjectHeap* new_var)
-{
-    this -> all_objects = new_var;
-}
+//void World::setAllObjects(ObjectHeap* new_var)
+//{
+//    this -> visible_objs = new_var;
+//}
 
-ObjectHeap* World::getAllObjects()
-{
-    return this -> all_objects;
-}
+//ObjectHeap* World::getAllObjects()
+//{
+//    return this -> visible_objs;
+//}
 
 //******************************************************************************
 // VIEW METHODS.

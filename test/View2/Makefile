@@ -17,10 +17,11 @@ COBJS += $(MODELPATH)World/Object/Weather/Weather.cpp
 COBJS += $(MODELPATH)World/Object/Resource/Resource.cpp
 COBJS += $(MODELPATH)World/Object/Tool/Tool.cpp
 #COBJS += $(MODELPATH)World/ParamArray/ParamArray.cpp
-#COBJS += $(MODELPATH)World/ParamArray/EParamArrayBadKey.cpp
+COBJS += $(MODELPATH)World/ParamArray/EParamArrayBadKey.cpp
 COBJS += $(MODELPATH)World/ObjectFactory/ObjectFactory.cpp
 COBJS += $(MODELPATH)Utilities/Point/Point.cpp
-COBJS += $(VIEWPATH)WorldRenderer.cpp
+COBJS += $(VIEWPATH)ViewWorld/ViewWorld.cpp
+COBJS += $(VIEWPATH)View.cpp
 LIBRARIES = ../View/
 LIBS = -lGL -lGLU -lglfw -lSOIL -larmadillo
 

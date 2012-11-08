@@ -12,7 +12,7 @@
 #include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
-#include "../../view/ViewObject.h"
+#include "../../view/ViewObject/ViewObject.h"
 #include "Indexator/Indexator.h"
 
 
@@ -60,12 +60,6 @@ public:
     World(int rand_seed = 0,
           int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 
-    /**
-     * @brief Performs god action
-     * @param action
-     */
-    void addGodAction(/*IGod* god, */Action* action);
-
 private:
     /// Size of World's region
     const int width;
@@ -82,16 +76,12 @@ public:
 	 */
     void save(std::string filepath);
 
-    /**
-     * @brief Update world state
-     */
-    void step();
-
 private:
 
     // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
-    /// Heap containing all World's objects
-    ObjectHeap* all_objects;
+    /// Heap containing all visible World's objects
+    ObjectHeap* visible_objs;
+    ObjectHeap* hidden_objs;
 
     /// Global world indexator
     Indexator* indexator;
@@ -101,21 +91,27 @@ private:
 
 public:
 
+    //******************************************************************************
+    // OBJECT HEAP METHODS.
+    //******************************************************************************
+
+    void setObjectVisibility(Object *obj, bool visibility);
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
 	/**
-     * @brief Set the value of all_objects.
-	 * @param new_var the new value of all_objects
+     * @brief Set the value of visible_objs.
+     * @param new_var the new value of visible_objs
 	 */
-    void setAllObjects(ObjectHeap* new_var);
+    //void setAllObjects(ObjectHeap* new_var);
 
 	/**
-     * @brief Get the value of all_objects.
-	 * @return the value of all_objects
+     * @brief Get the value of visible_objs.
+     * @return the value of visible_objs
 	 */
-    ObjectHeap* getAllObjects();
+    //ObjectHeap* getAllObjects();
 
     //******************************************************************************
     // VIEW METHODS.
