@@ -67,15 +67,15 @@ Object * ObjectFactory::createObject(ObjectType type, const ParamArray & params)
 
 Object * ObjectFactory::createBuilding(const ParamArray & params)
 {
-    unsigned int max_space = params.getValue("max_space");
-    unsigned int max_health = params.getValue("max_health");
+    uint max_space = params.getValue<uint>("max_space");
+    uint max_health = params.getValue<uint>("max_health");
 
     return new Building(max_health, max_space);
 }
 
 Object * ObjectFactory::createCreature(const ParamArray & params)
 {
-    CreatureType type = static_cast<CreatureType>(params.getValue("creat_type"));
+    CreatureType type = params.getValue<CreatureType>("creat_type");
 
     Object * obj = NULL;
 
@@ -96,25 +96,25 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 
 Object * ObjectFactory::createResource(const ParamArray & params)
 {
-    ResourceType type = static_cast<ResourceType>(params.getValue("res_type"));
-    unsigned int amount = params.getValue("res_amount");
+    ResourceType type = params.getValue<ResourceType>("res_type");
+    uint amount = params.getValue<uint>("res_amount");
 
     return new Resource(type, amount);
 }
 
 Object * ObjectFactory::createTool(const ParamArray & params)
 {
-    ToolType type = static_cast<ToolType>(params.getValue("tool_type"));
-    ResourceType mat_type = static_cast<ResourceType>(params.getValue("mat_type"));
-    unsigned int max_strength = params.getValue("tool_str");
+    ToolType type = params.getValue<ToolType>("tool_type");
+    ResourceType mat_type = params.getValue<ResourceType>("mat_type");
+    uint max_strength = params.getValue<uint>("tool_str");
 
     return new Tool(type, mat_type, max_strength);
 }
 
 Object * ObjectFactory::createWeather(const ParamArray & params)
 {
-    WeatherType type = static_cast<WeatherType>(params.getValue("weat_type"));
-    unsigned int steps = params.getValue("weat_steps");
+    WeatherType type = params.getValue<WeatherType>("weat_type");
+    uint steps = params.getValue<uint>("weat_steps");
 
     return new Weather(type, steps);
 }

@@ -8,13 +8,25 @@
 
 HarmPerformer::HarmPerformer()
 {
+
 }
 
 HarmPerformer::~HarmPerformer()
 {
+
 }
 
 void HarmPerformer::perform(Action& action)
 {
-    Object * actor = action.getActor();
+    Object* actor = action.getActor();
+    ObjectType type = actor -> getType();
+
+    if ((type != CREATURE) || (type != WEATHER))
+    {
+        action.markAsFailed();
+    }
+    else
+    {
+
+    }
 }

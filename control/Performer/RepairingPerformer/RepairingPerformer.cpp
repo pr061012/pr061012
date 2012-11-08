@@ -18,4 +18,11 @@ RepairingPerformer::~RepairingPerformer()
 void RepairingPerformer::perform(Action& action)
 {
     Object * actor = action.getActor();
+    int building_id = action.getParam("building_id");
+    int tool_id = action.getParam("tool_id");
+
+    if (actor -> getType() != HUMANOID)
+    {
+        action.markAsFailed();
+    }
 }

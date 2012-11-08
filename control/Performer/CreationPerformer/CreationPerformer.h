@@ -7,6 +7,7 @@
 #define CREATION_PERFORMER_H__
 
 #include "../Performer.h"
+#include "../../../model/World/Indexator/Indexator.h"
 
 /**
  * @class CreationPerformer
@@ -24,7 +25,7 @@ public:
      * @brief Constructor
      * @param indexator indexator
      */
-    CreationPerformer();
+    CreationPerformer(Indexator& indexator);
 
     /**
      * @brief Destructor
@@ -47,6 +48,8 @@ private:
     //  ATTRIBUTES
     //*************************************************************************
 
+    /// The reference to worlds indexator
+    Indexator& indexator;
 };
 
 #endif
