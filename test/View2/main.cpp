@@ -9,7 +9,7 @@ const int PERIOD = CLOCKS_PER_SEC/32;
 
 int main()
 {
-    World* w = new World();
+    World* w = new World(time(NULL));
     View* view = new View(w);
     int t0 = clock();
 
@@ -22,7 +22,6 @@ int main()
 
         view->redraw();
 
-        std::cin.get();
     } while(view->isExit());
 
     delete view;

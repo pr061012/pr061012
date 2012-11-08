@@ -38,45 +38,34 @@ World::World(int rand_seed, int width, int height) :
 {
     srand(rand_seed);
 
-    std::cout << "Creating world..." << std::endl;
-
-    //this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
-    //this->height = height > 0 ? height : DEFAULT_HEIGHT;
+    std::cout << "Creating world with rand_seed="
+              << rand_seed << std::endl;
 
     object_factory = new ObjectFactory();
     visible_objs = new ObjectHeap();
 
     indexator = new Indexator((double)width);
 
-    // For now, just generating a group of humans in a row.
-
     ParamArray params;
 
-//    params.addKey("x", 0);
-//    params.addKey("y", 0);
     params.addKey("res_type", WOOD);
     params.addKey("res_amount", 10);
-    //params.addKey("creat_type", HUMANOID);
-//    params.addKey("creat_type", HUMANOID);
 
-    Object* newobj  = object_factory->createObject(RESOURCE, params);
-    newobj->setCoords(Point(60.0,60.0));
-    newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 20.0));
-    visible_objs->push(newobj);
+    for(int i = 30 + rand()%50; i>=0; --i)
+    {
+        Object* newobj  = object_factory->createObject(RESOURCE, params);
+        newobj->setCoords(Point(20.0+rand()%50,20.0+rand()%50));
+        newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 10.0));
+        visible_objs->push(newobj);
 
-    indexator->reindexate(newobj);
+        indexator->reindexate(newobj);
 
-    std::cout << "Created resource at x = "
-              << newobj->getCoords().getX() << ", y = "
-              << newobj->getCoords().getY()
-              << " with collision model as circle rad = 50"
-              << std::endl;
-
-    // pos[0] = 10;
-    // object_factory->createObject(HUMANOID, params);
-
-    // pos[0] = 20;
-    // object_factory->createObject(HUMANOID, params);
+//        std::cout << "Created resource at x = "
+//                  << newobj->getCoords().getX() << ", y = "
+//                  << newobj->getCoords().getY()
+//                  << " with collision model as circle rad = 50"
+//                  << std::endl;
+    }
 }
 
 //******************************************************************************
