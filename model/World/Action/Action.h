@@ -98,15 +98,20 @@ public:
      * @param param param name
      * @param value param value
      */
-    void addParam(std::string param, int value);
+    template <class Type> void addParam(std::string param, Type value)
+    {
+        this -> params.addKey<Type>(param, value);
+    }
 
     /**
      * @brief  Gets value of param.
      * @param  param    param name
      * @return value of param
      */
-    // TODO: Throw an exception when param isn't specified.
-    int getParam(std::string param) const;
+    template <class Type> Type getParam(std::string param) const
+    {
+        return this -> params.getValue<Type>(param);
+    }
 
     /**
      * @brief  Gets actor

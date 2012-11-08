@@ -13,12 +13,10 @@ Action::Action(const ActionType type, Object * const actor) :
     type(type),
     actor(actor)
 {
-
 }
 
 Action::~Action()
 {
-
 }
 
 //******************************************************************************
@@ -66,16 +64,6 @@ void Action::markAsSucceeded()
 void Action::addParticipant(Object * obj)
 {
     this -> participants.push_back(obj);
-}
-
-void Action::addParam(std::string param, int value)
-{
-    this -> params.addKey(param, value);
-}
-
-int Action::getParam(std::string param) const
-{
-    return this -> params.getValue(param);
 }
 
 Object * const Action::getActor() const
