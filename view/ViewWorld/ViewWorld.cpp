@@ -25,7 +25,7 @@ ViewWorld::ViewWorld(IWorld* w)
 
 ViewWorld::~ViewWorld()
 {
-    glDeleteTextures( 1, texture_buf ); // Clearing textures created
+    glDeleteTextures( 1, texture_buf[0] ); // Clearing textures created
 }
 
 void ViewWorld::loadTextures()
@@ -38,7 +38,7 @@ void ViewWorld::loadTextures()
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
     );
 
-    texture_buf[1] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
+    texture_buf[1] = SOIL_load_OGL_texture
     (
         "../../res/tree.png",
         SOIL_LOAD_RGBA,
@@ -82,8 +82,6 @@ void ViewWorld::renderObject(Object* object)
     double px = p.getX() - x;
     double py = p.getY() - y;
 
-    glColor3f(1.0, 1.0, 1.0);
-
     px /= CAM_RADIUS;
     py /= CAM_RADIUS;
     px *= 8;
@@ -99,37 +97,35 @@ void ViewWorld::renderObject(Object* object)
     glEnable(GL_TEXTURE_2D);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
-    glBegin(GL_POLYGON); // Drawing tree at specific place
+    glBegin(GL_POLYGON);
         glTexCoord2f(x0, y0); glVertex2f(px-0.33, py-0.5);
         glTexCoord2f(x1, y0); glVertex2f(px+0.33, py-0.5);
         glTexCoord2f(x1, y1); glVertex2f(px+0.33, py+0.5);
         glTexCoord2f(x0, y1); glVertex2f(px-0.33, py+0.5);
     glEnd();
     glDisable(GL_BLEND);
-    glDisable(GL_TEXTURE_2D); // Fun part is done for this frame, 2D textures are drawn.
+    glDisable(GL_TEXTURE_2D);
 }
 
 void ViewWorld::renderBackground()
 {
-    glBindTexture(GL_TEXTURE_2D, texture_buf[0]); // Choosing grass texture to render into the window
+    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
 
-    // select modulate to mix texture with color for shading
     glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
-    // when texture area is small, bilinear filter the closest mipmap
+
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST );
-    // when texture area is large, bilinear filter the original
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
-    glEnable(GL_TEXTURE_2D); // Entering texture drawing environment.
+    glEnable(GL_TEXTURE_2D);
 
-    glBegin(GL_POLYGON); // Texturing window frame with grass
+    glBegin(GL_POLYGON);
         glTexCoord2f(0.0,   0.0); glVertex2f(-8.0f, -8.0f);
         glTexCoord2f(16.0,  0.0); glVertex2f( 8.0f, -8.0f);
         glTexCoord2f(16.0, 16.0); glVertex2f( 8.0f,  8.0f);
         glTexCoord2f(0.0,  16.0); glVertex2f(-8.0f,  8.0f);
     glEnd();
 
-    glDisable(GL_TEXTURE_2D); // Fun part is done for this frame, 2D textures are drawn.
+    glDisable(GL_TEXTURE_2D);
 
     glColor3f(1.0f, 1.0f, 1.0f);
 }

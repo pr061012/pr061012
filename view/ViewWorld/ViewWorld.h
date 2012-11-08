@@ -17,6 +17,9 @@
 
 class ViewWorld
 {
+    /// World that is rendered by this class
+    IWorld* world;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -34,29 +37,41 @@ public:
     ~ViewWorld();
 
 private:
+
+    //**************************************************************************
+    // TEXTURE LOADING.
+    //**************************************************************************
+
+    /// array of loaded textures
     GLuint texture_buf[2];
 
+    /**
+     * @brief preload game textures in openGL
+     */
     void loadTextures();
-
-
-    /// World that is rendered by this class
-    IWorld* world;
 
     /// X and Y coordinates of center of the game cam
     double x;
     double y;
 
+    /// number of frames drawn
     int frame;
 
 private:
 
-    void renderObject(Object* object);
+    /**
+     * @brief draws specific object relative to current coordinates
+     */
+    void renderObject(Object* object); // TODO: Object -> ViewObject
 
     void renderBackground();
 
 public:
     void redraw();
 
+    /**
+     * @brief set coordinates of center of the game cam
+     */
     void setX(double new_var);
     void setY(double new_var);
 
