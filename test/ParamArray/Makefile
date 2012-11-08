@@ -8,7 +8,6 @@ LIBS       =
 MODEL_DIR  = ../../model/
 
 # Files with sources.
-SOURCES    = $(MODEL_DIR)World/ParamArray/ParamArray.cpp
 SOURCES   += $(MODEL_DIR)World/ParamArray/EParamArrayBadKey.cpp
 SOURCES   += main.cpp
 
