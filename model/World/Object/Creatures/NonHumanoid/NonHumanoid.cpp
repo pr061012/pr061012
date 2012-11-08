@@ -4,12 +4,13 @@
 */
 
 #include <cstdlib>
+#include <cmath>
 
 #include "NonHumanoid.h"
 #include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
 #include "../../../../BasicFuncs.h"
-#include <cmath>
+#include "../../Resource/Resource.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -30,7 +31,8 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
-    attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy, so it always wants to relax
+    attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy,
+                                        // so it always wants to relax
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
     attrs(ATTR_SAFETY,0)         = safety;
@@ -47,7 +49,9 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     current_decision = NONE;
     // Initialize direction
     // angle =-1 means that NonHum doesn't choose any direction still
+    // aim = 0 means the same
     angle = -1;
+    aim = 0;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -64,13 +68,13 @@ std::vector <Action>* NonHumanoid::getActions()
     if (!this -> decr_sleep_step)
         this -> decr_sleep_step--;
 
-    if(age_steps == 0)
+    if (age_steps == 0)
         updateAge();
-    if(desc_steps == 0)
+    if (desc_steps == 0)
         updateNeedInDesc();
-    if(common_steps == 0)
+    if (common_steps == 0)
         updateCommonAttrs();
-    if(safety_steps == 0)
+    if (safety_steps == 0)
         updateSafety();
 
     this -> actions.clear();
@@ -79,6 +83,7 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         current_decision = NONE;
         angle = -1;
+        aim = 0;
     }
 
     if (current_decision == NONE)
@@ -104,7 +109,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
     }
 
-    if(current_decision == RELAX)
+    if (current_decision == RELAX)
     {
         if (angle == -1)
         {
@@ -118,6 +123,45 @@ std::vector <Action>* NonHumanoid::getActions()
 
     if (current_decision == EAT)
     {
+        if (aim == 0);
+            findGrass();
+
+        if (aim != 0)
+        {
+            if (angle == -1)
+                angle = setDirection();
+            if (this -> getCoords().getDistance(aim -> getCoords()) == 0)
+                                                    //maybe<some_epsilon?
+            {
+                Action act(EAT_OBJ, this);
+                act.addParticipant(aim);
+            }
+            else
+            {
+                Action act(GO, this);
+                act.addParam("angle", angle);
+                act.addParam("speed", SLOW_SPEED);
+                this -> actions.push_back(act);
+            }
+        }
+        else
+        {
+            if (angle == -1)
+            {
+                angle = doubleRand(2 * M_PI);
+            }
+            Action act(GO, this);
+            act.addParam("angle", angle);
+            act.addParam("speed", SLOW_SPEED);
+            this -> actions.push_back(act);
+        }
+
+        if (hunger == 0)
+        {
+            this -> current_action = NONE;
+            angle = -1;
+            aim = 0;
+        }
 
     }
 
@@ -131,7 +175,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if(age == max_age)
+    if (age == max_age)
     {
         health = 0;
     }
@@ -156,12 +200,12 @@ void NonHumanoid::updateNeedInDesc()
 void NonHumanoid::updateCommonAttrs()
 {
     if (current_decision != EAT)
-        this -> hunger     += CREAT_DELTA_HUNGER;
+        this -> hunger   += CREAT_DELTA_HUNGER;
     if (current_decision != SLEEP)
         this -> sleepiness += CREAT_DELTA_SLEEP;
 
     this -> attrs(ATTR_HUNGER,0)     = 100 * hunger / max_hunger;
-    this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness; // what about health?
+    this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
 
     this -> common_steps = CREAT_STEPS;
 }
@@ -171,3 +215,44 @@ void NonHumanoid::updateSafety()
     ;
 }
 
+/**
+ * @brief    Calculate the angle between first (this) and second (aim) object
+ * @return   angle
+ */
+double NonHumanoid::setDirection()
+{
+    double delta_x;
+    double delta_y;
+    delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
+    delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
+    return angle = atan(delta_x / delta_y);
+}
+
+/**
+ * @brief    Find grass around NHum
+ * @return   the nearest grass
+ */
+void NonHumanoid::findGrass()
+{
+    ObjectHeap::const_iterator iter;
+    Point coords;
+
+    double distance = SZ_NHUM_VIEW_DIAM;
+    for(
+        iter = objects_around -> begin(RESOURCE);
+        iter != objects_around -> end(RESOURCE); iter++
+       )
+    {
+        Resource* res = dynamic_cast<Resource*>(*iter);
+        if (res -> getSubtype()  == GRASS)
+        {
+            coords = res -> getCoords();
+            if (distance < coords.getDistance(this -> getCoords()))
+            {
+                this -> aim = res;
+                this -> angle = -1;
+                distance = coords.getDistance(this -> getCoords());
+            }
+        }
+    }
+}

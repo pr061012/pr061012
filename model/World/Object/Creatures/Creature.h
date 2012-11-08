@@ -142,13 +142,15 @@ private:
     /// View area for Indexator.
     Shape view_area;
 
-    /// Current creature's action.
-    CreatureAction current_action;
+
 
 protected:
-    /**
-     * @brief Matrix of attributes
-     */
+    /// Current creature's action.
+    CreatureAction current_action;
+    /// Creature's enviroment
+    ObjectHeap * objects_around;
+
+     /// Matrix of attributes
     arma::mat attrs;
 
     /// Reference to creature's DecisionMaker.
@@ -166,7 +168,7 @@ protected:
     /// Maximum possible health.
     uint max_health;
 
-	// Quotient = 100 => creature wants sleep.
+    // Quotient = 100 => creature wants sleep.
 
     /// Current value of sleepiness.
     uint sleepiness;
@@ -176,11 +178,11 @@ protected:
     /// Current value of need_in_descendants (0-100)
 	uint need_in_descendants;
 
-	// If = 100, creature is in danger.
+    // If = 100, creature is in danger.
     /// Current safety.
     uint safety;
 
-	// Quotient = 100 => creature wants eat.
+    // Quotient = 100 => creature wants eat.
     /// Current value of hunger.
     uint hunger;
     /// Maximum possible value of hunger.
@@ -195,6 +197,9 @@ protected:
     /// Amount for steps to safety update.
     uint safety_steps;
 
+    //**************************************************************************
+    // UPDATES
+    //**************************************************************************
     /**
      * @brief Updates age
      */

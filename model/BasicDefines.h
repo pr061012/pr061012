@@ -46,6 +46,9 @@
 /// Resource shape diameter (maximum size).
 #define SZ_RESOURCE_DIAM_MAX    10 * SZ_HUMANOID_DIAM
 
+/// View area for NonHum
+#define SZ_NHUM_VIEW_DIAM       50 * SZ_HUMANOID_DIAM
+
 //******************************************************************************
 // WEATHER DEFINES.
 // Prefix: WEAT.
@@ -235,10 +238,5 @@
 
 /// Amount of steps to decrease sleepiness
 #define NHUM_DECR_SLEEP_STEPS     100
-
-/// NHum slow speed
-#define SLOW_SPEED  1
-/// NHum fast speed
-#define FAST_SPEED  2
 
 #endif // BASIC_DEFINES_H

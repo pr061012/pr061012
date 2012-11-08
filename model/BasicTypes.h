@@ -16,6 +16,16 @@
 typedef unsigned int uint;
 
 /**
+ * @enum SpeedType
+ * @brief The SpeedType enum
+ */
+enum SpeedType
+{
+    SLOW_SPEED, FAST_SPEED
+};
+
+
+/**
  * @enum ObjectType
  * @brief The ObjectType enum
  */
@@ -56,9 +66,10 @@ enum ResourceType
     BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 
     // Pickable resources.
-    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE
+    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE,
 
     // TODO: Add food.
+    GRASS
 };
 
 /**
@@ -98,26 +109,26 @@ enum ActionType
     ///                         set by angle). \n
     ///        Actor:           Creature/Weather \n
     ///        Participants:    none \n
-    ///        Parameters:      angle, speed
+    ///        Parameters:      angle (*double*), speed (*Speed*)
     GO,
 
     /// @brief Description:     Object moves another object. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Object \n
-    ///        Parameters:      angle, speed
+    ///        Parameters:      angle (*double*), speed (*Speed*)
     MOVE,
 
     /// @brief Description:     Resource mining by tool. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Resource, Tool (PICKAXE) \n
-    ///        Parameters:      res_id, tool_id
-    MINE,
+    ///        Parameters:      res_id (*uint*), tool_id (*uint*)
+    MINE_OBJ,
 
     /// @brief Description:     Repair building. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Building, Tool \n
-    ///        Parameters:      building_id, tool_id
-    REPAIR,
+    ///        Parameters:      building_id (*uint*), tool_id (*uint*)
+    REPAIR_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
@@ -129,10 +140,14 @@ enum ActionType
     ///        Actor:           Humanoid/Resource \n
     ///        Participants:    none \n
     ///        Parameters:
-    ///                         * obj_type, x and y
-    ///                         * for Resource creation: res_type, res_amount
-    ///                         * for Tool creation: tool_type, mat_type
+    ///                         * obj_type (*ObjectType*), x (*uint*) and y
+    ///                           (*uint*)
+    ///                         * for Resource creation: res_type
+    ///                           (*ResourceType*), res_amount (*uint*)
+    ///                         * for Tool creation: tool_type (*ToolType*),
+    ///                           mat_type (*uint*)
     ///                         * for Creature creation: creat_type
+    ///                           (*CreatureType*)
     CREATE_OBJ,
 
     /// @brief Description:     Drop objects to ground. \n
@@ -145,7 +160,13 @@ enum ActionType
     ///        Actor:           Creature \n
     ///        Participants:    several objects \n
     ///        Parameters:      none
-    PICK_UP_OBJS
+    PICK_UP_OBJS,
+
+    /// @brief Description:     Object eats object. \n
+    ///        Actor:           NonHumanoid \n
+    ///        Participants:    Resource \n
+    ///        Parameters:      none \n
+    EAT_OBJ
 };
 
 /**
