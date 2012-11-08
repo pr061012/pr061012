@@ -35,7 +35,11 @@ Indexator::~Indexator()
     {
         delete[] cells[i];
     }
-    delete cells;
+    delete[] cells;
+    for (Index::iterator i = index.begin(); i != index.end(); i++)
+    {
+        delete[] i -> second;
+    }
     index.clear();
 }
 
@@ -62,7 +66,8 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
             }
         }
     }
-
+    
+    delete[] cells_area;
     return result;
 }
 
@@ -126,7 +131,7 @@ void Indexator::reindexate(Object * object)
     // If object did not move, don't do anything.
     if (!k)
     {
-        delete area;
+        delete[] area;
         return;
     }
 
@@ -160,7 +165,7 @@ void Indexator::reindexate(Object * object)
     }
 
     // save new cells
-    delete old_area;
+    delete[] old_area;
     old_area = area;
 }
 
