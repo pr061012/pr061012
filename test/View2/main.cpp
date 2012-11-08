@@ -1,11 +1,12 @@
 #include "../../model/World/World.h"
 #include "../../view/View.h"
+#include "../../model/BasicDefines.h"
 
 #include <time.h>
 #include <iostream>
 
 /// Period for world updating.
-const int PERIOD = CLOCKS_PER_SEC/32;
+const int PERIOD = CLOCKS_PER_SEC/TM_TICKS_PER_SECOND;
 
 int main()
 {
