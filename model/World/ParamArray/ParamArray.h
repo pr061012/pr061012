@@ -7,6 +7,7 @@
 #define PARAM_ARRAY_H
 
 #include <iostream>
+#include <cstdlib>
 #include <string>
 #include <map>
 
@@ -42,8 +43,7 @@ public:
 
         for (i = this -> map.begin(); i != map.end(); i++)
         {
-            // FIXME: Won't call destructors!
-            delete i -> second;
+            free(i -> second);
         }
 
         this -> map.clear();
@@ -61,7 +61,9 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
-        Type * copy = new Type(value);
+        Type * copy = static_cast<Type *>( malloc(sizeof(Type)) );
+        *copy = value;
+
         this -> map[key] = copy;
     }
 
@@ -83,7 +85,7 @@ public:
             throw EParamArrayBadKey();
         }
 
-        return *(reinterpret_cast<Type *>(iter -> second));
+        return *(static_cast<Type *>(iter -> second));
     }
 
     /**
@@ -104,9 +106,7 @@ public:
             return false;
         }
 
-        // FIXME: Won't call destructors!
-        delete iter -> second;
-
+        free(iter -> second);
         this -> map.erase(iter);
 
         return true;

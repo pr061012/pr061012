@@ -42,9 +42,10 @@ int main()
     }
     assert(exc_was == true);
 
-    pa.addKey<int>("key", 1);
-    pa.addKey<long long>("another_key", 2);
-    pa.addKey<std::string>("string key", "string key value");
+    // Testing auto deletion for keys (on ~ParamArray() spawning).
+    pa.addKey<int>("int", 10);
+    pa.addKey<double>("double", 10.0);
+    pa.addKey<long long>("long long", 10);
 
     return 0;
 }
