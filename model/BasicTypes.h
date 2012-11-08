@@ -16,6 +16,16 @@
 typedef unsigned int uint;
 
 /**
+ * @enum SpeedType
+ * @brief The SpeedType enum
+ */
+enum SpeedType
+{
+    SLOW_SPEED, FAST_SPEED
+};
+
+
+/**
  * @enum ObjectType
  * @brief The ObjectType enum
  */
@@ -56,9 +66,10 @@ enum ResourceType
     BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 
     // Pickable resources.
-    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE
+    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE,
 
     // TODO: Add food.
+    GRASS
 };
 
 /**
