@@ -21,8 +21,12 @@ var hierarchy =
     [ "ObjectHeap", "classObjectHeap.html", null ],
     [ "ParamArray", "classParamArray.html", null ],
     [ "Performer", "classPerformer.html", [
+      [ "CreationPerformer", "classCreationPerformer.html", null ],
+      [ "HarmPerformer", "classHarmPerformer.html", null ],
+      [ "MiningPerformer", "classMiningPerformer.html", null ],
       [ "MovementPerformer", "classMovementPerformer.html", null ],
-      [ "MovementPerformer", "classMovementPerformer.html", null ]
+      [ "MovementPerformer", "classMovementPerformer.html", null ],
+      [ "RepairingPerformer", "classRepairingPerformer.html", null ]
     ] ],
     [ "Point", "classPoint.html", null ],
     [ "Shape", "classShape.html", null ],

@@ -240,13 +240,13 @@ $(document).ready(function(){initNavTree('BasicDefines_8h_source.html','');});
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00151"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77">  151</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEPINESS_MAX  100</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273">  154</a></span>&#160;<span class="preprocessor">#define CREAT_STEPS           150</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273">  154</a></span>&#160;<span class="preprocessor">#define CREAT_STEPS           15 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7eb218c460ae0d129632ced3a3b6d1ad">  156</a></span>&#160;<span class="preprocessor">#define CREAT_SAFETY_STEPS    16</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7eb218c460ae0d129632ced3a3b6d1ad">  156</a></span>&#160;<span class="preprocessor">#define CREAT_SAFETY_STEPS    1 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a00bc71bbe32c141390ea61a51920a5e8">  158</a></span>&#160;<span class="preprocessor">#define CREAT_DESC_STEPS      1500</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a00bc71bbe32c141390ea61a51920a5e8">  158</a></span>&#160;<span class="preprocessor">#define CREAT_DESC_STEPS      150 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d">  160</a></span>&#160;<span class="preprocessor">#define CREAT_AGE_STEPS       5000 //it is taken from my ceiling</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d">  160</a></span>&#160;<span class="preprocessor">#define CREAT_AGE_STEPS       500 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc">  163</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_HUNGER    2</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span></div>
@@ -315,14 +315,18 @@ $(document).ready(function(){initNavTree('BasicDefines_8h_source.html','');});
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00237"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8c2ebfee37c5a80508c2b55b714b2702">  237</a></span>&#160;<span class="preprocessor">#define NHUM_DECR_SLEEP_STEPS     100</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#endif // BASIC_DEFINES_H</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af41dbabacf4f0b3886d49dc01def7b23">  240</a></span>&#160;<span class="preprocessor">#define SLOW_SPEED  1</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae84d68814770a49e3ec9279b8ed99563">  242</a></span>&#160;<span class="preprocessor">#define FAST_SPEED  2</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#endif // BASIC_DEFINES_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="BasicDefines_8h.html">BasicDefines.h</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 22:13:41 for pr061012 by
+    <li class="footer">Generated on Thu Nov 8 2012 23:35:37 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

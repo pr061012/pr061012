@@ -1,14 +1,14 @@
 var searchData=
 [
   ['save',['save',['../classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd',1,'World']]],
-  ['setage',['setAge',['../classCreature.html#a7be5dc2ed7d471d8851a59cdf67c1501',1,'Creature']]],
+  ['setage',['setAge',['../classCreature.html#a218e2238145d382fb76727618db5d0d1',1,'Creature']]],
   ['setallobjects',['setAllObjects',['../classWorld.html#a81a8c64b3b1376bf96abb41033086f09',1,'World']]],
   ['setangle',['setAngle',['../classObject.html#a075891336e08ea144917d8468f8480f1',1,'Object']]],
   ['setcenter',['setCenter',['../classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf',1,'Shape']]],
   ['setcoords',['setCoords',['../classObject.html#a67d41327686c2018494ea788379db9aa',1,'Object']]],
-  ['sethealth',['setHealth',['../classCreature.html#ad28bbb5ab5ca03ae1a2d8774ba69b152',1,'Creature']]],
-  ['setmaxage',['setMaxAge',['../classCreature.html#a89f306ba0ec624fa6c8a67863c37a692',1,'Creature']]],
-  ['setmaxhealth',['setMaxHealth',['../classCreature.html#ae7fcf88ba63770c25090005620124286',1,'Creature']]],
+  ['sethealth',['setHealth',['../classCreature.html#aaa12115f414e42efcdefff606656a47d',1,'Creature']]],
+  ['setmaxage',['setMaxAge',['../classCreature.html#a0182ce7212cc37901927fc9ebb26a359',1,'Creature']]],
+  ['setmaxhealth',['setMaxHealth',['../classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20',1,'Creature']]],
   ['setshape',['setShape',['../classObject.html#a4e048add0d93a603d19216485553f869',1,'Object']]],
   ['setsize',['setSize',['../classShape.html#aaee049351828e1209697bb2b357ca61a',1,'Shape']]],
   ['settype',['setType',['../classShape.html#a44bfca3ef6564ff0f34badc77f594862',1,'Shape::setType()'],['../classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8',1,'ViewObject::setType()']]],

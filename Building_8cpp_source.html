@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classBuilding.html#adb0a57e2aeee35fd205ee81e00400101">   12</a></span>&#160;<a class="code" href="classBuilding.html#adb0a57e2aeee35fd205ee81e00400101" title="Constructor.">Building::Building</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_space, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_health) :</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5">   12</a></span>&#160;<a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5" title="Constructor.">Building::Building</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health) :</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>),</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    contents(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>),</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    health(0),</div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// HEALTH MANIPULATION.</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classBuilding.html#a1f260160727ce158f285ed694b5eedc3">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a1f260160727ce158f285ed694b5eedc3" title="Decreases building&#39;s health.">Building::decreaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta)</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c" title="Decreases building&#39;s health.">Building::decreaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health &gt; delta)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classBuilding.html#ac1f1ebb095ace3ebbc3395a0cef4d7ae">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#ac1f1ebb095ace3ebbc3395a0cef4d7ae" title="Increases building&#39;s health.">Building::increaseHealth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta)</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">Building::increaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health + delta &lt; this -&gt; max_health)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
@@ -184,9 +184,9 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// REPAIRING.</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a992380130bce8837c5c5d10615a1002d" title="Repairs building (adds delta to building health).">Building::repair</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delta)</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041" title="Repairs building (adds delta to building health).">Building::repair</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#ac1f1ebb095ace3ebbc3395a0cef4d7ae" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health == <span class="keyword">this</span> -&gt; max_health)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
@@ -203,12 +203,12 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classBuilding.html#a454e3401224e1c5a25b1c3725f171b34">  102</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classBuilding.html#a454e3401224e1c5a25b1c3725f171b34" title="Get the value of free_space.">Building::getFreeSpace</a>()</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b">  102</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b" title="Get the value of free_space.">Building::getFreeSpace</a>()</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; free_space;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classBuilding.html#a4ef686203c7477e7e2a7107962e95f28">  107</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classBuilding.html#a4ef686203c7477e7e2a7107962e95f28" title="Get the value of max_space.">Building::getMaxSpace</a>()</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6">  107</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6" title="Get the value of max_space.">Building::getMaxSpace</a>()</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_space;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_6e1c2001ff250873cab74c79ba8b43d2.html">Building</a></li><li class="navelem"><a class="el" href="Building_8cpp.html">Building.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 22:13:41 for pr061012 by
+    <li class="footer">Generated on Thu Nov 8 2012 23:35:37 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

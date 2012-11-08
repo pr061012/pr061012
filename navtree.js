@@ -7,7 +7,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ]
       ] ]
@@ -30,8 +30,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Action_8cpp.html",
-"Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da8c371f4e766fb2c49c219bbc88989461",
-"classWorld.html"
+"Point_8h_source.html",
+"classShape.html#aaa8d87171e65e0d8ba3c5459978992a7"
 ];
 
 var navTreeSubIndices = new Array();

@@ -196,13 +196,15 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a21d5e8f8cdaa838586b31007df0a950b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b">ActionType</a> { <br/>
 &#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985">GO</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62">MOVE</a>, 
-<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069">MINE</a>, 
-<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba5eb9ee68da6f53f093f426c049b5eee0">REPAIR</a>, 
+<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba2e66a27a156f16bce68f9ab8d6df863a">MINE_OBJ</a>, 
+<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba8acb7321082badc3a20ab5f61ab1c673">REPAIR_OBJ</a>, 
 <br/>
 &#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b">HARM_OBJS</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff">CREATE_OBJ</a>, 
 <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba3cf84148e5f0e4be54e30cee67546602">DROP_OBJS</a>, 
-<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba29fb3ed81fd7105b4664ad336e15a5ea">PICK_UP_OBJS</a>
+<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba29fb3ed81fd7105b4664ad336e15a5ea">PICK_UP_OBJS</a>, 
+<br/>
+&#160;&#160;<a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba240baad888a805c4636f763459639825">EAT_OBJ</a>
 <br/>
  }</td></tr>
 <tr class="memdesc:a21d5e8f8cdaa838586b31007df0a950b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in participants array. <em>Example</em>: action MINE, actor is <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>, participants are <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> (index is 0) and <a class="el" href="classTool.html" title="Tool class.">Tool</a> (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id (= 1).  <a href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b">More...</a><br/></td></tr>
@@ -276,7 +278,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00175">175</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00185">185</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -308,7 +310,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00155">155</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00165">165</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -328,25 +330,25 @@ Enumerations</h2></td></tr>
 <p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> goes to to another point (direction is set by angle). <br/>
  Actor: Creature/Weather <br/>
  Participants: none <br/>
- Parameters: angle, speed. </p>
+ Parameters: angle (<em>double</em>), speed (<em>Speed</em>) </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62"></a>MOVE</em>&nbsp;</td><td>
 <p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> moves another object. <br/>
  Actor: <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> <br/>
  Participants: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> <br/>
- Parameters: angle, speed. </p>
+ Parameters: angle (<em>double</em>), speed (<em>Speed</em>) </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba96c9aaad9bb497535633da3c0e447069"></a>MINE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba2e66a27a156f16bce68f9ab8d6df863a"></a>MINE_OBJ</em>&nbsp;</td><td>
 <p>Description: <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> mining by tool. <br/>
  Actor: <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> <br/>
  Participants: <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>, <a class="el" href="classTool.html" title="Tool class.">Tool</a> (PICKAXE) <br/>
- Parameters: res_id, tool_id. </p>
+ Parameters: res_id (<em>uint</em>), tool_id (<em>uint</em>) </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba5eb9ee68da6f53f093f426c049b5eee0"></a>REPAIR</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba8acb7321082badc3a20ab5f61ab1c673"></a>REPAIR_OBJ</em>&nbsp;</td><td>
 <p>Description: Repair building. <br/>
  Actor: <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> <br/>
  Participants: <a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a>, <a class="el" href="classTool.html" title="Tool class.">Tool</a> <br/>
- Parameters: building_id, tool_id. </p>
+ Parameters: building_id (<em>uint</em>), tool_id (<em>uint</em>) </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b"></a>HARM_OBJS</em>&nbsp;</td><td>
 <p>Description: Harm one or more objects. <br/>
@@ -360,10 +362,10 @@ Enumerations</h2></td></tr>
  Participants: none <br/>
  Parameters: </p>
 <ul>
-<li>obj_type, x and y</li>
-<li>for <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> creation: res_type, res_amount</li>
-<li>for <a class="el" href="classTool.html" title="Tool class.">Tool</a> creation: tool_type, mat_type</li>
-<li>for <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> creation: creat_type </li>
+<li>obj_type (<em>ObjectType</em>), x (<em>uint</em>) and y (<em>uint</em>)</li>
+<li>for <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> creation: res_type (<em>ResourceType</em>), res_amount (<em>uint</em>)</li>
+<li>for <a class="el" href="classTool.html" title="Tool class.">Tool</a> creation: tool_type (<em>ToolType</em>), mat_type (<em>uint</em>)</li>
+<li>for <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> creation: creat_type (<em>CreatureType</em>) </li>
 </ul>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba3cf84148e5f0e4be54e30cee67546602"></a>DROP_OBJS</em>&nbsp;</td><td>
@@ -377,6 +379,13 @@ Enumerations</h2></td></tr>
  Actor: <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> <br/>
  Participants: several objects <br/>
  Parameters: none. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba240baad888a805c4636f763459639825"></a>EAT_OBJ</em>&nbsp;</td><td>
+<p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> eats object. <br/>
+ Actor: <a class="el" href="classNonHumanoid.html" title="NonHumanoid is silly creature, has only few goals in its life: food and sleep.">NonHumanoid</a> <br/>
+ Participants: <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> <br/>
+ Parameters: none <br/>
+. </p>
 </td></tr>
 </table>
 </dd>
@@ -608,7 +617,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="BasicTypes_8h.html">BasicTypes.h</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 22:13:41 for pr061012 by
+    <li class="footer">Generated on Thu Nov 8 2012 23:35:37 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

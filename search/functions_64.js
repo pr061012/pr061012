@@ -1,7 +1,7 @@
 var searchData=
 [
   ['decisionmaker',['DecisionMaker',['../classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c',1,'DecisionMaker']]],
-  ['decreaseamount',['decreaseAmount',['../classResource.html#a2cb3df2c376a3d53e6ed899eeea03472',1,'Resource']]],
-  ['decreasehealth',['decreaseHealth',['../classBuilding.html#a1f260160727ce158f285ed694b5eedc3',1,'Building::decreaseHealth()'],['../classCreature.html#a3ec5be7c20b7efd56fb29faa8f6bb026',1,'Creature::decreaseHealth()']]],
-  ['decreasestrength',['decreaseStrength',['../classTool.html#a517865591911445743c57fe4a482c78c',1,'Tool']]]
+  ['decreaseamount',['decreaseAmount',['../classResource.html#acb41587e4354c39a81c4f7d2674f4f88',1,'Resource']]],
+  ['decreasehealth',['decreaseHealth',['../classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c',1,'Building::decreaseHealth()'],['../classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4',1,'Creature::decreaseHealth()']]],
+  ['decreasestrength',['decreaseStrength',['../classTool.html#ac8e4a7675142aac8624c18ea6e182cd1',1,'Tool']]]
 ];

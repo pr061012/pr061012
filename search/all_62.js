@@ -11,7 +11,7 @@ var searchData=
   ['bronze',['BRONZE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ad983993c64c637c2a38b49dfb94048b3',1,'BasicTypes.h']]],
   ['bronze_5fore',['BRONZE_ORE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1abe053ca4db96cfdbded902334df28830',1,'BasicTypes.h']]],
   ['build',['BUILD',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a36ea76657e6cba209d9d0a7148deef05',1,'BasicTypes.h']]],
-  ['building',['Building',['../classBuilding.html',1,'Building'],['../classBuilding.html#adb0a57e2aeee35fd205ee81e00400101',1,'Building::Building()'],['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087',1,'BUILDING():&#160;BasicTypes.h']]],
+  ['building',['Building',['../classBuilding.html',1,'Building'],['../classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5',1,'Building::Building()'],['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087',1,'BUILDING():&#160;BasicTypes.h']]],
   ['building_2ecpp',['Building.cpp',['../Building_8cpp.html',1,'']]],
   ['building_2eh',['Building.h',['../Building_8h.html',1,'']]]
 ];

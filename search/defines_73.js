@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['slow_5fspeed',['SLOW_SPEED',['../BasicDefines_8h.html#af41dbabacf4f0b3886d49dc01def7b23',1,'BasicDefines.h']]],
   ['sz_5fbuilding_5fside_5fmax',['SZ_BUILDING_SIDE_MAX',['../BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3',1,'BasicDefines.h']]],
   ['sz_5fbuilding_5fside_5fmin',['SZ_BUILDING_SIDE_MIN',['../BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f',1,'BasicDefines.h']]],
   ['sz_5fhumanoid_5fdiam',['SZ_HUMANOID_DIAM',['../BasicDefines_8h.html#ae41e784d873f8eb34ba96081fa2635a7',1,'BasicDefines.h']]],

@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0cc27a5a77631e71aece59ee279ef7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a0cc27a5a77631e71aece59ee279ef7b3"></a><br/></td></tr>
 <tr class="memitem:a2ff03b6b1b4efe9e559dd5078e96054c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c">makeDecision</a> (arma::mat attrs) const </td></tr>
 <tr class="memdesc:a2ff03b6b1b4efe9e559dd5078e96054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a creature's decision about next action.  <a href="#a2ff03b6b1b4efe9e559dd5078e96054c"></a><br/></td></tr>
-<tr class="memitem:a2b16c79c954ecc7974eaeabef7de4174"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#a2b16c79c954ecc7974eaeabef7de4174">changeDecision</a> (arma::mat attrs, <a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> current_decision) const </td></tr>
-<tr class="memdesc:a2b16c79c954ecc7974eaeabef7de4174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the difference between current decision and other actions.  <a href="#a2b16c79c954ecc7974eaeabef7de4174"></a><br/></td></tr>
+<tr class="memitem:ad2b20e2847961ff6d1193d15178dd14c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c">isDecisionActual</a> (arma::mat attrs, <a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> current_decision) const </td></tr>
+<tr class="memdesc:ad2b20e2847961ff6d1193d15178dd14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the difference between current decision and other actions.  <a href="#ad2b20e2847961ff6d1193d15178dd14c"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Makes a prediction about next creature's action. </p>
@@ -169,12 +169,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a2b16c79c954ecc7974eaeabef7de4174"></a>
+<a class="anchor" id="ad2b20e2847961ff6d1193d15178dd14c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool DecisionMaker::changeDecision </td>
+          <td class="memname">bool DecisionMaker::isDecisionActual </td>
           <td>(</td>
           <td class="paramtype">arma::mat&#160;</td>
           <td class="paramname"><em>attrs</em>, </td>
@@ -244,7 +244,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classDecisionMaker.html">DecisionMaker</a></li>
-    <li class="footer">Generated on Wed Nov 7 2012 22:13:42 for pr061012 by
+    <li class="footer">Generated on Thu Nov 8 2012 23:35:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
