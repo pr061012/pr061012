@@ -6,7 +6,8 @@
 #include "CreationPerformer.h"
 
 
-CreationPerformer::CreationPerformer()
+CreationPerformer::CreationPerformer(Indexator &indexator):
+    indexator(indexator)
 {
 
 }
