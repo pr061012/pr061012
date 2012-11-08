@@ -10,6 +10,12 @@
 #ifndef BASIC_DEFINES_H
 #define BASIC_DEFINES_H
 
+#define SCREEN_WIDTH  800
+#define SCREEN_HEIGHT 600
+
+/// Radius of game camera field of view
+#define CAM_RADIUS 30
+
 //******************************************************************************
 // TIME DEFINES.
 // Prefix: TM.

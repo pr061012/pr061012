@@ -25,7 +25,7 @@ ViewWorld::ViewWorld(IWorld* w)
 
 ViewWorld::~ViewWorld()
 {
-    glDeleteTextures( 1, texture_buf[0] ); // Clearing textures created
+    glDeleteTextures( 2, texture_buf ); // Clearing textures created
 }
 
 void ViewWorld::loadTextures()

@@ -6,13 +6,11 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#define SCREEN_WIDTH  800
-#define SCREEN_HEIGHT 600
-
 #include <GL/glfw.h>
 #include <GL/gl.h>
 #include "SOIL.h"
 #include "../model/BasicTypes.h"
+#include "../model/BasicDefines.h"
 #include "../model/World/IWorld.h"
 #include "ViewWorld/ViewWorld.h"
 #include <iostream>

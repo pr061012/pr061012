@@ -6,9 +6,8 @@
 #ifndef VIEW_WORLD_H
 #define VIEW_WORLD_H
 
-#define CAM_RADIUS 30
-
 #include "../../model/BasicTypes.h"
+#include "../../model/BasicDefines.h"
 #include "../../model/World/IWorld.h"
 #include "../../model/World/Object/Object.h"
 #include <GL/glfw.h>
