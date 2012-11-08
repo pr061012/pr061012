@@ -19,6 +19,7 @@
 
 class View
 {
+    /// World to be rendered by View.
     ViewWorld* view_world;
 
 public:
@@ -28,6 +29,7 @@ public:
 
     /**
      * @brief Constructor
+     * @param w world that will be rendered by this class
      */
     View(IWorld* w);
 
@@ -36,15 +38,25 @@ public:
      */
     ~View();
 
+    //**************************************************************************
+    // DRAWING METHODS.
+    //**************************************************************************
+
+    /**
+     * @brief Redraw currently displayed world
+     */
     void redraw();
 
     /**
-     * @brief returns exit condition
+     * @brief checks conditions to exit the program
+     * @return result of exit conditions
      */
     bool isExit();
 
 private:
-    // TODO: Move this method to GUI?
+    /**
+     * @brief initialize graphics window
+     */
     void initWindow();
 
 };
