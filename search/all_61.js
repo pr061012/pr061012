@@ -8,7 +8,6 @@ var searchData=
   ['actions',['actions',['../classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690',1,'Object']]],
   ['actionstate',['ActionState',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e',1,'BasicTypes.h']]],
   ['actiontype',['ActionType',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b',1,'BasicTypes.h']]],
-  ['addgodaction',['addGodAction',['../classIWorld.html#a6da384ca49e6b67d41b35047e34dad8c',1,'IWorld']]],
   ['addkey',['addKey',['../classParamArray.html#a01c7a07c832ce66628c182d7672ede54',1,'ParamArray']]],
   ['addparam',['addParam',['../classAction.html#ad093732911838eabbdbe5ec48300b6c0',1,'Action']]],
   ['addparticipant',['addParticipant',['../classAction.html#aae2912142691704bc9a61108fcb83205',1,'Action']]],

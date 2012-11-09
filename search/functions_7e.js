@@ -10,6 +10,7 @@ var searchData=
   ['_7eharmperformer',['~HarmPerformer',['../classHarmPerformer.html#a0c1d9f1e442a5926c2f8b1b7b294c9aa',1,'HarmPerformer']]],
   ['_7ehumanoid',['~Humanoid',['../classHumanoid.html#a72dbc95208cb84fc3a70691f310e61ee',1,'Humanoid']]],
   ['_7eindexator',['~Indexator',['../classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b',1,'Indexator']]],
+  ['_7ekeyhandler',['~KeyHandler',['../classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51',1,'KeyHandler']]],
   ['_7eminingperformer',['~MiningPerformer',['../classMiningPerformer.html#a9855d33e82be8f645d9c54b47f5fdad7',1,'MiningPerformer']]],
   ['_7emovementperformer',['~MovementPerformer',['../classMovementPerformer.html#a1715f190dbee77f4cc4a2c9a58a9064a',1,'MovementPerformer::~MovementPerformer()'],['../classMovementPerformer.html#a1715f190dbee77f4cc4a2c9a58a9064a',1,'MovementPerformer::~MovementPerformer()']]],
   ['_7enonhumanoid',['~NonHumanoid',['../classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1',1,'NonHumanoid']]],
@@ -23,7 +24,9 @@ var searchData=
   ['_7eresource',['~Resource',['../classResource.html#a0e5ec475e2601bdb33644468e86f6f10',1,'Resource']]],
   ['_7eshape',['~Shape',['../classShape.html#a935afc9e576015f967d90de56977167d',1,'Shape']]],
   ['_7etool',['~Tool',['../classTool.html#a44634ea099b7a49acf87f50e072ce660',1,'Tool']]],
+  ['_7eview',['~View',['../classView.html#ad0dc854db9aabbea98a334dec89f785c',1,'View']]],
   ['_7eviewobject',['~ViewObject',['../classViewObject.html#af4f968a145747cc2b84fd224ac72122b',1,'ViewObject']]],
+  ['_7eviewworld',['~ViewWorld',['../classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c',1,'ViewWorld']]],
   ['_7eweather',['~Weather',['../classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22',1,'Weather']]],
   ['_7eworld',['~World',['../classWorld.html#a8c73fba541a5817fff65147ba47cd827',1,'World']]]
 ];

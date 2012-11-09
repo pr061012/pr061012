@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cam_5fradius',['CAM_RADIUS',['../BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c',1,'BasicDefines.h']]],
   ['circle',['CIRCLE',['../Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'Shape.h']]],
   ['clouds',['CLOUDS',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a2864a88199aef8238cc4345e675c596b',1,'BasicTypes.h']]],
   ['coal',['COAL',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a7b33cec24386ace3dac71e0b351677ac',1,'BasicTypes.h']]],
@@ -32,5 +33,6 @@ var searchData=
   ['creature_2ecpp',['Creature.cpp',['../Creature_8cpp.html',1,'']]],
   ['creature_2eh',['Creature.h',['../Creature_8h.html',1,'']]],
   ['creatureaction',['CreatureAction',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706',1,'BasicTypes.h']]],
-  ['creaturetype',['CreatureType',['../BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df',1,'BasicTypes.h']]]
+  ['creaturetype',['CreatureType',['../BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df',1,'BasicTypes.h']]],
+  ['current_5faction',['current_action',['../classCreature.html#a3f97c007c64aa78502e9fa9cab716408',1,'Creature']]]
 ];

@@ -25,6 +25,7 @@ var classCreature =
     [ "attrs", "classCreature.html#a641e41105d04d3faf56ca7a0132586e2", null ],
     [ "brains", "classCreature.html#a8499febfbaad5783181a01000cbc4dc6", null ],
     [ "common_steps", "classCreature.html#aa1c351d6da7f1df976efb27fe21d5014", null ],
+    [ "current_action", "classCreature.html#a3f97c007c64aa78502e9fa9cab716408", null ],
     [ "desc_steps", "classCreature.html#ad80371401e4349fd4c5b05367964b530", null ],
     [ "health", "classCreature.html#ab59bc1917022e01b46b23f947bb8d688", null ],
     [ "hunger", "classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a", null ],
@@ -33,6 +34,7 @@ var classCreature =
     [ "max_hunger", "classCreature.html#a49691e6b47ba6704b980963ab63c1881", null ],
     [ "max_sleepiness", "classCreature.html#ae52439324e6404f73bf0e316fdf5a31b", null ],
     [ "need_in_descendants", "classCreature.html#aed2975e3833046d705ae928dc2aed4b6", null ],
+    [ "objects_around", "classCreature.html#a2941f1bf4753c4cc196ca7b20ade706c", null ],
     [ "safety", "classCreature.html#a898df2aff71e6908209969eea863ccf8", null ],
     [ "safety_steps", "classCreature.html#a0781a2fc0015b162482cc3f92aae3ec8", null ],
     [ "sleepiness", "classCreature.html#a3f6c69d85deb3a91a823913e67f19709", null ]

@@ -109,115 +109,142 @@ $(document).ready(function(){initNavTree('World_8cpp_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">World.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classWorld.html#a8c73fba541a5817fff65147ba47cd827">   12</a></span>&#160;<a class="code" href="classWorld.html#a8c73fba541a5817fff65147ba47cd827" title="Destructor.">World::~World</a>()</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{    </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">delete</span> object_factory;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">delete</span> indexator;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61">   18</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(std::string filepath) :</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    width(<a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    height(<a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classWorld.html#acec79c2f42aff7fd9d88208d06bad135">   25</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(<span class="keywordtype">int</span> rand_seed) :</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    width(<a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    height(<a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    srand(rand_seed);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;   <span class="comment">// World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classWorld.html#a736fa349417918f4774d4df2495c87f5">   33</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(<span class="keywordtype">int</span> rand_seed, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) :</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    width(width  &gt; 0 ? width  : <a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    height(height &gt; 0 ? height : <a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    srand(rand_seed);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//this-&gt;width  = width  &gt; 0 ? width  : DEFAULT_WIDTH;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//this-&gt;height = height &gt; 0 ? height : DEFAULT_HEIGHT;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    object_factory = <span class="keyword">new</span> <a class="code" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classWorld.html#a8c73fba541a5817fff65147ba47cd827">   14</a></span>&#160;<a class="code" href="classWorld.html#a8c73fba541a5817fff65147ba47cd827" title="Destructor.">World::~World</a>()</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{    </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">delete</span> object_factory;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">delete</span> indexator;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">delete</span> visible_objs;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61">   21</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(std::string filepath) :</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    width(<a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    height(<a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//World::World(int rand_seed) :</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//    width(DEFAULT_WIDTH),</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//    height(DEFAULT_HEIGHT)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//    srand(rand_seed);</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classWorld.html#a8139b11605d8965613dc9ba67fe26cf7">   35</a></span>&#160;<a class="code" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61" title="Load saved world from file.">World::World</a>(<span class="keywordtype">int</span> rand_seed, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) :</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    width(width  &gt; 0 ? width  : <a class="code" href="World_8h.html#a93493eb8fae5549bd5be67f3449245e0" title="Default values for max x and y.">DEFAULT_WIDTH</a>),</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    height(height &gt; 0 ? height : <a class="code" href="World_8h.html#a1879f9e5604a01f0983829846001ab23">DEFAULT_HEIGHT</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    srand(rand_seed);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Creating world with rand_seed=&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;              &lt;&lt; rand_seed &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// FIXME: No such constructor for indexator?</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    indexator = <span class="keyword">new</span> <a class="code" href="classIndexator.html">Indexator</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    object_factory = <span class="keyword">new</span> <a class="code" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    visible_objs = <span class="keyword">new</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// For now, just generating a group of humans in a row.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    indexator = <span class="keyword">new</span> <a class="code" href="classIndexator.html">Indexator</a>((<span class="keywordtype">double</span>)width);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::map &lt;std::string, void*&gt; params;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> pos[] = {0, 0};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    params[<span class="stringliteral">&quot;x&quot;</span>] = &amp;pos[0];</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    params[<span class="stringliteral">&quot;y&quot;</span>] = &amp;pos[1];</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// object_factory-&gt;createObject(HUMANOID, params);</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// pos[0] = 10;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// object_factory-&gt;createObject(HUMANOID, params);</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// pos[0] = 20;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// object_factory-&gt;createObject(HUMANOID, params);</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// BASE METHODS.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classWorld.html#a63a22c1ea89297d49095004c79d40ce6">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWorld.html#a63a22c1ea89297d49095004c79d40ce6" title="Update world state.">World::step</a>()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// TODO: Prepare the queue of actions for controller.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd">   73</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd" title="Save world to file.">World::save</a>(std::string filepath)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// TODO: Create file at filepath and save it (format?)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// ACCESSORS.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classWorld.html#a81a8c64b3b1376bf96abb41033086f09">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWorld.html#a81a8c64b3b1376bf96abb41033086f09" title="Set the value of all_objects.">World::setAllObjects</a>(<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> new_var)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">this</span> -&gt; all_objects = new_var;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="classWorld.html#a1516d8230238824316a731a7618ab573">   88</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> <a class="code" href="classWorld.html#a1516d8230238824316a731a7618ab573" title="Get the value of all_objects.">World::getAllObjects</a>()</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; all_objects;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">// VIEW METHODS.</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classWorld.html#acdb10ab4fa6538a25336ac585e3802e0">   97</a></span>&#160;<a class="code" href="classViewObject.html">ViewObject</a> **<a class="code" href="classWorld.html#acdb10ab4fa6538a25336ac585e3802e0" title="Get objects visible in certain radius around a certain point.">World::getViewObjectsInRange</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> radius)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Check all_objects in certain range and create array</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// of (tiny) objects containing neccessary parameters.</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> params;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    params.<a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>(<span class="stringliteral">&quot;res_type&quot;</span>, <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a633a5aa6913d52cbd31286e8934e8df0">WOOD</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    params.<a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>(<span class="stringliteral">&quot;res_amount&quot;</span>, 10);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 30 + rand()%50; i&gt;=0; --i)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* newobj  = object_factory-&gt;<a class="code" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0" title="Creates new object.">createObject</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>, params);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        newobj-&gt;<a class="code" href="classObject.html#a67d41327686c2018494ea788379db9aa" title="Set object&#39;s coordinates.">setCoords</a>(<a class="code" href="classPoint.html" title="Point class.">Point</a>(20.0+rand()%50,20.0+rand()%50));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        newobj-&gt;<a class="code" href="classObject.html#a4e048add0d93a603d19216485553f869" title="Set the value of shape.">setShape</a>(<a class="code" href="classShape.html">Shape</a>(newobj-&gt;<a class="code" href="classObject.html#a64bb5b1d10c6cd338a65a8dd62473de1" title="Get object&#39;s coordinates.">getCoords</a>(), <a class="code" href="Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">CIRCLE</a>, 10.0));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        visible_objs-&gt;<a class="code" href="classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6" title="Pushes object to heap.">push</a>(newobj);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        indexator-&gt;<a class="code" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127" title="Creates an index for all given objects.">reindexate</a>(newobj);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">//        std::cout &lt;&lt; &quot;Created resource at x = &quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//                  &lt;&lt; newobj-&gt;getCoords().getX() &lt;&lt; &quot;, y = &quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//                  &lt;&lt; newobj-&gt;getCoords().getY()</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//                  &lt;&lt; &quot; with collision model as circle rad = 50&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//                  &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">// BASE METHODS.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="classWorld.html#a75e7d1877074f95c25c4696b9932d21f">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWorld.html#a75e7d1877074f95c25c4696b9932d21f">World::setObjectVisibility</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> *obj, <span class="keywordtype">bool</span> visibility)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// visible_objs-&gt;hasObject(obj);</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd">   80</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd" title="Save world to file.">World::save</a>(std::string filepath)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// TODO: Create file at filepath and save it (format?)</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">// ACCESSORS.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//void World::setAllObjects(ObjectHeap* new_var)</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//    this -&gt; visible_objs = new_var;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//ObjectHeap* World::getAllObjects()</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//    return this -&gt; visible_objs;</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// VIEW METHODS.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">  104</a></span>&#160;<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> <a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85" title="Get weather state at certain coordinates.">World::getWeatherAtPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classWorld.html#a4e16dbeed23237902f74b62f229d7d20">  104</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>** <a class="code" href="classWorld.html#a4e16dbeed23237902f74b62f229d7d20" title="Set the value of visible_objs.">World::getViewObjectsInRange</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> radius)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">// TODO: Cycle through weather objects</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// and return the closest type of weather for this area.</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe">RAIN</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>** retval;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> center(x, y);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="classShape.html">Shape</a> area(center, <a class="code" href="Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">CIRCLE</a>, radius*2);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* objects = indexator-&gt;<a class="code" href="classIndexator.html#a21eb2f0f155c5d3fe0560a707a05e450" title="Returns heap with objects from the certain area.">getAreaContents</a>(area);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">ObjectHeap::const_iterator</a> it = objects-&gt;<a class="code" href="classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15">begin</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> size = objects-&gt;<a class="code" href="classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd" title="get amount of element">getAmount</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    retval = <span class="keyword">new</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>*[size + 1];</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;size; ++i)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        retval[i] = it[i];</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    retval[size] = NULL;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//    std::cout &lt;&lt; &quot;Returning objects array size=&quot;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">//              &lt;&lt; size &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">delete</span> objects;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">  131</a></span>&#160;<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> <a class="code" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85" title="Get weather state at certain coordinates.">World::getWeatherAtPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">// TODO: Cycle through weather objects</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">// and return the closest type of weather for this area.</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe">RAIN</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="World_8cpp.html">World.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 8 2012 23:35:37 for pr061012 by
+    <li class="footer">Generated on Fri Nov 9 2012 20:20:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

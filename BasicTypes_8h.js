@@ -65,7 +65,12 @@ var BasicTypes_8h =
       [ "GOLD", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1aa7790837e9c1f7cb78b55743b9a67623", null ],
       [ "COAL", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a7b33cec24386ace3dac71e0b351677ac", null ],
       [ "BERRIES", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444", null ],
-      [ "STONE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d", null ]
+      [ "STONE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d", null ],
+      [ "GRASS", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa", null ]
+    ] ],
+    [ "SpeedType", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845", [
+      [ "SLOW_SPEED", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa", null ],
+      [ "FAST_SPEED", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2", null ]
     ] ],
     [ "ToolType", "BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160", [
       [ "SHOVEL", "BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a21c120ba530bade9e01fbbe5f23626e2", null ],

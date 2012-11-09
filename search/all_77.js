@@ -8,7 +8,7 @@ var searchData=
   ['weathertype',['WeatherType',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516',1,'BasicTypes.h']]],
   ['wood',['WOOD',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a633a5aa6913d52cbd31286e8934e8df0',1,'BasicTypes.h']]],
   ['work',['WORK',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a08b8829a0c9899440c48b2c2affc79af',1,'BasicTypes.h']]],
-  ['world',['World',['../classWorld.html',1,'World'],['../classWorld.html#ac339c606fb3832d11bcf16ad05685f61',1,'World::World(std::string filepath)'],['../classWorld.html#acec79c2f42aff7fd9d88208d06bad135',1,'World::World(int rand_seed=0)'],['../classWorld.html#a736fa349417918f4774d4df2495c87f5',1,'World::World(int rand_seed, int width, int height)']]],
+  ['world',['World',['../classWorld.html',1,'World'],['../classWorld.html#ac339c606fb3832d11bcf16ad05685f61',1,'World::World(std::string filepath)'],['../classWorld.html#a8139b11605d8965613dc9ba67fe26cf7',1,'World::World(int rand_seed=0, int width=DEFAULT_WIDTH, int height=DEFAULT_HEIGHT)']]],
   ['world_2ecpp',['World.cpp',['../World_8cpp.html',1,'']]],
   ['world_2eh',['World.h',['../World_8h.html',1,'']]]
 ];

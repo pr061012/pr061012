@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['redraw',['redraw',['../classView.html#a2e088b57c015d551b27605cab3530187',1,'View::redraw()'],['../classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6',1,'ViewWorld::redraw()']]],
   ['reindexate',['reindexate',['../classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127',1,'Indexator::reindexate(ObjectHeap *objects)'],['../classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8',1,'Indexator::reindexate(Object *object)']]],
   ['remove',['remove',['../classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028',1,'ObjectHeap']]],
   ['removekey',['removeKey',['../classParamArray.html#a9d6dc10184d036a0b4c02b0622a296a7',1,'ParamArray']]],

@@ -12,6 +12,7 @@ var annotated =
     [ "Humanoid", "classHumanoid.html", "classHumanoid" ],
     [ "Indexator", "classIndexator.html", "classIndexator" ],
     [ "IWorld", "classIWorld.html", "classIWorld" ],
+    [ "KeyHandler", "classKeyHandler.html", "classKeyHandler" ],
     [ "MiningPerformer", "classMiningPerformer.html", "classMiningPerformer" ],
     [ "MovementPerformer", "classMovementPerformer.html", "classMovementPerformer" ],
     [ "NonHumanoid", "classNonHumanoid.html", "classNonHumanoid" ],
@@ -25,7 +26,9 @@ var annotated =
     [ "Resource", "classResource.html", "classResource" ],
     [ "Shape", "classShape.html", "classShape" ],
     [ "Tool", "classTool.html", "classTool" ],
+    [ "View", "classView.html", "classView" ],
     [ "ViewObject", "classViewObject.html", "classViewObject" ],
+    [ "ViewWorld", "classViewWorld.html", "classViewWorld" ],
     [ "Weather", "classWeather.html", "classWeather" ],
     [ "World", "classWorld.html", "classWorld" ]
 ];

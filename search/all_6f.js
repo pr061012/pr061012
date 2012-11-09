@@ -16,6 +16,7 @@ var searchData=
   ['objectheap',['ObjectHeap',['../classObjectHeap.html',1,'ObjectHeap'],['../classObjectHeap.html#a04488dc0dacc31b8f7f08c20716d447b',1,'ObjectHeap::ObjectHeap()']]],
   ['objectheap_2ecpp',['ObjectHeap.cpp',['../ObjectHeap_8cpp.html',1,'']]],
   ['objectheap_2eh',['ObjectHeap.h',['../ObjectHeap_8h.html',1,'']]],
+  ['objects_5faround',['objects_around',['../classCreature.html#a2941f1bf4753c4cc196ca7b20ade706c',1,'Creature']]],
   ['objecttype',['ObjectType',['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980',1,'BasicTypes.h']]],
   ['operator_21_3d',['operator!=',['../classPoint.html#afabdf8f492eed98971d66ef6e63a4b59',1,'Point']]],
   ['operator_2b',['operator+',['../classPoint.html#aa4a980a7f31a40cdf54029a3eda81dc8',1,'Point']]],

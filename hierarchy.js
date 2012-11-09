@@ -6,7 +6,10 @@ var hierarchy =
     [ "EParamArrayBadKey", "classEParamArrayBadKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
-    [ "IWorld", "classIWorld.html", null ],
+    [ "IWorld", "classIWorld.html", [
+      [ "World", "classWorld.html", null ]
+    ] ],
+    [ "KeyHandler", "classKeyHandler.html", null ],
     [ "Object", "classObject.html", [
       [ "Building", "classBuilding.html", null ],
       [ "Creature", "classCreature.html", [
@@ -30,6 +33,7 @@ var hierarchy =
     ] ],
     [ "Point", "classPoint.html", null ],
     [ "Shape", "classShape.html", null ],
+    [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
-    [ "World", "classWorld.html", null ]
+    [ "ViewWorld", "classViewWorld.html", null ]
 ];

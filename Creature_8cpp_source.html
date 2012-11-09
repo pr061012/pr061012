@@ -120,132 +120,133 @@ $(document).ready(function(){initNavTree('Creature_8cpp_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    inventory(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    brains(dmaker)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2" title="Matrix of attributes.">attrs</a> = arma::mat(<a class="code" href="DecisionMaker_8h.html#a8f9269c34267f71a6569eda0ed60f1b8">ATR_CONST</a>, 1);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classCreature.html#a49691e6b47ba6704b980963ab63c1881" title="Maximum possible value of hunger.">max_hunger</a>      = randFromRange(<a class="code" href="BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8" title="Minimum possible value of max_satiety.">CREAT_HUNGER_MIN</a>,     <a class="code" href="BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef" title="Maximum possible value of max_satiety.">CREAT_HUNGER_MAX</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classCreature.html#ae52439324e6404f73bf0e316fdf5a31b" title="Maximum possible value of sleepiness.">max_sleepiness</a>  = randFromRange(<a class="code" href="BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25" title="Minimum possible value of max_sleepiness.">CREAT_SLEEPINESS_MIN</a>, <a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77" title="Maximum possible value of max_sleepiness.">CREAT_SLEEPINESS_MAX</a>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>      = randFromRange(<a class="code" href="BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136" title="Minimum possible value of max_health.">CREAT_HEALTH_MIN</a>,     <a class="code" href="BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911" title="Maximum possible value of max_health.">CREAT_HEALTH_MAX</a>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// Initialize other values.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a" title="Current value of hunger.">hunger</a>      = 100 - <a class="code" href="classCreature.html#a49691e6b47ba6704b980963ab63c1881" title="Maximum possible value of hunger.">max_hunger</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCreature.html#a3f6c69d85deb3a91a823913e67f19709" title="Current value of sleepiness.">sleepiness</a>  = 100 - <a class="code" href="classCreature.html#ae52439324e6404f73bf0e316fdf5a31b" title="Maximum possible value of sleepiness.">max_sleepiness</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classCreature.html#a898df2aff71e6908209969eea863ccf8" title="Current safety.">safety</a>      = 0; <span class="comment">// we need in function to calculate it</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                     <span class="comment">// different for HUM and NON_HUM?</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20" title="Set the value of max health.">setMaxHealth</a>(health);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d" title="Set the value of health.">setHealth</a>(health);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classCreature.html#aa991b23f4813fbdb6f875204ed49814d">   39</a></span>&#160;<a class="code" href="classCreature.html#aa991b23f4813fbdb6f875204ed49814d" title="Destructor.">Creature::~Creature</a>()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">delete</span> inventory;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// ACCESSORS.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162" title="Set the value of creature&#39;s window.">Creature::setWindow</a>(<span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * window)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">this</span> -&gt; window = window;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classCreature.html#a68169dcb8be3a2d1348d5e0895c30996">   53</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * <a class="code" href="classCreature.html#a68169dcb8be3a2d1348d5e0895c30996" title="Get the value of creature&#39;s window.">Creature::getWindow</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; window;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277" title="Set the value of view_area.">Creature::setViewArea</a>(<a class="code" href="classShape.html">Shape</a> view_area)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">this</span> -&gt; view_area = view_area;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec">   63</a></span>&#160;<a class="code" href="classShape.html">Shape</a> <a class="code" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec" title="Get the value of view_area.">Creature::getViewArea</a>()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; view_area;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classCreature.html#a218e2238145d382fb76727618db5d0d1">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a218e2238145d382fb76727618db5d0d1" title="Set the value of age.">Creature::setAge</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> age)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">this</span> -&gt; age = <a class="code" href="classCreature.html#aa3544784cbb26961f214a39b49fd171e" title="Current age.">age</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classCreature.html#a6556cd2825edd90caf6673324e5132d9">   73</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a6556cd2825edd90caf6673324e5132d9" title="Get the value of age.">Creature::getAge</a>()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#aa3544784cbb26961f214a39b49fd171e" title="Current age.">age</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="classCreature.html#a0182ce7212cc37901927fc9ebb26a359">   78</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a0182ce7212cc37901927fc9ebb26a359" title="Set the value of max age.">Creature::setMaxAge</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_age)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">this</span> -&gt; max_age = <a class="code" href="classCreature.html#a57d8397db4c0e505deff7c1d7cead3e1" title="Maximum possible age.">max_age</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classCreature.html#a13258a0b65207bc1a283cd663485cb56">   83</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a13258a0b65207bc1a283cd663485cb56" title="Get the value of max age.">Creature::getMaxAge</a>()</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a57d8397db4c0e505deff7c1d7cead3e1" title="Maximum possible age.">max_age</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    objects_around(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    brains(dmaker)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2" title="Matrix of attributes.">attrs</a> = arma::mat(<a class="code" href="DecisionMaker_8h.html#a8f9269c34267f71a6569eda0ed60f1b8">ATR_CONST</a>, 1);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// Randomly initialize some values.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classCreature.html#a49691e6b47ba6704b980963ab63c1881" title="Maximum possible value of hunger.">max_hunger</a>      = randFromRange(<a class="code" href="BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8" title="Minimum possible value of max_satiety.">CREAT_HUNGER_MIN</a>,     <a class="code" href="BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef" title="Maximum possible value of max_satiety.">CREAT_HUNGER_MAX</a>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classCreature.html#ae52439324e6404f73bf0e316fdf5a31b" title="Maximum possible value of sleepiness.">max_sleepiness</a>  = randFromRange(<a class="code" href="BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25" title="Minimum possible value of max_sleepiness.">CREAT_SLEEPINESS_MIN</a>, <a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77" title="Maximum possible value of max_sleepiness.">CREAT_SLEEPINESS_MAX</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>      = randFromRange(<a class="code" href="BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136" title="Minimum possible value of max_health.">CREAT_HEALTH_MIN</a>,     <a class="code" href="BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911" title="Maximum possible value of max_health.">CREAT_HEALTH_MAX</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Initialize other values.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a" title="Current value of hunger.">hunger</a>      = 100 - <a class="code" href="classCreature.html#a49691e6b47ba6704b980963ab63c1881" title="Maximum possible value of hunger.">max_hunger</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classCreature.html#a3f6c69d85deb3a91a823913e67f19709" title="Current value of sleepiness.">sleepiness</a>  = 100 - <a class="code" href="classCreature.html#ae52439324e6404f73bf0e316fdf5a31b" title="Maximum possible value of sleepiness.">max_sleepiness</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classCreature.html#a898df2aff71e6908209969eea863ccf8" title="Current safety.">safety</a>      = 0; <span class="comment">// we need in function to calculate it</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                     <span class="comment">// different for HUM and NON_HUM?</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Initialize some inhereted things.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20" title="Set the value of max health.">setMaxHealth</a>(health);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d" title="Set the value of health.">setHealth</a>(health);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classCreature.html#aa991b23f4813fbdb6f875204ed49814d">   40</a></span>&#160;<a class="code" href="classCreature.html#aa991b23f4813fbdb6f875204ed49814d" title="Destructor.">Creature::~Creature</a>()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">delete</span> inventory;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// ACCESSORS.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a24aba9a9445c77fa9ce4571b933e4162" title="Set the value of creature&#39;s window.">Creature::setWindow</a>(<span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * window)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">this</span> -&gt; window = window;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classCreature.html#a68169dcb8be3a2d1348d5e0895c30996">   54</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * <a class="code" href="classCreature.html#a68169dcb8be3a2d1348d5e0895c30996" title="Get the value of creature&#39;s window.">Creature::getWindow</a>()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; window;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277" title="Set the value of view_area.">Creature::setViewArea</a>(<a class="code" href="classShape.html">Shape</a> view_area)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">this</span> -&gt; view_area = view_area;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec">   64</a></span>&#160;<a class="code" href="classShape.html">Shape</a> <a class="code" href="classCreature.html#ab64257a2eb713621d3ad72ce240b14ec" title="Get the value of view_area.">Creature::getViewArea</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; view_area;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classCreature.html#a218e2238145d382fb76727618db5d0d1">   69</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a218e2238145d382fb76727618db5d0d1" title="Set the value of age.">Creature::setAge</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> age)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">this</span> -&gt; age = <a class="code" href="classCreature.html#aa3544784cbb26961f214a39b49fd171e" title="Current age.">age</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="classCreature.html#a6556cd2825edd90caf6673324e5132d9">   74</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a6556cd2825edd90caf6673324e5132d9" title="Get the value of age.">Creature::getAge</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#aa3544784cbb26961f214a39b49fd171e" title="Current age.">age</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classCreature.html#a0182ce7212cc37901927fc9ebb26a359">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a0182ce7212cc37901927fc9ebb26a359" title="Set the value of max age.">Creature::setMaxAge</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_age)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">this</span> -&gt; max_age = <a class="code" href="classCreature.html#a57d8397db4c0e505deff7c1d7cead3e1" title="Maximum possible age.">max_age</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classCreature.html#a13258a0b65207bc1a283cd663485cb56">   84</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a13258a0b65207bc1a283cd663485cb56" title="Get the value of max age.">Creature::getMaxAge</a>()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a57d8397db4c0e505deff7c1d7cead3e1" title="Maximum possible age.">max_age</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d" title="Set the value of health.">Creature::setHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> health)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">this</span> -&gt; health = <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classCreature.html#a5e75da10542de2031a67f0599f3e6427">   94</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a5e75da10542de2031a67f0599f3e6427" title="Get the value of health.">Creature::getHealth</a>()</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20">   99</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20" title="Set the value of max health.">Creature::setMaxHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">this</span> -&gt; max_health = <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classCreature.html#a769dea424947603c2fc0fc70513da83e">  104</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a769dea424947603c2fc0fc70513da83e" title="Get the value of max age.">Creature::getMaxHealth</a>()</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">// OBJECT&#39;S LIFE.</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4" title="Decreases object&#39;s health.">Creature::decreaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> &gt; delta)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> -= delta;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> = 0;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b">  125</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b" title="Increases object&#39;s health.">Creature::increaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> + delta &lt; this -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> += delta;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> = <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d">   90</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#aaa12115f414e42efcdefff606656a47d" title="Set the value of health.">Creature::setHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> health)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">this</span> -&gt; health = <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classCreature.html#a5e75da10542de2031a67f0599f3e6427">   95</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a5e75da10542de2031a67f0599f3e6427" title="Get the value of health.">Creature::getHealth</a>()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20" title="Set the value of max health.">Creature::setMaxHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">this</span> -&gt; max_health = <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classCreature.html#a769dea424947603c2fc0fc70513da83e">  105</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classCreature.html#a769dea424947603c2fc0fc70513da83e" title="Get the value of max age.">Creature::getMaxHealth</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">// OBJECT&#39;S LIFE.</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4">  114</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4" title="Decreases object&#39;s health.">Creature::decreaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> &gt; delta)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> -= delta;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> = 0;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b">  126</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b" title="Increases object&#39;s health.">Creature::increaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> + delta &lt; this -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> += delta;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#ab59bc1917022e01b46b23f947bb8d688" title="Current health.">health</a> = <span class="keyword">this</span> -&gt; <a class="code" href="classCreature.html#a0628a001b2c326388b08ea664e0c4e8f" title="Maximum possible health.">max_health</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_b062ee4f11b54a9df2bdeb931fc061c8.html">Creatures</a></li><li class="navelem"><a class="el" href="Creature_8cpp.html">Creature.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 8 2012 23:35:37 for pr061012 by
+    <li class="footer">Generated on Fri Nov 9 2012 20:20:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

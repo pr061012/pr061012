@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cam_5fradius',['CAM_RADIUS',['../BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c',1,'BasicDefines.h']]],
   ['creat_5fage_5fsteps',['CREAT_AGE_STEPS',['../BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d',1,'BasicDefines.h']]],
   ['creat_5fcrit_5fconst',['CREAT_CRIT_CONST',['../BasicDefines_8h.html#a8290214020f59371b797b23f06e03769',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fhunger',['CREAT_DELTA_HUNGER',['../BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc',1,'BasicDefines.h']]],

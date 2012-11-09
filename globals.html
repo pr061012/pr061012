@@ -209,6 +209,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>CAM_RADIUS
+: <a class="el" href="BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c">BasicDefines.h</a>
+</li>
 <li>CIRCLE
 : <a class="el" href="Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">Shape.h</a>
 </li>
@@ -325,7 +328,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eaecedb56d1405a60c6069f4a0139bdec5">BasicTypes.h</a>
 </li>
 <li>FAST_SPEED
-: <a class="el" href="BasicDefines_8h.html#ae84d68814770a49e3ec9279b8ed99563">BasicDefines.h</a>
+: <a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2">BasicTypes.h</a>
 </li>
 <li>FISHING_ROD
 : <a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a64ca2de9bf456ab98f41c09d50b595f6">BasicTypes.h</a>
@@ -340,6 +343,12 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>GATHER
 : <a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706ad160b6c33590f95fe8a51d6cfcd450c7">BasicTypes.h</a>
 </li>
+<li>getViewObjectsInRange()
+: <a class="el" href="IWorld_8cpp.html#adf2590baaecac0acf633147f8f4e4e52">IWorld.cpp</a>
+</li>
+<li>getWeatherAtPoint()
+: <a class="el" href="IWorld_8cpp.html#a149728da53ae704bb34f0aad8f796c7a">IWorld.cpp</a>
+</li>
 <li>GO
 : <a class="el" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985">BasicTypes.h</a>
 </li>
@@ -348,6 +357,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 </li>
 <li>GOLD_ORE
 : <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0227e9e293b26a3f0d57cc231155acf1">BasicTypes.h</a>
+</li>
+<li>GRASS
+: <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa">BasicTypes.h</a>
 </li>
 </ul>
 
@@ -622,6 +634,12 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SCREEN_HEIGHT
+: <a class="el" href="BasicDefines_8h.html#a6974d08a74da681b3957b2fead2608b8">BasicDefines.h</a>
+</li>
+<li>SCREEN_WIDTH
+: <a class="el" href="BasicDefines_8h.html#a2cd109632a6dcccaa80b43561b1ab700">BasicDefines.h</a>
+</li>
 <li>ShapeType
 : <a class="el" href="Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345">Shape.h</a>
 </li>
@@ -641,10 +659,13 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706ad6137abebe4fdc59e2f0f2c84bdbe3fa">BasicTypes.h</a>
 </li>
 <li>SLOW_SPEED
-: <a class="el" href="BasicDefines_8h.html#af41dbabacf4f0b3886d49dc01def7b23">BasicDefines.h</a>
+: <a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa">BasicTypes.h</a>
 </li>
 <li>SNOW
 : <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a9e6e4a865dcb327f484752cf5af49846">BasicTypes.h</a>
+</li>
+<li>SpeedType
+: <a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845">BasicTypes.h</a>
 </li>
 <li>SQUARE
 : <a class="el" href="Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59">Shape.h</a>
@@ -672,6 +693,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 </li>
 <li>SZ_HUMANOID_DIAM
 : <a class="el" href="BasicDefines_8h.html#ae41e784d873f8eb34ba96081fa2635a7">BasicDefines.h</a>
+</li>
+<li>SZ_NHUM_VIEW_DIAM
+: <a class="el" href="BasicDefines_8h.html#ab67a78871c04d1f4ae6a0528713d3f9d">BasicDefines.h</a>
 </li>
 <li>SZ_RESOURCE_DIAM_MAX
 : <a class="el" href="BasicDefines_8h.html#a740e950101bb317f2e762106401922bb">BasicDefines.h</a>
@@ -757,7 +781,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Nov 8 2012 23:35:43 for pr061012 by
+    <li class="footer">Generated on Fri Nov 9 2012 20:20:07 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

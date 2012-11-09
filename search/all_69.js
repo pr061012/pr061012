@@ -12,6 +12,7 @@ var searchData=
   ['iron_5fore',['IRON_ORE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ae2a29c21bf073b3e0f86632fce0bf1b5',1,'BasicTypes.h']]],
   ['isdecisionactual',['isDecisionActual',['../classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c',1,'DecisionMaker']]],
   ['isdestroyed',['isDestroyed',['../classObject.html#a1e1a162b817f0c134836cca3a473e295',1,'Object']]],
+  ['isexit',['isExit',['../classView.html#a2a0fd00361df138bd544174c75031f15',1,'View']]],
   ['isfailed',['isFailed',['../classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe',1,'Action']]],
   ['isimmortal',['isImmortal',['../classObject.html#a7a38ff74620fa8c16a21e46149027e6a',1,'Object']]],
   ['ismineable',['isMineable',['../classResource.html#ad87877637e96514ddefed5cae8adaa99',1,'Resource']]],
