@@ -15,8 +15,6 @@
  * @class Creature
  * @brief Abstract Creature class.
  */
-
-
 class Creature : public Object
 {
 public:
@@ -114,7 +112,7 @@ public:
     uint getMaxHealth();
 
     //**************************************************************************
-    // OBJECT'S LIFE.
+    // CHANGING HEALTH.
     //**************************************************************************
 
     /**
@@ -128,6 +126,18 @@ public:
      * @param delta health to increase
      */
     void increaseHealth(uint delta);
+
+    /**
+     * @brief Damages creature.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief Heals creature.
+     * @param delta amount of healing points
+     */
+    void heal(uint delta);
 
 private:
     /// Creature's type.

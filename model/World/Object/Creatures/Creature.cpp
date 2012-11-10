@@ -108,7 +108,7 @@ uint Creature::getMaxHealth()
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
+// CHANGING HEALTH.
 //******************************************************************************
 
 void Creature::decreaseHealth(uint delta)
@@ -135,4 +135,12 @@ void Creature::increaseHealth(uint delta)
     }
 }
 
+void Creature::damage(uint delta)
+{
+    this -> decreaseHealth(delta);
+}
 
+void Creature::heal(uint delta)
+{
+    this -> increaseHealth(delta);
+}
