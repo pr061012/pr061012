@@ -62,6 +62,16 @@ void Building::increaseHealth(uint delta)
     }
 }
 
+void Building::damage(uint delta)
+{
+    this -> decreaseHealth(delta);
+}
+
+void Building::heal(uint delta)
+{
+    this -> increaseHealth(delta);
+}
+
 //******************************************************************************
 // CONTENTS MANIPULATION.
 //******************************************************************************

@@ -58,6 +58,18 @@ public:
      */
     void increaseHealth(uint delta);
 
+    /**
+     * @brief Damages building.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief Repairs buidling.
+     * @param delta amount of repairing points
+     */
+    void heal(uint delta);
+
     //**************************************************************************
     // CONTENTS MANIPULATION.
     //**************************************************************************
