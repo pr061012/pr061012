@@ -23,7 +23,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather(WeatherType type, uint living_steps = 0);
+    Weather(WeatherType type, double x, double y, uint living_steps = 0);
 
     /**
      * @brief Destructor.
