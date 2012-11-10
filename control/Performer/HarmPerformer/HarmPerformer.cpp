@@ -27,6 +27,6 @@ void HarmPerformer::perform(Action& action)
     }
     else
     {
-
+        action.markAsSucceeded();
     }
 }
