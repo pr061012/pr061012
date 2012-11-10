@@ -110,6 +110,13 @@ public:
     //void setAllObjects(ObjectHeap* new_var);
 
     /**
+     * @brief add object in World
+     * @param visibility
+     * @param obj
+     */
+    void addObject(bool visibility, Object* obj);
+
+    /**
      * @brief Get the value of visible_objs.
      * @return the value of visible_objs
      */

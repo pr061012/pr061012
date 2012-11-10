@@ -97,6 +97,18 @@ void World::save(std::string filepath)
 //    return this -> visible_objs;
 //}
 
+void World::addObject(bool visibility, Object *obj)
+{
+    if (visibility)
+    {
+        this -> visible_objs -> push(obj);
+    }
+    else
+    {
+        this -> hidden_objs -> push(obj);
+    }
+}
+
 //******************************************************************************
 // VIEW METHODS.
 //******************************************************************************
