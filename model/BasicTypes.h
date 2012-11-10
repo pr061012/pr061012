@@ -109,13 +109,13 @@ enum ActionType
     ///                         set by angle). \n
     ///        Actor:           Creature/Weather \n
     ///        Participants:    none \n
-    ///        Parameters:      angle (*double*), speed (*Speed*)
+    ///        Parameters:      angle (*double*), speed (*SpeedType*)
     GO,
 
     /// @brief Description:     Object moves another object. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Object \n
-    ///        Parameters:      angle (*double*), speed (*Speed*)
+    ///        Parameters:      angle (*double*), speed (*SpeedType*)
     MOVE,
 
     /// @brief Description:     Resource mining by tool. \n
