@@ -16,6 +16,15 @@
 typedef unsigned int uint;
 
 /**
+ * @enum  ShapeType
+ * @brief The ShapeType enum
+ */
+enum ShapeType
+{
+    CIRCLE, SQUARE
+};
+
+/**
  * @enum SpeedType
  * @brief The SpeedType enum
  */

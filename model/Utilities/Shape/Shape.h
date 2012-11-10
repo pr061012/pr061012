@@ -3,9 +3,7 @@
 #define SHAPE_H
 
 #include "../Point/Point.h"
-
-/// Shape types
-enum ShapeType {CIRCLE, SQUARE};
+#include "../../BasicTypes.h"
 
 /// Intersection flags
 enum IntersectionFlag {NO_INTERSECTION = 16, LEFT = 1, RIGHT = 2,
