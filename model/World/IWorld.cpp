@@ -10,3 +10,4 @@ WeatherType getWeatherAtPoint(double x, double y)
 {
     return RAIN;
 }
+
