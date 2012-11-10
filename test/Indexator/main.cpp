@@ -117,6 +117,7 @@ int main()
     area.setCenter(Point(500, 500));
 
     // Get contents
+    delete contents;
     contents = index.getAreaContents(area);
 
     // Middle 8 objects in area
@@ -153,6 +154,10 @@ int main()
     // Now tests with intersecting multiple grid cells
     //*************************************************************************
     delete contents;
+    for (vector<testObject*>::iterator i = vec.begin(); i != vec.end(); i++)
+    {
+        delete *i;
+    }
     vec.clear();
 
     form.setSize(100);
@@ -245,6 +250,12 @@ int main()
         }
     }
 
+    for (ObjectHeap::iterator i = heap1.begin(); i != heap1.end(); i++)
+    {
+        delete *i;
+    }
+
+    delete contents;
     return 0;
 }
 

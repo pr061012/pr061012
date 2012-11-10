@@ -29,11 +29,6 @@ public:
     //**************************************************************************
 
     /**
-     *  @brief Constructor.
-     */
-    Indexator();
-
-    /**
      *  @brief  Creates grid and indexates object from heap.
      *  @param  list heap with objects
      *  @param  size size of the world
@@ -61,7 +56,8 @@ public:
     //**************************************************************************
 
     /**
-     *  @brief  Creates an index for all given objects.
+     *  @brief  Creates an index for all given objects, and removes the previous
+     *          one.
      *  @param  objects heap of objects
      */
     void reindexate(ObjectHeap * objects);
@@ -72,8 +68,25 @@ public:
      */
     void reindexate(Object * object);
 
+    /**
+     * @brief   Adds object to index.
+     * @param   object an object to add
+     */
+    void addObject(Object * object);
+
+    /**
+     * @brief   Removes object from index.
+     * @param   object an object to remove
+     */
+    void removeObject(Object * object);
+
 
 private:
+
+    /**
+     *  @brief Hidden empty constructor.
+     */
+    Indexator();
 
     //**************************************************************************
     // ATTRIBUTES
@@ -82,17 +95,17 @@ private:
     /// Maximimum size of the cell
     static const double MAX_CELL_SIZE;
 
-    /// Cell size
-    double cell_size;
+    /// Size of world
+    const double world_size;
 
     /// Ammount of cells on a row
-    unsigned int row_size;
+    const uint row_size;
 
-    /// Size of world
-    double world_size;
+    /// Cell size
+    const double cell_size;
 
     /// Type of an index structure
-    typedef std::map<Object *, unsigned int *> Index;
+    typedef std::map<Object *, uint *> Index;
 
     /// Index structure
     Index index;
@@ -102,17 +115,40 @@ private:
     // UTILITIES
     //**************************************************************************
 
-    /// Returns minimum of two integers
-    unsigned int min (unsigned int a, unsigned int b);
+    /**
+     * @brief   Returns the minimum of two uints.
+     */
+    uint min (uint a, uint b);
 
-    /// Returns maximum of to integers
-    unsigned int max (unsigned int a, unsigned int b);
+    /**
+     * @brief   Returns maximum of two uints.
+     */
+    uint max (uint a, uint b);
 
-    /// Returns cells within wich the shape lies
-    unsigned int * getCellsArea(Shape shape);
+    /**
+     * @brief   Returns cells within which the shape lies
+     * @param   shape 
+     * @return  an array of coordinates of left bottom and
+     *          right top coordinates (must be freed)
+     */
+    uint * getCellsArea(Shape shape);
 
-    /// Returns row index for coodinate
-    unsigned int getRow(double coordinate);
+    /**
+     * @brief   Returns row index for coodinate
+     * @param   coordinate
+     * @return  index of coordinate
+     */
+    uint getRow(double coordinate);
+
+    /**
+     * @brief   Initialize index
+     */
+    void init();
+
+    /**
+     * @brief   Destroys index.
+     */
+    void destroy();
 
 };
 
