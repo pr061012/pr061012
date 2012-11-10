@@ -36,9 +36,9 @@ void HarmPerformer::perform(Action& action)
     {
         std::vector<Object*> participants = action.getParticipants();
 
-        for (int i = 0; i < participants.size(); i++)
+        for (uint i = 0; i < participants.size(); i++)
         {
-            participants[i].damage(harm);
+            participants[i]->damage(harm);
         }
         action.markAsSucceeded();
     }

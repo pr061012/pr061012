@@ -41,41 +41,46 @@ void CreationPerformer::perform(Action& action)
 
         uint x = action.getParam<uint>("x");
         uint y = action.getParam<uint>("y");
-        check_coord(x, y);
 
+        ObjectFactory factory;
         ParamArray param;
-        param.addKey<uint>("x",x);
-        param.addKey<uint>("y",y);
+        param.addKey<uint>("x", x);
+        param.addKey<uint>("y", y);
 
         if (checkCoord(x, y))
         {
             switch (obj_type)
             {
                 case CREATURE:
+                {
                     CreatureType creat_type = action.getParam<CreatureType>("creat_type");
 
                     param.addKey<CreatureType>("creat_type", creat_type);
 
-                    new_object = ObjectFactory.createObject(CREATURE, param);
+                    new_object = factory.createObject(CREATURE, param);
                     world.addObject(true, new_object);
 
                     action.markAsSucceeded();
+                }
                 break;
 
                 case RESOURCE:
+                {
                     ResourceType res_type = action.getParam<ResourceType>("res_type");
                     uint res_amount = action.getParam<uint>("res_amount");
 
                     param.addKey<ResourceType>("res_type", res_type);
                     param.addKey<uint>("res_amount", res_amount);
 
-                    new_object = ObjectFactory.createObject(CREATURE, param);
+                    new_object = factory.createObject(CREATURE, param);
                     world.addObject(false, new_object);
 
                     action.markAsSucceeded();
+                }
                 break;
 
                 case TOOL:
+                {
                     ToolType tool_type = action.getParam<ToolType>("tool_type");
                     ResourceType mat_type = action.getParam<ResourceType>("mat_type");
                     uint tool_str = action.getParam<uint>("tool_str");
@@ -84,23 +89,26 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<ResourceType>("mat_type", mat_type);
                     param.addKey<uint>("tool_str",tool_str);
 
-                    new_object = ObjectFactory.createObject(TOOL, param);
+                    new_object = factory.createObject(TOOL, param);
                     world.addObject(false, new_object);
 
                     action.markAsSucceeded();
+                }
                 break;
 
                 case BUILDING:
+                {
                     uint max_health = action.getParam<uint>("max_health");
                     uint max_space = action.getParam<uint>("max_space");
 
                     param.addKey<uint>("max_health",max_health);
                     param.addKey<uint>("max_space",max_space);
 
-                    new_object = ObjectFactory.createObject(BUILDING, param);
+                    new_object = factory.createObject(BUILDING, param);
                     world.addObject(true, new_object);
 
                     action.markAsSucceeded();
+                }
                 break;
 
                 default:
