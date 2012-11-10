@@ -68,6 +68,10 @@ var BasicTypes_8h =
       [ "STONE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d", null ],
       [ "GRASS", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa", null ]
     ] ],
+    [ "ShapeType", "BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345", [
+      [ "CIRCLE", "BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911", null ],
+      [ "SQUARE", "BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59", null ]
+    ] ],
     [ "SpeedType", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845", [
       [ "SLOW_SPEED", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa", null ],
       [ "FAST_SPEED", "BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2", null ]

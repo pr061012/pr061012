@@ -112,8 +112,6 @@ $(document).ready(function(){initNavTree('classIndexator.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9dcdada0f0fb6890b0fd10f589b442cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc">Indexator</a> ()</td></tr>
-<tr class="memdesc:a9dcdada0f0fb6890b0fd10f589b442cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a9dcdada0f0fb6890b0fd10f589b442cc"></a><br/></td></tr>
 <tr class="memitem:aa5adafc65a3b10399adb6f2158bc5417"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417">Indexator</a> (double size, <a class="el" href="classObjectHeap.html">ObjectHeap</a> *list=0)</td></tr>
 <tr class="memdesc:aa5adafc65a3b10399adb6f2158bc5417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates grid and indexates object from heap.  <a href="#aa5adafc65a3b10399adb6f2158bc5417"></a><br/></td></tr>
 <tr class="memitem:a1d84445c20808fddf2f8877cfd968a5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b">~Indexator</a> ()</td></tr>
@@ -121,33 +119,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21eb2f0f155c5d3fe0560a707a05e450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a21eb2f0f155c5d3fe0560a707a05e450">getAreaContents</a> (<a class="el" href="classShape.html">Shape</a> area)</td></tr>
 <tr class="memdesc:a21eb2f0f155c5d3fe0560a707a05e450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns heap with objects from the certain area.  <a href="#a21eb2f0f155c5d3fe0560a707a05e450"></a><br/></td></tr>
 <tr class="memitem:ad3ee911b9f5cd04c2c6426dd90bce127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127">reindexate</a> (<a class="el" href="classObjectHeap.html">ObjectHeap</a> *objects)</td></tr>
-<tr class="memdesc:ad3ee911b9f5cd04c2c6426dd90bce127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an index for all given objects.  <a href="#ad3ee911b9f5cd04c2c6426dd90bce127"></a><br/></td></tr>
+<tr class="memdesc:ad3ee911b9f5cd04c2c6426dd90bce127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an index for all given objects, and removes the previous one.  <a href="#ad3ee911b9f5cd04c2c6426dd90bce127"></a><br/></td></tr>
 <tr class="memitem:a3c496109b375bc095e15a38d2e8f18d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8">reindexate</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
 <tr class="memdesc:a3c496109b375bc095e15a38d2e8f18d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reindexates an object or adds new object to index.  <a href="#a3c496109b375bc095e15a38d2e8f18d8"></a><br/></td></tr>
+<tr class="memitem:aebbad325d23422a61443742e2d315f2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#aebbad325d23422a61443742e2d315f2c">addObject</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
+<tr class="memdesc:aebbad325d23422a61443742e2d315f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds object to index.  <a href="#aebbad325d23422a61443742e2d315f2c"></a><br/></td></tr>
+<tr class="memitem:a494d579d9b7444788099ee9f57ba6420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420">removeObject</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
+<tr class="memdesc:a494d579d9b7444788099ee9f57ba6420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes object from index.  <a href="#a494d579d9b7444788099ee9f57ba6420"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="Indexator_8h_source.html#l00024">24</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9dcdada0f0fb6890b0fd10f589b442cc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Indexator::Indexator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00010">10</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="aa5adafc65a3b10399adb6f2158bc5417"></a>
 <div class="memitem">
 <div class="memproto">
@@ -200,11 +183,37 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00032">32</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00029">29</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="aebbad325d23422a61443742e2d315f2c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Indexator::addObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds object to index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>an object to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00161">161</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a21eb2f0f155c5d3fe0560a707a05e450"></a>
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +237,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>heap with objects in given area </dd></dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00046">46</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00039">39</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -246,7 +255,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates an index for all given objects. </p>
+<p>Creates an index for all given objects, and removes the previous one. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">objects</td><td>heap of objects </td></tr>
@@ -254,7 +263,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00074">74</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00071">71</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +289,33 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00090">90</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00092">92</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a494d579d9b7444788099ee9f57ba6420"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Indexator::removeObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes object from index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>an object to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00178">178</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +329,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIndexator.html">Indexator</a></li>
-    <li class="footer">Generated on Sat Nov 10 2012 12:56:03 for pr061012 by
+    <li class="footer">Generated on Sun Nov 11 2012 00:44:20 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

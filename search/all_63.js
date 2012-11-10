@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cam_5fradius',['CAM_RADIUS',['../BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c',1,'BasicDefines.h']]],
-  ['circle',['CIRCLE',['../Shape_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'Shape.h']]],
+  ['circle',['CIRCLE',['../BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'BasicTypes.h']]],
   ['clouds',['CLOUDS',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a2864a88199aef8238cc4345e675c596b',1,'BasicTypes.h']]],
   ['coal',['COAL',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a7b33cec24386ace3dac71e0b351677ac',1,'BasicTypes.h']]],
   ['common_5fsteps',['common_steps',['../classCreature.html#aa1c351d6da7f1df976efb27fe21d5014',1,'Creature']]],
@@ -23,6 +23,8 @@ var searchData=
   ['creat_5fsafety_5fsteps',['CREAT_SAFETY_STEPS',['../BasicDefines_8h.html#a7eb218c460ae0d129632ced3a3b6d1ad',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmax',['CREAT_SLEEPINESS_MAX',['../BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmin',['CREAT_SLEEPINESS_MIN',['../BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25',1,'BasicDefines.h']]],
+  ['creat_5fspeed_5ffast_5fvalue',['CREAT_SPEED_FAST_VALUE',['../BasicDefines_8h.html#a8c1f6db13c55c6472864e3ad214bd346',1,'BasicDefines.h']]],
+  ['creat_5fspeed_5fslow_5fvalue',['CREAT_SPEED_SLOW_VALUE',['../BasicDefines_8h.html#accf4fc5c9f279394d37aa8c9becd3ef6',1,'BasicDefines.h']]],
   ['creat_5fsteps',['CREAT_STEPS',['../BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273',1,'BasicDefines.h']]],
   ['create_5fobj',['CREATE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff',1,'BasicTypes.h']]],
   ['createobject',['createObject',['../classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0',1,'ObjectFactory']]],

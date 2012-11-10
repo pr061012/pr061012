@@ -13,5 +13,7 @@ var searchData=
   ['creat_5fsafety_5fsteps',['CREAT_SAFETY_STEPS',['../BasicDefines_8h.html#a7eb218c460ae0d129632ced3a3b6d1ad',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmax',['CREAT_SLEEPINESS_MAX',['../BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmin',['CREAT_SLEEPINESS_MIN',['../BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25',1,'BasicDefines.h']]],
+  ['creat_5fspeed_5ffast_5fvalue',['CREAT_SPEED_FAST_VALUE',['../BasicDefines_8h.html#a8c1f6db13c55c6472864e3ad214bd346',1,'BasicDefines.h']]],
+  ['creat_5fspeed_5fslow_5fvalue',['CREAT_SPEED_SLOW_VALUE',['../BasicDefines_8h.html#accf4fc5c9f279394d37aa8c9becd3ef6',1,'BasicDefines.h']]],
   ['creat_5fsteps',['CREAT_STEPS',['../BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273',1,'BasicDefines.h']]]
 ];

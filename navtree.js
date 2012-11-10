@@ -30,8 +30,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Action_8cpp.html",
-"ObjectHeap_8h.html",
-"classPoint.html#af52a20a376f8f31e87658837565d3812"
+"MiningPerformer_8h.html",
+"classPerformer.html"
 ];
 
 var navTreeSubIndices = new Array();

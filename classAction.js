@@ -1,11 +1,12 @@
 var classAction =
 [
-    [ "Action", "classAction.html#ac830e6271ab661711f7594ce553c1769", null ],
+    [ "Action", "classAction.html#aa2f7cc08a31de184271b858ad1a1531b", null ],
     [ "~Action", "classAction.html#acdb06775d157339256a8ecd55749226c", null ],
     [ "addParam", "classAction.html#ad093732911838eabbdbe5ec48300b6c0", null ],
     [ "addParticipant", "classAction.html#aae2912142691704bc9a61108fcb83205", null ],
-    [ "getActor", "classAction.html#a9ea7a3e96394109aa59713ce41169b84", null ],
+    [ "getActor", "classAction.html#ab5ab685c5ab0375885f160d4138ac75d", null ],
     [ "getParam", "classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b", null ],
+    [ "getParticipants", "classAction.html#a69c59ae9452d9c712cbf75b1647da3ce", null ],
     [ "getState", "classAction.html#a08cc1ad2958501d86057c16cc6a6d7cf", null ],
     [ "getType", "classAction.html#ab8311340a2c256db65afa2778b9cbc9b", null ],
     [ "isFailed", "classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe", null ],

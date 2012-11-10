@@ -7,7 +7,6 @@ var dir_9bacb82e6298dc01ecba8e3e05d98095 =
     [ "ObjectFactory", "dir_f1f0349ba6cbc60dd8ac46f82545b7e3.html", "dir_f1f0349ba6cbc60dd8ac46f82545b7e3" ],
     [ "ObjectHeap", "dir_5d44244a903ceaf8633b3f9e5df3db8b.html", "dir_5d44244a903ceaf8633b3f9e5df3db8b" ],
     [ "ParamArray", "dir_9b60a1ae4724a8354454acf0a617d37f.html", "dir_9b60a1ae4724a8354454acf0a617d37f" ],
-    [ "Performer", "dir_1b2cdbe0f34ac2cca7530fac2a00ab92.html", "dir_1b2cdbe0f34ac2cca7530fac2a00ab92" ],
     [ "IWorld.cpp", "IWorld_8cpp.html", "IWorld_8cpp" ],
     [ "IWorld.h", "IWorld_8h.html", [
       [ "IWorld", "classIWorld.html", "classIWorld" ]

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['act_5fconst',['ACT_CONST',['../DecisionMaker_8h.html#a1d42aa0dad28c8394b57406d72709724',1,'DecisionMaker.h']]],
-  ['action',['Action',['../classAction.html',1,'Action'],['../classAction.html#ac830e6271ab661711f7594ce553c1769',1,'Action::Action()']]],
+  ['action',['Action',['../classAction.html',1,'Action'],['../classAction.html#aa2f7cc08a31de184271b858ad1a1531b',1,'Action::Action()']]],
   ['action_2ecpp',['Action.cpp',['../Action_8cpp.html',1,'']]],
   ['action_2eh',['Action.h',['../Action_8h.html',1,'']]],
   ['actionerror',['ActionError',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7',1,'BasicTypes.h']]],
@@ -9,6 +9,7 @@ var searchData=
   ['actionstate',['ActionState',['../BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e',1,'BasicTypes.h']]],
   ['actiontype',['ActionType',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b',1,'BasicTypes.h']]],
   ['addkey',['addKey',['../classParamArray.html#a01c7a07c832ce66628c182d7672ede54',1,'ParamArray']]],
+  ['addobject',['addObject',['../classIndexator.html#aebbad325d23422a61443742e2d315f2c',1,'Indexator::addObject()'],['../classWorld.html#a5958579b1313daec5993026df26c7f63',1,'World::addObject()']]],
   ['addparam',['addParam',['../classAction.html#ad093732911838eabbdbe5ec48300b6c0',1,'Action']]],
   ['addparticipant',['addParticipant',['../classAction.html#aae2912142691704bc9a61108fcb83205',1,'Action']]],
   ['age',['age',['../classCreature.html#aa3544784cbb26961f214a39b49fd171e',1,'Creature']]],

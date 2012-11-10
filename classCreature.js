@@ -2,6 +2,7 @@ var classCreature =
 [
     [ "Creature", "classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9", null ],
     [ "~Creature", "classCreature.html#aa991b23f4813fbdb6f875204ed49814d", null ],
+    [ "damage", "classCreature.html#a6d216fa9fc5e1a70743ebc9a62dbcc01", null ],
     [ "decreaseHealth", "classCreature.html#a5f8683a92ec95eda9abde80480e6f4a4", null ],
     [ "getAge", "classCreature.html#a6556cd2825edd90caf6673324e5132d9", null ],
     [ "getHealth", "classCreature.html#a5e75da10542de2031a67f0599f3e6427", null ],
@@ -9,6 +10,7 @@ var classCreature =
     [ "getMaxHealth", "classCreature.html#a769dea424947603c2fc0fc70513da83e", null ],
     [ "getViewArea", "classCreature.html#ab64257a2eb713621d3ad72ce240b14ec", null ],
     [ "getWindow", "classCreature.html#a68169dcb8be3a2d1348d5e0895c30996", null ],
+    [ "heal", "classCreature.html#ab168ec8b1230205eb0dda7edbef60469", null ],
     [ "increaseHealth", "classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b", null ],
     [ "setAge", "classCreature.html#a218e2238145d382fb76727618db5d0d1", null ],
     [ "setHealth", "classCreature.html#aaa12115f414e42efcdefff606656a47d", null ],

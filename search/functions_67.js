@@ -1,7 +1,7 @@
 var searchData=
 [
   ['getactions',['getActions',['../classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf',1,'Building::getActions()'],['../classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723',1,'Humanoid::getActions()'],['../classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc',1,'NonHumanoid::getActions()'],['../classObject.html#addf0658ee2f8da579d10a6682dc097d7',1,'Object::getActions()'],['../classResource.html#a4c4cc169461d76de8787c97276665168',1,'Resource::getActions()'],['../classTool.html#a022fd16d7301835eff8324ef8447d90c',1,'Tool::getActions()'],['../classWeather.html#af6a985a031c55cc9d384fe532bbf69ef',1,'Weather::getActions()']]],
-  ['getactor',['getActor',['../classAction.html#a9ea7a3e96394109aa59713ce41169b84',1,'Action']]],
+  ['getactor',['getActor',['../classAction.html#ab5ab685c5ab0375885f160d4138ac75d',1,'Action']]],
   ['getage',['getAge',['../classCreature.html#a6556cd2825edd90caf6673324e5132d9',1,'Creature']]],
   ['getamount',['getAmount',['../classResource.html#a0a83fccc63c105f0f3dd706daebb1270',1,'Resource::getAmount()'],['../classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd',1,'ObjectHeap::getAmount()']]],
   ['getangle',['getAngle',['../classObject.html#aaba7ccef31e74246abda5ef9cb2e202c',1,'Object']]],
@@ -25,6 +25,7 @@ var searchData=
   ['getmaxspace',['getMaxSpace',['../classBuilding.html#ac37f23792d59ba27ba82dabe988752f6',1,'Building']]],
   ['getmaxstrength',['getMaxStrength',['../classTool.html#aba9c408fcfa03c41300d0ba26da25e8f',1,'Tool']]],
   ['getparam',['getParam',['../classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b',1,'Action']]],
+  ['getparticipants',['getParticipants',['../classAction.html#a69c59ae9452d9c712cbf75b1647da3ce',1,'Action']]],
   ['getprogress',['getProgress',['../classResource.html#a512a227f9ddfaf59d40cf878dbf6c937',1,'Resource']]],
   ['getrighttop',['getRightTop',['../classShape.html#a97c5436ae38f0994f0eb3b6a2c1eed08',1,'Shape']]],
   ['getshape',['getShape',['../classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7',1,'Object']]],

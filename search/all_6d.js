@@ -18,9 +18,7 @@ var searchData=
   ['miningperformer_2ecpp',['MiningPerformer.cpp',['../MiningPerformer_8cpp.html',1,'']]],
   ['miningperformer_2eh',['MiningPerformer.h',['../MiningPerformer_8h.html',1,'']]],
   ['move',['MOVE',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62',1,'BasicTypes.h']]],
-  ['movementperformer',['MovementPerformer',['../classMovementPerformer.html',1,'MovementPerformer'],['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer::MovementPerformer(const double world_size, Indexator &amp;indexator)'],['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer::MovementPerformer(const double world_size, Indexator &amp;indexator)']]],
-  ['movementperformer_2ecpp',['MovementPerformer.cpp',['../model_2World_2Performer_2MovementPerformer_2MovementPerformer_8cpp.html',1,'']]],
-  ['movementperformer_2ecpp',['MovementPerformer.cpp',['../control_2Performer_2MovementPerformer_2MovementPerformer_8cpp.html',1,'']]],
-  ['movementperformer_2eh',['MovementPerformer.h',['../control_2Performer_2MovementPerformer_2MovementPerformer_8h.html',1,'']]],
-  ['movementperformer_2eh',['MovementPerformer.h',['../model_2World_2Performer_2MovementPerformer_2MovementPerformer_8h.html',1,'']]]
+  ['movementperformer',['MovementPerformer',['../classMovementPerformer.html',1,'MovementPerformer'],['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer::MovementPerformer()']]],
+  ['movementperformer_2ecpp',['MovementPerformer.cpp',['../MovementPerformer_8cpp.html',1,'']]],
+  ['movementperformer_2eh',['MovementPerformer.h',['../MovementPerformer_8h.html',1,'']]]
 ];

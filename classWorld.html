@@ -133,8 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af56d4516a5cf72c93f3e5bb34cd7d5cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd">save</a> (std::string filepath)</td></tr>
 <tr class="memdesc:af56d4516a5cf72c93f3e5bb34cd7d5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save world to file.  <a href="#af56d4516a5cf72c93f3e5bb34cd7d5cd"></a><br/></td></tr>
 <tr class="memitem:a75e7d1877074f95c25c4696b9932d21f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a75e7d1877074f95c25c4696b9932d21f">setObjectVisibility</a> (<a class="el" href="classObject.html">Object</a> *obj, bool visibility)</td></tr>
+<tr class="memitem:a5958579b1313daec5993026df26c7f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a5958579b1313daec5993026df26c7f63">addObject</a> (bool visibility, <a class="el" href="classObject.html">Object</a> *obj)</td></tr>
+<tr class="memdesc:a5958579b1313daec5993026df26c7f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of visible_objs.  <a href="#a5958579b1313daec5993026df26c7f63"></a><br/></td></tr>
 <tr class="memitem:a4e16dbeed23237902f74b62f229d7d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a4e16dbeed23237902f74b62f229d7d20">getViewObjectsInRange</a> (double x, double y, double radius)</td></tr>
-<tr class="memdesc:a4e16dbeed23237902f74b62f229d7d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of visible_objs.  <a href="#a4e16dbeed23237902f74b62f229d7d20"></a><br/></td></tr>
+<tr class="memdesc:a4e16dbeed23237902f74b62f229d7d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of visible_objs.  <a href="#a4e16dbeed23237902f74b62f229d7d20"></a><br/></td></tr>
 <tr class="memitem:ab2c8d9f05cfbda5430d6a5e8f7754b85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">getWeatherAtPoint</a> (double x, double y)</td></tr>
 <tr class="memdesc:ab2c8d9f05cfbda5430d6a5e8f7754b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get weather state at certain coordinates.  <a href="#ab2c8d9f05cfbda5430d6a5e8f7754b85"></a><br/></td></tr>
 </table>
@@ -234,6 +236,44 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a5958579b1313daec5993026df26c7f63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::addObject </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visibility</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the value of visible_objs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_var</td><td>the new value of visible_objs add object in <a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> </td></tr>
+    <tr><td class="paramname">visibility</td><td></td></tr>
+    <tr><td class="paramname">obj</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00100">100</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4e16dbeed23237902f74b62f229d7d20"></a>
 <div class="memitem">
 <div class="memproto">
@@ -272,13 +312,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set the value of visible_objs. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_var</td><td>the new value of visible_objs Get the value of visible_objs. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get the value of visible_objs. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of visible_objs Get objects visible in certain radius around a certain point. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -293,7 +327,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#a7c94c8a5db44f1ae707f35e7c4fd3aef">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00104">104</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00116">116</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -341,7 +375,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#ac3c29f9aba4066efbe3bbfce51030ad5">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00131">131</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00143">143</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +443,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classWorld.html">World</a></li>
-    <li class="footer">Generated on Sat Nov 10 2012 12:56:06 for pr061012 by
+    <li class="footer">Generated on Sun Nov 11 2012 00:44:23 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

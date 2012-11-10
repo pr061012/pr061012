@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('Action_8cpp_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classAction.html#ac830e6271ab661711f7594ce553c1769">   12</a></span>&#160;<a class="code" href="classAction.html#ac830e6271ab661711f7594ce553c1769" title="Constructor.">Action::Action</a>(<span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b" title="The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in p...">ActionType</a> type, <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keyword">const</span> actor) :</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classAction.html#aa2f7cc08a31de184271b858ad1a1531b">   12</a></span>&#160;<a class="code" href="classAction.html#aa2f7cc08a31de184271b858ad1a1531b" title="Constructor.">Action::Action</a>(<span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b" title="The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in p...">ActionType</a> type, <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * actor) :</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    type(type),</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    actor(actor)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
@@ -165,29 +165,34 @@ $(document).ready(function(){initNavTree('Action_8cpp_source.html','');});
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// ACCESSING PARAMS/PARTICIPANTS.</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classAction.html#aae2912142691704bc9a61108fcb83205">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classAction.html#aae2912142691704bc9a61108fcb83205" title="Adds action participant.">Action::addParticipant</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * obj)</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classAction.html#aae2912142691704bc9a61108fcb83205">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classAction.html#aae2912142691704bc9a61108fcb83205" title="Adds action participant.">Action::addParticipant</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* obj)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">this</span> -&gt; participants.push_back(obj);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classAction.html#a9ea7a3e96394109aa59713ce41169b84">   69</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keyword">const</span> <a class="code" href="classAction.html#a9ea7a3e96394109aa59713ce41169b84" title="Gets actor.">Action::getActor</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> actor;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classAction.html#a69c59ae9452d9c712cbf75b1647da3ce">   69</a></span>&#160;std::vector &lt;Object*&gt; <a class="code" href="classAction.html#a69c59ae9452d9c712cbf75b1647da3ce" title="Gets action participants.">Action::getParticipants</a>()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; participants;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b">   74</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b" title="The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in p...">ActionType</a> <a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b" title="Gets type of action.">Action::getType</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> type;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d">   74</a></span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">Action::getActor</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> actor;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b">   79</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950b" title="The ActionType enum. In some cases there are ids in parameters. These ids denote index of object in p...">ActionType</a> <a class="code" href="classAction.html#ab8311340a2c256db65afa2778b9cbc9b" title="Gets type of action.">Action::getType</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> type;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_35042bc5e13ed3cb9f2b9e44dcca97ec.html">Action</a></li><li class="navelem"><a class="el" href="Action_8cpp.html">Action.cpp</a></li>
-    <li class="footer">Generated on Sat Nov 10 2012 12:55:59 for pr061012 by
+    <li class="footer">Generated on Sun Nov 11 2012 00:44:18 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

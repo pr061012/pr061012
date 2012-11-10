@@ -8,5 +8,5 @@ var searchData=
   ['markasfailed',['markAsFailed',['../classAction.html#aae9f9b7922b0c2dffafba4f13402312c',1,'Action']]],
   ['markassucceeded',['markAsSucceeded',['../classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b',1,'Action']]],
   ['miningperformer',['MiningPerformer',['../classMiningPerformer.html#a479529b5ff8ada471ad4185ac5b8fd5e',1,'MiningPerformer']]],
-  ['movementperformer',['MovementPerformer',['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer::MovementPerformer(const double world_size, Indexator &amp;indexator)'],['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer::MovementPerformer(const double world_size, Indexator &amp;indexator)']]]
+  ['movementperformer',['MovementPerformer',['../classMovementPerformer.html#ab37fa710664a8a14409ee1893da21f9c',1,'MovementPerformer']]]
 ];

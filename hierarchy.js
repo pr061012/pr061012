@@ -28,7 +28,6 @@ var hierarchy =
       [ "HarmPerformer", "classHarmPerformer.html", null ],
       [ "MiningPerformer", "classMiningPerformer.html", null ],
       [ "MovementPerformer", "classMovementPerformer.html", null ],
-      [ "MovementPerformer", "classMovementPerformer.html", null ],
       [ "RepairingPerformer", "classRepairingPerformer.html", null ]
     ] ],
     [ "Point", "classPoint.html", null ],

@@ -115,6 +115,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a5a4538eeab397888d88a4eefcc5a1345"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> { <a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">CIRCLE</a>, 
+<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59">SQUARE</a>
+ }</td></tr>
+<tr class="memdesc:a5a4538eeab397888d88a4eefcc5a1345"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ShapeType enum.  <a href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">More...</a><br/></td></tr>
 <tr class="memitem:ae69ae616a32e1cd9040b4352defdc845"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845">SpeedType</a> { <a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa">SLOW_SPEED</a>, 
 <a class="el" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2">FAST_SPEED</a>
  }</td></tr>
@@ -284,7 +288,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00196">196</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00206">206</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +320,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00176">176</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00186">186</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -336,13 +340,13 @@ Enumerations</h2></td></tr>
 <p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> goes to to another point (direction is set by angle). <br/>
  Actor: Creature/Weather <br/>
  Participants: none <br/>
- Parameters: angle (<em>double</em>), speed (<em>Speed</em>) </p>
+ Parameters: angle (<em>double</em>), speed (<em>SpeedType</em>) </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62"></a>MOVE</em>&nbsp;</td><td>
 <p>Description: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> moves another object. <br/>
  Actor: <a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> <br/>
  Participants: <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> <br/>
- Parameters: angle (<em>double</em>), speed (<em>Speed</em>) </p>
+ Parameters: angle (<em>double</em>), speed (<em>SpeedType</em>) </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba2e66a27a156f16bce68f9ab8d6df863a"></a>MINE_OBJ</em>&nbsp;</td><td>
 <p>Description: <a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> mining by tool. <br/>
@@ -359,8 +363,8 @@ Enumerations</h2></td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b"></a>HARM_OBJS</em>&nbsp;</td><td>
 <p>Description: Harm one or more objects. <br/>
  Actor: Creature/Weather <br/>
- Participants: several objects <br/>
- Parameters: none. </p>
+ Participants: <a class="el" href="classTool.html" title="Tool class.">Tool</a> (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only, optional), several objects <br/>
+ Parameters: tool_id (<em>uint</em>) </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff"></a>CREATE_OBJ</em>&nbsp;</td><td>
 <p>Description: Create object. <br/>
@@ -397,7 +401,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00106">106</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00115">115</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +447,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00079">79</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00088">88</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -467,7 +471,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00093">93</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00102">102</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -497,7 +501,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00032">32</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00041">41</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -543,7 +547,31 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00063">63</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00072">72</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a4538eeab397888d88a4eefcc5a1345"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The ShapeType enum. </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911"></a>CIRCLE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59"></a>SQUARE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00022">22</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +595,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00022">22</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00031">31</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -603,7 +631,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00050">50</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00059">59</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +667,7 @@ Enumerations</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00041">41</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
+<p>Definition at line <a class="el" href="BasicTypes_8h_source.html#l00050">50</a> of file <a class="el" href="BasicTypes_8h_source.html">BasicTypes.h</a>.</p>
 
 </div>
 </div>
@@ -649,7 +677,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="BasicTypes_8h.html">BasicTypes.h</a></li>
-    <li class="footer">Generated on Sat Nov 10 2012 12:55:59 for pr061012 by
+    <li class="footer">Generated on Sun Nov 11 2012 00:44:18 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

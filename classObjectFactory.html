@@ -125,35 +125,39 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a> factory allows to creates any objects (you need to provide <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> with parameters to do this). </p>
 <p>To create object with type T first of all you need to provide parameter <code>obj_type</code>. Value of this param is ObjectType (converted to int). For each object type a few parameters more are needed.</p>
-<p>TODO: We need to add more parameters!</p>
+<p><b>Common params</b>:</p>
+<ul>
+<li><em>x</em> &ndash; x coordinate (double).</li>
+<li><em>y</em> &ndash; y coordinate (double).</li>
+</ul>
 <p><b><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a></b></p>
 <ul>
-<li><em>creat_type</em> &ndash; CreatureType (converted to int).</li>
+<li><em>creat_type</em> &ndash; CreatureType.</li>
 </ul>
 <p><b><a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a></b></p>
 <ul>
-<li><em>max_health</em> &ndash; <a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a> health.</li>
-<li><em>max_space</em> &ndash; <a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a> space.</li>
+<li><em>max_health</em> &ndash; <a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a> health (uint).</li>
+<li><em>max_space</em> &ndash; <a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a> space (uint).</li>
 </ul>
 <p><b><a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a></b></p>
 <ul>
-<li><em>res_type</em> &ndash; ResourceType (converted to int).</li>
-<li><em>res_amount</em> &ndash; amount of resource (*).</li>
+<li><em>res_type</em> &ndash; ResourceType.</li>
+<li><em>res_amount</em> &ndash; amount of resource (uint) (*).</li>
 </ul>
 <p><b><a class="el" href="classTool.html" title="Tool class.">Tool</a></b></p>
 <ul>
-<li><em>tool_type</em> &ndash; ToolType (converted to int).</li>
-<li><em>mat_type</em> &ndash; ResourceType (converted to int) of material.</li>
-<li><em>tool_str</em> &ndash; <a class="el" href="classTool.html" title="Tool class.">Tool</a>'s strength (*).</li>
+<li><em>tool_type</em> &ndash; ToolType.</li>
+<li><em>mat_type</em> &ndash; ResourceType of material.</li>
+<li><em>tool_str</em> &ndash; <a class="el" href="classTool.html" title="Tool class.">Tool</a>'s strength (uint) (*).</li>
 </ul>
 <p><b><a class="el" href="classWeather.html" title="Weather class.">Weather</a></b></p>
 <ul>
-<li><em>weat_type</em> &ndash; WeatherType (converted to int).</li>
-<li><em>weat_steps</em> &ndash; amount of steps that <a class="el" href="classWeather.html" title="Weather class.">Weather</a> will live (*).</li>
+<li><em>weat_type</em> &ndash; WeatherType.</li>
+<li><em>weat_steps</em> &ndash; amount of steps that <a class="el" href="classWeather.html" title="Weather class.">Weather</a> will live (uint) (*).</li>
 </ul>
 <p><b>Note</b>: * &ndash; leave 0 to pick random value. </p>
 
-<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00049">49</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00051">51</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aaa04d4cb5cab832f0d8c1771e750126f"></a>
 <div class="memitem">
@@ -242,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObjectFactory.html">ObjectFactory</a></li>
-    <li class="footer">Generated on Sat Nov 10 2012 12:56:04 for pr061012 by
+    <li class="footer">Generated on Sun Nov 11 2012 00:44:22 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
