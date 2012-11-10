@@ -26,7 +26,7 @@ public:
 
     /**
      * @brief Constructor
-     * @param world world to render
+     * @param w world to render
      */
     ViewWorld(IWorld* w);
 

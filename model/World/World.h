@@ -45,10 +45,10 @@ public:
      */
     World(std::string filepath);
 
-	/**
+    /**
      * @brief World generation by given seed.
      * @param rand_seed
-	 */
+     */
     //World(int rand_seed = 0);
 
     /**
@@ -81,6 +81,8 @@ private:
     // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
     /// Heap containing all visible World's objects
     ObjectHeap* visible_objs;
+
+    /// Heap containing all hidden World's objects
     ObjectHeap* hidden_objs;
 
     /// Global world indexator
@@ -101,16 +103,16 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
-	/**
+    /**
      * @brief Set the value of visible_objs.
      * @param new_var the new value of visible_objs
-	 */
+     */
     //void setAllObjects(ObjectHeap* new_var);
 
-	/**
+    /**
      * @brief Get the value of visible_objs.
      * @return the value of visible_objs
-	 */
+     */
     //ObjectHeap* getAllObjects();
 
     //******************************************************************************
