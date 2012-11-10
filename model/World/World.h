@@ -104,23 +104,49 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Set the value of visible_objs.
+     * @brief Set the value of visible_objs
      * @param new_var the new value of visible_objs
      */
     //void setAllObjects(ObjectHeap* new_var);
 
     /**
-     * @brief add object in World
+     * @brief Add an object to World
      * @param visibility
      * @param obj
      */
     void addObject(bool visibility, Object* obj);
 
     /**
-     * @brief Get the value of visible_objs.
+     * @brief Get World's width
+     * @return World's width
+     */
+    double getWidth();
+
+    /**
+     * @brief Get World's height
+     * @return World's height
+     */
+    double getHeight();
+
+    //******************************************************************************
+    // CONTROLLER METHODS.
+    //******************************************************************************
+
+    /**
+     * @brief Get the value of visible_objs
      * @return the value of visible_objs
      */
-    //ObjectHeap* getAllObjects();
+    ObjectHeap* getAllObjects();
+
+    /**
+     * @brief Get objects in certain radius around (x,y)
+     * @param x x coordinate of the range center
+     * @param y y coordinate of the range center
+     * @param radius range from which objects are returned
+     * @return Pointer to ObjectHeap of objects in radius
+     *         around (x,y)
+     */
+    ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
     //******************************************************************************
     // VIEW METHODS.

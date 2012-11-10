@@ -109,6 +109,32 @@ void World::addObject(bool visibility, Object *obj)
     }
 }
 
+double World::getWidth()
+{
+    return this->width;
+}
+
+double World::getHeight()
+{
+    return this->height;
+}
+
+//******************************************************************************
+// CONTROLLER METHODS.
+//******************************************************************************
+
+ObjectHeap *World::getAllObjects()
+{
+    return visible_objs;
+}
+
+ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
+{
+    Shape area(center, CIRCLE, radius*2);
+    ObjectHeap* ret = indexator->getAreaContents(area);
+    return ret;
+}
+
 //******************************************************************************
 // VIEW METHODS.
 //******************************************************************************

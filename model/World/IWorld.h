@@ -19,9 +19,8 @@ public:
 
     virtual ObjectHeap* getObjectsInRange(double x, double y, double radius) = 0;
 
-    // virtual double getWidth();
-    // virtual double getHeight();
-    virtual double getSize() = 0;
+    virtual double getWidth() = 0;
+    virtual double getHeight() = 0;
 
     //******************************************************************************
     // WORLD <-> VIEW METHODS.
