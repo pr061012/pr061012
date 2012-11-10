@@ -30,7 +30,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~NonHumanoid();
+    virtual ~NonHumanoid();
 
     //**************************************************************************
     // NON_HUMANOID ACTIONS.

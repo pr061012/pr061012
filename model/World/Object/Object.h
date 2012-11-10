@@ -31,7 +31,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Object();
+    virtual ~Object();
 
     //**************************************************************************
     // OBJECT'S LIFE.

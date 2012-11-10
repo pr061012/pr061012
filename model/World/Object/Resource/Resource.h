@@ -29,7 +29,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Resource();
+    virtual ~Resource();
 
     //**************************************************************************
     // CHANGING PROGRESS.

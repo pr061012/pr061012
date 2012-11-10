@@ -33,7 +33,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~Humanoid();
+    virtual ~Humanoid();
 
     //**************************************************************************
     // HUMANOID'S ACTIONS

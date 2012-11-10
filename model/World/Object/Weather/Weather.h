@@ -28,7 +28,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Weather();
+    virtual ~Weather();
 
     //**************************************************************************
     // WEATHER ACTIONS.

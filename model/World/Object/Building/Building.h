@@ -30,7 +30,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Building();
+    virtual ~Building();
 
     //**************************************************************************
     // ACTIONS ACCESSING.
