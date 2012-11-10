@@ -111,6 +111,16 @@ void Tool::increaseStrength(uint delta)
     }
 }
 
+void Tool::damage(uint delta)
+{
+    this -> decreaseStrength(delta);
+}
+
+void Tool::heal(uint delta)
+{
+    this -> increaseStrength(delta);
+}
+
 //******************************************************************************
 // TYPE ACCESSORS.
 //******************************************************************************

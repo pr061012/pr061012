@@ -67,6 +67,18 @@ public:
      */
     void increaseStrength(uint delta);
 
+    /**
+     * @brief Damages tool.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief ''Heals'' tool.
+     * @param delta amount of healing points
+     */
+    void heal(uint delta);
+
     //**************************************************************************
     // TYPE ACCESSORS.
     //**************************************************************************
