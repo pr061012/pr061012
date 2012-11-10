@@ -3,17 +3,16 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef MOVEMENT_PERFORMER_H__
-#define MOVEMENT_PERFORMER_H__
+#ifndef HARM_PERFORMER_H__
+#define HARM_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/Indexator/Indexator.h"
 
 /**
- * @class MovementPerformer
- * @brief Performs a move if it is possible
+ * @class HarmPerformer
+ * @brief Performs a harm if it is possible
  */
-class MovementPerformer : public Performer
+class HarmPerformer : public Performer
 {
 public:
     
@@ -22,24 +21,22 @@ public:
     //*************************************************************************
 
     /**
-     * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @brief Constructor
      */
-    MovementPerformer(const double world_size, Indexator& indexator);
+    HarmPerformer();
 
     /**
      * @brief Destructor
      */
-    ~MovementPerformer();
+    ~HarmPerformer();
 
     //*************************************************************************
     //  PERFORM
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can harm
+     * @param action a request for harm
      */
     void perform(Action& action);
 
@@ -48,12 +45,7 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-    
-    /// Size of the world
-    const double world_size;
-    
-    /// The reference to worlds indexator
-    Indexator& indexator;
+
 };
 
 #endif

@@ -30,7 +30,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~NonHumanoid();
+    virtual ~NonHumanoid();
 
     //**************************************************************************
     // NON_HUMANOID ACTIONS.
@@ -46,16 +46,39 @@ public:
     // NON-HUMANOID'S LOGICS.
     //**************************************************************************
 private:
+    //**************************************************************************
+    // UPDATES
+    //**************************************************************************
     void updateAge();
     void updateCommonAttrs();
     void updateNeedInDesc();
     void updateSafety();
+    //**************************************************************************
+    // AUXILIARY FUNTIONS
+    //**************************************************************************
+    void findGrass();
+    double setDirection();
 
+    //**************************************************************************
+    // DIRECTIONS
+    //**************************************************************************
+    /// The direction of non_humanoid
+    double angle;
+    /// Current direction (subject) oh NHum
+    Object* aim;
+    //**************************************************************************
+    // UPDATE STEP
+    //**************************************************************************
     /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
     unsigned int decr_sleep_step;
 
+    //**************************************************************************
+    // DECISION
+    //**************************************************************************
     /// Current decision of non_hum
     CreatureAction current_decision;
+
+
 };
 
 #endif // NON_HUMANOID_H

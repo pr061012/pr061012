@@ -12,7 +12,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Tool::Tool(ToolType type, ResourceType material, unsigned int max_strength) :
+Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
     Object(TOOL),
     subtype(type),
     material(material)
@@ -77,17 +77,17 @@ std::vector <Action> * Tool::getActions()
 // STRENGTH.
 //******************************************************************************
 
-unsigned int Tool::getStrength() const
+uint Tool::getStrength() const
 {
     return this -> current_strength;
 }
 
-unsigned int Tool::getMaxStrength() const
+uint Tool::getMaxStrength() const
 {
     return this -> max_strength;
 }
 
-void Tool::decreaseStrength(unsigned int delta)
+void Tool::decreaseStrength(uint delta)
 {
     if(this -> current_strength >= delta)
     {
@@ -99,7 +99,7 @@ void Tool::decreaseStrength(unsigned int delta)
     }
 }
 
-void Tool::increaseStrength(unsigned int delta)
+void Tool::increaseStrength(uint delta)
 {
     if(this -> current_strength + delta <= this -> max_strength)
     {
@@ -109,6 +109,16 @@ void Tool::increaseStrength(unsigned int delta)
     {
         this -> current_strength = this -> max_strength;
     }
+}
+
+void Tool::damage(uint delta)
+{
+    this -> decreaseStrength(delta);
+}
+
+void Tool::heal(uint delta)
+{
+    this -> increaseStrength(delta);
 }
 
 //******************************************************************************

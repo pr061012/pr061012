@@ -3,17 +3,20 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef MOVEMENT_PERFORMER_H__
-#define MOVEMENT_PERFORMER_H__
+#ifndef MINING_PERFORMER_H__
+#define MINING_PERFORMER_H__
 
 #include "../Performer.h"
 #include "../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/World/Object/Tool/Tool.h"
+
 
 /**
- * @class MovementPerformer
- * @brief Performs a move if it is possible
+ * @class MiningPerformer
+ * @brief Performs a mining if it is possible
  */
-class MovementPerformer : public Performer
+class MiningPerformer : public Performer
 {
 public:
     
@@ -22,24 +25,22 @@ public:
     //*************************************************************************
 
     /**
-     * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @brief Constructor
      */
-    MovementPerformer(const double world_size, Indexator& indexator);
+    MiningPerformer(Indexator& indexator);
 
     /**
      * @brief Destructor
      */
-    ~MovementPerformer();
+    ~MiningPerformer();
 
     //*************************************************************************
     //  PERFORM
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can mine and mine it
+     * @param action a request for mining
      */
     void perform(Action& action);
 
@@ -48,12 +49,10 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-    
-    /// Size of the world
-    const double world_size;
-    
+
     /// The reference to worlds indexator
     Indexator& indexator;
+
 };
 
 #endif

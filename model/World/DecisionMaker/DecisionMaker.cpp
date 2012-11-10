@@ -63,7 +63,7 @@ DecisionMaker::~DecisionMaker()
 // PREDICTION.
 //******************************************************************************
 
-bool DecisionMaker::changeDecision(arma::mat attrs, CreatureAction current_decision) const
+bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_decision) const
 {
     mat act(ACT_CONST,1);
     unsigned int index;

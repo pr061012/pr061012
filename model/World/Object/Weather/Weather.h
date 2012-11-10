@@ -23,12 +23,12 @@ public:
     /**
      * @brief Constructor.
      */
-    Weather(WeatherType type, unsigned int living_steps = 0);
+    Weather(WeatherType type, uint living_steps = 0);
 
     /**
      * @brief Destructor.
      */
-    ~Weather();
+    virtual ~Weather();
 
     //**************************************************************************
     // WEATHER ACTIONS.
@@ -51,6 +51,22 @@ public:
     WeatherType getSubtype() const;
 
     //**************************************************************************
+    // DAMAGE/HEAL.
+    //**************************************************************************
+
+    /**
+     * @brief Damages weather (actually does nothing).
+     * @param delta amount of damage
+     */
+    void damage(uint delta){}
+
+    /**
+     * @brief ''Heals'' weather (actually does nothing).
+     * @param delta amount of healing points
+     */
+    void heal(uint delta){}
+
+    //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
@@ -65,7 +81,7 @@ public:
      * @brief  Gets amount of living steps.
      * @return amount of living steps.
      */
-    unsigned int getLivingSteps() const;
+    uint getLivingSteps() const;
 
 private:
     /// Weather type.
@@ -75,7 +91,7 @@ private:
     ObjectHeap * covered_objs;
 
     /// Steps for living.
-    unsigned int steps;
+    uint steps;
 };
 
 #endif // WEATHER_H

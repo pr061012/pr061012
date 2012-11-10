@@ -34,7 +34,7 @@ public:
      * @param type          action's type
      * @param actor         action's actor
      */
-    Action(const ActionType type, Object * const actor);
+    Action(const ActionType type, Object * actor);
 
     /**
      * @brief Destructor,
@@ -91,28 +91,39 @@ public:
      * @brief Adds action participant.
      * @param obj   participant
      */
-    void addParticipant(Object * obj);
+    void addParticipant(Object* obj);
+
+    /**
+     * @brief  Gets action participants.
+     * @return array with object's pointers
+     */
+    std::vector <Object*> getParticipants();
 
     /**
      * @brief Adds param.
      * @param param param name
      * @param value param value
      */
-    void addParam(std::string param, int value);
+    template <class Type> void addParam(std::string param, Type value)
+    {
+        this -> params.addKey<Type>(param, value);
+    }
 
     /**
      * @brief  Gets value of param.
      * @param  param    param name
      * @return value of param
      */
-    // TODO: Throw an exception when param isn't specified.
-    int getParam(std::string param) const;
+    template <class Type> Type getParam(std::string param) const
+    {
+        return this -> params.getValue<Type>(param);
+    }
 
     /**
      * @brief  Gets actor
      * @return action actor
      */
-    Object * const getActor() const;
+    Object* getActor();
 
     /**
      * @brief  Gets type of action
@@ -126,10 +137,10 @@ private:
     const ActionType type;
 
     /// Action's actor.
-    Object * const actor;
+    Object* actor;
 
     /// Action's participants (without actor).
-    std::vector <const Object *> participants;
+    std::vector <Object*> participants;
 
     /// Parameters.
     ParamArray params;

@@ -31,7 +31,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Object();
+    virtual ~Object();
 
     //**************************************************************************
     // OBJECT'S LIFE.
@@ -45,10 +45,21 @@ public:
 
     /**
      * @brief Receives message.
-     * @param action    message
      */
     // TODO: Uncomment when we need it.
     //virtual void receiveMessage(Action * action) = 0;
+
+    /**
+     * @brief Damages object.
+     * @param delta amount of damage
+     */
+    virtual void damage(uint delta) = 0;
+
+    /**
+     * @brief Heals object.
+     * @param delta amount of healing
+     */
+    virtual void heal(uint delta) = 0;
 
     //**************************************************************************
     // DESTROYED FLAG.

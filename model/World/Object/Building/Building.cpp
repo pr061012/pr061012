@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building(unsigned int max_space, unsigned int max_health) :
+Building::Building(uint max_space, uint max_health) :
     Object(BUILDING),
     contents(new ObjectHeap),
     health(0),
@@ -38,7 +38,7 @@ std::vector <Action> * Building::getActions()
 // HEALTH MANIPULATION.
 //******************************************************************************
 
-void Building::decreaseHealth(unsigned int delta)
+void Building::decreaseHealth(uint delta)
 {
     if(this -> health > delta)
     {
@@ -50,7 +50,7 @@ void Building::decreaseHealth(unsigned int delta)
     }
 }
 
-void Building::increaseHealth(unsigned int delta)
+void Building::increaseHealth(uint delta)
 {
     if(this -> health + delta < this -> max_health)
     {
@@ -60,6 +60,16 @@ void Building::increaseHealth(unsigned int delta)
     {
         this -> health = this -> max_health;
     }
+}
+
+void Building::damage(uint delta)
+{
+    this -> decreaseHealth(delta);
+}
+
+void Building::heal(uint delta)
+{
+    this -> increaseHealth(delta);
 }
 
 //******************************************************************************
@@ -80,7 +90,7 @@ bool Building::takeOut(Object * object)
 // REPAIRING.
 //******************************************************************************
 
-void Building::repair(unsigned int delta)
+void Building::repair(uint delta)
 {
     this -> increaseHealth(delta);
 
@@ -99,12 +109,12 @@ ObjectHeap * Building::getContents()
     return this -> contents;
 }
 
-unsigned int Building::getFreeSpace()
+uint Building::getFreeSpace()
 {
     return this -> free_space;
 }
 
-unsigned int Building::getMaxSpace()
+uint Building::getMaxSpace()
 {
     return this -> max_space;
 }

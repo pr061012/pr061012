@@ -9,16 +9,14 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-Action::Action(const ActionType type, Object * const actor) :
+Action::Action(const ActionType type, Object * actor) :
     type(type),
     actor(actor)
 {
-
 }
 
 Action::~Action()
 {
-
 }
 
 //******************************************************************************
@@ -63,22 +61,17 @@ void Action::markAsSucceeded()
 // ACCESSING PARAMS/PARTICIPANTS.
 //******************************************************************************
 
-void Action::addParticipant(Object * obj)
+void Action::addParticipant(Object* obj)
 {
     this -> participants.push_back(obj);
 }
 
-void Action::addParam(std::string param, int value)
+std::vector <Object*> Action::getParticipants()
 {
-    this -> params.addKey(param, value);
+    return this -> participants;
 }
 
-int Action::getParam(std::string param) const
-{
-    return this -> params.getValue(param);
-}
-
-Object * const Action::getActor() const
+Object* Action::getActor()
 {
     return actor;
 }

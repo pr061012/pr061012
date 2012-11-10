@@ -5,6 +5,8 @@
 
 #include "World.h"
 
+#include <iostream>
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -13,6 +15,7 @@ World::~World()
 {    
     delete object_factory;
     delete indexator;
+    delete visible_objs;
 }
 
 World::World(std::string filepath) :
@@ -22,13 +25,12 @@ World::World(std::string filepath) :
 
 }
 
-World::World(int rand_seed) :
-    width(DEFAULT_WIDTH),
-    height(DEFAULT_HEIGHT)
-{
-    srand(rand_seed);
-   // World(rand_seed, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-}
+//World::World(int rand_seed) :
+//    width(DEFAULT_WIDTH),
+//    height(DEFAULT_HEIGHT)
+//{
+//    srand(rand_seed);
+//}
 
 World::World(int rand_seed, int width, int height) :
     width(width  > 0 ? width  : DEFAULT_WIDTH),
@@ -36,38 +38,43 @@ World::World(int rand_seed, int width, int height) :
 {
     srand(rand_seed);
 
-    //this->width  = width  > 0 ? width  : DEFAULT_WIDTH;
-    //this->height = height > 0 ? height : DEFAULT_HEIGHT;
+    std::cout << "Creating world with rand_seed="
+              << rand_seed << std::endl;
 
     object_factory = new ObjectFactory();
+    visible_objs = new ObjectHeap();
 
-    // FIXME: No such constructor for indexator?
-    indexator = new Indexator();
+    indexator = new Indexator((double)width);
 
-    // For now, just generating a group of humans in a row.
+    ParamArray params;
 
-    std::map <std::string, void*> params;
-    int pos[] = {0, 0};
+    params.addKey("res_type", WOOD);
+    params.addKey("res_amount", 10);
 
-    params["x"] = &pos[0];
-    params["y"] = &pos[1];
+    for(int i = 30 + rand()%50; i>=0; --i)
+    {
+        Object* newobj  = object_factory->createObject(RESOURCE, params);
+        newobj->setCoords(Point(20.0+rand()%50,20.0+rand()%50));
+        newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 10.0));
+        visible_objs->push(newobj);
 
-    // object_factory->createObject(HUMANOID, params);
+        indexator->reindexate(newobj);
 
-    // pos[0] = 10;
-    // object_factory->createObject(HUMANOID, params);
-
-    // pos[0] = 20;
-    // object_factory->createObject(HUMANOID, params);
+//        std::cout << "Created resource at x = "
+//                  << newobj->getCoords().getX() << ", y = "
+//                  << newobj->getCoords().getY()
+//                  << " with collision model as circle rad = 50"
+//                  << std::endl;
+    }
 }
 
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
 
-void World::step()
+void World::setObjectVisibility(Object *obj, bool visibility)
 {
-    // TODO: Prepare the queue of actions for controller.
+    // visible_objs->hasObject(obj);
 }
 
 void World::save(std::string filepath)
@@ -80,25 +87,45 @@ void World::save(std::string filepath)
 // ACCESSORS.
 //******************************************************************************
 
-void World::setAllObjects(ObjectHeap new_var)
-{
-    this -> all_objects = new_var;
-}
+//void World::setAllObjects(ObjectHeap* new_var)
+//{
+//    this -> visible_objs = new_var;
+//}
 
-ObjectHeap World::getAllObjects()
-{
-    return this -> all_objects;
-}
+//ObjectHeap* World::getAllObjects()
+//{
+//    return this -> visible_objs;
+//}
 
 //******************************************************************************
 // VIEW METHODS.
 //******************************************************************************
 
-ViewObject **World::getViewObjectsInRange(double x, double y, double radius)
+Object** World::getViewObjectsInRange(double x, double y, double radius)
 {
-    // Check all_objects in certain range and create array
-    // of (tiny) objects containing neccessary parameters.
-    return NULL;
+    Object** retval;
+
+    Point center(x, y);
+    Shape area(center, CIRCLE, radius*2);
+    ObjectHeap* objects = indexator->getAreaContents(area);
+    ObjectHeap::const_iterator it = objects->begin();
+
+    int size = objects->getAmount();
+
+    retval = new Object*[size + 1];
+
+    for(int i = 0; i<size; ++i)
+    {
+        retval[i] = it[i];
+    }
+    retval[size] = NULL;
+
+//    std::cout << "Returning objects array size="
+//              << size << std::endl;
+
+    delete objects;
+
+    return retval;
 }
 
 WeatherType World::getWeatherAtPoint(double x, double y)

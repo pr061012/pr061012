@@ -6,6 +6,8 @@
 #include "Shape.h"
 #include <cmath>
 
+#include <iostream>
+
 #define EPSILON 0.00000001
 
 //******************************************************************************

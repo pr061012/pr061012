@@ -25,12 +25,12 @@ public:
     /**
      * @brief Constructor.
      */
-    Building(unsigned int max_space, unsigned int max_health);
+    Building(uint max_space, uint max_health);
 
     /**
      * @brief Destructor.
      */
-    ~Building();
+    virtual ~Building();
 
     //**************************************************************************
     // ACTIONS ACCESSING.
@@ -50,13 +50,25 @@ public:
      * @brief Decreases building's health.
      * @param delta health to decrease
      */
-    void decreaseHealth(unsigned int delta);
+    void decreaseHealth(uint delta);
 
     /**
      * @brief Increases building's health.
      * @param delta health to increase
      */
-    void increaseHealth(unsigned int delta);
+    void increaseHealth(uint delta);
+
+    /**
+     * @brief Damages building.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief Repairs buidling.
+     * @param delta amount of repairing points
+     */
+    void heal(uint delta);
 
     //**************************************************************************
     // CONTENTS MANIPULATION.
@@ -84,7 +96,7 @@ public:
      * @brief Repairs building (adds delta to building health).
      * @param delta health to add
      */
-    void repair(unsigned int delta);
+    void repair(uint delta);
 
     //**************************************************************************
     // CONTENTS AND SPACE ACCESSORS.
@@ -100,13 +112,13 @@ public:
      * @brief  Get the value of free_space.
      * @return the value of free_space
      */
-    unsigned int getFreeSpace();
+    uint getFreeSpace();
 
     /**
      * @brief  Get the value of max_space.
      * @return the value of max_space
      */
-    unsigned int getMaxSpace();
+    uint getMaxSpace();
 
     /**
      * @brief  Get the value of isFinished.
@@ -119,14 +131,14 @@ private:
     ObjectHeap * contents;
 
     /// Building's health.
-    unsigned int health;
+    uint health;
     /// Building's maximum health.
-    unsigned int max_health;
+    uint max_health;
 
     /// Free space.
-    unsigned int free_space;
+    uint free_space;
     /// Maximum available space.
-    unsigned int max_space;
+    uint max_space;
 
     /// @brief Completeness of the building. As building is founded, it gets 0
     ///        health. Building proccess is equivalent to repairing proccess.

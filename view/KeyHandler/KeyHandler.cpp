@@ -1,20 +1,21 @@
-/*
- *  Copyright (c) 2012, pr061012 Team.
- *  See the LICENSE file for copying permission.
- */
-
-#include "VisualState.h"
+#include "KeyHandler.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-VisualState::VisualState()
+KeyHandler::KeyHandler()
+{
+}
+
+
+KeyHandler::~KeyHandler()
 {
 
 }
 
-VisualState::~VisualState()
+int KeyHandler::handleKeys()
 {
+    //glfwGetKey(GLFW_KEY_ESC);
 
 }

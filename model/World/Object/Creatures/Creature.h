@@ -15,8 +15,6 @@
  * @class Creature
  * @brief Abstract Creature class.
  */
-
-
 class Creature : public Object
 {
 public:
@@ -69,65 +67,77 @@ public:
      * @brief Set the value of age.
      * @param age   new value of age
      */
-    void setAge(unsigned int age);
+    void setAge(uint age);
 
     /**
      * @brief  Get the value of age.
      * @return the value of age
      */
-    unsigned int getAge();
+    uint getAge();
 
     /**
      * @brief Set the value of max age.
-     * @param age   new value of max age
+     * @param max_age   new value of max age
      */
-    void setMaxAge(unsigned int max_age);
+    void setMaxAge(uint max_age);
 
     /**
      * @brief  Get the value of max age.
      * @return the value of max age
      */
-    unsigned int getMaxAge();
+    uint getMaxAge();
 
     /**
      * @brief Set the value of health.
      * @param health   new value of health
      */
-    void setHealth(unsigned int health);
+    void setHealth(uint health);
 
     /**
      * @brief  Get the value of health.
      * @return the value of health
      */
-    unsigned int getHealth();
+    uint getHealth();
 
     /**
      * @brief Set the value of max health.
-     * @param health   new value of max health
+     * @param max_health   new value of max health
      */
-    void setMaxHealth(unsigned int max_health);
+    void setMaxHealth(uint max_health);
 
     /**
      * @brief  Get the value of max age.
      * @return the value of max age
      */
-    unsigned int getMaxHealth();
+    uint getMaxHealth();
 
     //**************************************************************************
-    // OBJECT'S LIFE.
+    // CHANGING HEALTH.
     //**************************************************************************
 
     /**
      * @brief Decreases object's health.
      * @param delta health to decrease
      */
-    void decreaseHealth(unsigned int delta);
+    void decreaseHealth(uint delta);
 
     /**
      * @brief Increases object's health.
      * @param delta health to increase
      */
-    void increaseHealth(unsigned int delta);
+    void increaseHealth(uint delta);
+
+    /**
+     * @brief Damages creature.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief Heals creature.
+     * @param delta amount of healing points
+     */
+    void heal(uint delta);
 
 private:
     /// Creature's type.
@@ -142,59 +152,64 @@ private:
     /// View area for Indexator.
     Shape view_area;
 
-    /// Current creature's action.
-    CreatureAction current_action;
+
 
 protected:
-    /**
-     * @brief Matrix of attributes
-     */
+    /// Current creature's action.
+    CreatureAction current_action;
+    /// Creature's enviroment
+    ObjectHeap * objects_around;
+
+     /// Matrix of attributes
     arma::mat attrs;
 
     /// Reference to creature's DecisionMaker.
     const DecisionMaker & brains;
 
     /// Current age.
-    unsigned int age;
+    uint age;
 
     /// Maximum possible age.
-    unsigned int max_age;
+    uint max_age;
 
     /// Current health.
-    unsigned int health;
+    uint health;
 
     /// Maximum possible health.
-    unsigned int max_health;
+    uint max_health;
 
-	// Quotient = 100 => creature wants sleep.
+    // Quotient = 100 => creature wants sleep.
 
     /// Current value of sleepiness.
-    unsigned int sleepiness;
+    uint sleepiness;
     /// Maximum possible value of sleepiness.
-    unsigned int max_sleepiness;
+    uint max_sleepiness;
 
     /// Current value of need_in_descendants (0-100)
-	unsigned int need_in_descendants;
+	uint need_in_descendants;
 
-	// If = 100, creature is in danger.
+    // If = 100, creature is in danger.
     /// Current safety.
-    unsigned int safety;
+    uint safety;
 
-	// Quotient = 100 => creature wants eat.
+    // Quotient = 100 => creature wants eat.
     /// Current value of hunger.
-    unsigned int hunger;
+    uint hunger;
     /// Maximum possible value of hunger.
-    unsigned int max_hunger;
+    uint max_hunger;
 
     /// Amount for steps to common update.
-    unsigned int common_steps;
+    uint common_steps;
     /// Amount for steps to age update.
-    unsigned int age_steps;
+    uint age_steps;
     /// Amount for steps to need_in_descendant update.
-    unsigned int desc_steps;
+    uint desc_steps;
     /// Amount for steps to safety update.
-    unsigned int safety_steps;
+    uint safety_steps;
 
+    //**************************************************************************
+    // UPDATES
+    //**************************************************************************
     /**
      * @brief Updates age
      */

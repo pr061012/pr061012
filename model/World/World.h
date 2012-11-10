@@ -8,9 +8,11 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <vector>
+#include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
-#include "../../view/ViewObject.h"
+#include "../../view/ViewObject/ViewObject.h"
 #include "Indexator/Indexator.h"
 
 
@@ -25,7 +27,7 @@
   * @brief Class containing methods for primary model interaction
   */
 
-class World
+class World : public IWorld
 {
 public:
     //**************************************************************************
@@ -43,17 +45,20 @@ public:
      */
     World(std::string filepath);
 
-	/**
+    /**
      * @brief World generation by given seed.
      * @param rand_seed
-	 */
-    World(int rand_seed = 0);
+     */
+    //World(int rand_seed = 0);
 
     /**
      * @brief World generation by given seed and by specific width/height.
      * @param rand_seed
+     * @param width
+     * @param height
      */
-    World(int rand_seed, int width, int height);
+    World(int rand_seed = 0,
+          int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 
 private:
     /// Size of World's region
@@ -71,16 +76,14 @@ public:
 	 */
     void save(std::string filepath);
 
-    /**
-     * @brief Update world state
-     */
-    void step();
-
 private:
 
     // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
-    /// Heap containing all World's objects
-    ObjectHeap all_objects;
+    /// Heap containing all visible World's objects
+    ObjectHeap* visible_objs;
+
+    /// Heap containing all hidden World's objects
+    ObjectHeap* hidden_objs;
 
     /// Global world indexator
     Indexator* indexator;
@@ -90,21 +93,27 @@ private:
 
 public:
 
+    //******************************************************************************
+    // OBJECT HEAP METHODS.
+    //******************************************************************************
+
+    void setObjectVisibility(Object *obj, bool visibility);
+
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
-	/**
-     * @brief Set the value of all_objects.
-	 * @param new_var the new value of all_objects
-	 */
-    void setAllObjects(ObjectHeap new_var);
+    /**
+     * @brief Set the value of visible_objs.
+     * @param new_var the new value of visible_objs
+     */
+    //void setAllObjects(ObjectHeap* new_var);
 
-	/**
-     * @brief Get the value of all_objects.
-	 * @return the value of all_objects
-	 */
-    ObjectHeap getAllObjects();
+    /**
+     * @brief Get the value of visible_objs.
+     * @return the value of visible_objs
+     */
+    //ObjectHeap* getAllObjects();
 
     //******************************************************************************
     // VIEW METHODS.
@@ -115,9 +124,11 @@ public:
      * @param x x coordinate of screen center
      * @param y y coordinate of screen center
      * @param radius maximal distance from screen center at which object is visible
+     * @param size number of ViewObject instances created
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
+     *         array is return null-terminated
      */
-    ViewObject** getViewObjectsInRange(double x, double y, double radius);
+    Object** getViewObjectsInRange(double x, double y, double radius);
 
     /**
      * @brief Get weather state at certain coordinates

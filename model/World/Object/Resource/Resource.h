@@ -6,6 +6,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
+#include <vector>
 #include "../Object.h"
 #include "../Tool/Tool.h"
 
@@ -23,12 +24,12 @@ public:
     /**
      * @brief Constructor.
      */
-    Resource(ResourceType type, unsigned int res_amount = 0);
+    Resource(ResourceType type, uint res_amount = 0);
 
     /**
      * @brief Destructor.
      */
-    ~Resource();
+    virtual ~Resource();
 
     //**************************************************************************
     // CHANGING PROGRESS.
@@ -47,13 +48,31 @@ public:
      * @brief Decreases amount of resource.
      * @param delta amount of resource to decrease
      */
-    void decreaseAmount(unsigned int delta);
+    void decreaseAmount(uint delta);
+
+    /**
+     * @brief Increases amount of resource.
+     * @param delta amount of resource to increase
+     */
+    void increaseAmount(uint delta);
 
     /**
      * @brief  Gets amount of resource.
      * @return amount of resource
      */
-    unsigned int getAmount() const;
+    uint getAmount() const;
+
+    /**
+     * @brief Damages resource.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief ''Heals'' resource.
+     * @param delta amount of healing points
+     */
+    void heal(uint delta);
 
     //**************************************************************************
     // RESOURCE'S LIFE.
@@ -83,13 +102,13 @@ public:
      * @brief  Get the value of progress.
      * @return the value of progress
      */
-    unsigned int getProgress() const;
+    uint getProgress() const;
 
     /**
      * @brief  Get the value of difficulty.
      * @return the value of difficulty
      */
-    unsigned int getDifficulty() const;
+    uint getDifficulty() const;
 
     /**
      * @brief  Returns true if resource is mineable.
@@ -103,20 +122,20 @@ private:
 
     /// @brief Resource gathering process (Wood can't be hacked by one hit.
     ///        Humanoid needs several hits to do that.)
-    unsigned int progress;
+    uint progress;
     /// Amount of steps to gather this resource.
-    unsigned int difficulty;
+    uint difficulty;
 
     /// Amount of resource.
-    unsigned int amount;
+    uint amount;
     /// Amount of resources received on each mining.
-    unsigned int amount_per_drop;
+    uint amount_per_drop;
 
     /// @brief Resource regeneration amount (amount of resource we regenerate on
     ///        each regeneration).
-    unsigned int reg_amount;
+    uint reg_amount;
     /// Amount of steps to regeneration.
-    unsigned int steps_to_reg;
+    uint steps_to_reg;
 
     /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
     ///        ResourceType enum for details.

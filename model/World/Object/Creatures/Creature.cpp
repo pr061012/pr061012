@@ -16,6 +16,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
     inventory(new ObjectHeap),
+    objects_around(new ObjectHeap),
     brains(dmaker)
 
 {
@@ -65,52 +66,52 @@ Shape Creature::getViewArea()
     return this -> view_area;
 }
 
-void Creature::setAge(unsigned int age)
+void Creature::setAge(uint age)
 {
     this -> age = age;
 }
 
-unsigned int Creature::getAge()
+uint Creature::getAge()
 {
     return this -> age;
 }
 
-void Creature::setMaxAge(unsigned int max_age)
+void Creature::setMaxAge(uint max_age)
 {
     this -> max_age = max_age;
 }
 
-unsigned int Creature::getMaxAge()
+uint Creature::getMaxAge()
 {
     return this -> max_age;
 }
 
 
-void Creature::setHealth(unsigned int health)
+void Creature::setHealth(uint health)
 {
     this -> health = health;
 }
 
-unsigned int Creature::getHealth()
+uint Creature::getHealth()
 {
     return this -> health;
 }
 
-void Creature::setMaxHealth(unsigned int max_health)
+void Creature::setMaxHealth(uint max_health)
 {
     this -> max_health = max_health;
 }
 
-unsigned int Creature::getMaxHealth()
+uint Creature::getMaxHealth()
 {
     return this -> max_health;
 }
 
 //******************************************************************************
-// OBJECT'S LIFE.
+// CHANGING HEALTH.
 //******************************************************************************
 
-void Creature::decreaseHealth(unsigned int delta)
+void Creature::decreaseHealth(uint delta)
 {
     if(this -> health > delta)
     {
@@ -122,7 +123,7 @@ void Creature::decreaseHealth(unsigned int delta)
     }
 }
 
-void Creature::increaseHealth(unsigned int delta)
+void Creature::increaseHealth(uint delta)
 {
     if(this -> health + delta < this -> max_health)
     {
@@ -134,4 +135,12 @@ void Creature::increaseHealth(unsigned int delta)
     }
 }
 
+void Creature::damage(uint delta)
+{
+    this -> decreaseHealth(delta);
+}
 
+void Creature::heal(uint delta)
+{
+    this -> increaseHealth(delta);
+}
