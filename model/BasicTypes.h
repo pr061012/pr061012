@@ -132,8 +132,9 @@ enum ActionType
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
-    ///        Participants:    several objects \n
-    ///        Parameters:      none
+    ///        Participants:    Tool (Creature only, optional),
+    ///                         several objects \n
+    ///        Parameters:      tool_id (*uint*)
     HARM_OBJS,
 
     /// @brief Description:     Create object. \n
