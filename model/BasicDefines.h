@@ -44,6 +44,9 @@
 /// World size (horizontal size).
 #define SZ_WORLD_HSIDE              1000 * SZ_HUMANOID_DIAM
 
+/// Default size for everything.
+#define SZ_DEFAULT                  SZ_HUMANOID_DIAM
+
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUMANOID_DIAM
 /// Building side (maximum size).
@@ -66,6 +69,9 @@
 // SHAPE DEFINES.
 // Prefix: SHP.
 //******************************************************************************
+
+/// Default shape for everything.
+#define SHP_DEFAULT                 CIRCLE
 
 /// Humanoid's shape.
 #define SHP_HUMANOID                CIRCLE

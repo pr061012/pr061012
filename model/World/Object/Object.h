@@ -26,7 +26,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Object(ObjectType type);
+    Object(ObjectType type, double x, double y);
 
     /**
      * @brief Destructor.
@@ -111,10 +111,16 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Set the value of shape.
-     * @param new_var   the new value of shape
+     * @brief Sets object's shape type.
+     * @param type  shape type
      */
-    void setShape(Shape new_var);
+    void setShapeType(ShapeType type);
+
+    /**
+     * @brief Sets object's shape size.
+     * @param size  shape size
+     */
+    void setShapeSize(double size);
 
     /**
      * @brief  Get the value of shape.

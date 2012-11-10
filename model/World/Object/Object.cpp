@@ -3,14 +3,17 @@
     See the LICENSE file for copying permission.
 */
 
+#include "../../BasicDefines.h"
+
 #include "Object.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type) :
-    type(type)
+Object::Object(ObjectType type, double x, double y) :
+    type(type),
+    shape(Shape(Point(x, y), SHP_DEFAULT, SZ_DEFAULT))
 {
     this -> destroyed = false;
     this -> immortality = false;
@@ -69,9 +72,14 @@ ObjectType Object::getType() const
 // OBJECT SHAPE AND ANGLE.
 //******************************************************************************
 
-void Object::setShape(Shape new_var)
+void Object::setShapeType(ShapeType type)
 {
-    this -> shape = new_var;
+    this -> shape.setType(type);
+}
+
+void Object::setShapeSize(double size)
+{
+    this -> shape.setSize(size);
 }
 
 Shape Object::getShape() const
