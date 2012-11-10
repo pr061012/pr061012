@@ -6,9 +6,16 @@
 /**
  * @file BasicTypes.h
  */
- 
+
 #ifndef BASIC_DEFINES_H
 #define BASIC_DEFINES_H
+
+#include "BasicTypes.h"
+
+//******************************************************************************
+// VIEW DEFINES.
+// TODO: Add prefix.
+//******************************************************************************
 
 #define SCREEN_WIDTH  800
 #define SCREEN_HEIGHT 600
@@ -54,6 +61,23 @@
 
 /// View area for NonHum
 #define SZ_NHUM_VIEW_DIAM       50 * SZ_HUMANOID_DIAM
+
+//******************************************************************************
+// SHAPE DEFINES.
+// Prefix: SHP.
+//******************************************************************************
+
+/// Humanoid's shape.
+#define SHP_HUMANOID            CIRCLE
+
+/// Building's shape.
+#define SHP_BUILDING            SQUARE
+
+/// Weather's shape.
+#define SHP_WEATHER             CIRCLE
+
+/// Resource's shape.
+#define SHP_RESOURCE            CIRCLE
 
 //******************************************************************************
 // WEATHER DEFINES.
