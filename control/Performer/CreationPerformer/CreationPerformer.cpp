@@ -21,7 +21,8 @@ CreationPerformer::~CreationPerformer()
 
 void CreationPerformer::perform(Action& action)
 {
-    Object * actor = action.getActor();
+    Object* actor = action.getActor();
+    Object* new_object;
     ObjectType type = actor -> getType();
 
     if ((type != RESOURCE) || (type != CREATURE))
@@ -42,7 +43,8 @@ void CreationPerformer::perform(Action& action)
                 ParamArray param;
                 param.addKey<CreatureType>("creat_type", creat_type);
 
-                ObjectFactory.createObject(CREATURE, param);
+                new_object = ObjectFactory.createObject(CREATURE, param);
+                action.markAsSucceeded();
             break;
 
             case RESOURCE:
@@ -53,7 +55,8 @@ void CreationPerformer::perform(Action& action)
                 param.addKey<ResourceType>("res_type", res_type);
                 param.addKey<uint>("res_amount", res_amount);
 
-                ObjectFactory.createObject(CREATURE, param);
+                new_object = ObjectFactory.createObject(CREATURE, param);
+                action.markAsSucceeded();
             break;
 
             case TOOL:
@@ -64,7 +67,8 @@ void CreationPerformer::perform(Action& action)
                 param.addKey<ToolType>("tool_type", tool_type);
                 param.addKey<ResourceType>("mat_type", mat_type);
 
-                ObjectFactory.createObject(TOOL, param);
+                new_object = ObjectFactory.createObject(TOOL, param);
+                action.markAsSucceeded();
             break;
 
             default:
