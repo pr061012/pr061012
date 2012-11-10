@@ -31,24 +31,40 @@ void CreationPerformer::perform(Action& action)
     else
     {
         ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-        int x = action.getParam<int>("x");
-        int y = action.getParam<int>("y");
+        uint x = action.getParam<uint>("x");
+        uint y = action.getParam<uint>("y");
 
         switch (obj_type)
         {
             case CREATURE:
                 CreatureType creat_type = action.getParam<CreatureType>("creat_type");
 
+                ParamArray param;
+                param.addKey<CreatureType>("creat_type", creat_type);
+
+                ObjectFactory.createObject(CREATURE, param);
             break;
 
             case RESOURCE:
+                ResourceType res_type = action.getParam<ResourceType>("res_type");
+                uint res_amount = action.getParam<uint>("res_umount");
 
+                ParamArray param;
+                param.addKey<ResourceType>("res_type", res_type);
+                param.addKey<uint>("res_amount", res_amount);
+
+                ObjectFactory.createObject(CREATURE, param);
             break;
 
             case TOOL:
                 ToolType tool_type = action.getParam<ToolType>("tool_type");
                 ResourceType mat_type = action.getParam<ResourceType>("mat_type");
 
+                ParamArray param;
+                param.addKey<ToolType>("tool_type", tool_type);
+                param.addKey<ResourceType>("mat_type", mat_type);
+
+                ObjectFactory.createObject(TOOL, param);
             break;
 
             default:
