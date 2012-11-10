@@ -12,12 +12,15 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(ResourceType type, uint res_amount) :
-    Object(RESOURCE),
+Resource::Resource(ResourceType type, double x, double y, uint res_amount) :
+    Object(RESOURCE, x, y),
     subtype(type),
     progress(0),
     steps_to_reg(0)
 {
+    this -> setShapeType(SHP_RESOURCE);
+    this -> setShapeSize(randFromRange(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
+
     // FIXME: Foolish code.
     switch(this -> subtype)
     {
