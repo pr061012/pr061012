@@ -3,20 +3,25 @@
     See the LICENSE file for copying permission.
 */
 
+#include "../../../BasicFuncs.h"
+#include "../../../BasicDefines.h"
+
 #include "Building.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building(uint max_space, uint max_health) :
-    Object(BUILDING),
+Building::Building(double x, double y, uint max_space, uint max_health) :
+    Object(BUILDING, x, y),
     contents(new ObjectHeap),
     health(0),
     max_health(max_health),
     max_space(max_space),
     completeness(false)
 {
+    this -> setShapeType(SHP_BUILDING);
+    this -> setShapeSize(randFromRange(SZ_BUILDING_SIDE_MIN, SZ_BUILDING_SIDE_MAX));
 }
 
 Building::~Building()
