@@ -66,6 +66,11 @@ void Action::addParticipant(Object* obj)
     this -> participants.push_back(obj);
 }
 
+std::vector <Object*> Action::getParticipants()
+{
+    return this -> participants;
+}
+
 Object* Action::getActor()
 {
     return actor;

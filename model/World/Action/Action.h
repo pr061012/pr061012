@@ -94,6 +94,12 @@ public:
     void addParticipant(Object* obj);
 
     /**
+     * @brief  Gets action participants.
+     * @return array with object's pointers
+     */
+    std::vector <Object*> getParticipants();
+
+    /**
      * @brief Adds param.
      * @param param param name
      * @param value param value
@@ -134,7 +140,7 @@ private:
     Object* actor;
 
     /// Action's participants (without actor).
-    std::vector <const Object *> participants;
+    std::vector <Object*> participants;
 
     /// Parameters.
     ParamArray params;
