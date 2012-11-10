@@ -85,9 +85,9 @@
 //******************************************************************************
 
 /// Minimum amount of living steps for weather.
-#define WEAT_STEPS_MIN              3200
+#define WEAT_STEPS_MIN              180 * TM_TICKS_PER_SECOND
 /// Maximum amount of living steps for weather.
-#define WEAT_STEPS_MAX              6400
+#define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND
 
 //******************************************************************************
 // TOOL DEFINES.
