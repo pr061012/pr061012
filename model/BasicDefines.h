@@ -200,6 +200,12 @@
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            50
 
+/// Creature's fast speed.
+#define CREAT_SPEED_FAST_VALUE      (SZ_HUMANOID_DIAM * 9 / TM_TICKS_PER_SECOND)
+
+/// Creature's slow speed.
+#define CREAT_SPEED_SLOW_VALUE      (SZ_HUMANOID_DIAM * 5 / TM_TICKS_PER_SECOND)
+
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
 // Prefix: ATTR.
