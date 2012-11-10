@@ -17,11 +17,11 @@
 // TODO: Add prefix.
 //******************************************************************************
 
-#define SCREEN_WIDTH  800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH                800
+#define SCREEN_HEIGHT               600
 
 /// Radius of game camera field of view
-#define CAM_RADIUS 30
+#define CAM_RADIUS                  30
 
 //******************************************************************************
 // TIME DEFINES.
@@ -29,7 +29,7 @@
 //******************************************************************************
 
 /// Amount of controller ticks (which change the world) in one second.
-#define TM_TICKS_PER_SECOND     32
+#define TM_TICKS_PER_SECOND         32
 
 //******************************************************************************
 // SIZE DEFINES.
@@ -37,30 +37,30 @@
 //******************************************************************************
 
 /// Humanoid size.
-#define SZ_HUMANOID_DIAM        (double) 1
+#define SZ_HUMANOID_DIAM            (double) 1
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE          1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_VSIDE              1000 * SZ_HUMANOID_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE          1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_HSIDE              1000 * SZ_HUMANOID_DIAM
 
 /// Building side (minimum size).
-#define SZ_BUILDING_SIDE_MIN    3 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUMANOID_DIAM
 /// Building side (maximum size).
-#define SZ_BUILDING_SIDE_MAX    6 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MAX        6 * SZ_HUMANOID_DIAM
 
 /// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN     10 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUMANOID_DIAM
 /// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX     20 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MAX         20 * SZ_HUMANOID_DIAM
 
 /// Resource shape diameter (minimum size).
-#define SZ_RESOURCE_DIAM_MIN    5 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MIN        5 * SZ_HUMANOID_DIAM
 /// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX    10 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MAX        10 * SZ_HUMANOID_DIAM
 
 /// View area for NonHum
-#define SZ_NHUM_VIEW_DIAM       50 * SZ_HUMANOID_DIAM
+#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUMANOID_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
@@ -68,16 +68,16 @@
 //******************************************************************************
 
 /// Humanoid's shape.
-#define SHP_HUMANOID            CIRCLE
+#define SHP_HUMANOID                CIRCLE
 
 /// Building's shape.
-#define SHP_BUILDING            SQUARE
+#define SHP_BUILDING                SQUARE
 
 /// Weather's shape.
-#define SHP_WEATHER             CIRCLE
+#define SHP_WEATHER                 CIRCLE
 
 /// Resource's shape.
-#define SHP_RESOURCE            CIRCLE
+#define SHP_RESOURCE                CIRCLE
 
 //******************************************************************************
 // WEATHER DEFINES.
@@ -85,9 +85,9 @@
 //******************************************************************************
 
 /// Minimum amount of living steps for weather.
-#define WEAT_STEPS_MIN      3200
+#define WEAT_STEPS_MIN              3200
 /// Maximum amount of living steps for weather.
-#define WEAT_STEPS_MAX      6400
+#define WEAT_STEPS_MAX              6400
 
 //******************************************************************************
 // TOOL DEFINES.
@@ -97,11 +97,11 @@
 // (ResourceType enum).
 //******************************************************************************
 
-#define TOOL_STONE_STRENGTH     100
-#define TOOL_BRONZE_STRENGTH    200
-#define TOOL_IRON_STRENGTH      400
-#define TOOL_SILVER_STRENGTH    800
-#define TOOL_GOLD_STRENGTH      1600
+#define TOOL_STONE_STRENGTH         100
+#define TOOL_BRONZE_STRENGTH        200
+#define TOOL_IRON_STRENGTH          400
+#define TOOL_SILVER_STRENGTH        800
+#define TOOL_GOLD_STRENGTH          1600
 
 //******************************************************************************
 // RESOURCE DEFINES.
@@ -169,36 +169,36 @@
 // Values of these coeffiecients should lay in range [CREAT_*_MIN, CREAT_*_MAX].
 
 /// Minimum possible value of max_health.
-#define CREAT_HEALTH_MIN      50
+#define CREAT_HEALTH_MIN            50
 /// Maximum possible value of max_health.
-#define CREAT_HEALTH_MAX      100
+#define CREAT_HEALTH_MAX            100
 
-/// Minimum possible value of max_satiety.
-#define CREAT_HUNGER_MIN      50
-/// Maximum possible value of max_satiety
-#define CREAT_HUNGER_MAX      100
+/// Minimum possible value of max_hunger.
+#define CREAT_HUNGER_MIN            50
+/// Maximum possible value of max_hunger
+#define CREAT_HUNGER_MAX            100
 
 /// Minimum possible value of max_sleepiness.
-#define CREAT_SLEEPINESS_MIN  50
+#define CREAT_SLEEPINESS_MIN        50
 /// Maximum possible value of max_sleepiness.
-#define CREAT_SLEEPINESS_MAX  100
+#define CREAT_SLEEPINESS_MAX        100
 
 /// Amount of steps before updates basic attrs for creature.
-#define CREAT_STEPS           15 * TM_TICKS_PER_SECOND
+#define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates safety
-#define CREAT_SAFETY_STEPS    1 * TM_TICKS_PER_SECOND
+#define CREAT_SAFETY_STEPS          1 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates need_in_descendants.
-#define CREAT_DESC_STEPS      150 * TM_TICKS_PER_SECOND
+#define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates age.
-#define CREAT_AGE_STEPS       500 * TM_TICKS_PER_SECOND
+#define CREAT_AGE_STEPS             500 * TM_TICKS_PER_SECOND
 
 /// Changes of hunger for one step
-#define CREAT_DELTA_HUNGER    2
+#define CREAT_DELTA_HUNGER          2
 /// Changes of sleepiness for one step
-#define CREAT_DELTA_SLEEP     1
+#define CREAT_DELTA_SLEEP           1
 
 /// When delta is more than this const, creature makes new decision
-#define CREAT_CRIT_CONST  50
+#define CREAT_CRIT_CONST            50
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
@@ -206,23 +206,23 @@
 //******************************************************************************
 
 /// Attribute hunger
-#define ATTR_HUNGER              0
+#define ATTR_HUNGER                 0
 /// Attribute sleepiness
-#define ATTR_SLEEPINESS          1
+#define ATTR_SLEEPINESS             1
 /// Attribute need_in_house
-#define ATTR_NEED_IN_HOUSE       2
+#define ATTR_NEED_IN_HOUSE          2
 /// Attribute need in points
-#define ATTR_NEED_IN_POINTS      3
+#define ATTR_NEED_IN_POINTS         3
 /// Attribute laziness
-#define ATTR_LAZINESS            4
+#define ATTR_LAZINESS               4
 /// Attribute health
-#define ATTR_HEALTH              5
+#define ATTR_HEALTH                 5
 /// Attribute communication
-#define ATTR_COMMUNICATION       6
+#define ATTR_COMMUNICATION          6
 /// Attribute safety
-#define ATTR_SAFETY              7
+#define ATTR_SAFETY                 7
 /// Attribute need in descendant
-#define ATTR_NEED_IN_DESC        8
+#define ATTR_NEED_IN_DESC           8
 
 //******************************************************************************
 // HUMANOID'S DEFINES.
@@ -232,24 +232,24 @@
 // Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].
 
 /// Minimum possible value of humanoid's max_age.
-#define HUM_AGE_MIN         40
+#define HUM_AGE_MIN                 40
 /// Maximum possible value of humanoid's max_age.
-#define HUM_AGE_MAX         50
+#define HUM_AGE_MAX                 50
 
 /// Minimum possible value of humanoid's max_sociability.
-#define HUM_SOCIABILITY_MIN 0
+#define HUM_SOCIABILITY_MIN         0
 /// Maximum possible value of humanoid's max_sociability.
-#define HUM_SOCIABILITY_MAX 100
+#define HUM_SOCIABILITY_MAX         100
 
 /// Minimum possible value of humanoid's diligence.
-#define HUM_LAZINESS_MIN    0
+#define HUM_LAZINESS_MIN            0
 /// Maximum possible value of humanoid's diligence.
-#define HUM_LAZINESS_MAX    100
+#define HUM_LAZINESS_MAX            100
 
 /// Changes of need in descendant for one step
-#define HUM_DELTA_NEED_IN_DESC    1
+#define HUM_DELTA_NEED_IN_DESC      1
 /// Changes of sociability for one step
-#define HUM_DELTA_SOC             1
+#define HUM_DELTA_SOC               1
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
@@ -259,14 +259,14 @@
 // Values of these coeffiecients should lay in range [NHUM_*_MIN, NHUM_*_MAX].
 
 /// Minimum possible value of non-humanoid's max_age.
-#define NHUM_AGE_MIN        10
+#define NHUM_AGE_MIN                10
 /// Maximum possible value of non-humanoid's max_age.
-#define NHUM_AGE_MAX        20
+#define NHUM_AGE_MAX                20
 
 /// Changes of need_in_descendant for one step
-#define NHUM_DELTA_NEED_IN_DESC   2
+#define NHUM_DELTA_NEED_IN_DESC     2
 
 /// Amount of steps to decrease sleepiness
-#define NHUM_DECR_SLEEP_STEPS     100
+#define NHUM_DECR_SLEEP_STEPS       100
 
 #endif // BASIC_DEFINES_H
