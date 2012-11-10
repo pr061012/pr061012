@@ -51,6 +51,22 @@ public:
     WeatherType getSubtype() const;
 
     //**************************************************************************
+    // DAMAGE/HEAL.
+    //**************************************************************************
+
+    /**
+     * @brief Damages weather (actually does nothing).
+     * @param delta amount of damage
+     */
+    void damage(uint delta){}
+
+    /**
+     * @brief ''Heals'' weather (actually does nothing).
+     * @param delta amount of healing points
+     */
+    void heal(uint delta){}
+
+    //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
