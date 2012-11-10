@@ -100,9 +100,25 @@ void Resource::decreaseAmount(uint delta)
     }
 }
 
+void Resource::increaseAmount(uint delta)
+{
+    // TODO: We don't have top boundary yet. Do we need it?
+    this -> amount += delta;
+}
+
 uint Resource::getAmount() const
 {
     return this -> amount;
+}
+
+void Resource::damage(uint delta)
+{
+    this -> decreaseAmount(delta);
+}
+
+void Resource::heal(uint delta)
+{
+    this -> increaseAmount(delta);
 }
 
 //******************************************************************************
@@ -113,8 +129,7 @@ std::vector <Action> * Resource::getActions()
 {
     if(this -> steps_to_reg-- == 0)
     {
-        // TODO: We don't have top boundary yet. Do we need it?
-        this -> amount += this -> reg_amount;
+        this -> increaseAmount(this -> reg_amount);
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 

@@ -51,10 +51,28 @@ public:
     void decreaseAmount(uint delta);
 
     /**
+     * @brief Increases amount of resource.
+     * @param delta amount of resource to increase
+     */
+    void increaseAmount(uint delta);
+
+    /**
      * @brief  Gets amount of resource.
      * @return amount of resource
      */
     uint getAmount() const;
+
+    /**
+     * @brief Damages resource.
+     * @param delta amount of damage
+     */
+    void damage(uint delta);
+
+    /**
+     * @brief ''Heals'' resource.
+     * @param delta amount of healing points
+     */
+    void heal(uint delta);
 
     //**************************************************************************
     // RESOURCE'S LIFE.
