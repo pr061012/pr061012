@@ -21,11 +21,6 @@ public:
     //*************************************************************************
     
     /**
-     * @brief Empty constructor
-     */
-    Controller();
-
-    /**
      * @brief Constructor
      * @param world world
      */
@@ -43,7 +38,7 @@ public:
     /**
      * @brief Tries to make all requested actions in the world.
      */
-    step();
+    void step();
 
 private:
     
@@ -55,7 +50,7 @@ private:
     World& world;
 
     // List of performers
-    Performer * performers;
-}
+    Performer ** performers;
+};
 
 #endif

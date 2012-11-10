@@ -4,19 +4,15 @@
 */
 
 #include "Controller.h"
-#include "../Performer/MovementPerformer.h"
-
-Controller::Controller()
-{
-}
+#include "../Performer/MovementPerformer/MovementPerformer.h"
 
 Controller::Controller(World& world) : world(world)
 {
-    performers = new Performer[7];
+    performers = new Performer*[7];
     // TODO
     // Need either indexator pointer or a world's method 'getObjectsInArea'
     // for MovementPerfomer. And also size.
-    performers[GO] = (Performer) new MovementPerformer();
+    performers[GO] = (Performer *) new MovementPerformer();
 }
 
 Controller::~Controller()
@@ -24,16 +20,17 @@ Controller::~Controller()
     delete performers;
 }
 
-void Controller:step()
+void Controller::step()
 {
-    ObjectHeap objects = world.getAllObjects();
+    ObjectHeap * objects = world.getAllObjects();
 
-    for (i = objects.begin(); i != objects.end(); i++)
+    for (ObjectHeap::iterator i = objects -> begin(); i != objects -> end(); i++)
     {
-        std::vector<Action> * actions = (*i).getActions();
-        for (j = actions.begin(); j != actions.end(); j++)
+        std::vector<Action> * actions = (*i) -> getActions();
+        for (std::vector<Action>::iterator j = actions -> begin(); 
+                    j != actions -> end(); j++)
         {
-            performers[(*j).getType()].perform(*j);
+            performers[(*j).getType()] -> perform(*j);
         }
     }
 }
