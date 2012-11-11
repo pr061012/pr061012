@@ -130,7 +130,7 @@ public:
      * @brief Get the value of visible_objs
      * @return the value of visible_objs
      */
-    ObjectHeap* getAllObjects();
+    ObjectHeap* getVisibleObjects();
 
     /**
      * @brief Get the value of hidden_objs

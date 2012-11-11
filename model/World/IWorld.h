@@ -18,7 +18,7 @@ public:
     // WORLD <-> CONTROLLER METHODS.
     //******************************************************************************
 
-    virtual ObjectHeap* getAllObjects() = 0;
+    virtual ObjectHeap* getVisibleObjects() = 0;
 
     virtual ObjectHeap* getHiddenObjects() = 0;
 

@@ -112,7 +112,7 @@ const Indexator* World::getIndexator()
     return this->indexator;
 }
 
-ObjectHeap *World::getAllObjects()
+ObjectHeap *World::getVisibleObjects()
 {
     return this->visible_objs;
 }
