@@ -23,6 +23,8 @@ public:
     std::vector<Action>* getActions(){
         return 0;
     }
+    void damage(uint a){};
+    void heal(uint b){};
     void receiveMessage(Action *){}
 
 };
@@ -256,6 +258,81 @@ int main()
     }
 
     delete contents;
+
+    //*************************************************************************
+    // Test bounds
+    //*************************************************************************
+    
+    vec.clear();
+
+    form.setSize(90);
+
+    // 0 - 3 near corners
+    vec.push_back(new testObject(Point( 50,  50), form));
+    vec.push_back(new testObject(Point( 50, 950), form));
+    vec.push_back(new testObject(Point(950, 950), form));
+    vec.push_back(new testObject(Point(950,  50), form));
+
+    // 4 - 7 near middle of the bounds
+    vec.push_back(new testObject(Point(500,  50), form));
+    vec.push_back(new testObject(Point( 50, 500), form));
+    vec.push_back(new testObject(Point(500, 950), form));
+    vec.push_back(new testObject(Point(950, 500), form));
+
+    // 8 - 11 intersect corners
+    vec.push_back(new testObject(Point(  0,   0), form));
+    vec.push_back(new testObject(Point(  0, 999), form));
+    vec.push_back(new testObject(Point(999, 999), form));
+    vec.push_back(new testObject(Point(999,   0), form));
+
+    // 12 - 15 intersect bounds
+    vec.push_back(new testObject(Point(500,   0), form));
+    vec.push_back(new testObject(Point(  0, 500), form));
+    vec.push_back(new testObject(Point(500, 999), form));
+    vec.push_back(new testObject(Point(999, 500), form));
+    
+    ObjectHeap heap2;
+    for (std::vector<testObject*>::iterator i = vec.begin();
+                    i != vec.end(); i++)
+    {
+        heap2.push(*i);
+    }
+    index1.reindexate(&heap2);
+
+    area.setSize(200);
+
+    //*************************************************************************
+    // check corners
+    //*************************************************************************
+
+    area.setCenter(Point(100, 100));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getAmount() == 5);
+    assert(find(contents, vec[11]) && find(contents, vec[8]));
+    assert(find(contents, vec[9]) && find(contents, vec[10]));
+    assert(find(contents, vec[0]));
+
+    area.setCenter(Point(100, 900));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getAmount() == 5);
+    assert(find(contents, vec[11]) && find(contents, vec[8]));
+    assert(find(contents, vec[9]) && find(contents, vec[10]));
+    assert(find(contents, vec[1]));
+    
+    area.setCenter(Point(900, 900));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getAmount() == 5);
+    assert(find(contents, vec[11]) && find(contents, vec[8]));
+    assert(find(contents, vec[9]) && find(contents, vec[10]));
+    assert(find(contents, vec[2]));
+
+    area.setCenter(Point(900, 100));
+    contents = index1.getAreaContents(area);
+    assert(contents -> getAmount() == 5);
+    assert(find(contents, vec[11]) && find(contents, vec[8]));
+    assert(find(contents, vec[9]) && find(contents, vec[10]));
+    assert(find(contents, vec[3]));
+
     return 0;
 }
 

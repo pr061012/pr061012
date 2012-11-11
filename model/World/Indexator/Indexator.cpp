@@ -13,15 +13,19 @@ Indexator::Indexator(): world_size(0), row_size(0), cell_size(0)
 
 Indexator::Indexator(double size, ObjectHeap* list) :
     world_size(size), row_size(ceil(size/MAX_CELL_SIZE)),
-    cell_size(size / row_size)
+    cell_size(size / row_size), 
+    world_shape(Shape(Point(size/2, size/2), SQUARE, size))
 {
+    // say that our cells are not initizlized
     cells = 0;
+
     if (list)
     {
         reindexate(list);
     }
     else
     {
+        // just initialize cells for further operations
         init();
     }
 }
@@ -40,6 +44,41 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
 {
     // Get cells which our area covers
     uint * cells_area = getCellsArea(area);
+
+    // Create more areas to check collisions with objects intersecting 
+    // bounds of the world
+    Shape areas[4];
+    areas[0] = area;
+    Point center = area.getCenter();
+    
+    // Get the left bottom shape
+    if (center.getX() > world_size/2)
+    {
+        if (center.getY() > world_size / 2)
+        {
+            areas[0].setCenter(center - Point(world_size, world_size));
+        }
+        else
+        {
+            areas[0].setCenter(center - Point(world_size, 0)); 
+        }
+    }
+    else
+    {
+        if (center.getY() > world_size / 2)
+        {
+            areas[0].setCenter(center - Point(0, world_size));
+        }
+    }
+    
+    // Creat all other shapes
+    areas[1] = areas[0];
+    areas[1].setCenter(areas[0].getCenter() + Point(0, world_size));
+    areas[2] = areas[1];
+    areas[2].setCenter(areas[1].getCenter() + Point(world_size, 0));
+    areas[3] = areas[2];
+    areas[3].setCenter(areas[2].getCenter() + Point(0, -world_size));
+
     ObjectHeap * result = new ObjectHeap();
 
     // Search for objects in cells
@@ -50,10 +89,14 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
             for (ObjectHeap::iterator i = cells[x % row_size][y % row_size].begin();
                  i != cells[x % row_size][y % row_size].end(); i++)
             {
-                // check if an area inters
-                if (area.hitTest((*i) -> getShape()))
+                // check if an object hits any area
+                for (int j = 0; j < 4; j++)
                 {
-                    result -> push(*i);
+                    if (areas[j].hitTest((*i) -> getShape()))
+                    {
+                        result -> push(*i);
+                        break;
+                    }
                 }
             }
         }
@@ -93,7 +136,8 @@ void Indexator::reindexate(Object * object)
 {
     uint j,k;
 
-    uint * area = getCellsArea(object -> getShape());
+    Shape object_shape = object -> getShape();
+    uint * area = getCellsArea(object_shape);
 
     // Check if an object exists in our index
     Index::iterator i = index.find(object); 
@@ -160,7 +204,8 @@ void Indexator::reindexate(Object * object)
 // adds object to index
 void Indexator::addObject(Object* object)
 {
-    uint * area = getCellsArea(object -> getShape());
+    Shape object_shape = object -> getShape();
+    uint * area = getCellsArea(object_shape);
 
     // Add the cells coordinates lies in
     index[object] = area;
@@ -209,7 +254,7 @@ inline uint Indexator::max(uint a, uint b)
 
 // Get cells wich given object hits
 
-uint * Indexator::getCellsArea(Shape shape)
+uint * Indexator::getCellsArea(Shape& shape)
 {
     // Get object boundaries
     Point rt = shape.getRightTop();
@@ -221,11 +266,24 @@ uint * Indexator::getCellsArea(Shape shape)
     area[1] = getRow(lb.getY());
     area[2] = getRow(rt.getX());
     area[3] = getRow(rt.getY());
-    if (lb.getX() < 0 && rt.getX() >= 0)
+
+    // Move the shape to the corresponding cells
+    if (lb.getX() < 0)
+    {
+        area[2] += row_size;
+        shape.setCenter(shape.getCenter() + Point(row_size, 0));
+    } 
+    else if (rt.getX() >= world_size) 
     {
         area[2] += row_size;
     }
-    else if (lb.getY() < 0 && rt.getY() >= 0)
+
+    if (lb.getY() < 0)
+    {
+        area[3] += row_size;
+        shape.setCenter(shape.getCenter() + Point(0, row_size));
+    }
+    else if (rt.getY() >= world_size) 
     {
         area[3] += row_size;
     }
