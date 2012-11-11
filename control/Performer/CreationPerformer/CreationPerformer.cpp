@@ -15,7 +15,8 @@
 
 CreationPerformer::CreationPerformer(Indexator &indexator):
     indexator(indexator),
-    world(world)
+    world(world),
+    factory(world.getObjectFactory())
 {
 
 }
@@ -42,7 +43,6 @@ void CreationPerformer::perform(Action& action)
         uint x = action.getParam<uint>("x");
         uint y = action.getParam<uint>("y");
 
-        ObjectFactory factory;
         ParamArray param;
         param.addKey<uint>("x", x);
         param.addKey<uint>("y", y);
@@ -57,7 +57,7 @@ void CreationPerformer::perform(Action& action)
 
                     param.addKey<CreatureType>("creat_type", creat_type);
 
-                    new_object = factory.createObject(CREATURE, param);
+                    new_object = factory->createObject(CREATURE, param);
                     world.addObject(true, new_object);
 
                     action.markAsSucceeded();
@@ -72,7 +72,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<ResourceType>("res_type", res_type);
                     param.addKey<uint>("res_amount", res_amount);
 
-                    new_object = factory.createObject(CREATURE, param);
+                    new_object = factory->createObject(CREATURE, param);
                     world.addObject(false, new_object);
 
                     action.markAsSucceeded();
@@ -89,7 +89,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<ResourceType>("mat_type", mat_type);
                     param.addKey<uint>("tool_str",tool_str);
 
-                    new_object = factory.createObject(TOOL, param);
+                    new_object = factory->createObject(TOOL, param);
                     world.addObject(false, new_object);
 
                     action.markAsSucceeded();
@@ -104,7 +104,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<uint>("max_health",max_health);
                     param.addKey<uint>("max_space",max_space);
 
-                    new_object = factory.createObject(BUILDING, param);
+                    new_object = factory->createObject(BUILDING, param);
                     world.addObject(true, new_object);
 
                     action.markAsSucceeded();
