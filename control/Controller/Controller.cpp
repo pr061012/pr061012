@@ -19,7 +19,7 @@ Controller::Controller(World * world) :
     performers.resize(200);
     performers[GO] = (Performer *) new MovementPerformer(world -> getSize(), 
                                                          world -> getIndexator());
-    performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator());
+    performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator(), world);
     performers[MINE_OBJ] = (Performer *) new MiningPerformer(*world -> getIndexator());
     performers[HARM_OBJS] = (Performer *) new HarmPerformer(*world -> getIndexator());
     performers[REPAIR_OBJ] = (Performer *) new RepairingPerformer();
