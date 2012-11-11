@@ -10,8 +10,8 @@ int main()
 {
     try
     {
-        World world(rand(), SZ_WORLD_HSIDE, SZ_WORLD_VSIDE);
-        Controller control(world);
+        World world(rand(), SZ_WORLD_HSIDE);
+        Controller control(&world);
         View view(&world);
     }
     catch(std::bad_alloc & exc)
