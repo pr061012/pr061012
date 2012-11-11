@@ -10,7 +10,9 @@
 #include "../Performer/MiningPerformer/MiningPerformer.h"
 #include "../Performer/DroppingPerformer/DroppingPerformer.h"
 #include "../Performer/PickupMaster/PickupMaster.h"
+#include "../../model/World/Action/Action.h"
 #include "Controller.h"
+#include "../../model/World/Object/Object.h"
 
 Controller::Controller(World * world) :
     world(world)
@@ -36,7 +38,7 @@ void Controller::step()
     for (int i = 0; i < 2; i++) 
     {
         // first look for visible objects, then for hidden
-        ObjectHeap * objects= world -> getVisibleObjects();
+        ObjectHeap * objects;
         if (!i)
         {
             objects = world -> getVisibleObjects();
@@ -59,11 +61,15 @@ void Controller::step()
             // perform object's actions
             std::vector<Action> * actions = (*i) -> getActions();
 
-            for (std::vector<Action>::iterator j = actions -> begin(); 
-                    j != actions -> end(); j++)
+            for (uint j = 0; j < actions -> size(); j++)
             {
-                performers[(*j).getType()] -> perform(*j);
+                performers[(actions->at(j)).getType()] -> perform();
             }
+//            for (std::vector<Action>::iterator j = actions -> begin();
+//                    j != actions -> end(); j++)
+//            {
+//                performers[(*j).getType()] -> perform(*j);
+//            }
         }
     }
 }

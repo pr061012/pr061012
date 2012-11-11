@@ -26,7 +26,7 @@ int main()
             {
                 t0 += PERIOD;
             }
-
+            control.step();
             view.redraw();
 
         } while(view.isExit());
