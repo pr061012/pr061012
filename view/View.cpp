@@ -47,7 +47,7 @@ void View::setY(double new_var)
 
 void View::redraw()
 {
-
+    key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0.0f, 0.0f, -16.0f);

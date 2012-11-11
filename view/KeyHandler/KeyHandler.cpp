@@ -15,7 +15,7 @@ KeyHandler::~KeyHandler()
 
 }
 
-int KeyHandler::handleKeys()
+void KeyHandler::handleKeys()
 {
     if(glfwGetKey(GLFW_KEY_RIGHT))
     {

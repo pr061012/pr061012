@@ -128,9 +128,6 @@ void ViewWorld::renderBackground()
 
     glEnable(GL_TEXTURE_2D);
 
-    double x_offset = x - (int)x;
-    double y_offset = y - (int)y;
-
     glBegin(GL_POLYGON);
         glTexCoord2f(0.0  + x, 0.0  + y); glVertex2f(-8.0f, -8.0f);
         glTexCoord2f(16.0 + x, 0.0  + y); glVertex2f( 8.0f, -8.0f);

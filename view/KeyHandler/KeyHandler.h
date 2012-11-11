@@ -35,7 +35,7 @@ public:
      * @brief Returns some enum indicating what action should be
      *        performed by View.
      */
-    int handleKeys();
+    void handleKeys();
 
 };
 
