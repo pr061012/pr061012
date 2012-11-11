@@ -111,7 +111,7 @@ void ViewWorld::renderObject(Object* object)
     float x1;
     float y1;
 
-    if(object->getType() == CREATURE)
+    if(object->getType() == RESOURCE)
     {
         x0 = 126.0/640;
         y0 = 1.0 - 110.0/480;
@@ -120,7 +120,7 @@ void ViewWorld::renderObject(Object* object)
 
         glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
     }
-    if(object->getType() == RESOURCE)
+    if(object->getType() == CREATURE)
     {
         x0 = 0.0;
         y0 = 0.0;
