@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
 
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
@@ -118,6 +119,16 @@ public:
     {
         return data[0].end();
     }
+
+    iterator find(Object* obj)
+    {
+        ObjectType type = obj -> getType();
+        iterator begin = this -> begin(type);
+        iterator end = this -> end(type);
+
+        return std::find(begin, end, obj);
+    }
+
 
 };
 
