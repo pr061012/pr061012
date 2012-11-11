@@ -83,6 +83,11 @@ public:
      */
     void markAsSucceeded();
 
+    /**
+     * @brief Marks action as succeeded with errors.
+     */
+    void markAsSucceededWithErrors();
+
     //**************************************************************************
     // ACCESSING PARAMS/PARTICIPANTS.
     //**************************************************************************
