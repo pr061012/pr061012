@@ -13,12 +13,11 @@
 #include "../../../model/World/ObjectFactory/ObjectFactory.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 
-CreationPerformer::CreationPerformer(Indexator &indexator):
+CreationPerformer::CreationPerformer(Indexator &indexator, World* world):
     indexator(indexator),
-    world(world),
-    factory(world.getObjectFactory())
+    world(world)
 {
-
+    factory = world->getObjectFactory();
 }
 
 CreationPerformer::~CreationPerformer()
@@ -58,7 +57,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<CreatureType>("creat_type", creat_type);
 
                     new_object = factory->createObject(CREATURE, param);
-                    world.addObject(true, new_object);
+                    world->addObject(true, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -73,7 +72,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<uint>("res_amount", res_amount);
 
                     new_object = factory->createObject(CREATURE, param);
-                    world.addObject(false, new_object);
+                    world->addObject(false, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -90,7 +89,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<uint>("tool_str",tool_str);
 
                     new_object = factory->createObject(TOOL, param);
-                    world.addObject(false, new_object);
+                    world->addObject(false, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -105,7 +104,7 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<uint>("max_space",max_space);
 
                     new_object = factory->createObject(BUILDING, param);
-                    world.addObject(true, new_object);
+                    world->addObject(true, new_object);
 
                     action.markAsSucceeded();
                 }

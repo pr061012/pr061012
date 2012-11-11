@@ -26,7 +26,7 @@ public:
      * @brief Constructor
      * @param indexator indexator
      */
-    CreationPerformer(Indexator& indexator);
+    CreationPerformer(Indexator& indexator, World* world);
 
     /**
      * @brief Destructor
@@ -53,7 +53,7 @@ private:
     Indexator& indexator;
 
     /// The reference to world
-    World& world;
+    World* world;
 
     ObjectFactory* factory;
     //**************************************************************************
