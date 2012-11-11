@@ -10,6 +10,7 @@
 #include <map>
 
 #include "../ParamArray/ParamArray.h"
+#include "../DecisionMaker/DecisionMaker.h"
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
@@ -54,7 +55,8 @@ public:
     /**
      * @brief Constructor.
      */
-    ObjectFactory();
+    ObjectFactory(const DecisionMaker& hum_dmaker,
+                  const DecisionMaker& nhum_dmaker);
 
     /**
      * @brief Destructor.
@@ -113,6 +115,15 @@ private:
      */
     Object * createWeather(const ParamArray & params);
 
+    //**************************************************************************
+    // DECISION MAKERS.
+    //**************************************************************************
+
+    /// Humanoid decision maker.
+    const DecisionMaker& hum_dmaker;
+
+    /// NonHumanoid decision maker.
+    const DecisionMaker& nhum_dmaker;
 };
 
 #endif // OBJECT_FACTORY_H
