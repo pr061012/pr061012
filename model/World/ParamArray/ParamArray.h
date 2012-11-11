@@ -66,7 +66,7 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
-        Type * copy = static_cast<Type *>( malloc(sizeof(Type)) );
+        Type* copy = static_cast<Type*>( malloc(sizeof(Type)) );
         *copy = value;
 
         this -> map[key] = copy;
@@ -90,7 +90,7 @@ public:
             throw EParamArrayBadKey();
         }
 
-        return *(static_cast<Type *>(iter -> second));
+        return *(static_cast<Type*>(iter -> second));
     }
 
     /**
@@ -101,7 +101,7 @@ public:
      */
     bool removeKey(std::string key)
     {
-        std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
+        std::map <std::string, void*> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
@@ -119,7 +119,7 @@ public:
 
 private:
     /// Map with keys.
-    std::map <std::string, void *> map;
+    std::map <std::string, void*> map;
 };
 
 #endif // PARAM_ARRAY_H
