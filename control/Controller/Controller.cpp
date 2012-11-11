@@ -4,7 +4,7 @@
 */
 
 #include "Controller.h"
-#include "../Performer/MovementPerformer.h"
+#include "../Performer/MovementPerformer/MovementPerformer.h"
 
 Controller::Controller()
 {
