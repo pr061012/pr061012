@@ -45,12 +45,12 @@ Creature::~Creature()
 // ACCESSORS.
 //******************************************************************************
 
-void Creature::setWindow(const ObjectHeap * window)
+void Creature::setWindow(ObjectHeap * window)
 {
     this -> window = window;
 }
 
-const ObjectHeap * Creature::getWindow()
+ObjectHeap * Creature::getWindow()
 {
     return this -> window;
 }
@@ -104,6 +104,11 @@ void Creature::setMaxHealth(uint max_health)
 uint Creature::getMaxHealth()
 {
     return this -> max_health;
+}
+
+ObjectHeap * Creature::getInventory()
+{
+    return this -> inventory;
 }
 
 //******************************************************************************
