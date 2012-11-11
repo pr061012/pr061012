@@ -8,7 +8,7 @@
 
 #include <GL/glfw.h>
 #include <GL/gl.h>
-#include "SOIL.h"
+#include <SOIL/SOIL.h>
 #include "../model/BasicTypes.h"
 #include "../model/BasicDefines.h"
 #include "../model/World/IWorld.h"

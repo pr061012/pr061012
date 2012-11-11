@@ -12,7 +12,7 @@
 #include "../../model/World/Object/Object.h"
 #include <GL/glfw.h>
 #include <GL/gl.h>
-#include "SOIL.h"
+#include <SOIL/SOIL.h>
 
 class ViewWorld
 {
