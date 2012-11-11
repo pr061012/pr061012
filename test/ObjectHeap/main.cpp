@@ -36,7 +36,7 @@ public:
         count++;
     }
 
-    ~AnyObject();
+    ~AnyObject(){};
 
     void print()
     {
@@ -45,7 +45,7 @@ public:
 
     virtual std::vector <Action>* getActions()
     {
-        std::vector<Action> *ret;
+        std::vector<Action> *ret = 0;
         return ret;
     }
 
