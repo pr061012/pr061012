@@ -1,12 +1,18 @@
 #include <iostream>
 
+#include "model/BasicDefines.h"
+
 #include "model/World/World.h"
+#include "control/Controller/Controller.h"
+#include "view/View.h"
 
 int main()
 {
     try
     {
-        World world(100, 50, 50);
+        World world(rand(), SZ_WORLD_HSIDE, SZ_WORLD_VSIDE);
+        Controller control(world);
+        View view(&world);
     }
     catch(std::bad_alloc & exc)
     {
