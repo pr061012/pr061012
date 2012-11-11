@@ -71,7 +71,7 @@ public:
     // OBJECT HEAP METHODS.
     //**************************************************************************
 
-    void setObjectVisibility(Object *obj, bool visibility);
+    void setObjectVisibility(Object* obj, bool visibility);
 
     //**************************************************************************
     // ACCESSORS.
@@ -154,11 +154,9 @@ public:
     WeatherType getWeatherAtPoint(double x, double y);
 
 private:
-
     /// Size of World's region
     const int size;
 
-    // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
     /// Heap containing all visible World's objects
     ObjectHeap* visible_objs;
 
@@ -170,7 +168,6 @@ private:
 
     /// Our world's ObjectFactory
     ObjectFactory* object_factory;
-
 };
 
 #endif // WORLD_H

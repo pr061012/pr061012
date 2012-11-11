@@ -34,7 +34,8 @@ World::World(int rand_seed, int size) :
     std::cout << "Creating world with rand_seed="
               << rand_seed << std::endl;
 
-    object_factory = new ObjectFactory();
+    object_factory = new ObjectFactory(DecisionMaker(HUMANOID),
+                                       DecisionMaker(NON_HUMANOID));
     visible_objs = new ObjectHeap();
 
     indexator = new Indexator((double)this->size);
