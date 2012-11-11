@@ -128,14 +128,14 @@ public:
 
             iterator begin = this -> begin(type);
             iterator end = this -> end(type);
+            return std::find(begin, end, obj);
         }
         else
         {
             iterator begin = this -> begin();
-            iterator end = this -> end(type);
+            iterator end = this -> end();
+            return std::find(begin, end, obj);
         }
-
-        return std::find(begin, end, obj);
     }
 };
 
