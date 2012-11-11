@@ -57,6 +57,11 @@ void Action::markAsSucceeded()
     this -> state = SUCCEEDED;
 }
 
+void Action::markAsSuccededWithErrors()
+{
+    this -> state = SUCCEEDED_WITH_ERRORS;
+}
+
 //******************************************************************************
 // ACCESSING PARAMS/PARTICIPANTS.
 //******************************************************************************

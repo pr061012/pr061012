@@ -13,9 +13,6 @@
 Controller::Controller(World * world) :
     world(world)
 {
-    // TODO
-    // Need either indexator pointer or a world's method 'getObjectsInArea'
-    // for MovementPerfomer. And also size.
     performers[GO] = (Performer *) new MovementPerformer(world -> getSize(), 
                                                          world -> getIndexator());
     performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator());
