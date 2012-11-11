@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
-
+#include <random>
+#include <stdlib.h>
 #include "model/BasicDefines.h"
 
 #include "model/World/World.h"
@@ -14,6 +15,8 @@ int main()
 {
     try
     {
+        srand(time(NULL));
+
         World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
         View view(&world);
@@ -26,7 +29,7 @@ int main()
             {
                 t0 += PERIOD;
             }
-
+            control.step();
             view.redraw();
 
         } while(view.isExit());

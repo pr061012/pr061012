@@ -18,6 +18,7 @@ World::~World()
     delete object_factory;
     delete indexator;
     delete visible_objs;
+    delete hidden_objs;
 }
 
 World::World(std::string filepath) :
@@ -38,7 +39,10 @@ World::World(int rand_seed, int size) :
                                        DecisionMaker(NON_HUMANOID));
     visible_objs = new ObjectHeap();
 
+
     indexator = new Indexator((double)this->size);
+
+    hidden_objs = new ObjectHeap();
 
     ParamArray params;
 
@@ -53,10 +57,7 @@ World::World(int rand_seed, int size) :
         newobj -> setCoords(Point(randFromRange(20.0, 70.0),
                                   randFromRange(20.0, 70.0)));
 
-        newobj -> setShapeType(CIRCLE);
-        newobj -> setShapeSize(10.0);
         visible_objs -> push(newobj);
-
         indexator -> reindexate(newobj);
 
 //        std::cout << "Created resource at x = "
@@ -64,6 +65,23 @@ World::World(int rand_seed, int size) :
 //                  << newobj->getCoords().getY()
 //                  << " with collision model as circle rad = 50"
 //                  << std::endl;
+    }
+
+    // Creating cows!
+    ParamArray nhum_params;
+    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+
+    uint amount = 10 + rand() % 10;
+    for (uint i = 0; i < amount; i++)
+    {
+        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
+
+        // TODO: Do something with these magic consts.
+        new_obj -> setCoords(Point(randFromRange(20.0, 70.0),
+                                   randFromRange(20.0, 70.0)));
+
+        visible_objs -> push(new_obj);
+        indexator -> reindexate(new_obj);
     }
 }
 
