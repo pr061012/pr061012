@@ -92,10 +92,10 @@ void ViewWorld::renderObject(Object* object)
     double px = p.getX() - x;
     double py = p.getY() - y;
 
-    px /= VIEW_CAM_RADIUS;
-    py /= VIEW_CAM_RADIUS;
-    px *= 8;
-    py *= 8;
+    px /= VIEW_CAM_SCALE;
+    py /= VIEW_CAM_SCALE;
+    //px *= 8;
+    //py *= 8;
 
     // TODO: Redo image coordinates to be taken from (file?)
     float x0 = 126.0/640;

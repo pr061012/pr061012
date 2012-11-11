@@ -21,6 +21,8 @@
 
 /// Radius of game camera field of view
 #define VIEW_CAM_RADIUS                  30
+/// Correlation between world change in x/y and those on screen.
+#define VIEW_CAM_SCALE                   30
 
 //******************************************************************************
 // TIME DEFINES.
