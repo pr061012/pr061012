@@ -5,10 +5,11 @@
 
 #ifndef DECISION_MAKER_H
 #define DECISION_MAKER_H
+
 #define ATR_CONST 9
 #define ACT_CONST 9
 #define PATH_TO_HUM_MATRIX "../../../res/humanoid_decision_matrix.txt"
-#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_decision_matri.txt"
+#define PATH_TO_NON_HUM_MATRIX "/../../../res/non_humanoid_decision_matrix.txt"
 
 #include <armadillo>
 #include <fstream>
@@ -60,7 +61,6 @@ public:
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
     /// no-hidden-layer NN matrix.
-    // TODO: Move here and in constructo Matrix by own or armadillo type.
     arma:: mat theta;
 
 };
