@@ -5,9 +5,6 @@
 
 #include "DecisionMaker.h"
 #include "../../BasicDefines.h"
-  	
-using namespace std;
-using namespace arma;
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -15,7 +12,7 @@ using namespace arma;
 
 DecisionMaker::DecisionMaker(CreatureType type)
 {
-    ifstream some_matrix;
+    std::ifstream some_matrix;
     int a;
     int i, j;
     theta = arma::mat(ACT_CONST, ATR_CONST);
@@ -25,7 +22,8 @@ DecisionMaker::DecisionMaker(CreatureType type)
         some_matrix.open (PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
         {
-            cerr << "[ERROR] DecisionMaker: cannot open file 'humanoid_decision_matrix.txt'" << endl;
+            std::cerr << "[ERROR] DecisionMaker: cannot open file " <<
+                         "'humanoid_decision_matrix.txt'" << std::endl;
         }
 
         for (i = 0; i < ATR_CONST; i++)
@@ -41,7 +39,8 @@ DecisionMaker::DecisionMaker(CreatureType type)
         some_matrix.open (PATH_TO_NON_HUM_MATRIX);
         if (some_matrix == NULL)
         {
-            cerr << "[ERROR] DecisionMaker: cannot open file 'non_humanoid_decision_matrix.txt'" << endl;
+            std::cerr << "[ERROR] DecisionMaker: cannot open file " <<
+                         "'non_humanoid_decision_matrix.txt'" << std::endl;
         }
 
         for (i = 0; i < ATR_CONST; i++)
@@ -66,7 +65,7 @@ DecisionMaker::~DecisionMaker()
 
 bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_decision) const
 {
-    mat act = this -> theta * attrs;
+    arma::mat act = this -> theta * attrs;
     uint index;
 
     switch(current_decision)
@@ -94,13 +93,13 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
     return true;
 }
 
-CreatureAction DecisionMaker::makeDecision(mat attrs) const
+CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 {
-    vector <int> vect_of_actions;
+    std::vector <int> vect_of_actions;
     int max = -1000;
     CreatureAction decision = NONE;
     int numb_of_decision;
-    mat act = this -> theta * attrs;
+    arma::mat act = this -> theta * attrs;
     act(7,0) += 550;
 
     for(int i = 0; i < ACT_CONST; i++)
@@ -110,7 +109,7 @@ CreatureAction DecisionMaker::makeDecision(mat attrs) const
             vect_of_actions.push_back(i);
         }
 
-        if(act(i,0) > max)
+        if (act(i,0) > max)
         {
             max = act(i,0);
             vect_of_actions.clear();
@@ -118,6 +117,7 @@ CreatureAction DecisionMaker::makeDecision(mat attrs) const
         }
 
     }
+
     numb_of_decision = vect_of_actions[rand() % vect_of_actions.size()];
     switch(numb_of_decision)
     {
