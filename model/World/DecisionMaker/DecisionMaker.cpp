@@ -87,13 +87,14 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
     {
         if(act(i,0) - act(index,i) > CREAT_CRIT_CONST)
         {
-            return true;
+            return false;
         }
     }
-    return false;
+
+    return true;
 }
 
-CreatureAction DecisionMaker::makeDecision (mat attrs) const
+CreatureAction DecisionMaker::makeDecision(mat attrs) const
 {
     vector <int> vect_of_actions;
     int max = -1000;

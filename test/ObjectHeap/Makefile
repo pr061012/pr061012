@@ -13,7 +13,6 @@ SOURCES	  += $(MODEL_DIR)World/ObjectHeap/ObjectHeap.cpp
 SOURCES	  += $(MODEL_DIR)Utilities/Shape/Shape.cpp
 SOURCES	  += $(MODEL_DIR)World/Action/Action.cpp
 SOURCES	  += $(MODEL_DIR)Utilities/Point/Point.cpp
-SOURCES	  += $(MODEL_DIR)World/ParamArray/ParamArray.cpp
 SOURCES   += main.cpp
 
 # Object files.

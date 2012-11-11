@@ -34,7 +34,8 @@ World::World(int rand_seed, int size) :
     std::cout << "Creating world with rand_seed="
               << rand_seed << std::endl;
 
-    object_factory = new ObjectFactory();
+    object_factory = new ObjectFactory(DecisionMaker(HUMANOID),
+                                       DecisionMaker(NON_HUMANOID));
     visible_objs = new ObjectHeap();
 
     indexator = new Indexator((double)this->size);
@@ -46,17 +47,17 @@ World::World(int rand_seed, int size) :
 
     for(int i = 30 + rand()%50; i>=0; --i)
     {
-        Object* newobj  = object_factory->createObject(RESOURCE, params);
+        Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
         // TODO: Do something with these magic consts.
         newobj -> setCoords(Point(randFromRange(20.0, 70.0),
                                   randFromRange(20.0, 70.0)));
 
-        newobj->setShapeType(CIRCLE);
-        newobj->setShapeSize(10.0);
-        visible_objs->push(newobj);
+        newobj -> setShapeType(CIRCLE);
+        newobj -> setShapeSize(10.0);
+        visible_objs -> push(newobj);
 
-        indexator->reindexate(newobj);
+        indexator -> reindexate(newobj);
 
 //        std::cout << "Created resource at x = "
 //                  << newobj->getCoords().getX() << ", y = "
@@ -80,7 +81,6 @@ void World::save(std::string filepath)
     // TODO: Create file at filepath and save it (format?)
 }
 
-
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
@@ -102,24 +102,29 @@ void World::addObject(bool visibility, Object *obj)
     }
 }
 
+ObjectFactory* World::getObjectFactory()
+{
+    return this -> object_factory;
+}
+
 double World::getSize()
 {
-    return this->size;
+    return this -> size;
 }
 
 Indexator* World::getIndexator()
 {
-    return this->indexator;
+    return this -> indexator;
 }
 
-ObjectHeap *World::getVisibleObjects()
+ObjectHeap* World::getVisibleObjects()
 {
-    return this->visible_objs;
+    return this -> visible_objs;
 }
 
-ObjectHeap *World::getHiddenObjects()
+ObjectHeap* World::getHiddenObjects()
 {
-    return this->hidden_objs;
+    return this -> hidden_objs;
 }
 
 //ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
@@ -143,7 +148,7 @@ Object** World::getViewObjectsInRange(double x, double y, double radius)
     ObjectHeap* objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects->begin();
 
-    int size = objects->getAmount();
+    int size = objects -> getAmount();
 
     retval = new Object*[size + 1];
 

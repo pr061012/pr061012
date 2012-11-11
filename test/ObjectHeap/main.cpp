@@ -7,6 +7,8 @@
 #include <iostream>
 
 #include "../../model/World/ObjectHeap/ObjectHeap.h"
+#include "../../model/World/Object/Object.h"
+#include "../../model/Utilities/Shape/Shape.h"
 
 class AnyObject : public Object
 {
@@ -27,6 +29,7 @@ public:
         }
         count++;
     }
+
     AnyObject():Object(BUILDING)
     {
         id = -count;
@@ -34,22 +37,27 @@ public:
     }
 
     ~AnyObject();
+
     void print()
     {
         std::cout << id << std::endl;
     }
 
-    std::vector <Action>* getActions()
+    virtual std::vector <Action>* getActions()
     {
         std::vector<Action> *ret;
         return ret;
     }
 
-    void receiveMessage(Action * action)
+    virtual void damage(uint delta)
     {
 
     }
 
+    virtual void heal(uint delta)
+    {
+
+    }
 };
 
 int AnyObject::count=0;
@@ -69,19 +77,25 @@ int main()
         AnyObject* var = new AnyObject(RESOURCE);
         heap -> push(var);
     }
+
+    AnyObject* any = new AnyObject();
+
     for (int i = 0; i<5; i++)
     {
         AnyObject* var = new AnyObject(BUILDING);
         heap -> push(var);
     }
+
     for (iter = heap -> begin(RESOURCE); iter != heap -> end(RESOURCE); iter++)
     {
         (dynamic_cast<AnyObject*>(*iter))->print();
     }
-    for (iter = heap ->begin(); iter != heap ->end(); iter++)
+
+    for (iter = heap -> begin(); iter != heap -> end(); iter++)
     {
         (dynamic_cast<AnyObject*>(*iter))->print();
     }
 
+    (dynamic_cast<AnyObject*>(*(heap -> find(any)))) -> print();
 
 }

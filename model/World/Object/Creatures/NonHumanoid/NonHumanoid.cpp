@@ -81,7 +81,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     this -> actions.clear();
 
-    if (brains.isDecisionActual(attrs, current_decision))
+    if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
         angle = -1;

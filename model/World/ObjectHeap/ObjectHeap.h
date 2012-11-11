@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
 
 #include "../Object/Object.h"
 #include "../../BasicTypes.h"
@@ -119,6 +120,23 @@ public:
         return data[0].end();
     }
 
+    iterator find(Object* obj, bool return_obj_type_iter = true)
+    {
+        if ( return_obj_type_iter )
+        {
+            ObjectType type = obj -> getType();
+
+            iterator begin = this -> begin(type);
+            iterator end = this -> end(type);
+            return std::find(begin, end, obj);
+        }
+        else
+        {
+            iterator begin = this -> begin();
+            iterator end = this -> end();
+            return std::find(begin, end, obj);
+        }
+    }
 };
 
 #endif // OBJECTHEAP_H
