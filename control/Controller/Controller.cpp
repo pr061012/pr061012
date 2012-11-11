@@ -3,12 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#include "Controller.h"
 #include "../Performer/MovementPerformer/MovementPerformer.h"
 #include "../Performer/CreationPerformer/CreationPerformer.h"
 #include "../Performer/HarmPerformer/HarmPerformer.h"
 #include "../Performer/RepairingPerformer/RepairingPerformer.h"
 #include "../Performer/MiningPerformer/MiningPerformer.h"
+#include "../Performer/DroppingPerformer/DroppingPerformer.h"
+#include "../Performer/PickupMaster/PickupMaster.h"
+#include "Controller.h"
 
 Controller::Controller(World * world) :
     world(world)
@@ -19,6 +21,8 @@ Controller::Controller(World * world) :
     performers[MINE_OBJ] = (Performer *) new MiningPerformer(*world -> getIndexator());
     performers[HARM_OBJS] = (Performer *) new HarmPerformer(*world -> getIndexator());
     performers[REPAIR_OBJ] = (Performer *) new RepairingPerformer();
+    performers[DROP_OBJS] = (Performer *) new DroppingPerformer(world);
+    performers[PICK_UP_OBJS] = (Performer *) new PickupMaster(world);
 }
 
 Controller::~Controller()
