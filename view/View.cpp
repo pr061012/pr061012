@@ -62,7 +62,7 @@ void View::initWindow()
 {
     glfwInit();
 
-    if(!glfwOpenWindow(SCREEN_WIDTH, SCREEN_HEIGHT,
+    if(!glfwOpenWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
                          0, 0, 0, 0, 0, 0, GLFW_WINDOW))
     {
         glfwTerminate();
@@ -72,7 +72,7 @@ void View::initWindow()
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)SCREEN_HEIGHT) / SCREEN_WIDTH;
+    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH;
 
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);

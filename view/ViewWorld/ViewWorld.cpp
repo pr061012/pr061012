@@ -53,7 +53,7 @@ void ViewWorld::redraw()
 {
     renderBackground();
 
-    Object** objects = world->getViewObjectsInRange(x, y, CAM_RADIUS);
+    Object** objects = world->getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
     if(objects)
     {
@@ -92,8 +92,8 @@ void ViewWorld::renderObject(Object* object)
     double px = p.getX() - x;
     double py = p.getY() - y;
 
-    px /= CAM_RADIUS;
-    py /= CAM_RADIUS;
+    px /= VIEW_CAM_RADIUS;
+    py /= VIEW_CAM_RADIUS;
     px *= 8;
     py *= 8;
 
