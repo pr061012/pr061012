@@ -122,21 +122,33 @@ public:
 
     iterator find(Object* obj, bool return_obj_type_iter = true)
     {
+        iterator begin;
+        iterator end;
+
         if ( return_obj_type_iter )
         {
             ObjectType type = obj -> getType();
 
-            iterator begin = this -> begin(type);
-            iterator end = this -> end(type);
-            return std::find(begin, end, obj);
+            begin = this -> begin(type);
+            end = this -> end(type);
         }
         else
         {
-            iterator begin = this -> begin();
-            iterator end = this -> end();
-            return std::find(begin, end, obj);
+            begin = this -> begin();
+            end = this -> end();
         }
+
+        for (iterator i = begin; i != end; i++)
+        {
+            if (*i == obj)
+            {
+                return i;
+            }
+        }
+
+        return end;
     }
+
 };
 
 #endif // OBJECTHEAP_H

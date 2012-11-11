@@ -32,7 +32,7 @@ void ViewWorld::loadTextures()
 {
     texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
     (
-        "../View/grass.png",
+        "res/grass.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
@@ -40,7 +40,7 @@ void ViewWorld::loadTextures()
 
     texture_buf[1] = SOIL_load_OGL_texture
     (
-        "../../res/tree.png",
+        "res/tree.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA

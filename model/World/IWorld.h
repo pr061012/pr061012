@@ -13,7 +13,7 @@
 class IWorld
 {
 public:
-    virtual ~IWorld() = 0;
+    virtual ~IWorld(){};
 
     //******************************************************************************
     // WORLD <-> CONTROLLER METHODS.

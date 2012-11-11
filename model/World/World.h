@@ -35,7 +35,7 @@ public:
 	/**
      * @brief Destructor
 	 */
-    ~World();
+    virtual ~World();
 
     /**
      * @brief Load saved world from file.
