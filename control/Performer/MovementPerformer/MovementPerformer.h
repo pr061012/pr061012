@@ -26,7 +26,7 @@ public:
      * @param world_size size of the world
      * @param indexator indexator
      */
-    MovementPerformer(const double world_size, Indexator& indexator);
+    MovementPerformer(const double world_size, Indexator* indexator);
 
     /**
      * @brief Destructor
@@ -53,7 +53,7 @@ private:
     const double world_size;
     
     /// The reference to worlds indexator
-    Indexator& indexator;
+    Indexator* indexator;
 };
 
 #endif

@@ -22,7 +22,7 @@ public:
 
     virtual ObjectHeap* getHiddenObjects() = 0;
 
-    virtual const Indexator* getIndexator() = 0;
+    virtual Indexator* getIndexator() = 0;
 
     virtual double getSize() = 0;
 

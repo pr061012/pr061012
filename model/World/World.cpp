@@ -107,7 +107,7 @@ double World::getSize()
     return this->size;
 }
 
-const Indexator* World::getIndexator()
+Indexator* World::getIndexator()
 {
     return this->indexator;
 }

@@ -22,7 +22,7 @@
 // Improve movement algo
 
 MovementPerformer::MovementPerformer(const double world_size, 
-                                     Indexator& indexator) :
+                                     Indexator* indexator) :
     world_size(world_size), indexator(indexator)
 {
 }
@@ -47,7 +47,7 @@ void MovementPerformer::perform(Action& action)
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
     SpeedType speed_type = action.getParam<SpeedType>(std::string("speed"));
-    double speed;
+    double speed = 0;
     switch (speed_type)
     {
         case SLOW_SPEED: 
@@ -61,33 +61,23 @@ void MovementPerformer::perform(Action& action)
     }
     Point dest = actor -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
 
-    // Place dest inside world's bounds
-    while (dest.getX() < 0)
+    // Do not let objects fall of the bounds
+    if (dest.getX() < 0 || dest.getX() >= world_size || 
+        dest.getY() < 0 || dest.getY() >= world_size)
     {
-        dest.setX(dest.getX() + world_size);
-    }
-    while (dest.getX() >= world_size)
-    {
-        dest.setX(dest.getX() - world_size);
-    }
-    while (dest.getY() < 0)
-    {
-        dest.setY(dest.getY() + world_size);
-    }
-    while (dest.getY() >= world_size)
-    {
-        dest.setY(dest.getY() - world_size);
+        action.markAsFailed();
+        return;
     }
 
     // Try to place an object and see if it collides with anything
     Shape ghost = actor -> getShape();
     ghost.setCenter(dest);
-    ObjectHeap * obstacles = indexator.getAreaContents(ghost);
+    ObjectHeap * obstacles = indexator -> getAreaContents(ghost);
     if (!obstacles -> getTypeAmount(CREATURE) && 
         !obstacles -> getTypeAmount(BUILDING))
     {
         actor -> setCoords(dest);
-        indexator.reindexate(actor);
+        indexator -> reindexate(actor);
         action.markAsSucceeded();
     }
     else

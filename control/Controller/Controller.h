@@ -26,7 +26,7 @@ public:
      * @brief Constructor
      * @param world world
      */
-    Controller(World& world);
+    Controller(World* world);
 
     /**
      * @brief Destructor
@@ -49,7 +49,7 @@ private:
     //*************************************************************************
     
     /// World
-    World& world;
+    World * world;
 
     // List of performers
     std::vector <Performer *> performers;

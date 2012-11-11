@@ -124,7 +124,7 @@ public:
      * @brief Get World's indexator
      * @return World's indexator
      */
-    const Indexator* getIndexator();
+    Indexator* getIndexator();
 
     /**
      * @brief Get the value of visible_objs
