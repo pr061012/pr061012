@@ -3,7 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
-#include "DroppingPerformer.h"
+#include "PickupMaster.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include <string>
 #include <cmath>
@@ -19,25 +19,22 @@
 #define CREAT_SPEED_SLOW_VALUE 5
 #endif
 
-// TODO
-// Improve movement algo
-
-DroppingPerformer::DroppingPerformer(World * world) :
+PickupMaster::PickupMaster(World * world) :
     world(world)
 {
 }
 
-DroppingPerformer::~DroppingPerformer()
+PickupMaster::~PickupMaster()
 {
 }
 
-void DroppingPerformer::perform(Action& action)
+void PickupMaster::perform(Action& action)
 {
     // Get needed data
     Object * actor = action.getActor();
     ObjectType actor_type = actor -> getType();
 
-    // check if actor can go
+    // check if actor can pick up
     if (actor_type != CREATURE)
     {
         action.markAsFailed();
@@ -49,34 +46,33 @@ void DroppingPerformer::perform(Action& action)
     std::vector<Object*> participants = action.getParticipants();
     ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
 
-    // initalize flags
-    bool success = false;
+    //*************************************************************************
+    // TODO
+    // check if creature can have enough place to pickup
+    //*************************************************************************
     bool errors = false;
-
-    // go through all objects in participants and check if
-    // they lie in inventory
+    bool success = true;
+    // go through all objects in participants and put them in inventory
     for (ObjectHeap::iterator j = participants.begin(); 
-         j != participants.end(); j++) 
+            j != participants.end(); j++) 
     {
-        ObjectHeap::iterator object = inventory -> find(*j);
-        if (object == inventory -> end())
+        if ((*j) -> getType() != RESOURCE &&
+            (*j) -> getType() != TOOL) 
         {
             errors = true;
         }
-        else 
+        else
         {
+            // make object hidden
+            world -> getHiddenObjects() -> push(*j);
+            world -> getVisibleObjects() -> remove(*j);
+
+            // put it in inventory
+            inventory -> push(*j);
+
+            // remove from index
+            world -> getIndexator() -> removeObject(*j);
             success = true;
-
-            // make object visible
-            world -> getHiddenObjects() -> remove(*j);
-            world -> getVisibleObjects() -> push(*j);
-
-            // place it on the ground
-            inventory -> remove(*j);
-            (*j) -> setCoords(actor -> getCoords());
-
-            // add to index
-            world -> getIndexator() -> addObject(*j);
         }
     }
 

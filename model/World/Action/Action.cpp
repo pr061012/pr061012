@@ -57,7 +57,7 @@ void Action::markAsSucceeded()
     this -> state = SUCCEEDED;
 }
 
-void Action::markAsSuccededWithErrors()
+void Action::markAsSucceededWithErrors()
 {
     this -> state = SUCCEEDED_WITH_ERRORS;
 }

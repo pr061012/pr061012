@@ -86,7 +86,7 @@ public:
     /**
      * @brief Marks action as succeeded with errors.
      */
-    void markAsSuccededWithErrors();
+    void markAsSucceededWithErrors();
 
     //**************************************************************************
     // ACCESSING PARAMS/PARTICIPANTS.
