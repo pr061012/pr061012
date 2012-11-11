@@ -15,7 +15,7 @@ int main()
     try
     {
         World world(rand(), SZ_WORLD_HSIDE);
-        //Controller control(&world);
+        Controller control(&world);
         View view(&world);
 
         int t0 = clock();
