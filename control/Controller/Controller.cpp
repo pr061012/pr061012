@@ -38,7 +38,7 @@ void Controller::step()
     for (int k = 0; k < 2; k++)
     {
         // first look for visible objects, then for hidden
-        ObjectHeap * objects;
+        ObjectHeap* objects;
         if (!k)
         {
             objects = world -> getVisibleObjects();
@@ -62,10 +62,10 @@ void Controller::step()
             Object* object = (*i);
             std::vector<Action> * actions = object -> getActions();
 
-//            for (uint j = 0; j < actions -> size(); j++)
-//            {
-//                performers[(actions->at(j)).getType()] -> perform(actions->at(j));
-//            }
+            for (uint j = 0; j < actions -> size(); j++)
+            {
+                performers[(actions->at(j)).getType()] -> perform(actions->at(j));
+            }
         }
     }
 }

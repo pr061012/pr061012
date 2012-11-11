@@ -18,6 +18,7 @@ World::~World()
     delete object_factory;
     delete indexator;
     delete visible_objs;
+    delete hidden_objs;
 }
 
 World::World(std::string filepath) :
@@ -38,7 +39,10 @@ World::World(int rand_seed, int size) :
                                        DecisionMaker(NON_HUMANOID));
     visible_objs = new ObjectHeap();
 
+
     indexator = new Indexator((double)this->size);
+
+    hidden_objs = new ObjectHeap();
 
     ParamArray params;
 
