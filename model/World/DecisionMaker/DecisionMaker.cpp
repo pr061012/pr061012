@@ -51,6 +51,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
                 this->theta(i,j) = a;
             }
     }
+
     some_matrix.close();
 }
 
@@ -65,9 +66,8 @@ DecisionMaker::~DecisionMaker()
 
 bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_decision) const
 {
-    mat act(ACT_CONST,1);
-    unsigned int index;
-    act = this -> theta * attrs;
+    mat act = this -> theta * attrs;
+    uint index;
 
     switch(current_decision)
     {
@@ -85,7 +85,7 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
 
     for (int i = 0; i < ACT_CONST; i++)
     {
-        if(act(i,0) - act(index,i) > CREAT_CRIT_CONST)
+        if(act(i,0) - act(index,0) > CREAT_CRIT_CONST)
         {
             return false;
         }
@@ -100,8 +100,7 @@ CreatureAction DecisionMaker::makeDecision(mat attrs) const
     int max = -1000;
     CreatureAction decision = NONE;
     int numb_of_decision;
-    mat act(ACT_CONST,1);
-    act = this -> theta * attrs;
+    mat act = this -> theta * attrs;
     act(7,0) += 550;
 
     for(int i = 0; i < ACT_CONST; i++)

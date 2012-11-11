@@ -60,7 +60,7 @@ public:
 
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
-    /// no-hidden-layer NN matrix.
+    ///        no-hidden-layer NN matrix.
     arma:: mat theta;
 
 };
