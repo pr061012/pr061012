@@ -22,27 +22,29 @@
  *        parameter `obj_type`. Value of this param is ObjectType (converted to
  *        int). For each object type a few parameters more are needed.
  *
- *        TODO: We need to add more parameters!
+ *        **Common params**:
+ *          * *x* -- x coordinate (double).
+ *          * *y* -- y coordinate (double).
  *
  *        **Creature**
- *          * *creat_type* -- CreatureType (converted to int).
+ *          * *creat_type* -- CreatureType.
  *
  *        **Building**
- *          * *max_health* -- Building health.
- *          * *max_space* -- Building space.
+ *          * *max_health* -- Building health (uint).
+ *          * *max_space* -- Building space (uint).
  *
  *        **Resource**
- *          * *res_type* -- ResourceType (converted to int).
- *          * *res_amount* -- amount of resource (*).
+ *          * *res_type* -- ResourceType.
+ *          * *res_amount* -- amount of resource (uint) (*).
  *
  *        **Tool**
- *          * *tool_type* -- ToolType (converted to int).
- *          * *mat_type* -- ResourceType (converted to int) of material.
- *          * *tool_str* -- Tool's strength (*).
+ *          * *tool_type* -- ToolType.
+ *          * *mat_type* -- ResourceType of material.
+ *          * *tool_str* -- Tool's strength (uint) (*).
  *
  *        **Weather**
- *          * *weat_type* -- WeatherType (converted to int).
- *          * *weat_steps* -- amount of steps that Weather will live (*).
+ *          * *weat_type* -- WeatherType.
+ *          * *weat_steps* -- amount of steps that Weather will live (uint) (*).
  *
  *        **Note**: * -- leave 0 to pick random value.
  */

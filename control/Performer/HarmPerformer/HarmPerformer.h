@@ -7,6 +7,7 @@
 #define HARM_PERFORMER_H__
 
 #include "../Performer.h"
+#include "../../../model/World/Indexator/Indexator.h"
 
 /**
  * @class HarmPerformer
@@ -23,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    HarmPerformer();
+    HarmPerformer(Indexator& indexator);
 
     /**
      * @brief Destructor
@@ -45,7 +46,7 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-
+    Indexator& indexator;
 };
 
 #endif

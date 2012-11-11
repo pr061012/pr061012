@@ -26,6 +26,12 @@ int main()
     pa.addKey<double>("another_key", 3.14);
     assert(pa.getValue<double>("another_key") == 3.14);
 
+    // Testing key overwriting.
+    pa.addKey<int>("key", 2);
+    assert(pa.getValue<int>("key") == 2);
+    pa.addKey<double>("key", 2.718281828);
+    assert(pa.getValue<double>("key") == 2.718281828);
+
     // Testing key remove.
     assert(pa.removeKey("key") == true);
     assert(pa.removeKey("key") == false);

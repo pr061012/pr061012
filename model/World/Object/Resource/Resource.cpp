@@ -18,6 +18,9 @@ Resource::Resource(ResourceType type, uint res_amount) :
     progress(0),
     steps_to_reg(0)
 {
+    this -> setShapeType(SHP_RESOURCE);
+    this -> setShapeSize(randFromRange(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
+
     // FIXME: Foolish code.
     switch(this -> subtype)
     {

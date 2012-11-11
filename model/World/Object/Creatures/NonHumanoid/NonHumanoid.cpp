@@ -23,8 +23,10 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setMaxAge(age);
-    setAge(0);
+    this -> setMaxAge(age);
+    this -> setAge(0);
+    this -> setShapeSize(SZ_NON_HUMANOID_DIAM);
+    this -> setShapeType(SHP_NON_HUMANOID);
 
     // Initialize of matrix of attr
     attrs(ATTR_HEALTH,0)         = 100 * hunger / max_hunger;

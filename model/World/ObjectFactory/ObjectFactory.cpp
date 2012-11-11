@@ -69,8 +69,10 @@ Object * ObjectFactory::createBuilding(const ParamArray & params)
 {
     uint max_space = params.getValue<uint>("max_space");
     uint max_health = params.getValue<uint>("max_health");
+    double x = params.getValue<double>("x");
+    double y = params.getValue<double>("y");
 
-    return new Building(max_health, max_space);
+    return new Building(x, y, max_health, max_space);
 }
 
 Object * ObjectFactory::createCreature(const ParamArray & params)
@@ -98,8 +100,10 @@ Object * ObjectFactory::createResource(const ParamArray & params)
 {
     ResourceType type = params.getValue<ResourceType>("res_type");
     uint amount = params.getValue<uint>("res_amount");
+    double x = params.getValue<double>("x");
+    double y = params.getValue<double>("y");
 
-    return new Resource(type, amount);
+    return new Resource(type, x, y, amount);
 }
 
 Object * ObjectFactory::createTool(const ParamArray & params)
@@ -115,6 +119,8 @@ Object * ObjectFactory::createWeather(const ParamArray & params)
 {
     WeatherType type = params.getValue<WeatherType>("weat_type");
     uint steps = params.getValue<uint>("weat_steps");
+    double x = params.getValue<double>("x");
+    double y = params.getValue<double>("y");
 
-    return new Weather(type, steps);
+    return new Weather(type, x, y, steps);
 }

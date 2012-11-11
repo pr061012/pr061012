@@ -17,6 +17,9 @@ Weather::Weather(WeatherType type, uint living_steps) :
     subtype(type),
     covered_objs(new ObjectHeap)
 {
+    this -> setShapeType(SHP_WEATHER);
+    this -> setShapeSize(randFromRange(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
+
     if(living_steps == 0)
     {
         this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);

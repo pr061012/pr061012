@@ -66,47 +66,62 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
-        Type * copy = static_cast<Type *>( malloc(sizeof(Type)) );
+        // Copying data.
+        Type* copy = static_cast<Type*>( malloc(sizeof(Type)) );
         *copy = value;
 
+        // Firstly removing this key and value (if it's existed).
+        // Suppressing error messages (don't want to litter to cerr).
+        this -> removeKey(key, true);
+
+        // Adding key.
         this -> map[key] = copy;
     }
 
     /**
      * @brief  Gets key value by key.
-     * @param  key  key
+     * @param  key              key
+     * @param  suppress_err_msg whether suppress error messages to cerr or not
      * @return key value
      */
-    template <class Type> Type getValue(std::string key) const throw(EParamArrayBadKey)
+    template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayBadKey)
     {
         std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
-                         "which doesn't seem to be existed (key is '" << key <<
-                         "')." << std::endl;
+            if (!suppress_err_msgs)
+            {
+                std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
+                             "which doesn't seem to be existed (key is '" <<
+                             key << "')." << std::endl;
+            }
 
             throw EParamArrayBadKey();
         }
 
-        return *(static_cast<Type *>(iter -> second));
+        return *(static_cast<Type*>(iter -> second));
     }
 
     /**
      * @brief  Removes key from param array.
-     * @param  key  to remove
+     * @param  key              key
+     * @param  suppress_err_msg whether suppress error messages to cerr or not
      * @return true, if key was existed and succesfully removed
      * @return false, if key wasn't existed
      */
-    bool removeKey(std::string key)
+    bool removeKey(std::string key, bool suppress_err_msgs = false)
     {
-        std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
+        std::map <std::string, void*> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
-                         "doens't exist (key is '" << key << "')." << std::endl;
+            if (!suppress_err_msgs)
+            {
+                std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
+                             "doens't exist (key is '" << key << "')." <<
+                             std::endl;
+            }
 
             return false;
         }
@@ -119,7 +134,7 @@ public:
 
 private:
     /// Map with keys.
-    std::map <std::string, void *> map;
+    std::map <std::string, void*> map;
 };
 
 #endif // PARAM_ARRAY_H
