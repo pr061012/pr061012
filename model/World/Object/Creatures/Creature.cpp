@@ -12,13 +12,13 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
-    Object(CREATURE),
+Creature::Creature(CreatureType type, const DecisionMaker & dmaker,
+                   double x, double y) :
+    Object(CREATURE, x, y),
     subtype(type),
     inventory(new ObjectHeap),
     objects_around(new ObjectHeap),
     brains(dmaker)
-
 {
     attrs = arma::mat(ATR_CONST, 1);
     // Randomly initialize some values.
