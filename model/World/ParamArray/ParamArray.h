@@ -71,7 +71,8 @@ public:
         *copy = value;
 
         // Firstly removing this key and value (if it's existed).
-        this -> removeKey(key);
+        // Suppressing error messages (don't want to litter to cerr).
+        this -> removeKey(key, true);
 
         // Adding key.
         this -> map[key] = copy;
@@ -79,18 +80,22 @@ public:
 
     /**
      * @brief  Gets key value by key.
-     * @param  key  key
+     * @param  key              key
+     * @param  suppress_err_msg whether suppress error messages to cerr or not
      * @return key value
      */
-    template <class Type> Type getValue(std::string key) const throw(EParamArrayBadKey)
+    template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayBadKey)
     {
         std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
-                         "which doesn't seem to be existed (key is '" << key <<
-                         "')." << std::endl;
+            if (!suppress_err_msgs)
+            {
+                std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
+                             "which doesn't seem to be existed (key is '" <<
+                             key << "')." << std::endl;
+            }
 
             throw EParamArrayBadKey();
         }
@@ -100,18 +105,23 @@ public:
 
     /**
      * @brief  Removes key from param array.
-     * @param  key  to remove
+     * @param  key              key
+     * @param  suppress_err_msg whether suppress error messages to cerr or not
      * @return true, if key was existed and succesfully removed
      * @return false, if key wasn't existed
      */
-    bool removeKey(std::string key)
+    bool removeKey(std::string key, bool suppress_err_msgs = false)
     {
         std::map <std::string, void*> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
-            std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
-                         "doens't exist (key is '" << key << "')." << std::endl;
+            if (!suppress_err_msgs)
+            {
+                std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
+                             "doens't exist (key is '" << key << "')." <<
+                             std::endl;
+            }
 
             return false;
         }
