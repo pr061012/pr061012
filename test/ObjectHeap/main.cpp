@@ -79,7 +79,7 @@ int main()
     }
 
     AnyObject* any = new AnyObject();
-
+    heap -> push(any);
     for (int i = 0; i<5; i++)
     {
         AnyObject* var = new AnyObject(BUILDING);
