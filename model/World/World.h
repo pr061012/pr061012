@@ -9,12 +9,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <vector>
+
 #include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
 #include "../../view/ViewObject/ViewObject.h"
 #include "Indexator/Indexator.h"
-
 
 /**
  * @brief Default value for max x and y.
@@ -25,7 +25,6 @@
   * @class World
   * @brief Class containing methods for primary model interaction
   */
-
 class World : public IWorld
 {
 public:
@@ -56,44 +55,21 @@ public:
      * @param width
      * @param height
      */
-    World(int rand_seed = 0,
-          int size = DEFAULT_SIZE);
+    World(int rand_seed = 0, int size = DEFAULT_SIZE);
 
-private:
-    /// Size of World's region
-    const int size;
-
-    //******************************************************************************
+    //**************************************************************************
     // BASE METHODS.
-    //******************************************************************************
+    //**************************************************************************
 
-public:
 	/**
      * @brief Save world to file.
      * @param filepath
 	 */
     void save(std::string filepath);
 
-private:
-
-    // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
-    /// Heap containing all visible World's objects
-    ObjectHeap* visible_objs;
-
-    /// Heap containing all hidden World's objects
-    ObjectHeap* hidden_objs;
-
-    /// Global world indexator
-    Indexator* indexator;
-
-    /// Our world's ObjectFactory
-    ObjectFactory* object_factory;
-
-public:
-
-    //******************************************************************************
+    //**************************************************************************
     // OBJECT HEAP METHODS.
-    //******************************************************************************
+    //**************************************************************************
 
     void setObjectVisibility(Object *obj, bool visibility);
 
@@ -125,6 +101,12 @@ public:
      * @return World's indexator
      */
     Indexator* getIndexator();
+
+    /**
+     * @brief Get World's object factory
+     * @return World's object factory
+     */
+    ObjectFactory* getObjectFactory();
 
     /**
      * @brief Get the value of visible_objs
@@ -170,6 +152,24 @@ public:
      * @return ViewWeather - enum indicating weather at specified location
      */
     WeatherType getWeatherAtPoint(double x, double y);
+
+private:
+
+    /// Size of World's region
+    const int size;
+
+    // TODO: consider if it's necessary to change ObjectHeap to ObjectHeap*
+    /// Heap containing all visible World's objects
+    ObjectHeap* visible_objs;
+
+    /// Heap containing all hidden World's objects
+    ObjectHeap* hidden_objs;
+
+    /// Global world indexator
+    Indexator* indexator;
+
+    /// Our world's ObjectFactory
+    ObjectFactory* object_factory;
 
 };
 

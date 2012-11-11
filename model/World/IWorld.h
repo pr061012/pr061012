@@ -7,6 +7,7 @@
 #include "ObjectHeap/ObjectHeap.h"
 #include "Indexator/Indexator.h"
 #include "../Utilities/Shape/Shape.h"
+#include "../World/ObjectFactory/ObjectFactory.h"
 //#include "../God/God.h"
 
 class IWorld
@@ -23,6 +24,8 @@ public:
     virtual ObjectHeap* getHiddenObjects() = 0;
 
     virtual Indexator* getIndexator() = 0;
+
+    virtual ObjectFactory* getObjectFactory() = 0;
 
     virtual double getSize() = 0;
 
