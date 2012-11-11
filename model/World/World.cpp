@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+#include "../BasicFuncs.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -53,10 +55,11 @@ World::World(int rand_seed, int width, int height) :
 
     for(int i = 30 + rand()%50; i>=0; --i)
     {
-        params.addKey<double>("x", 20.0 + rand() % 50);
-        params.addKey<double>("y", 20.0 + rand() % 50);
-
         Object* newobj  = object_factory->createObject(RESOURCE, params);
+
+        // TODO: Do something with these magic consts.
+        newobj -> setCoords(Point(randFromRange(20.0, 70.0),
+                                  randFromRange(20.0, 70.0)));
         visible_objs->push(newobj);
 
         indexator->reindexate(newobj);
