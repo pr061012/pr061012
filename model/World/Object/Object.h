@@ -25,8 +25,11 @@ public:
 
     /**
      * @brief Constructor.
+     * @param type  ObjectType
+     * @param x     x coordinate
+     * @param y     y coordinate
      */
-    Object(ObjectType type, double x, double y);
+    Object(ObjectType type, double x = 0, double y = 0);
 
     /**
      * @brief Destructor.
