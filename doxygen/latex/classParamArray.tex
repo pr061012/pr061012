@@ -1,0 +1,154 @@
+\hypertarget{classParamArray}{\section{Param\-Array Class Reference}
+\label{classParamArray}\index{Param\-Array@{Param\-Array}}
+}
+
+
+Assoсiative array (keys are strings, values are ints). Used in Pending\-Action and \hyperlink{classObjectFactory}{Object\-Factory}.  
+
+
+
+
+{\ttfamily \#include $<$Param\-Array.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParamArray_a673c28a4afd5a62afe89ea2a2bab0459}{Param\-Array} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classParamArray_a4d5619b3bdf2a29f2e3c0f98221831ac}{$\sim$\-Param\-Array} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Type $>$ }\\void \hyperlink{classParamArray_a01c7a07c832ce66628c182d7672ede54}{add\-Key} (std\-::string key, Type value)
+\begin{DoxyCompactList}\small\item\em Adds new key with value into param array. Note\-: it will overwrite value if such key already exists! \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Type $>$ }\\Type \hyperlink{classParamArray_aa6a02f5bc77c494b9ebb9a3221d20fb3}{get\-Value} (std\-::string key, bool suppress\-\_\-err\-\_\-msgs=false) const   throw (\-E\-Param\-Array\-Bad\-Key)
+\begin{DoxyCompactList}\small\item\em Gets key value by key. \end{DoxyCompactList}\item 
+bool \hyperlink{classParamArray_a798aa6b9f71dde5cf7f8182695a5d748}{remove\-Key} (std\-::string key, bool suppress\-\_\-err\-\_\-msgs=false)
+\begin{DoxyCompactList}\small\item\em Removes key from param array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Assoсiative array (keys are strings, values are ints). Used in Pending\-Action and \hyperlink{classObjectFactory}{Object\-Factory}. 
+
+{\bfseries N\-O\-T\-E}\-: Be very accurate while working with this class. You {\itshape shouldn't} store in \hyperlink{classParamArray}{Param\-Array} any classes instantiations. Reason of such restriction is pretty simple\-: \hyperlink{classParamArray}{Param\-Array} uses C functions malloc() and free() (instead of new and delete).
+
+F\-I\-X\-M\-E\-: It's working variant, but still ugly because of reinterpret\-\_\-cast$<$$>$(). Need to look through boost\-::any and implement something similar. 
+
+Definition at line 30 of file Param\-Array.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classParamArray_a673c28a4afd5a62afe89ea2a2bab0459}{\index{Param\-Array@{Param\-Array}!Param\-Array@{Param\-Array}}
+\index{Param\-Array@{Param\-Array}!ParamArray@{Param\-Array}}
+\subsubsection[{Param\-Array}]{\setlength{\rightskip}{0pt plus 5cm}Param\-Array\-::\-Param\-Array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classParamArray_a673c28a4afd5a62afe89ea2a2bab0459}
+
+
+Constructor. 
+
+
+
+Definition at line 40 of file Param\-Array.\-h.
+
+\hypertarget{classParamArray_a4d5619b3bdf2a29f2e3c0f98221831ac}{\index{Param\-Array@{Param\-Array}!$\sim$\-Param\-Array@{$\sim$\-Param\-Array}}
+\index{$\sim$\-Param\-Array@{$\sim$\-Param\-Array}!ParamArray@{Param\-Array}}
+\subsubsection[{$\sim$\-Param\-Array}]{\setlength{\rightskip}{0pt plus 5cm}Param\-Array\-::$\sim$\-Param\-Array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classParamArray_a4d5619b3bdf2a29f2e3c0f98221831ac}
+
+
+Destructor. 
+
+
+
+Definition at line 45 of file Param\-Array.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classParamArray_a01c7a07c832ce66628c182d7672ede54}{\index{Param\-Array@{Param\-Array}!add\-Key@{add\-Key}}
+\index{add\-Key@{add\-Key}!ParamArray@{Param\-Array}}
+\subsubsection[{add\-Key}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void Param\-Array\-::add\-Key (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{key, }
+\item[{Type}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classParamArray_a01c7a07c832ce66628c182d7672ede54}
+
+
+Adds new key with value into param array. Note\-: it will overwrite value if such key already exists! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key to add \\
+\hline
+{\em value} & key value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file Param\-Array.\-h.
+
+\hypertarget{classParamArray_aa6a02f5bc77c494b9ebb9a3221d20fb3}{\index{Param\-Array@{Param\-Array}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!ParamArray@{Param\-Array}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type Param\-Array\-::get\-Value (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{key, }
+\item[{bool}]{suppress\-\_\-err\-\_\-msgs = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const  throw ({\bf E\-Param\-Array\-Bad\-Key})\hspace{0.3cm}{\ttfamily [inline]}}}\label{classParamArray_aa6a02f5bc77c494b9ebb9a3221d20fb3}
+
+
+Gets key value by key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key \\
+\hline
+{\em suppress\-\_\-err\-\_\-msg} & whether suppress error messages to cerr or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+key value 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Param\-Array.\-h.
+
+\hypertarget{classParamArray_a798aa6b9f71dde5cf7f8182695a5d748}{\index{Param\-Array@{Param\-Array}!remove\-Key@{remove\-Key}}
+\index{remove\-Key@{remove\-Key}!ParamArray@{Param\-Array}}
+\subsubsection[{remove\-Key}]{\setlength{\rightskip}{0pt plus 5cm}bool Param\-Array\-::remove\-Key (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{key, }
+\item[{bool}]{suppress\-\_\-err\-\_\-msgs = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classParamArray_a798aa6b9f71dde5cf7f8182695a5d748}
+
+
+Removes key from param array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key \\
+\hline
+{\em suppress\-\_\-err\-\_\-msg} & whether suppress error messages to cerr or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if key was existed and succesfully removed 
+
+false, if key wasn't existed 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file Param\-Array.\-h.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+model/\-World/\-Param\-Array/\hyperlink{ParamArray_8h}{Param\-Array.\-h}\end{DoxyCompactItemize}

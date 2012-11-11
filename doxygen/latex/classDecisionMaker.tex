@@ -1,0 +1,121 @@
+\hypertarget{classDecisionMaker}{\section{Decision\-Maker Class Reference}
+\label{classDecisionMaker}\index{Decision\-Maker@{Decision\-Maker}}
+}
+
+
+Makes a prediction about next creature's action.  
+
+
+
+
+{\ttfamily \#include $<$Decision\-Maker.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDecisionMaker_a85c907bce0904c520e748ec9d1047e0c}{Decision\-Maker} (\hyperlink{BasicTypes_8h_a5bc40f1116d89138cda8ebd1a04694df}{Creature\-Type} type)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classDecisionMaker_a0cc27a5a77631e71aece59ee279ef7b3}{$\sim$\-Decision\-Maker} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hyperlink{BasicTypes_8h_a5303344c79577371e13252b373606706}{Creature\-Action} \hyperlink{classDecisionMaker_a2ff03b6b1b4efe9e559dd5078e96054c}{make\-Decision} (arma\-::mat attrs) const 
+\begin{DoxyCompactList}\small\item\em Makes a creature's decision about next action. \end{DoxyCompactList}\item 
+bool \hyperlink{classDecisionMaker_ad2b20e2847961ff6d1193d15178dd14c}{is\-Decision\-Actual} (arma\-::mat attrs, \hyperlink{BasicTypes_8h_a5303344c79577371e13252b373606706}{Creature\-Action} current\-\_\-decision) const 
+\begin{DoxyCompactList}\small\item\em Calculate the difference between current decision and other actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Makes a prediction about next creature's action. 
+
+Definition at line 25 of file Decision\-Maker.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDecisionMaker_a85c907bce0904c520e748ec9d1047e0c}{\index{Decision\-Maker@{Decision\-Maker}!Decision\-Maker@{Decision\-Maker}}
+\index{Decision\-Maker@{Decision\-Maker}!DecisionMaker@{Decision\-Maker}}
+\subsubsection[{Decision\-Maker}]{\setlength{\rightskip}{0pt plus 5cm}Decision\-Maker\-::\-Decision\-Maker (
+\begin{DoxyParamCaption}
+\item[{{\bf Creature\-Type}}]{type}
+\end{DoxyParamCaption}
+)}}\label{classDecisionMaker_a85c907bce0904c520e748ec9d1047e0c}
+
+
+Constructor. 
+
+
+
+Definition at line 16 of file Decision\-Maker.\-cpp.
+
+\hypertarget{classDecisionMaker_a0cc27a5a77631e71aece59ee279ef7b3}{\index{Decision\-Maker@{Decision\-Maker}!$\sim$\-Decision\-Maker@{$\sim$\-Decision\-Maker}}
+\index{$\sim$\-Decision\-Maker@{$\sim$\-Decision\-Maker}!DecisionMaker@{Decision\-Maker}}
+\subsubsection[{$\sim$\-Decision\-Maker}]{\setlength{\rightskip}{0pt plus 5cm}Decision\-Maker\-::$\sim$\-Decision\-Maker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDecisionMaker_a0cc27a5a77631e71aece59ee279ef7b3}
+
+
+Destructor. 
+
+
+
+Definition at line 57 of file Decision\-Maker.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDecisionMaker_ad2b20e2847961ff6d1193d15178dd14c}{\index{Decision\-Maker@{Decision\-Maker}!is\-Decision\-Actual@{is\-Decision\-Actual}}
+\index{is\-Decision\-Actual@{is\-Decision\-Actual}!DecisionMaker@{Decision\-Maker}}
+\subsubsection[{is\-Decision\-Actual}]{\setlength{\rightskip}{0pt plus 5cm}bool Decision\-Maker\-::is\-Decision\-Actual (
+\begin{DoxyParamCaption}
+\item[{arma\-::mat}]{attrs, }
+\item[{{\bf Creature\-Action}}]{current\-\_\-decision}
+\end{DoxyParamCaption}
+) const}}\label{classDecisionMaker_ad2b20e2847961ff6d1193d15178dd14c}
+
+
+Calculate the difference between current decision and other actions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attrs} & vector of creature's attributes \\
+\hline
+{\em current\-\_\-decision} & current decision of creature \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if we need to change our decision 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Decision\-Maker.\-cpp.
+
+\hypertarget{classDecisionMaker_a2ff03b6b1b4efe9e559dd5078e96054c}{\index{Decision\-Maker@{Decision\-Maker}!make\-Decision@{make\-Decision}}
+\index{make\-Decision@{make\-Decision}!DecisionMaker@{Decision\-Maker}}
+\subsubsection[{make\-Decision}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Creature\-Action} Decision\-Maker\-::make\-Decision (
+\begin{DoxyParamCaption}
+\item[{arma\-::mat}]{attrs}
+\end{DoxyParamCaption}
+) const}}\label{classDecisionMaker_a2ff03b6b1b4efe9e559dd5078e96054c}
+
+
+Makes a creature's decision about next action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attrs} & vector of creature's attributes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int next action 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file Decision\-Maker.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+model/\-World/\-Decision\-Maker/\hyperlink{DecisionMaker_8h}{Decision\-Maker.\-h}\item 
+model/\-World/\-Decision\-Maker/\hyperlink{DecisionMaker_8cpp}{Decision\-Maker.\-cpp}\end{DoxyCompactItemize}

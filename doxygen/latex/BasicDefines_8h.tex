@@ -1,0 +1,1152 @@
+\hypertarget{BasicDefines_8h}{\section{model/\-Basic\-Defines.h File Reference}
+\label{BasicDefines_8h}\index{model/\-Basic\-Defines.\-h@{model/\-Basic\-Defines.\-h}}
+}
+{\ttfamily \#include \char`\"{}Basic\-Types.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{BasicDefines_8h_a2cd109632a6dcccaa80b43561b1ab700}{S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H}~800
+\item 
+\#define \hyperlink{BasicDefines_8h_a6974d08a74da681b3957b2fead2608b8}{S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T}~600
+\item 
+\#define \hyperlink{BasicDefines_8h_a6193ca651853e1420264bd89f600ba2c}{C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S}~30
+\begin{DoxyCompactList}\small\item\em Radius of game camera field of view. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}~32
+\begin{DoxyCompactList}\small\item\em Amount of controller ticks (which change the world) in one second. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}~(double) 1
+\begin{DoxyCompactList}\small\item\em \hyperlink{classHumanoid}{Humanoid} size. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_af5c9f9a7682fbacaae02aa7939c94891}{S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}~\hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 0.\-5
+\begin{DoxyCompactList}\small\item\em \hyperlink{classNonHumanoid}{Non\-Humanoid} size. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_afc389381096b3625e20a7a5116ea63a4}{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E}~1000 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWorld}{World} size (vertical side). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a113d8e5b968b4f899b27e7647fff9d46}{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E}~1000 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWorld}{World} size (horizontal size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a97562c181890e600a888e5e8f716b358}{S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T}~\hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em Default size for everything. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a7faad0f033cd75047461cb831eda221f}{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N}~3 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBuilding}{Building} side (minimum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a01c73f3e690cb0ea645f8cb9154e2da3}{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X}~6 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBuilding}{Building} side (maximum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a07348cb586b9d51bade5116a23a93f19}{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}~10 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWeather}{Weather} shape diameter (minimum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ae3a928147d93d1af99600183361fdf91}{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}~20 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWeather}{Weather} shape diameter (maximum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a4bb4a5798963edc76911af93fe3ba291}{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}~5 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classResource}{Resource} shape diameter (minimum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a740e950101bb317f2e762106401922bb}{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}~10 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classResource}{Resource} shape diameter (maximum size). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a18989a0597eced1f9b6b294081ca9731}{S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M}~\hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 0.\-1
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTool}{Tool} size (when dropped to ground). \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ab67a78871c04d1f4ae6a0528713d3f9d}{S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M}~50 $\ast$ \hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classView}{View} area for Non\-Hum. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_af3ce5877f44c73e115ae62b6572e64eb}{S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em Default shape for everything. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a439de12ebf02a921e686c9684dac6a82}{S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classHumanoid}{Humanoid}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ad75ca850ec961865320fce34cb8fdd75}{S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classNonHumanoid}{Non\-Humanoid}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a0cbf71972f094dcce2c650fca8f684c6}{S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59}{S\-Q\-U\-A\-R\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBuilding}{Building}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a7ff0bdaea8e1824dc1fad64600786353}{S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWeather}{Weather}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a4e8e938cacc9500850f3c1a9984c6092}{S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classResource}{Resource}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a6a92565ff4fe5afad39744fcebeffc87}{S\-H\-P\-\_\-\-T\-O\-O\-L}~\hyperlink{BasicTypes_8h_a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911}{C\-I\-R\-C\-L\-E}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTool}{Tool}'s shape. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a2be278ee9714273c5bafee5a567c119f}{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N}~180 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Minimum amount of living steps for weather. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a35c3e4d0c4144939d35ff2d325290f5c}{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X}~300 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Maximum amount of living steps for weather. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a3a8daf0f2ae33fde98c16ca352c45df5}{T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}~100
+\begin{DoxyCompactList}\small\item\em Stone tool strength. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a4163c010f138107c64bb231e31844061}{T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}~200
+\begin{DoxyCompactList}\small\item\em Bronze tool strength. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a0a8c1d8b0b62890248f9b466920d9a1e}{T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}~400
+\begin{DoxyCompactList}\small\item\em Iron tool strength. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_abaeafa25ebe3281253066a4a55a91a3e}{T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}~800
+\begin{DoxyCompactList}\small\item\em Silver tool strength. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_aac7265b3c052ad36d06e5c96b3692ab3}{T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}~1600
+\begin{DoxyCompactList}\small\item\em Gold tool strength. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a7478a031a927af3cab6c2e42ce41a7a0}{R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E}~160
+\item 
+\#define \hyperlink{BasicDefines_8h_af9c4bd179c53e34722d9df2153c1e448}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}~10
+\item 
+\#define \hyperlink{BasicDefines_8h_a37a1d72164b0057b6e99ad13dc77d6b8}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}~20
+\item 
+\#define \hyperlink{BasicDefines_8h_a1a1afbdf66be90927f27340e80c641fc}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}~50
+\item 
+\#define \hyperlink{BasicDefines_8h_a56d35f6feefa0535f680715f77cc76ae}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}~60
+\item 
+\#define \hyperlink{BasicDefines_8h_a0f3371638e0309f9fcb88897550d30d2}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}~50
+\item 
+\#define \hyperlink{BasicDefines_8h_a7dc1cba51689a644b5a53e0a78991a61}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}~60
+\item 
+\#define \hyperlink{BasicDefines_8h_a58f8baf369a6378084e0f5be1403f29a}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}~30
+\item 
+\#define \hyperlink{BasicDefines_8h_a0f888c8c7b30a6d675187e40528d81ce}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}~40
+\item 
+\#define \hyperlink{BasicDefines_8h_a31ec083ce88c5ea72c8bc19011dd572d}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}~10
+\item 
+\#define \hyperlink{BasicDefines_8h_a0fef6d98779e9efc5f7e9c60c717c9eb}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}~20
+\item 
+\#define \hyperlink{BasicDefines_8h_ac0e79a9923d76ed46b7632edf2a9c8ac}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}~2
+\item 
+\#define \hyperlink{BasicDefines_8h_a2adf1e0e0bce1e2335362fc93285a3fc}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}~3
+\item 
+\#define \hyperlink{BasicDefines_8h_a3560cc2347a69ceb8a9dbe545255c304}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}~3
+\item 
+\#define \hyperlink{BasicDefines_8h_a9784224cb7fe9fa102ba251f839f7341}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}~2
+\item 
+\#define \hyperlink{BasicDefines_8h_a55b5a88f8c9aa58af063364af12491c6}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}~1
+\item 
+\#define \hyperlink{BasicDefines_8h_a9b2d856bcfc775bb4b89e662bfcb87e3}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}~16
+\item 
+\#define \hyperlink{BasicDefines_8h_aba17794c2ca91d58e749e575282d0148}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}~32
+\item 
+\#define \hyperlink{BasicDefines_8h_a166adcac8a8e2a3bfe46639dc31ffcb0}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}~48
+\item 
+\#define \hyperlink{BasicDefines_8h_a4bf81a6d3e30df4433698e886b7a841d}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}~64
+\item 
+\#define \hyperlink{BasicDefines_8h_a69674a589d59b8b4c0edf5d90d989130}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}~80
+\item 
+\#define \hyperlink{BasicDefines_8h_a14b424b354ab1e772549840c5d56c19a}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}~1
+\item 
+\#define \hyperlink{BasicDefines_8h_acc93a23b208d1387c5728bb8dc8a2713}{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}~3
+\item 
+\#define \hyperlink{BasicDefines_8h_a651fe5925d65d3eebae04d9c178278ab}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}~10
+\item 
+\#define \hyperlink{BasicDefines_8h_ad7951e58c83bd55c49774028843bcc0f}{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}~15
+\item 
+\#define \hyperlink{BasicDefines_8h_ae375b4f0126b4c9c35fd99c1b8339a11}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}~10
+\item 
+\#define \hyperlink{BasicDefines_8h_a64258aa1becd6bee228478830f6d8930}{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}~15
+\item 
+\#define \hyperlink{BasicDefines_8h_a063897933d3035593eefcfcc94727537}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}~5
+\item 
+\#define \hyperlink{BasicDefines_8h_a009c691032a3e32527f92591f6471bfc}{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}~10
+\item 
+\#define \hyperlink{BasicDefines_8h_ac4b35036432fee9af635eb8d318a957d}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}~3
+\item 
+\#define \hyperlink{BasicDefines_8h_a9355b666c9a8b881538aee9ed31da597}{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}~8
+\item 
+\#define \hyperlink{BasicDefines_8h_a4cea802c9227116f08ea1d5d88fa9136}{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N}~50
+\begin{DoxyCompactList}\small\item\em Minimum possible value of max\-\_\-health. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_af7204ee659b0e8e16921a3cc77080911}{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X}~100
+\begin{DoxyCompactList}\small\item\em Maximum possible value of max\-\_\-health. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a991f20489d51d6d778bc0b224ed6bff8}{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N}~50
+\begin{DoxyCompactList}\small\item\em Minimum possible value of max\-\_\-hunger. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ab08de69be685419f52652972e5da9aef}{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X}~100
+\begin{DoxyCompactList}\small\item\em Maximum possible value of max\-\_\-hunger. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a1ee4d045c113be1ee67969d275103a25}{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}~50
+\begin{DoxyCompactList}\small\item\em Minimum possible value of max\-\_\-sleepiness. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a82d2ccc4b12979ba73ca6462e969de77}{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}~100
+\begin{DoxyCompactList}\small\item\em Maximum possible value of max\-\_\-sleepiness. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a528909f3e46b45ae517f3609036be273}{C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S}~15 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Amount of steps before updates basic attrs for creature. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a7eb218c460ae0d129632ced3a3b6d1ad}{C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S}~1 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Amount of steps before updates safety. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a00bc71bbe32c141390ea61a51920a5e8}{C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S}~150 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Amount of steps before updates need\-\_\-in\-\_\-descendants. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a21985a739dd1686da8b6e7c2b175782d}{C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S}~500 $\ast$ \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}
+\begin{DoxyCompactList}\small\item\em Amount of steps before updates age. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a408cea66b8f0d8bbd45bc8c49560b4fc}{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R}~2
+\begin{DoxyCompactList}\small\item\em Changes of hunger for one step. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_aa5c6b911a547b09ed02c49469b907dad}{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P}~1
+\begin{DoxyCompactList}\small\item\em Changes of sleepiness for one step. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a8290214020f59371b797b23f06e03769}{C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T}~50
+\begin{DoxyCompactList}\small\item\em When delta is more than this const, creature makes new decision. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a8c1f6db13c55c6472864e3ad214bd346}{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E}~(\hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 9 / \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classCreature}{Creature}'s fast speed. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_accf4fc5c9f279394d37aa8c9becd3ef6}{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E}~(\hyperlink{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 5 / \hyperlink{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classCreature}{Creature}'s slow speed. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a6792239a974aedf05d810ffea55e7ffb}{A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R}~0
+\begin{DoxyCompactList}\small\item\em Attribute hunger. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a87356b10e29cc79f14b5974805160498}{A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S}~1
+\begin{DoxyCompactList}\small\item\em Attribute sleepiness. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a2688453e754d003a8b18f2c133cff4e8}{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E}~2
+\begin{DoxyCompactList}\small\item\em Attribute need\-\_\-in\-\_\-house. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_af498eec4e8099318603f54cced85c90e}{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S}~3
+\begin{DoxyCompactList}\small\item\em Attribute need in points. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a57ce9223fff87a9e67ec7fc2419f220e}{A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S}~4
+\begin{DoxyCompactList}\small\item\em Attribute laziness. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_abb264af405757854a8bfd5f46c72a439}{A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H}~5
+\begin{DoxyCompactList}\small\item\em Attribute health. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a620518d9fbfa230e95531a1668cc2f5b}{A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N}~6
+\begin{DoxyCompactList}\small\item\em Attribute communication. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_aa712d5dda3c1ba68cb9bc1bdb3be1bbf}{A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y}~7
+\begin{DoxyCompactList}\small\item\em Attribute safety. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a67c339fc96f0c6ac94da72de9589df50}{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}~8
+\begin{DoxyCompactList}\small\item\em Attribute need in descendant. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a5c99ab2c218ed4f7bd5da5c886a8aa23}{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}~40
+\begin{DoxyCompactList}\small\item\em Minimum possible value of humanoid's max\-\_\-age. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ad359afc245a54a12c3bd5f6e21fb02ff}{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}~50
+\begin{DoxyCompactList}\small\item\em Maximum possible value of humanoid's max\-\_\-age. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a2dfaccd90b2268af80502c34a3c09f01}{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N}~0
+\begin{DoxyCompactList}\small\item\em Minimum possible value of humanoid's max\-\_\-sociability. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a0621c18a2f7e2e95bf88dd9a71b5c9e1}{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X}~100
+\begin{DoxyCompactList}\small\item\em Maximum possible value of humanoid's max\-\_\-sociability. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ae4dae16022edea3371890f3a7618ab19}{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}~0
+\begin{DoxyCompactList}\small\item\em Minimum possible value of humanoid's diligence. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_aa1693ea6bb0f7496bc5d9d5be356097e}{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}~100
+\begin{DoxyCompactList}\small\item\em Maximum possible value of humanoid's diligence. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a26309d03a95878b003e386e0a527662f}{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}~1
+\begin{DoxyCompactList}\small\item\em Changes of need in descendant for one step. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_aff9c53c4e09e86da8900ab3c8540c889}{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C}~1
+\begin{DoxyCompactList}\small\item\em Changes of sociability for one step. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a88cd210a7773c8a70c821d1cb37d0f85}{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}~10
+\begin{DoxyCompactList}\small\item\em Minimum possible value of non-\/humanoid's max\-\_\-age. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ac162f9c5b51e9371df47c6bfd88c3419}{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}~20
+\begin{DoxyCompactList}\small\item\em Maximum possible value of non-\/humanoid's max\-\_\-age. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_ae8e5ec5ac050c79a88f1926b46e9c9f0}{N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}~2
+\begin{DoxyCompactList}\small\item\em Changes of need\-\_\-in\-\_\-descendant for one step. \end{DoxyCompactList}\item 
+\#define \hyperlink{BasicDefines_8h_a8c2ebfee37c5a80508c2b55b714b2702}{N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S}~100
+\begin{DoxyCompactList}\small\item\em Amount of steps to decrease sleepiness. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{BasicDefines_8h_a620518d9fbfa230e95531a1668cc2f5b}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N@{A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N}}
+\index{A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N@{A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-C\-O\-M\-M\-U\-N\-I\-C\-A\-T\-I\-O\-N~6}}\label{BasicDefines_8h_a620518d9fbfa230e95531a1668cc2f5b}
+
+
+Attribute communication. 
+
+
+
+Definition at line 251 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_abb264af405757854a8bfd5f46c72a439}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H@{A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H}}
+\index{A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H@{A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-H\-E\-A\-L\-T\-H~5}}\label{BasicDefines_8h_abb264af405757854a8bfd5f46c72a439}
+
+
+Attribute health. 
+
+
+
+Definition at line 249 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a6792239a974aedf05d810ffea55e7ffb}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R@{A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R}}
+\index{A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R@{A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-H\-U\-N\-G\-E\-R~0}}\label{BasicDefines_8h_a6792239a974aedf05d810ffea55e7ffb}
+
+
+Attribute hunger. 
+
+
+
+Definition at line 239 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a57ce9223fff87a9e67ec7fc2419f220e}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S@{A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S}}
+\index{A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S@{A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S~4}}\label{BasicDefines_8h_a57ce9223fff87a9e67ec7fc2419f220e}
+
+
+Attribute laziness. 
+
+
+
+Definition at line 247 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a67c339fc96f0c6ac94da72de9589df50}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}}
+\index{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C~8}}\label{BasicDefines_8h_a67c339fc96f0c6ac94da72de9589df50}
+
+
+Attribute need in descendant. 
+
+
+
+Definition at line 255 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a2688453e754d003a8b18f2c133cff4e8}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E}}
+\index{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-H\-O\-U\-S\-E~2}}\label{BasicDefines_8h_a2688453e754d003a8b18f2c133cff4e8}
+
+
+Attribute need\-\_\-in\-\_\-house. 
+
+
+
+Definition at line 243 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_af498eec4e8099318603f54cced85c90e}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S}}
+\index{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S@{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-P\-O\-I\-N\-T\-S~3}}\label{BasicDefines_8h_af498eec4e8099318603f54cced85c90e}
+
+
+Attribute need in points. 
+
+
+
+Definition at line 245 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aa712d5dda3c1ba68cb9bc1bdb3be1bbf}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y@{A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y}}
+\index{A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y@{A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-S\-A\-F\-E\-T\-Y~7}}\label{BasicDefines_8h_aa712d5dda3c1ba68cb9bc1bdb3be1bbf}
+
+
+Attribute safety. 
+
+
+
+Definition at line 253 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a87356b10e29cc79f14b5974805160498}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S@{A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S}}
+\index{A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S@{A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-T\-R\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S~1}}\label{BasicDefines_8h_a87356b10e29cc79f14b5974805160498}
+
+
+Attribute sleepiness. 
+
+
+
+Definition at line 241 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a6193ca651853e1420264bd89f600ba2c}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S@{C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S}}
+\index{C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S@{C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-M\-\_\-\-R\-A\-D\-I\-U\-S~30}}\label{BasicDefines_8h_a6193ca651853e1420264bd89f600ba2c}
+
+
+Radius of game camera field of view. 
+
+
+
+Definition at line 24 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a21985a739dd1686da8b6e7c2b175782d}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S}}
+\index{C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-A\-G\-E\-\_\-\-S\-T\-E\-P\-S~500 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a21985a739dd1686da8b6e7c2b175782d}
+
+
+Amount of steps before updates age. 
+
+
+
+Definition at line 217 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a8290214020f59371b797b23f06e03769}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T@{C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T}}
+\index{C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T@{C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-C\-R\-I\-T\-\_\-\-C\-O\-N\-S\-T~50}}\label{BasicDefines_8h_a8290214020f59371b797b23f06e03769}
+
+
+When delta is more than this const, creature makes new decision. 
+
+
+
+Definition at line 225 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a408cea66b8f0d8bbd45bc8c49560b4fc}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R@{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R}}
+\index{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R@{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-H\-U\-N\-G\-E\-R~2}}\label{BasicDefines_8h_a408cea66b8f0d8bbd45bc8c49560b4fc}
+
+
+Changes of hunger for one step. 
+
+
+
+Definition at line 220 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aa5c6b911a547b09ed02c49469b907dad}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P@{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P}}
+\index{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P@{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-L\-E\-E\-P~1}}\label{BasicDefines_8h_aa5c6b911a547b09ed02c49469b907dad}
+
+
+Changes of sleepiness for one step. 
+
+
+
+Definition at line 222 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a00bc71bbe32c141390ea61a51920a5e8}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S}}
+\index{C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-D\-E\-S\-C\-\_\-\-S\-T\-E\-P\-S~150 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a00bc71bbe32c141390ea61a51920a5e8}
+
+
+Amount of steps before updates need\-\_\-in\-\_\-descendants. 
+
+
+
+Definition at line 215 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_af7204ee659b0e8e16921a3cc77080911}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X}}
+\index{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-A\-X~100}}\label{BasicDefines_8h_af7204ee659b0e8e16921a3cc77080911}
+
+
+Maximum possible value of max\-\_\-health. 
+
+
+
+Definition at line 198 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a4cea802c9227116f08ea1d5d88fa9136}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N}}
+\index{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-H\-E\-A\-L\-T\-H\-\_\-\-M\-I\-N~50}}\label{BasicDefines_8h_a4cea802c9227116f08ea1d5d88fa9136}
+
+
+Minimum possible value of max\-\_\-health. 
+
+
+
+Definition at line 196 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ab08de69be685419f52652972e5da9aef}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X}}
+\index{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-A\-X~100}}\label{BasicDefines_8h_ab08de69be685419f52652972e5da9aef}
+
+
+Maximum possible value of max\-\_\-hunger. 
+
+
+
+Definition at line 203 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a991f20489d51d6d778bc0b224ed6bff8}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N}}
+\index{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-H\-U\-N\-G\-E\-R\-\_\-\-M\-I\-N~50}}\label{BasicDefines_8h_a991f20489d51d6d778bc0b224ed6bff8}
+
+
+Minimum possible value of max\-\_\-hunger. 
+
+
+
+Definition at line 201 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a7eb218c460ae0d129632ced3a3b6d1ad}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-A\-F\-E\-T\-Y\-\_\-\-S\-T\-E\-P\-S~1 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a7eb218c460ae0d129632ced3a3b6d1ad}
+
+
+Amount of steps before updates safety. 
+
+
+
+Definition at line 213 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a82d2ccc4b12979ba73ca6462e969de77}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X@{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X~100}}\label{BasicDefines_8h_a82d2ccc4b12979ba73ca6462e969de77}
+
+
+Maximum possible value of max\-\_\-sleepiness. 
+
+
+
+Definition at line 208 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a1ee4d045c113be1ee67969d275103a25}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N@{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-L\-E\-E\-P\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N~50}}\label{BasicDefines_8h_a1ee4d045c113be1ee67969d275103a25}
+
+
+Minimum possible value of max\-\_\-sleepiness. 
+
+
+
+Definition at line 206 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a8c1f6db13c55c6472864e3ad214bd346}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E@{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E@{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-F\-A\-S\-T\-\_\-\-V\-A\-L\-U\-E~({\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 9 / {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D})}}\label{BasicDefines_8h_a8c1f6db13c55c6472864e3ad214bd346}
+
+
+\hyperlink{classCreature}{Creature}'s fast speed. 
+
+
+
+Definition at line 228 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_accf4fc5c9f279394d37aa8c9becd3ef6}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E@{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E@{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-P\-E\-E\-D\-\_\-\-S\-L\-O\-W\-\_\-\-V\-A\-L\-U\-E~({\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 5 / {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D})}}\label{BasicDefines_8h_accf4fc5c9f279394d37aa8c9becd3ef6}
+
+
+\hyperlink{classCreature}{Creature}'s slow speed. 
+
+
+
+Definition at line 231 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a528909f3e46b45ae517f3609036be273}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S}}
+\index{C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S@{C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S~15 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a528909f3e46b45ae517f3609036be273}
+
+
+Amount of steps before updates basic attrs for creature. 
+
+
+
+Definition at line 211 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ad359afc245a54a12c3bd5f6e21fb02ff}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}}
+\index{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X~50}}\label{BasicDefines_8h_ad359afc245a54a12c3bd5f6e21fb02ff}
+
+
+Maximum possible value of humanoid's max\-\_\-age. 
+
+
+
+Definition at line 267 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a5c99ab2c218ed4f7bd5da5c886a8aa23}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}}
+\index{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N~40}}\label{BasicDefines_8h_a5c99ab2c218ed4f7bd5da5c886a8aa23}
+
+
+Minimum possible value of humanoid's max\-\_\-age. 
+
+
+
+Definition at line 265 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a26309d03a95878b003e386e0a527662f}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}}
+\index{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C~1}}\label{BasicDefines_8h_a26309d03a95878b003e386e0a527662f}
+
+
+Changes of need in descendant for one step. 
+
+
+
+Definition at line 280 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aff9c53c4e09e86da8900ab3c8540c889}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C@{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C}}
+\index{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C@{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-S\-O\-C~1}}\label{BasicDefines_8h_aff9c53c4e09e86da8900ab3c8540c889}
+
+
+Changes of sociability for one step. 
+
+
+
+Definition at line 282 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aa1693ea6bb0f7496bc5d9d5be356097e}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}}
+\index{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-A\-X~100}}\label{BasicDefines_8h_aa1693ea6bb0f7496bc5d9d5be356097e}
+
+
+Maximum possible value of humanoid's diligence. 
+
+
+
+Definition at line 277 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ae4dae16022edea3371890f3a7618ab19}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}}
+\index{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-L\-A\-Z\-I\-N\-E\-S\-S\-\_\-\-M\-I\-N~0}}\label{BasicDefines_8h_ae4dae16022edea3371890f3a7618ab19}
+
+
+Minimum possible value of humanoid's diligence. 
+
+
+
+Definition at line 275 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0621c18a2f7e2e95bf88dd9a71b5c9e1}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X}}
+\index{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X@{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-A\-X~100}}\label{BasicDefines_8h_a0621c18a2f7e2e95bf88dd9a71b5c9e1}
+
+
+Maximum possible value of humanoid's max\-\_\-sociability. 
+
+
+
+Definition at line 272 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a2dfaccd90b2268af80502c34a3c09f01}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N}}
+\index{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N@{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-U\-M\-\_\-\-S\-O\-C\-I\-A\-B\-I\-L\-I\-T\-Y\-\_\-\-M\-I\-N~0}}\label{BasicDefines_8h_a2dfaccd90b2268af80502c34a3c09f01}
+
+
+Minimum possible value of humanoid's max\-\_\-sociability. 
+
+
+
+Definition at line 270 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ac162f9c5b51e9371df47c6bfd88c3419}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X@{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}}
+\index{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X@{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-A\-X~20}}\label{BasicDefines_8h_ac162f9c5b51e9371df47c6bfd88c3419}
+
+
+Maximum possible value of non-\/humanoid's max\-\_\-age. 
+
+
+
+Definition at line 294 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a88cd210a7773c8a70c821d1cb37d0f85}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N@{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}}
+\index{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N@{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-H\-U\-M\-\_\-\-A\-G\-E\-\_\-\-M\-I\-N~10}}\label{BasicDefines_8h_a88cd210a7773c8a70c821d1cb37d0f85}
+
+
+Minimum possible value of non-\/humanoid's max\-\_\-age. 
+
+
+
+Definition at line 292 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a8c2ebfee37c5a80508c2b55b714b2702}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S@{N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S}}
+\index{N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S@{N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-H\-U\-M\-\_\-\-D\-E\-C\-R\-\_\-\-S\-L\-E\-E\-P\-\_\-\-S\-T\-E\-P\-S~100}}\label{BasicDefines_8h_a8c2ebfee37c5a80508c2b55b714b2702}
+
+
+Amount of steps to decrease sleepiness. 
+
+
+
+Definition at line 300 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ae8e5ec5ac050c79a88f1926b46e9c9f0}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}}
+\index{N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C@{N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-H\-U\-M\-\_\-\-D\-E\-L\-T\-A\-\_\-\-N\-E\-E\-D\-\_\-\-I\-N\-\_\-\-D\-E\-S\-C~2}}\label{BasicDefines_8h_ae8e5ec5ac050c79a88f1926b46e9c9f0}
+
+
+Changes of need\-\_\-in\-\_\-descendant for one step. 
+
+
+
+Definition at line 297 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a56d35f6feefa0535f680715f77cc76ae}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X~60}}\label{BasicDefines_8h_a56d35f6feefa0535f680715f77cc76ae}
+
+
+Definition at line 144 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a1a1afbdf66be90927f27340e80c641fc}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N~50}}\label{BasicDefines_8h_a1a1afbdf66be90927f27340e80c641fc}
+
+
+Definition at line 143 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aba17794c2ca91d58e749e575282d0148}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y~32}}\label{BasicDefines_8h_aba17794c2ca91d58e749e575282d0148}
+
+
+Definition at line 166 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ad7951e58c83bd55c49774028843bcc0f}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X~15}}\label{BasicDefines_8h_ad7951e58c83bd55c49774028843bcc0f}
+
+
+Definition at line 177 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a651fe5925d65d3eebae04d9c178278ab}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N~10}}\label{BasicDefines_8h_a651fe5925d65d3eebae04d9c178278ab}
+
+
+Definition at line 176 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a2adf1e0e0bce1e2335362fc93285a3fc}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}}
+\index{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T~3}}\label{BasicDefines_8h_a2adf1e0e0bce1e2335362fc93285a3fc}
+
+
+Definition at line 158 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0fef6d98779e9efc5f7e9c60c717c9eb}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X~20}}\label{BasicDefines_8h_a0fef6d98779e9efc5f7e9c60c717c9eb}
+
+
+Definition at line 153 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a31ec083ce88c5ea72c8bc19011dd572d}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N~10}}\label{BasicDefines_8h_a31ec083ce88c5ea72c8bc19011dd572d}
+
+
+Definition at line 152 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a69674a589d59b8b4c0edf5d90d989130}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y~80}}\label{BasicDefines_8h_a69674a589d59b8b4c0edf5d90d989130}
+
+
+Definition at line 169 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a9355b666c9a8b881538aee9ed31da597}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X~8}}\label{BasicDefines_8h_a9355b666c9a8b881538aee9ed31da597}
+
+
+Definition at line 186 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ac4b35036432fee9af635eb8d318a957d}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N~3}}\label{BasicDefines_8h_ac4b35036432fee9af635eb8d318a957d}
+
+
+Definition at line 185 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a55b5a88f8c9aa58af063364af12491c6}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}}
+\index{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-G\-O\-L\-D\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T~1}}\label{BasicDefines_8h_a55b5a88f8c9aa58af063364af12491c6}
+
+
+Definition at line 161 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a7dc1cba51689a644b5a53e0a78991a61}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X~60}}\label{BasicDefines_8h_a7dc1cba51689a644b5a53e0a78991a61}
+
+
+Definition at line 147 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0f3371638e0309f9fcb88897550d30d2}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N~50}}\label{BasicDefines_8h_a0f3371638e0309f9fcb88897550d30d2}
+
+
+Definition at line 146 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a166adcac8a8e2a3bfe46639dc31ffcb0}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y~48}}\label{BasicDefines_8h_a166adcac8a8e2a3bfe46639dc31ffcb0}
+
+
+Definition at line 167 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a64258aa1becd6bee228478830f6d8930}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X~15}}\label{BasicDefines_8h_a64258aa1becd6bee228478830f6d8930}
+
+
+Definition at line 180 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ae375b4f0126b4c9c35fd99c1b8339a11}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N~10}}\label{BasicDefines_8h_ae375b4f0126b4c9c35fd99c1b8339a11}
+
+
+Definition at line 179 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a3560cc2347a69ceb8a9dbe545255c304}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}}
+\index{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-R\-O\-N\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T~3}}\label{BasicDefines_8h_a3560cc2347a69ceb8a9dbe545255c304}
+
+
+Definition at line 159 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a7478a031a927af3cab6c2e42ce41a7a0}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E@{R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E}}
+\index{R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E@{R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-R\-E\-G\-E\-N\-E\-R\-A\-T\-I\-O\-N\-\_\-\-R\-A\-T\-E~160}}\label{BasicDefines_8h_a7478a031a927af3cab6c2e42ce41a7a0}
+
+
+Definition at line 136 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0f888c8c7b30a6d675187e40528d81ce}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X~40}}\label{BasicDefines_8h_a0f888c8c7b30a6d675187e40528d81ce}
+
+
+Definition at line 150 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a58f8baf369a6378084e0f5be1403f29a}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N~30}}\label{BasicDefines_8h_a58f8baf369a6378084e0f5be1403f29a}
+
+
+Definition at line 149 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a4bf81a6d3e30df4433698e886b7a841d}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y~64}}\label{BasicDefines_8h_a4bf81a6d3e30df4433698e886b7a841d}
+
+
+Definition at line 168 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a009c691032a3e32527f92591f6471bfc}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X~10}}\label{BasicDefines_8h_a009c691032a3e32527f92591f6471bfc}
+
+
+Definition at line 183 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a063897933d3035593eefcfcc94727537}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N~5}}\label{BasicDefines_8h_a063897933d3035593eefcfcc94727537}
+
+
+Definition at line 182 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a9784224cb7fe9fa102ba251f839f7341}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}}
+\index{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-O\-R\-E\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T~2}}\label{BasicDefines_8h_a9784224cb7fe9fa102ba251f839f7341}
+
+
+Definition at line 160 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a37a1d72164b0057b6e99ad13dc77d6b8}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-A\-X~20}}\label{BasicDefines_8h_a37a1d72164b0057b6e99ad13dc77d6b8}
+
+
+Definition at line 141 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_af9c4bd179c53e34722d9df2153c1e448}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-A\-M\-O\-U\-N\-T\-\_\-\-M\-I\-N~10}}\label{BasicDefines_8h_af9c4bd179c53e34722d9df2153c1e448}
+
+
+Definition at line 140 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a9b2d856bcfc775bb4b89e662bfcb87e3}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-I\-F\-F\-I\-C\-U\-L\-T\-Y~16}}\label{BasicDefines_8h_a9b2d856bcfc775bb4b89e662bfcb87e3}
+
+
+Definition at line 165 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_acc93a23b208d1387c5728bb8dc8a2713}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-A\-X~3}}\label{BasicDefines_8h_acc93a23b208d1387c5728bb8dc8a2713}
+
+
+Definition at line 174 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a14b424b354ab1e772549840c5d56c19a}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-D\-R\-O\-P\-\_\-\-M\-I\-N~1}}\label{BasicDefines_8h_a14b424b354ab1e772549840c5d56c19a}
+
+
+Definition at line 173 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ac0e79a9923d76ed46b7632edf2a9c8ac}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}}
+\index{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T@{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-W\-O\-O\-D\-\_\-\-R\-E\-G\-\_\-\-A\-M\-O\-U\-N\-T~2}}\label{BasicDefines_8h_ac0e79a9923d76ed46b7632edf2a9c8ac}
+
+
+Definition at line 157 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a6974d08a74da681b3957b2fead2608b8}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T@{S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T}}
+\index{S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T@{S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T~600}}\label{BasicDefines_8h_a6974d08a74da681b3957b2fead2608b8}
+
+
+Definition at line 21 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a2cd109632a6dcccaa80b43561b1ab700}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H@{S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H}}
+\index{S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H@{S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H~800}}\label{BasicDefines_8h_a2cd109632a6dcccaa80b43561b1ab700}
+
+
+Definition at line 20 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0cbf71972f094dcce2c650fca8f684c6}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G@{S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G}}
+\index{S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G@{S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G~{\bf S\-Q\-U\-A\-R\-E}}}\label{BasicDefines_8h_a0cbf71972f094dcce2c650fca8f684c6}
+
+
+\hyperlink{classBuilding}{Building}'s shape. 
+
+
+
+Definition at line 90 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_af3ce5877f44c73e115ae62b6572e64eb}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-D\-E\-F\-A\-U\-L\-T~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_af3ce5877f44c73e115ae62b6572e64eb}
+
+
+Default shape for everything. 
+
+
+
+Definition at line 81 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a439de12ebf02a921e686c9684dac6a82}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D@{S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}}
+\index{S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D@{S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_a439de12ebf02a921e686c9684dac6a82}
+
+
+\hyperlink{classHumanoid}{Humanoid}'s shape. 
+
+
+
+Definition at line 84 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ad75ca850ec961865320fce34cb8fdd75}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D@{S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}}
+\index{S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D@{S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_ad75ca850ec961865320fce34cb8fdd75}
+
+
+\hyperlink{classNonHumanoid}{Non\-Humanoid}'s shape. 
+
+
+
+Definition at line 87 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a4e8e938cacc9500850f3c1a9984c6092}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E@{S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E}}
+\index{S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E@{S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_a4e8e938cacc9500850f3c1a9984c6092}
+
+
+\hyperlink{classResource}{Resource}'s shape. 
+
+
+
+Definition at line 96 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a6a92565ff4fe5afad39744fcebeffc87}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-T\-O\-O\-L@{S\-H\-P\-\_\-\-T\-O\-O\-L}}
+\index{S\-H\-P\-\_\-\-T\-O\-O\-L@{S\-H\-P\-\_\-\-T\-O\-O\-L}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-T\-O\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-T\-O\-O\-L~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_a6a92565ff4fe5afad39744fcebeffc87}
+
+
+\hyperlink{classTool}{Tool}'s shape. 
+
+
+
+Definition at line 99 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a7ff0bdaea8e1824dc1fad64600786353}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R@{S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R}}
+\index{S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R@{S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-H\-P\-\_\-\-W\-E\-A\-T\-H\-E\-R~{\bf C\-I\-R\-C\-L\-E}}}\label{BasicDefines_8h_a7ff0bdaea8e1824dc1fad64600786353}
+
+
+\hyperlink{classWeather}{Weather}'s shape. 
+
+
+
+Definition at line 93 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a01c73f3e690cb0ea645f8cb9154e2da3}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X}}
+\index{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-A\-X~6 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a01c73f3e690cb0ea645f8cb9154e2da3}
+
+
+\hyperlink{classBuilding}{Building} side (maximum size). 
+
+
+
+Definition at line 57 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a7faad0f033cd75047461cb831eda221f}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N}}
+\index{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-B\-U\-I\-L\-D\-I\-N\-G\-\_\-\-S\-I\-D\-E\-\_\-\-M\-I\-N~3 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a7faad0f033cd75047461cb831eda221f}
+
+
+\hyperlink{classBuilding}{Building} side (minimum size). 
+
+
+
+Definition at line 55 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a97562c181890e600a888e5e8f716b358}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-D\-E\-F\-A\-U\-L\-T~{\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a97562c181890e600a888e5e8f716b358}
+
+
+Default size for everything. 
+
+
+
+Definition at line 52 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}
+\index{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M~(double) 1}}\label{BasicDefines_8h_ae41e784d873f8eb34ba96081fa2635a7}
+
+
+\hyperlink{classHumanoid}{Humanoid} size. 
+
+
+
+Definition at line 40 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ab67a78871c04d1f4ae6a0528713d3f9d}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M}}
+\index{S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-N\-H\-U\-M\-\_\-\-V\-I\-E\-W\-\_\-\-D\-I\-A\-M~50 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_ab67a78871c04d1f4ae6a0528713d3f9d}
+
+
+\hyperlink{classView}{View} area for Non\-Hum. 
+
+
+
+Definition at line 73 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_af5c9f9a7682fbacaae02aa7939c94891}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}
+\index{S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-N\-O\-N\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M~{\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 0.\-5}}\label{BasicDefines_8h_af5c9f9a7682fbacaae02aa7939c94891}
+
+
+\hyperlink{classNonHumanoid}{Non\-Humanoid} size. 
+
+
+
+Definition at line 44 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a740e950101bb317f2e762106401922bb}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}}
+\index{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X~10 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a740e950101bb317f2e762106401922bb}
+
+
+\hyperlink{classResource}{Resource} shape diameter (maximum size). 
+
+
+
+Definition at line 67 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a4bb4a5798963edc76911af93fe3ba291}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}}
+\index{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N~5 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a4bb4a5798963edc76911af93fe3ba291}
+
+
+\hyperlink{classResource}{Resource} shape diameter (minimum size). 
+
+
+
+Definition at line 65 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a18989a0597eced1f9b6b294081ca9731}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M}}
+\index{S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M@{S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-T\-O\-O\-L\-\_\-\-D\-I\-A\-M~{\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M} $\ast$ 0.\-1}}\label{BasicDefines_8h_a18989a0597eced1f9b6b294081ca9731}
+
+
+\hyperlink{classTool}{Tool} size (when dropped to ground). 
+
+
+
+Definition at line 70 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_ae3a928147d93d1af99600183361fdf91}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}}
+\index{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X@{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-A\-X~20 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_ae3a928147d93d1af99600183361fdf91}
+
+
+\hyperlink{classWeather}{Weather} shape diameter (maximum size). 
+
+
+
+Definition at line 62 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a07348cb586b9d51bade5116a23a93f19}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}}
+\index{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N@{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-W\-E\-A\-T\-H\-E\-R\-\_\-\-D\-I\-A\-M\-\_\-\-M\-I\-N~10 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a07348cb586b9d51bade5116a23a93f19}
+
+
+\hyperlink{classWeather}{Weather} shape diameter (minimum size). 
+
+
+
+Definition at line 60 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a113d8e5b968b4f899b27e7647fff9d46}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E@{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E}}
+\index{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E@{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-H\-S\-I\-D\-E~1000 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_a113d8e5b968b4f899b27e7647fff9d46}
+
+
+\hyperlink{classWorld}{World} size (horizontal size). 
+
+
+
+Definition at line 49 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_afc389381096b3625e20a7a5116ea63a4}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E@{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E}}
+\index{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E@{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Z\-\_\-\-W\-O\-R\-L\-D\-\_\-\-V\-S\-I\-D\-E~1000 $\ast$ {\bf S\-Z\-\_\-\-H\-U\-M\-A\-N\-O\-I\-D\-\_\-\-D\-I\-A\-M}}}\label{BasicDefines_8h_afc389381096b3625e20a7a5116ea63a4}
+
+
+\hyperlink{classWorld}{World} size (vertical side). 
+
+
+
+Definition at line 47 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D@{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}
+\index{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D@{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D~32}}\label{BasicDefines_8h_a8256059bc513e544ba7d94aea0e8c2e0}
+
+
+Amount of controller ticks (which change the world) in one second. 
+
+
+
+Definition at line 32 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a4163c010f138107c64bb231e31844061}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}}
+\index{T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-O\-L\-\_\-\-B\-R\-O\-N\-Z\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H~200}}\label{BasicDefines_8h_a4163c010f138107c64bb231e31844061}
+
+
+Bronze tool strength. 
+
+
+
+Definition at line 122 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_aac7265b3c052ad36d06e5c96b3692ab3}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}}
+\index{T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-O\-L\-\_\-\-G\-O\-L\-D\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H~1600}}\label{BasicDefines_8h_aac7265b3c052ad36d06e5c96b3692ab3}
+
+
+Gold tool strength. 
+
+
+
+Definition at line 128 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a0a8c1d8b0b62890248f9b466920d9a1e}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}}
+\index{T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-O\-L\-\_\-\-I\-R\-O\-N\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H~400}}\label{BasicDefines_8h_a0a8c1d8b0b62890248f9b466920d9a1e}
+
+
+Iron tool strength. 
+
+
+
+Definition at line 124 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_abaeafa25ebe3281253066a4a55a91a3e}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}}
+\index{T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-O\-L\-\_\-\-S\-I\-L\-V\-E\-R\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H~800}}\label{BasicDefines_8h_abaeafa25ebe3281253066a4a55a91a3e}
+
+
+Silver tool strength. 
+
+
+
+Definition at line 126 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a3a8daf0f2ae33fde98c16ca352c45df5}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}}
+\index{T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H@{T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-O\-L\-\_\-\-S\-T\-O\-N\-E\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H~100}}\label{BasicDefines_8h_a3a8daf0f2ae33fde98c16ca352c45df5}
+
+
+Stone tool strength. 
+
+
+
+Definition at line 120 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a35c3e4d0c4144939d35ff2d325290f5c}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X@{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X}}
+\index{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X@{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-A\-X~300 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a35c3e4d0c4144939d35ff2d325290f5c}
+
+
+Maximum amount of living steps for weather. 
+
+
+
+Definition at line 109 of file Basic\-Defines.\-h.
+
+\hypertarget{BasicDefines_8h_a2be278ee9714273c5bafee5a567c119f}{\index{Basic\-Defines.\-h@{Basic\-Defines.\-h}!W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N@{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N}}
+\index{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N@{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N}!BasicDefines.h@{Basic\-Defines.\-h}}
+\subsubsection[{W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-E\-A\-T\-\_\-\-S\-T\-E\-P\-S\-\_\-\-M\-I\-N~180 $\ast$ {\bf T\-M\-\_\-\-T\-I\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C\-O\-N\-D}}}\label{BasicDefines_8h_a2be278ee9714273c5bafee5a567c119f}
+
+
+Minimum amount of living steps for weather. 
+
+
+
+Definition at line 107 of file Basic\-Defines.\-h.
+

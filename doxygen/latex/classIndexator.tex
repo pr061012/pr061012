@@ -1,0 +1,190 @@
+\hypertarget{classIndexator}{\section{Indexator Class Reference}
+\label{classIndexator}\index{Indexator@{Indexator}}
+}
+
+
+{\ttfamily \#include $<$Indexator.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIndexator_aa5adafc65a3b10399adb6f2158bc5417}{Indexator} (double size, \hyperlink{classObjectHeap}{Object\-Heap} $\ast$list=0)
+\begin{DoxyCompactList}\small\item\em Creates grid and indexates object from heap. \end{DoxyCompactList}\item 
+\hyperlink{classIndexator_a1d84445c20808fddf2f8877cfd968a5b}{$\sim$\-Indexator} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classObjectHeap}{Object\-Heap} $\ast$ \hyperlink{classIndexator_a21eb2f0f155c5d3fe0560a707a05e450}{get\-Area\-Contents} (\hyperlink{classShape}{Shape} area)
+\begin{DoxyCompactList}\small\item\em Returns heap with objects from the certain area. \end{DoxyCompactList}\item 
+void \hyperlink{classIndexator_ad3ee911b9f5cd04c2c6426dd90bce127}{reindexate} (\hyperlink{classObjectHeap}{Object\-Heap} $\ast$objects)
+\begin{DoxyCompactList}\small\item\em Creates an index for all given objects, and removes the previous one. \end{DoxyCompactList}\item 
+void \hyperlink{classIndexator_a3c496109b375bc095e15a38d2e8f18d8}{reindexate} (\hyperlink{classObject}{Object} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Reindexates an object or adds new object to index. \end{DoxyCompactList}\item 
+void \hyperlink{classIndexator_aebbad325d23422a61443742e2d315f2c}{add\-Object} (\hyperlink{classObject}{Object} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Adds object to index. \end{DoxyCompactList}\item 
+void \hyperlink{classIndexator_a494d579d9b7444788099ee9f57ba6420}{remove\-Object} (\hyperlink{classObject}{Object} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Removes object from index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file Indexator.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classIndexator_aa5adafc65a3b10399adb6f2158bc5417}{\index{Indexator@{Indexator}!Indexator@{Indexator}}
+\index{Indexator@{Indexator}!Indexator@{Indexator}}
+\subsubsection[{Indexator}]{\setlength{\rightskip}{0pt plus 5cm}Indexator\-::\-Indexator (
+\begin{DoxyParamCaption}
+\item[{double}]{size, }
+\item[{{\bf Object\-Heap} $\ast$}]{list = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_aa5adafc65a3b10399adb6f2158bc5417}
+
+
+Creates grid and indexates object from heap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & heap with objects \\
+\hline
+{\em size} & size of the world \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file Indexator.\-cpp.
+
+\hypertarget{classIndexator_a1d84445c20808fddf2f8877cfd968a5b}{\index{Indexator@{Indexator}!$\sim$\-Indexator@{$\sim$\-Indexator}}
+\index{$\sim$\-Indexator@{$\sim$\-Indexator}!Indexator@{Indexator}}
+\subsubsection[{$\sim$\-Indexator}]{\setlength{\rightskip}{0pt plus 5cm}Indexator\-::$\sim$\-Indexator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_a1d84445c20808fddf2f8877cfd968a5b}
+
+
+Destructor. 
+
+
+
+Definition at line 33 of file Indexator.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classIndexator_aebbad325d23422a61443742e2d315f2c}{\index{Indexator@{Indexator}!add\-Object@{add\-Object}}
+\index{add\-Object@{add\-Object}!Indexator@{Indexator}}
+\subsubsection[{add\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Indexator\-::add\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_aebbad325d23422a61443742e2d315f2c}
+
+
+Adds object to index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & an object to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 218 of file Indexator.\-cpp.
+
+\hypertarget{classIndexator_a21eb2f0f155c5d3fe0560a707a05e450}{\index{Indexator@{Indexator}!get\-Area\-Contents@{get\-Area\-Contents}}
+\index{get\-Area\-Contents@{get\-Area\-Contents}!Indexator@{Indexator}}
+\subsubsection[{get\-Area\-Contents}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object\-Heap} $\ast$ Indexator\-::get\-Area\-Contents (
+\begin{DoxyParamCaption}
+\item[{{\bf Shape}}]{area}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_a21eb2f0f155c5d3fe0560a707a05e450}
+
+
+Returns heap with objects from the certain area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & where to look for objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+heap with objects in given area 
+\end{DoxyReturn}
+\begin{DoxyVerb}    Toroidal feature
+\end{DoxyVerb}
+ Create more areas to check collisions with objects intersecting bounds of the world \hyperlink{classShape}{Shape} areas\mbox{[}4\mbox{]}; areas\mbox{[}0\mbox{]} = area; \hyperlink{classPoint}{Point} center = area.\-get\-Center();
+
+Get the left bottom shape if (center.\-get\-X() $>$ world\-\_\-size/2) \{ if (center.\-get\-Y() $>$ world\-\_\-size / 2) \{ areas\mbox{[}0\mbox{]}.set\-Center(center -\/ Point(world\-\_\-size, world\-\_\-size)); \} else \{ areas\mbox{[}0\mbox{]}.set\-Center(center -\/ Point(world\-\_\-size, 0)); \} \} else \{ if (center.\-get\-Y() $>$ world\-\_\-size / 2) \{ areas\mbox{[}0\mbox{]}.set\-Center(center -\/ Point(0, world\-\_\-size)); \} \}
+
+Creat all other shapes areas\mbox{[}1\mbox{]} = areas\mbox{[}0\mbox{]}; areas\mbox{[}1\mbox{]}.set\-Center(areas\mbox{[}0\mbox{]}.get\-Center() + Point(0, world\-\_\-size)); areas\mbox{[}2\mbox{]} = areas\mbox{[}1\mbox{]}; areas\mbox{[}2\mbox{]}.set\-Center(areas\mbox{[}1\mbox{]}.get\-Center() + Point(world\-\_\-size, 0)); areas\mbox{[}3\mbox{]} = areas\mbox{[}2\mbox{]}; areas\mbox{[}3\mbox{]}.set\-Center(areas\mbox{[}2\mbox{]}.get\-Center() + \hyperlink{classPoint}{Point}(0, -\/world\-\_\-size));
+
+Definition at line 43 of file Indexator.\-cpp.
+
+\hypertarget{classIndexator_ad3ee911b9f5cd04c2c6426dd90bce127}{\index{Indexator@{Indexator}!reindexate@{reindexate}}
+\index{reindexate@{reindexate}!Indexator@{Indexator}}
+\subsubsection[{reindexate}]{\setlength{\rightskip}{0pt plus 5cm}void Indexator\-::reindexate (
+\begin{DoxyParamCaption}
+\item[{{\bf Object\-Heap} $\ast$}]{objects}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_ad3ee911b9f5cd04c2c6426dd90bce127}
+
+
+Creates an index for all given objects, and removes the previous one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objects} & heap of objects \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file Indexator.\-cpp.
+
+\hypertarget{classIndexator_a3c496109b375bc095e15a38d2e8f18d8}{\index{Indexator@{Indexator}!reindexate@{reindexate}}
+\index{reindexate@{reindexate}!Indexator@{Indexator}}
+\subsubsection[{reindexate}]{\setlength{\rightskip}{0pt plus 5cm}void Indexator\-::reindexate (
+\begin{DoxyParamCaption}
+\item[{{\bf Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_a3c496109b375bc095e15a38d2e8f18d8}
+
+
+Reindexates an object or adds new object to index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & an object t reindexate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 148 of file Indexator.\-cpp.
+
+\hypertarget{classIndexator_a494d579d9b7444788099ee9f57ba6420}{\index{Indexator@{Indexator}!remove\-Object@{remove\-Object}}
+\index{remove\-Object@{remove\-Object}!Indexator@{Indexator}}
+\subsubsection[{remove\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Indexator\-::remove\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}}\label{classIndexator_a494d579d9b7444788099ee9f57ba6420}
+
+
+Removes object from index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & an object to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 236 of file Indexator.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+model/\-World/\-Indexator/\hyperlink{Indexator_8h}{Indexator.\-h}\item 
+model/\-World/\-Indexator/\hyperlink{Indexator_8cpp}{Indexator.\-cpp}\end{DoxyCompactItemize}

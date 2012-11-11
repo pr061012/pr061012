@@ -1,0 +1,131 @@
+\hypertarget{classObjectFactory}{\section{Object\-Factory Class Reference}
+\label{classObjectFactory}\index{Object\-Factory@{Object\-Factory}}
+}
+
+
+\hyperlink{classObject}{Object} factory allows to creates any objects (you need to provide \hyperlink{classParamArray}{Param\-Array} with parameters to do this).  
+
+
+
+
+{\ttfamily \#include $<$Object\-Factory.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObjectFactory_a3a732c533e17d2f62b753138d9da0eb4}{Object\-Factory} (const \hyperlink{classDecisionMaker}{Decision\-Maker} \&hum\-\_\-dmaker, const \hyperlink{classDecisionMaker}{Decision\-Maker} \&nhum\-\_\-dmaker)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classObjectFactory_a04a1138c18e740b8f0fd580b3d52af1c}{$\sim$\-Object\-Factory} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classObject}{Object} $\ast$ \hyperlink{classObjectFactory_a6c7102f01ee8e5bf6a3ca562e2b2aba0}{create\-Object} (\hyperlink{BasicTypes_8h_a842c5e2e69277690b064bf363c017980}{Object\-Type} type, const \hyperlink{classParamArray}{Param\-Array} \&params)
+\begin{DoxyCompactList}\small\item\em Creates new object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classObject}{Object} factory allows to creates any objects (you need to provide \hyperlink{classParamArray}{Param\-Array} with parameters to do this). 
+
+To create object with type T first of all you need to provide parameter {\ttfamily obj\-\_\-type}. Value of this param is Object\-Type (converted to int). For each object type a few parameters more are needed.
+
+{\bfseries \hyperlink{classCreature}{Creature}}
+\begin{DoxyItemize}
+\item {\itshape creat\-\_\-type} -- Creature\-Type.
+\end{DoxyItemize}
+
+{\bfseries \hyperlink{classBuilding}{Building}}
+\begin{DoxyItemize}
+\item {\itshape max\-\_\-health} -- \hyperlink{classBuilding}{Building} health (uint).
+\item {\itshape max\-\_\-space} -- \hyperlink{classBuilding}{Building} space (uint).
+\end{DoxyItemize}
+
+{\bfseries \hyperlink{classResource}{Resource}}
+\begin{DoxyItemize}
+\item {\itshape res\-\_\-type} -- Resource\-Type.
+\item {\itshape res\-\_\-amount} -- amount of resource (uint) ($\ast$).
+\end{DoxyItemize}
+
+{\bfseries \hyperlink{classTool}{Tool}}
+\begin{DoxyItemize}
+\item {\itshape tool\-\_\-type} -- Tool\-Type.
+\item {\itshape mat\-\_\-type} -- Resource\-Type of material.
+\item {\itshape tool\-\_\-str} -- \hyperlink{classTool}{Tool}'s strength (uint) ($\ast$).
+\end{DoxyItemize}
+
+{\bfseries \hyperlink{classWeather}{Weather}}
+\begin{DoxyItemize}
+\item {\itshape weat\-\_\-type} -- Weather\-Type.
+\item {\itshape weat\-\_\-steps} -- amount of steps that \hyperlink{classWeather}{Weather} will live (uint) ($\ast$).
+\end{DoxyItemize}
+
+{\bfseries Note}\-: $\ast$ -- leave 0 to pick random value. 
+
+Definition at line 48 of file Object\-Factory.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classObjectFactory_a3a732c533e17d2f62b753138d9da0eb4}{\index{Object\-Factory@{Object\-Factory}!Object\-Factory@{Object\-Factory}}
+\index{Object\-Factory@{Object\-Factory}!ObjectFactory@{Object\-Factory}}
+\subsubsection[{Object\-Factory}]{\setlength{\rightskip}{0pt plus 5cm}Object\-Factory\-::\-Object\-Factory (
+\begin{DoxyParamCaption}
+\item[{const {\bf Decision\-Maker} \&}]{hum\-\_\-dmaker, }
+\item[{const {\bf Decision\-Maker} \&}]{nhum\-\_\-dmaker}
+\end{DoxyParamCaption}
+)}}\label{classObjectFactory_a3a732c533e17d2f62b753138d9da0eb4}
+
+
+Constructor. 
+
+
+
+Definition at line 22 of file Object\-Factory.\-cpp.
+
+\hypertarget{classObjectFactory_a04a1138c18e740b8f0fd580b3d52af1c}{\index{Object\-Factory@{Object\-Factory}!$\sim$\-Object\-Factory@{$\sim$\-Object\-Factory}}
+\index{$\sim$\-Object\-Factory@{$\sim$\-Object\-Factory}!ObjectFactory@{Object\-Factory}}
+\subsubsection[{$\sim$\-Object\-Factory}]{\setlength{\rightskip}{0pt plus 5cm}Object\-Factory\-::$\sim$\-Object\-Factory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classObjectFactory_a04a1138c18e740b8f0fd580b3d52af1c}
+
+
+Destructor. 
+
+
+
+Definition at line 29 of file Object\-Factory.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classObjectFactory_a6c7102f01ee8e5bf6a3ca562e2b2aba0}{\index{Object\-Factory@{Object\-Factory}!create\-Object@{create\-Object}}
+\index{create\-Object@{create\-Object}!ObjectFactory@{Object\-Factory}}
+\subsubsection[{create\-Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object} $\ast$ Object\-Factory\-::create\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Object\-Type}}]{type, }
+\item[{const {\bf Param\-Array} \&}]{params}
+\end{DoxyParamCaption}
+)}}\label{classObjectFactory_a6c7102f01ee8e5bf6a3ca562e2b2aba0}
+
+
+Creates new object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & object type \\
+\hline
+{\em params} & map with object params \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to created object 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Object\-Factory.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+model/\-World/\-Object\-Factory/\hyperlink{ObjectFactory_8h}{Object\-Factory.\-h}\item 
+model/\-World/\-Object\-Factory/\hyperlink{ObjectFactory_8cpp}{Object\-Factory.\-cpp}\end{DoxyCompactItemize}

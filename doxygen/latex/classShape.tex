@@ -1,0 +1,346 @@
+\hypertarget{classShape}{\section{Shape Class Reference}
+\label{classShape}\index{Shape@{Shape}}
+}
+
+
+{\ttfamily \#include $<$Shape.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShape_a8e8680c7a68edeb2826e9e72cfa9adbf}{Shape} (\hyperlink{classPoint}{Point} center, int type, double size)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classShape_aaa8d87171e65e0d8ba3c5459978992a7}{Shape} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classShape_a935afc9e576015f967d90de56977167d}{$\sim$\-Shape} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classShape_aabf2fde36d48854cb10fbae4fe6ea0cf}{set\-Center} (\hyperlink{classPoint}{Point} new\-\_\-var)
+\begin{DoxyCompactList}\small\item\em Set the value of center. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classShape_a178ba40bdc7f20c1342f34450257f740}{get\-Center} () const 
+\begin{DoxyCompactList}\small\item\em Get the value of center. \end{DoxyCompactList}\item 
+int \hyperlink{classShape_ace78f87ad50bac4ea2592e730a7e9630}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em Get type of the shape. \end{DoxyCompactList}\item 
+void \hyperlink{classShape_a44bfca3ef6564ff0f34badc77f594862}{set\-Type} (int type)
+\begin{DoxyCompactList}\small\item\em Set type. \end{DoxyCompactList}\item 
+double \hyperlink{classShape_a1c04ad00113b2a8c0787c50edfa08c5c}{get\-Size} () const 
+\begin{DoxyCompactList}\small\item\em Get size (edge length for polygons, diameter for circle). \end{DoxyCompactList}\item 
+void \hyperlink{classShape_aaee049351828e1209697bb2b357ca61a}{set\-Size} (double size)
+\begin{DoxyCompactList}\small\item\em Set size (edge length for polygons, radius for circle). \end{DoxyCompactList}\item 
+\hyperlink{classPoint}{Point} \hyperlink{classShape_ac28a20365613c955cfb3ebc3f452b6c6}{get\-Last\-Center} ()
+\begin{DoxyCompactList}\small\item\em Get last position of shape. \end{DoxyCompactList}\item 
+bool \hyperlink{classShape_a0ff4bb8b9d0a6e6ad47ab3b7037b0302}{hit\-Test} (const \hyperlink{classPoint}{Point} \&point) const 
+\begin{DoxyCompactList}\small\item\em Tests if a \hyperlink{classShape}{Shape} includes a point. \end{DoxyCompactList}\item 
+bool \hyperlink{classShape_ab545013b4a52ccc4acd7d8a56d45d5c8}{hit\-Test} (const \hyperlink{classShape}{Shape} \&shape) const 
+\begin{DoxyCompactList}\small\item\em Tests if a \hyperlink{classShape}{Shape} intersects with another \hyperlink{classShape}{Shape}. \end{DoxyCompactList}\item 
+int \hyperlink{classShape_ad4e614404ea0276a9eee3d8299b24e98}{intersect} (const \hyperlink{classShape}{Shape} \&shape)
+\begin{DoxyCompactList}\small\item\em Get intersections of minimal bounding boxes with another shape. \end{DoxyCompactList}\item 
+\hyperlink{classPoint}{Point} \hyperlink{classShape_aab4459fa7eb1ed03c052e6f5a99c231f}{get\-Left\-Bottom} () const 
+\begin{DoxyCompactList}\small\item\em Gets the left bottom point of the shape. \end{DoxyCompactList}\item 
+\hyperlink{classPoint}{Point} \hyperlink{classShape_a97c5436ae38f0994f0eb3b6a2c1eed08}{get\-Right\-Top} () const 
+\begin{DoxyCompactList}\small\item\em Gets the right top point of the shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class \hyperlink{classShape}{Shape} \hyperlink{classShape}{Shape} are needed for objects' bounds and view areas 
+
+Definition at line 17 of file Shape.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShape_a8e8680c7a68edeb2826e9e72cfa9adbf}{\index{Shape@{Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Shape@{Shape}}
+\subsubsection[{Shape}]{\setlength{\rightskip}{0pt plus 5cm}Shape\-::\-Shape (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{center, }
+\item[{int}]{type, }
+\item[{double}]{size}
+\end{DoxyParamCaption}
+)}}\label{classShape_a8e8680c7a68edeb2826e9e72cfa9adbf}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & type of the shape \\
+\hline
+{\em center} & center of the \hyperlink{classShape}{Shape} \\
+\hline
+{\em size} & size of the \hyperlink{classShape}{Shape} (edge length for polygons, diameter for circle). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file Shape.\-cpp.
+
+\hypertarget{classShape_aaa8d87171e65e0d8ba3c5459978992a7}{\index{Shape@{Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Shape@{Shape}}
+\subsubsection[{Shape}]{\setlength{\rightskip}{0pt plus 5cm}Shape\-::\-Shape (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShape_aaa8d87171e65e0d8ba3c5459978992a7}
+
+
+Constructor. 
+
+
+
+Definition at line 26 of file Shape.\-cpp.
+
+\hypertarget{classShape_a935afc9e576015f967d90de56977167d}{\index{Shape@{Shape}!$\sim$\-Shape@{$\sim$\-Shape}}
+\index{$\sim$\-Shape@{$\sim$\-Shape}!Shape@{Shape}}
+\subsubsection[{$\sim$\-Shape}]{\setlength{\rightskip}{0pt plus 5cm}Shape\-::$\sim$\-Shape (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShape_a935afc9e576015f967d90de56977167d}
+
+
+Destructor. 
+
+
+
+Definition at line 30 of file Shape.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShape_a178ba40bdc7f20c1342f34450257f740}{\index{Shape@{Shape}!get\-Center@{get\-Center}}
+\index{get\-Center@{get\-Center}!Shape@{Shape}}
+\subsubsection[{get\-Center}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Shape\-::get\-Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classShape_a178ba40bdc7f20c1342f34450257f740}
+
+
+Get the value of center. 
+
+\begin{DoxyReturn}{Returns}
+the value of center. 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file Shape.\-cpp.
+
+\hypertarget{classShape_ac28a20365613c955cfb3ebc3f452b6c6}{\index{Shape@{Shape}!get\-Last\-Center@{get\-Last\-Center}}
+\index{get\-Last\-Center@{get\-Last\-Center}!Shape@{Shape}}
+\subsubsection[{get\-Last\-Center}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Shape\-::get\-Last\-Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShape_ac28a20365613c955cfb3ebc3f452b6c6}
+
+
+Get last position of shape. 
+
+\begin{DoxyReturn}{Returns}
+coordinates of the last position 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Shape.\-cpp.
+
+\hypertarget{classShape_aab4459fa7eb1ed03c052e6f5a99c231f}{\index{Shape@{Shape}!get\-Left\-Bottom@{get\-Left\-Bottom}}
+\index{get\-Left\-Bottom@{get\-Left\-Bottom}!Shape@{Shape}}
+\subsubsection[{get\-Left\-Bottom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Shape\-::get\-Left\-Bottom (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classShape_aab4459fa7eb1ed03c052e6f5a99c231f}
+
+
+Gets the left bottom point of the shape. 
+
+
+
+Definition at line 86 of file Shape.\-cpp.
+
+\hypertarget{classShape_a97c5436ae38f0994f0eb3b6a2c1eed08}{\index{Shape@{Shape}!get\-Right\-Top@{get\-Right\-Top}}
+\index{get\-Right\-Top@{get\-Right\-Top}!Shape@{Shape}}
+\subsubsection[{get\-Right\-Top}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Shape\-::get\-Right\-Top (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classShape_a97c5436ae38f0994f0eb3b6a2c1eed08}
+
+
+Gets the right top point of the shape. 
+
+
+
+Definition at line 91 of file Shape.\-cpp.
+
+\hypertarget{classShape_a1c04ad00113b2a8c0787c50edfa08c5c}{\index{Shape@{Shape}!get\-Size@{get\-Size}}
+\index{get\-Size@{get\-Size}!Shape@{Shape}}
+\subsubsection[{get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}double Shape\-::get\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classShape_a1c04ad00113b2a8c0787c50edfa08c5c}
+
+
+Get size (edge length for polygons, diameter for circle). 
+
+\begin{DoxyReturn}{Returns}
+size 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Shape.\-cpp.
+
+\hypertarget{classShape_ace78f87ad50bac4ea2592e730a7e9630}{\index{Shape@{Shape}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Shape@{Shape}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int Shape\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classShape_ace78f87ad50bac4ea2592e730a7e9630}
+
+
+Get type of the shape. 
+
+\begin{DoxyReturn}{Returns}
+type of the shape. 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Shape.\-cpp.
+
+\hypertarget{classShape_a0ff4bb8b9d0a6e6ad47ab3b7037b0302}{\index{Shape@{Shape}!hit\-Test@{hit\-Test}}
+\index{hit\-Test@{hit\-Test}!Shape@{Shape}}
+\subsubsection[{hit\-Test}]{\setlength{\rightskip}{0pt plus 5cm}bool Shape\-::hit\-Test (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{point}
+\end{DoxyParamCaption}
+) const}}\label{classShape_a0ff4bb8b9d0a6e6ad47ab3b7037b0302}
+
+
+Tests if a \hyperlink{classShape}{Shape} includes a point. 
+
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em point} & point to test \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file Shape.\-cpp.
+
+\hypertarget{classShape_ab545013b4a52ccc4acd7d8a56d45d5c8}{\index{Shape@{Shape}!hit\-Test@{hit\-Test}}
+\index{hit\-Test@{hit\-Test}!Shape@{Shape}}
+\subsubsection[{hit\-Test}]{\setlength{\rightskip}{0pt plus 5cm}bool Shape\-::hit\-Test (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shape} \&}]{shape}
+\end{DoxyParamCaption}
+) const}}\label{classShape_ab545013b4a52ccc4acd7d8a56d45d5c8}
+
+
+Tests if a \hyperlink{classShape}{Shape} intersects with another \hyperlink{classShape}{Shape}. 
+
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & \hyperlink{classShape}{Shape} to test \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file Shape.\-cpp.
+
+\hypertarget{classShape_ad4e614404ea0276a9eee3d8299b24e98}{\index{Shape@{Shape}!intersect@{intersect}}
+\index{intersect@{intersect}!Shape@{Shape}}
+\subsubsection[{intersect}]{\setlength{\rightskip}{0pt plus 5cm}int Shape\-::intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shape} \&}]{shape}
+\end{DoxyParamCaption}
+)}}\label{classShape_ad4e614404ea0276a9eee3d8299b24e98}
+
+
+Get intersections of minimal bounding boxes with another shape. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & another shape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flags of intersections 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file Shape.\-cpp.
+
+\hypertarget{classShape_aabf2fde36d48854cb10fbae4fe6ea0cf}{\index{Shape@{Shape}!set\-Center@{set\-Center}}
+\index{set\-Center@{set\-Center}!Shape@{Shape}}
+\subsubsection[{set\-Center}]{\setlength{\rightskip}{0pt plus 5cm}void Shape\-::set\-Center (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{new\-\_\-var}
+\end{DoxyParamCaption}
+)}}\label{classShape_aabf2fde36d48854cb10fbae4fe6ea0cf}
+
+
+Set the value of center. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-var} & the new value of center. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Shape.\-cpp.
+
+\hypertarget{classShape_aaee049351828e1209697bb2b357ca61a}{\index{Shape@{Shape}!set\-Size@{set\-Size}}
+\index{set\-Size@{set\-Size}!Shape@{Shape}}
+\subsubsection[{set\-Size}]{\setlength{\rightskip}{0pt plus 5cm}void Shape\-::set\-Size (
+\begin{DoxyParamCaption}
+\item[{double}]{size}
+\end{DoxyParamCaption}
+)}}\label{classShape_aaee049351828e1209697bb2b357ca61a}
+
+
+Set size (edge length for polygons, radius for circle). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & new size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file Shape.\-cpp.
+
+\hypertarget{classShape_a44bfca3ef6564ff0f34badc77f594862}{\index{Shape@{Shape}!set\-Type@{set\-Type}}
+\index{set\-Type@{set\-Type}!Shape@{Shape}}
+\subsubsection[{set\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void Shape\-::set\-Type (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{classShape_a44bfca3ef6564ff0f34badc77f594862}
+
+
+Set type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & new type. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file Shape.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+model/\-Utilities/\-Shape/\hyperlink{Shape_8h}{Shape.\-h}\item 
+model/\-Utilities/\-Shape/\hyperlink{Shape_8cpp}{Shape.\-cpp}\end{DoxyCompactItemize}
