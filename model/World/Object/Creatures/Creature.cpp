@@ -12,9 +12,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Creature::Creature(CreatureType type, const DecisionMaker & dmaker,
-                   double x, double y) :
-    Object(CREATURE, x, y),
+Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
+    Object(CREATURE),
     subtype(type),
     inventory(new ObjectHeap),
     objects_around(new ObjectHeap),

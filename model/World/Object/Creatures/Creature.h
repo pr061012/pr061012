@@ -27,11 +27,8 @@ public:
      *        attributes).
      * @param type      creature's type
      * @param dmaker    creature's decision maker
-     * @param x         x coordinate
-     * @param y         y coordinate
      */
-    Creature(CreatureType type, const DecisionMaker & dmaker,
-             double x, double y);
+    Creature(CreatureType type, const DecisionMaker & dmaker);
 
     /**
      * @brief Destructor.

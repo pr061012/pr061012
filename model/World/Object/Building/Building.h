@@ -25,7 +25,7 @@ public:
     /**
      * @brief Constructor.
      */
-    Building(double x, double y, uint max_space, uint max_health);
+    Building(uint max_space, uint max_health);
 
     /**
      * @brief Destructor.

@@ -29,7 +29,6 @@ static inline double doubleRand(int top_boundary)
     return (rand() % top_boundary + 1) / 100.0;
 }
 
-
 /**
  * @brief Returns random number from range [low_boundary, top_boundary]
  *        (implementation for doubles).

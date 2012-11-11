@@ -12,8 +12,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Weather::Weather(WeatherType type, double x, double y, uint living_steps) :
-    Object(WEATHER, x, y),
+Weather::Weather(WeatherType type, uint living_steps) :
+    Object(WEATHER),
     subtype(type),
     covered_objs(new ObjectHeap)
 {

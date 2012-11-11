@@ -12,8 +12,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Resource::Resource(ResourceType type, double x, double y, uint res_amount) :
-    Object(RESOURCE, x, y),
+Resource::Resource(ResourceType type, uint res_amount) :
+    Object(RESOURCE),
     subtype(type),
     progress(0),
     steps_to_reg(0)
