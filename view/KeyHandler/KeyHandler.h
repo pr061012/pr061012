@@ -6,10 +6,16 @@
 #ifndef KEY_HANDLER_H
 #define KEY_HANDLER_H
 
+class View;
+class KeyHandler;
+
 #include "../../model/BasicTypes.h"
+#include "../View.h"
 
 class KeyHandler
 {
+    View* view;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -18,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    KeyHandler();
+    KeyHandler(View* v);
 
     /**
      * @brief Destructor

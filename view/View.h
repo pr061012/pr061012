@@ -50,8 +50,8 @@ public:
     double getX();
     double getY();
 
-    double setX(double new_var);
-    double setY(double new_var);
+    void setX(double new_var);
+    void setY(double new_var);
 
 
     //**************************************************************************

@@ -67,22 +67,22 @@ void ViewWorld::redraw()
 
 double ViewWorld::getX()
 {
-    return view_world->x;
+    return this->x;
 }
 
 double ViewWorld::getY()
 {
-    return view_world->y;
+    return this->y;
 }
 
 void ViewWorld::setX(double new_var)
 {
-    x = new_var;
+    this->x = new_var;
 }
 
 void ViewWorld::setY(double new_var)
 {
-    y = new_var;
+    this->y = new_var;
 }
 
 void ViewWorld::renderObject(Object* object)
@@ -128,11 +128,14 @@ void ViewWorld::renderBackground()
 
     glEnable(GL_TEXTURE_2D);
 
+    double x_offset = x - (int)x;
+    double y_offset = y - (int)y;
+
     glBegin(GL_POLYGON);
-        glTexCoord2f(0.0,   0.0); glVertex2f(-8.0f+x, -8.0f+y);
-        glTexCoord2f(16.0,  0.0); glVertex2f( 8.0f+x, -8.0f+y);
-        glTexCoord2f(16.0, 16.0); glVertex2f( 8.0f+x,  8.0f+y);
-        glTexCoord2f(0.0,  16.0); glVertex2f(-8.0f+x,  8.0f+y);
+        glTexCoord2f(0.0  + x, 0.0  + y); glVertex2f(-8.0f, -8.0f);
+        glTexCoord2f(16.0 + x, 0.0  + y); glVertex2f( 8.0f, -8.0f);
+        glTexCoord2f(16.0 + x, 16.0 + y); glVertex2f( 8.0f,  8.0f);
+        glTexCoord2f(0.0  + x, 16.0 + y); glVertex2f(-8.0f,  8.0f);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);

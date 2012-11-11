@@ -4,8 +4,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-KeyHandler::KeyHandler()
+KeyHandler::KeyHandler(View* v)
 {
+    view = v;
 }
 
 
@@ -16,6 +17,9 @@ KeyHandler::~KeyHandler()
 
 int KeyHandler::handleKeys()
 {
-    //glfwGetKey(GLFW_KEY_ESC);
+    if(glfwGetKey(GLFW_KEY_RIGHT))
+    {
+        view->setX(view->getX()+0.05);
+    }
 
 }

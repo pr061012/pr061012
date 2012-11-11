@@ -27,20 +27,20 @@ View::~View()
 
 double View::getX()
 {
-    return view_world->x;
+    return view_world->getX();
 }
 
 double View::getY()
 {
-    return view_world->y;
+    return view_world->getY();
 }
 
-double View::setX(double new_var)
+void View::setX(double new_var)
 {
     view_world->setX(new_var);
 }
 
-double View::setY(double new_var)
+void View::setY(double new_var)
 {
     view_world->setY(new_var);
 }
