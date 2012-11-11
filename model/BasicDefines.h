@@ -103,10 +103,15 @@
 // (ResourceType enum).
 //******************************************************************************
 
+/// Stone tool strength.
 #define TOOL_STONE_STRENGTH         100
+/// Bronze tool strength.
 #define TOOL_BRONZE_STRENGTH        200
+/// Iron tool strength.
 #define TOOL_IRON_STRENGTH          400
+/// Silver tool strength.
 #define TOOL_SILVER_STRENGTH        800
+/// Gold tool strength.
 #define TOOL_GOLD_STRENGTH          1600
 
 //******************************************************************************
