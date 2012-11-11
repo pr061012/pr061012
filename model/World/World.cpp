@@ -53,9 +53,10 @@ World::World(int rand_seed, int width, int height) :
 
     for(int i = 30 + rand()%50; i>=0; --i)
     {
+        params.addKey<double>("x", 20.0 + rand() % 50);
+        params.addKey<double>("y", 20.0 + rand() % 50);
+
         Object* newobj  = object_factory->createObject(RESOURCE, params);
-        newobj->setCoords(Point(20.0+rand()%50,20.0+rand()%50));
-        newobj->setShape(Shape(newobj->getCoords(), CIRCLE, 10.0));
         visible_objs->push(newobj);
 
         indexator->reindexate(newobj);
