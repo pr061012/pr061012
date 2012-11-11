@@ -22,10 +22,6 @@
  *        parameter `obj_type`. Value of this param is ObjectType (converted to
  *        int). For each object type a few parameters more are needed.
  *
- *        **Common params**:
- *          * *x* -- x coordinate (double).
- *          * *y* -- y coordinate (double).
- *
  *        **Creature**
  *          * *creat_type* -- CreatureType.
  *
