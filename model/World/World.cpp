@@ -22,21 +22,24 @@ World::~World()
 }
 
 World::World(std::string filepath) :
-    size(DEFAULT_SIZE)
+    size(DEFAULT_SIZE),
+    hum_dmaker(HUMANOID),
+    nhum_dmaker(NON_HUMANOID)
 {
 
 }
 
 World::World(int rand_seed, int size) :
-    size(size > 0 ? size : DEFAULT_SIZE)
+    size(size > 0 ? size : DEFAULT_SIZE),
+    hum_dmaker(HUMANOID),
+    nhum_dmaker(NON_HUMANOID)
 {
     srand(rand_seed);
 
     std::cout << "Creating world with rand_seed="
               << rand_seed << std::endl;
 
-    object_factory = new ObjectFactory(DecisionMaker(HUMANOID),
-                                       DecisionMaker(NON_HUMANOID));
+    object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
     visible_objs = new ObjectHeap();
 
 
