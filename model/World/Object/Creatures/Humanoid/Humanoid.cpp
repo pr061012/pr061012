@@ -25,8 +25,10 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     int age = randFromRange(HUM_AGE_MIN, HUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    setMaxAge(age);
-    setMaxAge(0);
+    this -> setMaxAge(age);
+    this -> setMaxAge(0);
+    this -> setShapeSize(SZ_HUMANOID_DIAM);
+    this -> setShapeType(SHP_HUMANOID);
 
     // TODO: Randomly initialize humanoid's name.
     name = "Name";

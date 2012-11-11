@@ -6,6 +6,8 @@
 #ifndef CONTROLLER_H__
 #define CONTROLLER_H__
 
+#include <vector>
+
 #include "../../model/World/World.h"
 #include "../Performer/Performer.h"
 
@@ -19,11 +21,6 @@ public:
     //*************************************************************************
     // CONSTRUCTOR/DESTRUCTOR
     //*************************************************************************
-    
-    /**
-     * @brief Empty constructor
-     */
-    Controller();
 
     /**
      * @brief Constructor
@@ -43,7 +40,7 @@ public:
     /**
      * @brief Tries to make all requested actions in the world.
      */
-    step();
+    void step();
 
 private:
     
@@ -55,7 +52,7 @@ private:
     World& world;
 
     // List of performers
-    Performer * performers;
-}
+    std::vector <Performer *> performers;
+};
 
 #endif

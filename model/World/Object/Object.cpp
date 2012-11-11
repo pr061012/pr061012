@@ -11,9 +11,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type, double x, double y) :
+Object::Object(ObjectType type) :
     type(type),
-    shape(Shape(Point(x, y), SHP_DEFAULT, SZ_DEFAULT))
+    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT))
 {
     this -> destroyed = false;
     this -> immortality = false;

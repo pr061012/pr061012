@@ -4,15 +4,11 @@
 */
 
 #include "Controller.h"
-#include "../Performer/MovementPerformer.h"
+#include "../Performer/MovementPerformer/MovementPerformer.h"
 
-Controller::Controller()
+Controller::Controller(World& world) :
+    world(world)
 {
-}
-
-Controller::Controller(World& world) : world(world)
-{
-    performers = new Performer[7];
     // TODO
     // Need either indexator pointer or a world's method 'getObjectsInArea'
     // for MovementPerfomer. And also size.
@@ -24,7 +20,7 @@ Controller::~Controller()
     delete performers;
 }
 
-void Controller:step()
+void Controller::step()
 {
     ObjectHeap objects = world.getAllObjects();
 

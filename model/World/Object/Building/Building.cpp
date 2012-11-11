@@ -12,8 +12,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Building::Building(double x, double y, uint max_space, uint max_health) :
-    Object(BUILDING, x, y),
+Building::Building(uint max_space, uint max_health) :
+    Object(BUILDING),
     contents(new ObjectHeap),
     health(0),
     max_health(max_health),

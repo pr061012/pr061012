@@ -17,6 +17,10 @@ Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
     subtype(type),
     material(material)
 {
+    // Initialising shape.
+    this -> setShapeSize(SZ_TOOL_DIAM);
+    this -> setShapeType(SHP_TOOL);
+
     // Trying to create Tool from non-mine resource.
     if
     (

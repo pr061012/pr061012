@@ -25,8 +25,9 @@ public:
 
     /**
      * @brief Constructor.
+     * @param type  ObjectType
      */
-    Object(ObjectType type, double x, double y);
+    Object(ObjectType type);
 
     /**
      * @brief Destructor.

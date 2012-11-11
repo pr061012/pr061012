@@ -39,6 +39,10 @@
 /// Humanoid size.
 #define SZ_HUMANOID_DIAM            (double) 1
 
+// TODO: Add sizes for different types of NonHums.
+/// NonHumanoid size.
+#define SZ_NON_HUMANOID_DIAM        SZ_HUMANOID_DIAM * 0.5
+
 /// World size (vertical side).
 #define SZ_WORLD_VSIDE              1000 * SZ_HUMANOID_DIAM
 /// World size (horizontal size).
@@ -62,6 +66,9 @@
 /// Resource shape diameter (maximum size).
 #define SZ_RESOURCE_DIAM_MAX        10 * SZ_HUMANOID_DIAM
 
+/// Tool size (when dropped to ground).
+#define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1
+
 /// View area for NonHum
 #define SZ_NHUM_VIEW_DIAM           50 * SZ_HUMANOID_DIAM
 
@@ -76,6 +83,9 @@
 /// Humanoid's shape.
 #define SHP_HUMANOID                CIRCLE
 
+/// NonHumanoid's shape.
+#define SHP_NON_HUMANOID            CIRCLE
+
 /// Building's shape.
 #define SHP_BUILDING                SQUARE
 
@@ -84,6 +94,9 @@
 
 /// Resource's shape.
 #define SHP_RESOURCE                CIRCLE
+
+/// Tool's shape.
+#define SHP_TOOL                    CIRCLE
 
 //******************************************************************************
 // WEATHER DEFINES.
@@ -103,10 +116,15 @@
 // (ResourceType enum).
 //******************************************************************************
 
+/// Stone tool strength.
 #define TOOL_STONE_STRENGTH         100
+/// Bronze tool strength.
 #define TOOL_BRONZE_STRENGTH        200
+/// Iron tool strength.
 #define TOOL_IRON_STRENGTH          400
+/// Silver tool strength.
 #define TOOL_SILVER_STRENGTH        800
+/// Gold tool strength.
 #define TOOL_GOLD_STRENGTH          1600
 
 //******************************************************************************
