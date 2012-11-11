@@ -66,9 +66,14 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
+        // Copying data.
         Type* copy = static_cast<Type*>( malloc(sizeof(Type)) );
         *copy = value;
 
+        // Firstly removing this key and value (if it's existed).
+        this -> removeKey(key);
+
+        // Adding key.
         this -> map[key] = copy;
     }
 
