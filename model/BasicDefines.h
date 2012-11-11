@@ -185,6 +185,10 @@
 #define RES_GOLD_ORE_DROP_MIN       3
 #define RES_GOLD_ORE_DROP_MAX       8
 
+// Food values
+#define RES_GRASS_FOOD_VALUE        1
+#define RES_BERRIES_FOOD_VALUE      2
+
 //******************************************************************************
 // CREATURE DEFINES.
 // Prefix: CREAT.
