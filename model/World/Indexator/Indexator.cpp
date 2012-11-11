@@ -45,6 +45,8 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
     // Get cells which our area covers
     uint * cells_area = getCellsArea(area);
 
+    /**
+     *  Toroidal feature
     // Create more areas to check collisions with objects intersecting 
     // bounds of the world
     Shape areas[4];
@@ -79,6 +81,8 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
     areas[3] = areas[2];
     areas[3].setCenter(areas[2].getCenter() + Point(0, -world_size));
 
+    */
+
     ObjectHeap * result = new ObjectHeap();
 
     // Search for objects in cells
@@ -89,6 +93,8 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
             for (ObjectHeap::iterator i = cells[x % row_size][y % row_size].begin();
                  i != cells[x % row_size][y % row_size].end(); i++)
             {
+            //*****************************************************************
+            /* Toroidal feature
                 // check if an object hits any area
                 for (int j = 0; j < 4; j++)
                 {
@@ -97,6 +103,13 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
                         result -> push(*i);
                         break;
                     }
+                }
+            */
+            //*****************************************************************
+
+                if (area.hitTest((*i) -> getShape()))
+                {
+                    result -> push(*i);
                 }
             }
         }
@@ -266,7 +279,10 @@ uint * Indexator::getCellsArea(Shape& shape)
     area[1] = getRow(lb.getY());
     area[2] = getRow(rt.getX());
     area[3] = getRow(rt.getY());
-
+    
+    //*************************************************************************
+    /** Toroidal feature
+     *
     // Move the shape to the corresponding cells
     if (lb.getX() < 0)
     {
@@ -287,6 +303,8 @@ uint * Indexator::getCellsArea(Shape& shape)
     {
         area[3] += row_size;
     }
+    */
+    //*************************************************************************
 
     return area;
 }
@@ -297,8 +315,9 @@ uint * Indexator::getCellsArea(Shape& shape)
 // Row's index >= 0
 uint Indexator::getRow(double coordinate)
 {
-    return (uint)(floor((coordinate + world_size) / cell_size)) 
-                            % row_size;
+    return min(row_size - 1,
+               (uint)(floor((coordinate + world_size) / cell_size)) 
+               % row_size);
 }
 
 // Destroys index and cells
