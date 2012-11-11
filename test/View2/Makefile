@@ -9,7 +9,6 @@ COBJS += $(MODELPATH)World/Action/Action.cpp
 COBJS += $(MODELPATH)God/God.cpp
 COBJS += $(MODELPATH)Utilities/Shape/Shape.cpp
 COBJS += $(MODELPATH)World/Indexator/Indexator.cpp
-COBJS += $(MODELPATH)World/IWorld.cpp
 COBJS += $(MODELPATH)World/World.cpp
 COBJS += $(MODELPATH)World/ObjectHeap/ObjectHeap.cpp
 COBJS += $(MODELPATH)World/Object/Building/Building.cpp

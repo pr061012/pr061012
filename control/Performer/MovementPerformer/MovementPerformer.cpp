@@ -4,6 +4,19 @@
 */
 
 #include "MovementPerformer.h"
+#include <string>
+#include <cmath>
+
+//*****************************************************************************
+// FOR TEST ONLY
+//*****************************************************************************
+#ifndef CREAT_SPEED_FAST_VALUE
+#define CREAT_SPEED_FAST_VALUE 10
+#endif
+
+#ifndef CREAT_SPEED_SLOW_VALUE
+#define CREAT_SPEED_SLOW_VALUE 5
+#endif
 
 // TODO
 // Improve movement algo
@@ -20,9 +33,33 @@ MovementPerformer::~MovementPerformer()
 
 void MovementPerformer::perform(Action& action)
 {
+    // Get needed data
     Object * actor = action.getActor();
-    Point dest = actor -> getCoords() + Point(action.getParam("delta_x"),
-                                             action.getParam("delta_y"));
+    ObjectType actor_type = actor -> getType();
+
+    // check if actor can go
+    if (actor_type != CREATURE && actor_type != WEATHER)
+    {
+        action.markAsFailed();
+        return;
+    }
+
+    // continue getting data
+    double angle = action.getParam<double>(std::string("angle"));
+    SpeedType speed_type = action.getParam<SpeedType>(std::string("speed"));
+    double speed;
+    switch (speed_type)
+    {
+        case SLOW_SPEED: 
+            speed = CREAT_SPEED_SLOW_VALUE; 
+            break;
+
+        case FAST_SPEED:
+            speed = CREAT_SPEED_FAST_VALUE;
+            break;
+
+    }
+    Point dest = actor -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
 
     // Place dest inside world's bounds
     while (dest.getX() < 0)

@@ -104,6 +104,9 @@ private:
     /// Cell size
     const double cell_size;
 
+    /// Shape of the world
+    const Shape world_shape;
+
     /// Type of an index structure
     typedef std::map<Object *, uint *> Index;
 
@@ -131,7 +134,7 @@ private:
      * @return  an array of coordinates of left bottom and
      *          right top coordinates (must be freed)
      */
-    uint * getCellsArea(Shape shape);
+    uint * getCellsArea(Shape& shape);
 
     /**
      * @brief   Returns row index for coodinate

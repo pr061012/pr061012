@@ -21,22 +21,13 @@ World::~World()
 }
 
 World::World(std::string filepath) :
-    width(DEFAULT_WIDTH),
-    height(DEFAULT_HEIGHT)
+    size(DEFAULT_SIZE)
 {
 
 }
 
-//World::World(int rand_seed) :
-//    width(DEFAULT_WIDTH),
-//    height(DEFAULT_HEIGHT)
-//{
-//    srand(rand_seed);
-//}
-
-World::World(int rand_seed, int width, int height) :
-    width(width  > 0 ? width  : DEFAULT_WIDTH),
-    height(height > 0 ? height : DEFAULT_HEIGHT)
+World::World(int rand_seed, int size) :
+    size(size > 0 ? size : DEFAULT_SIZE)
 {
     srand(rand_seed);
 
@@ -46,7 +37,7 @@ World::World(int rand_seed, int width, int height) :
     object_factory = new ObjectFactory();
     visible_objs = new ObjectHeap();
 
-    indexator = new Indexator((double)width);
+    indexator = new Indexator((double)this->size);
 
     ParamArray params;
 
@@ -60,6 +51,9 @@ World::World(int rand_seed, int width, int height) :
         // TODO: Do something with these magic consts.
         newobj -> setCoords(Point(randFromRange(20.0, 70.0),
                                   randFromRange(20.0, 70.0)));
+
+        newobj->setShapeType(CIRCLE);
+        newobj->setShapeSize(10.0);
         visible_objs->push(newobj);
 
         indexator->reindexate(newobj);
@@ -96,11 +90,6 @@ void World::save(std::string filepath)
 //    this -> visible_objs = new_var;
 //}
 
-//ObjectHeap* World::getAllObjects()
-//{
-//    return this -> visible_objs;
-//}
-
 void World::addObject(bool visibility, Object *obj)
 {
     if (visibility)
@@ -112,6 +101,34 @@ void World::addObject(bool visibility, Object *obj)
         this -> hidden_objs -> push(obj);
     }
 }
+
+double World::getSize()
+{
+    return this->size;
+}
+
+const Indexator* World::getIndexator()
+{
+    return this->indexator;
+}
+
+ObjectHeap *World::getVisibleObjects()
+{
+    return this->visible_objs;
+}
+
+ObjectHeap *World::getHiddenObjects()
+{
+    return this->hidden_objs;
+}
+
+//ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
+//{
+//    Point center(x, y);
+//    Shape area(center, CIRCLE, radius*2);
+//    ObjectHeap* ret = indexator->getAreaContents(area);
+//    return ret;
+//}
 
 //******************************************************************************
 // VIEW METHODS.

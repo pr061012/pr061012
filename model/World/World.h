@@ -17,10 +17,9 @@
 
 
 /**
- * @brief Default values for max x and y.
+ * @brief Default value for max x and y.
  */
-#define DEFAULT_WIDTH 5000
-#define DEFAULT_HEIGHT 5000
+#define DEFAULT_SIZE 5000
 
 /**
   * @class World
@@ -58,12 +57,11 @@ public:
      * @param height
      */
     World(int rand_seed = 0,
-          int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
+          int size = DEFAULT_SIZE);
 
 private:
     /// Size of World's region
-    const int width;
-    const int height;
+    const int size;
 
     //******************************************************************************
     // BASE METHODS.
@@ -104,23 +102,51 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Set the value of visible_objs.
+     * @brief Set the value of visible_objs
      * @param new_var the new value of visible_objs
      */
     //void setAllObjects(ObjectHeap* new_var);
 
     /**
-     * @brief add object in World
+     * @brief Add an object to World
      * @param visibility
      * @param obj
      */
     void addObject(bool visibility, Object* obj);
 
     /**
-     * @brief Get the value of visible_objs.
+     * @brief Get World's size
+     * @return World's size
+     */
+    double getSize();
+
+    /**
+     * @brief Get World's indexator
+     * @return World's indexator
+     */
+    const Indexator* getIndexator();
+
+    /**
+     * @brief Get the value of visible_objs
      * @return the value of visible_objs
      */
-    //ObjectHeap* getAllObjects();
+    ObjectHeap* getVisibleObjects();
+
+    /**
+     * @brief Get the value of hidden_objs
+     * @return the value of hidden_objs
+     */
+    ObjectHeap* getHiddenObjects();
+
+    /**
+     * @brief Get objects in certain radius around (x,y)
+     * @param x x coordinate of the range center
+     * @param y y coordinate of the range center
+     * @param radius range from which objects are returned
+     * @return Pointer to ObjectHeap of objects in radius
+     *         around (x,y)
+     */
+    // ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
     //******************************************************************************
     // VIEW METHODS.
