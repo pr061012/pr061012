@@ -15,6 +15,8 @@
 Controller::Controller(World * world) :
     world(world)
 {
+    // FIXME: Dirty workaround.
+    performers.resize(200);
     performers[GO] = (Performer *) new MovementPerformer(world -> getSize(), 
                                                          world -> getIndexator());
     performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator());
