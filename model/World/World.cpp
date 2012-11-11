@@ -21,22 +21,13 @@ World::~World()
 }
 
 World::World(std::string filepath) :
-    width(DEFAULT_WIDTH),
-    height(DEFAULT_HEIGHT)
+    size(DEFAULT_SIZE)
 {
 
 }
 
-//World::World(int rand_seed) :
-//    width(DEFAULT_WIDTH),
-//    height(DEFAULT_HEIGHT)
-//{
-//    srand(rand_seed);
-//}
-
-World::World(int rand_seed, int width, int height) :
-    width(width  > 0 ? width  : DEFAULT_WIDTH),
-    height(height > 0 ? height : DEFAULT_HEIGHT)
+World::World(int rand_seed, int size) :
+    size(size > 0 ? size : DEFAULT_SIZE)
 {
     srand(rand_seed);
 
@@ -46,7 +37,7 @@ World::World(int rand_seed, int width, int height) :
     object_factory = new ObjectFactory();
     visible_objs = new ObjectHeap();
 
-    indexator = new Indexator((double)width);
+    indexator = new Indexator((double)this->size);
 
     ParamArray params;
 
@@ -111,32 +102,28 @@ void World::addObject(bool visibility, Object *obj)
     }
 }
 
-double World::getWidth()
+double World::getSize()
 {
-    return this->width;
+    return this->size;
 }
 
-double World::getHeight()
+const Indexator* World::getIndexator()
 {
-    return this->height;
+    return this->indexator;
 }
-
-//******************************************************************************
-// CONTROLLER METHODS.
-//******************************************************************************
 
 ObjectHeap *World::getAllObjects()
 {
     return this->visible_objs;
 }
 
-ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
-{
-    Point center(x, y);
-    Shape area(center, CIRCLE, radius*2);
-    ObjectHeap* ret = indexator->getAreaContents(area);
-    return ret;
-}
+//ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
+//{
+//    Point center(x, y);
+//    Shape area(center, CIRCLE, radius*2);
+//    ObjectHeap* ret = indexator->getAreaContents(area);
+//    return ret;
+//}
 
 //******************************************************************************
 // VIEW METHODS.

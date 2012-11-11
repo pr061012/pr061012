@@ -5,6 +5,7 @@
 #include "../../view/ViewObject/ViewObject.h"
 #include "Action/Action.h"
 #include "ObjectHeap/ObjectHeap.h"
+#include "Indexator/Indexator.h"
 #include "../Utilities/Shape/Shape.h"
 //#include "../God/God.h"
 
@@ -17,10 +18,9 @@ public:
 
     virtual ObjectHeap* getAllObjects() = 0;
 
-    virtual ObjectHeap* getObjectsInRange(double x, double y, double radius) = 0;
+    virtual const Indexator* getIndexator() = 0;
 
-    virtual double getWidth() = 0;
-    virtual double getHeight() = 0;
+    virtual double getSize() = 0;
 
     //******************************************************************************
     // WORLD <-> VIEW METHODS.

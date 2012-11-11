@@ -17,10 +17,9 @@
 
 
 /**
- * @brief Default values for max x and y.
+ * @brief Default value for max x and y.
  */
-#define DEFAULT_WIDTH 5000
-#define DEFAULT_HEIGHT 5000
+#define DEFAULT_SIZE 5000
 
 /**
   * @class World
@@ -58,12 +57,11 @@ public:
      * @param height
      */
     World(int rand_seed = 0,
-          int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
+          int size = DEFAULT_SIZE);
 
 private:
     /// Size of World's region
-    const int width;
-    const int height;
+    const int size;
 
     //******************************************************************************
     // BASE METHODS.
@@ -117,20 +115,16 @@ public:
     void addObject(bool visibility, Object* obj);
 
     /**
-     * @brief Get World's width
-     * @return World's width
+     * @brief Get World's size
+     * @return World's size
      */
-    double getWidth();
+    double getSize();
 
     /**
-     * @brief Get World's height
-     * @return World's height
+     * @brief Get World's indexator
+     * @return World's indexator
      */
-    double getHeight();
-
-    //******************************************************************************
-    // CONTROLLER METHODS.
-    //******************************************************************************
+    const Indexator* getIndexator();
 
     /**
      * @brief Get the value of visible_objs
@@ -146,7 +140,7 @@ public:
      * @return Pointer to ObjectHeap of objects in radius
      *         around (x,y)
      */
-    ObjectHeap* getObjectsInRange(double x, double y, double radius);
+    // ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
     //******************************************************************************
     // VIEW METHODS.
