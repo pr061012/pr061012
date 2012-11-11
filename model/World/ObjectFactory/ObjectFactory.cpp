@@ -19,7 +19,10 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ObjectFactory::ObjectFactory()
+ObjectFactory::ObjectFactory(const DecisionMaker& hum_dmaker,
+                             const DecisionMaker& nhum_dmaker) :
+    hum_dmaker(hum_dmaker),
+    nhum_dmaker(nhum_dmaker)
 {
 }
 
@@ -79,15 +82,14 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 
     Object * obj = NULL;
 
-    // TODO: How to pass DecisionMaker?
     switch(type)
     {
         case HUMANOID:
-            //obj = new Humanoid(NULL);
+            obj = new Humanoid(this -> hum_dmaker);
         break;
 
         case NON_HUMANOID:
-            //obj = new NonHumanoid(NULL);
+            obj = new NonHumanoid(this -> nhum_dmaker);
         break;
     }
 
