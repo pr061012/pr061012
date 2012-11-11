@@ -43,7 +43,7 @@ void ViewWorld::loadTextures()
         "res/tree.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
+        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
     );
 
     texture_buf[2] = SOIL_load_OGL_texture
@@ -51,7 +51,7 @@ void ViewWorld::loadTextures()
         "res/cow.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
+        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
     );
 }
 
@@ -111,12 +111,18 @@ void ViewWorld::renderObject(Object* object)
     float x1;
     float y1;
 
+    float x_sz;
+    float y_sz;
+
     if(object->getType() == RESOURCE)
     {
         x0 = 126.0/640;
         y0 = 1.0 - 110.0/480;
         x1 = 196.0/640;
         y1 = 1.0;
+
+        x_sz = 0.33;
+        y_sz = 0.5;
 
         glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
     }
@@ -127,6 +133,9 @@ void ViewWorld::renderObject(Object* object)
         x1 = 1.0;
         y1 = 1.0;
 
+        x_sz = 0.58;
+        y_sz = 0.4;
+
         glBindTexture(GL_TEXTURE_2D, texture_buf[2]);
     }
 
@@ -134,10 +143,10 @@ void ViewWorld::renderObject(Object* object)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glBegin(GL_POLYGON);
-        glTexCoord2f(x0, y0); glVertex2f(px-0.33, py-0.5);
-        glTexCoord2f(x1, y0); glVertex2f(px+0.33, py-0.5);
-        glTexCoord2f(x1, y1); glVertex2f(px+0.33, py+0.5);
-        glTexCoord2f(x0, y1); glVertex2f(px-0.33, py+0.5);
+        glTexCoord2f(x0, y0); glVertex2f(px-x_sz, py-y_sz);
+        glTexCoord2f(x1, y0); glVertex2f(px+x_sz, py-y_sz);
+        glTexCoord2f(x1, y1); glVertex2f(px+x_sz, py+y_sz);
+        glTexCoord2f(x0, y1); glVertex2f(px-x_sz, py+y_sz);
     glEnd();
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
