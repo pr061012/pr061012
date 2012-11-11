@@ -117,6 +117,11 @@ ObjectHeap *World::getAllObjects()
     return this->visible_objs;
 }
 
+ObjectHeap *World::getHiddenObjects()
+{
+    return this->hidden_objs;
+}
+
 //ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
 //{
 //    Point center(x, y);

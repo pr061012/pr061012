@@ -133,6 +133,12 @@ public:
     ObjectHeap* getAllObjects();
 
     /**
+     * @brief Get the value of hidden_objs
+     * @return the value of hidden_objs
+     */
+    ObjectHeap* getHiddenObjects();
+
+    /**
      * @brief Get objects in certain radius around (x,y)
      * @param x x coordinate of the range center
      * @param y y coordinate of the range center

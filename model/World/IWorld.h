@@ -20,6 +20,8 @@ public:
 
     virtual ObjectHeap* getAllObjects() = 0;
 
+    virtual ObjectHeap* getHiddenObjects() = 0;
+
     virtual const Indexator* getIndexator() = 0;
 
     virtual double getSize() = 0;
