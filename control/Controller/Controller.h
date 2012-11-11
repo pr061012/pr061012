@@ -6,6 +6,8 @@
 #ifndef CONTROLLER_H__
 #define CONTROLLER_H__
 
+#include <vector>
+
 #include "../../model/World/World.h"
 #include "../Performer/Performer.h"
 
@@ -50,7 +52,7 @@ private:
     World& world;
 
     // List of performers
-    Performer* performers;
+    std::vector <Performer *> performers;
 };
 
 #endif
