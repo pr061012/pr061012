@@ -63,7 +63,7 @@ void Controller::step()
 
             for (uint j = 0; j < actions -> size(); j++)
             {
-                performers[(actions->at(j)).getType()] -> perform();
+                performers[(actions->at(j)).getType()] -> perform(actions->at(j));
             }
 //            for (std::vector<Action>::iterator j = actions -> begin();
 //                    j != actions -> end(); j++)
