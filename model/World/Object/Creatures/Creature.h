@@ -43,13 +43,13 @@ public:
      * @brief Set the value of creature's window.
      * @param window    the new value of window
      */
-    void setWindow(const ObjectHeap * window);
+    void setWindow(ObjectHeap * window);
 
     /**
      * @brief  Get the value of creature's window.
      * @return the window
      */
-    const ObjectHeap * getWindow();
+    ObjectHeap * getWindow();
 
     /**
      * @brief Set the value of view_area.
@@ -111,6 +111,12 @@ public:
      */
     uint getMaxHealth();
 
+    /**
+     * @brief  Get inventory
+     * @return inventory
+     */
+    ObjectHeap * getInventory();
+
     //**************************************************************************
     // CHANGING HEALTH.
     //**************************************************************************
@@ -144,15 +150,13 @@ private:
     const CreatureType subtype;
 
     /// Creature's window with visible objects.
-    const ObjectHeap * window;
+    ObjectHeap * window;
 
     /// Creature's inventory.
     ObjectHeap * inventory;
 
     /// View area for Indexator.
     Shape view_area;
-
-
 
 protected:
     /// Current creature's action.

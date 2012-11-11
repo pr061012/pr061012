@@ -27,3 +27,4 @@ test/*/test
 # Backups.
 *~
 *.swp
+*.swo
