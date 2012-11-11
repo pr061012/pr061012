@@ -81,6 +81,9 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
+    double getX();
+    double getY();
+
     /**
      * @brief set coordinates of center of the game cam
      */

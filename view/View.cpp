@@ -14,6 +14,7 @@ View::View(IWorld* w)
     initWindow();
 
     view_world = new ViewWorld(w);
+    key_handler = new KeyHandler(this);
 }
 
 
@@ -24,8 +25,30 @@ View::~View()
     glfwTerminate();
 }
 
+double View::getX()
+{
+    return view_world->x;
+}
+
+double View::getY()
+{
+    return view_world->y;
+}
+
+double View::setX(double new_var)
+{
+    view_world->setX(new_var);
+}
+
+double View::setY(double new_var)
+{
+    view_world->setY(new_var);
+}
+
 void View::redraw()
 {
+
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0.0f, 0.0f, -16.0f);
 

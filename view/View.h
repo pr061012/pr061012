@@ -13,12 +13,18 @@
 #include "../model/BasicDefines.h"
 #include "../model/World/IWorld.h"
 #include "ViewWorld/ViewWorld.h"
+#include "KeyHandler/KeyHandler.h"
 #include <iostream>
 
 class View
 {
     /// World to be rendered by View.
     ViewWorld* view_world;
+
+    KeyHandler* key_handler;
+
+    /// Key handler for GUI
+
 
 public:
     //**************************************************************************
@@ -35,6 +41,18 @@ public:
      * @brief Destructor
      */
     ~View();
+
+
+    //**************************************************************************
+    // ACCESSORS
+    //**************************************************************************
+
+    double getX();
+    double getY();
+
+    double setX(double new_var);
+    double setY(double new_var);
+
 
     //**************************************************************************
     // DRAWING METHODS.
