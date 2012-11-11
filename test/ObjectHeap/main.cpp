@@ -49,11 +49,6 @@ public:
         return ret;
     }
 
-    virtual void receiveMessage(Action * action)
-    {
-
-    }
-
     virtual void damage(uint delta)
     {
 
