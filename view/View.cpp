@@ -37,6 +37,8 @@ double View::getY()
 
 void View::setX(double new_var)
 {
+    new_var = new_var > 0 ? new_var : 0;
+    //new_var = new_var < v ? new_var : 0;
     view_world->setX(new_var);
 }
 
@@ -50,7 +52,7 @@ void View::redraw()
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0.0f, 0.0f, -16.0f);
+    glTranslatef(0.0f, 0.0f, -VIEW_CAM_SCALE*2);
 
     view_world->redraw();
 
