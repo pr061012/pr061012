@@ -85,10 +85,14 @@ void View::initWindow()
     glMatrixMode(GL_MODELVIEW);
 
     glfwSetWindowTitle(window, "Project 0612");
+
+    // needed for making OpenGl context, so glGetString does not return
+    // NULL and SOIL funcs don't corrupt memory
+    glfwMakeContextCurrent(window);
 }
 
 bool View::isExit()
 {
-    return !glfwGetKey(window, GLFW_KEY_ESC)
-            && glfwGetWindowParam(window, GLFW_ACTIVE);
+    return !(glfwGetKey(window, GLFW_KEY_ESC) == GLFW_PRESS)
+            && !glfwGetWindowParam(window, GLFW_CLOSE_REQUESTED);
 }

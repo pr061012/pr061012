@@ -117,8 +117,15 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
         }
 
     }
-
-    numb_of_decision = vect_of_actions[rand() % vect_of_actions.size()];
+    
+    if (vect_of_actions.size())
+    {
+        numb_of_decision = vect_of_actions[rand() % vect_of_actions.size()];
+    }
+    else 
+    {
+        numb_of_decision = 0;
+    }
     switch(numb_of_decision)
     {
     case 0: decision = SLEEP; break;
