@@ -10,7 +10,7 @@
 #include "../../model/BasicDefines.h"
 #include "../../model/World/IWorld.h"
 #include "../../model/World/Object/Object.h"
-#include <GL/glfw.h>
+#include <GL/glfw3.h>
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
 

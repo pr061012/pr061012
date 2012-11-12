@@ -35,6 +35,11 @@ double View::getY()
     return view_world->getY();
 }
 
+GLFWwindow View::getWindow()
+{
+    return this -> window;
+}
+
 void View::setX(double new_var)
 {
     new_var = new_var > 0 ? new_var : 0;
@@ -57,15 +62,15 @@ void View::redraw()
     view_world->redraw();
 
     glLoadIdentity();
-    glfwSwapBuffers();
+    glfwSwapBuffers(window);
 }
 
 void View::initWindow()
 {
     glfwInit();
 
-    if(!glfwOpenWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
-                         0, 0, 0, 0, 0, 0, GLFW_WINDOW))
+    if(!(this -> window = glfwCreateWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
+                         GLFW_WINDOWED, "Project", NULL)))
     {
         glfwTerminate();
         std::cerr << "Window initialized unsuccesfully.";
@@ -79,11 +84,11 @@ void View::initWindow()
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
-    glfwSetWindowTitle("Project 0612");
+    glfwSetWindowTitle(window, "Project 0612");
 }
 
 bool View::isExit()
 {
-    return !glfwGetKey(GLFW_KEY_ESC)
-            && glfwGetWindowParam(GLFW_OPENED);
+    return !glfwGetKey(window, GLFW_KEY_ESC)
+            && glfwGetWindowParam(window, GLFW_ACTIVE);
 }

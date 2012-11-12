@@ -6,7 +6,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <GL/glfw.h>
+#include <GL/glfw3.h>
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
 #include "../model/BasicTypes.h"
@@ -53,6 +53,7 @@ public:
     void setX(double new_var);
     void setY(double new_var);
 
+    GLFWwindow getWindow();
 
     //**************************************************************************
     // DRAWING METHODS.
@@ -74,6 +75,9 @@ private:
      * @brief initialize graphics window
      */
     void initWindow();
+
+    /// Window
+    GLFWwindow window;
 
 };
 
