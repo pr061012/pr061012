@@ -22,6 +22,7 @@ int main()
         View view(&world);
 
         int t0 = clock();
+        int counter = 0;
 
         do
         {
@@ -29,7 +30,13 @@ int main()
             {
                 t0 += PERIOD;
             }
-            control.step();
+
+            if(counter++ == 3)
+            {
+                control.step();
+                counter = 0;
+            }
+
             view.redraw();
 
         } while(view.isExit());
