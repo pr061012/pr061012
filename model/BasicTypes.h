@@ -214,4 +214,13 @@ enum ActionError
     OBJ_IS_NOT_PICKABLE
 };
 
+/**
+ * @enum NonHumanoidType
+ * @brief The NonHumanoidType enum
+ */
+enum NonHumanoidType
+{
+    COW, BEAR, DRAGON, GOOSE, SHEEP
+};
+
 #endif // BASIC_TYPES_H

@@ -1,50 +1,51 @@
 #include "KeyHandler.h"
 
+// TODO: Change name this define
+#define SPEED 1
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-KeyHandler::KeyHandler(View* v)
+KeyHandler::KeyHandler(View* v):
+    view(v)
 {
-    view = v;
-}
 
+}
 
 KeyHandler::~KeyHandler()
 {
 
 }
 
-// TODO: add 'speed' constant or variable instead of 0.05.
 void KeyHandler::handleKeys()
 {
         if(glfwGetKey(view -> getWindow(), GLFW_KEY_RIGHT))
         {
-            if(view->getX()+0.05 < VIEW_SCREEN_WIDTH)
+            if (view -> getX() + SPEED < VIEW_SCREEN_WIDTH)
             {
-                view->setX(view->getX()+0.05);
+                view -> setX(view -> getX() + SPEED);
             }
         }
         if(glfwGetKey(view -> getWindow(), GLFW_KEY_LEFT))
         {
-            if(view->getX()-0.05 > 0)
+            if (view -> getX() - SPEED > 0)
             {
-                view->setX(view->getX()-0.05);
+                view -> setX(view -> getX()-SPEED);
             }
         }
         if(glfwGetKey(view -> getWindow(), GLFW_KEY_DOWN))
         {
-            if(view->getY()-0.05 > 0)
+            if (view -> getY() - SPEED > 0)
             {
-                view->setY(view->getY()-0.05);
+                view -> setY(view -> getY() - SPEED);
             }
         }
         if(glfwGetKey(view -> getWindow(), GLFW_KEY_UP))
         {
-            if(view->getY()+0.05 < VIEW_SCREEN_HEIGHT)
+            if (view -> getY() + SPEED < VIEW_SCREEN_HEIGHT)
             {
-                view->setY(view->getY()+0.05);
+                view -> setY(view -> getY() + SPEED);
             }
         }
-
 }
