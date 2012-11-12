@@ -31,7 +31,7 @@ int main()
                 t0 += PERIOD;
             }
 
-            if(counter++ == 3)
+            if(counter++ == 10)
             {
                 control.step();
                 counter = 0;
