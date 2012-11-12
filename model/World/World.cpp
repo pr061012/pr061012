@@ -14,10 +14,24 @@
 //******************************************************************************
 
 World::~World()
-{    
+{
+    // Deleting factory and indexator.
     delete object_factory;
     delete indexator;
+
+    // Deleting visible objects.
+    ObjectHeap::iterator iter;
+    for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
     delete visible_objs;
+
+    // Deleting hidden objects.
+    for(iter = hidden_objs -> begin(); iter != hidden_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
     delete hidden_objs;
 }
 
