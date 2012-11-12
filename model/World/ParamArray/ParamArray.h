@@ -48,7 +48,8 @@ public:
 
         for (i = this -> map.begin(); i != map.end(); i++)
         {
-            free(i -> second);
+            // FIXME: Dirty workaround. Rewrite ParamArray immediately!
+            //free(i -> second);
         }
 
         this -> map.clear();
