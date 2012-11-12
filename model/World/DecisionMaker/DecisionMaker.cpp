@@ -66,7 +66,7 @@ DecisionMaker::~DecisionMaker()
 bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_decision) const
 {
     arma::mat act = this -> theta * attrs;
-    uint index;
+    uint index = -1;
 
     switch (current_decision)
     {
