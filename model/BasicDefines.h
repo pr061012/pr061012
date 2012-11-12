@@ -14,14 +14,15 @@
 
 //******************************************************************************
 // VIEW DEFINES.
-// TODO: Add prefix.
 //******************************************************************************
 
-#define SCREEN_WIDTH                800
-#define SCREEN_HEIGHT               600
+#define VIEW_SCREEN_WIDTH                800
+#define VIEW_SCREEN_HEIGHT               600
 
 /// Radius of game camera field of view
-#define CAM_RADIUS                  30
+#define VIEW_CAM_RADIUS                  30
+/// Correlation between screen change in x/y and those in world.
+#define VIEW_CAM_SCALE                   8
 
 //******************************************************************************
 // TIME DEFINES.

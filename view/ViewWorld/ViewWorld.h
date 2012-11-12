@@ -41,7 +41,7 @@ private:
     //**************************************************************************
 
     /// array of loaded textures
-    GLuint texture_buf[2];
+    GLuint texture_buf[3];
 
     /**
      * @brief preload game textures in openGL
@@ -80,6 +80,9 @@ public:
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
+
+    double getX();
+    double getY();
 
     /**
      * @brief set coordinates of center of the game cam

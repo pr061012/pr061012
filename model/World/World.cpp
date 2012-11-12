@@ -18,27 +18,34 @@ World::~World()
     delete object_factory;
     delete indexator;
     delete visible_objs;
+    delete hidden_objs;
 }
 
 World::World(std::string filepath) :
-    size(DEFAULT_SIZE)
+    size(DEFAULT_SIZE),
+    hum_dmaker(HUMANOID),
+    nhum_dmaker(NON_HUMANOID)
 {
 
 }
 
 World::World(int rand_seed, int size) :
-    size(size > 0 ? size : DEFAULT_SIZE)
+    size(size > 0 ? size : DEFAULT_SIZE),
+    hum_dmaker(HUMANOID),
+    nhum_dmaker(NON_HUMANOID)
 {
     srand(rand_seed);
 
     std::cout << "Creating world with rand_seed="
               << rand_seed << std::endl;
 
-    object_factory = new ObjectFactory(DecisionMaker(HUMANOID),
-                                       DecisionMaker(NON_HUMANOID));
+    object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
     visible_objs = new ObjectHeap();
 
+
     indexator = new Indexator((double)this->size);
+
+    hidden_objs = new ObjectHeap();
 
     ParamArray params;
 
@@ -53,10 +60,7 @@ World::World(int rand_seed, int size) :
         newobj -> setCoords(Point(randFromRange(20.0, 70.0),
                                   randFromRange(20.0, 70.0)));
 
-        newobj -> setShapeType(CIRCLE);
-        newobj -> setShapeSize(10.0);
         visible_objs -> push(newobj);
-
         indexator -> reindexate(newobj);
 
 //        std::cout << "Created resource at x = "
@@ -64,6 +68,23 @@ World::World(int rand_seed, int size) :
 //                  << newobj->getCoords().getY()
 //                  << " with collision model as circle rad = 50"
 //                  << std::endl;
+    }
+
+    // Creating cows!
+    ParamArray nhum_params;
+    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+
+    uint amount = 10 + rand() % 10;
+    for (uint i = 0; i < amount; i++)
+    {
+        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
+
+        // TODO: Do something with these magic consts.
+        new_obj -> setCoords(Point(randFromRange(20.0, 70.0),
+                                   randFromRange(20.0, 70.0)));
+
+        visible_objs -> push(new_obj);
+        indexator -> reindexate(new_obj);
     }
 }
 

@@ -14,6 +14,7 @@ View::View(IWorld* w)
     initWindow();
 
     view_world = new ViewWorld(w);
+    key_handler = new KeyHandler(this);
 }
 
 
@@ -24,10 +25,34 @@ View::~View()
     glfwTerminate();
 }
 
+double View::getX()
+{
+    return view_world->getX();
+}
+
+double View::getY()
+{
+    return view_world->getY();
+}
+
+void View::setX(double new_var)
+{
+    new_var = new_var > 0 ? new_var : 0;
+    //new_var = new_var < v ? new_var : 0;
+    view_world->setX(new_var);
+}
+
+void View::setY(double new_var)
+{
+    view_world->setY(new_var);
+}
+
 void View::redraw()
 {
+    key_handler->handleKeys();
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0.0f, 0.0f, -16.0f);
+    glTranslatef(0.0f, 0.0f, -VIEW_CAM_SCALE*2);
 
     view_world->redraw();
 
@@ -39,7 +64,7 @@ void View::initWindow()
 {
     glfwInit();
 
-    if(!glfwOpenWindow(SCREEN_WIDTH, SCREEN_HEIGHT,
+    if(!glfwOpenWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
                          0, 0, 0, 0, 0, 0, GLFW_WINDOW))
     {
         glfwTerminate();
@@ -49,7 +74,7 @@ void View::initWindow()
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)SCREEN_HEIGHT) / SCREEN_WIDTH;
+    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH;
 
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);

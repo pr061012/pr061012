@@ -168,6 +168,11 @@ private:
 
     /// Our world's ObjectFactory
     ObjectFactory* object_factory;
+
+    /// Humanoid decision maker.
+    const DecisionMaker hum_dmaker;
+    /// NonHumanoid decision maker.
+    const DecisionMaker nhum_dmaker;
 };
 
 #endif // WORLD_H

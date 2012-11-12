@@ -25,7 +25,7 @@ ViewWorld::ViewWorld(IWorld* w)
 
 ViewWorld::~ViewWorld()
 {
-    glDeleteTextures( 2, texture_buf ); // Clearing textures created
+    glDeleteTextures( 3, texture_buf ); // Clearing textures created
 }
 
 void ViewWorld::loadTextures()
@@ -43,7 +43,15 @@ void ViewWorld::loadTextures()
         "res/tree.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
+        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
+    );
+
+    texture_buf[2] = SOIL_load_OGL_texture
+    (
+        "res/cow.png",
+        SOIL_LOAD_RGBA,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
     );
 }
 
@@ -53,7 +61,7 @@ void ViewWorld::redraw()
 {
     renderBackground();
 
-    Object** objects = world->getViewObjectsInRange(x, y, CAM_RADIUS);
+    Object** objects = world->getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
     if(objects)
     {
@@ -65,14 +73,24 @@ void ViewWorld::redraw()
     }
 }
 
+double ViewWorld::getX()
+{
+    return this->x;
+}
+
+double ViewWorld::getY()
+{
+    return this->y;
+}
+
 void ViewWorld::setX(double new_var)
 {
-    x = new_var;
+    this->x = new_var;
 }
 
 void ViewWorld::setY(double new_var)
 {
-    y = new_var;
+    this->y = new_var;
 }
 
 void ViewWorld::renderObject(Object* object)
@@ -82,26 +100,53 @@ void ViewWorld::renderObject(Object* object)
     double px = p.getX() - x;
     double py = p.getY() - y;
 
-    px /= CAM_RADIUS;
-    py /= CAM_RADIUS;
-    px *= 8;
-    py *= 8;
+    px /= VIEW_CAM_RADIUS;
+    py /= VIEW_CAM_RADIUS;
+    px *= VIEW_CAM_SCALE;
+    py *= VIEW_CAM_SCALE;
 
     // TODO: Redo image coordinates to be taken from (file?)
-    float x0 = 126.0/640;
-    float y0 = 1.0 - 110.0/480;
-    float x1 = 196.0/640;
-    float y1 = 1.0;
+    float x0;
+    float y0;
+    float x1;
+    float y1;
 
-    glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
+    float x_sz;
+    float y_sz;
+
+    if(object->getType() == RESOURCE)
+    {
+        x0 = 126.0/640;
+        y0 = 1.0 - 110.0/480;
+        x1 = 196.0/640;
+        y1 = 1.0;
+
+        x_sz = 0.33;
+        y_sz = 0.5;
+
+        glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
+    }
+    if(object->getType() == CREATURE)
+    {
+        x0 = 0.0;
+        y0 = 0.0;
+        x1 = 1.0;
+        y1 = 1.0;
+
+        x_sz = 0.58;
+        y_sz = 0.4;
+
+        glBindTexture(GL_TEXTURE_2D, texture_buf[2]);
+    }
+
     glEnable(GL_TEXTURE_2D);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glBegin(GL_POLYGON);
-        glTexCoord2f(x0, y0); glVertex2f(px-0.33, py-0.5);
-        glTexCoord2f(x1, y0); glVertex2f(px+0.33, py-0.5);
-        glTexCoord2f(x1, y1); glVertex2f(px+0.33, py+0.5);
-        glTexCoord2f(x0, y1); glVertex2f(px-0.33, py+0.5);
+        glTexCoord2f(x0, y0); glVertex2f(px-x_sz, py-y_sz);
+        glTexCoord2f(x1, y0); glVertex2f(px+x_sz, py-y_sz);
+        glTexCoord2f(x1, y1); glVertex2f(px+x_sz, py+y_sz);
+        glTexCoord2f(x0, y1); glVertex2f(px-x_sz, py+y_sz);
     glEnd();
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
@@ -109,6 +154,9 @@ void ViewWorld::renderObject(Object* object)
 
 void ViewWorld::renderBackground()
 {
+    double px = x/VIEW_CAM_RADIUS*VIEW_CAM_SCALE;
+    double py = y/VIEW_CAM_RADIUS*VIEW_CAM_SCALE;
+
     glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
 
     glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
@@ -119,10 +167,10 @@ void ViewWorld::renderBackground()
     glEnable(GL_TEXTURE_2D);
 
     glBegin(GL_POLYGON);
-        glTexCoord2f(0.0,   0.0); glVertex2f(-8.0f, -8.0f);
-        glTexCoord2f(16.0,  0.0); glVertex2f( 8.0f, -8.0f);
-        glTexCoord2f(16.0, 16.0); glVertex2f( 8.0f,  8.0f);
-        glTexCoord2f(0.0,  16.0); glVertex2f(-8.0f,  8.0f);
+        glTexCoord2f(0.0  + px, 0.0  + py); glVertex2f(-8.0f, -8.0f);
+        glTexCoord2f(16.0 + px, 0.0  + py); glVertex2f( 8.0f, -8.0f);
+        glTexCoord2f(16.0 + px, 16.0 + py); glVertex2f( 8.0f,  8.0f);
+        glTexCoord2f(0.0  + px, 16.0 + py); glVertex2f(-8.0f,  8.0f);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
