@@ -68,23 +68,23 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
     arma::mat act = this -> theta * attrs;
     uint index;
 
-    switch(current_decision)
+    switch (current_decision)
     {
-    case SLEEP:           index = 0; break;
-    case BUILD:           index = 1; break;
-    case WORK:            index = 2; break;
-    case EAT:             index = 3; break;
-    case RELAX:           index = 4; break;
-    case COMMUNICATE:     index = 5; break;
-    case ESCAPE:          index = 6; break;
-    case REALIZE_DREAM:   index = 7; break;
-    case CONTINUE_GENDER: index = 8; break;
-    default: ;
+        case SLEEP:           index = 0;    break;
+        case BUILD:           index = 1;    break;
+        case WORK:            index = 2;    break;
+        case EAT:             index = 3;    break;
+        case RELAX:           index = 4;    break;
+        case COMMUNICATE:     index = 5;    break;
+        case ESCAPE:          index = 6;    break;
+        case REALIZE_DREAM:   index = 7;    break;
+        case CONTINUE_GENDER: index = 8;    break;
+        default:              return false; break;
     }
 
     for (int i = 0; i < ACT_CONST; i++)
     {
-        if(act(i,0) - act(index,0) > CREAT_CRIT_CONST)
+        if (act(i, 0) - act(index, 0) > CREAT_CRIT_CONST)
         {
             return false;
         }
