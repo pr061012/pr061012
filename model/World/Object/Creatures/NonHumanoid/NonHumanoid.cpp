@@ -8,7 +8,6 @@
 
 #include "NonHumanoid.h"
 #include "../../../../BasicDefines.h"
-#include "../../../../BasicTypes.h"
 #include "../../../../BasicFuncs.h"
 #include "../../Resource/Resource.h"
 
@@ -54,6 +53,9 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     // aim = 0 means the same
     angle = -1;
     aim = 0;
+
+    //Initialize type
+    type = COW;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -169,6 +171,23 @@ std::vector <Action>* NonHumanoid::getActions()
 
     if (current_decision == ESCAPE)
     {
+        if (this -> type == COW ||
+            this -> type == GOOSE ||
+            this -> type == SHEEP)
+        {
+            if (angle == -1)
+            {
+                angle = doubleRand(2 * M_PI);
+            }
+            Action act(GO, this);
+            act.addParam("angle", angle);
+            act.addParam("speed", FAST_SPEED);
+            this -> actions.push_back(act);
+        }
+        else
+        {
+
+        }
 
     }
 

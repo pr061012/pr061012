@@ -7,6 +7,7 @@
 #define NON_HUMANOID_H
 
 #include "../Creature.h"
+#include "../../../../BasicTypes.h"
 
 /**
  * @class NonHumanoid
@@ -77,8 +78,10 @@ private:
     //**************************************************************************
     /// Current decision of non_hum
     CreatureAction current_decision;
-
-
+    //**************************************************************************
+    // TYPE
+    //**************************************************************************
+    NonHumanoidType type;
 };
 
 #endif // NON_HUMANOID_H
