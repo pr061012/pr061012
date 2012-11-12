@@ -52,13 +52,13 @@ World::World(int rand_seed, int size) :
     params.addKey("res_type", WOOD);
     params.addKey("res_amount", 10);
 
-    for(int i = 30 + rand()%50; i>=0; --i)
+    for(int i = 3000 + rand()%5000; i>=0; --i)
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
         // TODO: Do something with these magic consts.
-        newobj -> setCoords(Point(randFromRange(20.0, 70.0),
-                                  randFromRange(20.0, 70.0)));
+        newobj -> setCoords(Point(randFromRange(0, size),
+                                  randFromRange(0, size)));
 
         visible_objs -> push(newobj);
         indexator -> reindexate(newobj);
