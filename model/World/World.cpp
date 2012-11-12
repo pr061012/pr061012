@@ -185,6 +185,7 @@ Object** World::getViewObjectsInRange(double x, double y, double radius)
 
     int size = objects -> getAmount();
 
+    // FIXME: Memory leak! Use std::vector<Object*> instead.
     retval = new Object*[size + 1];
 
     for(int i = 0; i<size; ++i)
