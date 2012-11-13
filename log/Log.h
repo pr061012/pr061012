@@ -6,6 +6,9 @@
 #ifndef LOG_H__
 #define LOG_H__
 
+class Log;
+
+
 #include <string>
 /**
  * @brief The Log class
@@ -29,5 +32,12 @@ public:
     static void note(std::string file_name, std::string func_name, int line_number, std::string text);
 
 };
+
+/**
+ * @brief Define short name function
+ */
+#define Log::warn(text)  Log::warn(__FILE__, __FUNCTION__, __LINE__, text)
+#define Log::error(text) Log::error(__FILE__, __FUNCTION__, __LINE__, text)
+#define Log::note(text)  Log::note(__FILE__ , __FUNCTION__, __LINE__, text)
 
 #endif
