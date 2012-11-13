@@ -1,5 +1,5 @@
 /*
-    Copyright (c, char* text) 2012, pr061012 Team.
+    Copyright (c, std::string text) 2012, pr061012 Team.
     See the LICENSE file for copying permission.
 */
 
@@ -16,17 +16,17 @@ public:
     /**
      * @brief warning logger
      */
-    static void warn(char* file_name, char* func_name, int line_number, char* text);
+    static void warn(std::string file_name, std::string func_name, int line_number, std::string text);
 
     /**
      * @brief error logger
      */
-    static void error(char* file_name, char* func_name, int line_number, char* text);
+    static void error(std::string file_name, std::string func_name, int line_number, std::string text);
 
     /**
      * @brief note logger
      */
-    static void note(char* file_name, char* func_name, int line_number, char* text);
+    static void note(std::string file_name, std::string func_name, int line_number, std::string text);
 
 };
 
