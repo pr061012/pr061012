@@ -6,10 +6,9 @@
 #ifndef LOG_H__
 #define LOG_H__
 
-class Log;
-
-
+#include <fstream>
 #include <string>
+
 /**
  * @brief The Log class
  */
@@ -22,12 +21,12 @@ public:
     /**
      * @brief Open log file
      */
-    static void open();
+    Log();
 
     /**
      * @brief Close log file
      */
-    static void close();
+    ~Log();
 
     /**
      * @brief warning logger
@@ -46,5 +45,4 @@ public:
 
 };
 
-std::ofstream Log::log_file;
 #endif
