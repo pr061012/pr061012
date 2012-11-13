@@ -54,7 +54,6 @@ void View::setY(double new_var)
 
 void View::redraw()
 {
-    glfwPollEvents();
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -64,6 +63,7 @@ void View::redraw()
 
     glLoadIdentity();
     glfwSwapBuffers(window);
+    glfwPollEvents();
 }
 
 void View::initWindow()
@@ -78,7 +78,7 @@ void View::initWindow()
     }
 
     glfwMakeContextCurrent(window);
-  //  glfwSetInputMode( window, GLFW_KEY_REPEAT, GL_TRUE );
+    glfwSetInputMode( window, GLFW_KEY_REPEAT, GL_TRUE );
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
@@ -92,7 +92,7 @@ void View::initWindow()
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
-    glLoadIdentity();
+    //glLoadIdentity();
 
 }
 
