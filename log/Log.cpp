@@ -7,17 +7,17 @@
 
 #include "Log.h"
 
-Log::error(char* file_name, char* func_name, int line_number, char* text)
+void Log::error(char* file_name, char* func_name, int line_number, char* text)
 {
 
 }
 
-Log::note(char* file_name, char* func_name, int line_number, char* text)
+void Log::note(char* file_name, char* func_name, int line_number, char* text)
 {
 
 }
 
-Log::warn(char* file_name, char* func_name, int line_number, char* text)
+void Log::warn(char* file_name, char* func_name, int line_number, char* text)
 {
 
 }
