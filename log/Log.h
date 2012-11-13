@@ -16,18 +16,18 @@ class Log;
 class Log
 {
     /// Log
-    std::ifstream log_file;
+    static std::ofstream log_file;
 
 public:
     /**
-     * @brief Constructor
+     * @brief Open log file
      */
-    Log();
+    static void open();
 
     /**
-     * @brief Destructor
+     * @brief Close log file
      */
-    ~Log();
+    static void close();
 
     /**
      * @brief warning logger
@@ -46,4 +46,5 @@ public:
 
 };
 
+std::ofstream Log::log_file;
 #endif
