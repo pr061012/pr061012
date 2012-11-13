@@ -46,13 +46,14 @@ var searchData=
   ['getvisibleobjects',['getVisibleObjects',['../classIWorld.html#aae71f283d70ad9f267d6731683e6ab7e',1,'IWorld::getVisibleObjects()'],['../classWorld.html#ae7d9c8d7590bfa0ed18ed42c05106664',1,'World::getVisibleObjects()']]],
   ['getweatheratpoint',['getWeatherAtPoint',['../classIWorld.html#ac3c29f9aba4066efbe3bbfce51030ad5',1,'IWorld::getWeatherAtPoint()'],['../classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85',1,'World::getWeatherAtPoint()']]],
   ['getwindow',['getWindow',['../classCreature.html#a81d5531e518837badd23f35c8e94a302',1,'Creature']]],
-  ['getx',['getX',['../classPoint.html#af52a20a376f8f31e87658837565d3812',1,'Point::getX()'],['../classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab',1,'ViewObject::getX()']]],
-  ['gety',['getY',['../classPoint.html#aac5008459bf0e0053ce744a69187bae7',1,'Point::getY()'],['../classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1',1,'ViewObject::getY()']]],
+  ['getx',['getX',['../classPoint.html#af52a20a376f8f31e87658837565d3812',1,'Point::getX()'],['../classView.html#a0540947a23562805676d3731ca1c3521',1,'View::getX()'],['../classViewObject.html#a3bb8e2fe8dbd3860d0c3fbda48ad9aab',1,'ViewObject::getX()'],['../classViewWorld.html#aba76c52554aa4c07004d3ac910556393',1,'ViewWorld::getX()']]],
+  ['gety',['getY',['../classPoint.html#aac5008459bf0e0053ce744a69187bae7',1,'Point::getY()'],['../classView.html#abfb31bd034fc17e3456f1c52dfaf3d95',1,'View::getY()'],['../classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1',1,'ViewObject::getY()'],['../classViewWorld.html#a6486c2eabc3be2c5d65856076642b492',1,'ViewWorld::getY()']]],
   ['go',['GO',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985',1,'BasicTypes.h']]],
   ['god',['God',['../classGod.html',1,'God'],['../classGod.html#addc6776ed9e06891a0a19f28e945e5c3',1,'God::God()']]],
   ['god_2ecpp',['God.cpp',['../God_8cpp.html',1,'']]],
   ['god_2eh',['God.h',['../God_8h.html',1,'']]],
   ['gold',['GOLD',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1aa7790837e9c1f7cb78b55743b9a67623',1,'BasicTypes.h']]],
   ['gold_5fore',['GOLD_ORE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0227e9e293b26a3f0d57cc231155acf1',1,'BasicTypes.h']]],
+  ['goose',['GOOSE',['../BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ecae713141236cb4eb93c146cedc1925f8c',1,'BasicTypes.h']]],
   ['grass',['GRASS',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa',1,'BasicTypes.h']]]
 ];

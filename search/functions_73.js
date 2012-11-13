@@ -15,8 +15,8 @@ var searchData=
   ['settype',['setType',['../classShape.html#a44bfca3ef6564ff0f34badc77f594862',1,'Shape::setType()'],['../classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8',1,'ViewObject::setType()']]],
   ['setviewarea',['setViewArea',['../classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277',1,'Creature']]],
   ['setwindow',['setWindow',['../classCreature.html#af6c61c39377198bf0426ca1929bad8a0',1,'Creature']]],
-  ['setx',['setX',['../classPoint.html#a9aa66c310860d038cb1258dc5cd80906',1,'Point::setX()'],['../classViewObject.html#a280ef0f29dd3a14d285e816b1798639d',1,'ViewObject::setX()'],['../classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb',1,'ViewWorld::setX()']]],
-  ['sety',['setY',['../classPoint.html#a7d1ee63237f361d41e697f87c3cb051d',1,'Point::setY()'],['../classViewObject.html#af7e0d64500d95544654420876d7f85b8',1,'ViewObject::setY()'],['../classViewWorld.html#afde0728835545722c51fcf1c88eba6d0',1,'ViewWorld::setY()']]],
+  ['setx',['setX',['../classPoint.html#a9aa66c310860d038cb1258dc5cd80906',1,'Point::setX()'],['../classView.html#ab1fc5db943b079055cf570f496ed5eba',1,'View::setX()'],['../classViewObject.html#a280ef0f29dd3a14d285e816b1798639d',1,'ViewObject::setX()'],['../classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb',1,'ViewWorld::setX()']]],
+  ['sety',['setY',['../classPoint.html#a7d1ee63237f361d41e697f87c3cb051d',1,'Point::setY()'],['../classView.html#a1b8d36e29fc73390ac7fa8251b74f20e',1,'View::setY()'],['../classViewObject.html#af7e0d64500d95544654420876d7f85b8',1,'ViewObject::setY()'],['../classViewWorld.html#afde0728835545722c51fcf1c88eba6d0',1,'ViewWorld::setY()']]],
   ['shape',['Shape',['../classShape.html#a8e8680c7a68edeb2826e9e72cfa9adbf',1,'Shape::Shape(Point center, int type, double size)'],['../classShape.html#aaa8d87171e65e0d8ba3c5459978992a7',1,'Shape::Shape()']]],
   ['step',['step',['../classController.html#a6fe5f85677914b59f05705bf9181d948',1,'Controller']]]
 ];

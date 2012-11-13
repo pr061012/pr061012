@@ -9,6 +9,7 @@ var searchData=
   ['eparamarraybadkey_2eh',['EParamArrayBadKey.h',['../EParamArrayBadKey_8h.html',1,'']]],
   ['epsilon',['EPSILON',['../Point_8cpp.html#a002b2f4894492820fe708b1b7e7c5e70',1,'EPSILON():&#160;Point.cpp'],['../Shape_8cpp.html#a002b2f4894492820fe708b1b7e7c5e70',1,'EPSILON():&#160;Shape.cpp']]],
   ['equals',['equals',['../classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe',1,'Point']]],
+  ['error',['error',['../classLog.html#a891b2768b418be079ea77fc0aa3caec8',1,'Log::error()'],['../LogDefines_8h.html#a04901564af54012be93ebe2eef38d832',1,'error():&#160;LogDefines.h']]],
   ['escape',['ESCAPE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a0a311695a4f6c56869245418bebeb33d',1,'BasicTypes.h']]],
   ['explore',['EXPLORE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a9a80539c326b5f07cbdc2c4f6c0766d9',1,'BasicTypes.h']]]
 ];

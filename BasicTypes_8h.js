@@ -46,6 +46,13 @@ var BasicTypes_8h =
       [ "HUMANOID", "BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b", null ],
       [ "NON_HUMANOID", "BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a", null ]
     ] ],
+    [ "NonHumanoidType", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ec", [
+      [ "COW", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca48505ba252c1ec37e34d882e6f4a3ecf", null ],
+      [ "BEAR", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca2c8e784be44eaf71fd77dae142f27b42", null ],
+      [ "DRAGON", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca715823e7de6bbbbdd0de7fe00a9c05d6", null ],
+      [ "GOOSE", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ecae713141236cb4eb93c146cedc1925f8c", null ],
+      [ "SHEEP", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ecad83915beec9329d34ab91824344a492c", null ]
+    ] ],
     [ "ObjectType", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980", [
       [ "RESOURCE", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4", null ],
       [ "TOOL", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6", null ],

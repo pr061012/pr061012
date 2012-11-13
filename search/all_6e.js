@@ -10,5 +10,7 @@ var searchData=
   ['none',['NONE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'BasicTypes.h']]],
   ['nonhumanoid',['NonHumanoid',['../classNonHumanoid.html',1,'NonHumanoid'],['../classNonHumanoid.html#aa8442222bc4b7e137bc939ba75a99c73',1,'NonHumanoid::NonHumanoid()']]],
   ['nonhumanoid_2ecpp',['NonHumanoid.cpp',['../NonHumanoid_8cpp.html',1,'']]],
-  ['nonhumanoid_2eh',['NonHumanoid.h',['../NonHumanoid_8h.html',1,'']]]
+  ['nonhumanoid_2eh',['NonHumanoid.h',['../NonHumanoid_8h.html',1,'']]],
+  ['nonhumanoidtype',['NonHumanoidType',['../BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ec',1,'BasicTypes.h']]],
+  ['note',['note',['../classLog.html#a9be8f05905ddb2bea63f1add2cc21f37',1,'Log::note()'],['../LogDefines_8h.html#ab6c9299b1d98b44d5ccd1ad1d18c4ce1',1,'note():&#160;LogDefines.h']]]
 ];

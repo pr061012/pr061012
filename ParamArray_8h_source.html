@@ -132,83 +132,84 @@ $(document).ready(function(){initNavTree('ParamArray_8h_source.html','');});
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span> (i = <span class="keyword">this</span> -&gt; map.begin(); i != map.end(); i++)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            free(i -&gt; second);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">this</span> -&gt; map.clear();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// KEYS ACCESSING.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54">   67</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; <span class="keywordtype">void</span> <a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>(std::string key, Type value)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// Copying data.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        Type* copy = <span class="keyword">static_cast&lt;</span>Type*<span class="keyword">&gt;</span>( malloc(<span class="keyword">sizeof</span>(Type)) );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        *copy = value;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// Firstly removing this key and value (if it&#39;s existed).</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Suppressing error messages (don&#39;t want to litter to cerr).</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748" title="Removes key from param array.">removeKey</a>(key, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Adding key.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">this</span> -&gt; map[key] = copy;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3">   87</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; Type <a class="code" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3" title="Gets key value by key.">getValue</a>(std::string key, <span class="keywordtype">bool</span> suppress_err_msgs = <span class="keyword">false</span>) <span class="keyword">const</span> throw(<a class="code" href="classEParamArrayBadKey.html" title="ParamArray exception – unknown (bad) key was used.">EParamArrayBadKey</a>)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::map &lt;std::string, void *&gt; :: const_iterator iter = <span class="keyword">this</span> -&gt; map.find(key);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (iter == map.end())</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> (!suppress_err_msgs)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;[WARN] ParamArray: tried to get value by key, &quot;</span> &lt;&lt;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                             <span class="stringliteral">&quot;which doesn&#39;t seem to be existed (key is &#39;&quot;</span> &lt;&lt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                             key &lt;&lt; <span class="stringliteral">&quot;&#39;).&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">throw</span> EParamArrayBadKey();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> *(<span class="keyword">static_cast&lt;</span>Type*<span class="keyword">&gt;</span>(iter -&gt; second));</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748">  113</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748" title="Removes key from param array.">removeKey</a>(std::string key, <span class="keywordtype">bool</span> suppress_err_msgs = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        std::map &lt;std::string, void*&gt; :: const_iterator iter = <span class="keyword">this</span> -&gt; map.find(key);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (iter == map.end())</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> (!suppress_err_msgs)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;[WARN] ParamArray: tried to delete key, which &quot;</span> &lt;&lt;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                             <span class="stringliteral">&quot;doens&#39;t exist (key is &#39;&quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;&#39;).&quot;</span> &lt;&lt;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                             std::endl;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        free(iter -&gt; second);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">this</span> -&gt; map.erase(iter);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    std::map &lt;std::string, void*&gt; map;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;};</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif // PARAM_ARRAY_H</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="comment">// FIXME: Dirty workaround. Rewrite ParamArray immediately!</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">//free(i -&gt; second);</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">this</span> -&gt; map.clear();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// KEYS ACCESSING.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54">   68</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; <span class="keywordtype">void</span> <a class="code" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>(std::string key, Type value)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// Copying data.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        Type* copy = <span class="keyword">static_cast&lt;</span>Type*<span class="keyword">&gt;</span>( malloc(<span class="keyword">sizeof</span>(Type)) );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        *copy = value;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Firstly removing this key and value (if it&#39;s existed).</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// Suppressing error messages (don&#39;t want to litter to cerr).</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748" title="Removes key from param array.">removeKey</a>(key, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Adding key.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">this</span> -&gt; map[key] = copy;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3">   88</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; Type <a class="code" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3" title="Gets key value by key.">getValue</a>(std::string key, <span class="keywordtype">bool</span> suppress_err_msgs = <span class="keyword">false</span>) <span class="keyword">const</span> throw(<a class="code" href="classEParamArrayBadKey.html" title="ParamArray exception – unknown (bad) key was used.">EParamArrayBadKey</a>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        std::map &lt;std::string, void *&gt; :: const_iterator iter = <span class="keyword">this</span> -&gt; map.find(key);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span> (iter == map.end())</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">if</span> (!suppress_err_msgs)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;[WARN] ParamArray: tried to get value by key, &quot;</span> &lt;&lt;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                             <span class="stringliteral">&quot;which doesn&#39;t seem to be existed (key is &#39;&quot;</span> &lt;&lt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                             key &lt;&lt; <span class="stringliteral">&quot;&#39;).&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">throw</span> EParamArrayBadKey();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> *(<span class="keyword">static_cast&lt;</span>Type*<span class="keyword">&gt;</span>(iter -&gt; second));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748">  114</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748" title="Removes key from param array.">removeKey</a>(std::string key, <span class="keywordtype">bool</span> suppress_err_msgs = <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        std::map &lt;std::string, void*&gt; :: const_iterator iter = <span class="keyword">this</span> -&gt; map.find(key);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">if</span> (iter == map.end())</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span> (!suppress_err_msgs)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;[WARN] ParamArray: tried to delete key, which &quot;</span> &lt;&lt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                             <span class="stringliteral">&quot;doens&#39;t exist (key is &#39;&quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;&#39;).&quot;</span> &lt;&lt;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                             std::endl;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        free(iter -&gt; second);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keyword">this</span> -&gt; map.erase(iter);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    std::map &lt;std::string, void*&gt; map;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;};</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#endif // PARAM_ARRAY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_9b60a1ae4724a8354454acf0a617d37f.html">ParamArray</a></li><li class="navelem"><a class="el" href="ParamArray_8h.html">ParamArray.h</a></li>
-    <li class="footer">Generated on Sun Nov 11 2012 23:43:50 for pr061012 by
+    <li class="footer">Generated on Wed Nov 14 2012 01:32:34 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

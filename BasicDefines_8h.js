@@ -9,7 +9,6 @@ var BasicDefines_8h =
     [ "ATTR_NEED_IN_POINTS", "BasicDefines_8h.html#af498eec4e8099318603f54cced85c90e", null ],
     [ "ATTR_SAFETY", "BasicDefines_8h.html#aa712d5dda3c1ba68cb9bc1bdb3be1bbf", null ],
     [ "ATTR_SLEEPINESS", "BasicDefines_8h.html#a87356b10e29cc79f14b5974805160498", null ],
-    [ "CAM_RADIUS", "BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c", null ],
     [ "CREAT_AGE_STEPS", "BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d", null ],
     [ "CREAT_CRIT_CONST", "BasicDefines_8h.html#a8290214020f59371b797b23f06e03769", null ],
     [ "CREAT_DELTA_HUNGER", "BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc", null ],
@@ -68,8 +67,6 @@ var BasicDefines_8h =
     [ "RES_WOOD_DROP_MAX", "BasicDefines_8h.html#acc93a23b208d1387c5728bb8dc8a2713", null ],
     [ "RES_WOOD_DROP_MIN", "BasicDefines_8h.html#a14b424b354ab1e772549840c5d56c19a", null ],
     [ "RES_WOOD_REG_AMOUNT", "BasicDefines_8h.html#ac0e79a9923d76ed46b7632edf2a9c8ac", null ],
-    [ "SCREEN_HEIGHT", "BasicDefines_8h.html#a6974d08a74da681b3957b2fead2608b8", null ],
-    [ "SCREEN_WIDTH", "BasicDefines_8h.html#a2cd109632a6dcccaa80b43561b1ab700", null ],
     [ "SHP_BUILDING", "BasicDefines_8h.html#a0cbf71972f094dcce2c650fca8f684c6", null ],
     [ "SHP_DEFAULT", "BasicDefines_8h.html#af3ce5877f44c73e115ae62b6572e64eb", null ],
     [ "SHP_HUMANOID", "BasicDefines_8h.html#a439de12ebf02a921e686c9684dac6a82", null ],
@@ -96,6 +93,10 @@ var BasicDefines_8h =
     [ "TOOL_IRON_STRENGTH", "BasicDefines_8h.html#a0a8c1d8b0b62890248f9b466920d9a1e", null ],
     [ "TOOL_SILVER_STRENGTH", "BasicDefines_8h.html#abaeafa25ebe3281253066a4a55a91a3e", null ],
     [ "TOOL_STONE_STRENGTH", "BasicDefines_8h.html#a3a8daf0f2ae33fde98c16ca352c45df5", null ],
+    [ "VIEW_CAM_RADIUS", "BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f", null ],
+    [ "VIEW_CAM_SCALE", "BasicDefines_8h.html#a81884dd97cc3f2e61a956b421a70bb1a", null ],
+    [ "VIEW_SCREEN_HEIGHT", "BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865", null ],
+    [ "VIEW_SCREEN_WIDTH", "BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b", null ],
     [ "WEAT_STEPS_MAX", "BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c", null ],
     [ "WEAT_STEPS_MIN", "BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f", null ]
 ];

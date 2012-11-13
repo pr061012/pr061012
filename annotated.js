@@ -14,6 +14,7 @@ var annotated =
     [ "Indexator", "classIndexator.html", "classIndexator" ],
     [ "IWorld", "classIWorld.html", "classIWorld" ],
     [ "KeyHandler", "classKeyHandler.html", "classKeyHandler" ],
+    [ "Log", "classLog.html", "classLog" ],
     [ "MiningPerformer", "classMiningPerformer.html", "classMiningPerformer" ],
     [ "MovementPerformer", "classMovementPerformer.html", "classMovementPerformer" ],
     [ "NonHumanoid", "classNonHumanoid.html", "classNonHumanoid" ],

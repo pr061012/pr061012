@@ -10,6 +10,7 @@ var hierarchy =
       [ "World", "classWorld.html", null ]
     ] ],
     [ "KeyHandler", "classKeyHandler.html", null ],
+    [ "Log", "classLog.html", null ],
     [ "Object", "classObject.html", [
       [ "Building", "classBuilding.html", null ],
       [ "Creature", "classCreature.html", [

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['cam_5fradius',['CAM_RADIUS',['../BasicDefines_8h.html#a6193ca651853e1420264bd89f600ba2c',1,'BasicDefines.h']]],
   ['circle',['CIRCLE',['../BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'BasicTypes.h']]],
   ['clouds',['CLOUDS',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a2864a88199aef8238cc4345e675c596b',1,'BasicTypes.h']]],
   ['coal',['COAL',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a7b33cec24386ace3dac71e0b351677ac',1,'BasicTypes.h']]],
@@ -11,6 +10,7 @@ var searchData=
   ['controller',['Controller',['../classController.html',1,'Controller'],['../classController.html#a9cc164fbf96bbbd6bc44105824325f8e',1,'Controller::Controller()']]],
   ['controller_2ecpp',['Controller.cpp',['../Controller_8cpp.html',1,'']]],
   ['controller_2eh',['Controller.h',['../Controller_8h.html',1,'']]],
+  ['cow',['COW',['../BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca48505ba252c1ec37e34d882e6f4a3ecf',1,'BasicTypes.h']]],
   ['creat_5fage_5fsteps',['CREAT_AGE_STEPS',['../BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d',1,'BasicDefines.h']]],
   ['creat_5fcrit_5fconst',['CREAT_CRIT_CONST',['../BasicDefines_8h.html#a8290214020f59371b797b23f06e03769',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fhunger',['CREAT_DELTA_HUNGER',['../BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc',1,'BasicDefines.h']]],

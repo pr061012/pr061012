@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyhandler',['KeyHandler',['../classKeyHandler.html#a9f90e60def9a242e88629dc6d6641789',1,'KeyHandler']]]
+  ['keyhandler',['KeyHandler',['../classKeyHandler.html#a56c2347c19f363e8268894caa452e931',1,'KeyHandler']]]
 ];
