@@ -38,7 +38,6 @@ int main()
             }
 
             view.redraw();
-            std::cout << counter << "\n";
 
         } while(view.isExit());
     }

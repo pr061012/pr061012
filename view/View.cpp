@@ -54,6 +54,7 @@ void View::setY(double new_var)
 
 void View::redraw()
 {
+    glfwPollEvents();
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -68,13 +69,16 @@ void View::redraw()
 void View::initWindow()
 {
     glfwInit();
-
+    glfwWindowHint(GLFW_DEPTH_BITS, 16);
     if(!(this -> window = glfwCreateWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
                          GLFW_WINDOWED, "Project", NULL)))
     {
         glfwTerminate();
         std::cerr << "Window initialized unsuccesfully.";
     }
+
+    glfwMakeContextCurrent(window);
+  //  glfwSetInputMode( window, GLFW_KEY_REPEAT, GL_TRUE );
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
@@ -88,7 +92,8 @@ void View::initWindow()
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
-    glfwMakeContextCurrent(window);
+    glLoadIdentity();
+
 }
 
 bool View::isExit()
