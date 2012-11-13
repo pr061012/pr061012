@@ -6,6 +6,7 @@
 #ifndef LOG_H__
 #define LOG_H__
 
+#include <string>
 /**
  * @brief The Log class
  */
