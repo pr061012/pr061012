@@ -9,6 +9,8 @@ LOG_DIR  = ../../log/
 
 # Files with sources.
 SOURCES    = $(LOG_DIR)Log.cpp
+SOURCES   += file1/file1.cpp
+SOURCES   += file2/file2.cpp
 SOURCES   += main.cpp
 
 # Object files.
