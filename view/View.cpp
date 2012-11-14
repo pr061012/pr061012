@@ -1,5 +1,7 @@
 #include "View.h"
 
+#include "../log/Log.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -8,7 +10,7 @@ View::View(IWorld* w)
 {
     if(!w)
     {
-        std::cerr << "NULL World provided to View";
+        Log::ERROR("NULL World provided to View.");
     }
 
     initWindow();
@@ -68,7 +70,7 @@ void View::initWindow()
                          0, 0, 0, 0, 0, 0, GLFW_WINDOW))
     {
         glfwTerminate();
-        std::cerr << "Window initialized unsuccesfully.";
+        Log::ERROR("Window initialized unsuccesfully.");
     }
 
     glMatrixMode(GL_PROJECTION); // editing projection params

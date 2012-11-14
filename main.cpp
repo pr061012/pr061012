@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <random>
-#include <stdlib.h>
+#include <cstdlib>
 
 #include "model/BasicDefines.h"
 #include "model/World/World.h"
@@ -46,8 +46,7 @@ int main()
     }
     catch(std::bad_alloc& exc)
     {
-        std::cerr << "[ERROR] Failed to allocate memory. Terminating." <<
-                     std::endl;
+        Log::ERROR("Failed to allocate memory. Terminating.");
     }
 
     return 0;
