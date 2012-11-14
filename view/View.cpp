@@ -17,6 +17,7 @@ View::View(const IWorld& w)
 View::~View()
 {
     delete view_world;
+    delete key_handler;
     glfwTerminate();
 }
 
