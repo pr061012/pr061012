@@ -23,9 +23,11 @@ OBJECTS     = $(SOURCES:.cpp=.o)
 EXECUTABLE  = pr061012
 
 # Graphic libraries
-TEST_GLFW = $(strip($(wildcard /usr/include/GL/glfw3.h))
+# FIXME: Ugly.
+GLFW3_PATH = /usr/include/GL/glfw3.h
+TEST_GLFW3 = $(wildcard $(GLFW3_PATH))
 
-ifeq ($(TEST_GLFW),)
+ifeq ($(TEST_GLFW3), $(GLFW3_PATH))
 	CFLAGS += -DUSE_GLFW3
 else
 	CFLAGS += -DUSE_GLFW
