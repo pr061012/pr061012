@@ -3,6 +3,10 @@
 // TODO: Change name this define
 #define SPEED 1
 
+#ifdef __glfw3_h__
+    #define glfwGetKey(key) glfwGetKey(view -> getWindow(), key)    
+#endif
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -20,28 +24,28 @@ KeyHandler::~KeyHandler()
 
 void KeyHandler::handleKeys()
 {
-        if(glfwGetKey(view -> getWindow(), GLFW_KEY_RIGHT))
+        if(glfwGetKey(GLFW_KEY_RIGHT))
         {
             if (view -> getX() + SPEED < VIEW_SCREEN_WIDTH)
             {
                 view -> setX(view -> getX() + SPEED);
             }
         }
-        if(glfwGetKey(view -> getWindow(), GLFW_KEY_LEFT))
+        if(glfwGetKey(GLFW_KEY_LEFT))
         {
             if (view -> getX() - SPEED > 0)
             {
                 view -> setX(view -> getX()-SPEED);
             }
         }
-        if(glfwGetKey(view -> getWindow(), GLFW_KEY_DOWN))
+        if(glfwGetKey(GLFW_KEY_DOWN))
         {
             if (view -> getY() - SPEED > 0)
             {
                 view -> setY(view -> getY() - SPEED);
             }
         }
-        if(glfwGetKey(view -> getWindow(), GLFW_KEY_UP))
+        if(glfwGetKey(GLFW_KEY_UP))
         {
             if (view -> getY() + SPEED < VIEW_SCREEN_HEIGHT)
             {

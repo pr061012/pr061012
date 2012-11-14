@@ -35,10 +35,12 @@ double View::getY()
     return view_world->getY();
 }
 
+#ifdef __glfw3_h__
 GLFWwindow View::getWindow()
 {
     return this -> window;
 }
+#endif
 
 void View::setX(double new_var)
 {
@@ -62,23 +64,22 @@ void View::redraw()
     view_world->redraw();
 
     glLoadIdentity();
-    glfwSwapBuffers(window);
-    glfwPollEvents();
+    glfwSwapBuffers();
 }
 
 void View::initWindow()
 {
     glfwInit();
-    glfwWindowHint(GLFW_DEPTH_BITS, 16);
-    if(!(this -> window = glfwCreateWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
-                         GLFW_WINDOWED, "Project", NULL)))
+//    glfwWindowHint(GLFW_DEPTH_BITS, 16);
+//    if(!(this -> window = glfwCreateWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
+//                         GLFW_WINDOWED, "Project", NULL)))
+    if (!createWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT))
     {
         glfwTerminate();
         std::cerr << "Window initialized unsuccesfully.";
     }
 
-    glfwMakeContextCurrent(window);
-    glfwSetInputMode( window, GLFW_KEY_REPEAT, GL_TRUE );
+    createContext();
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
@@ -88,7 +89,7 @@ void View::initWindow()
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
-    glfwSetWindowTitle(window, "Project 0612");
+    glfwSetWindowTitle("Project 0612");
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
@@ -98,6 +99,6 @@ void View::initWindow()
 
 bool View::isExit()
 {
-    return !(glfwGetKey(window, GLFW_KEY_ESC) == GLFW_PRESS)
-            && !glfwGetWindowParam(window, GLFW_CLOSE_REQUESTED);
+    return ! glfwGetKey(GLFW_KEY_ESC) 
+            && windowOpened();
 }
