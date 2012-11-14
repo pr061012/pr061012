@@ -40,7 +40,7 @@ Indexator::~Indexator()
 //******************************************************************************
 
 // gets objects within given area
-ObjectHeap * Indexator::getAreaContents(Shape area)
+ObjectHeap Indexator::getAreaContents(Shape area)
 {
     // Get cells which our area covers
     uint * cells_area = getCellsArea(area);
@@ -83,7 +83,7 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
 
     */
 
-    ObjectHeap * result = new ObjectHeap();
+    ObjectHeap result;
 
     // Search for objects in cells
     for (uint x = cells_area[0]; x <= cells_area[2]; x++)
@@ -109,7 +109,7 @@ ObjectHeap * Indexator::getAreaContents(Shape area)
 
                 if (area.hitTest((*i) -> getShape()))
                 {
-                    result -> push(*i);
+                    result.push(*i);
                 }
             }
         }
@@ -315,9 +315,9 @@ uint * Indexator::getCellsArea(Shape& shape)
 // Row's index >= 0
 uint Indexator::getRow(double coordinate)
 {
-    return min(row_size - 1,
-               (uint)(floor((coordinate + world_size) / cell_size)) 
-               % row_size);
+    return min(row_size - 1, max(0,
+               (uint)(floor(coordinate / cell_size)) 
+               % row_size));
 }
 
 // Destroys index and cells

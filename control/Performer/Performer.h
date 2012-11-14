@@ -25,7 +25,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~Performer();
+    virtual ~Performer();
 
     /**
      * @brief Empty constructor

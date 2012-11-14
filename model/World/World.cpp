@@ -166,17 +166,16 @@ std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double ra
 {
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
-    ObjectHeap* objects = indexator->getAreaContents(area);
-    ObjectHeap::const_iterator it = objects->begin();
+    ObjectHeap objects = indexator->getAreaContents(area);
+    ObjectHeap::const_iterator it = objects.begin();
 
     std::vector<Object*>* retval = new std::vector<Object*>;
 
-    for (; it != objects -> end(); it++)
+    for (; it != objects.end(); it++)
     {
         retval -> push_back(*it);
     }
 
-    delete objects;
 
     return retval;
 }

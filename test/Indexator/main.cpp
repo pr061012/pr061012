@@ -14,8 +14,10 @@ public:
     }
     testObject(Point center, Shape shape) : Object(CREATURE)
     {
-        shape.setCenter(center);
-        setShape(shape);
+        setCoords(center);
+        setShapeSize(shape.getSize());
+        setShapeType(ShapeType(shape.getType()));
+
     }
 
     // vitrual methods
@@ -29,9 +31,9 @@ public:
 
 };
 
-bool find(ObjectHeap* heap, Object * object)
+bool find(ObjectHeap heap, Object * object)
 {
-    for (ObjectHeap::iterator i = heap -> begin(); i != heap -> end(); i++)
+    for (ObjectHeap::iterator i = heap.begin(); i != heap.end(); i++)
     {
         if (*i == object)
         {
@@ -67,35 +69,35 @@ int main()
     Shape area(Point(500, 500), CIRCLE, 400);
 
     // Get contents
-    ObjectHeap * contents = index.getAreaContents(area);
+    ObjectHeap contents = index.getAreaContents(area);
 
     //*************************************************************************
     // check indexing
     //*************************************************************************
     // Middle 8 objects in area
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 8);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 8);
     for (int i = 6; i < 14; i++)
     {
         assert(find(contents, vec[i]));
     }
 
     area.setSize(300);
-    delete contents;
+    
     contents = index.getAreaContents(area);
 
     // Only 4 now
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 4);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 4);
     for (int i = 8; i < 12; i++)
     {
         assert(find(contents, vec[i]));
     }
 
     area.setCenter(Point(250, 750));
-    delete contents;
+    
     contents = index.getAreaContents(area);
 
     // 3 in the middle of left top beam of cross
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 3);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 3);
     for (int i = 3; i < 9; i += 2)
     {
         assert(find(contents, vec[i]));
@@ -119,22 +121,22 @@ int main()
     area.setCenter(Point(500, 500));
 
     // Get contents
-    delete contents;
+    
     contents = index.getAreaContents(area);
 
     // Middle 8 objects in area
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 8);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 8);
     for (int i = 6; i < 14; i++)
     {
         assert(find(contents, vec[i]));
     }
 
     area.setSize(2 * 100 * sqrt(2));
-    delete contents;
+    
     contents = index.getAreaContents(area);
 
     // This time 5: Object #6 wtih (360, 360) has right top at (400, 400)
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 5);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 5);
     for (int i = 8; i < 12; i++)
     {
         assert(find(contents, vec[i]));
@@ -142,11 +144,11 @@ int main()
     assert(find(contents, vec[6]));
 
     area.setCenter(Point(250, 750));
-    delete contents;
+    
     contents = index.getAreaContents(area);
 
     // 3 in the middle of left top beam of cross
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 3);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 3);
     for (int i = 3; i < 9; i += 2)
     {
         assert(find(contents, vec[i]));
@@ -155,7 +157,7 @@ int main()
     //*************************************************************************
     // Now tests with intersecting multiple grid cells
     //*************************************************************************
-    delete contents;
+    
     for (vector<testObject*>::iterator i = vec.begin(); i != vec.end(); i++)
     {
         delete *i;
@@ -170,45 +172,45 @@ int main()
     area.setSize(100);
     area.setCenter(Point(200, 200));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
-    delete contents;
+    
     area.setCenter(Point(220, 220));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
     
-    delete contents;
+    
     area.setCenter(Point(400, 400));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
-    delete contents;
+    
     area.setCenter(Point(380, 380));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
 
-    delete contents;
+    
     area.setCenter(Point(200, 400));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
-    delete contents;
+    
     area.setCenter(Point(220, 380));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
 
-    delete contents;
+    
     area.setCenter(Point(400, 200));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 0);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
-    delete contents;
+    
     area.setCenter(Point(380, 220));
     contents = index1.getAreaContents(area);
-    assert(contents -> getTypeAmount(ObjectType(-1)) == 1);
+    assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
 
     //*************************************************************************
@@ -227,7 +229,7 @@ int main()
 
     for (int t = 0; t < 1000; t++)
     {
-        delete contents;
+        
         /* #0 goes on the line y = 500
          * #1 goes on the circle (x = 700, y = 800, r = 200)
          * #2 goes on the parabola y = (500 - x)^2 / 100 + 400
@@ -257,7 +259,7 @@ int main()
         delete *i;
     }
 
-    delete contents;
+    
 
     /**************************************************************************
     * Toroidal feature
@@ -310,28 +312,28 @@ int main()
 
     area.setCenter(Point(100, 100));
     contents = index1.getAreaContents(area);
-    assert(contents -> getAmount() == 5);
+    assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[0]));
 
     area.setCenter(Point(100, 900));
     contents = index1.getAreaContents(area);
-    assert(contents -> getAmount() == 5);
+    assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[1]));
     
     area.setCenter(Point(900, 900));
     contents = index1.getAreaContents(area);
-    assert(contents -> getAmount() == 5);
+    assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[2]));
 
     area.setCenter(Point(900, 100));
     contents = index1.getAreaContents(area);
-    assert(contents -> getAmount() == 5);
+    assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[3]));

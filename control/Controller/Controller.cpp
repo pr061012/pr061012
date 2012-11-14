@@ -32,7 +32,7 @@ Controller::Controller(World * world) :
 
 Controller::~Controller()
 {
-    for(int i = 0; i < this -> performers.size(); i++)
+    for(uint i = 0; i < this -> performers.size(); i++)
     {
         delete this -> performers[i];
     }
