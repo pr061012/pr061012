@@ -38,12 +38,13 @@ double View::getY()
 void View::setX(double new_var)
 {
     new_var = new_var > 0 ? new_var : 0;
-    //new_var = new_var < v ? new_var : 0;
+    //new_var = new_var < view_world-> ? new_var : 0;
     view_world->setX(new_var);
 }
 
 void View::setY(double new_var)
 {
+    new_var = new_var > 0 ? new_var : 0;
     view_world->setY(new_var);
 }
 

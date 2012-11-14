@@ -11,6 +11,8 @@
 /// Period for world updating.
 const int PERIOD = CLOCKS_PER_SEC/TM_TICKS_PER_SECOND;
 
+#define DEBUG
+
 int main()
 {
     try

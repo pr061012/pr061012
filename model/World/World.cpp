@@ -204,7 +204,8 @@ std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double ra
     {
         retval -> push_back(*it);
     }
-    retval -> push_back(nullptr);
+
+    delete objects;
 
     return retval;
 }
