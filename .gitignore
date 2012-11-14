@@ -23,8 +23,11 @@ test/*/test
 
 # Logs.
 *.log
+LOG
+*/LOG
 
 # Backups.
 *~
 *.swp
 *.swo
+*.autosave

@@ -1,5 +1,7 @@
 #include "View.h"
 
+#include "../log/Log.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -68,7 +70,7 @@ void View::initWindow()
     if (!createWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT))
     {
         glfwTerminate();
-        std::cerr << "Window initialized unsuccesfully.";
+        Log::ERROR("Window initialized unsuccesfully.");
     }
 
     createContext();

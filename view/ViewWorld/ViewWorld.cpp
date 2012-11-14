@@ -1,5 +1,8 @@
-#include "ViewWorld.h"
 #include <vector>
+
+#include "ViewWorld.h"
+
+#include "../../log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -14,7 +17,7 @@ ViewWorld::ViewWorld(const IWorld& w) :
     {
         if( 0 == texture_buf[i] )
         {
-            std::cerr<< "SOIL loading error:'" << SOIL_last_result() << "' \n";
+            Log::ERROR("SOIL loading error:'" + std::string(SOIL_last_result()) + "'.");
         }
     }
 
