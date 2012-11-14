@@ -72,9 +72,9 @@ void MovementPerformer::perform(Action& action)
     // Try to place an object and see if it collides with anything
     Shape ghost = actor -> getShape();
     ghost.setCenter(dest);
-    ObjectHeap * obstacles = indexator -> getAreaContents(ghost);
-    if (!obstacles -> getTypeAmount(CREATURE) && 
-        !obstacles -> getTypeAmount(BUILDING))
+    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
+    if (!obstacles.getTypeAmount(CREATURE) && 
+        !obstacles.getTypeAmount(BUILDING))
     {
         actor -> setCoords(dest);
         indexator -> reindexate(actor);
@@ -84,7 +84,4 @@ void MovementPerformer::perform(Action& action)
     {
         action.markAsFailed();
     }
-
-    // free memory
-    delete obstacles;
 }
