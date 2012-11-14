@@ -6,6 +6,7 @@
 #include "World.h"
 
 #include <iostream>
+#include <vector>
 
 #include "../BasicFuncs.h"
 
@@ -174,30 +175,36 @@ ObjectHeap* World::getHiddenObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-Object** World::getViewObjectsInRange(double x, double y, double radius)
+std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double radius)
 {
-    Object** retval;
-
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
     ObjectHeap* objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects->begin();
 
-    int size = objects -> getAmount();
+//    int size = objects -> getAmount();
 
-    // FIXME: Memory leak! Use std::vector<Object*> instead.
-    retval = new Object*[size + 1];
+//    // FIXME: Memory leak! Use std::vector<Object*> instead.
+//    retval = new Object*[size + 1];
 
-    for(int i = 0; i<size; ++i)
+//    for(int i = 0; i<size; ++i)
+//    {
+//        retval[i] = it[i];
+//    }
+//    retval[size] = NULL;
+
+////    std::cout << "Returning objects array size="
+////              << size << std::endl;
+
+//    delete objects;
+
+    std::vector<Object*>* retval = new std::vector<Object*>;
+
+    for (; it != objects -> end(); it++)
     {
-        retval[i] = it[i];
+        retval -> push_back(*it);
     }
-    retval[size] = NULL;
-
-//    std::cout << "Returning objects array size="
-//              << size << std::endl;
-
-    delete objects;
+    retval -> push_back(nullptr);
 
     return retval;
 }

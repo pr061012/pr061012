@@ -1,4 +1,5 @@
 #include "ViewWorld.h"
+#include <vector>
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -61,16 +62,13 @@ void ViewWorld::redraw()
 {
     renderBackground();
 
-    Object** objects = world->getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<Object*>* objects = world -> getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
-    if(objects)
+    for(uint i=0; i < objects -> size(); i++)
     {
-        int i = 0;
-        while( objects[i] != NULL )
-        {
-            renderObject( objects[i++] );
-        }
+        renderObject(objects->at(i));
     }
+
 }
 
 double ViewWorld::getX()
