@@ -1,8 +1,6 @@
 #include "ViewWorld.h"
 #include <vector>
 
-#define VIEW_DEBUG
-
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -122,7 +120,7 @@ void ViewWorld::renderObject(Object* object)
     float x_sz;
     float y_sz;
 
-#ifdef VIEW_DEBUG
+#ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
     switch(object -> getType())
     {
         case RESOURCE:
@@ -139,12 +137,12 @@ void ViewWorld::renderObject(Object* object)
             break;
     }
 
-    float angle;
-    float radius = 0.25f;
+    double angle;
+    double radius = 0.25f;
     glBegin(GL_TRIANGLE_FAN);
     for(int i = 0; i < 100; i++) {
-        angle = 2.0f * 3.1415926f * float(i) / 100.0f;
-        glVertex2f((px + cos(angle) * radius),
+        angle = 2.0 * i * M_PI / 100;
+        glVertex2d((px + cos(angle) * radius),
                    (py + sin(angle) * radius));
     }
     glEnd();
