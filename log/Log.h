@@ -3,11 +3,15 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef LOG_H__
-#define LOG_H__
+#ifndef LOG_H
+#define LOG_H
 
 #include <fstream>
 #include <string>
+
+#define NOTE(text)  note(__FILE__, __PRETTY_FUNCTION__, __LINE__, text)
+#define WARN(text)  warn(__FILE__, __PRETTY_FUNCTION__, __LINE__, text)
+#define ERROR(text) error(__FILE__, __PRETTY_FUNCTION__, __LINE__, text)
 
 /**
  * @brief The Log class
@@ -20,20 +24,22 @@ class Log
 public:
 
     /**
-     * @brief warning logger
+     * @brief Logs warning to log file.
      */
-    static void warn(std::string file_name, std::string func_name, int line_number, std::string text);
+    static void warn(std::string file_name, std::string func_name,
+                     int line_number, std::string text);
 
     /**
-     * @brief error logger
+     * @brief Logs error to log file.
      */
-    static void error(std::string file_name, std::string func_name, int line_number, std::string text);
+    static void error(std::string file_name, std::string func_name,
+                      int line_number, std::string text);
 
     /**
-     * @brief note logger
+     * @brief Logs note to log file.
      */
-    static void note(std::string file_name, std::string func_name, int line_number, std::string text);
-
+    static void note(std::string file_name, std::string func_name,
+                     int line_number, std::string text);
 };
 
 #endif
