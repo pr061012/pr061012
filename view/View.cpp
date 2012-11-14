@@ -53,9 +53,17 @@ void View::redraw()
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0.0f, 0.0f, -VIEW_CAM_SCALE*2);
+    glTranslatef(0.0f, 0.0f, -2*VIEW_CAM_SCALE);
 
     view_world->redraw();
+
+    // TODO: Draw lines as a coordinate grid.
+//#ifdef VIEW_DEBUG
+//    glBegin(GL_LINES);
+//    glVertex2d(1.0, 1.0);
+//    glVertex2d(10.0, 10.0);
+//    glEnd();
+//#endif
 
     glLoadIdentity();
     glfwSwapBuffers();
@@ -91,7 +99,7 @@ void View::initWindow()
 
 }
 
-bool View::isExit()
+bool View::continues()
 {
     return ! glfwGetKey(GLFW_KEY_ESC) 
             && windowOpened();
