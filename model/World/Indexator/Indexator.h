@@ -12,10 +12,6 @@
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
 
-//*****************************************************************************
-// TODO
-// - fix getAreaContents so it works with toroidal world
-//*****************************************************************************
 
 /**
  * @class Indexator
@@ -49,7 +45,7 @@ public:
      *  @param  area where to look for objects
      *  @return heap with objects in given area
      */
-    ObjectHeap * getAreaContents(Shape area);
+    ObjectHeap getAreaContents(Shape area);
 
     //**************************************************************************
     // REINDEXATING
