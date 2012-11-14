@@ -18,15 +18,6 @@ class Log
     static std::ofstream log_file;
 
 public:
-    /**
-     * @brief Open log file
-     */
-    Log();
-
-    /**
-     * @brief Close log file
-     */
-    ~Log();
 
     /**
      * @brief warning logger
