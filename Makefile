@@ -2,9 +2,7 @@
 CC          = g++
 CFLAGS      = -g -c -Wall -O2 -std=c++11
 LFLAGS      =
-LIBS        = -larmadillo -lGL -lSOIL
-GLFW		= -lglfw
-GLFW3		= -lglfw3
+LIBS        = -larmadillo -lGL -lSOIL -lglfw
 
 # Paths.
 INPUT_DIR   = ./
@@ -24,12 +22,21 @@ OBJECTS     = $(SOURCES:.cpp=.o)
 # Executable file.
 EXECUTABLE  = pr061012
 
+# Graphic libraries
+TEST_GLFW = $(strip($(wildcard /usr/include/GL/glfw3.h))
+
+ifeq ($(TEST_GLFW),)
+	CFLAGS += -DUSE_GLFW3
+else
+	CFLAGS += -DUSE_GLFW
+endif
+
 # Rules.
 
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LFLAGS) $(OBJECTS) -o $@ $(LIBS) $(GLFW)
+	$(CC) $(LFLAGS) $(OBJECTS) -o $@ $(LIBS) 
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@

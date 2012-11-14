@@ -6,9 +6,14 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <GL/glfw3.h>
+// GLFW 3.0 check
+#ifdef USE_GLFW3
+    #include <GL/glfw3.h>
+#else
+    #include <GL/glfw.h>
+#endif
+
 #include <GL/gl.h>
-//#include "config.h"
 #include <SOIL/SOIL.h>
 #include "../model/BasicTypes.h"
 #include "../model/BasicDefines.h"

@@ -17,8 +17,6 @@ View::View(IWorld* w)
     key_handler = new KeyHandler(this);
 }
 
-
-
 View::~View()
 {
     delete view_world;
