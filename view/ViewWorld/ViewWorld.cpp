@@ -1,6 +1,8 @@
 #include "ViewWorld.h"
 #include <vector>
 
+#define VIEW_DEBUG
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -120,6 +122,35 @@ void ViewWorld::renderObject(Object* object)
     float x_sz;
     float y_sz;
 
+#ifdef VIEW_DEBUG
+    switch(object -> getType())
+    {
+        case RESOURCE:
+            glColor3d(1.0,0.0,0.0);
+            break;
+        case TOOL:
+            glColor3d(0.0,1.0,0.0);
+            break;
+        case BUILDING:
+            glColor3d(0.0,0.0,1.0);
+            break;
+        case WEATHER:
+            glColor3d(0.0,0.0,0.0);
+            break;
+    }
+
+    float angle;
+    float radius = 0.25f;
+    glBegin(GL_TRIANGLE_FAN);
+    for(int i = 0; i < 100; i++) {
+        angle = 2.0f * 3.1415926f * float(i) / 100.0f;
+        glVertex2f((px + cos(angle) * radius),
+                   (py + sin(angle) * radius));
+    }
+    glEnd();
+
+    glColor3d(1.0,1.0,1.0);
+#else
     if(object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
@@ -156,6 +187,8 @@ void ViewWorld::renderObject(Object* object)
     glEnd();
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
+#endif
+
 }
 
 void ViewWorld::renderBackground()

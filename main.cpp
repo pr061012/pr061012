@@ -39,7 +39,7 @@ int main()
 
             view.redraw();
 
-        } while(view.isExit());
+        } while(view.continues());
     }
     catch(std::bad_alloc & exc)
     {
