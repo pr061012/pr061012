@@ -5,6 +5,7 @@
 
 #include "DecisionMaker.h"
 #include "../../BasicDefines.h"
+#include "../../../log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -22,8 +23,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
         some_matrix.open (PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
         {
-            std::cerr << "[ERROR] DecisionMaker: cannot open file " <<
-                         "'humanoid_decision_matrix.txt'" << std::endl;
+            Log::ERROR("Cannot open file '" + std::string(PATH_TO_HUM_MATRIX) + "'.");
         }
 
         for (i = 0; i < ATR_CONST; i++)
@@ -39,8 +39,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
         some_matrix.open (PATH_TO_NON_HUM_MATRIX);
         if (some_matrix == NULL)
         {
-            std::cerr << "[ERROR] DecisionMaker: cannot open file " <<
-                         "'non_humanoid_decision_matrix.txt'" << std::endl;
+            Log::ERROR("Cannot open file '" + std::string(PATH_TO_NON_HUM_MATRIX) + "'.");
         }
 
         for (i = 0; i < ATR_CONST; i++)

@@ -94,7 +94,7 @@ public:
      * @brief checks conditions to exit the program
      * @return result of exit conditions
      */
-    bool isExit();
+    bool continues();
 
 private:
     /**

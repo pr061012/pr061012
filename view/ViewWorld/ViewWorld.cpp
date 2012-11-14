@@ -1,5 +1,8 @@
-#include "ViewWorld.h"
 #include <vector>
+
+#include "ViewWorld.h"
+
+#include "../../log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -14,7 +17,7 @@ ViewWorld::ViewWorld(const IWorld& w) :
     {
         if( 0 == texture_buf[i] )
         {
-            std::cerr<< "SOIL loading error:'" << SOIL_last_result() << "' \n";
+            Log::ERROR("SOIL loading error:'" + std::string(SOIL_last_result()) + "'.");
         }
     }
 
@@ -69,6 +72,8 @@ void ViewWorld::redraw()
         renderObject(objects -> at(i));
     }
 
+    delete objects;
+
 }
 
 double ViewWorld::getX()
@@ -120,6 +125,35 @@ void ViewWorld::renderObject(Object* object)
     float x_sz;
     float y_sz;
 
+#ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
+    switch(object -> getType())
+    {
+        case RESOURCE:
+            glColor3d(1.0,0.0,0.0);
+            break;
+        case TOOL:
+            glColor3d(0.0,1.0,0.0);
+            break;
+        case BUILDING:
+            glColor3d(0.0,0.0,1.0);
+            break;
+        case WEATHER:
+            glColor3d(0.0,0.0,0.0);
+            break;
+    }
+
+    double angle;
+    double radius = 0.25f;
+    glBegin(GL_TRIANGLE_FAN);
+    for(int i = 0; i < 100; i++) {
+        angle = 2.0 * i * M_PI / 100;
+        glVertex2d((px + cos(angle) * radius),
+                   (py + sin(angle) * radius));
+    }
+    glEnd();
+
+    glColor3d(1.0,1.0,1.0);
+#else
     if(object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
@@ -156,6 +190,8 @@ void ViewWorld::renderObject(Object* object)
     glEnd();
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
+#endif
+
 }
 
 void ViewWorld::renderBackground()

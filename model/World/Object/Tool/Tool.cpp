@@ -7,6 +7,7 @@
 
 #include "Tool.h"
 #include "../../../BasicDefines.h"
+#include "../../../../log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -31,9 +32,7 @@ Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
         material != GOLD
     )
     {
-        std::cerr << "[ERROR] Tool: tried to create tool with material " <<
-                     "different from mine resource. Maybe it's " <<
-                     "Controller error" << std::endl;
+        Log::ERROR("Tried to create tool with material different from mine resource. Maybe it's  Controller error.");
 
         this -> max_strength     = 0;
         this -> current_strength = 0;
