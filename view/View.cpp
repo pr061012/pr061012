@@ -4,7 +4,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-View::View(IWorld* w)
+View::View(const IWorld& w)
 {
     if(!w)
     {
@@ -37,8 +37,6 @@ double View::getY()
 
 void View::setX(double new_var)
 {
-    new_var = new_var > 0 ? new_var : 0;
-    //new_var = new_var < view_world-> ? new_var : 0;
     view_world->setX(new_var);
 }
 

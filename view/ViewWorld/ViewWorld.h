@@ -17,7 +17,7 @@
 class ViewWorld
 {
     /// World that is rendered by this class
-    IWorld* world;
+    const IWorld& world;
 
 public:
     //**************************************************************************
@@ -28,7 +28,7 @@ public:
      * @brief Constructor
      * @param w world to render
      */
-    ViewWorld(IWorld* w);
+    ViewWorld(const IWorld& w);
 
     /**
      * @brief Destructor
@@ -83,6 +83,7 @@ public:
 
     double getX();
     double getY();
+    double getSize();
 
     /**
      * @brief set coordinates of center of the game cam

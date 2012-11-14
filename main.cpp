@@ -11,8 +11,6 @@
 /// Period for world updating.
 const int PERIOD = CLOCKS_PER_SEC/TM_TICKS_PER_SECOND;
 
-#define DEBUG
-
 int main()
 {
     try
@@ -21,7 +19,7 @@ int main()
 
         World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
-        View view(&world);
+        View view(world);
 
         int t0 = clock();
         int counter = 0;
