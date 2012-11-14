@@ -6,11 +6,6 @@
 
 View::View(const IWorld& w)
 {
-    if(!w)
-    {
-        std::cerr << "NULL World provided to View";
-    }
-
     initWindow();
 
     view_world = new ViewWorld(w);
