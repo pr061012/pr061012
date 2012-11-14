@@ -2,21 +2,24 @@
 #include <ctime>
 #include <random>
 #include <stdlib.h>
-#include "model/BasicDefines.h"
 
+#include "model/BasicDefines.h"
 #include "model/World/World.h"
 #include "control/Controller/Controller.h"
 #include "view/View.h"
+#include "log/Log.h"
 
 /// Period for world updating.
-const int PERIOD = CLOCKS_PER_SEC/TM_TICKS_PER_SECOND;
+const int PERIOD = CLOCKS_PER_SEC / TM_TICKS_PER_SECOND;
 
 int main()
 {
     try
     {
+        // Initialize random.
         srand(time(NULL));
 
+        // Creating World, View and Controller.
         World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
         View view(&world);
@@ -41,7 +44,7 @@ int main()
 
         } while(view.isExit());
     }
-    catch(std::bad_alloc & exc)
+    catch(std::bad_alloc& exc)
     {
         std::cerr << "[ERROR] Failed to allocate memory. Terminating." <<
                      std::endl;
