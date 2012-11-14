@@ -5,7 +5,8 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w)
+ViewWorld::ViewWorld(const IWorld& w) :
+    world(w)
 {
     loadTextures();
 
@@ -17,7 +18,6 @@ ViewWorld::ViewWorld(const IWorld& w)
         }
     }
 
-    world = w;
     x = 50.0;
     y = 50.0;
 

@@ -94,7 +94,7 @@ public:
      * @brief Get World's size
      * @return World's size
      */
-    double getSize();
+    double getSize() const;
 
     /**
      * @brief Get World's indexator
@@ -143,7 +143,7 @@ public:
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
      *         array is return null-terminated
      */
-    std::vector<Object*>* getViewObjectsInRange(double x, double y, double radius);
+    std::vector<Object*>* getViewObjectsInRange(double x, double y, double radius) const;
 
     /**
      * @brief Get weather state at certain coordinates
@@ -151,7 +151,7 @@ public:
      * @param y y coordinate of screen center
      * @return ViewWeather - enum indicating weather at specified location
      */
-    WeatherType getWeatherAtPoint(double x, double y);
+    WeatherType getWeatherAtPoint(double x, double y) const;
 
 private:
     /// Size of World's region
