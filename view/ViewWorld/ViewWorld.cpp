@@ -1,10 +1,12 @@
 #include "ViewWorld.h"
+#include <vector>
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(IWorld* w)
+ViewWorld::ViewWorld(const IWorld& w) :
+    world(w)
 {
     loadTextures();
 
@@ -16,7 +18,6 @@ ViewWorld::ViewWorld(IWorld* w)
         }
     }
 
-    world = w;
     x = 50.0;
     y = 50.0;
 
@@ -61,41 +62,46 @@ void ViewWorld::redraw()
 {
     renderBackground();
 
-    Object** objects = world->getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<Object*>* objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
-    if(objects)
+    for(uint i=0; i < objects -> size(); i++)
     {
-        int i = 0;
-        while( objects[i] != NULL )
-        {
-            renderObject( objects[i++] );
-        }
+        renderObject(objects -> at(i));
     }
+
 }
 
 double ViewWorld::getX()
 {
-    return this->x;
+    return this -> x;
 }
 
 double ViewWorld::getY()
 {
-    return this->y;
+    return this -> y;
 }
 
 void ViewWorld::setX(double new_var)
 {
-    this->x = new_var;
+    new_var = new_var > VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM ?
+              new_var : VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() ?
+              new_var : world.getSize();
+    this -> x = new_var;
 }
 
 void ViewWorld::setY(double new_var)
 {
-    this->y = new_var;
+    new_var = new_var > VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM ?
+              new_var : VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() ?
+              new_var : world.getSize();
+    this -> y = new_var;
 }
 
 void ViewWorld::renderObject(Object* object)
 {
-    const Point &p = object->getCoords();
+    const Point &p = object -> getCoords();
 
     double px = p.getX() - x;
     double py = p.getY() - y;
@@ -114,7 +120,7 @@ void ViewWorld::renderObject(Object* object)
     float x_sz;
     float y_sz;
 
-    if(object->getType() == RESOURCE)
+    if(object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
         y0 = 1.0 - 110.0/480;
@@ -126,7 +132,7 @@ void ViewWorld::renderObject(Object* object)
 
         glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
     }
-    if(object->getType() == CREATURE)
+    if(object -> getType() == CREATURE)
     {
         x0 = 0.0;
         y0 = 0.0;

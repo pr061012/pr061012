@@ -1,8 +1,15 @@
-pr061012 is licensed under GNU GPL v2 (for text of the license look for GPL
-file).
-Copyright (c) 2012, pr061012 team.
+NOTE: Texts of all licenses you can find in licenses/ directory.
+
+pr061012 is licensed under GNU GPL v2.
+Copyright © 2012 pr061012 team.
 (look for AUTHORS file for the full list of developers)
 
-Armadillo library is licensed under GNU LGPL v3 (for text of the license look
-for LGPL file).
-Copyright (c) 2010-2011, NICTA.
+pr061012 uses following software (each software's license is compatible with
+GNU GPL v2):
+
+    * Armadillo (GNU LGPL v3). Copyright © 2010-2011 NICTA.
+
+    * GLFW (zlib/libpng license). Copyright © 2002-2006 Marcus Geelnard,
+      Copyright © 2006-2011 Camilla Berglund
+
+    * SOIL (public domain).

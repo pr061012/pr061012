@@ -6,6 +6,7 @@
 #include "World.h"
 
 #include <iostream>
+#include <vector>
 
 #include "../BasicFuncs.h"
 
@@ -14,10 +15,24 @@
 //******************************************************************************
 
 World::~World()
-{    
+{
+    // Deleting factory and indexator.
     delete object_factory;
     delete indexator;
+
+    // Deleting visible objects.
+    ObjectHeap::iterator iter;
+    for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
     delete visible_objs;
+
+    // Deleting hidden objects.
+    for(iter = hidden_objs -> begin(); iter != hidden_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
     delete hidden_objs;
 }
 
@@ -106,11 +121,6 @@ void World::save(std::string filepath)
 // ACCESSORS.
 //******************************************************************************
 
-//void World::setAllObjects(ObjectHeap* new_var)
-//{
-//    this -> visible_objs = new_var;
-//}
-
 void World::addObject(bool visibility, Object *obj)
 {
     if (visibility)
@@ -128,7 +138,7 @@ ObjectFactory* World::getObjectFactory()
     return this -> object_factory;
 }
 
-double World::getSize()
+double World::getSize() const
 {
     return this -> size;
 }
@@ -148,46 +158,30 @@ ObjectHeap* World::getHiddenObjects()
     return this -> hidden_objs;
 }
 
-//ObjectHeap *World::getObjectsInRange(double x, double y, double radius)
-//{
-//    Point center(x, y);
-//    Shape area(center, CIRCLE, radius*2);
-//    ObjectHeap* ret = indexator->getAreaContents(area);
-//    return ret;
-//}
-
 //******************************************************************************
 // VIEW METHODS.
 //******************************************************************************
 
-Object** World::getViewObjectsInRange(double x, double y, double radius)
+std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double radius) const
 {
-    Object** retval;
-
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
     ObjectHeap* objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects->begin();
 
-    int size = objects -> getAmount();
+    std::vector<Object*>* retval = new std::vector<Object*>;
 
-    retval = new Object*[size + 1];
-
-    for(int i = 0; i<size; ++i)
+    for (; it != objects -> end(); it++)
     {
-        retval[i] = it[i];
+        retval -> push_back(*it);
     }
-    retval[size] = NULL;
-
-//    std::cout << "Returning objects array size="
-//              << size << std::endl;
 
     delete objects;
 
     return retval;
 }
 
-WeatherType World::getWeatherAtPoint(double x, double y)
+WeatherType World::getWeatherAtPoint(double x, double y) const
 {
     // TODO: Cycle through weather objects
     // and return the closest type of weather for this area.

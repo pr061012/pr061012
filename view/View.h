@@ -14,7 +14,6 @@
 #endif
 
 #include <GL/gl.h>
-#include <SOIL/SOIL.h>
 #include "../model/BasicTypes.h"
 #include "../model/BasicDefines.h"
 #include "../model/World/IWorld.h"
@@ -60,7 +59,7 @@ public:
      * @brief Constructor
      * @param w world that will be rendered by this class
      */
-    View(IWorld* w);
+    View(const IWorld& w);
 
     /**
      * @brief Destructor

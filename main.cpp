@@ -19,7 +19,7 @@ int main()
 
         World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
-        View view(&world);
+        View view(world);
 
         int t0 = clock();
         int counter = 0;
@@ -31,7 +31,7 @@ int main()
                 t0 += PERIOD;
             }
 
-            if(counter++ == 3)
+            if(counter++ == 10)
             {
                 control.step();
                 counter = 0;

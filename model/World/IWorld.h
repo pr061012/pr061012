@@ -27,15 +27,15 @@ public:
 
     virtual ObjectFactory* getObjectFactory() = 0;
 
-    virtual double getSize() = 0;
+    virtual double getSize() const = 0;
 
     //******************************************************************************
     // WORLD <-> VIEW METHODS.
     //******************************************************************************
 
-    virtual Object** getViewObjectsInRange(double x, double y, double radius) = 0;
+    virtual std::vector<Object*>* getViewObjectsInRange(double x, double y, double radius) const = 0;
 
-    virtual WeatherType getWeatherAtPoint(double x, double y) = 0;
+    virtual WeatherType getWeatherAtPoint(double x, double y) const = 0;
 };
 
 #endif // IWORLD_H
