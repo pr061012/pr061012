@@ -57,8 +57,26 @@ private:
     //**************************************************************************
     // AUXILIARY FUNTIONS
     //**************************************************************************
+
+    /**
+     * @brief    Find grass around NHum
+     * @return   the nearest grass
+     */
     void findGrass();
+
+    /**
+     * @brief    Calculate the angle between first (this) and second (aim) object
+     * @return   angle
+     */
     double setDirection();
+
+    //**************************************************************************
+    // Increase attributes
+    //**************************************************************************
+    /**
+     * @brief    Increases satiety level
+     */
+    void feed();
 
     //**************************************************************************
     // DIRECTIONS
