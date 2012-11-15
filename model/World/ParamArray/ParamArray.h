@@ -133,6 +133,15 @@ public:
         return true;
     }
 
+    /**
+     * @brief Removes all elements from ParamArray.
+     */
+    void clear()
+    {
+        // FIXME: Memory leaks!
+        this -> map.clear();
+    }
+
 private:
     /// Map with keys.
     std::map <std::string, void*> map;
