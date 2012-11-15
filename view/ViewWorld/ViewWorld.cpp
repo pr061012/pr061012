@@ -36,11 +36,16 @@ void ViewWorld::loadTextures()
 {
     texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
     (
-        "res/grass.png",
+        "res/rock.png",
         SOIL_LOAD_RGBA,
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
     );
+
+    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
+    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
     texture_buf[1] = SOIL_load_OGL_texture
     (
@@ -207,11 +212,6 @@ void ViewWorld::renderBackground()
     py *= VIEW_ASPECT_RATIO;
 
     glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
-
-    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
-
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST );
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
     glEnable(GL_TEXTURE_2D);
 

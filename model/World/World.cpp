@@ -54,6 +54,8 @@ World::World(int rand_seed, int size) :
     std::cout << "Creating world with rand_seed="
               << rand_seed << std::endl;
 
+    // Initializing class attributes
+
     object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
 
     visible_objs = new ObjectHeap();
@@ -61,10 +63,16 @@ World::World(int rand_seed, int size) :
 
     indexator = new Indexator((double)this->size);
 
+    // Creating resources
+
     ParamArray params;
+    ParamArray grass_params;
 
     params.addKey("res_type", WOOD);
     params.addKey("res_amount", 10);
+
+    grass_params.addKey("res_type", GRASS);
+    grass_params.addKey("res_amount", 10);
 
     for(int i = 3000 + rand()%5000; i>=0; --i)
     {
@@ -73,9 +81,13 @@ World::World(int rand_seed, int size) :
         newobj -> setCoords(Point(Random::int_range(0, size),
                                   Random::int_range(0, size)));
 
-        visible_objs -> push(newobj);
-        indexator -> reindexate(newobj);
+        Object* grass = object_factory -> createObject(RESOURCE, grass_params);
 
+        grass -> setCoords(Point(Random::int_range(0, size),
+                                 Random::int_range(0, size)));
+
+        visible_objs -> push(newobj);
+        visible_objs -> push(grass);
     }
 
     // Creating cows!
@@ -91,9 +103,9 @@ World::World(int rand_seed, int size) :
                                    Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
-        indexator -> reindexate(new_obj);
     }
 
+    indexator -> reindexate(visible_objs);
 }
 
 //******************************************************************************
