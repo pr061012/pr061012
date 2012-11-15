@@ -101,6 +101,7 @@ World::World(int rand_seed, int size) :
         visible_objs -> push(new_obj);
         indexator -> reindexate(new_obj);
     }
+
 }
 
 //******************************************************************************

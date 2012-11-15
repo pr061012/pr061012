@@ -6,6 +6,7 @@
 
 #include "model/World/World.h"
 #include "control/Controller/Controller.h"
+
 #include "view/View.h"
 
 /// Period for world updating.

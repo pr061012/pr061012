@@ -44,12 +44,6 @@ public:
     World(std::string filepath);
 
     /**
-     * @brief World generation by given seed.
-     * @param rand_seed
-     */
-    //World(int rand_seed = 0);
-
-    /**
      * @brief World generation by given seed and by specific width/height.
      * @param rand_seed
      * @param width

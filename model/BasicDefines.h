@@ -19,10 +19,13 @@
 #define VIEW_SCREEN_WIDTH                800
 #define VIEW_SCREEN_HEIGHT               600
 
-/// Radius of game camera field of view
+/// Aspect ratio of the screen
+#define VIEW_ASPECT_RATIO ((double)VIEW_SCREEN_HEIGHT)/VIEW_SCREEN_WIDTH
+
+/// Radius of field of view of game camera
 #define VIEW_CAM_RADIUS                  30
-/// Correlation between screen change in x/y and those in world.
-#define VIEW_CAM_SCALE                   8
+/// Max x and y of screen coordinates
+#define VIEW_CAM_SIZE                   8
 
 //******************************************************************************
 // TIME DEFINES.
@@ -63,9 +66,9 @@
 #define SZ_WEATHER_DIAM_MAX         20 * SZ_HUMANOID_DIAM
 
 /// Resource shape diameter (minimum size).
-#define SZ_RESOURCE_DIAM_MIN        5 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUMANOID_DIAM
 /// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX        10 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MAX        2 * SZ_HUMANOID_DIAM
 
 /// Tool size (when dropped to ground).
 #define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1

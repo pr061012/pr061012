@@ -83,19 +83,19 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM;
-    new_var = new_var < world.getSize() ?
-              new_var : world.getSize();
+    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
+              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
     this -> x = new_var;
 }
 
 void ViewWorld::setY(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS+SZ_HUMANOID_DIAM;
-    new_var = new_var < world.getSize() ?
-              new_var : world.getSize();
+    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
+              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
     this -> y = new_var;
 }
 
@@ -108,8 +108,8 @@ void ViewWorld::renderObject(Object* object)
 
     px /= VIEW_CAM_RADIUS;
     py /= VIEW_CAM_RADIUS;
-    px *= VIEW_CAM_SCALE;
-    py *= VIEW_CAM_SCALE;
+    px *= VIEW_CAM_SIZE;
+    py *= VIEW_CAM_SIZE;
 
     // TODO: Redo image coordinates to be taken from (file?)
     float x0;
@@ -138,7 +138,7 @@ void ViewWorld::renderObject(Object* object)
     }
 
     double angle;
-    double radius = 0.25f;
+    double radius = object->getShape().getSize();
     glBegin(GL_TRIANGLE_FAN);
     for(int i = 0; i < 100; i++) {
         angle = 2.0 * i * M_PI / 100;
@@ -191,8 +191,10 @@ void ViewWorld::renderObject(Object* object)
 
 void ViewWorld::renderBackground()
 {
-    double px = x/VIEW_CAM_RADIUS*VIEW_CAM_SCALE;
-    double py = y/VIEW_CAM_RADIUS*VIEW_CAM_SCALE;
+    double px = x/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
+    double py = y/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
+
+    py *= VIEW_ASPECT_RATIO;
 
     glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
 
@@ -204,10 +206,14 @@ void ViewWorld::renderBackground()
     glEnable(GL_TEXTURE_2D);
 
     glBegin(GL_POLYGON);
-        glTexCoord2f(0.0  + px, 0.0  + py); glVertex2f(-8.0f, -8.0f);
-        glTexCoord2f(16.0 + px, 0.0  + py); glVertex2f( 8.0f, -8.0f);
-        glTexCoord2f(16.0 + px, 16.0 + py); glVertex2f( 8.0f,  8.0f);
-        glTexCoord2f(0.0  + px, 16.0 + py); glVertex2f(-8.0f,  8.0f);
+        glTexCoord2f(0.0  + px, py);
+        glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
+        glTexCoord2f(16.0 + px, py);
+        glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
+        glTexCoord2f(16.0 + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
+        glTexCoord2f(0.0  + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
