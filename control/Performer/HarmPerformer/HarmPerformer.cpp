@@ -7,7 +7,7 @@
 
 #include "HarmPerformer.h"
 #include "../../../model/World/Object/Object.h"
-#include "../../../model/BasicFuncs.h"
+#include "../../../common/Random/Random.h"
 
 #include <vector>
 
@@ -26,7 +26,7 @@ void HarmPerformer::perform(Action& action)
 {
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
-    uint harm = randFromRange(0,100);
+    uint harm = Random::int_num(100);
 
     if ((type != CREATURE) || (type != WEATHER))
     {

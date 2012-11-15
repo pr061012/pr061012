@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../BasicFuncs.h"
+#include "../../common/Random/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -72,8 +72,8 @@ World::World(int rand_seed, int size) :
         Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
         // TODO: Do something with these magic consts.
-        newobj -> setCoords(Point(randFromRange(0, size),
-                                  randFromRange(0, size)));
+        newobj -> setCoords(Point(Random::int_range(0, size),
+                                  Random::int_range(0, size)));
 
         visible_objs -> push(newobj);
         indexator -> reindexate(newobj);
@@ -95,8 +95,8 @@ World::World(int rand_seed, int size) :
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
 
         // TODO: Do something with these magic consts.
-        new_obj -> setCoords(Point(randFromRange(20.0, 70.0),
-                                   randFromRange(20.0, 70.0)));
+        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
+                                   Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
         indexator -> reindexate(new_obj);

@@ -7,9 +7,9 @@
 #include <cmath>
 
 #include "NonHumanoid.h"
-#include "../../../../BasicDefines.h"
-#include "../../../../BasicFuncs.h"
 #include "../../Resource/Resource.h"
+#include "../../../../BasicDefines.h"
+#include "../../../../../common/Random/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -19,7 +19,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     Creature(NON_HUMANOID, dmaker)
 {
     // Randomly initialize some values.
-    int age    = randFromRange(NHUM_AGE_MIN,    NHUM_AGE_MAX);
+    int age = Random::int_range(NHUM_AGE_MIN, NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
     this -> setMaxAge(age);
@@ -117,7 +117,7 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         if (angle == -1)
         {
-            angle = doubleRand(2 * M_PI);
+            angle = Random::double_num(2 * M_PI);
         }
         Action act(GO, this);
         act.addParam("angle", angle);
@@ -135,7 +135,7 @@ std::vector <Action>* NonHumanoid::getActions()
             if (angle == -1)
                 angle = setDirection();
             if (this -> getCoords().getDistance(aim -> getCoords()) == 0)
-                                                    //maybe<some_epsilon?
+                                                   // FIXME: maybe<some_epsilon?
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -150,9 +150,10 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
+            // FIXME: Erm. Is using -1 as a sign of unde
             if (angle == -1)
             {
-                angle = doubleRand(2 * M_PI);
+                angle = Random::double_num(2 * M_PI);
             }
             Action act(GO, this);
             act.addParam("angle", angle);
@@ -177,7 +178,7 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             if (angle == -1)
             {
-                angle = doubleRand(2 * M_PI);
+                angle = Random::double_num(2 * M_PI);
             }
             Action act(GO, this);
             act.addParam("angle", angle);

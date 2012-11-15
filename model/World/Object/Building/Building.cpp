@@ -3,7 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../../../BasicFuncs.h"
+#include "../../../../common/Random/Random.h"
 #include "../../../BasicDefines.h"
 
 #include "Building.h"
@@ -21,7 +21,7 @@ Building::Building(uint max_space, uint max_health) :
     completeness(false)
 {
     this -> setShapeType(SHP_BUILDING);
-    this -> setShapeSize(randFromRange(SZ_BUILDING_SIDE_MIN, SZ_BUILDING_SIDE_MAX));
+    this -> setShapeSize(Random::double_range(SZ_BUILDING_SIDE_MIN, SZ_BUILDING_SIDE_MAX));
 }
 
 Building::~Building()

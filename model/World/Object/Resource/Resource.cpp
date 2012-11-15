@@ -1,12 +1,12 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #include "Resource.h"
 
 #include "../../../BasicDefines.h"
-#include "../../../BasicFuncs.h"
+#include "../../../../common/Random/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -19,7 +19,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
     steps_to_reg(0)
 {
     this -> setShapeType(SHP_RESOURCE);
-    this -> setShapeSize(randFromRange(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
+    this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
 
     // FIXME: Foolish code.
     switch(this -> subtype)
@@ -27,40 +27,40 @@ Resource::Resource(ResourceType type, uint res_amount) :
         case WOOD:
             this -> mineable        = true;
             this -> difficulty      = RES_WOOD_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
-            this -> amount_per_drop = randFromRange(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
             this -> reg_amount      = RES_WOOD_REG_AMOUNT;
         break;
 
         case BRONZE_ORE:
             this -> mineable        = true;
             this -> difficulty      = RES_BRONZE_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_BRONZE_ORE_AMOUNT_MIN, RES_BRONZE_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = randFromRange(RES_BRONZE_ORE_DROP_MIN, RES_BRONZE_ORE_DROP_MAX);
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_BRONZE_ORE_AMOUNT_MIN, RES_BRONZE_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_BRONZE_ORE_DROP_MIN, RES_BRONZE_ORE_DROP_MAX);
             this -> reg_amount      = RES_BRONZE_ORE_REG_AMOUNT;
         break;
 
         case IRON_ORE:
             this -> mineable        = true;
             this -> difficulty      = RES_IRON_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_IRON_ORE_AMOUNT_MIN, RES_IRON_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = randFromRange(RES_IRON_ORE_DROP_MIN, RES_IRON_ORE_DROP_MAX);
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_IRON_ORE_AMOUNT_MIN, RES_IRON_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_IRON_ORE_DROP_MIN, RES_IRON_ORE_DROP_MAX);
             this -> reg_amount      = RES_IRON_ORE_REG_AMOUNT;
         break;
 
         case SILVER_ORE:
             this -> mineable        = true;
             this -> difficulty      = RES_SILVER_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_SILVER_ORE_AMOUNT_MIN, RES_SILVER_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = randFromRange(RES_SILVER_ORE_DROP_MIN, RES_SILVER_ORE_DROP_MAX);
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_SILVER_ORE_AMOUNT_MIN, RES_SILVER_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_SILVER_ORE_DROP_MIN, RES_SILVER_ORE_DROP_MAX);
             this -> reg_amount      = RES_SILVER_ORE_REG_AMOUNT;
         break;
 
         case GOLD_ORE:
             this -> mineable        = true;
             this -> difficulty      = RES_GOLD_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : randFromRange(RES_GOLD_ORE_AMOUNT_MIN, RES_GOLD_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = randFromRange(RES_GOLD_ORE_DROP_MIN, RES_GOLD_ORE_DROP_MAX);
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_GOLD_ORE_AMOUNT_MIN, RES_GOLD_ORE_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_GOLD_ORE_DROP_MIN, RES_GOLD_ORE_DROP_MAX);
             this -> reg_amount      = RES_GOLD_ORE_REG_AMOUNT;
         break;
 
