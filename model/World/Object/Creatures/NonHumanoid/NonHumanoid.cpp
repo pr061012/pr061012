@@ -236,10 +236,6 @@ void NonHumanoid::updateSafety()
     ;
 }
 
-/**
- * @brief    Calculate the angle between first (this) and second (aim) object
- * @return   angle
- */
 double NonHumanoid::setDirection()
 {
     double delta_x;
@@ -249,10 +245,6 @@ double NonHumanoid::setDirection()
     return angle = atan(delta_x / delta_y);
 }
 
-/**
- * @brief    Find grass around NHum
- * @return   the nearest grass
- */
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
@@ -275,5 +267,17 @@ void NonHumanoid::findGrass()
                 distance = coords.getDistance(this -> getCoords());
             }
         }
+    }
+}
+
+void NonHumanoid::feed(unsigned int delta)
+{
+    if(this -> hunger - delta > 0)
+    {
+        this -> hunger -= delta;
+    }
+    else
+    {
+        hunger = 0;
     }
 }
