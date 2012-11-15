@@ -35,6 +35,9 @@ else
 	CFLAGS += -DUSE_GLFW
 endif
 
+# View debug.
+CFLAGS += -DVIEW_DEBUG
+
 # Rules.
 
 all: $(SOURCES) $(EXECUTABLE)
