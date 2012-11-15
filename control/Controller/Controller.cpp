@@ -24,8 +24,8 @@ Controller::Controller(World * world) :
     performers[GO] = new TravelingPerformer(world -> getSize(),
                                                          world -> getIndexator());
     performers[CREATE_OBJ] = new CreationPerformer(world);
-    performers[MINE_OBJ] = new MiningPerformer(world -> getIndexator());
-    performers[HARM_OBJS] = new HarmPerformer(world -> getIndexator());
+    performers[MINE_OBJ] = new MiningPerformer(*world -> getIndexator());
+    performers[HARM_OBJS] = new HarmPerformer(*world -> getIndexator());
     performers[REPAIR_OBJ] = new RegenerationPerformer();
     performers[DROP_OBJS] = new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = new PickupMaster(world);

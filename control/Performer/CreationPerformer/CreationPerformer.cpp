@@ -101,7 +101,7 @@ bool CreationPerformer::checkCoord(uint x, uint y)
 
     ghost.setCenter(coord);
 
-    ObjectHeap obstacles = indexator.getAreaContents(ghost);
+    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
     if (!obstacles.getTypeAmount(CREATURE) &&
         !obstacles.getTypeAmount(BUILDING))
     {
