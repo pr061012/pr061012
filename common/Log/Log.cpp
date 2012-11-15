@@ -32,5 +32,3 @@ void Log::warn(std::string file_name, std::string func_name,
                 "        " << func_name << std::endl <<
                 "        " << text << std::endl;
 }
-
-

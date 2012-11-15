@@ -1,6 +1,6 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #include "Action.h"
@@ -78,12 +78,20 @@ std::vector <Object*> Action::getParticipants()
 
 Object* Action::getActor()
 {
-    return actor;
+    return this -> actor;
 }
 
 ActionType Action::getType() const
 {
-    return type;
+    return this -> type;
 }
 
+ActionError Action::getError() const
+{
+    return this -> error;
+}
 
+void Action::setError(ActionError error)
+{
+    this -> error = error;
+}
