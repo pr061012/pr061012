@@ -70,7 +70,6 @@ World::World(int rand_seed, int size) :
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
-        // TODO: Do something with these magic consts.
         newobj -> setCoords(Point(Random::int_range(0, size),
                                   Random::int_range(0, size)));
 
@@ -88,7 +87,6 @@ World::World(int rand_seed, int size) :
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
 
-        // TODO: Do something with these magic consts.
         new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
                                    Random::double_range(20.0, 70.0)));
 
