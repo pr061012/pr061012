@@ -270,7 +270,7 @@ void NonHumanoid::findGrass()
     }
 }
 
-void NonHumanoid::feed(unsigned int delta)
+void NonHumanoid::feed(uint delta)
 {
     if(this -> hunger - delta > 0)
     {

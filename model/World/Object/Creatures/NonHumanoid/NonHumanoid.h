@@ -74,9 +74,9 @@ private:
     // Increase attributes
     //**************************************************************************
     /**
-     * @brief    Increases satiety level
+     * @brief Increases satiety level
      */
-    void feed();
+    void feed(uint delta);
 
     //**************************************************************************
     // DIRECTIONS
