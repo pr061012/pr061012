@@ -3,12 +3,13 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../Performer/MovementPerformer/MovementPerformer.h"
+#include "../Performer/TravelingPerformer/TravelingPerformer.h"
 #include "../Performer/CreationPerformer/CreationPerformer.h"
 #include "../Performer/HarmPerformer/HarmPerformer.h"
 #include "../Performer/RepairingPerformer/RepairingPerformer.h"
 #include "../Performer/MiningPerformer/MiningPerformer.h"
 #include "../Performer/DroppingPerformer/DroppingPerformer.h"
+#include "../Performer/EatingPerformer/EatingPerformer.h"
 #include "../Performer/PickupMaster/PickupMaster.h"
 #include "../../model/World/Action/Action.h"
 #include "Controller.h"
@@ -20,7 +21,7 @@ Controller::Controller(World * world) :
     // FIXME: Dirty workaround.
     performers.resize(200);
 
-    performers[GO] = (Performer *) new MovementPerformer(world -> getSize(), 
+    performers[GO] = (Performer *) new TravelingPerformer(world -> getSize(), 
                                                          world -> getIndexator());
     performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator(), world);
     performers[MINE_OBJ] = (Performer *) new MiningPerformer(*world -> getIndexator());
@@ -28,6 +29,7 @@ Controller::Controller(World * world) :
     performers[REPAIR_OBJ] = (Performer *) new RepairingPerformer();
     performers[DROP_OBJS] = (Performer *) new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = (Performer *) new PickupMaster(world);
+    performers[EAT_OBJ] = (Performer *) new EatingPerformer(world);
 }
 
 Controller::~Controller()
@@ -56,20 +58,23 @@ void Controller::step()
         for (ObjectHeap::iterator i = objects -> begin(); i != objects -> end(); i++)
         {
             // check objects health
-            /*
-            if (!(*i) -> getHealth())
+            
+            if (!(*i) -> getHealthPoints())
             {
                 (*i) -> markAsDestroyed();
             }
-            */
+            
 
             // perform object's actions
             Object* object = (*i);
-            std::vector<Action> * actions = object -> getActions();
-
-            for (uint j = 0; j < actions -> size(); j++)
+            if (!object -> isDestroyed())
             {
-                performers[(actions->at(j)).getType()] -> perform(actions->at(j));
+                std::vector<Action> * actions = object -> getActions();
+
+                for (uint j = 0; j < actions -> size(); j++)
+                {
+                    performers[(actions->at(j)).getType()] -> perform(actions->at(j));
+                }
             }
         }
     }
