@@ -18,6 +18,7 @@ View::~View()
 {
     delete view_world;
     delete key_handler;
+
     glfwTerminate();
 }
 
@@ -71,11 +72,11 @@ void View::redraw()
     glBegin(GL_LINES);
     for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
     {
-        glVertex2d(-10.0,  i + yoff);
-        glVertex2d( 10.0,  i + yoff);
+        glVertex2d(-10.0,  i - yoff);
+        glVertex2d( 10.0,  i - yoff);
 
-        glVertex2d( i + xoff, -10.0);
-        glVertex2d( i + xoff,  10.0);
+        glVertex2d( i - xoff, -10.0);
+        glVertex2d( i - xoff,  10.0);
     }
     glEnd();
 #endif

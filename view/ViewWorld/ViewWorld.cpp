@@ -71,9 +71,6 @@ void ViewWorld::redraw()
     {
         renderObject(objects.at(i));
     }
-
-    delete objects;
-
 }
 
 double ViewWorld::getX()
