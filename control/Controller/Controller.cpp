@@ -20,14 +20,13 @@ Controller::Controller(World * world) :
     // FIXME: Dirty workaround.
     performers.resize(200);
 
-    performers[GO] = (Performer *) new MovementPerformer(world -> getSize(), 
-                                                         world -> getIndexator());
-    performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator(), world);
-    performers[MINE_OBJ] = (Performer *) new MiningPerformer(*world -> getIndexator());
-    performers[HARM_OBJS] = (Performer *) new HarmPerformer(*world -> getIndexator());
-    performers[REPAIR_OBJ] = (Performer *) new RepairingPerformer();
-    performers[DROP_OBJS] = (Performer *) new DroppingPerformer(world);
-    performers[PICK_UP_OBJS] = (Performer *) new PickupMaster(world);
+    performers[GO] = new MovementPerformer(world -> getSize(), world -> getIndexator());
+    performers[CREATE_OBJ] = new CreationPerformer(world);
+    performers[MINE_OBJ] = new MiningPerformer(world -> getIndexator());
+    performers[HARM_OBJS] = new HarmPerformer(world -> getIndexator());
+    performers[REPAIR_OBJ] = new RepairingPerformer();
+    performers[DROP_OBJS] = new DroppingPerformer(world);
+    performers[PICK_UP_OBJS] = new PickupMaster(world);
 }
 
 Controller::~Controller()
