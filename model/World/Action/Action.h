@@ -65,9 +65,15 @@ public:
 
     /**
      * @brief  Succeeded state checker.
-     * @return true, if action is succeed
+     * @return true, if action is succeeded
      */
     bool isSucceeded() const;
+
+    /**
+     * @brief  Succeeded with errors state checker.
+     * @return true, if action is succeeded (but with few errors)
+     */
+    bool isSucceededWithErrors() const;
 
     //**************************************************************************
     // STATE'S CHANGERS.

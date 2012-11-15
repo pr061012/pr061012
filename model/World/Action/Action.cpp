@@ -43,6 +43,11 @@ bool Action::isSucceeded() const
     return (this -> state == SUCCEEDED);
 }
 
+bool Action::isSucceededWithErrors() const
+{
+    return (this -> state == SUCCEEDED_WITH_ERRORS);
+}
+
 //**************************************************************************
 // STATE'S CHANGERS.
 //**************************************************************************
