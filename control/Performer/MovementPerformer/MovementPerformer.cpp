@@ -4,22 +4,9 @@
 */
 
 #include "MovementPerformer.h"
+#include "../../../model/BasicDefines.h"
 #include <string>
 #include <cmath>
-
-//*****************************************************************************
-// FOR TEST ONLY
-//*****************************************************************************
-#ifndef CREAT_SPEED_FAST_VALUE
-#define CREAT_SPEED_FAST_VALUE 10
-#endif
-
-#ifndef CREAT_SPEED_SLOW_VALUE
-#define CREAT_SPEED_SLOW_VALUE 5
-#endif
-
-// TODO
-// Improve movement algo
 
 MovementPerformer::MovementPerformer(const double world_size, 
                                      Indexator* indexator) :
@@ -73,8 +60,12 @@ void MovementPerformer::perform(Action& action)
     Shape ghost = actor -> getShape();
     ghost.setCenter(dest);
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);
-    if (!obstacles.getTypeAmount(CREATURE) && 
-        !obstacles.getTypeAmount(BUILDING))
+
+    // Nothing can stop weather, and creature can't stop itself
+    if (actor -> getType() == WEATHER || 
+        ((obstacles.getTypeAmount(CREATURE) == 1 && *obstacles.begin() == actor
+         || !obstacles.getTypeAmount(CREATURE))
+        && !obstacles.getTypeAmount(BUILDING)))
     {
         actor -> setCoords(dest);
         indexator -> reindexate(actor);
