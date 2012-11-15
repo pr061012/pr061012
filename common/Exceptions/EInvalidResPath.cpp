@@ -11,6 +11,11 @@ EInvalidResPath::EInvalidResPath(std::string res_path) :
 {
 }
 
+std::string EInvalidResPath::getResPath()
+{
+    return this -> res_path;
+}
+
 const char * EInvalidResPath::what() const throw()
 {
     return "Failed to load resource: invalid path.";

@@ -22,6 +22,12 @@ public:
      */
     EInvalidResPath(std::string res_path);
 
+    /**
+     * @brief  Gets resource path.
+     * @return resource path
+     */
+    std::string getResPath();
+
     virtual const char * what() const throw();
 
 private:
