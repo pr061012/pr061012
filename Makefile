@@ -1,6 +1,6 @@
 # Main compilation parameters.
 CC          = g++
-CFLAGS      = -g -c -Wall -O2 -std=c++11
+CFLAGS      = -g -c -Wall -O2 -std=c++11 
 LFLAGS      =
 LIBS        = -larmadillo -lGL -lSOIL -lglfw
 

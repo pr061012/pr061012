@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../BasicFuncs.h"
+#include "../../common/Random/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -55,34 +55,27 @@ World::World(int rand_seed, int size) :
               << rand_seed << std::endl;
 
     object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
-    visible_objs = new ObjectHeap();
 
+    visible_objs = new ObjectHeap();
+    hidden_objs  = new ObjectHeap();
 
     indexator = new Indexator((double)this->size);
 
-    hidden_objs = new ObjectHeap();
-
     ParamArray params;
 
-    params.addKey("res_type", WOOD);
-    params.addKey("res_amount", 10);
+    params.addKey<ResourceType>("res_type", WOOD);
+    params.addKey<uint>("res_amount", 10);
 
     for(int i = 3000 + rand()%5000; i>=0; --i)
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
-        // TODO: Do something with these magic consts.
-        newobj -> setCoords(Point(randFromRange(0, size),
-                                  randFromRange(0, size)));
+        newobj -> setCoords(Point(Random::int_range(0, size),
+                                  Random::int_range(0, size)));
 
         visible_objs -> push(newobj);
         indexator -> reindexate(newobj);
 
-//        std::cout << "Created resource at x = "
-//                  << newobj->getCoords().getX() << ", y = "
-//                  << newobj->getCoords().getY()
-//                  << " with collision model as circle rad = 50"
-//                  << std::endl;
     }
 
     // Creating cows!
@@ -94,13 +87,13 @@ World::World(int rand_seed, int size) :
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
 
-        // TODO: Do something with these magic consts.
-        new_obj -> setCoords(Point(randFromRange(20.0, 70.0),
-                                   randFromRange(20.0, 70.0)));
+        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
+                                   Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
         indexator -> reindexate(new_obj);
     }
+
 }
 
 //******************************************************************************
@@ -162,18 +155,18 @@ ObjectHeap* World::getHiddenObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double radius) const
+std::vector<Object*> World::getViewObjectsInRange(double x, double y, double radius) const
 {
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
     ObjectHeap objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects.begin();
 
-    std::vector<Object*>* retval = new std::vector<Object*>;
+    std::vector<Object*> retval;
 
     for (; it != objects.end(); it++)
     {
-        retval -> push_back(*it);
+        retval.push_back(*it);
     }
 
 

@@ -9,7 +9,7 @@
 #include "Humanoid.h"
 #include "../../../../BasicDefines.h"
 #include "../../../../BasicTypes.h"
-#include "../../../../BasicFuncs.h"
+#include "../../../../../common/Random/Random.h"
 
 
 //******************************************************************************
@@ -22,7 +22,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     Creature(HUMANOID, dmaker),
     id(CURRENT_ID++)
 {
-    int age = randFromRange(HUM_AGE_MIN, HUM_AGE_MAX);
+    int age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
     // Initialize some inhereted things.
     this -> setMaxAge(age);
@@ -34,8 +34,8 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     name = "Name";
 
     // Randomly initialize some values.
-    max_sociability = randFromRange(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
-    laziness        = randFromRange(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
+    max_sociability = Random::int_range(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
+    laziness        = Random::int_range(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
 
     // Initialize other values.
     sociability    = 100 - max_sociability;

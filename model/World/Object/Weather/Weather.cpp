@@ -5,8 +5,8 @@
 
 #include "Weather.h"
 
-#include "../../../BasicFuncs.h"
 #include "../../../BasicDefines.h"
+#include "../../../../common/Random/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -18,11 +18,11 @@ Weather::Weather(WeatherType type, uint living_steps) :
     covered_objs(new ObjectHeap)
 {
     this -> setShapeType(SHP_WEATHER);
-    this -> setShapeSize(randFromRange(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
+    this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
 
     if(living_steps == 0)
     {
-        this -> steps = randFromRange(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
+        this -> steps = Random::int_range(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
     }
     else
     {
