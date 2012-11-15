@@ -1,5 +1,7 @@
 #include "View.h"
 
+#define VIEW_DEBUG
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -50,13 +52,27 @@ void View::redraw()
 
     view_world->redraw();
 
-    // TODO: Draw lines as a coordinate grid.
-//#ifdef VIEW_DEBUG
-//    glBegin(GL_LINES);
-//    glVertex2d(1.0, 1.0);
-//    glVertex2d(10.0, 10.0);
-//    glEnd();
-//#endif
+#ifdef VIEW_DEBUG
+    double xoff = view_world->getX();
+    double yoff = view_world->getY();
+
+    xoff /= VIEW_CAM_SCALE;
+    yoff /= VIEW_CAM_SCALE;
+
+    xoff = (xoff - (int)xoff)*VIEW_CAM_SCALE;
+    yoff = (yoff - (int)yoff)*VIEW_CAM_SCALE;
+
+    glBegin(GL_LINES);
+    for(int i = -VIEW_CAM_SCALE-2; i < VIEW_CAM_SCALE+2; i++)
+    {
+        glVertex2d(-10.0 + xoff,  i + yoff);
+        glVertex2d( 10.0 + xoff,  i + yoff);
+
+        glVertex2d( i + xoff, -10.0 + yoff);
+        glVertex2d( i + xoff,  10.0 + yoff);
+    }
+    glEnd();
+#endif
 
     glLoadIdentity();
     glfwSwapBuffers();
