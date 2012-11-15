@@ -39,6 +39,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 Creature::~Creature()
 {
     delete inventory;
+    delete objects_around;
 }
 
 //******************************************************************************
