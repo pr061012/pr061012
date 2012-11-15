@@ -3,18 +3,18 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef REPAIRING_PERFORMER_H__
-#define REPAIRING_PERFORMER_H__
+#ifndef REGENERATION_PERFORMER_H
+#define REGENERATION_PERFORMER_H
 
 #include "../Performer.h"
 #include "../../../model/World/Object/Building/Building.h"
 #include "../../../model/World/Object/Tool/Tool.h"
 
 /**
- * @class RepairingPerformer
- * @brief Performs a repair if it is possible
+ * @class RegenerationPerformer
+ * @brief Performs a regeneration if it is possible
  */
-class RepairingPerformer : public Performer
+class RegenerationPerformer : public Performer
 {
 public:
     
@@ -25,20 +25,20 @@ public:
     /**
      * @brief Constructor
      */
-    RepairingPerformer();
+    RegenerationPerformer();
 
     /**
      * @brief Destructor
      */
-    ~RepairingPerformer();
+    ~RegenerationPerformer();
 
     //*************************************************************************
     //  PERFORM
     //*************************************************************************
     
     /**
-     * @brief Check if an object can repair and repair it
-     * @param action a request for repairing
+     * @brief Check if
+     * @param action a request for
      */
     void perform(Action& action);
 

@@ -80,6 +80,11 @@ public:
     //**************************************************************************
 
     /**
+     * @brief Marks action as pending.
+     */
+    void markAsPending();
+
+    /**
      * @brief Marks action as failed.
      */
     void markAsFailed();

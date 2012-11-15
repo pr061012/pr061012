@@ -68,8 +68,8 @@ World::World(int rand_seed, int size) :
     ParamArray params;
     ParamArray grass_params;
 
-    params.addKey("res_type", WOOD);
-    params.addKey("res_amount", 10);
+    params.addKey<ResourceType>("res_type", WOOD);
+    params.addKey<uint>("res_amount", 10);
 
     grass_params.addKey("res_type", GRASS);
     grass_params.addKey("res_amount", 10);

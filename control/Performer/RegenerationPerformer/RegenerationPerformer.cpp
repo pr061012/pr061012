@@ -3,19 +3,19 @@
     See the LICENSE file for copying permission.
 */
 
-#include "RepairingPerformer.h"
+#include "RegenerationPerformer.h"
 
-RepairingPerformer::RepairingPerformer()
+RegenerationPerformer::RegenerationPerformer()
 {
 
 }
 
-RepairingPerformer::~RepairingPerformer()
+RegenerationPerformer::~RegenerationPerformer()
 {
 
 }
 
-void RepairingPerformer::perform(Action& action)
+void RegenerationPerformer::perform(Action& action)
 {
     Object * actor = action.getActor();
     int building_id = action.getParam<uint>("building_id");

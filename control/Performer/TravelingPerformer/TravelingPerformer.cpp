@@ -3,22 +3,22 @@
     See the LICENSE file for copying permission.
 */
 
-#include "MovementPerformer.h"
+#include "TravelingPerformer.h"
 #include "../../../model/BasicDefines.h"
 #include <string>
 #include <cmath>
 
-MovementPerformer::MovementPerformer(const double world_size, 
+TravelingPerformer::TravelingPerformer(const double world_size, 
                                      Indexator* indexator) :
     world_size(world_size), indexator(indexator)
 {
 }
 
-MovementPerformer::~MovementPerformer()
+TravelingPerformer::~TravelingPerformer()
 {
 }
 
-void MovementPerformer::perform(Action& action)
+void TravelingPerformer::perform(Action& action)
 {
     // Get needed data
     Object * actor = action.getActor();
