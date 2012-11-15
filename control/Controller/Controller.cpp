@@ -6,7 +6,7 @@
 #include "../Performer/TravelingPerformer/TravelingPerformer.h"
 #include "../Performer/CreationPerformer/CreationPerformer.h"
 #include "../Performer/HarmPerformer/HarmPerformer.h"
-#include "../Performer/RepairingPerformer/RepairingPerformer.h"
+#include "../Performer/RegenerationPerformer/RegenerationPerformer.h"
 #include "../Performer/MiningPerformer/MiningPerformer.h"
 #include "../Performer/DroppingPerformer/DroppingPerformer.h"
 #include "../Performer/EatingPerformer/EatingPerformer.h"
@@ -26,7 +26,7 @@ Controller::Controller(World * world) :
     performers[CREATE_OBJ] = (Performer *) new CreationPerformer(*world -> getIndexator(), world);
     performers[MINE_OBJ] = (Performer *) new MiningPerformer(*world -> getIndexator());
     performers[HARM_OBJS] = (Performer *) new HarmPerformer(*world -> getIndexator());
-    performers[REPAIR_OBJ] = (Performer *) new RepairingPerformer();
+    performers[REPAIR_OBJ] = (Performer *) new RegenerationPerformer();
     performers[DROP_OBJS] = (Performer *) new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = (Performer *) new PickupMaster(world);
     performers[EAT_OBJ] = (Performer *) new EatingPerformer(world);
