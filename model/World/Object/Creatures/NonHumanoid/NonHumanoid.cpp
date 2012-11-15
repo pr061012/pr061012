@@ -150,7 +150,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
-            // FIXME: Erm. Is using -1 as a sign of unde
+            // FIXME: Erm. Is using -1 as a sign of uncertainty good idea?
             if (angle == -1)
             {
                 angle = Random::double_num(2 * M_PI);
