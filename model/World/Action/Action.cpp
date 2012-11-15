@@ -47,6 +47,11 @@ bool Action::isSucceeded() const
 // STATE'S CHANGERS.
 //**************************************************************************
 
+void Action::markAsPending()
+{
+    this -> state = PENDING;
+}
+
 void Action::markAsFailed()
 {
     this -> state = FAILED;
