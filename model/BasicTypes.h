@@ -205,6 +205,7 @@ enum ActionState
  */
 enum ActionError
 {
+    NO_ERROR,
     OBJ_IS_OUT_OF_RANGE,
     OBJ_IS_OUT_OF_VIEW,
     OBJ_IS_IMMORTAL,

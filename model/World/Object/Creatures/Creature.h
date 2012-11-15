@@ -133,16 +133,13 @@ public:
      */
     void increaseHealth(uint delta);
 
-    /**
-     * @brief Damages creature.
-     * @param delta amount of damage
-     */
-    void damage(uint delta);
+    //**************************************************************************
+    // INHERETED THINGS.
+    //**************************************************************************
 
-    /**
-     * @brief Heals creature.
-     * @param delta amount of healing points
-     */
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
+    void damage(uint delta);
     void heal(uint delta);
 
 private:

@@ -1,6 +1,6 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #ifndef ACTION_H
@@ -65,9 +65,15 @@ public:
 
     /**
      * @brief  Succeeded state checker.
-     * @return true, if action is succeed
+     * @return true, if action is succeeded
      */
     bool isSucceeded() const;
+
+    /**
+     * @brief  Succeeded with errors state checker.
+     * @return true, if action is succeeded (but with few errors)
+     */
+    bool isSucceededWithErrors() const;
 
     //**************************************************************************
     // STATE'S CHANGERS.
@@ -139,8 +145,19 @@ public:
      * @brief  Gets type of action
      * @return type of action
      */
-
     ActionType getType() const;
+
+    /**
+     * @brief  Gets action's error.
+     * @return type of error
+     */
+    ActionError getError() const;
+
+    /**
+     * @brief Sets action's error.
+     * @param error action's error
+     */
+    void setError(ActionError error);
 
 private:
     /// Action type.
@@ -157,6 +174,9 @@ private:
 
     /// Result type.
     ActionState state;
+
+    /// Action error (for actions with state FAILED or SUCCEEDED_WITH_ERRORS).
+    ActionError error;
 };
 
 #endif // ACTION_H

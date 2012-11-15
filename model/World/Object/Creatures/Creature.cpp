@@ -39,6 +39,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 Creature::~Creature()
 {
     delete inventory;
+    delete objects_around;
 }
 
 //******************************************************************************
@@ -139,6 +140,10 @@ void Creature::increaseHealth(uint delta)
     }
 }
 
+//******************************************************************************
+// INHERETED THINGS.
+//******************************************************************************
+
 void Creature::damage(uint delta)
 {
     this -> decreaseHealth(delta);
@@ -147,4 +152,14 @@ void Creature::damage(uint delta)
 void Creature::heal(uint delta)
 {
     this -> increaseHealth(delta);
+}
+
+uint Creature::getHealthPoints() const
+{
+    return this -> health;
+}
+
+uint Creature::getMaxHealthPoints() const
+{
+    return this -> max_health;
 }

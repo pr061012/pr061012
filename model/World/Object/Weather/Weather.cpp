@@ -36,7 +36,7 @@ Weather::~Weather()
 }
 
 //******************************************************************************
-// WEATHER ACTIONS.
+// INHERETED THINGS.
 //******************************************************************************
 
 std::vector <Action> * Weather::getActions()
@@ -68,12 +68,20 @@ std::vector <Action> * Weather::getActions()
             act.addParticipant(*iter);
         }
 
-        // FIXME: I tried for about 40 minutes to compile it.
-        //        Unsuccesfully.
         this -> actions.push_back(act);
     }
 
     return &(this -> actions);
+}
+
+uint Weather::getHealthPoints() const
+{
+    return this -> steps;
+}
+
+uint Weather::getMaxHealthPoints() const
+{
+    return this -> steps;
 }
 
 //******************************************************************************

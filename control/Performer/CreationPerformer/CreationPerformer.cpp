@@ -3,15 +3,18 @@
     See the LICENSE file for copying permission.
 */
 
-// TODO: Resource can create any objects (change)
-//      Add created object in inventory
-// Add comment
+// TODO: Add check coordinates
+//       Add created object in inventory
+//       Add comment
+//       Add increase amount
+
 
 #include "CreationPerformer.h"
 #include "../../../model/BasicTypes.h"
 #include "../../../model/BasicDefines.h"
 #include "../../../model/World/ObjectFactory/ObjectFactory.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Resource/Resource.h"
 
 CreationPerformer::CreationPerformer(Indexator &indexator, World* world):
     indexator(indexator),
@@ -31,22 +34,18 @@ void CreationPerformer::perform(Action& action)
     Object* new_object;
     ObjectType type = actor -> getType();
 
-    if ((type != RESOURCE) || (type != CREATURE))
+    ObjectType obj_type = action.getParam<ObjectType>("obj_type");
+
+    uint x = action.getParam<uint>("x");
+    uint y = action.getParam<uint>("y");
+
+    ParamArray param;
+    param.addKey<uint>("x", x);
+    param.addKey<uint>("y", y);
+
+    switch (type)
     {
-        action.markAsFailed();
-    }
-    else
-    {
-        ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-
-        uint x = action.getParam<uint>("x");
-        uint y = action.getParam<uint>("y");
-
-        ParamArray param;
-        param.addKey<uint>("x", x);
-        param.addKey<uint>("y", y);
-
-        if (checkCoord(x, y))
+        case CREATURE:
         {
             switch (obj_type)
             {
@@ -56,8 +55,8 @@ void CreationPerformer::perform(Action& action)
 
                     param.addKey<CreatureType>("creat_type", creat_type);
 
-                    new_object = factory->createObject(CREATURE, param);
-                    world->addObject(true, new_object);
+                    new_object = factory -> createObject(CREATURE, param);
+                    world -> addObject(true, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -71,8 +70,8 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<ResourceType>("res_type", res_type);
                     param.addKey<uint>("res_amount", res_amount);
 
-                    new_object = factory->createObject(CREATURE, param);
-                    world->addObject(false, new_object);
+                    new_object = factory -> createObject(CREATURE, param);
+                    world -> addObject(false, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -88,8 +87,8 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<ResourceType>("mat_type", mat_type);
                     param.addKey<uint>("tool_str",tool_str);
 
-                    new_object = factory->createObject(TOOL, param);
-                    world->addObject(false, new_object);
+                    new_object = factory -> createObject(TOOL, param);
+                    world -> addObject(false, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -103,8 +102,8 @@ void CreationPerformer::perform(Action& action)
                     param.addKey<uint>("max_health",max_health);
                     param.addKey<uint>("max_space",max_space);
 
-                    new_object = factory->createObject(BUILDING, param);
-                    world->addObject(true, new_object);
+                    new_object = factory -> createObject(BUILDING, param);
+                    world -> addObject(true, new_object);
 
                     action.markAsSucceeded();
                 }
@@ -115,10 +114,33 @@ void CreationPerformer::perform(Action& action)
                 break;
             }
         }
-        else
+        break;
+
+        case RESOURCE:
         {
-            action.markAsFailed();
+            if (obj_type == RESOURCE)
+            {
+                ResourceType res_type = action.getParam<ResourceType>("res_type");
+                uint res_amount = action.getParam<uint>("res_amount");
+
+                param.addKey<ResourceType>("res_type", res_type);
+                param.addKey<uint>("res_amount", res_amount);
+
+                new_object = factory -> createObject(CREATURE, param);
+                world -> addObject(false, new_object);
+
+                action.markAsSucceeded();
+            }
+            else
+            {
+                action.markAsFailed();
+            }
         }
+        break;
+
+        default:
+            action.markAsFailed();
+        break;
     }
 }
 

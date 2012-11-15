@@ -30,14 +30,12 @@ public:
     virtual ~Tool();
 
     //**************************************************************************
-    // TOOL ACTIONS.
+    // INHERETED THINGS.
     //**************************************************************************
 
-    /**
-     * @brief  Gets actions.
-     * @return vector with actions.
-     */
     std::vector <Action> * getActions();
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // STRENGTH.

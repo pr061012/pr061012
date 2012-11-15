@@ -5,7 +5,8 @@
 
 #include "DecisionMaker.h"
 #include "../../BasicDefines.h"
-#include "../../../log/Log.h"
+#include "../../../common/Log/Log.h"
+#include "../../../common/Exceptions/EInvalidResPath.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -20,10 +21,11 @@ DecisionMaker::DecisionMaker(CreatureType type)
 
     if (type == HUMANOID)
     {
-        some_matrix.open (PATH_TO_HUM_MATRIX);
+        some_matrix.open(PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
         {
             Log::ERROR("Cannot open file '" + std::string(PATH_TO_HUM_MATRIX) + "'.");
+            throw EInvalidResPath(PATH_TO_HUM_MATRIX);
         }
 
         for (i = 0; i < ATR_CONST; i++)
@@ -36,10 +38,11 @@ DecisionMaker::DecisionMaker(CreatureType type)
 
     if (type == NON_HUMANOID)
     {
-        some_matrix.open (PATH_TO_NON_HUM_MATRIX);
+        some_matrix.open(PATH_TO_NON_HUM_MATRIX);
         if (some_matrix == NULL)
         {
             Log::ERROR("Cannot open file '" + std::string(PATH_TO_NON_HUM_MATRIX) + "'.");
+            throw EInvalidResPath(PATH_TO_NON_HUM_MATRIX);
         }
 
         for (i = 0; i < ATR_CONST; i++)

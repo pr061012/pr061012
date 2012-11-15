@@ -7,18 +7,23 @@
 #include "model/World/World.h"
 #include "control/Controller/Controller.h"
 #include "view/View.h"
-#include "log/Log.h"
+#include "common/Log/Log.h"
+#include "common/Exceptions/EInvalidResPath.h"
 
 /// Period for world updating.
 const int PERIOD = CLOCKS_PER_SEC / TM_TICKS_PER_SECOND;
 
 int main()
 {
+    // Error flag.
+    bool error = false;
+
+    // Initializing random.
+    srand(time(NULL));
+
+    // Running game.
     try
     {
-        // Initialize random.
-        srand(time(NULL));
-
         // Creating World, View and Controller.
         World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
@@ -44,9 +49,22 @@ int main()
 
         } while(view.continues());
     }
+    catch(EInvalidResPath& exc)
+    {
+        error = true;
+        Log::ERROR("Failed to load game resource '" + exc.getResPath() +
+                   "'. Terminating.");
+    }
     catch(std::bad_alloc& exc)
     {
+        error = true;
         Log::ERROR("Failed to allocate memory. Terminating.");
+    }
+
+    if(error)
+    {
+        std::cout << "An error occurred during game execution. Look for LOG " <<
+                     "file for details." << std::endl;
     }
 
     return 0;
