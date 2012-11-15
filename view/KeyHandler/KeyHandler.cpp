@@ -26,30 +26,18 @@ void KeyHandler::handleKeys()
 {
         if(glfwGetKey(GLFW_KEY_RIGHT))
         {
-            if (view -> getX() + SPEED < VIEW_SCREEN_WIDTH)
-            {
-                view -> setX(view -> getX() + SPEED);
-            }
+            view -> setX(view -> getX() + SPEED);
         }
         if(glfwGetKey(GLFW_KEY_LEFT))
         {
-            if (view -> getX() - SPEED > 0)
-            {
-                view -> setX(view -> getX()-SPEED);
-            }
+            view -> setX(view -> getX() - SPEED);
         }
         if(glfwGetKey(GLFW_KEY_DOWN))
         {
-            if (view -> getY() - SPEED > 0)
-            {
-                view -> setY(view -> getY() - SPEED);
-            }
+            view -> setY(view -> getY() - SPEED);
         }
         if(glfwGetKey(GLFW_KEY_UP))
         {
-            if (view -> getY() + SPEED < VIEW_SCREEN_HEIGHT)
-            {
-                view -> setY(view -> getY() + SPEED);
-            }
+            view -> setY(view -> getY() + SPEED);
         }
 }

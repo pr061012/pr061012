@@ -18,6 +18,7 @@ View::~View()
 {
     delete view_world;
     delete key_handler;
+
     glfwTerminate();
 }
 
@@ -54,17 +55,31 @@ void View::redraw()
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0.0f, 0.0f, -2*VIEW_CAM_SCALE);
+    glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
 
     view_world->redraw();
 
-    // TODO: Draw lines as a coordinate grid.
-//#ifdef VIEW_DEBUG
-//    glBegin(GL_LINES);
-//    glVertex2d(1.0, 1.0);
-//    glVertex2d(10.0, 10.0);
-//    glEnd();
-//#endif
+#ifdef VIEW_DEBUG
+    double xoff = view_world->getX();
+    double yoff = view_world->getY();
+
+    xoff /= VIEW_CAM_SIZE;
+    yoff /= VIEW_CAM_SIZE;
+
+    xoff = (xoff - (int)xoff);
+    yoff = (yoff - (int)yoff);
+
+    glBegin(GL_LINES);
+    for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
+    {
+        glVertex2d(-10.0,  i - yoff);
+        glVertex2d( 10.0,  i - yoff);
+
+        glVertex2d( i - xoff, -10.0);
+        glVertex2d( i - xoff,  10.0);
+    }
+    glEnd();
+#endif
 
     glLoadIdentity();
     glfwSwapBuffers();
@@ -87,7 +102,7 @@ void View::initWindow()
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH;
+    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT)/VIEW_SCREEN_WIDTH;
 
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
