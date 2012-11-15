@@ -63,8 +63,8 @@ World::World(int rand_seed, int size) :
 
     ParamArray params;
 
-    params.addKey("res_type", WOOD);
-    params.addKey("res_amount", 10);
+    params.addKey<ResourceType("res_type", WOOD);
+    params.addKey<uint>("res_amount", 10);
 
     for(int i = 3000 + rand()%5000; i>=0; --i)
     {

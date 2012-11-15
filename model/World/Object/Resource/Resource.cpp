@@ -154,11 +154,11 @@ std::vector <Action> * Resource::getActions()
 
         // TODO: Add x and y.
         Action act(CREATE_OBJ, this);
-        act.addParam("obj_type", RESOURCE);
+        act.addParam<ObjectType>("obj_type", RESOURCE);
         // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
         // that?
-        act.addParam("res_type", this -> subtype);
-        act.addParam("res_amount", drop_amount);
+        act.addParam<ResourceType>("res_type", this -> subtype);
+        act.addParam<uint>("res_amount", drop_amount);
         this -> actions.push_back(act);
     }
 

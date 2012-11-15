@@ -120,8 +120,8 @@ std::vector <Action>* NonHumanoid::getActions()
             angle = Random::double_num(2 * M_PI);
         }
         Action act(GO, this);
-        act.addParam("angle", angle);
-        act.addParam("speed", SLOW_SPEED);
+        act.addParam<double>("angle", angle);
+        act.addParam<SpeedType>("speed", SLOW_SPEED);
         this -> actions.push_back(act);
     }
 
@@ -143,8 +143,8 @@ std::vector <Action>* NonHumanoid::getActions()
             else
             {
                 Action act(GO, this);
-                act.addParam("angle", angle);
-                act.addParam("speed", SLOW_SPEED);
+                act.addParam<double>("angle", angle);
+                act.addParam<SpeedType>("speed", SLOW_SPEED);
                 this -> actions.push_back(act);
             }
         }
@@ -156,8 +156,8 @@ std::vector <Action>* NonHumanoid::getActions()
                 angle = Random::double_num(2 * M_PI);
             }
             Action act(GO, this);
-            act.addParam("angle", angle);
-            act.addParam("speed", SLOW_SPEED);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
             this -> actions.push_back(act);
         }
 
@@ -181,8 +181,8 @@ std::vector <Action>* NonHumanoid::getActions()
                 angle = Random::double_num(2 * M_PI);
             }
             Action act(GO, this);
-            act.addParam("angle", angle);
-            act.addParam("speed", FAST_SPEED);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", FAST_SPEED);
             this -> actions.push_back(act);
         }
         else
