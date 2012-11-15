@@ -3,6 +3,7 @@ var hierarchy =
     [ "Action", "classAction.html", null ],
     [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
+    [ "EInvalidResPath", "classEInvalidResPath.html", null ],
     [ "EParamArrayBadKey", "classEParamArrayBadKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
@@ -27,13 +28,16 @@ var hierarchy =
     [ "Performer", "classPerformer.html", [
       [ "CreationPerformer", "classCreationPerformer.html", null ],
       [ "DroppingPerformer", "classDroppingPerformer.html", null ],
+      [ "EatingPerformer", "classEatingPerformer.html", null ],
       [ "HarmPerformer", "classHarmPerformer.html", null ],
       [ "MiningPerformer", "classMiningPerformer.html", null ],
       [ "MovementPerformer", "classMovementPerformer.html", null ],
       [ "PickupMaster", "classPickupMaster.html", null ],
-      [ "RepairingPerformer", "classRepairingPerformer.html", null ]
+      [ "RegenerationPerformer", "classRegenerationPerformer.html", null ],
+      [ "TravelingPerformer", "classTravelingPerformer.html", null ]
     ] ],
     [ "Point", "classPoint.html", null ],
+    [ "Random", "classRandom.html", null ],
     [ "Shape", "classShape.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],

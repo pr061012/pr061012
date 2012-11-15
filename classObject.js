@@ -6,6 +6,8 @@ var classObject =
     [ "getActions", "classObject.html#addf0658ee2f8da579d10a6682dc097d7", null ],
     [ "getAngle", "classObject.html#aaba7ccef31e74246abda5ef9cb2e202c", null ],
     [ "getCoords", "classObject.html#a64bb5b1d10c6cd338a65a8dd62473de1", null ],
+    [ "getHealthPoints", "classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7", null ],
+    [ "getMaxHealthPoints", "classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d", null ],
     [ "getShape", "classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7", null ],
     [ "getType", "classObject.html#a7660dc25529325326bc280e5f5fb0194", null ],
     [ "heal", "classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc", null ],

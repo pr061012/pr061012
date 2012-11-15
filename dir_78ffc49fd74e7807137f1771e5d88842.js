@@ -4,6 +4,5 @@ var dir_78ffc49fd74e7807137f1771e5d88842 =
     [ "Utilities", "dir_727fd03e1bdee17994ea42767cf56f03.html", "dir_727fd03e1bdee17994ea42767cf56f03" ],
     [ "World", "dir_9bacb82e6298dc01ecba8e3e05d98095.html", "dir_9bacb82e6298dc01ecba8e3e05d98095" ],
     [ "BasicDefines.h", "BasicDefines_8h.html", "BasicDefines_8h" ],
-    [ "BasicFuncs.h", "BasicFuncs_8h.html", "BasicFuncs_8h" ],
     [ "BasicTypes.h", "BasicTypes_8h.html", "BasicTypes_8h" ]
 ];

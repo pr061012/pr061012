@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['res_5fberries_5ffood_5fvalue',['RES_BERRIES_FOOD_VALUE',['../BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5famount_5fmax',['RES_BRONZE_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a56d35f6feefa0535f680715f77cc76ae',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5famount_5fmin',['RES_BRONZE_ORE_AMOUNT_MIN',['../BasicDefines_8h.html#a1a1afbdf66be90927f27340e80c641fc',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5fdifficulty',['RES_BRONZE_ORE_DIFFICULTY',['../BasicDefines_8h.html#aba17794c2ca91d58e749e575282d0148',1,'BasicDefines.h']]],
@@ -12,6 +13,7 @@ var searchData=
   ['res_5fgold_5fore_5fdrop_5fmax',['RES_GOLD_ORE_DROP_MAX',['../BasicDefines_8h.html#a9355b666c9a8b881538aee9ed31da597',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5fdrop_5fmin',['RES_GOLD_ORE_DROP_MIN',['../BasicDefines_8h.html#ac4b35036432fee9af635eb8d318a957d',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5freg_5famount',['RES_GOLD_ORE_REG_AMOUNT',['../BasicDefines_8h.html#a55b5a88f8c9aa58af063364af12491c6',1,'BasicDefines.h']]],
+  ['res_5fgrass_5ffood_5fvalue',['RES_GRASS_FOOD_VALUE',['../BasicDefines_8h.html#a3d2b19438c485c5091277a689896e7a2',1,'BasicDefines.h']]],
   ['res_5firon_5fore_5famount_5fmax',['RES_IRON_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a7dc1cba51689a644b5a53e0a78991a61',1,'BasicDefines.h']]],
   ['res_5firon_5fore_5famount_5fmin',['RES_IRON_ORE_AMOUNT_MIN',['../BasicDefines_8h.html#a0f3371638e0309f9fcb88897550d30d2',1,'BasicDefines.h']]],
   ['res_5firon_5fore_5fdifficulty',['RES_IRON_ORE_DIFFICULTY',['../BasicDefines_8h.html#a166adcac8a8e2a3bfe46639dc31ffcb0',1,'BasicDefines.h']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['repairingperformer',['RepairingPerformer',['../classRepairingPerformer.html',1,'']]],
+  ['random',['Random',['../classRandom.html',1,'']]],
+  ['regenerationperformer',['RegenerationPerformer',['../classRegenerationPerformer.html',1,'']]],
   ['resource',['Resource',['../classResource.html',1,'']]]
 ];

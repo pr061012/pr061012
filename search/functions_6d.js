@@ -6,6 +6,7 @@ var searchData=
   ['makemortal',['makeMortal',['../classObject.html#ab810f6d0305506bb0803afcde852c1c8',1,'Object']]],
   ['markasdestroyed',['markAsDestroyed',['../classObject.html#a9df0b8f5aef27057192b874ebd0d361e',1,'Object']]],
   ['markasfailed',['markAsFailed',['../classAction.html#aae9f9b7922b0c2dffafba4f13402312c',1,'Action']]],
+  ['markaspending',['markAsPending',['../classAction.html#a9b66a527201aca5d34be6dcf632718e0',1,'Action']]],
   ['markassucceeded',['markAsSucceeded',['../classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b',1,'Action']]],
   ['markassucceededwitherrors',['markAsSucceededWithErrors',['../classAction.html#ac7b59d155f6b3426d75d2d689bf8648d',1,'Action']]],
   ['miningperformer',['MiningPerformer',['../classMiningPerformer.html#a479529b5ff8ada471ad4185ac5b8fd5e',1,'MiningPerformer']]],

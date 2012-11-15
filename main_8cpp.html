@@ -108,11 +108,13 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
 <code>#include &lt;random&gt;</code><br/>
-<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;cstdlib&gt;</code><br/>
 <code>#include &quot;<a class="el" href="BasicDefines_8h_source.html">model/BasicDefines.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="World_8h_source.html">model/World/World.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="Controller_8h_source.html">control/Controller/Controller.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="View_8h_source.html">view/View.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Log_8h_source.html">common/Log/Log.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="EInvalidResPath_8h_source.html">common/Exceptions/EInvalidResPath.h</a>&quot;</code><br/>
 </div>
 <p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -122,7 +124,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a16bee9275336dad28e8a328583ab7448"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a16bee9275336dad28e8a328583ab7448">PERIOD</a> = CLOCKS_PER_SEC/<a class="el" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">TM_TICKS_PER_SECOND</a></td></tr>
+<tr class="memitem:a16bee9275336dad28e8a328583ab7448"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a16bee9275336dad28e8a328583ab7448">PERIOD</a> = CLOCKS_PER_SEC / <a class="el" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">TM_TICKS_PER_SECOND</a></td></tr>
 <tr class="memdesc:a16bee9275336dad28e8a328583ab7448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Period for world updating.  <a href="#a16bee9275336dad28e8a328583ab7448"></a><br/></td></tr>
 </table>
 <h2>Function Documentation</h2>
@@ -139,7 +141,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00014">14</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00017">17</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -149,14 +151,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int PERIOD = CLOCKS_PER_SEC/<a class="el" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">TM_TICKS_PER_SECOND</a></td>
+          <td class="memname">const int PERIOD = CLOCKS_PER_SEC / <a class="el" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">TM_TICKS_PER_SECOND</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Period for world updating. </p>
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00012">12</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00015">15</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +168,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:34 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

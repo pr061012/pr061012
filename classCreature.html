@@ -129,7 +129,7 @@ Inheritance diagram for Creature:</div>
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b8a9dd1201d1142d4b634a9b6d8dfa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9">Creature</a> (<a class="el" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df">CreatureType</a> type, const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;dmaker)</td></tr>
-<tr class="memdesc:a2b8a9dd1201d1142d4b634a9b6d8dfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random constructor (creates <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> with really random attributes).  <a href="#a2b8a9dd1201d1142d4b634a9b6d8dfa9"></a><br/></td></tr>
+<tr class="memdesc:a2b8a9dd1201d1142d4b634a9b6d8dfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRandom.html" title="Interface for getting pseudorandom numbers.">Random</a> constructor (creates <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> with really random attributes).  <a href="#a2b8a9dd1201d1142d4b634a9b6d8dfa9"></a><br/></td></tr>
 <tr class="memitem:aa991b23f4813fbdb6f875204ed49814d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa991b23f4813fbdb6f875204ed49814d">~Creature</a> ()</td></tr>
 <tr class="memdesc:aa991b23f4813fbdb6f875204ed49814d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aa991b23f4813fbdb6f875204ed49814d"></a><br/></td></tr>
 <tr class="memitem:af6c61c39377198bf0426ca1929bad8a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#af6c61c39377198bf0426ca1929bad8a0">setWindow</a> (<a class="el" href="classObjectHeap.html">ObjectHeap</a> *window)</td></tr>
@@ -162,10 +162,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5f8683a92ec95eda9abde80480e6f4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases object's health.  <a href="#a5f8683a92ec95eda9abde80480e6f4a4"></a><br/></td></tr>
 <tr class="memitem:a078b8ae32873d220e5701a6ee0d76d3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a078b8ae32873d220e5701a6ee0d76d3b">increaseHealth</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
 <tr class="memdesc:a078b8ae32873d220e5701a6ee0d76d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases object's health.  <a href="#a078b8ae32873d220e5701a6ee0d76d3b"></a><br/></td></tr>
+<tr class="memitem:a3713e64f34e65e1db20baea4a9958804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3713e64f34e65e1db20baea4a9958804">feed</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
+<tr class="memdesc:a3713e64f34e65e1db20baea4a9958804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases satiety level.  <a href="#a3713e64f34e65e1db20baea4a9958804"></a><br/></td></tr>
+<tr class="memitem:aa169fd7250aee18a8a5f8b0a9eba843b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">getHealthPoints</a> () const </td></tr>
+<tr class="memdesc:aa169fd7250aee18a8a5f8b0a9eba843b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#aa169fd7250aee18a8a5f8b0a9eba843b"></a><br/></td></tr>
+<tr class="memitem:a9b3326520fdf11e5110d25afd90c577a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">getMaxHealthPoints</a> () const </td></tr>
+<tr class="memdesc:a9b3326520fdf11e5110d25afd90c577a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#a9b3326520fdf11e5110d25afd90c577a"></a><br/></td></tr>
 <tr class="memitem:a6d216fa9fc5e1a70743ebc9a62dbcc01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a6d216fa9fc5e1a70743ebc9a62dbcc01">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
-<tr class="memdesc:a6d216fa9fc5e1a70743ebc9a62dbcc01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages creature.  <a href="#a6d216fa9fc5e1a70743ebc9a62dbcc01"></a><br/></td></tr>
+<tr class="memdesc:a6d216fa9fc5e1a70743ebc9a62dbcc01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a6d216fa9fc5e1a70743ebc9a62dbcc01"></a><br/></td></tr>
 <tr class="memitem:ab168ec8b1230205eb0dda7edbef60469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ab168ec8b1230205eb0dda7edbef60469">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
-<tr class="memdesc:ab168ec8b1230205eb0dda7edbef60469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals creature.  <a href="#ab168ec8b1230205eb0dda7edbef60469"></a><br/></td></tr>
+<tr class="memdesc:ab168ec8b1230205eb0dda7edbef60469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#ab168ec8b1230205eb0dda7edbef60469"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
 <tr class="memitem:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
 <tr class="memdesc:a07e8b69a7746aa44c1e7784a08583729 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a07e8b69a7746aa44c1e7784a08583729"></a><br/></td></tr>
@@ -282,7 +288,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Random constructor (creates <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> with really random attributes). </p>
+<p><a class="el" href="classRandom.html" title="Interface for getting pseudorandom numbers.">Random</a> constructor (creates <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> with really random attributes). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>creature's type </td></tr>
@@ -337,7 +343,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Damages creature. </p>
+<p>Receives message. </p>
+<p>Damages object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">delta</td><td>amount of damage </td></tr>
@@ -347,7 +354,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a816838bab5c67fce2cead6cb9122ad47">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00142">142</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00158">158</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -373,7 +380,27 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00118">118</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00119">119</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3713e64f34e65e1db20baea4a9958804"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Creature::feed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increases satiety level. </p>
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00143">143</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -393,7 +420,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00073">73</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00074">74</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +440,36 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of health. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of health </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00094">94</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00095">95</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa169fd7250aee18a8a5f8b0a9eba843b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::getHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets current object's heatlh points. </p>
+
+<p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00168">168</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -433,7 +489,7 @@ Protected Attributes</h2></td></tr>
 <p>Get inventory. </p>
 <dl class="section return"><dt>Returns</dt><dd>inventory </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00109">109</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00110">110</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +509,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of max age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00083">83</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00084">84</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -473,7 +529,36 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of max age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00104">104</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00105">105</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b3326520fdf11e5110d25afd90c577a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::getMaxHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets maximum possible object's health points. </p>
+
+<p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00173">173</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -493,7 +578,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of view_area. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of view_area </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00063">63</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00064">64</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -513,7 +598,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of creature's window. </p>
 <dl class="section return"><dt>Returns</dt><dd>the window </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00053">53</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00054">54</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -539,17 +624,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Heals creature. </p>
+<p>Heals object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delta</td><td>amount of healing points </td></tr>
+    <tr><td class="paramname">delta</td><td>amount of healing </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00147">147</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00163">163</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -575,7 +660,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00130">130</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00131">131</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -601,7 +686,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00068">68</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00069">69</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -627,7 +712,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00089">89</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00090">90</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +738,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00078">78</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00079">79</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -679,7 +764,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00099">99</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00100">100</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -705,7 +790,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00058">58</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00059">59</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -731,7 +816,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00048">48</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00049">49</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -856,7 +941,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current age. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00174">174</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00179">179</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -880,7 +965,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Amount for steps to age update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00208">208</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00213">213</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -904,7 +989,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Matrix of attributes. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00168">168</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00173">173</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -928,7 +1013,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reference to creature's <a class="el" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a>. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00171">171</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00176">176</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -952,7 +1037,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Amount for steps to common update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00206">206</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00211">211</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -976,7 +1061,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current creature's action. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00163">163</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00168">168</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1000,7 +1085,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Amount for steps to need_in_descendant update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00210">210</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00215">215</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1109,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current health. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00180">180</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00185">185</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1048,7 +1133,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current value of hunger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00201">201</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00206">206</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1157,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum possible age. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00177">177</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00182">182</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1181,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum possible health. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00183">183</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00188">188</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1120,7 +1205,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum possible value of hunger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00203">203</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00208">208</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1144,7 +1229,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum possible value of sleepiness. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00190">190</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00195">195</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1168,7 +1253,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current value of need_in_descendants (0-100) </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00193">193</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00198">198</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1192,7 +1277,7 @@ Protected Attributes</h2></td></tr>
 
 <p><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s enviroment. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00165">165</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00170">170</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1216,7 +1301,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current safety. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00197">197</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00202">202</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1325,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Amount for steps to safety update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00212">212</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00217">217</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1264,7 +1349,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current value of sleepiness. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00188">188</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00193">193</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -1278,7 +1363,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCreature.html">Creature</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:36 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:31 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

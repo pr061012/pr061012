@@ -141,6 +141,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a816838bab5c67fce2cead6cb9122ad47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a816838bab5c67fce2cead6cb9122ad47"></a><br/></td></tr>
 <tr class="memitem:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
 <tr class="memdesc:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#af7f49cb3f3c3bd9cfdbc42beecbbe5bc"></a><br/></td></tr>
+<tr class="memitem:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">getHealthPoints</a> () const =0</td></tr>
+<tr class="memdesc:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#a1d3b6e7106f7e73ed8e5c2ea807047a7"></a><br/></td></tr>
+<tr class="memitem:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">getMaxHealthPoints</a> () const =0</td></tr>
+<tr class="memdesc:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#aaf54c4ebc3fddf706d0c3ea4787cf34d"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks this object as destroyed.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
 <tr class="memitem:a1e1a162b817f0c134836cca3a473e295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
@@ -332,6 +336,60 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>object's coordinates </dd></dl>
 
 <p>Definition at line <a class="el" href="Object_8cpp_source.html#l00105">105</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d3b6e7106f7e73ed8e5c2ea807047a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Object::getHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets current object's heatlh points. </p>
+
+<p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf54c4ebc3fddf706d0c3ea4787cf34d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Object::getMaxHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets maximum possible object's health points. </p>
+
+<p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
 
 </div>
 </div>
@@ -631,7 +689,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Array with actions. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00174">174</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00184">184</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -645,7 +703,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:38 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:33 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -141,7 +141,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a88928f89a1a538768dade43b0493ec6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a88928f89a1a538768dade43b0493ec6c">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
 <tr class="memdesc:a88928f89a1a538768dade43b0493ec6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">''Heals'' resource.  <a href="#a88928f89a1a538768dade43b0493ec6c"></a><br/></td></tr>
 <tr class="memitem:a4c4cc169461d76de8787c97276665168"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">getActions</a> ()</td></tr>
-<tr class="memdesc:a4c4cc169461d76de8787c97276665168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets array with pending actions.  <a href="#a4c4cc169461d76de8787c97276665168"></a><br/></td></tr>
+<tr class="memdesc:a4c4cc169461d76de8787c97276665168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#a4c4cc169461d76de8787c97276665168"></a><br/></td></tr>
+<tr class="memitem:afff85a837f53fad98bd43a1851094cf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">getHealthPoints</a> () const </td></tr>
+<tr class="memdesc:afff85a837f53fad98bd43a1851094cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#afff85a837f53fad98bd43a1851094cf7"></a><br/></td></tr>
+<tr class="memitem:aeaac763cd594d925374f5ea0240e7161"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">getMaxHealthPoints</a> () const </td></tr>
+<tr class="memdesc:aeaac763cd594d925374f5ea0240e7161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#aeaac763cd594d925374f5ea0240e7161"></a><br/></td></tr>
 <tr class="memitem:ae3b7847e943a7b82f90bcf32ecd1e797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797">getSubtype</a> () const </td></tr>
 <tr class="memdesc:ae3b7847e943a7b82f90bcf32ecd1e797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of subtype.  <a href="#ae3b7847e943a7b82f90bcf32ecd1e797"></a><br/></td></tr>
 <tr class="memitem:a512a227f9ddfaf59d40cf878dbf6c937"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a512a227f9ddfaf59d40cf878dbf6c937">getProgress</a> () const </td></tr>
@@ -334,8 +338,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets array with pending actions. </p>
-<dl class="section return"><dt>Returns</dt><dd>array with pending actions </dd></dl>
+<p>Gets objects pending actions. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>.</p>
 
@@ -379,7 +383,65 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of difficulty. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of difficulty </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00186">186</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00196">196</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afff85a837f53fad98bd43a1851094cf7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Resource::getHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets current object's heatlh points. </p>
+
+<p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00168">168</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeaac763cd594d925374f5ea0240e7161"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Resource::getMaxHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets maximum possible object's health points. </p>
+
+<p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00173">173</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +461,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of progress. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of progress </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00181">181</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00191">191</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -419,7 +481,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the value of subtype. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of subtype </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00172">172</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00182">182</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -520,7 +582,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns true if resource is mineable. </p>
 <dl class="section return"><dt>Returns</dt><dd>is mineable or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00191">191</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00201">201</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -534,7 +596,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classResource.html">Resource</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:39 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:34 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

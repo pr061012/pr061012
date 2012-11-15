@@ -7,6 +7,8 @@ var classResource =
     [ "getActions", "classResource.html#a4c4cc169461d76de8787c97276665168", null ],
     [ "getAmount", "classResource.html#a0a83fccc63c105f0f3dd706daebb1270", null ],
     [ "getDifficulty", "classResource.html#a0b6ea6582c309b2db3c57274b687e7d2", null ],
+    [ "getHealthPoints", "classResource.html#afff85a837f53fad98bd43a1851094cf7", null ],
+    [ "getMaxHealthPoints", "classResource.html#aeaac763cd594d925374f5ea0240e7161", null ],
     [ "getProgress", "classResource.html#a512a227f9ddfaf59d40cf878dbf6c937", null ],
     [ "getSubtype", "classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797", null ],
     [ "heal", "classResource.html#a88928f89a1a538768dade43b0493ec6c", null ],

@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('HarmPerformer_8cpp_source.html','');})
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="HarmPerformer_8h.html">HarmPerformer.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Object.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/BasicFuncs.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../common/Random/Random.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('HarmPerformer_8cpp_source.html','');})
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> type = actor -&gt; getType();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> harm = randFromRange(0,100);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> harm = <a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462" title="Returns random number from range [0, top_boundary - 1].">Random::int_num</a>(100);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> ((type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) || (type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>))</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('HarmPerformer_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_d264c522490a68149b676dc09d63ac6c.html">HarmPerformer</a></li><li class="navelem"><a class="el" href="HarmPerformer_8cpp.html">HarmPerformer.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:33 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

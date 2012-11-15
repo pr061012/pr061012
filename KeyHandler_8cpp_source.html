@@ -107,62 +107,51 @@ $(document).ready(function(){initNavTree('KeyHandler_8cpp_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// TODO: Change name this define</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">    4</a></span>&#160;<span class="preprocessor">#define SPEED 1</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classKeyHandler.html#a56c2347c19f363e8268894caa452e931">   10</a></span>&#160;<a class="code" href="classKeyHandler.html#a56c2347c19f363e8268894caa452e931" title="Constructor.">KeyHandler::KeyHandler</a>(<a class="code" href="classView.html">View</a>* v):</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    view(v)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define glfwGetKey(key) glfwGetKey(view -&gt; getWindow(), key)    </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51">   16</a></span>&#160;<a class="code" href="classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51" title="Destructor.">KeyHandler::~KeyHandler</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405" title="Returns some enum indicating what action should be performed by View.">KeyHandler::handleKeys</a>()</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">if</span> (glfwGetKey(GLFW_KEY_RIGHT))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span> (view -&gt; getX() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a> &lt; <a class="code" href="BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b">VIEW_SCREEN_WIDTH</a>)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                view -&gt; setX(view -&gt; getX() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span> (glfwGetKey(GLFW_KEY_LEFT))</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classKeyHandler.html#a56c2347c19f363e8268894caa452e931">   14</a></span>&#160;<a class="code" href="classKeyHandler.html#a56c2347c19f363e8268894caa452e931" title="Constructor.">KeyHandler::KeyHandler</a>(<a class="code" href="classView.html">View</a>* v):</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    view(v)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51">   20</a></span>&#160;<a class="code" href="classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51" title="Destructor.">KeyHandler::~KeyHandler</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405" title="Returns some enum indicating what action should be performed by View.">KeyHandler::handleKeys</a>()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(GLFW_KEY_RIGHT))</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            view -&gt; setX(view -&gt; getX() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(GLFW_KEY_LEFT))</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span> (view -&gt; getX() - <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a> &gt; 0)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                view -&gt; setX(view -&gt; getX()-<a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (glfwGetKey(GLFW_KEY_DOWN))</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            view -&gt; setX(view -&gt; getX() - <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(GLFW_KEY_DOWN))</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            view -&gt; setY(view -&gt; getY() - <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(GLFW_KEY_UP))</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span> (view -&gt; getY() - <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a> &gt; 0)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                view -&gt; setY(view -&gt; getY() - <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (glfwGetKey(GLFW_KEY_UP))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (view -&gt; getY() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a> &lt; <a class="code" href="BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865">VIEW_SCREEN_HEIGHT</a>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                view -&gt; setY(view -&gt; getY() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            view -&gt; setY(view -&gt; getY() + <a class="code" href="KeyHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f2a51cd3127c93b57800170255376407.html">view</a></li><li class="navelem"><a class="el" href="dir_84271dcb08b617912d486fef60076fe9.html">KeyHandler</a></li><li class="navelem"><a class="el" href="KeyHandler_8cpp.html">KeyHandler.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:34 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

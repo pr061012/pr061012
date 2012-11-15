@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('classView.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61e1877684d543b12ebc4ece608e22e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a61e1877684d543b12ebc4ece608e22e4">View</a> (<a class="el" href="classIWorld.html">IWorld</a> *w)</td></tr>
-<tr class="memdesc:a61e1877684d543b12ebc4ece608e22e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key handler for GUI.  <a href="#a61e1877684d543b12ebc4ece608e22e4"></a><br/></td></tr>
+<tr class="memitem:af45658447d3a86487b55b599ecf96674"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#af45658447d3a86487b55b599ecf96674">View</a> (const <a class="el" href="classIWorld.html">IWorld</a> &amp;w)</td></tr>
+<tr class="memdesc:af45658447d3a86487b55b599ecf96674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af45658447d3a86487b55b599ecf96674"></a><br/></td></tr>
 <tr class="memitem:ad0dc854db9aabbea98a334dec89f785c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#ad0dc854db9aabbea98a334dec89f785c">~View</a> ()</td></tr>
 <tr class="memdesc:ad0dc854db9aabbea98a334dec89f785c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad0dc854db9aabbea98a334dec89f785c"></a><br/></td></tr>
 <tr class="memitem:a0540947a23562805676d3731ca1c3521"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a0540947a23562805676d3731ca1c3521">getX</a> ()</td></tr>
@@ -122,29 +122,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b8d36e29fc73390ac7fa8251b74f20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">setY</a> (double new_var)</td></tr>
 <tr class="memitem:a2e088b57c015d551b27605cab3530187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a2e088b57c015d551b27605cab3530187">redraw</a> ()</td></tr>
 <tr class="memdesc:a2e088b57c015d551b27605cab3530187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw currently displayed world.  <a href="#a2e088b57c015d551b27605cab3530187"></a><br/></td></tr>
-<tr class="memitem:a2a0fd00361df138bd544174c75031f15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a2a0fd00361df138bd544174c75031f15">isExit</a> ()</td></tr>
-<tr class="memdesc:a2a0fd00361df138bd544174c75031f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks conditions to exit the program  <a href="#a2a0fd00361df138bd544174c75031f15"></a><br/></td></tr>
+<tr class="memitem:a4efadcdfb36125ba4dcb3ef6627d5ecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd">continues</a> ()</td></tr>
+<tr class="memdesc:a4efadcdfb36125ba4dcb3ef6627d5ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks conditions to exit the program  <a href="#a4efadcdfb36125ba4dcb3ef6627d5ecd"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="View_8h_source.html#l00019">19</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
+<p>Definition at line <a class="el" href="View_8h_source.html#l00043">43</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a61e1877684d543b12ebc4ece608e22e4"></a>
+<a class="anchor" id="af45658447d3a86487b55b599ecf96674"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">View::View </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classIWorld.html">IWorld</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classIWorld.html">IWorld</a> &amp;&#160;</td>
           <td class="paramname"><em>w</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Key handler for GUI. </p>
-<p>Constructor </p>
+<p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">w</td><td>world that will be rendered by this class </td></tr>
@@ -152,7 +151,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00007">7</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00009">9</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -171,11 +170,31 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00022">22</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00017">17</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a4efadcdfb36125ba4dcb3ef6627d5ecd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool View::continues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks conditions to exit the program </p>
+<dl class="section return"><dt>Returns</dt><dd>result of exit conditions </dd></dl>
+
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00118">118</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a0540947a23562805676d3731ca1c3521"></a>
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +208,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00028">28</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00025">25</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,27 +225,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00033">33</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a0fd00361df138bd544174c75031f15"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool View::isExit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>checks conditions to exit the program </p>
-<dl class="section return"><dt>Returns</dt><dd>result of exit conditions </dd></dl>
-
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00085">85</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00030">30</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +244,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Redraw currently displayed world. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00050">50</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00053">53</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,7 +262,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00038">38</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00042">42</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +280,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00045">45</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00047">47</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +294,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classView.html">View</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:40 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

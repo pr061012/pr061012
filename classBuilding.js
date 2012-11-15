@@ -8,6 +8,8 @@ var classBuilding =
     [ "getCompleteness", "classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88", null ],
     [ "getContents", "classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97", null ],
     [ "getFreeSpace", "classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b", null ],
+    [ "getHealthPoints", "classBuilding.html#aebc5432120fc676a62817e9db746172d", null ],
+    [ "getMaxHealthPoints", "classBuilding.html#a83e15fec5da00f24850d59793c9b5be6", null ],
     [ "getMaxSpace", "classBuilding.html#ac37f23792d59ba27ba82dabe988752f6", null ],
     [ "heal", "classBuilding.html#a4266475915167761e483886535382f90", null ],
     [ "increaseHealth", "classBuilding.html#a3b373e84180fba24ba0afe981e550984", null ],

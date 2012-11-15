@@ -5,6 +5,7 @@ var searchData=
   ['setangle',['setAngle',['../classObject.html#a075891336e08ea144917d8468f8480f1',1,'Object']]],
   ['setcenter',['setCenter',['../classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf',1,'Shape']]],
   ['setcoords',['setCoords',['../classObject.html#a67d41327686c2018494ea788379db9aa',1,'Object']]],
+  ['seterror',['setError',['../classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2',1,'Action']]],
   ['sethealth',['setHealth',['../classCreature.html#aaa12115f414e42efcdefff606656a47d',1,'Creature']]],
   ['setmaxage',['setMaxAge',['../classCreature.html#a0182ce7212cc37901927fc9ebb26a359',1,'Creature']]],
   ['setmaxhealth',['setMaxHealth',['../classCreature.html#a3acd6ae2be4e0cc1dd3dd1b2bf539b20',1,'Creature']]],

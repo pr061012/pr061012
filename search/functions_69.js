@@ -5,13 +5,15 @@ var searchData=
   ['increasestrength',['increaseStrength',['../classTool.html#a39a24ab98a0b9acfad17f987fd57272e',1,'Tool']]],
   ['incrementprogress',['incrementProgress',['../classResource.html#a6eb73f19cd1f3cf7485dc659256fe239',1,'Resource']]],
   ['indexator',['Indexator',['../classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417',1,'Indexator']]],
+  ['int_5fnum',['int_num',['../classRandom.html#a7ba61de909c17fff604fead2a32bf462',1,'Random']]],
+  ['int_5frange',['int_range',['../classRandom.html#acd56ceb2c6f3422cd0759995f43ec099',1,'Random']]],
   ['intersect',['intersect',['../classShape.html#ad4e614404ea0276a9eee3d8299b24e98',1,'Shape']]],
   ['isdecisionactual',['isDecisionActual',['../classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c',1,'DecisionMaker']]],
   ['isdestroyed',['isDestroyed',['../classObject.html#a1e1a162b817f0c134836cca3a473e295',1,'Object']]],
-  ['isexit',['isExit',['../classView.html#a2a0fd00361df138bd544174c75031f15',1,'View']]],
   ['isfailed',['isFailed',['../classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe',1,'Action']]],
   ['isimmortal',['isImmortal',['../classObject.html#a7a38ff74620fa8c16a21e46149027e6a',1,'Object']]],
   ['ismineable',['isMineable',['../classResource.html#ad87877637e96514ddefed5cae8adaa99',1,'Resource']]],
   ['ispending',['isPending',['../classAction.html#ae0e419e952716c6ba3d88bcd68b8859b',1,'Action']]],
-  ['issucceeded',['isSucceeded',['../classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266',1,'Action']]]
+  ['issucceeded',['isSucceeded',['../classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266',1,'Action']]],
+  ['issucceededwitherrors',['isSucceededWithErrors',['../classAction.html#a1aa266d607395721502784b10c7e757b',1,'Action']]]
 ];

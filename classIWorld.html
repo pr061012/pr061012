@@ -126,9 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1adf8090134ff1742c99b0dacd46b276"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a1adf8090134ff1742c99b0dacd46b276">getHiddenObjects</a> ()=0</td></tr>
 <tr class="memitem:a75233893bfd7288b9e7306e08eb2a39d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classIndexator.html">Indexator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a75233893bfd7288b9e7306e08eb2a39d">getIndexator</a> ()=0</td></tr>
 <tr class="memitem:a8deb54efc20b8b1d4b966fe5128c9c2b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classObjectFactory.html">ObjectFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a8deb54efc20b8b1d4b966fe5128c9c2b">getObjectFactory</a> ()=0</td></tr>
-<tr class="memitem:a3791b170cd91f6d1a71ef958f19d2ac9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a3791b170cd91f6d1a71ef958f19d2ac9">getSize</a> ()=0</td></tr>
-<tr class="memitem:a7c94c8a5db44f1ae707f35e7c4fd3aef"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classObject.html">Object</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a7c94c8a5db44f1ae707f35e7c4fd3aef">getViewObjectsInRange</a> (double x, double y, double radius)=0</td></tr>
-<tr class="memitem:ac3c29f9aba4066efbe3bbfce51030ad5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#ac3c29f9aba4066efbe3bbfce51030ad5">getWeatherAtPoint</a> (double x, double y)=0</td></tr>
+<tr class="memitem:afcfeb9a53212b5213527100d489ecd61"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a> () const =0</td></tr>
+<tr class="memitem:a6813c382fa907489ffc508ceb75e7281"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classObject.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a6813c382fa907489ffc508ceb75e7281">getViewObjectsInRange</a> (double x, double y, double radius) const =0</td></tr>
+<tr class="memitem:a3396efa8c99dc506660026ee4553b904"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIWorld.html#a3396efa8c99dc506660026ee4553b904">getWeatherAtPoint</a> (double x, double y) const =0</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -235,7 +235,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3791b170cd91f6d1a71ef958f19d2ac9"></a>
+<a class="anchor" id="afcfeb9a53212b5213527100d489ecd61"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -246,7 +246,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual double IWorld::getSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -256,11 +256,11 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classWorld.html#a1c3e886903df2a4fcb8bff59e0dbf115">World</a>.</p>
+<p>Implemented in <a class="el" href="classWorld.html#ab595144aa998cddab7e9489467843cb6">World</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7c94c8a5db44f1ae707f35e7c4fd3aef"></a>
+<a class="anchor" id="a6813c382fa907489ffc508ceb75e7281"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -268,7 +268,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classObject.html">Object</a>** IWorld::getViewObjectsInRange </td>
+          <td class="memname">virtual std::vector&lt;<a class="el" href="classObject.html">Object</a>*&gt; IWorld::getViewObjectsInRange </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -288,7 +288,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -298,7 +298,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classWorld.html#a4e16dbeed23237902f74b62f229d7d20">World</a>.</p>
+<p>Implemented in <a class="el" href="classWorld.html#a684dec40070244cc49e4030d93e69666">World</a>.</p>
 
 </div>
 </div>
@@ -327,7 +327,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac3c29f9aba4066efbe3bbfce51030ad5"></a>
+<a class="anchor" id="a3396efa8c99dc506660026ee4553b904"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -349,7 +349,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -359,7 +359,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classWorld.html#ab2c8d9f05cfbda5430d6a5e8f7754b85">World</a>.</p>
+<p>Implemented in <a class="el" href="classWorld.html#a302c8d4f515768e247db3b4f2a0f5ba1">World</a>.</p>
 
 </div>
 </div>
@@ -372,7 +372,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIWorld.html">IWorld</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:37 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:32 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

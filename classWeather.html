@@ -129,7 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cc4f6ce440531f5c882547dcf40eb22"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">~Weather</a> ()</td></tr>
 <tr class="memdesc:a6cc4f6ce440531f5c882547dcf40eb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a6cc4f6ce440531f5c882547dcf40eb22"></a><br/></td></tr>
 <tr class="memitem:af6a985a031c55cc9d384fe532bbf69ef"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">getActions</a> ()</td></tr>
-<tr class="memdesc:af6a985a031c55cc9d384fe532bbf69ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets actions.  <a href="#af6a985a031c55cc9d384fe532bbf69ef"></a><br/></td></tr>
+<tr class="memdesc:af6a985a031c55cc9d384fe532bbf69ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#af6a985a031c55cc9d384fe532bbf69ef"></a><br/></td></tr>
+<tr class="memitem:acdafb36eac3292eafd7fdf80f00d0966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">getHealthPoints</a> () const </td></tr>
+<tr class="memdesc:acdafb36eac3292eafd7fdf80f00d0966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#acdafb36eac3292eafd7fdf80f00d0966"></a><br/></td></tr>
+<tr class="memitem:a693d5b00c135b62b563eac7e81a9d5ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">getMaxHealthPoints</a> () const </td></tr>
+<tr class="memdesc:a693d5b00c135b62b563eac7e81a9d5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#a693d5b00c135b62b563eac7e81a9d5ea"></a><br/></td></tr>
 <tr class="memitem:ac2d3f1b253d6616c32a78310b8e05b9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a">getSubtype</a> () const </td></tr>
 <tr class="memdesc:ac2d3f1b253d6616c32a78310b8e05b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of subtype.  <a href="#ac2d3f1b253d6616c32a78310b8e05b9a"></a><br/></td></tr>
 <tr class="memitem:a2d2c127d06a55f388a80aedd07b6c2fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a2d2c127d06a55f388a80aedd07b6c2fb">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
@@ -273,7 +277,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a816838bab5c67fce2cead6cb9122ad47">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8h_source.html#l00061">61</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8h_source.html#l00059">59</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
 
 </div>
 </div>
@@ -298,8 +302,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets actions. </p>
-<dl class="section return"><dt>Returns</dt><dd>vector with actions. </dd></dl>
+<p>Gets objects pending actions. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>.</p>
 
@@ -323,7 +327,36 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets reference to heap with covered objects. This heap can be modified (in fact, <a class="el" href="classController.html" title="Class controls the world!">Controller</a> modify it by using <a class="el" href="classWeather.html" title="Weather class.">Weather</a> shape). </p>
 <dl class="section return"><dt>Returns</dt><dd>reference to heap with covered objects </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00092">92</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00100">100</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdafb36eac3292eafd7fdf80f00d0966"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Weather::getHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets current object's heatlh points. </p>
+
+<p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00077">77</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -343,7 +376,36 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets amount of living steps. </p>
 <dl class="section return"><dt>Returns</dt><dd>amount of living steps. </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00097">97</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00105">105</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a693d5b00c135b62b563eac7e81a9d5ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Weather::getMaxHealthPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets maximum possible object's health points. </p>
+
+<p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00082">82</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -363,7 +425,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of subtype. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of subtype </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00083">83</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00091">91</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +461,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8h_source.html#l00067">67</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8h_source.html#l00065">65</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +475,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classWeather.html">Weather</a></li>
-    <li class="footer">Generated on Wed Nov 14 2012 01:32:40 for pr061012 by
+    <li class="footer">Generated on Fri Nov 16 2012 00:59:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -2,6 +2,7 @@ var BasicTypes_8h =
 [
     [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
     [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
+      [ "NO_ERROR", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abf350750d0d4fabd8954c0f1e9bbae94", null ],
       [ "OBJ_IS_OUT_OF_RANGE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32", null ],
       [ "OBJ_IS_OUT_OF_VIEW", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a7df0f4d3180b0e502cd989b1712893fb", null ],
       [ "OBJ_IS_IMMORTAL", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a377109c095e9b4290095cfa1b4865bf8", null ],
