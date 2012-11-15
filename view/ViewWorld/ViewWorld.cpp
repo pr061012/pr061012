@@ -62,11 +62,11 @@ void ViewWorld::redraw()
 {
     renderBackground();
 
-    std::vector<Object*>* objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
-    for(uint i=0; i < objects -> size(); i++)
+    for(uint i=0; i < objects.size(); i++)
     {
-        renderObject(objects -> at(i));
+        renderObject(objects.at(i));
     }
 
 }

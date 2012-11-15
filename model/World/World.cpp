@@ -55,12 +55,11 @@ World::World(int rand_seed, int size) :
               << rand_seed << std::endl;
 
     object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
-    visible_objs = new ObjectHeap();
 
+    visible_objs = new ObjectHeap();
+    hidden_objs  = new ObjectHeap();
 
     indexator = new Indexator((double)this->size);
-
-    hidden_objs = new ObjectHeap();
 
     ParamArray params;
 
@@ -78,11 +77,6 @@ World::World(int rand_seed, int size) :
         visible_objs -> push(newobj);
         indexator -> reindexate(newobj);
 
-//        std::cout << "Created resource at x = "
-//                  << newobj->getCoords().getX() << ", y = "
-//                  << newobj->getCoords().getY()
-//                  << " with collision model as circle rad = 50"
-//                  << std::endl;
     }
 
     // Creating cows!
@@ -163,18 +157,18 @@ ObjectHeap* World::getHiddenObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-std::vector<Object*>* World::getViewObjectsInRange(double x, double y, double radius) const
+std::vector<Object*> World::getViewObjectsInRange(double x, double y, double radius) const
 {
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
     ObjectHeap* objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects->begin();
 
-    std::vector<Object*>* retval = new std::vector<Object*>;
+    std::vector<Object*> retval;
 
     for (; it != objects -> end(); it++)
     {
-        retval -> push_back(*it);
+        retval.push_back(*it);
     }
 
     delete objects;
