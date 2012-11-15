@@ -132,13 +132,13 @@ void ViewWorld::renderObject(Object* object)
             glColor4d(1.0, 0.0, 0.0, 0.4);
             break;
         case TOOL:
-            glColor3d(0.0, 1.0, 0.0, 0.4);
+            glColor4d(0.0, 1.0, 0.0, 0.4);
             break;
         case BUILDING:
-            glColor3d(0.0, 0.0, 1.0, 0.4);
+            glColor4d(0.0, 0.0, 1.0, 0.4);
             break;
         case WEATHER:
-            glColor3d(0.0, 0.0, 0.0, 0.4);
+            glColor4d(0.0, 0.0, 0.0, 0.4);
             break;
         case CREATURE:
             glColor4d(1.0, 1.0, 1.0, 0.4);
