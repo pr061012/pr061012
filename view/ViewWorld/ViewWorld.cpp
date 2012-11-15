@@ -123,19 +123,25 @@ void ViewWorld::renderObject(Object* object)
     float y_sz;
 
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     switch(object -> getType())
     {
         case RESOURCE:
-            glColor3d(1.0,0.0,0.0);
+            glColor4d(1.0, 0.0, 0.0, 0.4);
             break;
         case TOOL:
-            glColor3d(0.0,1.0,0.0);
+            glColor4d(0.0, 1.0, 0.0, 0.4);
             break;
         case BUILDING:
-            glColor3d(0.0,0.0,1.0);
+            glColor4d(0.0, 0.0, 1.0, 0.4);
             break;
         case WEATHER:
-            glColor3d(0.0,0.0,0.0);
+            glColor4d(0.0, 0.0, 0.0, 0.4);
+            break;
+        case CREATURE:
+            glColor4d(1.0, 1.0, 1.0, 0.4);
             break;
     }
 
@@ -149,7 +155,9 @@ void ViewWorld::renderObject(Object* object)
     }
     glEnd();
 
-    glColor3d(1.0,1.0,1.0);
+    glDisable(GL_BLEND);
+
+    glColor4d(1.0,1.0,1.0,1.0);
 #else
     if(object -> getType() == RESOURCE)
     {
