@@ -140,6 +140,17 @@ void Creature::increaseHealth(uint delta)
     }
 }
 
+void Creature::feed(uint delta)
+{
+    if(this -> hunger - delta > 0)
+    {
+        this -> hunger -= delta;
+    }
+    else
+    {
+        hunger = 0;
+    }
+}
 //******************************************************************************
 // INHERETED THINGS.
 //******************************************************************************
