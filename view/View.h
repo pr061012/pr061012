@@ -45,10 +45,8 @@ class View
     /// World to be rendered by View.
     ViewWorld* view_world;
 
-    KeyHandler* key_handler;
-
     /// Key handler for GUI
-
+    KeyHandler* key_handler;
 
 public:
     //**************************************************************************

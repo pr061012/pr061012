@@ -44,12 +44,6 @@ public:
     World(std::string filepath);
 
     /**
-     * @brief World generation by given seed.
-     * @param rand_seed
-     */
-    //World(int rand_seed = 0);
-
-    /**
      * @brief World generation by given seed and by specific width/height.
      * @param rand_seed
      * @param width
@@ -143,7 +137,7 @@ public:
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
      *         array is return null-terminated
      */
-    std::vector<Object*>* getViewObjectsInRange(double x, double y, double radius) const;
+    std::vector<Object*> getViewObjectsInRange(double x, double y, double radius) const;
 
     /**
      * @brief Get weather state at certain coordinates
