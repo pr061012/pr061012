@@ -2,7 +2,7 @@
 
 #include "ViewWorld.h"
 
-#include "../../log/Log.h"
+#include "../../common/Log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.

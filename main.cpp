@@ -7,7 +7,7 @@
 #include "model/World/World.h"
 #include "control/Controller/Controller.h"
 #include "view/View.h"
-#include "log/Log.h"
+#include "common/Log/Log.h"
 
 /// Period for world updating.
 const int PERIOD = CLOCKS_PER_SEC / TM_TICKS_PER_SECOND;
