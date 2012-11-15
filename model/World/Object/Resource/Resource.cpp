@@ -152,9 +152,10 @@ std::vector <Action> * Resource::getActions()
             drop_amount = this -> amount_per_drop;
         }
 
-        // TODO: Add x and y.
         Action act(CREATE_OBJ, this);
         act.addParam<ObjectType>("obj_type", RESOURCE);
+        act.addParam<uint>("x", getCoords().getX());
+        act.addParam<uint>("y", getCoords().getY());
         // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
         // that?
         act.addParam<ResourceType>("res_type", this -> subtype);
