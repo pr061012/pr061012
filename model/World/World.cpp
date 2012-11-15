@@ -91,7 +91,7 @@ World::World(int rand_seed, int size) :
     }
 
     // Creating cows!
-    ParamArray nhum_params;
+    /*ParamArray nhum_params;
     nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
 
     uint amount = 10 + rand() % 10;
@@ -103,7 +103,7 @@ World::World(int rand_seed, int size) :
                                    Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
-    }
+    }*/
 
     indexator -> reindexate(visible_objs);
 }
