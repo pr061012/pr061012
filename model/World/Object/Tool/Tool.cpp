@@ -65,7 +65,7 @@ Tool::~Tool()
 }
 
 //******************************************************************************
-// TOOL ACTIONS.
+// INHERETED THINGS.
 //******************************************************************************
 
 std::vector <Action> * Tool::getActions()
@@ -74,6 +74,16 @@ std::vector <Action> * Tool::getActions()
     this -> actions.clear();
 
     return &(this -> actions);
+}
+
+uint Tool::getHealthPoints() const
+{
+    return this -> current_strength;
+}
+
+uint Tool::getMaxHealthPoints() const
+{
+    return this -> max_strength;
 }
 
 //******************************************************************************

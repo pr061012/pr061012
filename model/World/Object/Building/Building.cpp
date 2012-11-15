@@ -30,13 +30,23 @@ Building::~Building()
 }
 
 //******************************************************************************
-// ACTIONS ACCESSING.
+// INHERETED THINGS.
 //******************************************************************************
 
 std::vector <Action> * Building::getActions()
 {
     this -> actions.clear();
     return &(this -> actions);
+}
+
+uint Building::getHealthPoints() const
+{
+    return this -> health;
+}
+
+uint Building::getMaxHealthPoints() const
+{
+    return this -> max_health;
 }
 
 //******************************************************************************

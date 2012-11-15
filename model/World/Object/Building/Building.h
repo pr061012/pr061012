@@ -33,14 +33,13 @@ public:
     virtual ~Building();
 
     //**************************************************************************
-    // ACTIONS ACCESSING.
+    // INHERETED THINGS.
     //**************************************************************************
 
-    /**
-     * @brief  Gets objects pending actions.
-     * @return vector with pending actions.
-     */
     std::vector <Action> * getActions();
+
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // HEALTH MANIPULATION.

@@ -165,6 +165,16 @@ std::vector <Action> * Resource::getActions()
     return &(this -> actions);
 }
 
+uint Resource::getHealthPoints() const
+{
+    return this -> amount;
+}
+
+uint Resource::getMaxHealthPoints() const
+{
+    return this -> amount;
+}
+
 //******************************************************************************
 // RESOURCE TYPE.
 //******************************************************************************

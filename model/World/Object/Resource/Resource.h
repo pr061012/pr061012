@@ -78,11 +78,10 @@ public:
     // RESOURCE'S LIFE.
     //**************************************************************************
 
-    /**
-     * @brief  Gets array with pending actions.
-     * @return array with pending actions
-     */
     std::vector <Action> * getActions();
+
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // RESOURCE TYPE.

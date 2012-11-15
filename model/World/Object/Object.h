@@ -62,6 +62,16 @@ public:
      */
     virtual void heal(uint delta) = 0;
 
+    /**
+     * @brief Gets current object's heatlh points.
+     */
+    virtual uint getHealthPoints() const = 0;
+
+    /**
+     * @brief Gets maximum possible object's health points.
+     */
+    virtual uint getMaxHealthPoints() const = 0;
+
     //**************************************************************************
     // DESTROYED FLAG.
     //**************************************************************************
