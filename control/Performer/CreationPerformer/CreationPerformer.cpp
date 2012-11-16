@@ -98,7 +98,7 @@ bool CreationPerformer::checkCoord(double x, double y)
     bool ret = false;
     Shape ghost;
     Point coord = Point(x, y);
-    ghost.setSize();
+
     ghost.setCenter(coord);
 
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);

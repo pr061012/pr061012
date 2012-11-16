@@ -67,7 +67,7 @@ private:
      * @param y
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(uint x, uint y);
+    bool checkCoord(double x, double y);
 
     Object* createBuilding(Action& action, ParamArray& param);
 
