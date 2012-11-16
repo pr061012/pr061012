@@ -139,7 +139,7 @@ Object* CreationPerformer::createResource(Action& action, ParamArray& param)
     param.addKey<ResourceType>("res_type", res_type);
     param.addKey<uint>("res_amount", res_amount);
 
-    return factory -> createObject(CREATURE, param);
+    return factory -> createObject(RESOURCE, param);
 }
 
 Object* CreationPerformer::createTool(Action& action, ParamArray& param)

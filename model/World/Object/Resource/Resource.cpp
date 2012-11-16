@@ -66,7 +66,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
 
         default:
             this -> mineable        = false;
-            this -> difficulty      = 0;
+            this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;

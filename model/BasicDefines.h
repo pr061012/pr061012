@@ -166,6 +166,7 @@
 
 // Amount of steps to mine resource.
 
+#define RES_DEFAULT_DIFFICULTY      1
 #define RES_WOOD_DIFFICULTY         16
 #define RES_BRONZE_ORE_DIFFICULTY   32
 #define RES_IRON_ORE_DIFFICULTY     48
