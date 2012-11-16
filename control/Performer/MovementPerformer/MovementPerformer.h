@@ -7,7 +7,7 @@
 #define MOVEMENT_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/World.h"
 
 /**
  * @class MovementPerformer
@@ -26,7 +26,7 @@ public:
      * @param world_size size of the world
      * @param indexator indexator
      */
-    MovementPerformer(const double world_size, Indexator* indexator);
+    MovementPerformer(World * world);
 
     /**
      * @brief Destructor
@@ -48,12 +48,13 @@ private:
     //*************************************************************************
     //  ATTRIBUTES
     //*************************************************************************
-    
+   
     /// Size of the world
     const double world_size;
-    
-    /// The reference to worlds indexator
-    Indexator* indexator;
+
+    /// Indexator of the controlled world
+    Indexator * indexator;
+
 };
 
 #endif

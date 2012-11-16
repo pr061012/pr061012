@@ -55,7 +55,7 @@ void DroppingPerformer::perform(Action& action)
 
     // go through all objects in participants and check if
     // they lie in inventory
-    for (ObjectHeap::iterator j = participants.begin(); 
+    for (std::vector<Object*>::iterator j = participants.begin(); 
          j != participants.end(); j++) 
     {
         ObjectHeap::iterator object = inventory -> find(*j);
