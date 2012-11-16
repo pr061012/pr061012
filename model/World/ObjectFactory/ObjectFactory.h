@@ -9,10 +9,10 @@
 #include <string>
 #include <map>
 
-#include "../ParamArray/ParamArray.h"
 #include "../DecisionMaker/DecisionMaker.h"
 #include "../Object/Object.h"
 #include "../ObjectHeap/ObjectHeap.h"
+#include "../../../common/ParamArray/ParamArray.h"
 
 /**
  * @class ObjectFactory

@@ -3,9 +3,9 @@
     See the COPYING file for copying permission.
 */
 
-#include "EParamArrayBadKey.h"
+#include "EParamArrayInvalidKey.h"
 
-const char * EParamArrayBadKey::what() const throw()
+const char * EParamArrayInvalidKey::what() const throw()
 {
     return "ParamArray: tried to access value with nonexistent key.";
 }
