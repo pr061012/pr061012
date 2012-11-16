@@ -31,12 +31,12 @@ void CreationPerformer::perform(Action& action)
 
     ObjectType obj_type = action.getParam<ObjectType>("obj_type");
 
-    uint x = action.getParam<uint>("x");
-    uint y = action.getParam<uint>("y");
+    uint x = action.getParam<double>("x");
+    uint y = action.getParam<double>("y");
 
     ParamArray param;
-    param.addKey<uint>("x", x);
-    param.addKey<uint>("y", y);
+    param.addKey<double>("x", x);
+    param.addKey<double>("y", y);
 
     if (( type == RESOURCE || type == CREATURE ) && checkCoord(x, y))
     {
@@ -93,12 +93,12 @@ void CreationPerformer::perform(Action& action)
     }
 }
 
-bool CreationPerformer::checkCoord(uint x, uint y)
+bool CreationPerformer::checkCoord(double x, double y)
 {
     bool ret = false;
     Shape ghost;
     Point coord = Point(x, y);
-
+    ghost.setSize();
     ghost.setCenter(coord);
 
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);
