@@ -11,7 +11,7 @@
 #include <string>
 #include <map>
 
-#include "EParamArrayBadKey.h"
+#include "EParamArrayInvalidKey.h"
 
 /**
  * @class ParamArray
@@ -85,7 +85,7 @@ public:
      * @param  suppress_err_msg whether suppress error messages to cerr or not
      * @return key value
      */
-    template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayBadKey)
+    template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayInvalidKey)
     {
         std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
 
@@ -98,7 +98,7 @@ public:
                              key << "')." << std::endl;
             }
 
-            throw EParamArrayBadKey();
+            throw EParamArrayInvalidKey();
         }
 
         return *(static_cast<Type*>(iter -> second));
