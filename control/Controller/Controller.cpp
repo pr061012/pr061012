@@ -10,6 +10,7 @@
 #include "../Performer/MiningPerformer/MiningPerformer.h"
 #include "../Performer/DroppingPerformer/DroppingPerformer.h"
 #include "../Performer/EatingPerformer/EatingPerformer.h"
+#include "../Performer/MovementPerformer/MovementPerformer.h"
 #include "../Performer/PickupMaster/PickupMaster.h"
 #include "../../model/World/Action/Action.h"
 #include "Controller.h"
@@ -30,6 +31,7 @@ Controller::Controller(World * world) :
     performers[DROP_OBJS] = (Performer *) new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = (Performer *) new PickupMaster(world);
     performers[EAT_OBJ] = (Performer *) new EatingPerformer(world);
+    performers[MOVE] = new MovementPerformer(world);
 }
 
 Controller::~Controller()
