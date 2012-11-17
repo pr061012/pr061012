@@ -8,15 +8,17 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include <map>
 
 #include "EParamArrayInvalidKey.h"
+#include "../BasicTypes.h"
 
 /**
  * @class ParamArray
- * @brief Assoсiative array (keys are strings, values are ints). Used in
- *        PendingAction and ObjectFactory.
+ * @brief Assoсiative array (keys are strings, value type -- doesn't matter).
+ *        Used in Action, Message and ObjectFactory.
  *
  *        **NOTE**: Be very accurate while working with this class. You
  *                  *shouldn't* store in ParamArray any classes instantiations.
@@ -37,22 +39,19 @@ public:
     /**
      * @brief Constructor.
      */
-    ParamArray(){}
+    ParamArray()
+    {
+        this -> memory_size   = 64;
+        this -> memory        = static_cast<char*>(malloc(this -> memory_size));
+        this -> current_index = 0;
+    }
 
     /**
      * @brief Destructor.
      */
     ~ParamArray()
     {
-        std::map <std::string, void*> :: const_iterator i;
-
-        for (i = this -> map.begin(); i != map.end(); i++)
-        {
-            // FIXME: Dirty workaround. Rewrite ParamArray immediately!
-            //free(i -> second);
-        }
-
-        this -> map.clear();
+        free(this -> memory);
     }
 
     //**************************************************************************
@@ -67,16 +66,27 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
-        // Copying data.
-        Type* copy = static_cast<Type*>( malloc(sizeof(Type)) );
-        *copy = value;
+        // Don't have enough memory?
+        if (this -> current_index + sizeof(Type) >= this -> memory_size)
+        {
+            char* new_memory = static_cast<char*>(malloc(this -> memory_size + 64));
+            memcpy(new_memory, this -> memory, this -> memory_size);
 
-        // Firstly removing this key and value (if it's existed).
-        // Suppressing error messages (don't want to litter to cerr).
-        this -> removeKey(key, true);
+            free(this -> memory);
+            this -> memory = new_memory;
+
+            this -> memory_size += 64;
+        }
+
+        // Copying data.
+        void* ptr = &(this -> memory[this -> current_index]);
+        new (ptr) Type(value);
 
         // Adding key.
-        this -> map[key] = copy;
+        this -> map[key] = ptr;
+
+        // Increase index.
+        this -> current_index += sizeof(Type);
     }
 
     /**
@@ -127,7 +137,8 @@ public:
             return false;
         }
 
-        free(iter -> second);
+        // FIXME: Calling destructors?
+
         this -> map.erase(iter);
 
         return true;
@@ -145,6 +156,15 @@ public:
 private:
     /// Map with keys.
     std::map <std::string, void*> map;
+
+    /// Pointer to allocated memory.
+    char* memory;
+
+    /// Memory size.
+    uint memory_size;
+
+    /// Index of free memory in memory array.
+    uint current_index;
 };
 
 #endif // PARAM_ARRAY_H
