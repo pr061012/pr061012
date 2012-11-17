@@ -18,6 +18,9 @@ class ViewWorld
     /// World that is rendered by this class
     const IWorld& world;
 
+    /// Objects that are displayed during the current frame
+    // std::vector<Object*> onscreen_objects;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -75,6 +78,16 @@ public:
      *        the game camera
      */
     void redraw();
+
+    /**
+     * @brief returns ViewObject situated at specific screen
+     *        coordinates
+     * @param x onscreen x coordinate 
+     * @param y onscreen y coordinate 
+     *
+     */
+    const Object* getViewObjectAt(double x, double y);
+
 
     //**************************************************************************
     // ACCESSORS.

@@ -78,6 +78,12 @@ void ViewWorld::redraw()
     }
 }
 
+
+const Object* ViewWorld::getViewObjectAt(double x, double y)
+{
+    return NULL;
+}
+
 double ViewWorld::getX()
 {
     return this -> x;
