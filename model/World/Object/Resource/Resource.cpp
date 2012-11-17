@@ -24,6 +24,23 @@ Resource::Resource(ResourceType type, uint res_amount) :
     // FIXME: Foolish code.
     switch(this -> subtype)
     {
+        case RES_FOOD:
+            this -> mineable        = false;
+            this -> difficulty      = RES_DEFAULT_DIFFICULTY;
+            this -> amount          = res_amount;
+            this -> amount_per_drop = 0;
+            this -> reg_amount      = 0;
+        break;
+
+        case RES_BUILDING_MAT:
+            this -> mineable        = true;
+            this -> difficulty      = RES_WOOD_DIFFICULTY;
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
+            this -> reg_amount      = RES_WOOD_REG_AMOUNT;
+        break;
+
+        /*
         case WOOD:
             this -> mineable        = true;
             this -> difficulty      = RES_WOOD_DIFFICULTY;
@@ -63,6 +80,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> amount_per_drop = Random::int_range(RES_GOLD_ORE_DROP_MIN, RES_GOLD_ORE_DROP_MAX);
             this -> reg_amount      = RES_GOLD_ORE_REG_AMOUNT;
         break;
+        */
 
         default:
             this -> mineable        = false;
