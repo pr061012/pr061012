@@ -10,7 +10,7 @@
 
 #include "MovementPerformer.h"
 #include "../../../model/World/Object/Resource/Resource.h"
-#include "../../../model/BasicDefines.h"
+#include "../../../common/BasicDefines.h"
 #include <cmath>
 #include <string>
 
