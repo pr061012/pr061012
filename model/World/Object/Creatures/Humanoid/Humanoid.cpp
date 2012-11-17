@@ -187,7 +187,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
     case RELAX: result_act = chooseWayToRelax(); break;
     case WORK: ; break;
     case REALIZE_DREAM: ; break;
-    case ESCAPE: result_act = chooseWayToEscape(); break;
+    case ESCAPE: result_act = this -> chooseWayToEscape(); break;
     case BUILD: result_act = chooseWayToBuild(); break;
     case CONTINUE_GENDER: ; break;
     default: ;
@@ -201,6 +201,25 @@ DetailedHumAction Humanoid::chooseWayToRelax()
     return REALAX_AT_HOME;
 }
 
+DetailedHumAction Humanoid:: chooseWayToBuild()
+{
+
+}
+
+DetailedHumAction Humanoid:: chooseWayToEat()
+{
+
+}
+
+DetailedHumAction Humanoid:: chooseWayToSleep()
+{
+
+}
+
+DetailedHumAction Humanoid:: chooseWayToEscape()
+{
+
+}
 //******************************************************************************
 // HUMANOID'S LOGICS.
 //******************************************************************************
