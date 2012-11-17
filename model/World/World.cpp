@@ -51,8 +51,8 @@ World::World(int rand_seed, int size) :
 {
     srand(rand_seed);
 
-    std::cout << "Creating world with rand_seed="
-              << rand_seed << std::endl;
+    Log::NOTE(std::string("Creating world with random seed ") +
+              std::to_string(rand_seed) + ".");
 
     // Initializing class attributes
 
