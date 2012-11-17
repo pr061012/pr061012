@@ -10,14 +10,23 @@ View::View(const IWorld& w)
 {
     initWindow();
 
-    view_world = new ViewWorld(w);
-    key_handler = new KeyHandler(this);
+    this -> view_world = new ViewWorld(w);
+    this -> key_handler = new KeyHandler(this);
 
-    glc_context = glcGenContext();
-    glcContext(glc_context);
+    this -> glc_context = glcGenContext();
+    glcContext(this -> glc_context);
 
-    std::cout << "GLC acquired access to " << glcGeti(GLC_CATALOG_COUNT)
+    //glcAppendCatalog("/usr/share/fonts/");
+    glcAppendCatalog("/usr/share/fonts/X11/Type1");
+
+    std::cout << "GLC acquired access to " << glcGeti(GLC_FONT_COUNT)
               << " fonts." << std::endl;
+
+    this -> font = glcGenFontID();
+    glcNewFontFromFamily(this -> font, "Palatino");
+    glcFontFace(this -> font, "Bold");
+
+    glcFont(this -> font);
 }
 
 View::~View()

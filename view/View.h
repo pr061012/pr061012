@@ -52,6 +52,7 @@ class View
 
     /// GLC context used to render text
     GLint glc_context;
+    GLint font;
 
     /// Dimensions of program window, in pixels
     int width;
