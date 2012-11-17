@@ -65,57 +65,46 @@ World::World(int rand_seed, int size) :
 
     // Creating resources
 
-//    ParamArray params;
-//    ParamArray grass_params;
-
-//    params.addKey<ResourceType>("res_type", WOOD);
-//    params.addKey<uint>("res_amount", 10);
-
-//    grass_params.addKey("res_type", GRASS);
-//    grass_params.addKey("res_amount", 10);
-
-//    for(int i = 3000 + rand()%5000; i>=0; --i)
-//    {
-//        Object* newobj  = object_factory -> createObject(RESOURCE, params);
-
-//        newobj -> setCoords(Point(Random::int_range(0, size),
-//                                  Random::int_range(0, size)));
-
-//        Object* grass = object_factory -> createObject(RESOURCE, grass_params);
-
-//        grass -> setCoords(Point(Random::int_range(0, size),
-//                                 Random::int_range(0, size)));
-
-//        visible_objs -> push(newobj);
-//        visible_objs -> push(grass);
-//    }
-
-//    // Creating cows!
-//    ParamArray nhum_params;
-//    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
-
-//    uint amount = 10 + rand() % 10;
-//    for (uint i = 0; i < amount; i++)
-//    {
-//        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-
-//        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
-//                                   Random::double_range(20.0, 70.0)));
-
-//        visible_objs -> push(new_obj);
-//    }
-
     ParamArray params;
+    ParamArray grass_params;
+
     params.addKey<ResourceType>("res_type", WOOD);
     params.addKey<uint>("res_amount", 10);
 
-    Object* new_obj = object_factory -> createObject(RESOURCE, params);
+    grass_params.addKey("res_type", GRASS);
+    grass_params.addKey("res_amount", 10);
 
-    new_obj -> setCoords(Point(50.0, 50.0));
+    for(int i = 3000 + rand()%5000; i>=0; --i)
+    {
+        Object* newobj  = object_factory -> createObject(RESOURCE, params);
 
-    visible_objs -> push(new_obj);
+        newobj -> setCoords(Point(Random::int_range(0, size),
+                                  Random::int_range(0, size)));
 
-    indexator -> reindexate(visible_objs);
+        Object* grass = object_factory -> createObject(RESOURCE, grass_params);
+
+        grass -> setCoords(Point(Random::int_range(0, size),
+                                 Random::int_range(0, size)));
+
+        visible_objs -> push(newobj);
+        visible_objs -> push(grass);
+    }
+
+    // Creating cows!
+
+    ParamArray nhum_params;
+    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+
+    uint amount = 10 + rand() % 10;
+    for (uint i = 0; i < amount; i++)
+    {
+        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
+
+        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
+                                   Random::double_range(20.0, 70.0)));
+
+        visible_objs -> push(new_obj);
+    }
 }
 
 //******************************************************************************

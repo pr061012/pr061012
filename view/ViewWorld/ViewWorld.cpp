@@ -81,9 +81,7 @@ void ViewWorld::redraw()
 
 const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
 {
-    return world.getViewObjectsInArea(this -> screenToWorldX(x),
-                                      this -> screenToWorldY(y),
-                                      VIEW_CURSOR_RAD);
+    return world.getViewObjectsInArea(x, y, VIEW_CURSOR_RAD);
 }
 
 double ViewWorld::worldToScreenX(double world_x)
@@ -144,9 +142,6 @@ void ViewWorld::renderObject(const Object* object)
     double py = this->worldToScreenY(p.getY());
 
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
     switch(object -> getType())
     {
         case RESOURCE:
@@ -168,12 +163,16 @@ void ViewWorld::renderObject(const Object* object)
 
     double angle;
     double radius = object->getShape().getSize()/2;
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     glBegin(GL_TRIANGLE_FAN);
-    for(int i = 0; i < 100; i++) {
-        angle = 2.0 * i * M_PI / 100;
-        glVertex2d((px + cos(angle) * radius),
-                   (py + sin(angle) * radius));
-    }
+        for(int i = 0; i < 100; i++) {
+            angle = 2.0 * i * M_PI / 100;
+            glVertex2d((px + cos(angle) * radius),
+                       (py + sin(angle) * radius));
+        }
     glEnd();
 
     glDisable(GL_BLEND);
@@ -231,6 +230,7 @@ void ViewWorld::renderObject(const Object* object)
 
 void ViewWorld::renderBackground()
 {
+//#ifndef VIEW_DEBUG
     double px = worldToScreenX( 0.0 );
     double py = worldToScreenY( 0.0 );
 
@@ -241,11 +241,11 @@ void ViewWorld::renderBackground()
     glEnable(GL_TEXTURE_2D);
 
     glBegin(GL_POLYGON);
-        glTexCoord2f(0.0  + px, py);
+        glTexCoord2f(px       , py);
         glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(16.0 + px, py);
+        glTexCoord2f(px + 16.0, py);
         glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(16.0 + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(px + 16.0, 16.0*VIEW_ASPECT_RATIO + py);
         glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
         glTexCoord2f(0.0  + px, 16.0*VIEW_ASPECT_RATIO + py);
         glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
@@ -254,4 +254,5 @@ void ViewWorld::renderBackground()
     glDisable(GL_TEXTURE_2D);
 
     glColor3f(1.0f, 1.0f, 1.0f);
+//#endif
 }

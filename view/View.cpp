@@ -70,6 +70,9 @@ void View::redraw()
         double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
         double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
 
+        std::cout << "Cursor at coordinates x = "<<wx<<" and y = "<<wy
+                  << std::endl;
+
         const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
         if(selection.size()>0)
         {
