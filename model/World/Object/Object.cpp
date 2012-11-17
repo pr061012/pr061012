@@ -11,19 +11,18 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type) :
+Object::Object(ObjectType type, bool solidity, bool immortality) :
     type(type),
-    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT))
+    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
+    destroyed(false),
+    immortality(immortality),
+    solidity(solidity),
+    angle(0)
 {
-    this -> destroyed = false;
-    this -> immortality = false;
-
-    this -> angle = 0;
 }
 
 Object::~Object()
 {
-
 }
 
 //******************************************************************************
@@ -57,6 +56,39 @@ void Object::makeImmortal()
 bool Object::isImmortal() const
 {
     return this -> immortality;
+}
+
+//******************************************************************************
+// SOLIDITY.
+//******************************************************************************
+
+void Object::makeSolid()
+{
+    this -> solidity = true;
+}
+
+void Object::makeNonSolid()
+{
+    this -> solidity = false;
+}
+
+bool Object::isSolid() const
+{
+    return this -> solidity;
+}
+
+//******************************************************************************
+// DANGEROUS.
+//******************************************************************************
+
+uint Object::getDangerLevel() const
+{
+    return this -> danger_level;
+}
+
+void Object::setDangerLevel(uint danger_level)
+{
+    this -> danger_level = danger_level;
 }
 
 //******************************************************************************
