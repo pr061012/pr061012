@@ -108,6 +108,22 @@ public:
     bool isImmortal() const;
 
     //**************************************************************************
+    // DANGEROUS.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets object's danger level.
+     * @return danger level
+     */
+    uint getDangerLevel() const;
+
+    /**
+     * @brief Sets object's danger level.
+     * @param danger_level  new danger level
+     */
+    void setDangerLevel(uint danger_level);
+
+    //**************************************************************************
     // OBJECT TYPE.
     //**************************************************************************
 
@@ -152,14 +168,14 @@ public:
     double getAngle() const;
 
     /**
-     * @brief   Set object's coordinates
-     * @param   coords  new coordinates
+     * @brief Set object's coordinates
+     * @param coords  new coordinates
      */
     void setCoords(const Point& coords);
 
     /**
-     * @brief   Get object's coordinates
-     * @return  object's coordinates
+     * @brief  Get object's coordinates
+     * @return object's coordinates
      */
     const Point& getCoords() const;
 
@@ -178,6 +194,9 @@ private:
 
     /// Angle of rotation.
     double angle;
+
+    /// Object's danger level.
+    uint danger_level;
 
 protected:
     /// Array with actions.
