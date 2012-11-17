@@ -16,23 +16,19 @@ View::View(const IWorld& w)
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
 
-    //glcAppendCatalog("/usr/share/fonts/");
-    glcAppendCatalog("/usr/share/fonts/X11/Type1");
-
-    std::cout << "GLC acquired access to " << glcGeti(GLC_FONT_COUNT)
-              << " fonts." << std::endl;
-
     this -> font = glcGenFontID();
-    glcNewFontFromFamily(this -> font, "Palatino");
-    glcFontFace(this -> font, "Bold");
+    glcNewFontFromMaster(this -> font, 0);
 
     glcFont(this -> font);
+    glcScale(12.f, 12.f);
 }
 
 View::~View()
 {
     delete view_world;
     delete key_handler;
+
+    glcDeleteFont(this -> font);
 
     glfwTerminate();
 }
@@ -75,15 +71,18 @@ void View::redraw()
 
     key_handler->handleKeys();
 
+    int mouse_x, mouse_y;
+    glfwGetMousePos(&mouse_x, &mouse_y);
+
+    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
+    double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
+
+    glRasterPos2f(-VIEW_CAM_SIZE+1, -VIEW_CAM_SIZE+1);
+    glcRenderString(wx+" "+wy);
+
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
         mouse_clicked = 1;
-
-        int mouse_x, mouse_y;
-        glfwGetMousePos(&mouse_x, &mouse_y);
-
-        double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
-        double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
 
         std::cout << "Cursor at coordinates x = "<<wx<<" and y = "<<wy
                   << std::endl;
@@ -169,8 +168,9 @@ void View::initWindow()
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
-    //glLoadIdentity();
+    glLoadIdentity();
 
+    glfwSwapBuffers();
 }
 
 bool View::continues()
