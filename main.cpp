@@ -30,23 +30,15 @@ int main()
         View view(world);
 
         int t0 = clock();
-        int counter = 0;
 
         do
         {
             if(clock() - t0 > PERIOD)
             {
                 t0 += PERIOD;
-            }
-
-            if(counter++ == 10)
-            {
                 control.step();
-                counter = 0;
+                view.redraw();
             }
-
-            view.redraw();
-
         } while(view.continues());
     }
     catch(EInvalidResPath& exc)
