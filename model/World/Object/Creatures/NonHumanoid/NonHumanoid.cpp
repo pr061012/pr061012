@@ -94,6 +94,7 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         current_decision = brains.makeDecision(attrs);
         angle = -1;
+        aim = 0;
     }
 
     if (current_decision == SLEEP)
