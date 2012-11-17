@@ -5,22 +5,14 @@ pr061012
 
 Game's name, features and concept are coming soon.
 
-ToDo
-====
+Current state
+=============
 
-*Right now!*
+We don't have enought time. Sad but true. In this case we're developing with
+following conditions:
 
-1. Add classes:
-   * Action (exception)
-   * Controller & PossibilityChecker
-   * SpellTree
-2. Add interfaces:
-   * IGod
-3. Decide about:
-   * SpeelTree -- inner struct
-
-*In future:*
-
-1. Write a common documentation tex-file with:
-   * main concept
-   * UML diagram with description about how it works
+    * There is one type of NonHumanoid (''cow''), two types of Resource (food
+      and building material), one type of Building.
+    * No Tool and Weather at all.
+    * No communication between humanoids.
+    * No God.
