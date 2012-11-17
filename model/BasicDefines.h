@@ -24,8 +24,12 @@
 
 /// Radius of field of view of game camera
 #define VIEW_CAM_RADIUS                  30
+
 /// Max x and y of screen coordinates
-#define VIEW_CAM_SIZE                   8
+#define VIEW_CAM_SIZE                    8
+
+/// Radius in which objects are checked for cursor click (in-game coordinates)
+#define VIEW_CURSOR_RAD                  (double) 1
 
 //******************************************************************************
 // TIME DEFINES.

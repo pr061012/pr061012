@@ -21,10 +21,10 @@ ViewWorld::ViewWorld(const IWorld& w) :
         }
     }
 
-    x = 50.0;
-    y = 50.0;
+    this -> x = 50.0;
+    this -> y = 50.0;
 
-    frame = 0;
+    this -> frame = 0;
 }
 
 ViewWorld::~ViewWorld()
@@ -34,7 +34,7 @@ ViewWorld::~ViewWorld()
 
 void ViewWorld::loadTextures()
 {
-    texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
+    this -> texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
     (
         "res/rock.png",
         SOIL_LOAD_RGBA,
@@ -47,7 +47,7 @@ void ViewWorld::loadTextures()
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
-    texture_buf[1] = SOIL_load_OGL_texture
+    this -> texture_buf[1] = SOIL_load_OGL_texture
     (
         "res/tree.png",
         SOIL_LOAD_RGBA,
@@ -55,7 +55,7 @@ void ViewWorld::loadTextures()
         SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
     );
 
-    texture_buf[2] = SOIL_load_OGL_texture
+    this -> texture_buf[2] = SOIL_load_OGL_texture
     (
         "res/cow.png",
         SOIL_LOAD_RGBA,
@@ -68,20 +68,20 @@ void ViewWorld::loadTextures()
 
 void ViewWorld::redraw()
 {
-    renderBackground();
+    this -> renderBackground();
 
     std::vector<Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
     for(uint i=0; i < objects.size(); i++)
     {
-        renderObject(objects.at(i));
+        this -> renderObject(objects.at(i));
     }
 }
 
 
-const Object* ViewWorld::getViewObjectAt(double x, double y)
+const std::vector<Object*>& ViewWorld::getViewObjectAt(double x, double y)
 {
-    return NULL;
+    return world.getViewObjectsInRange(x, y, VIEW_CURSOR_RAD);
 }
 
 double ViewWorld::getX()

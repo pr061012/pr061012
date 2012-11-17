@@ -18,8 +18,11 @@ class ViewWorld
     /// World that is rendered by this class
     const IWorld& world;
 
-    /// Objects that are displayed during the current frame
-    // std::vector<Object*> onscreen_objects;
+    /// Objects which are displayed or used in some other
+    /// way by View during the current frame. This is
+    /// required to get information about units that are not
+    /// rendered right now but selected by player.
+    std::vector<Object*> rendered_objects;
 
 public:
     //**************************************************************************
