@@ -30,7 +30,6 @@ int main()
         View view(world);
 
         int t0 = clock();
-        int counter = 0;
 
         do
         {
