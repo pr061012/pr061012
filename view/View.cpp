@@ -12,6 +12,12 @@ View::View(const IWorld& w)
 
     view_world = new ViewWorld(w);
     key_handler = new KeyHandler(this);
+
+    glc_context = glcGenContext();
+    glcContext(glc_context);
+
+    std::cout << "GLC acquired access to " << glcGeti(GLC_CATALOG_COUNT)
+              << " fonts." << std::endl;
 }
 
 View::~View()
@@ -104,11 +110,10 @@ void View::redraw()
     view_world -> redraw();
 
 #ifdef VIEW_DEBUG
-    double xoff = view_world -> getX();
-    double yoff = view_world -> getY();
+    // In debug mode, draw a grid over the screen.
 
-    xoff /= VIEW_CAM_SIZE;
-    yoff /= VIEW_CAM_SIZE;
+    double xoff = view_world -> worldToScreenX(0.0);
+    double yoff = view_world -> worldToScreenY(0.0);
 
     xoff = (xoff - (int)xoff);
     yoff = (yoff - (int)yoff);

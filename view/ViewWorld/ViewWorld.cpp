@@ -255,6 +255,6 @@ void ViewWorld::renderBackground()
 
     glColor3f(1.0f, 1.0f, 1.0f);
 #else
-    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+    glClearColor(0.2f, 0.2f, 0.6f, 1.0f);
 #endif
 }

@@ -21,6 +21,8 @@
 #include "KeyHandler/KeyHandler.h"
 #include <iostream>
 
+#include <GL/glc.h>
+
 // Defines for glfw compatibility
 #ifdef __glfw3_h__
     #define _VIEW_WINDOW window
@@ -47,6 +49,9 @@ class View
 
     /// Key handler for GUI
     KeyHandler* key_handler;
+
+    /// GLC context used to render text
+    GLint glc_context;
 
     /// Dimensions of program window, in pixels
     int width;
