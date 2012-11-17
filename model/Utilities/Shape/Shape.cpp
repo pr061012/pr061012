@@ -139,11 +139,12 @@ bool Shape::hitTest (const Shape& shape) const
                 // if sum of radiuses is more than distance between centers,
                 // return true
                 case CIRCLE:
-                    if (center.getDistance(shape.getCenter()) <
+                    if (center.getDistance(shape.getCenter()) <=
                         (size + shape.getSize())/ 2)
                     {
                         return true;
                     }
+                    break;
 
                 case SQUARE:
                     return squareCircleHitTest(shape, *this);
@@ -217,23 +218,17 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
     Point lt = Point(lb.getX(), rt.getY());
     Point rb = Point(rt.getX(), lb.getY());
 
-    const Point &cc = circle.getCenter();
-    double radius = circle.getSize() / 2;
-
     // a square can have circle's center inside
-    if (square.hitTest(cc))
+    if (square.hitTest(circle.getCenter()))
     {
         return true;
     }
 
-    double ccx = cc.getX();
-    double ccy = cc.getY();
-
-    // cicle cam intersect any side of the square
-    if (circleIntersectsSegment(circle, lt, rt) ||
-          circleIntersectsSegment(circle, lb, rb) ||
-          circleIntersectsSegment(circle, lb, lt) ||
-          circleIntersectsSegment(circle, rb, rt))
+    // cicle can intersect any side of the square
+    if (circleOverlapsSegment(circle, lt, rt) ||
+          circleOverlapsSegment(circle, lb, rb) ||
+          circleOverlapsSegment(circle, lb, lt) ||
+          circleOverlapsSegment(circle, rb, rt))
     {
         return true;
     }
@@ -242,8 +237,16 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
 }
 
 // check if a circle intersects segment
-bool Shape::circleIntersectsSection(Shape shape, Point pt1, Point pt2)
+bool Shape::circleOverlapsSegment(Shape shape, Point pt1, Point pt2) const
 {
+    Point project = shape.getCenter().project(pt1, pt2);
+
+    // check if sement line is closer than radius and if 
+    // one of the segments end lie inside a shape or
+    // if a segment crosses circle with ends outside
+    return (shape.getCenter().getDistanceToLine(pt1, pt2) < shape.getSize()/2)
+            && (shape.hitTest(pt1) || shape.hitTest(pt2) ||
+                Point::scalarProduct(pt2 - project, pt1 - project) < 0);
 }
 
 // Calculates intersections
