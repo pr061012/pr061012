@@ -30,11 +30,22 @@ public:
     /**
      * @brief Constructor.
      */
-    ParamArray()
+    ParamArray() :
+        memory(new char[64]),
+        memory_size(64),
+        current_index(0)
     {
-        this -> memory_size   = 64;
-        this -> memory        = new char[this -> memory_size];
-        this -> current_index = 0;
+    }
+
+    /**
+     * @brief Copy constructor.
+     */
+    ParamArray(const ParamArray& pa) :
+        memory(new char[pa.memory_size]),
+        memory_size(pa.memory_size),
+        current_index(pa.current_index)
+    {
+        memcpy(memory, pa.memory, pa.memory_size);
     }
 
     /**
@@ -42,7 +53,7 @@ public:
      */
     ~ParamArray()
     {
-        delete[] this -> memory;
+        delete[] (this -> memory);
     }
 
     //**************************************************************************
@@ -63,7 +74,7 @@ public:
             char* new_memory = new char[this -> memory_size + 64];
             memcpy(new_memory, this -> memory, this -> memory_size);
 
-            delete[] this -> memory;
+            delete[] (this -> memory);
             this -> memory = new_memory;
 
             this -> memory_size += 64;
