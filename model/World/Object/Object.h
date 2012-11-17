@@ -27,7 +27,7 @@ public:
      * @brief Constructor.
      * @param type  ObjectType
      */
-    Object(ObjectType type);
+    Object(ObjectType type, bool solidity = true, bool immortality = false);
 
     /**
      * @brief Destructor.

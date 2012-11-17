@@ -11,19 +11,18 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Object::Object(ObjectType type) :
+Object::Object(ObjectType type, bool solidity, bool immortality) :
     type(type),
-    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT))
+    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
+    destroyed(false),
+    immortality(immortality),
+    solidity(solidity),
+    angle(0)
 {
-    this -> destroyed = false;
-    this -> immortality = false;
-
-    this -> angle = 0;
 }
 
 Object::~Object()
 {
-
 }
 
 //******************************************************************************
