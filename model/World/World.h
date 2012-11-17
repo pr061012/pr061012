@@ -129,15 +129,13 @@ public:
     //******************************************************************************
 
     /**
-     * @brief Get objects visible in certain radius around a certain point.
+     * @brief Get objects visible in square region of certain size at certain point.
      * @param x x coordinate of screen center
      * @param y y coordinate of screen center
-     * @param radius maximal distance from screen center at which object is visible
-     * @param size number of ViewObject instances created
-     * @return array of ViewObject. Coordinates are relative to (x, y) provided
-     *         array is return null-terminated
+     * @param size maximal distance from screen center at which object is visible
+     * @return vector of ViewObject.
      */
-    std::vector<Object*> getViewObjectsInRange(double x, double y, double radius) const;
+    std::vector<const Object*> getViewObjectsInArea(double x, double y, double size) const;
 
     /**
      * @brief Get weather state at certain coordinates

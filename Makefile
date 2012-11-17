@@ -2,7 +2,7 @@
 CC          = g++
 CFLAGS      = -g -c -Wall -O2 -std=c++11 
 LFLAGS      =
-LIBS        = -larmadillo -lGL -lSOIL -lglfw
+LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC
 
 # Paths.
 INPUT_DIR   = ./

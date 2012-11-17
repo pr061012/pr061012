@@ -22,6 +22,8 @@
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
 
+#include <GL/glc.h>
+
 // Defines for glfw compatibility
 #ifdef __glfw3_h__
     #define _VIEW_WINDOW window
@@ -48,6 +50,14 @@ class View
     /// Key handler for GUI
     KeyHandler* key_handler;
 
+    /// GLC context used to render text
+    GLint glc_context;
+    GLint font;
+
+    /// Dimensions of program window, in pixels
+    int width;
+    int height;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -69,7 +79,13 @@ public:
     // ACCESSORS
     //**************************************************************************
 
+    /**
+     * @brief Returns in-game x coordinate of camera center
+     */
     double getX();
+    /**
+     * @brief Returns in-game y coordinate of camera center
+     */
     double getY();
 
     void setX(double new_var);
@@ -78,6 +94,7 @@ public:
 #ifdef __glfw3_h__
     GLFWwindow getWindow();
 #endif
+
 
     //**************************************************************************
     // DRAWING METHODS.

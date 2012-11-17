@@ -91,6 +91,7 @@ World::World(int rand_seed, int size) :
     }
 
     // Creating cows!
+
     ParamArray nhum_params;
     nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
 
@@ -167,20 +168,19 @@ ObjectHeap* World::getHiddenObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-std::vector<Object*> World::getViewObjectsInRange(double x, double y, double radius) const
+std::vector<const Object*> World::getViewObjectsInArea(double x, double y, double size) const
 {
     Point center(x, y);
-    Shape area(center, CIRCLE, radius*2);
+    Shape area(center, CIRCLE, size*2);
     ObjectHeap objects = indexator->getAreaContents(area);
-    ObjectHeap::const_iterator it = objects.begin();
+    ObjectHeap::const_iterator it;
 
-    std::vector<Object*> retval;
+    std::vector<const Object*> retval;
 
-    for (; it != objects.end(); it++)
+    for (it = objects.begin(); it != objects.end(); it++)
     {
         retval.push_back(*it);
     }
-
 
     return retval;
 }

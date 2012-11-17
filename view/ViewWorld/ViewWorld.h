@@ -19,6 +19,12 @@ class ViewWorld
     /// World that is rendered by this class
     const IWorld& world;
 
+    /// Objects which are displayed or used in some other
+    /// way by View during the current frame. This is
+    /// required to get information about units that are not
+    /// rendered right now but selected by player.
+    // std::vector<Object*> rendered_objects;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -63,7 +69,7 @@ private:
     /**
      * @brief draws specific object relative to current coordinates
      */
-    void renderObject(Object* object); // TODO: Object -> ViewObject
+    void renderObject(const Object* object); // TODO: Object -> ViewObject
 
     /**
      * @brief render a grass background all over the window
@@ -76,6 +82,27 @@ public:
      *        the game camera
      */
     void redraw();
+
+    /**
+     * @brief returns ViewObject situated at specific screen
+     *        coordinates
+     * @param x onscreen x coordinate 
+     * @param y onscreen y coordinate 
+     *
+     */
+    const std::vector<const Object*> getViewObjectAt(double x, double y);
+
+
+    //**************************************************************************
+    // COORDINATES TRANSFORMATION.
+    //**************************************************************************
+
+    double worldToScreenX(double world_x);
+    double worldToScreenY(double world_y);
+
+    double screenToWorldX(double screen_x);
+    double screenToWorldY(double screen_y);
+
 
     //**************************************************************************
     // ACCESSORS.
