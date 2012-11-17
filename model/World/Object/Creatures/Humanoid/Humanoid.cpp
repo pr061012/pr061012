@@ -74,6 +74,71 @@ std::vector <Action>* Humanoid::getActions()
     if(safety_steps == 0)
         updateSafety();
 
+    this -> actions.clear();
+
+    if (!brains.isDecisionActual(attrs, current_decision))
+    {
+        current_decision = NONE;
+        angle = -1;
+        aim = 0;
+    }
+    if (current_decision == NONE)
+    {
+        current_decision = brains.makeDecision(attrs);
+        angle = -1;
+        aim = 0;
+        detailed_act = chooseAction(current_decision);
+    }
+
+    if (detailed_act == REALAX_AT_HOME)
+    {
+
+    }
+
+    if (detailed_act == HUNT)
+    {
+
+    }
+
+    if (detailed_act == FIND_FOOD)
+    {
+
+    }
+
+    if (detailed_act == SLEEP_AT_HOME)
+    {
+
+    }
+
+    if (detailed_act == SLEEP_ON_THE_GROUND)
+    {
+
+    }
+
+    if (detailed_act == MINE_RESOURSES)
+    {
+
+    }
+
+    if (detailed_act == BUILD_HOUSE)
+    {
+
+    }
+
+    if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
+    {
+
+    }
+
+    if (detailed_act == FIGHT)
+    {
+
+    }
+
+    if (detailed_act == RUN_FROM_DANGER)
+    {
+
+    }
     return &actions;
 }
 
@@ -109,11 +174,9 @@ void Humanoid::updateSafety()
     ;
 }
 
-DetailedHumAction Humanoid::chooseAction()
+DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
-    CreatureAction action = NONE;
     DetailedHumAction result_act = REALAX_AT_HOME;
-    action = brains.makeDecision(attrs);
 
     // Draft of father processing
     switch(action)
@@ -130,9 +193,13 @@ DetailedHumAction Humanoid::chooseAction()
     default: ;
     }
 
-    return action;
+    return result_act;
 }
 
+DetailedHumAction Humanoid::chooseWayToRelax()
+{
+    return REALAX_AT_HOME;
+}
 
 //******************************************************************************
 // HUMANOID'S LOGICS.

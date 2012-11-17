@@ -100,11 +100,14 @@ private:
     //**************************************************************************
     // HUMANOID'S LOGICS.
     //**************************************************************************
+    /// Detailed action of humanoid
+    DetailedHumAction detailed_act;
+
     /**
      * @brief Humanoid chooses the next action
      * @return CratureAction action
      */
-    DetailedHumAction chooseAction(); // is it good name?
+    DetailedHumAction chooseAction(CreatureAction action); // is it good name?
 
     /**
      * @brief Humanoid chooses the way to decrease his hunger
