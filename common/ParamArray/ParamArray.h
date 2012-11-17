@@ -33,7 +33,7 @@ public:
     ParamArray()
     {
         this -> memory_size   = 64;
-        this -> memory        = static_cast<char*>(malloc(this -> memory_size));
+        this -> memory        = new char[this -> memory_size];
         this -> current_index = 0;
     }
 
@@ -42,7 +42,7 @@ public:
      */
     ~ParamArray()
     {
-        free(this -> memory);
+        delete[] this -> memory;
     }
 
     //**************************************************************************
@@ -60,10 +60,10 @@ public:
         // Don't have enough memory?
         if (this -> current_index + sizeof(Type) >= this -> memory_size)
         {
-            char* new_memory = static_cast<char*>(malloc(this -> memory_size + 64));
+            char* new_memory = new char[this -> memory_size + 64];
             memcpy(new_memory, this -> memory, this -> memory_size);
 
-            free(this -> memory);
+            delete[] this -> memory;
             this -> memory = new_memory;
 
             this -> memory_size += 64;
