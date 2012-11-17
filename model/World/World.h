@@ -13,8 +13,8 @@
 #include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
-#include "../../view/ViewObject/ViewObject.h"
 #include "Indexator/Indexator.h"
+#include "../../view/ViewObject/ViewObject.h"
 
 /**
  * @brief Default value for max x and y.

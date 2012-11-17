@@ -71,6 +71,9 @@ enum ToolType
  */
 enum ResourceType
 {
+    // FIXME: Silly dummy.
+    RES_FOOD, RES_BUILDING_MAT,
+
     // Mineable resources.
     BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 

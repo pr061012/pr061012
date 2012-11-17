@@ -25,6 +25,11 @@ public:
      */
     static int int_num(int top_boundary)
     {
+        if(top_boundary == 0)
+        {
+            return 0;
+        }
+
         return rand() % top_boundary;
     }
 
@@ -33,6 +38,12 @@ public:
      */
     static double double_num(double top_boundary)
     {
+        // 1E-5 was chosen by fairly really random. I guarantee that.
+        if(top_boundary <= 1E-5)
+        {
+            return 0;
+        }
+
         top_boundary *= 1000;
         return (rand() % ((int) top_boundary)) / 1000.0;
     }

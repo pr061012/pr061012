@@ -7,7 +7,6 @@
 #define NON_HUMANOID_H
 
 #include "../Creature.h"
-#include "../../../../BasicTypes.h"
 
 /**
  * @class NonHumanoid

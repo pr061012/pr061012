@@ -16,7 +16,7 @@
 #include <vector>
 #include <cstdlib>
 
-#include "../../BasicTypes.h"
+#include "../../../common/BasicTypes.h"
 
 /**
  * @class DecisionMaker

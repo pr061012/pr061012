@@ -4,7 +4,7 @@
 */
 
 #include "Creature.h"
-#include "../../../BasicDefines.h"
+#include "../../../../common/BasicDefines.h"
 #include "../../../../common/Random/Random.h"
 
 
@@ -16,7 +16,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
     inventory(new ObjectHeap),
-    objects_around(new ObjectHeap),
     brains(dmaker)
 {
     attrs = arma::mat(ATR_CONST, 1);
@@ -39,21 +38,20 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 Creature::~Creature()
 {
     delete inventory;
-    delete objects_around;
 }
 
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
 
-void Creature::setWindow(ObjectHeap * window)
+void Creature::setObjectsAround(ObjectHeap objects_around)
 {
-    this -> window = window;
+    this -> objects_around = objects_around;
 }
 
-ObjectHeap * Creature::getWindow()
+ObjectHeap * Creature::getObjectsAround()
 {
-    return this -> window;
+    return &(this -> objects_around);
 }
 
 void Creature::setViewArea(Shape view_area)

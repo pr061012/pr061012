@@ -3,7 +3,7 @@
 #define SHAPE_H
 
 #include "../Point/Point.h"
-#include "../../BasicTypes.h"
+#include "../../../common/BasicTypes.h"
 
 /// Intersection flags
 enum IntersectionFlag {NO_INTERSECTION = 16, LEFT = 1, RIGHT = 2,
@@ -167,6 +167,11 @@ private:
      */
 
     bool squareCircleHitTest(const Shape& square, const Shape& circle) const;
+
+    /**
+     *    @brief Checks if a segment overlaps a circle
+     */
+    bool circleOverlapsSegment(Shape shape, Point pt1, Point pt2) const;
 
 };
 

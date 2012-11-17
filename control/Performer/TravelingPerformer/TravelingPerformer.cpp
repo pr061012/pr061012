@@ -3,10 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-#include "TravelingPerformer.h"
-#include "../../../model/BasicDefines.h"
-#include <string>
 #include <cmath>
+#include <string>
+
+#include "TravelingPerformer.h"
+#include "../../../common/BasicDefines.h"
 
 TravelingPerformer::TravelingPerformer(const double world_size, 
                                      Indexator* indexator) :

@@ -11,7 +11,7 @@
 #include <algorithm>
 
 #include "../Object/Object.h"
-#include "../../BasicTypes.h"
+#include "../../../common/BasicTypes.h"
 
 /**
  * @class ObjectHeap

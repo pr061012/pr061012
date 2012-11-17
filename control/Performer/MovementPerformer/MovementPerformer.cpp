@@ -3,14 +3,19 @@
     See the LICENSE file for copying permission.
 */
 
-#include "MovementPerformer.h"
-#include "../../../model/BasicDefines.h"
-#include <string>
-#include <cmath>
+//**********************************************************
+// TODO
+// Add some check for distance between an actor and an object
+//**********************************************************
 
-MovementPerformer::MovementPerformer(const double world_size, 
-                                     Indexator* indexator) :
-    world_size(world_size), indexator(indexator)
+#include "MovementPerformer.h"
+#include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../common/BasicDefines.h"
+#include <cmath>
+#include <string>
+
+MovementPerformer::MovementPerformer(World * world) :
+    world_size(world -> getSize()), indexator(world -> getIndexator())
 {
 }
 
@@ -24,8 +29,27 @@ void MovementPerformer::perform(Action& action)
     Object * actor = action.getActor();
     ObjectType actor_type = actor -> getType();
 
-    // check if actor can go
+    // check if actor can move objects
     if (actor_type != CREATURE && actor_type != WEATHER)
+    {
+        action.markAsFailed();
+        return;
+    }
+
+    // check if actor tries to move only one object
+    std::vector<Object*> participants = action.getParticipants();
+    if (participants.size() != 1)
+    {
+        action.markAsFailed();
+        return;
+    }
+
+    Object * participant = *participants.begin();
+
+    // check if a participant can be moved (tools and mined resources)
+    if (participant -> getType() != TOOL &&
+        !(participant -> getType() == RESOURCE &&
+          !dynamic_cast<Resource*>(participant) -> isMineable()))
     {
         action.markAsFailed();
         return;
@@ -46,7 +70,8 @@ void MovementPerformer::perform(Action& action)
             break;
 
     }
-    Point dest = actor -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
+    
+    Point dest = participant -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
     if (dest.getX() < 0 || dest.getX() >= world_size || 
@@ -57,18 +82,16 @@ void MovementPerformer::perform(Action& action)
     }
 
     // Try to place an object and see if it collides with anything
-    Shape ghost = actor -> getShape();
+    Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);
 
-    // Nothing can stop weather, and creature can't stop itself
-    if (actor -> getType() == WEATHER || 
-        ((obstacles.getTypeAmount(CREATURE) == 1 && *obstacles.begin() == actor
-         || !obstacles.getTypeAmount(CREATURE))
-        && !obstacles.getTypeAmount(BUILDING)))
+    // Can't place things over creatures and buildings
+    if (!obstacles.getTypeAmount(CREATURE)
+        && !obstacles.getTypeAmount(BUILDING))
     {
-        actor -> setCoords(dest);
-        indexator -> reindexate(actor);
+        participant -> setCoords(dest);
+        indexator -> reindexate(participant);
         action.markAsSucceeded();
     }
     else

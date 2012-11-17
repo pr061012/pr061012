@@ -3,12 +3,13 @@
     See the LICENSE file for copying permission.
 */
 
+#include <cmath>
+#include <string>
+
 #include "EatingPerformer.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/BasicDefines.h"
-#include <string>
-#include <cmath>
+#include "../../../common/BasicDefines.h"
 
 // TODO
 // Improve movement algo

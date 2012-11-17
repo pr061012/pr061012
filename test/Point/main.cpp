@@ -52,6 +52,17 @@ int main()
     assert(p1 == Point(13, -5));
     assert(-p1 == Point(-13, 5));
 
+    //**********************************************************
+    // Other utilities
+    //**********************************************************
+    
+    p1 = Point(0, 0);
+    p2 = Point(3, 3);
+    p3 = Point(0, 3);
+
+    assert(p3.project(p1, p2) == Point(1.5, 1.5));
+    assert(Point::scalarProduct(p2 - p3, p1 - p3) == 0);
+    assert(Point::scalarProduct(p2 - p1, p3 - p1) == 9);
     return 0;
 }
 
