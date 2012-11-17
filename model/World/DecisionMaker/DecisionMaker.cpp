@@ -98,28 +98,28 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
 CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 {
     std::vector <int> vect_of_actions;
-    int max = -1000;
-    CreatureAction decision = NONE;
-    int numb_of_decision;
-    arma::mat act = this -> theta * attrs;
-    act(7,0) += 550;
+    double max = -1000;
 
-    for(int i = 0; i < ACT_CONST; i++)
+    arma::mat act = this -> theta * attrs;
+    act(7, 0) += 550;
+
+    for(uint i = 0; i < act.size(); i++)
     {
-        if (act(i,0) == max)
+        if (act(i, 0) - max <= 1E-5)
         {
             vect_of_actions.push_back(i);
         }
 
-        if (act(i,0) > max)
+        if (act(i, 0) - max > 1E-5)
         {
-            max = act(i,0);
+            max = act(i, 0);
             vect_of_actions.clear();
             vect_of_actions.push_back(i);
         }
 
     }
-    
+
+    int numb_of_decision;
     if (vect_of_actions.size())
     {
         numb_of_decision = vect_of_actions[rand() % vect_of_actions.size()];
@@ -128,6 +128,8 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
     {
         numb_of_decision = 0;
     }
+
+    CreatureAction decision = NONE;
     switch(numb_of_decision)
     {
     case 0: decision = SLEEP; break;
@@ -143,4 +145,3 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 
     return decision;
 }
-
