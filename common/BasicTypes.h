@@ -114,7 +114,7 @@ enum DetailedHumAction
     SLEEP_AT_HOME, SLEEP_ON_THE_GROUND,
 
     // BUILD actions
-    MINE_RESOURSES, BUILD_HOUSE
+    MINE_RESOURSES, BUILD_HOUSE,
 
     // ESCAPE actions
     FIGHT, RUN_FROM_DANGER
