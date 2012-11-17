@@ -137,7 +137,7 @@ public:
      * @return array of ViewObject. Coordinates are relative to (x, y) provided
      *         array is return null-terminated
      */
-    std::vector<const Object*> getViewObjectsInRange(double x, double y, double radius) const;
+    std::vector<const Object*> getViewObjectsInArea(double x, double y, double radius) const;
 
     /**
      * @brief Get weather state at certain coordinates

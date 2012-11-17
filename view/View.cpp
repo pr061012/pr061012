@@ -50,21 +50,32 @@ void View::setY(double new_var)
     view_world->setY(new_var);
 }
 
+bool mouse_clicked = 0;
+
 void View::redraw()
 {
     key_handler->handleKeys();
 
-    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
+        mouse_clicked = 1;
+
         int mouse_x, mouse_y;
         glfwGetMousePos(&mouse_x, &mouse_y);
-        const Object* selection = view_world->getViewObjectAt(mouse_x, mouse_y).at(0);
-        if(selection)
+        const std::vector<const Object*> selection = view_world->getViewObjectAt(mouse_x, mouse_y);
+        if(selection.size()>0)
         {
-            std::cout<<"Selected unit type = "
-                     << (selection->getType() == RESOURCE ? "Resource" : "Creature")
-                     << std::endl;
+            const Object* selected = selection.at(0);
+
+            std::cout << "=======Selected object=========="
+                      << std::endl;
+            std::cout << "type = " << selected -> getType()
+                      << std::endl;
         }
+    }
+    else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
+    {
+        mouse_clicked = 0;
     }
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

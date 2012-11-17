@@ -70,7 +70,7 @@ void ViewWorld::redraw()
 {
     this -> renderBackground();
 
-    std::vector<const Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS);
 
     for(uint i=0; i < objects.size(); i++)
     {
@@ -81,7 +81,9 @@ void ViewWorld::redraw()
 
 const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
 {
-    return world.getViewObjectsInRange(x, y, VIEW_CURSOR_RAD*10);
+    return world.getViewObjectsInArea(this -> x + x*VIEW_CAM_SIZE/VIEW_CAM_RADIUS,
+                                       this -> y + x*VIEW_CAM_SIZE/VIEW_CAM_RADIUS,
+                                       VIEW_CURSOR_RAD);
 }
 
 double ViewWorld::getX()
@@ -124,15 +126,6 @@ void ViewWorld::renderObject(const Object* object)
     px *= VIEW_CAM_SIZE;
     py *= VIEW_CAM_SIZE;
 
-    // TODO: Redo image coordinates to be taken from (file?)
-    float x0;
-    float y0;
-    float x1;
-    float y1;
-
-    float x_sz;
-    float y_sz;
-
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -170,6 +163,15 @@ void ViewWorld::renderObject(const Object* object)
 
     glColor4d(1.0,1.0,1.0,1.0);
 #else
+    // TODO: Redo image coordinates to be taken from (file?)
+    float x0;
+    float y0;
+    float x1;
+    float y1;
+
+    float x_sz;
+    float y_sz;
+
     if(object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
