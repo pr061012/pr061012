@@ -218,6 +218,11 @@
 /// Maximum possible value of max_sleepiness.
 #define CREAT_SLEEPINESS_MAX        100
 
+/// Minimum possible value of forse.
+#define CREAT_FORCE_MIN        0
+/// Maximum possible value of force.
+#define CREAT_FORCE_MAX        100
+
 /// Amount of steps before updates basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates safety
