@@ -3,11 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-//TODO Add check whether object is visible
-
 #include "HarmPerformer.h"
 #include "../../../model/World/Object/Object.h"
 #include "../../../common/Random/Random.h"
+#include "../../../common/BasicDefines.h"
+#include "../../../common/BasicTypes.h"
 
 #include <vector>
 
@@ -26,9 +26,12 @@ void HarmPerformer::perform(Action& action)
 {
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
-    uint harm = Random::int_num(100);
+    uint harm = Random::int_num(actor -> getDangerLevel());
 
-    if ((type != CREATURE) || (type != WEATHER))
+    ObjectHeap obstacles = indexator.getAreaContents(actor -> getShape());
+    ObjectHeap::const_iterator iter = obstacles.end();
+    uint count_error = 0;
+    if (type != CREATURE)
     {
         action.markAsFailed();
     }
@@ -38,8 +41,24 @@ void HarmPerformer::perform(Action& action)
 
         for (uint i = 0; i < participants.size(); i++)
         {
-            participants[i]->damage(harm);
+            if (obstacles.find(participants[i], false) != iter)
+            {
+                participants[i] -> damage(harm);
+            }
+            else
+            {
+                ActionError error = OBJ_IS_OUT_OF_VIEW;
+                action.setError(error);
+                count_error += 1;
+            }
         }
-        action.markAsSucceeded();
+        if (!count_error)
+        {
+            action.markAsSucceeded();
+        }
+        else
+        {
+            action.markAsSucceededWithErrors();
+        }
     }
 }
