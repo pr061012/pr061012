@@ -3,10 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-#include "MovementPerformer.h"
-#include "../../../model/BasicDefines.h"
-#include <string>
 #include <cmath>
+#include <string>
+
+#include "MovementPerformer.h"
+#include "../../../common/BasicDefines.h"
 
 MovementPerformer::MovementPerformer(const double world_size, 
                                      Indexator* indexator) :

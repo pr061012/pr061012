@@ -3,10 +3,9 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../../../../common/Random/Random.h"
-#include "../../../BasicDefines.h"
-
 #include "Building.h"
+#include "../../../../common/Random/Random.h"
+#include "../../../../common/BasicDefines.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.

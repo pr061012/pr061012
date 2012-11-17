@@ -5,7 +5,7 @@
 
 #include "Resource.h"
 
-#include "../../../BasicDefines.h"
+#include "../../../../common/BasicDefines.h"
 #include "../../../../common/Random/Random.h"
 
 //******************************************************************************
@@ -153,13 +153,13 @@ std::vector <Action> * Resource::getActions()
         }
 
         Action act(CREATE_OBJ, this);
+
         act.addParam<ObjectType>("obj_type", RESOURCE);
-        act.addParam<uint>("x", getCoords().getX());
-        act.addParam<uint>("y", getCoords().getY());
         // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
         // that?
         act.addParam<ResourceType>("res_type", this -> subtype);
         act.addParam<uint>("res_amount", drop_amount);
+
         this -> actions.push_back(act);
     }
 

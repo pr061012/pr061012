@@ -4,8 +4,8 @@
 */
 
 #include "CreationPerformer.h"
-#include "../../../model/BasicTypes.h"
-#include "../../../model/BasicDefines.h"
+#include "../../../common/BasicTypes.h"
+#include "../../../common/BasicDefines.h"
 #include "../../../model/World/ObjectFactory/ObjectFactory.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Resource/Resource.h"

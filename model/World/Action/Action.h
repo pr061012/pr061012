@@ -16,7 +16,7 @@ class Object;
 class Action;
 
 #include "../Object/Object.h"
-#include "../../BasicTypes.h"
+#include "../../../common/BasicTypes.h"
 #include "../../../common/ParamArray/ParamArray.h"
 
 /**

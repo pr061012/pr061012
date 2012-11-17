@@ -4,7 +4,7 @@
 */
 
 #include "DecisionMaker.h"
-#include "../../BasicDefines.h"
+#include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 #include "../../../common/Exceptions/EInvalidResPath.h"
 

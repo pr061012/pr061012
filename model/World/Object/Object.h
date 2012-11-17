@@ -8,9 +8,9 @@
 
 #include <vector>
 
-#include "../../Utilities/Shape/Shape.h"
-#include "../../BasicTypes.h"
 #include "../Action/Action.h"
+#include "../../Utilities/Shape/Shape.h"
+#include "../../../common/BasicTypes.h"
 
 /**
  * @class Object

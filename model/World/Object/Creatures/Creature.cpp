@@ -4,7 +4,7 @@
 */
 
 #include "Creature.h"
-#include "../../../BasicDefines.h"
+#include "../../../../common/BasicDefines.h"
 #include "../../../../common/Random/Random.h"
 
 
