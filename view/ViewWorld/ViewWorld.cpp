@@ -151,7 +151,7 @@ void ViewWorld::renderObject(Object* object)
     }
 
     double angle;
-    double radius = object->getShape().getSize();
+    double radius = object->getShape().getSize()/2;
     glBegin(GL_TRIANGLE_FAN);
     for(int i = 0; i < 100; i++) {
         angle = 2.0 * i * M_PI / 100;
