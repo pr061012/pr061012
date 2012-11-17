@@ -18,6 +18,7 @@ class Action;
 #include "../Object/Object.h"
 #include "../../../common/BasicTypes.h"
 #include "../../../common/ParamArray/ParamArray.h"
+#include "../../../common/Log/Log.h"
 
 /**
  * @brief Action contains information about object's pending action.
@@ -130,9 +131,19 @@ public:
      * @param  param    param name
      * @return value of param
      */
-    template <class Type> Type getParam(std::string param) const
+    template <class Type> Type getParam(std::string param) const throw(EParamArrayInvalidKey)
     {
-        return this -> params.getValue<Type>(param);
+        try
+        {
+            return this -> params.getValue<Type>(param);
+        }
+        catch(EParamArrayInvalidKey& exc)
+        {
+            Log::WARN(std::string("Tried to get param by key, which doesn't ") +
+                      std::string("seem to be existed (key is '") + param +
+                      "').");
+            throw;
+        }
     }
 
     /**

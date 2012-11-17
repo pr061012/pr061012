@@ -14,11 +14,16 @@
 
 #include "EParamArrayInvalidKey.h"
 #include "../BasicTypes.h"
+#include "../Log/Log.h"
 
 /**
  * @class ParamArray
  * @brief Assoсiative array (keys are strings, value type -- doesn't matter).
  *        Used in Action, Message and ObjectFactory.
+ *
+ *        *NOTE*: You will experience memory leaks, if you will add classes
+ *                instantations to this array. Reason is simple: ParamArray
+ *                doesn't calling any destructors.
  */
 class ParamArray
 {
@@ -105,9 +110,9 @@ public:
         {
             if (!suppress_err_msgs)
             {
-                std::cerr << "[WARN] ParamArray: tried to get value by key, " <<
-                             "which doesn't seem to be existed (key is '" <<
-                             key << "')." << std::endl;
+                Log::WARN(std::string("Tried to get value by key, which ") +
+                          std::string("doesn't seem to be existed (key is '") +
+                          key + "').");
             }
 
             throw EParamArrayInvalidKey();
@@ -131,15 +136,13 @@ public:
         {
             if (!suppress_err_msgs)
             {
-                std::cerr << "[WARN] ParamArray: tried to delete key, which " <<
-                             "doens't exist (key is '" << key << "')." <<
-                             std::endl;
+                Log::WARN(std::string("Tried to delete key, which doesn't ") +
+                          std::string("seem to be existed (key is '") + key +
+                          "').");
             }
 
             return false;
         }
-
-        // FIXME: Calling destructors?
 
         this -> map.erase(iter);
 
