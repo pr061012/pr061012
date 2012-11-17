@@ -24,12 +24,12 @@ View::~View()
 
 double View::getX()
 {
-    return view_world->getX();
+    return view_world -> getX();
 }
 
 double View::getY()
 {
-    return view_world->getY();
+    return view_world -> getY();
 }
 
 #ifdef __glfw3_h__
@@ -41,19 +41,23 @@ GLFWwindow View::getWindow()
 
 void View::setX(double new_var)
 {
-    view_world->setX(new_var);
+    view_world -> setX(new_var);
 }
 
 void View::setY(double new_var)
 {
     new_var = new_var > 0 ? new_var : 0;
-    view_world->setY(new_var);
+    view_world -> setY(new_var);
 }
 
 bool mouse_clicked = 0;
 
 void View::redraw()
 {
+    // Check for an update of window dimensions
+    glfwGetWindowSize(&this -> width,
+                      &this -> height);
+
     key_handler->handleKeys();
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
@@ -62,10 +66,23 @@ void View::redraw()
 
         int mouse_x, mouse_y;
         glfwGetMousePos(&mouse_x, &mouse_y);
-        const std::vector<const Object*> selection = view_world->getViewObjectAt(mouse_x, mouse_y);
+
+        double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
+        double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
+
+        const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
         if(selection.size()>0)
         {
             const Object* selected = selection.at(0);
+
+            std::cout << "=======  Coordinates  =========="
+                      << std::endl;
+            std::cout << "screen_center-world_x = " << this -> getX()
+                      << std::endl;
+            std::cout << "screen_center-world_y = " << this -> getY()
+                      << std::endl;
+            std::cout << "cursor-world_y = " << this -> getY()
+                      << std::endl;
 
             std::cout << "=======Selected object=========="
                       << std::endl;
@@ -81,11 +98,11 @@ void View::redraw()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
 
-    view_world->redraw();
+    view_world -> redraw();
 
 #ifdef VIEW_DEBUG
-    double xoff = view_world->getX();
-    double yoff = view_world->getY();
+    double xoff = view_world -> getX();
+    double yoff = view_world -> getY();
 
     xoff /= VIEW_CAM_SIZE;
     yoff /= VIEW_CAM_SIZE;

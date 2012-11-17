@@ -81,9 +81,31 @@ void ViewWorld::redraw()
 
 const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
 {
-    return world.getViewObjectsInArea(this -> x + x*VIEW_CAM_SIZE/VIEW_CAM_RADIUS,
-                                       this -> y + x*VIEW_CAM_SIZE/VIEW_CAM_RADIUS,
-                                       VIEW_CURSOR_RAD);
+    return world.getViewObjectsInArea(this -> screenToWorldX(x),
+                                      this -> screenToWorldY(y),
+                                      VIEW_CURSOR_RAD);
+}
+
+double ViewWorld::worldToScreenX(double world_x)
+{
+    world_x -= this -> getX();
+    return world_x / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
+double ViewWorld::worldToScreenY(double world_y)
+{
+    world_y -= this -> getY();
+    return world_y / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
+double ViewWorld::screenToWorldX(double screen_x)
+{
+    return screen_x * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getX();
+}
+
+double ViewWorld::screenToWorldY(double screen_y)
+{
+    return screen_y * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getY();
 }
 
 double ViewWorld::getX()
@@ -118,13 +140,8 @@ void ViewWorld::renderObject(const Object* object)
 {
     const Point &p = object -> getCoords();
 
-    double px = p.getX() - x;
-    double py = p.getY() - y;
-
-    px /= VIEW_CAM_RADIUS;
-    py /= VIEW_CAM_RADIUS;
-    px *= VIEW_CAM_SIZE;
-    py *= VIEW_CAM_SIZE;
+    double px = this->worldToScreenX(p.getX());
+    double py = this->worldToScreenY(p.getY());
 
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
     glEnable(GL_BLEND);
@@ -214,10 +231,10 @@ void ViewWorld::renderObject(const Object* object)
 
 void ViewWorld::renderBackground()
 {
-    double px = x/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
-    double py = y/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
+    double px = worldToScreenX( 0.0 );
+    double py = worldToScreenY( 0.0 );
 
-    py *= VIEW_ASPECT_RATIO;
+    //py *= VIEW_ASPECT_RATIO;
 
     glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
 

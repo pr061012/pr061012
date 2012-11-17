@@ -48,6 +48,10 @@ class View
     /// Key handler for GUI
     KeyHandler* key_handler;
 
+    /// Dimensions of program window, in pixels
+    int width;
+    int height;
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
@@ -69,7 +73,13 @@ public:
     // ACCESSORS
     //**************************************************************************
 
+    /**
+     * @brief Returns in-game x coordinate of camera center
+     */
     double getX();
+    /**
+     * @brief Returns in-game y coordinate of camera center
+     */
     double getY();
 
     void setX(double new_var);
@@ -78,6 +88,7 @@ public:
 #ifdef __glfw3_h__
     GLFWwindow getWindow();
 #endif
+
 
     //**************************************************************************
     // DRAWING METHODS.

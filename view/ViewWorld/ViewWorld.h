@@ -93,6 +93,17 @@ public:
 
 
     //**************************************************************************
+    // COORDINATES TRANSFORMATION.
+    //**************************************************************************
+
+    double worldToScreenX(double world_x);
+    double worldToScreenY(double world_y);
+
+    double screenToWorldX(double screen_x);
+    double screenToWorldY(double screen_y);
+
+
+    //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
 
