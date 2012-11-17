@@ -89,7 +89,7 @@ public:
      * @param y onscreen y coordinate 
      *
      */
-    const Object* getViewObjectAt(double x, double y);
+    const std::vector<Object*>&  getViewObjectAt(double x, double y);
 
 
     //**************************************************************************

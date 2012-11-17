@@ -54,6 +54,19 @@ void View::redraw()
 {
     key_handler->handleKeys();
 
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    {
+        int mouse_x, mouse_y;
+        glfwGetMousePos(&mouse_x, &mouse_y);
+        const Object* selection = view_world->getViewObjectAt(mouse_x, mouse_y).at(0);
+        if(selection)
+        {
+            std::cout<<"Selected unit type = "
+                     << (selection->getType() == RESOURCE ? "Resource" : "Creature")
+                     << std::endl;
+        }
+    }
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
 

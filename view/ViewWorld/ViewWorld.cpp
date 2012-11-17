@@ -81,7 +81,7 @@ void ViewWorld::redraw()
 
 const std::vector<Object*>& ViewWorld::getViewObjectAt(double x, double y)
 {
-    return world.getViewObjectsInRange(x, y, VIEW_CURSOR_RAD);
+    return world.getViewObjectsInRange(x, y, VIEW_CURSOR_RAD*10);
 }
 
 double ViewWorld::getX()
@@ -217,7 +217,7 @@ void ViewWorld::renderBackground()
 
     py *= VIEW_ASPECT_RATIO;
 
-    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
+    glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
 
     glEnable(GL_TEXTURE_2D);
 
