@@ -127,8 +127,8 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
+    new_var = new_var > VIEW_CAM_RADIUS ?
+              new_var : VIEW_CAM_RADIUS;
     new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
               new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
     this -> y = new_var;
@@ -230,7 +230,7 @@ void ViewWorld::renderObject(const Object* object)
 
 void ViewWorld::renderBackground()
 {
-//#ifndef VIEW_DEBUG
+#ifndef VIEW_DEBUG
     double px = worldToScreenX( 0.0 );
     double py = worldToScreenY( 0.0 );
 
@@ -254,5 +254,7 @@ void ViewWorld::renderBackground()
     glDisable(GL_TEXTURE_2D);
 
     glColor3f(1.0f, 1.0f, 1.0f);
-//#endif
+#else
+    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+#endif
 }
