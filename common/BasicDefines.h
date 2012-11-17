@@ -58,17 +58,19 @@
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUMANOID_DIAM
 /// Building side (maximum size).
-#define SZ_BUILDING_SIDE_MAX        6 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUMANOID_DIAM
 
 /// Weather shape diameter (minimum size).
 #define SZ_WEATHER_DIAM_MIN         10 * SZ_HUMANOID_DIAM
+// TODO: Someday we will need to change this param.
 /// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         20 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUMANOID_DIAM
 
 /// Resource shape diameter (minimum size).
 #define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUMANOID_DIAM
+// TODO: Someday we will need to change this param.
 /// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX        2 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUMANOID_DIAM
 
 /// Tool size (when dropped to ground).
 #define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1
