@@ -43,13 +43,13 @@ public:
      * @brief Set the value of creature's window.
      * @param window    the new value of window
      */
-    void setWindow(ObjectHeap * window);
+    void setObjectsAround(ObjectHeap objects_around);
 
     /**
      * @brief  Get the value of creature's window.
      * @return the window
      */
-    ObjectHeap * getWindow();
+    ObjectHeap * getObjectsAround();
 
     /**
      * @brief Set the value of view_area.
@@ -154,9 +154,6 @@ private:
     /// Creature's type.
     const CreatureType subtype;
 
-    /// Creature's window with visible objects.
-    ObjectHeap * window;
-
     /// Creature's inventory.
     ObjectHeap * inventory;
 
@@ -166,8 +163,9 @@ private:
 protected:
     /// Current creature's action.
     CreatureAction current_action;
+
     /// Creature's enviroment
-    ObjectHeap * objects_around;
+    ObjectHeap objects_around;
 
      /// Matrix of attributes
     arma::mat attrs;

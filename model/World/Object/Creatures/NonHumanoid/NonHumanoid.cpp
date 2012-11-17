@@ -253,8 +253,8 @@ void NonHumanoid::findGrass()
 
     double distance = SZ_NHUM_VIEW_DIAM;
     for(
-        iter = objects_around -> begin(RESOURCE);
-        iter != objects_around -> end(RESOURCE); iter++
+        iter = objects_around.begin(RESOURCE);
+        iter != objects_around.end(RESOURCE); iter++
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);

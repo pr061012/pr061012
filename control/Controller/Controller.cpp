@@ -15,6 +15,8 @@
 #include "../../model/World/Action/Action.h"
 #include "Controller.h"
 #include "../../model/World/Object/Object.h"
+#include "../../model/World/Object/Weather/Weather.h"
+#include "../../model/World/Object/Creatures/Creature.h"
 
 Controller::Controller(World * world) :
     world(world)
@@ -61,12 +63,11 @@ void Controller::step()
         {
             // check objects health
             
-            if (!(*i) -> getHealthPoints())
+            if ((*i) -> getHealthPoints() <= 0 && !(*i) -> isDestroyed())
             {
                 (*i) -> markAsDestroyed();
             }
             
-
             // perform object's actions
             Object* object = (*i);
             if (!object -> isDestroyed())
@@ -77,6 +78,20 @@ void Controller::step()
                 {
                     performers[(actions->at(j)).getType()] -> perform(actions->at(j));
                 }
+            }
+
+            // give weather and creatures objects to view
+            if (object -> getType() == CREATURE)
+            {
+                dynamic_cast<Creature*>(object) -> setObjectsAround(
+                    world -> getIndexator() -> getAreaContents(
+                        dynamic_cast<Creature*>(object) -> getViewArea()));
+            }
+            else if (object -> getType() == WEATHER)
+            {
+                dynamic_cast<Weather*>(object) -> setCoveredObjects(
+                    world -> getIndexator() -> getAreaContents(
+                        dynamic_cast<Weather*>(object) -> getShape()));
             }
         }
     }

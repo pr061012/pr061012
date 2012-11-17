@@ -14,8 +14,7 @@
 
 Weather::Weather(WeatherType type, uint living_steps) :
     Object(WEATHER),
-    subtype(type),
-    covered_objs(new ObjectHeap)
+    subtype(type)
 {
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
@@ -32,7 +31,6 @@ Weather::Weather(WeatherType type, uint living_steps) :
 
 Weather::~Weather()
 {
-    delete covered_objs;
 }
 
 //******************************************************************************
@@ -63,7 +61,7 @@ std::vector <Action> * Weather::getActions()
 
         // Add all objects to this action.
         ObjectHeap::const_iterator iter;
-        for(iter = covered_objs -> begin(); iter != covered_objs -> end(); iter++)
+        for(iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
         {
             act.addParticipant(*iter);
         }
@@ -99,7 +97,12 @@ WeatherType Weather::getSubtype() const
 
 ObjectHeap * Weather::getCoveredObjects()
 {
-    return this -> covered_objs;
+    return &(this -> covered_objs);
+}
+
+void Weather::setCoveredObjects(ObjectHeap heap)
+{
+    this -> covered_objs = heap;
 }
 
 uint Weather::getLivingSteps() const

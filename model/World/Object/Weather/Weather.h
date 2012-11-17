@@ -76,6 +76,12 @@ public:
     ObjectHeap * getCoveredObjects();
 
     /**
+     * @brief Set covere objects
+     * @param heap covered_objects
+     */
+    void setCoveredObjects(ObjectHeap heap);
+
+    /**
      * @brief  Gets amount of living steps.
      * @return amount of living steps.
      */
@@ -86,7 +92,7 @@ private:
     const WeatherType subtype;
 
     /// Covered objects. Is setted up by Controller by using Weather shape.
-    ObjectHeap * covered_objs;
+    ObjectHeap covered_objs;
 
     /// Steps for living.
     uint steps;
