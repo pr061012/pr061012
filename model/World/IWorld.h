@@ -1,14 +1,14 @@
 #ifndef IWORLD_H
 #define IWORLD_H
 
-#include "../BasicTypes.h"
-#include "../../view/ViewObject/ViewObject.h"
 #include "Action/Action.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "Indexator/Indexator.h"
+//#include "../God/God.h"
 #include "../Utilities/Shape/Shape.h"
 #include "../World/ObjectFactory/ObjectFactory.h"
-//#include "../God/God.h"
+#include "../../common/BasicTypes.h"
+//#include "../../view/ViewObject/ViewObject.h"
 
 class IWorld
 {

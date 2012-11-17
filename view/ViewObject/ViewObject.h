@@ -6,7 +6,7 @@
 #ifndef VIEW_OBJECT_H
 #define VIEW_OBJECT_H
 
-#include "../../model/BasicTypes.h"
+#include "../../common/BasicTypes.h"
 
 class ViewObject
 {

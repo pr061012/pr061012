@@ -9,7 +9,7 @@
 #include "../Object.h"
 #include "../../DecisionMaker/DecisionMaker.h"
 #include "../../ObjectHeap/ObjectHeap.h"
-#include "../../../BasicTypes.h"
+#include "../../../../common/BasicTypes.h"
 
 /**
  * @class Creature

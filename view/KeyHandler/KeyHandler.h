@@ -9,8 +9,8 @@
 class View;
 class KeyHandler;
 
-#include "../../model/BasicTypes.h"
 #include "../View.h"
+#include "../../common/BasicTypes.h"
 
 class KeyHandler
 {

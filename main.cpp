@@ -3,13 +3,12 @@
 #include <random>
 #include <cstdlib>
 
-#include "model/BasicDefines.h"
-#include "model/World/World.h"
-#include "control/Controller/Controller.h"
-
-#include "view/View.h"
+#include "common/BasicDefines.h"
 #include "common/Log/Log.h"
 #include "common/Exceptions/EInvalidResPath.h"
+#include "control/Controller/Controller.h"
+#include "model/World/World.h"
+#include "view/View.h"
 
 /// Period for world updating.
 const int PERIOD = CLOCKS_PER_SEC / TM_TICKS_PER_SECOND;

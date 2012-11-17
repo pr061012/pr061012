@@ -3,12 +3,13 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef CREATION_PERFORMER_H__
-#define CREATION_PERFORMER_H__
+#ifndef CREATION_PERFORMER_H
+#define CREATION_PERFORMER_H
 
 #include "../../../model/World/World.h"
 #include "../Performer.h"
 #include "../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/Object/Object.h"
 
 /**
  * @class CreationPerformer
@@ -26,12 +27,12 @@ public:
      * @brief Constructor
      * @param indexator indexator
      */
-    CreationPerformer(Indexator& indexator, World* world);
+    CreationPerformer(World* world);
 
     /**
      * @brief Destructor
      */
-    ~CreationPerformer();
+    virtual ~CreationPerformer();
 
     //**************************************************************************
     //  PERFORM
@@ -50,7 +51,7 @@ private:
     //**************************************************************************
 
     /// The reference to worlds indexator
-    Indexator& indexator;
+    Indexator* indexator;
 
     /// The reference to world
     World* world;
@@ -66,8 +67,15 @@ private:
      * @param y
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(uint x, uint y);
+    bool checkCoord(double x, double y);
 
+    Object* createBuilding(Action& action, ParamArray& param);
+
+    Object* createCreature(Action& action, ParamArray& param);
+
+    Object* createResource(Action& action, ParamArray& param);
+
+    Object* createTool(Action& action, ParamArray &param);
 };
 
 #endif

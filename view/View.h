@@ -14,12 +14,13 @@
 #endif
 
 #include <GL/gl.h>
-#include "../model/BasicTypes.h"
-#include "../model/BasicDefines.h"
-#include "../model/World/IWorld.h"
+#include <iostream>
+
 #include "ViewWorld/ViewWorld.h"
 #include "KeyHandler/KeyHandler.h"
-#include <iostream>
+#include "../common/BasicTypes.h"
+#include "../common/BasicDefines.h"
+#include "../model/World/IWorld.h"
 
 // Defines for glfw compatibility
 #ifdef __glfw3_h__
@@ -33,7 +34,6 @@
     #define glfwGetKey(key) glfwGetKey(_VIEW_WINDOW, key)
     #define windowOpened() !glfwGetWindowParam(_VIEW_WINDOW, GLFW_CLOSE_REQUESTED)
 #else
-
     #define createWindow(width, height)  glfwOpenWindow(width, height, \
                                            0, 0, 0, 0, 0, 0, GLFW_WINDOW)
     #define createContext() 

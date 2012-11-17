@@ -15,9 +15,9 @@
 class Object;
 class Action;
 
-#include "../ParamArray/ParamArray.h"
 #include "../Object/Object.h"
-#include "../../BasicTypes.h"
+#include "../../../common/BasicTypes.h"
+#include "../../../common/ParamArray/ParamArray.h"
 
 /**
  * @brief Action contains information about object's pending action.

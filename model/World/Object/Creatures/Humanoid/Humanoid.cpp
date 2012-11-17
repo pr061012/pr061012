@@ -7,8 +7,7 @@
 #include <armadillo>
 
 #include "Humanoid.h"
-#include "../../../../BasicDefines.h"
-#include "../../../../BasicTypes.h"
+#include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
 
 

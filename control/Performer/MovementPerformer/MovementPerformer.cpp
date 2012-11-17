@@ -11,8 +11,8 @@
 #include "MovementPerformer.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../model/BasicDefines.h"
-#include <string>
 #include <cmath>
+#include <string>
 
 MovementPerformer::MovementPerformer(World * world) :
     world_size(world -> getSize()), indexator(world -> getIndexator())

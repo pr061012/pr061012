@@ -5,7 +5,7 @@
 
 #include "Resource.h"
 
-#include "../../../BasicDefines.h"
+#include "../../../../common/BasicDefines.h"
 #include "../../../../common/Random/Random.h"
 
 //******************************************************************************
@@ -66,7 +66,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
 
         default:
             this -> mineable        = false;
-            this -> difficulty      = 0;
+            this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
@@ -152,13 +152,14 @@ std::vector <Action> * Resource::getActions()
             drop_amount = this -> amount_per_drop;
         }
 
-        // TODO: Add x and y.
         Action act(CREATE_OBJ, this);
+
         act.addParam<ObjectType>("obj_type", RESOURCE);
         // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
         // that?
         act.addParam<ResourceType>("res_type", this -> subtype);
         act.addParam<uint>("res_amount", drop_amount);
+
         this -> actions.push_back(act);
     }
 

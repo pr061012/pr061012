@@ -6,12 +6,13 @@
 #ifndef VIEW_WORLD_H
 #define VIEW_WORLD_H
 
-#include "../../model/BasicTypes.h"
-#include "../../model/BasicDefines.h"
-#include "../../model/World/IWorld.h"
-#include "../../model/World/Object/Object.h"
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
+
+#include "../../common/BasicTypes.h"
+#include "../../common/BasicDefines.h"
+#include "../../model/World/IWorld.h"
+#include "../../model/World/Object/Object.h"
 
 class ViewWorld
 {

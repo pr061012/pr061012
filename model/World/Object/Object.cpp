@@ -3,7 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
-#include "../../BasicDefines.h"
+#include "../../../common/BasicDefines.h"
 
 #include "Object.h"
 
