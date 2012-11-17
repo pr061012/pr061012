@@ -9,6 +9,7 @@ COMMON_DIR = ../../common/
 
 # Files with sources.
 SOURCES   += $(COMMON_DIR)ParamArray/EParamArrayInvalidKey.cpp
+SOURCES   += $(COMMON_DIR)Log/Log.cpp
 SOURCES   += main.cpp
 
 # Object files.

@@ -46,6 +46,7 @@ public:
      * @brief Copy constructor.
      */
     ParamArray(const ParamArray& pa) :
+        map(pa.map),
         memory(new char[pa.memory_size]),
         memory_size(pa.memory_size),
         current_index(pa.current_index)
@@ -90,7 +91,7 @@ public:
         new (ptr) Type(value);
 
         // Adding key.
-        this -> map[key] = ptr;
+        this -> map[key] = this -> current_index;
 
         // Increase index.
         this -> current_index += sizeof(Type);
@@ -104,7 +105,7 @@ public:
      */
     template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayInvalidKey)
     {
-        std::map <std::string, void *> :: const_iterator iter = this -> map.find(key);
+        std::map <std::string, uint>:: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
@@ -118,7 +119,8 @@ public:
             throw EParamArrayInvalidKey();
         }
 
-        return *(static_cast<Type*>(iter -> second));
+        void* ptr = &(this -> memory[iter -> second]);
+        return *(static_cast<Type*>(ptr));
     }
 
     /**
@@ -130,7 +132,7 @@ public:
      */
     bool removeKey(std::string key, bool suppress_err_msgs = false)
     {
-        std::map <std::string, void*> :: const_iterator iter = this -> map.find(key);
+        std::map <std::string, uint> :: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
@@ -159,7 +161,7 @@ public:
 
 private:
     /// Map with keys.
-    std::map <std::string, void*> map;
+    std::map <std::string, uint> map;
 
     /// Pointer to allocated memory.
     char* memory;

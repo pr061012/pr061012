@@ -124,6 +124,7 @@ public:
     template <class Type> void addParam(std::string param, Type value)
     {
         this -> params.addKey<Type>(param, value);
+        getParam<Type>(param);
     }
 
     /**
