@@ -16,16 +16,16 @@
 // VIEW DEFINES.
 //******************************************************************************
 
-#define VIEW_SCREEN_WIDTH                800
-#define VIEW_SCREEN_HEIGHT               600
+#define VIEW_SCREEN_WIDTH           800
+#define VIEW_SCREEN_HEIGHT          600
 
 /// Aspect ratio of the screen
-#define VIEW_ASPECT_RATIO ((double)VIEW_SCREEN_HEIGHT)/VIEW_SCREEN_WIDTH
+#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
 
 /// Radius of field of view of game camera
-#define VIEW_CAM_RADIUS                  30
+#define VIEW_CAM_RADIUS             30
 /// Max x and y of screen coordinates
-#define VIEW_CAM_SIZE                   8
+#define VIEW_CAM_SIZE               8
 
 //******************************************************************************
 // TIME DEFINES.
