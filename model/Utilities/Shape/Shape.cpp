@@ -217,33 +217,33 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
     Point lt = Point(lb.getX(), rt.getY());
     Point rb = Point(rt.getX(), lb.getY());
 
-    const Point &cs = circle.getCenter();
+    const Point &cc = circle.getCenter();
     double radius = circle.getSize() / 2;
 
-    // if a corner is closer to a circle's center than radius length,
-    // return true
-    if (cs.getDistance(lb) <= radius || cs.getDistance(rt) <= radius ||
-        cs.getDistance(lt) <= radius || cs.getDistance(rb) <= radius)
+    // a square can have circle's center inside
+    if (square.hitTest(cc))
     {
         return true;
     }
 
-    // a circle can intersect a square on its side but only if a circle's 
-    // center x or y lies between corners x ,y
-    double csx = cs.getX();
-    double csy = cs.getY();
+    double ccx = cc.getX();
+    double ccy = cc.getY();
 
-    if ((lb.getX() <= csx && rt.getX() >= csx &&
-         (cs.getDistanceToLine(lt, rt) <= radius ||
-          cs.getDistanceToLine(lb, rb) <= radius)) ||
-        (lb.getY() <= csy && rt.getY() >= csy &&
-         (cs.getDistanceToLine(lb, lt) <= radius ||
-          cs.getDistanceToLine(rb, rt) <= radius)))
+    // cicle cam intersect any side of the square
+    if (circleIntersectsSegment(circle, lt, rt) ||
+          circleIntersectsSegment(circle, lb, rb) ||
+          circleIntersectsSegment(circle, lb, lt) ||
+          circleIntersectsSegment(circle, rb, rt))
     {
         return true;
     }
 
     return false;
+}
+
+// check if a circle intersects segment
+bool Shape::circleIntersectsSection(Shape shape, Point pt1, Point pt2)
+{
 }
 
 // Calculates intersections

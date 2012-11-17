@@ -33,7 +33,7 @@ Point::~Point()
 // DISTANCE.
 //******************************************************************************
 
-double Point::getDistance(const Point& point) const
+double Point::getDistance(Point point) const
 {
     return sqrt(pow(this -> x - point.getX(), 2) +
                 pow(this -> y - point.getY(), 2));
@@ -47,6 +47,31 @@ double Point::getDistanceToLine(const Point& line_start,
     Point b = line_end - line_start;
     return fabs(a.getX() * b.getY() - a.getY() * b.getX()) /
             line_start.getDistance(line_end);
+}
+
+//**********************************************************
+// OTHER UTILITIES
+//**********************************************************
+
+Point Point::project(Point pt1, Point pt2) const
+{
+    double length = pt1.getDistance(pt2);
+    // if a line is not a line, project straight to the point
+    if (fabs(length) < EPSILON)
+    {
+        return pt1;
+    }
+
+    Point vec_line = pt2 - pt1;
+    Point vec_pt   = *this - pt1;
+    double scale = scalarProduct(vec_pt, vec_line) / 
+                   (pow(vec_line.getX(), 2) + pow(vec_line.getY(), 2));
+    return pt1 + Point(vec_line.getX() * scale, vec_line.getY() * scale); 
+}
+
+double Point::scalarProduct(Point vec1, Point vec2)
+{
+    return vec1.getX() * vec2.getX() + vec1.getY() * vec2.getY();
 }
 
 //******************************************************************************

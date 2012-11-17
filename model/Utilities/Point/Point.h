@@ -43,7 +43,7 @@ public:
      *  @param  point   another point
      *  @return distance
      */
-    double getDistance(const Point& point) const;
+    double getDistance(Point point = Point(0,0)) const;
 
     /**
      *  @brief  Compute distance to a line formed by two points
@@ -54,6 +54,25 @@ public:
 
     double getDistanceToLine(const Point& line_start,
                                 const Point& line_end) const;
+
+    /**
+     *  @brief  Get projection of the point on the line
+     *  @param  pt1 first point of the line
+     *  @param  pt2 second point of the line
+     *  @return projection of the point on the line
+     */
+
+    Point project(Point pt1, Point pt2) const;
+
+    /**
+     *    @brief    Get scalar product of two vectors
+     *    @param    pt1 first vector
+     *    @param    pt2 second vector
+     *    @return   Scalar product.
+     */
+
+    static double scalarProduct(Point vec1, Point vec2);
+
     /**
      * @brief  Compares two points.
      * @param  point    point to compare with
