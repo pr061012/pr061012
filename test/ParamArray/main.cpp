@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cassert>
 
-#include "../../model/World/ParamArray/ParamArray.h"
-#include "../../model/World/ParamArray/EParamArrayBadKey.h"
+#include "../../common/ParamArray/ParamArray.h"
+#include "../../common/ParamArray/EParamArrayInvalidKey.h"
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
     {
         assert(pa.getValue<int>("key") == 0);
     }
-    catch(EParamArrayBadKey & exc)
+    catch(EParamArrayInvalidKey& exc)
     {
         exc_was = true;
     }
@@ -42,7 +42,7 @@ int main()
     {
         assert(pa.getValue<int>("key") == 0);
     }
-    catch(EParamArrayBadKey & exc)
+    catch(EParamArrayInvalidKey& exc)
     {
         exc_was = true;
     }

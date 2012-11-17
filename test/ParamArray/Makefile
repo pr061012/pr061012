@@ -5,10 +5,10 @@ LFLAGS     =
 LIBS       =
 
 # Paths.
-MODEL_DIR  = ../../model/
+COMMON_DIR = ../../common/
 
 # Files with sources.
-SOURCES   += $(MODEL_DIR)World/ParamArray/EParamArrayBadKey.cpp
+SOURCES   += $(COMMON_DIR)ParamArray/EParamArrayInvalidKey.cpp
 SOURCES   += main.cpp
 
 # Object files.

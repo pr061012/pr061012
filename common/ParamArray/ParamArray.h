@@ -8,24 +8,17 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include <map>
 
 #include "EParamArrayInvalidKey.h"
+#include "../BasicTypes.h"
 
 /**
  * @class ParamArray
- * @brief Assoсiative array (keys are strings, values are ints). Used in
- *        PendingAction and ObjectFactory.
- *
- *        **NOTE**: Be very accurate while working with this class. You
- *                  *shouldn't* store in ParamArray any classes instantiations.
- *                  Reason of such restriction is pretty simple: ParamArray uses
- *                  C functions malloc() and free() (instead of new and delete).
- *
- *        FIXME: It's working variant, but still ugly because of
- *               reinterpret_cast<>(). Need to look through boost::any and
- *               implement something similar.
+ * @brief Assoсiative array (keys are strings, value type -- doesn't matter).
+ *        Used in Action, Message and ObjectFactory.
  */
 class ParamArray
 {
@@ -37,22 +30,30 @@ public:
     /**
      * @brief Constructor.
      */
-    ParamArray(){}
+    ParamArray() :
+        memory(new char[64]),
+        memory_size(64),
+        current_index(0)
+    {
+    }
+
+    /**
+     * @brief Copy constructor.
+     */
+    ParamArray(const ParamArray& pa) :
+        memory(new char[pa.memory_size]),
+        memory_size(pa.memory_size),
+        current_index(pa.current_index)
+    {
+        memcpy(memory, pa.memory, pa.memory_size);
+    }
 
     /**
      * @brief Destructor.
      */
     ~ParamArray()
     {
-        std::map <std::string, void*> :: const_iterator i;
-
-        for (i = this -> map.begin(); i != map.end(); i++)
-        {
-            // FIXME: Dirty workaround. Rewrite ParamArray immediately!
-            //free(i -> second);
-        }
-
-        this -> map.clear();
+        delete[] (this -> memory);
     }
 
     //**************************************************************************
@@ -67,16 +68,27 @@ public:
      */
     template <class Type> void addKey(std::string key, Type value)
     {
-        // Copying data.
-        Type* copy = static_cast<Type*>( malloc(sizeof(Type)) );
-        *copy = value;
+        // Don't have enough memory?
+        if (this -> current_index + sizeof(Type) >= this -> memory_size)
+        {
+            char* new_memory = new char[this -> memory_size + 64];
+            memcpy(new_memory, this -> memory, this -> memory_size);
 
-        // Firstly removing this key and value (if it's existed).
-        // Suppressing error messages (don't want to litter to cerr).
-        this -> removeKey(key, true);
+            delete[] (this -> memory);
+            this -> memory = new_memory;
+
+            this -> memory_size += 64;
+        }
+
+        // Copying data.
+        void* ptr = &(this -> memory[this -> current_index]);
+        new (ptr) Type(value);
 
         // Adding key.
-        this -> map[key] = copy;
+        this -> map[key] = ptr;
+
+        // Increase index.
+        this -> current_index += sizeof(Type);
     }
 
     /**
@@ -127,7 +139,8 @@ public:
             return false;
         }
 
-        free(iter -> second);
+        // FIXME: Calling destructors?
+
         this -> map.erase(iter);
 
         return true;
@@ -138,13 +151,21 @@ public:
      */
     void clear()
     {
-        // FIXME: Memory leaks!
         this -> map.clear();
     }
 
 private:
     /// Map with keys.
     std::map <std::string, void*> map;
+
+    /// Pointer to allocated memory.
+    char* memory;
+
+    /// Memory size.
+    uint memory_size;
+
+    /// Index of free memory in memory array.
+    uint current_index;
 };
 
 #endif // PARAM_ARRAY_H
