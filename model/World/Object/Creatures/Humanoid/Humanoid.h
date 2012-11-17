@@ -104,9 +104,37 @@ private:
      * @brief Humanoid chooses the next action
      * @return CratureAction action
      */
-    CreatureAction chooseAction(); // is it good name?
+    DetailedHumAction chooseAction(); // is it good name?
 
+    /**
+     * @brief Humanoid chooses the way to decrease his hunger
+     * @return DetailedHumAction detailed_act
+     */
+    DetailedHumAction chooseWayToEat();
 
+    /**
+     * @brief Humanoid chooses the way to decrease his sleepiness
+     * @return DetailedHumAction detailed_act
+     */
+    DetailedHumAction chooseWayToSleep();
+
+    /**
+     * @brief Humanoid chooses the way to build his house
+     * @return DetailedHumAction detailed_act
+     */
+    DetailedHumAction chooseWayToBuild();
+
+    /**
+     * @brief Humanoid chooses the way to escape danger
+     * @return DetailedHumAction detailed_act
+     */
+    DetailedHumAction chooseWayToEscape();
+
+    /**
+     * @brief Humanoid chooses the way to relax
+     * @return DetailedHumAction detailed_act
+     */
+    DetailedHumAction chooseWayToRelax();
 };
 
 #endif // HUMANOID_H

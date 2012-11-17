@@ -110,28 +110,30 @@ void Humanoid::updateSafety()
     ;
 }
 
-CreatureAction Humanoid::chooseAction()
+DetailedHumAction Humanoid::chooseAction()
 {
     CreatureAction action = NONE;
+    DetailedHumAction result_act = REALAX_AT_HOME;
     action = brains.makeDecision(attrs);
 
     // Draft of father processing
     switch(action)
     {
-    case EAT: ; break;
-    case SLEEP: ; break;
+    case EAT: result_act = chooseWayToEat(); break;
+    case SLEEP: result_act = chooseWayToSleep(); break;
     case COMMUNICATE: ; break;
-    case RELAX: ; break;
+    case RELAX: result_act = chooseWayToRelax(); break;
     case WORK: ; break;
     case REALIZE_DREAM: ; break;
-    case ESCAPE: ; break;
-    case BUILD: ; break;
+    case ESCAPE: result_act = chooseWayToEscape(); break;
+    case BUILD: result_act = chooseWayToBuild(); break;
     case CONTINUE_GENDER: ; break;
     default: ;
     }
 
     return action;
 }
+
 
 //******************************************************************************
 // HUMANOID'S LOGICS.
