@@ -108,6 +108,27 @@ public:
     bool isImmortal() const;
 
     //**************************************************************************
+    // SOLIDITY.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object solid.
+     */
+    void makeSolid();
+
+    /**
+     * @brief Makes object non-solid.
+     */
+    void makeNonSolid();
+
+    /**
+     * @brief  Returns true if object is solid.
+     * @return is object solid or not
+     */
+    bool isSolid() const;
+
+
+    //**************************************************************************
     // DANGEROUS.
     //**************************************************************************
 
@@ -191,6 +212,9 @@ private:
 
     /// Immortality.
     bool immortality;
+
+    /// Whether object is passable or not.
+    bool solidity;
 
     /// Angle of rotation.
     double angle;
