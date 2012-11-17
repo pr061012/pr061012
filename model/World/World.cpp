@@ -64,24 +64,24 @@ World::World(int rand_seed, int size) :
     indexator = new Indexator((double)this->size);
 
     // Creating resources
+    ParamArray food_params;
+    ParamArray building_mat_params;
 
-    ParamArray params;
-    ParamArray grass_params;
+    food_params.addKey<ResourceType>("res_type", RES_FOOD);
+    food_params.addKey<uint>("res_amount", 10);
 
-    params.addKey<ResourceType>("res_type", WOOD);
-    params.addKey<uint>("res_amount", 10);
+    building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    building_mat_params.addKey<uint>("res_amount", 10);
 
-    grass_params.addKey("res_type", GRASS);
-    grass_params.addKey("res_amount", 10);
-
-    for(int i = 3000 + rand()%5000; i>=0; --i)
+    uint amount = Random::int_range(3000, 5000);
+    for(uint i = 0; i < amount; i++)
     {
-        Object* newobj  = object_factory -> createObject(RESOURCE, params);
+        Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
 
         newobj -> setCoords(Point(Random::int_range(0, size),
                                   Random::int_range(0, size)));
 
-        Object* grass = object_factory -> createObject(RESOURCE, grass_params);
+        Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
 
         grass -> setCoords(Point(Random::int_range(0, size),
                                  Random::int_range(0, size)));
@@ -94,7 +94,7 @@ World::World(int rand_seed, int size) :
     ParamArray nhum_params;
     nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
 
-    uint amount = 10 + rand() % 10;
+    amount = Random::int_range(10, 20);
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
