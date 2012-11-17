@@ -161,6 +161,9 @@ private:
     Shape view_area;
 
 protected:
+    /// Force of creations
+    uint force;
+
     /// Current creature's action.
     CreatureAction current_action;
 
@@ -213,6 +216,20 @@ protected:
     uint desc_steps;
     /// Amount for steps to safety update.
     uint safety_steps;
+
+    //**************************************************************************
+    // DIRECTIONS
+    //**************************************************************************
+    /// The direction of non_humanoid
+    double angle;
+    /// Current direction (subject) oh NHum
+    Object* aim;
+
+    //**************************************************************************
+    // DECISION
+    //**************************************************************************
+    /// Current decision of creature
+    CreatureAction current_decision;
 
     //**************************************************************************
     // UPDATES

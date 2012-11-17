@@ -23,7 +23,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger      = Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);
     max_sleepiness  = Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);
     int health      = Random::int_range(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);
-
+    force           = Random::int_range(CREAT_FORCE_MIN,      CREAT_FORCE_MAX);
     // Initialize other values.
     hunger      = 100 - max_hunger;
     sleepiness  = 100 - max_sleepiness;
