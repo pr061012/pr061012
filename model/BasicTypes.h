@@ -92,9 +92,30 @@ enum CreatureAction
 
     // Common actions.
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
-    ESCAPE, CONTINUE_GENDER, DO_NOTHING
+    ESCAPE, CONTINUE_GENDER, DO_NOTHIN
 };
+/**
+ * @enum CreatureAction
+ * @brief The CreatureAction enum
+ */
 
+enum DetailedHumAction
+{
+    // EAT actions.
+    HUNT, TAKE_FOOD_FROM_INVENTORY, FIND_FOOD,
+
+    // RELAX actions
+    REALAX_AT_HOME,
+
+    // SLEEP ations
+    SLEEP_AT_HOME, SLEEP_ON_THE_GROUND,
+
+    // BUILD actions
+    MINE_RESOURSES, BUILD
+
+    // ESCAPE actions
+    FIGHT, RUN_FROM_DANGER
+};
 /**
  * @enum CreatureType
  * @brief The CreatureType enum
