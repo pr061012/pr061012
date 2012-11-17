@@ -20,7 +20,7 @@ View::View(const IWorld& w)
     glcNewFontFromMaster(this -> font, 0);
 
     glcFont(this -> font);
-    glcScale(12.f, 12.f);
+    glcScale(24.f, 24.f);
 }
 
 View::~View()
@@ -76,9 +76,6 @@ void View::redraw()
 
     double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
     double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
-
-    glRasterPos2f(-VIEW_CAM_SIZE+1, -VIEW_CAM_SIZE+1);
-    glcRenderString(wx+" "+wy);
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
@@ -136,6 +133,12 @@ void View::redraw()
         glVertex2d( i - xoff,  10.0);
     }
     glEnd();
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
+    glcRenderString( (std::to_string(wx) + " " + std::to_string(wy)).c_str() );
 #endif
 
     glLoadIdentity();
@@ -154,12 +157,15 @@ void View::initWindow()
         Log::ERROR("Window initialized unsuccesfully.");
     }
 
+    glfwGetWindowSize(&this -> width,
+                      &this -> height);
+
     createContext();
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT)/VIEW_SCREEN_WIDTH;
+    float aspect_ratio = ((float)heigth)/width;
 
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
