@@ -22,7 +22,7 @@ class ViewWorld
     /// way by View during the current frame. This is
     /// required to get information about units that are not
     /// rendered right now but selected by player.
-    std::vector<Object*> rendered_objects;
+    // std::vector<Object*> rendered_objects;
 
 public:
     //**************************************************************************
@@ -68,7 +68,7 @@ private:
     /**
      * @brief draws specific object relative to current coordinates
      */
-    void renderObject(Object* object); // TODO: Object -> ViewObject
+    void renderObject(const Object* object); // TODO: Object -> ViewObject
 
     /**
      * @brief render a grass background all over the window
@@ -89,7 +89,7 @@ public:
      * @param y onscreen y coordinate 
      *
      */
-    const std::vector<Object*>&  getViewObjectAt(double x, double y);
+    const std::vector<const Object*> getViewObjectAt(double x, double y);
 
 
     //**************************************************************************

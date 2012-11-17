@@ -167,14 +167,14 @@ ObjectHeap* World::getHiddenObjects()
 // VIEW METHODS.
 //******************************************************************************
 
-std::vector<Object*> World::getViewObjectsInRange(double x, double y, double radius) const
+std::vector<const Object*> World::getViewObjectsInRange(double x, double y, double radius) const
 {
     Point center(x, y);
     Shape area(center, CIRCLE, radius*2);
     ObjectHeap objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it = objects.begin();
 
-    std::vector<Object*> retval;
+    std::vector<const Object*> retval;
 
     for (; it != objects.end(); it++)
     {

@@ -70,7 +70,7 @@ void ViewWorld::redraw()
 {
     this -> renderBackground();
 
-    std::vector<Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<const Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
 
     for(uint i=0; i < objects.size(); i++)
     {
@@ -79,7 +79,7 @@ void ViewWorld::redraw()
 }
 
 
-const std::vector<Object*>& ViewWorld::getViewObjectAt(double x, double y)
+const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
 {
     return world.getViewObjectsInRange(x, y, VIEW_CURSOR_RAD*10);
 }
@@ -112,7 +112,7 @@ void ViewWorld::setY(double new_var)
     this -> y = new_var;
 }
 
-void ViewWorld::renderObject(Object* object)
+void ViewWorld::renderObject(const Object* object)
 {
     const Point &p = object -> getCoords();
 

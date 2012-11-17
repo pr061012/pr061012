@@ -33,7 +33,7 @@ public:
     // WORLD <-> VIEW METHODS.
     //******************************************************************************
 
-    virtual std::vector<Object*> getViewObjectsInRange(double x, double y, double radius) const = 0;
+    virtual std::vector<const Object*> getViewObjectsInRange(double x, double y, double radius) const = 0;
 
     virtual WeatherType getWeatherAtPoint(double x, double y) const = 0;
 };
