@@ -19,15 +19,6 @@
  * @class ParamArray
  * @brief Assoсiative array (keys are strings, value type -- doesn't matter).
  *        Used in Action, Message and ObjectFactory.
- *
- *        **NOTE**: Be very accurate while working with this class. You
- *                  *shouldn't* store in ParamArray any classes instantiations.
- *                  Reason of such restriction is pretty simple: ParamArray uses
- *                  C functions malloc() and free() (instead of new and delete).
- *
- *        FIXME: It's working variant, but still ugly because of
- *               reinterpret_cast<>(). Need to look through boost::any and
- *               implement something similar.
  */
 class ParamArray
 {
@@ -149,7 +140,6 @@ public:
      */
     void clear()
     {
-        // FIXME: Memory leaks!
         this -> map.clear();
     }
 
