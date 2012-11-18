@@ -67,6 +67,7 @@ World::World(int rand_seed, int size, bool generate_objects) :
     {
         genCreatures();
         genResources();
+        genWeather();
     }
 }
 
@@ -115,6 +116,26 @@ void World::genCreatures()
 
         new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
                                     Random::double_range(20.0, 70.0)));
+
+        visible_objs -> push(new_obj);
+    }
+
+    indexator -> reindexate(visible_objs);
+}
+
+void World::genWeather()
+{
+    ParamArray weat_params;
+    weat_params.addKey<WeatherType>("weat_type", METEOR_SHOWER);
+    weat_params.addKey<uint>("weat_steps", 10);
+
+    uint amount = Random::int_range(50, 100);
+    for (uint i = 0; i < amount; i++)
+    {
+        Object* new_obj = object_factory -> createObject(WEATHER, weat_params);
+
+        new_obj -> setCoords(Vector(Random::double_range(0, size),
+                                    Random::double_range(0, size)));
 
         visible_objs -> push(new_obj);
     }

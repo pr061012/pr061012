@@ -68,6 +68,7 @@ public:
 private:
     void genCreatures();
     void genResources();
+    void genWeather();
 
     //**************************************************************************
     // OBJECT HEAP METHODS.
