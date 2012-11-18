@@ -29,6 +29,8 @@ int main()
         Controller control(&world);
         View view(world);
 
+        view.setPaused(true);
+
         int t0 = clock();
 
         do
