@@ -59,45 +59,45 @@
 //******************************************************************************
 
 /// Humanoid size.
-#define SZ_HUMANOID_DIAM            (double) 1
+#define SZ_HUM_DIAM                 (double) 1
 
 // TODO: Add sizes for different types of NonHums.
 /// NonHumanoid size.
-#define SZ_NON_HUMANOID_DIAM        SZ_HUMANOID_DIAM * 0.5
+#define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE              1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_VSIDE              1000 * SZ_HUM_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE              1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_HSIDE              1000 * SZ_HUM_DIAM
 
 /// Default size for everything.
-#define SZ_DEFAULT                  SZ_HUMANOID_DIAM
+#define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Building side (minimum size).
-#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
 /// Building side (maximum size).
-#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM
 
 /// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM
 // TODO: Someday we will need to change this param.
 /// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM
 
 /// Resource shape diameter (minimum size).
-#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM
 // TODO: Someday we will need to change this param.
 /// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUM_DIAM
 
 /// Tool size (when dropped to ground).
-#define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1
+#define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
 
 /// View area for NonHumanoid.
-#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUMANOID_DIAM
+#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM
 
 /// View area for Humanoid.
-#define SZ_HUM_VIEW_DIAM            50 * SZ_HUMANOID_DIAM
+#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
@@ -283,10 +283,10 @@
 #define CREAT_CRIT_CONST            50
 
 /// Creature's fast speed.
-#define CREAT_SPEED_FAST_VALUE      (SZ_HUMANOID_DIAM * 9 / TM_TICKS_PER_SECOND)
+#define CREAT_SPEED_FAST_VALUE      (SZ_HUM_DIAM * 9 / TM_TICKS_PER_SECOND)
 
 /// Creature's slow speed.
-#define CREAT_SPEED_SLOW_VALUE      (SZ_HUMANOID_DIAM * 5 / TM_TICKS_PER_SECOND)
+#define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.

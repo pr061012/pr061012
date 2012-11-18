@@ -27,7 +27,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     // Initialize some inhereted things.
     this -> setMaxAge(age);
     this -> setMaxAge(0);
-    this -> setShapeSize(SZ_HUMANOID_DIAM);
+    this -> setShapeSize(SZ_HUM_DIAM);
     this -> setShapeType(SHP_HUMANOID);
 
     // TODO: Randomly initialize humanoid's name.
