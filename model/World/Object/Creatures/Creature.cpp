@@ -18,7 +18,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     inventory(new ObjectHeap),
     brains(dmaker)
 {
-    attrs = arma::mat(ATR_CONST, 1);
+    attrs = arma::mat(DM_ATR_CONST, 1);
     // Randomly initialize some values.
     max_hunger      = Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);
     max_sleepiness  = Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);

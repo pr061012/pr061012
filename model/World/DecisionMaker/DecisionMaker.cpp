@@ -17,39 +17,39 @@ DecisionMaker::DecisionMaker(CreatureType type)
     std::ifstream some_matrix;
     int a;
     int i, j;
-    theta = arma::mat(ACT_CONST, ATR_CONST);
+    theta = arma::mat(DM_ACT_CONST, DM_ATR_CONST);
 
     if (type == HUMANOID)
     {
-        some_matrix.open(PATH_TO_HUM_MATRIX);
+        some_matrix.open(DM_PATH_TO_HUM_MATRIX);
         if (some_matrix == NULL)
         {
-            Log::ERROR("Cannot open file '" + std::string(PATH_TO_HUM_MATRIX) + "'.");
-            throw EInvalidResPath(PATH_TO_HUM_MATRIX);
+            Log::ERROR("Cannot open file '" + std::string(DM_PATH_TO_HUM_MATRIX) + "'.");
+            throw EInvalidResPath(DM_PATH_TO_HUM_MATRIX);
         }
 
-        for (i = 0; i < ATR_CONST; i++)
-            for (j = 0; j < ACT_CONST; j++)
+        for (i = 0; i < DM_ATR_CONST; i++)
+            for (j = 0; j < DM_ACT_CONST; j++)
             {
                 some_matrix >> a;
-                this->theta(i,j) = a;
+                this -> theta(i, j) = a;
             }
     }
 
     if (type == NON_HUMANOID)
     {
-        some_matrix.open(PATH_TO_NON_HUM_MATRIX);
+        some_matrix.open(DM_PATH_TO_NHUM_MATRIX);
         if (some_matrix == NULL)
         {
-            Log::ERROR("Cannot open file '" + std::string(PATH_TO_NON_HUM_MATRIX) + "'.");
-            throw EInvalidResPath(PATH_TO_NON_HUM_MATRIX);
+            Log::ERROR("Cannot open file '" + std::string(DM_PATH_TO_NHUM_MATRIX) + "'.");
+            throw EInvalidResPath(DM_PATH_TO_NHUM_MATRIX);
         }
 
-        for (i = 0; i < ATR_CONST; i++)
-            for (j = 0; j < ACT_CONST; j++ )
+        for (i = 0; i < DM_ATR_CONST; i++)
+            for (j = 0; j < DM_ACT_CONST; j++)
             {
                 some_matrix >> a;
-                this->theta(i,j) = a;
+                this -> theta(i, j) = a;
             }
     }
 
@@ -84,7 +84,7 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
         default:              return false; break;
     }
 
-    for (int i = 0; i < ACT_CONST; i++)
+    for (int i = 0; i < DM_ACT_CONST; i++)
     {
         if (act(i, 0) - act(index, 0) > CREAT_CRIT_CONST)
         {

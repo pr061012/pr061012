@@ -4,7 +4,7 @@
 */
 
 /**
- * @file BasicTypes.h
+ * @file BasicDefines.h
  */
 
 #ifndef BASIC_DEFINES_H
@@ -12,16 +12,20 @@
 
 #include "BasicTypes.h"
 
-#define ATR_CONST 9
-#define ACT_CONST 9
-#define PATH_TO_HUM_MATRIX "res/humanoid_decision_matrix.txt"
-#define PATH_TO_NON_HUM_MATRIX "res/non_humanoid_decision_matrix.txt"
-
 //******************************************************************************
 // MATH DEFINES.
+// Prefix: MATH.
 //******************************************************************************
 
 #define MATH_EPSILON                42E-9
+
+//******************************************************************************
+// TIME DEFINES.
+// Prefix: TM.
+//******************************************************************************
+
+/// Amount of controller ticks (which change the world) in one second.
+#define TM_TICKS_PER_SECOND         32
 
 //******************************************************************************
 // VIEW DEFINES.
@@ -40,14 +44,6 @@
 
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
-
-//******************************************************************************
-// TIME DEFINES.
-// Prefix: TM.
-//******************************************************************************
-
-/// Amount of controller ticks (which change the world) in one second.
-#define TM_TICKS_PER_SECOND         32
 
 //******************************************************************************
 // SIZE DEFINES.
@@ -209,6 +205,16 @@
 // Food values
 #define RES_GRASS_FOOD_VALUE        1
 #define RES_BERRIES_FOOD_VALUE      2
+
+//******************************************************************************
+// DECISION MAKER DEFINES.
+// Prefix: DM.
+//******************************************************************************
+
+#define DM_ATR_CONST                9
+#define DM_ACT_CONST                9
+#define DM_PATH_TO_HUM_MATRIX       "res/humanoid_decision_matrix.txt"
+#define DM_PATH_TO_NHUM_MATRIX      "res/non_humanoid_decision_matrix.txt"
 
 //******************************************************************************
 // CREATURE DEFINES.
