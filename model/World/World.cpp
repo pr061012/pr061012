@@ -83,7 +83,7 @@ void World::genResources()
     building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
     building_mat_params.addKey<uint>("res_amount", 10);
 
-    uint amount = Random::int_range(3000, 5000);
+    uint amount = Random::int_range(300, 500);
     for(uint i = 0; i < amount; i++)
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
@@ -161,6 +161,27 @@ void World::setObjectVisibility(Object *obj, bool visibility)
 void World::save(std::string filepath)
 {
     // TODO: Create file at filepath and save it (format?)
+}
+
+void World::reset()
+{
+    ObjectHeap::iterator iter;
+    for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
+    {
+        if(*iter)
+        {
+            delete *iter;
+        }
+    }
+
+    delete visible_objs;
+    delete indexator;
+
+    this -> visible_objs = new ObjectHeap();
+    this -> indexator    = new Indexator(this -> getSize());
+
+    this -> genCreatures();
+    this -> genResources();
 }
 
 //******************************************************************************

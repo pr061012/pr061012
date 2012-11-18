@@ -43,6 +43,13 @@ int main()
                     control.step();
                 }
                 view.redraw();
+
+                // Check if user wants to reset world.
+                if(view.isReset())
+                {
+                    view.setReset(false);
+                    world.reset();
+                }
             }
         } while(view.continues());
     }
