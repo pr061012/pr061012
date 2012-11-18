@@ -42,6 +42,13 @@
     #define windowOpened()  glfwGetWindowParam(GLFW_OPENED)
 #endif
 
+/* VIEW_DEBUG turns on debug mode.
+ * In debug mode, objects are rendered as circles.
+ * BUILDING_MAT - green.
+ * FOOD - red.
+ * CREATURE - white.
+ */
+
 class View
 {
     /// World to be rendered by View.

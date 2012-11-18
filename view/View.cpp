@@ -85,48 +85,69 @@ void View::redraw()
 
     key_handler->handleKeys();
 
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
+
+    view_world -> redraw();
+
     int mouse_x, mouse_y;
     glfwGetMousePos(&mouse_x, &mouse_y);
 
-     // Handling way of down-to-up openGL coordinates
-    mouse_y = height - mouse_y;
+    // Handling way of down-to-up openGL coordinates
+    mouse_y = this -> height - mouse_y;
 
-    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2 );
-    double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 );
+    // Screen X and Y
+    double sx = ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2;
+    double sy = ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 * height/width;
+    // World  X and Y
+    double wx = view_world -> screenToWorldX( sx );
+    double wy = view_world -> screenToWorldY( sy );
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
         mouse_clicked = 1;
-
+    }
+    else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
+    {
         const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
-        if(selection.size()>0)
+        if(selection.size() > 0)
         {
             const Object* selected = selection.at(0);
-
-            std::cout << "=======  Coordinates  =========="
-                      << std::endl;
-            std::cout << "screen_center-world_x = " << this -> getX()
-                      << std::endl;
-            std::cout << "screen_center-world_y = " << this -> getY()
-                      << std::endl;
-            std::cout << "cursor-world_y = " << this -> getY()
-                      << std::endl;
 
             std::cout << "=======Selected object=========="
                       << std::endl;
             std::cout << "type = " << selected -> getType()
                       << std::endl;
+            std::cout << "x = " << selected -> getCoords().getX()
+                      << std::endl;
+            std::cout << "y = " << selected -> getCoords().getY()
+                      << std::endl;
         }
-    }
-    else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
-    {
+
         mouse_clicked = 0;
     }
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
+    if(mouse_clicked)
+    {
+        double angle;
+        double radius = view_world -> worldToScreenDist(1.0);
 
-    view_world -> redraw();
+        glColor4d(0.0, 0.0, 0.0, 0.6);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        glBegin(GL_TRIANGLE_FAN);
+            for(int i = 0; i < 100; i++) {
+                angle = 2.0 * i * M_PI / 100;
+                glVertex2d((sx + cos(angle) * radius),
+                           (sy + sin(angle) * radius));
+            }
+        glEnd();
+
+        glDisable(GL_BLEND);
+
+        glColor4d(1.0,1.0,1.0,1.0);
+    }
 
 #ifdef VIEW_DEBUG
     // In debug mode, draw a grid over the screen.
