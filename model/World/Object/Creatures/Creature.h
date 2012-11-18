@@ -263,6 +263,11 @@ protected:
      * @brief Updates hunger, sleepiness, health
      */
     virtual void updateCommonAttrs() = 0;
+
+    //**************************************************************************
+    // CHOOSE THE DIRECTION
+    //**************************************************************************
+    void chooseDirectionToEscape();
 };
 
 
