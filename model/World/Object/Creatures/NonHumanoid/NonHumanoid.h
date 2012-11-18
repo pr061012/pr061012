@@ -52,7 +52,6 @@ private:
     void updateAge();
     void updateCommonAttrs();
     void updateNeedInDesc();
-    void updateSafety();
     //**************************************************************************
     // AUXILIARY FUNTIONS
     //**************************************************************************

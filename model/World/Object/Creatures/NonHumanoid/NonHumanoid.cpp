@@ -4,7 +4,6 @@
 */
 
 #include <cstdlib>
-#include <cmath>
 
 #include "NonHumanoid.h"
 #include "../../Resource/Resource.h"
