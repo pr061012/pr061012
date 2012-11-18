@@ -74,7 +74,10 @@ public:
      */
     ~View();
 
+private:
+    bool paused;
 
+public:
     //**************************************************************************
     // ACCESSORS
     //**************************************************************************
@@ -90,6 +93,12 @@ public:
 
     void setX(double new_var);
     void setY(double new_var);
+
+    /**
+     * @brief Sets game state to paused
+     */
+    void setPaused(bool new_state);
+    bool isPaused();
 
 #ifdef __glfw3_h__
     GLFWwindow getWindow();

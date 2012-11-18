@@ -22,7 +22,7 @@ void MiningPerformer::perform(Action& action)
     int res_id = action.getParam<int>("res_id");
     int tool_id = action.getParam<int>("tool_id");
 
-    if (actor->getType() != HUMANOID)
+    if (actor -> getType() != CREATURE)
     {
         action.markAsFailed();
     }

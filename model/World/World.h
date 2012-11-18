@@ -45,11 +45,11 @@ public:
 
     /**
      * @brief World generation by given seed and by specific width/height.
-     * @param rand_seed
-     * @param width
-     * @param height
+     * @param rand_seed seed of world generation
+     * @param size size of side of square of generated world.
+     * @param generate_creatures flag indicating whether to generate creatures or not
      */
-    World(int rand_seed = 0, int size = DEFAULT_SIZE);
+    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_creatures = true);
 
     //**************************************************************************
     // BASE METHODS.

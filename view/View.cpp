@@ -10,6 +10,8 @@ View::View(const IWorld& w)
 {
     initWindow();
 
+    paused = false;
+
     this -> view_world = new ViewWorld(w);
     this -> key_handler = new KeyHandler(this);
 
@@ -59,6 +61,16 @@ void View::setY(double new_var)
 {
     new_var = new_var > 0 ? new_var : 0;
     view_world -> setY(new_var);
+}
+
+void View::setPaused(bool new_state)
+{
+    paused = new_state;
+}
+
+bool View::isPaused()
+{
+    return paused;
 }
 
 bool mouse_clicked = 0;
@@ -131,11 +143,14 @@ void View::redraw()
     }
     glEnd();
 
+    // Drawing debug message at the top of the screen.
     glColor3f(0.0f, 0.0f, 0.0f);
     glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
     glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
-    glcRenderString( (std::to_string(wx) + " " + std::to_string(wy)).c_str() );
+    std::string msg = std::to_string(wx) + " " + std::to_string(wy);
+    if(this -> isPaused()) msg += " PAUSED";
+    glcRenderString( msg.c_str() );
 #endif
 
     glLoadIdentity();

@@ -14,6 +14,7 @@ class KeyHandler;
 
 class KeyHandler
 {
+    bool key_was_pressed[GLFW_KEY_LAST+1];
     View* view;
 
 public:

@@ -44,7 +44,7 @@ World::World(std::string filepath) :
 
 }
 
-World::World(int rand_seed, int size) :
+World::World(int rand_seed, int size, bool generate_creatures) :
     size(size > 0 ? size : DEFAULT_SIZE),
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
@@ -63,50 +63,54 @@ World::World(int rand_seed, int size) :
 
     indexator = new Indexator((double)this->size);
 
-    // Creating resources
-    ParamArray food_params;
-    ParamArray building_mat_params;
-
-    food_params.addKey<ResourceType>("res_type", RES_FOOD);
-    food_params.addKey<uint>("res_amount", 10);
-
-    building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
-    building_mat_params.addKey<uint>("res_amount", 10);
-
-    uint amount = Random::int_range(3000, 5000);
-    for(uint i = 0; i < amount; i++)
+    if(generate_creatures)
     {
-        Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
+        // Creating resources
+        ParamArray food_params;
+        ParamArray building_mat_params;
 
-        newobj -> setCoords(Point(Random::int_range(0, size),
-                                  Random::int_range(0, size)));
+        food_params.addKey<ResourceType>("res_type", RES_FOOD);
+        food_params.addKey<uint>("res_amount", 10);
 
-        Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
+        building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+        building_mat_params.addKey<uint>("res_amount", 10);
 
-        grass -> setCoords(Point(Random::int_range(0, size),
-                                 Random::int_range(0, size)));
+        uint amount = Random::int_range(3000, 5000);
+        for(uint i = 0; i < amount; i++)
+        {
+            Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
 
-        visible_objs -> push(newobj);
-        visible_objs -> push(grass);
+            newobj -> setCoords(Point(Random::int_range(0, size),
+                                      Random::int_range(0, size)));
+
+            Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
+
+            grass -> setCoords(Point(Random::int_range(0, size),
+                                     Random::int_range(0, size)));
+
+            visible_objs -> push(newobj);
+            visible_objs -> push(grass);
+        }
+
+        // Creating cows!
+
+        ParamArray nhum_params;
+        nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+
+        amount = Random::int_range(10, 20);
+        for (uint i = 0; i < amount; i++)
+        {
+            Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
+
+            new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
+                                       Random::double_range(20.0, 70.0)));
+
+            visible_objs -> push(new_obj);
+        }
+
+        indexator -> reindexate(visible_objs);
     }
 
-    // Creating cows!
-
-    ParamArray nhum_params;
-    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
-
-    amount = Random::int_range(10, 20);
-    for (uint i = 0; i < amount; i++)
-    {
-        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-
-        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
-                                   Random::double_range(20.0, 70.0)));
-
-        visible_objs -> push(new_obj);
-    }
-
-    indexator -> reindexate(visible_objs);
 }
 
 //******************************************************************************
@@ -132,6 +136,7 @@ void World::addObject(bool visibility, Object *obj)
     if (visibility)
     {
         this -> visible_objs -> push(obj);
+        this -> indexator -> reindexate(obj);
     }
     else
     {
