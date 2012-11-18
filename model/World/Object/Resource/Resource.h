@@ -121,6 +121,16 @@ public:
      */
     bool isMineable() const;
 
+    /**
+     * @brief Makes resource mineable.
+     */
+    void makeMineable();
+
+    /**
+     * @brief Makes resource pickable.
+     */
+    void makePickable();
+
 private:
     /// Type of resource
     const ResourceType subtype;

@@ -235,3 +235,13 @@ bool Resource::isMineable() const
 {
     return this -> mineable;
 }
+
+void Resource::makeMineable()
+{
+    this -> mineable = true;
+}
+
+void Resource::makePickable()
+{
+    this -> mineable = false;
+}
