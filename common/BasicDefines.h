@@ -93,8 +93,11 @@
 /// Tool size (when dropped to ground).
 #define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1
 
-/// View area for NonHum
+/// View area for NonHumanoid.
 #define SZ_NHUM_VIEW_DIAM           50 * SZ_HUMANOID_DIAM
+
+/// View area for Humanoid.
+#define SZ_HUM_VIEW_DIAM            50 * SZ_HUMANOID_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
