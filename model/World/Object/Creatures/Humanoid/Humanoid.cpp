@@ -285,7 +285,7 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
-    if (detailed_act == MINE_RESOURSES)////////////////////////////////////////////////////
+    if (detailed_act == MINE_RESOURSES)//////////////////////////////////////////////////
     {
         if (angle == -1)
         {
