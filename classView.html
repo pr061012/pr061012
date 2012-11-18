@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:abfb31bd034fc17e3456f1c52dfaf3d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns in-game y coordinate of camera center.  <a href="#abfb31bd034fc17e3456f1c52dfaf3d95"></a><br/></td></tr>
 <tr class="memitem:ab1fc5db943b079055cf570f496ed5eba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#ab1fc5db943b079055cf570f496ed5eba">setX</a> (double new_var)</td></tr>
 <tr class="memitem:a1b8d36e29fc73390ac7fa8251b74f20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">setY</a> (double new_var)</td></tr>
+<tr class="memitem:aaf7b022a42b09309a6a7e0260e8b7895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#aaf7b022a42b09309a6a7e0260e8b7895">setPaused</a> (bool new_state)</td></tr>
+<tr class="memdesc:aaf7b022a42b09309a6a7e0260e8b7895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets game state to paused.  <a href="#aaf7b022a42b09309a6a7e0260e8b7895"></a><br/></td></tr>
+<tr class="memitem:a081a223723c725fbfe36a459ab1811bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a081a223723c725fbfe36a459ab1811bb">isPaused</a> ()</td></tr>
 <tr class="memitem:a2e088b57c015d551b27605cab3530187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a2e088b57c015d551b27605cab3530187">redraw</a> ()</td></tr>
 <tr class="memdesc:a2e088b57c015d551b27605cab3530187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw currently displayed world.  <a href="#a2e088b57c015d551b27605cab3530187"></a><br/></td></tr>
 <tr class="memitem:a4efadcdfb36125ba4dcb3ef6627d5ecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd">continues</a> ()</td></tr>
@@ -129,7 +132,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="View_8h_source.html#l00045">45</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
+<p>Definition at line <a class="el" href="View_8h_source.html#l00055">55</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af45658447d3a86487b55b599ecf96674"></a>
 <div class="memitem">
@@ -153,7 +156,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00009">9</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00011">11</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -172,7 +175,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00026">26</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00030">30</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -193,7 +196,7 @@ Public Member Functions</h2></td></tr>
 <p>checks conditions to exit the program </p>
 <dl class="section return"><dt>Returns</dt><dd>result of exit conditions </dd></dl>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00179">179</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00222">222</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,7 +215,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns in-game x coordinate of camera center. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00036">36</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00040">40</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +234,24 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns in-game y coordinate of camera center. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00041">41</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00045">45</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a081a223723c725fbfe36a459ab1811bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool View::isPaused </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00073">73</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -250,7 +270,27 @@ Public Member Functions</h2></td></tr>
 
 <p>Redraw currently displayed world. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00066">66</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00080">80</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf7b022a42b09309a6a7e0260e8b7895"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void View::setPaused </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>new_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets game state to paused. </p>
+
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00068">68</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,7 +308,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00053">53</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00057">57</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +326,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00058">58</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00062">62</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +340,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classView.html">View</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 13:24:03 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 17:42:58 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

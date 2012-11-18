@@ -210,7 +210,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00218">218</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00216">216</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,9 +237,9 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>heap with objects in given area </dd></dl>
 <pre class="fragment">    Toroidal feature
-</pre><p> Create more areas to check collisions with objects intersecting bounds of the world <a class="el" href="classShape.html">Shape</a> areas[4]; areas[0] = area; <a class="el" href="classPoint.html" title="Point class.">Point</a> center = area.getCenter();</p>
-<p>Get the left bottom shape if (center.getX() &gt; world_size/2) { if (center.getY() &gt; world_size / 2) { areas[0].setCenter(center - Point(world_size, world_size)); } else { areas[0].setCenter(center - Point(world_size, 0)); } } else { if (center.getY() &gt; world_size / 2) { areas[0].setCenter(center - Point(0, world_size)); } }</p>
-<p>Creat all other shapes areas[1] = areas[0]; areas[1].setCenter(areas[0].getCenter() + Point(0, world_size)); areas[2] = areas[1]; areas[2].setCenter(areas[1].getCenter() + Point(world_size, 0)); areas[3] = areas[2]; areas[3].setCenter(areas[2].getCenter() + <a class="el" href="classPoint.html" title="Point class.">Point</a>(0, -world_size));</p>
+</pre><p> Create more areas to check collisions with objects intersecting bounds of the world <a class="el" href="classShape.html">Shape</a> areas[4]; areas[0] = area; <a class="el" href="classVector.html" title="Vector class.">Vector</a> center = area.getCenter();</p>
+<p>Get the left bottom shape if (center.getX() &gt; world_size/2) { if (center.getY() &gt; world_size / 2) { areas[0].setCenter(center - Vector(world_size, world_size)); } else { areas[0].setCenter(center - Vector(world_size, 0)); } } else { if (center.getY() &gt; world_size / 2) { areas[0].setCenter(center - Vector(0, world_size)); } }</p>
+<p>Creat all other shapes areas[1] = areas[0]; areas[1].setCenter(areas[0].getCenter() + Vector(0, world_size)); areas[2] = areas[1]; areas[2].setCenter(areas[1].getCenter() + Vector(world_size, 0)); areas[3] = areas[2]; areas[3].setCenter(areas[2].getCenter() + <a class="el" href="classVector.html" title="Vector class.">Vector</a>(0, -world_size));</p>
 
 <p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00043">43</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
@@ -319,7 +319,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00236">236</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00234">234</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIndexator.html">Indexator</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 13:24:01 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 17:42:55 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

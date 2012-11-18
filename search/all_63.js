@@ -1,6 +1,7 @@
 var searchData=
 [
   ['choose_5fplace_5ffor_5fhome',['CHOOSE_PLACE_FOR_HOME',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa0e3342ffd140d38f0b46b715aee15572',1,'BasicTypes.h']]],
+  ['choosedirectiontoescape',['chooseDirectionToEscape',['../classCreature.html#ac8ba51bbe062c6924bd202d36f3a6af4',1,'Creature']]],
   ['circle',['CIRCLE',['../BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'BasicTypes.h']]],
   ['clear',['clear',['../classParamArray.html#a3a6f77df7533ee30728f104c233abd81',1,'ParamArray']]],
   ['clouds',['CLOUDS',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a2864a88199aef8238cc4345e675c596b',1,'BasicTypes.h']]],
@@ -20,6 +21,8 @@ var searchData=
   ['creat_5fdelta_5fhunger',['CREAT_DELTA_HUNGER',['../BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fsleep',['CREAT_DELTA_SLEEP',['../BasicDefines_8h.html#aa5c6b911a547b09ed02c49469b907dad',1,'BasicDefines.h']]],
   ['creat_5fdesc_5fsteps',['CREAT_DESC_STEPS',['../BasicDefines_8h.html#a00bc71bbe32c141390ea61a51920a5e8',1,'BasicDefines.h']]],
+  ['creat_5fendurance_5fmax',['CREAT_ENDURANCE_MAX',['../BasicDefines_8h.html#a946239c56de2ebb36fdad94e0c8f0199',1,'BasicDefines.h']]],
+  ['creat_5fendurance_5fmin',['CREAT_ENDURANCE_MIN',['../BasicDefines_8h.html#a2febbdb621d916da4f70da09cfcabb3e',1,'BasicDefines.h']]],
   ['creat_5fforce_5fmax',['CREAT_FORCE_MAX',['../BasicDefines_8h.html#ad804f4251c09753d8fb5b9f70492b12a',1,'BasicDefines.h']]],
   ['creat_5fforce_5fmin',['CREAT_FORCE_MIN',['../BasicDefines_8h.html#a55624cce545d3c3b88dcaeaba16b1a20',1,'BasicDefines.h']]],
   ['creat_5fhealth_5fmax',['CREAT_HEALTH_MAX',['../BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911',1,'BasicDefines.h']]],

@@ -176,11 +176,11 @@ $(document).ready(function(){initNavTree('MovementPerformer_8cpp_source.html',''
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classPoint.html" title="Point class.">Point</a> dest = participant -&gt; getCoords() + <a class="code" href="classPoint.html" title="Point class.">Point</a>(speed * cos(angle), speed * sin(angle));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> dest = participant -&gt; getCoords() + <a class="code" href="classVector.html" title="Vector class.">Vector</a>(speed * cos(angle), speed * sin(angle));</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Do not let objects fall of the bounds</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (dest.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>() &lt; 0 || dest.<a class="code" href="classPoint.html#af52a20a376f8f31e87658837565d3812" title="Get X.">getX</a>() &gt;= world_size || </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        dest.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>() &lt; 0 || dest.<a class="code" href="classPoint.html#aac5008459bf0e0053ce744a69187bae7" title="Get Y.">getY</a>() &gt;= world_size)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() &lt; 0 || dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() &gt;= world_size || </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() &lt; 0 || dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() &gt;= world_size)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span>;</div>
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('MovementPerformer_8cpp_source.html',''
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Try to place an object and see if it collides with anything</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classShape.html">Shape</a> ghost = participant -&gt; getShape();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ghost.<a class="code" href="classShape.html#aabf2fde36d48854cb10fbae4fe6ea0cf" title="Set the value of center.">setCenter</a>(dest);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ghost.<a class="code" href="classShape.html#adcc17d17d7b559e885be7f951bce8ac9" title="Set the value of center.">setCenter</a>(dest);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = indexator -&gt; getAreaContents(ghost);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Can&#39;t place things over creatures and buildings</span></div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('MovementPerformer_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_bb16b8cbb152cee6d6e1d9518721f7a2.html">MovementPerformer</a></li><li class="navelem"><a class="el" href="MovementPerformer_8cpp.html">MovementPerformer.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 13:23:58 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -14,5 +14,9 @@ var classResource =
     [ "heal", "classResource.html#a88928f89a1a538768dade43b0493ec6c", null ],
     [ "increaseAmount", "classResource.html#a55b2623e12687bedc2efced0bc781fc6", null ],
     [ "incrementProgress", "classResource.html#a6eb73f19cd1f3cf7485dc659256fe239", null ],
-    [ "isMineable", "classResource.html#ad87877637e96514ddefed5cae8adaa99", null ]
+    [ "isMineable", "classResource.html#ad87877637e96514ddefed5cae8adaa99", null ],
+    [ "isRestorable", "classResource.html#ad678ef5ea1d846b342a2083503afe559", null ],
+    [ "makeMineable", "classResource.html#a4b6b0ec18709861808eea76f3c1b6b74", null ],
+    [ "makePickable", "classResource.html#a53e72592bdfd4bc765e22506bdeda6a8", null ],
+    [ "receiveMessage", "classResource.html#a57195a6cea3aa37c11cf038119e88de3", null ]
 ];

@@ -2,7 +2,7 @@ var classWorld =
 [
     [ "~World", "classWorld.html#a8c73fba541a5817fff65147ba47cd827", null ],
     [ "World", "classWorld.html#ac339c606fb3832d11bcf16ad05685f61", null ],
-    [ "World", "classWorld.html#aa2eb821136019047477f955fe3d8e7b0", null ],
+    [ "World", "classWorld.html#acdc6092d0c117748394d686292a4d4c6", null ],
     [ "addObject", "classWorld.html#a5958579b1313daec5993026df26c7f63", null ],
     [ "getHiddenObjects", "classWorld.html#acdde856cd58e64641405806d08650004", null ],
     [ "getIndexator", "classWorld.html#ad75ce919ba59eb32d7b9aa4b1ec89ea6", null ],

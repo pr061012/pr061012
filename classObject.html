@@ -137,14 +137,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
 <tr class="memitem:addf0658ee2f8da579d10a6682dc097d7"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
 <tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
+<tr class="memitem:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">receiveMessage</a> (<a class="el" href="classMessage.html">Message</a> message)=0</td></tr>
+<tr class="memdesc:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#ae2ef7889b3a38edfaa63ea243e154ef5"></a><br/></td></tr>
 <tr class="memitem:a816838bab5c67fce2cead6cb9122ad47"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a816838bab5c67fce2cead6cb9122ad47">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
-<tr class="memdesc:a816838bab5c67fce2cead6cb9122ad47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a816838bab5c67fce2cead6cb9122ad47"></a><br/></td></tr>
+<tr class="memdesc:a816838bab5c67fce2cead6cb9122ad47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a816838bab5c67fce2cead6cb9122ad47"></a><br/></td></tr>
 <tr class="memitem:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
 <tr class="memdesc:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#af7f49cb3f3c3bd9cfdbc42beecbbe5bc"></a><br/></td></tr>
 <tr class="memitem:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">getHealthPoints</a> () const =0</td></tr>
-<tr class="memdesc:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#a1d3b6e7106f7e73ed8e5c2ea807047a7"></a><br/></td></tr>
+<tr class="memdesc:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh vectors.  <a href="#a1d3b6e7106f7e73ed8e5c2ea807047a7"></a><br/></td></tr>
 <tr class="memitem:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">getMaxHealthPoints</a> () const =0</td></tr>
-<tr class="memdesc:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#aaf54c4ebc3fddf706d0c3ea4787cf34d"></a><br/></td></tr>
+<tr class="memdesc:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health vectors.  <a href="#aaf54c4ebc3fddf706d0c3ea4787cf34d"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks this object as destroyed.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
 <tr class="memitem:a1e1a162b817f0c134836cca3a473e295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
@@ -177,10 +179,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a075891336e08ea144917d8468f8480f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of angle.  <a href="#a075891336e08ea144917d8468f8480f1"></a><br/></td></tr>
 <tr class="memitem:aaba7ccef31e74246abda5ef9cb2e202c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aaba7ccef31e74246abda5ef9cb2e202c">getAngle</a> () const </td></tr>
 <tr class="memdesc:aaba7ccef31e74246abda5ef9cb2e202c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of angle.  <a href="#aaba7ccef31e74246abda5ef9cb2e202c"></a><br/></td></tr>
-<tr class="memitem:a67d41327686c2018494ea788379db9aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a67d41327686c2018494ea788379db9aa">setCoords</a> (const <a class="el" href="classPoint.html">Point</a> &amp;coords)</td></tr>
-<tr class="memdesc:a67d41327686c2018494ea788379db9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set object's coordinates.  <a href="#a67d41327686c2018494ea788379db9aa"></a><br/></td></tr>
-<tr class="memitem:a64bb5b1d10c6cd338a65a8dd62473de1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classPoint.html">Point</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a64bb5b1d10c6cd338a65a8dd62473de1">getCoords</a> () const </td></tr>
-<tr class="memdesc:a64bb5b1d10c6cd338a65a8dd62473de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a64bb5b1d10c6cd338a65a8dd62473de1"></a><br/></td></tr>
+<tr class="memitem:a64299bd3d9948e455dd4751c465ef750"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a64299bd3d9948e455dd4751c465ef750">setCoords</a> (const <a class="el" href="classVector.html">Vector</a> &amp;coords)</td></tr>
+<tr class="memdesc:a64299bd3d9948e455dd4751c465ef750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set object's coordinates.  <a href="#a64299bd3d9948e455dd4751c465ef750"></a><br/></td></tr>
+<tr class="memitem:a98ae671267306c09d28a0a4afa1a8a55"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a98ae671267306c09d28a0a4afa1a8a55">getCoords</a> () const </td></tr>
+<tr class="memdesc:a98ae671267306c09d28a0a4afa1a8a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a98ae671267306c09d28a0a4afa1a8a55"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -190,7 +192,7 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Abstract <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> class. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00019">19</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00020">20</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac3797e3194161ceeb6de884f7dae4083"></a>
 <div class="memitem">
@@ -284,7 +286,6 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Receives message. </p>
 <p>Damages object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -293,7 +294,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#a6d216fa9fc5e1a70743ebc9a62dbcc01">Creature</a>, <a class="el" href="classTool.html#aff5fb696dc98cf8892b4db6350495ca5">Tool</a>, <a class="el" href="classResource.html#aaba80262d4086bfce08ea4d4c0d63f75">Resource</a>, <a class="el" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af">Building</a>, and <a class="el" href="classWeather.html#a2d2c127d06a55f388a80aedd07b6c2fb">Weather</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a6d216fa9fc5e1a70743ebc9a62dbcc01">Creature</a>, <a class="el" href="classResource.html#aaba80262d4086bfce08ea4d4c0d63f75">Resource</a>, <a class="el" href="classTool.html#aff5fb696dc98cf8892b4db6350495ca5">Tool</a>, <a class="el" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af">Building</a>, and <a class="el" href="classWeather.html#a2d2c127d06a55f388a80aedd07b6c2fb">Weather</a>.</p>
 
 </div>
 </div>
@@ -321,7 +322,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets objects pending actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, <a class="el" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">Building</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
 
 </div>
 </div>
@@ -345,12 +346,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a64bb5b1d10c6cd338a65a8dd62473de1"></a>
+<a class="anchor" id="a98ae671267306c09d28a0a4afa1a8a55"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classPoint.html">Point</a> &amp; Object::getCoords </td>
+          <td class="memname">const <a class="el" href="classVector.html">Vector</a> &amp; Object::getCoords </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -406,7 +407,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets current object's heatlh points. </p>
+<p>Gets current object's heatlh vectors. </p>
 
 <p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
 
@@ -433,7 +434,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets maximum possible object's health points. </p>
+<p>Gets maximum possible object's health vectors. </p>
 
 <p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
 
@@ -509,7 +510,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#ab168ec8b1230205eb0dda7edbef60469">Creature</a>, <a class="el" href="classTool.html#ac7103fa90707cbc29ceb31bc7f941571">Tool</a>, <a class="el" href="classResource.html#a88928f89a1a538768dade43b0493ec6c">Resource</a>, <a class="el" href="classBuilding.html#a4266475915167761e483886535382f90">Building</a>, and <a class="el" href="classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c">Weather</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#ab168ec8b1230205eb0dda7edbef60469">Creature</a>, <a class="el" href="classResource.html#a88928f89a1a538768dade43b0493ec6c">Resource</a>, <a class="el" href="classTool.html#ac7103fa90707cbc29ceb31bc7f941571">Tool</a>, <a class="el" href="classBuilding.html#a4266475915167761e483886535382f90">Building</a>, and <a class="el" href="classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c">Weather</a>.</p>
 
 </div>
 </div>
@@ -668,6 +669,34 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae2ef7889b3a38edfaa63ea243e154ef5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Object::receiveMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMessage.html">Message</a>&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives message. </p>
+
+<p>Implemented in <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>, <a class="el" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3">Resource</a>, <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>, <a class="el" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">Building</a>, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>, <a class="el" href="classWeather.html#ac8c475e135a64a6893141f1f3cee5519">Weather</a>, and <a class="el" href="classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f">Tool</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a075891336e08ea144917d8468f8480f1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -694,14 +723,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a67d41327686c2018494ea788379db9aa"></a>
+<a class="anchor" id="a64299bd3d9948e455dd4751c465ef750"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Object::setCoords </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classPoint.html">Point</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>coords</em></td><td>)</td>
           <td></td>
         </tr>
@@ -833,7 +862,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 13:24:02 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 17:42:56 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

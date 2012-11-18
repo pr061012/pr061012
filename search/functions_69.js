@@ -13,7 +13,9 @@ var searchData=
   ['isfailed',['isFailed',['../classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe',1,'Action']]],
   ['isimmortal',['isImmortal',['../classObject.html#a7a38ff74620fa8c16a21e46149027e6a',1,'Object']]],
   ['ismineable',['isMineable',['../classResource.html#ad87877637e96514ddefed5cae8adaa99',1,'Resource']]],
+  ['ispaused',['isPaused',['../classView.html#a081a223723c725fbfe36a459ab1811bb',1,'View']]],
   ['ispending',['isPending',['../classAction.html#ae0e419e952716c6ba3d88bcd68b8859b',1,'Action']]],
+  ['isrestorable',['isRestorable',['../classResource.html#ad678ef5ea1d846b342a2083503afe559',1,'Resource']]],
   ['issolid',['isSolid',['../classObject.html#ade65edee1451b414e5c88ed43fffbe5e',1,'Object']]],
   ['issucceeded',['isSucceeded',['../classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266',1,'Action']]],
   ['issucceededwitherrors',['isSucceededWithErrors',['../classAction.html#a1aa266d607395721502784b10c7e757b',1,'Action']]]

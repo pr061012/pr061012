@@ -14,6 +14,8 @@ var searchData=
   ['dm_5fatr_5fconst',['DM_ATR_CONST',['../BasicDefines_8h.html#af632a4b398cfb78799deeb6d2c7f07d6',1,'BasicDefines.h']]],
   ['dm_5fpath_5fto_5fhum_5fmatrix',['DM_PATH_TO_HUM_MATRIX',['../BasicDefines_8h.html#af08b7bd368983913d6c2f61c209a5dd2',1,'BasicDefines.h']]],
   ['dm_5fpath_5fto_5fnhum_5fmatrix',['DM_PATH_TO_NHUM_MATRIX',['../BasicDefines_8h.html#a042033d138c03e6e2d67a305227e102b',1,'BasicDefines.h']]],
+  ['dmg_5fper_5fhit_5fmax',['DMG_PER_HIT_MAX',['../BasicDefines_8h.html#a4137f96d772bd1553ba3f6d9d0df831d',1,'BasicDefines.h']]],
+  ['dmg_5fper_5fhit_5fmin',['DMG_PER_HIT_MIN',['../BasicDefines_8h.html#a193b30585bff9043a2903d441906a4e1',1,'BasicDefines.h']]],
   ['do_5fnothing',['DO_NOTHING',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706aa3c06bc7e4d652a970cab72026c6fed1',1,'BasicTypes.h']]],
   ['double_5fnum',['double_num',['../classRandom.html#a112197f7100c2d2335a468e998677de3',1,'Random']]],
   ['double_5frange',['double_range',['../classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78',1,'Random']]],

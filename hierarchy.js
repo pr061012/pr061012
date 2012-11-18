@@ -37,9 +37,9 @@ var hierarchy =
       [ "RegenerationPerformer", "classRegenerationPerformer.html", null ],
       [ "TravelingPerformer", "classTravelingPerformer.html", null ]
     ] ],
-    [ "Point", "classPoint.html", null ],
     [ "Random", "classRandom.html", null ],
     [ "Shape", "classShape.html", null ],
+    [ "Vector", "classVector.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
     [ "ViewWorld", "classViewWorld.html", null ]

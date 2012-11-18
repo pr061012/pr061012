@@ -10,5 +10,6 @@ var classWeather =
     [ "getMaxHealthPoints", "classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea", null ],
     [ "getSubtype", "classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a", null ],
     [ "heal", "classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c", null ],
+    [ "receiveMessage", "classWeather.html#ac8c475e135a64a6893141f1f3cee5519", null ],
     [ "setCoveredObjects", "classWeather.html#a936fc0d17f71087d4f88451af096b894", null ]
 ];

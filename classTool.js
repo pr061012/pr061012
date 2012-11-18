@@ -12,5 +12,6 @@ var classTool =
     [ "getStrength", "classTool.html#a5f03c710495f2d1f0714427e0c8a742c", null ],
     [ "getSubtype", "classTool.html#a29cba502e96018d9db4c2ad9bf364732", null ],
     [ "heal", "classTool.html#ac7103fa90707cbc29ceb31bc7f941571", null ],
-    [ "increaseStrength", "classTool.html#a39a24ab98a0b9acfad17f987fd57272e", null ]
+    [ "increaseStrength", "classTool.html#a39a24ab98a0b9acfad17f987fd57272e", null ],
+    [ "receiveMessage", "classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f", null ]
 ];

@@ -14,6 +14,7 @@ var classBuilding =
     [ "heal", "classBuilding.html#a4266475915167761e483886535382f90", null ],
     [ "increaseHealth", "classBuilding.html#a3b373e84180fba24ba0afe981e550984", null ],
     [ "putInside", "classBuilding.html#a4c019de587cb657f2566cbb27623fc6f", null ],
+    [ "receiveMessage", "classBuilding.html#a14d3e43a10e522356ea0022663a63d01", null ],
     [ "repair", "classBuilding.html#af5beff6811010a84af940243fab63041", null ],
     [ "takeOut", "classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2", null ]
 ];

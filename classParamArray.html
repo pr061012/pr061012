@@ -121,9 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab23245e30537cb81c57b8b39cc3d2869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ab23245e30537cb81c57b8b39cc3d2869"></a><br/></td></tr>
 <tr class="memitem:a4d5619b3bdf2a29f2e3c0f98221831ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#a4d5619b3bdf2a29f2e3c0f98221831ac">~ParamArray</a> ()</td></tr>
 <tr class="memdesc:a4d5619b3bdf2a29f2e3c0f98221831ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a4d5619b3bdf2a29f2e3c0f98221831ac"></a><br/></td></tr>
-<tr class="memitem:a01c7a07c832ce66628c182d7672ede54"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
-<tr class="memitem:a01c7a07c832ce66628c182d7672ede54"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54">addKey</a> (std::string key, Type value)</td></tr>
-<tr class="memdesc:a01c7a07c832ce66628c182d7672ede54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new key with value into param array. Note: it will overwrite value if such key already exists!  <a href="#a01c7a07c832ce66628c182d7672ede54"></a><br/></td></tr>
+<tr class="memitem:a0c26d008b8d1565b5b6a05bc52a883d7"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
+<tr class="memitem:a0c26d008b8d1565b5b6a05bc52a883d7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7">addKey</a> (std::string key, Type value, bool overwrite=true)</td></tr>
+<tr class="memdesc:a0c26d008b8d1565b5b6a05bc52a883d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new key with value into param array. Note: it will overwrite value if such key already exists!  <a href="#a0c26d008b8d1565b5b6a05bc52a883d7"></a><br/></td></tr>
 <tr class="memitem:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
 <tr class="memitem:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3">getValue</a> (std::string key, bool suppress_err_msgs=false) const   throw (EParamArrayInvalidKey)</td></tr>
 <tr class="memdesc:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets key value by key.  <a href="#aa6a02f5bc77c494b9ebb9a3221d20fb3"></a><br/></td></tr>
@@ -221,7 +221,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a01c7a07c832ce66628c182d7672ede54"></a>
+<a class="anchor" id="a0c26d008b8d1565b5b6a05bc52a883d7"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -240,7 +240,13 @@ template&lt;class Type &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Type&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>overwrite</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -260,11 +266,12 @@ template&lt;class Type &gt; </div>
   <table class="params">
     <tr><td class="paramname">key</td><td>key to add </td></tr>
     <tr><td class="paramname">value</td><td>key value </td></tr>
+    <tr><td class="paramname">overwrite</td><td>overwrite existed key or not </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00075">75</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00076">76</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -291,7 +298,7 @@ template&lt;class Type &gt; </div>
 
 <p>Removes all elements from <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>. </p>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00157">157</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00174">174</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -339,7 +346,7 @@ template&lt;class Type &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>key value </dd></dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00106">106</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00123">123</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +394,7 @@ template&lt;class Type &gt; </div>
 <dd>
 false, if key wasn't existed </dd></dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00133">133</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00150">150</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +407,7 @@ false, if key wasn't existed </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classParamArray.html">ParamArray</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 13:24:02 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 17:42:56 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

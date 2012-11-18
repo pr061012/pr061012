@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['vector_2ecpp',['Vector.cpp',['../Vector_8cpp.html',1,'']]],
+  ['vector_2eh',['Vector.h',['../Vector_8h.html',1,'']]],
   ['view_2ecpp',['View.cpp',['../View_8cpp.html',1,'']]],
   ['view_2eh',['View.h',['../View_8h.html',1,'']]],
   ['viewobject_2ecpp',['ViewObject.cpp',['../ViewObject_8cpp.html',1,'']]],

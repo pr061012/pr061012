@@ -13,10 +13,7 @@ var searchData=
   ['pickupmaster',['PickupMaster',['../classPickupMaster.html',1,'PickupMaster'],['../classPickupMaster.html#aed62158faa3a9b869ac6f0571045fb80',1,'PickupMaster::PickupMaster()']]],
   ['pickupmaster_2ecpp',['PickupMaster.cpp',['../PickupMaster_8cpp.html',1,'']]],
   ['pickupmaster_2eh',['PickupMaster.h',['../PickupMaster_8h.html',1,'']]],
-  ['point',['Point',['../classPoint.html',1,'Point'],['../classPoint.html#a78b55e8d5466bb8c2cf60fa55f2562ff',1,'Point::Point(double x, double y)'],['../classPoint.html#ad92f2337b839a94ce97dcdb439b4325a',1,'Point::Point()']]],
-  ['point_2ecpp',['Point.cpp',['../Point_8cpp.html',1,'']]],
-  ['point_2eh',['Point.h',['../Point_8h.html',1,'']]],
-  ['project',['project',['../classPoint.html#a3dffd81ce825c192343dfbd39ea25622',1,'Point']]],
+  ['project',['project',['../classVector.html#a81ed617761de2cb4aaca1f97963d090d',1,'Vector']]],
   ['push',['push',['../classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6',1,'ObjectHeap']]],
   ['putinside',['putInside',['../classBuilding.html#a4c019de587cb657f2566cbb27623fc6f',1,'Building']]]
 ];

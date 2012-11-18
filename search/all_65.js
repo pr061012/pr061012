@@ -14,7 +14,7 @@ var searchData=
   ['eparamarrayinvalidkey',['EParamArrayInvalidKey',['../classEParamArrayInvalidKey.html',1,'']]],
   ['eparamarrayinvalidkey_2ecpp',['EParamArrayInvalidKey.cpp',['../EParamArrayInvalidKey_8cpp.html',1,'']]],
   ['eparamarrayinvalidkey_2eh',['EParamArrayInvalidKey.h',['../EParamArrayInvalidKey_8h.html',1,'']]],
-  ['equals',['equals',['../classPoint.html#ac05a8a1592b27bd740e3e2ec8b5b00fe',1,'Point']]],
+  ['equals',['equals',['../classVector.html#a23f670f9a6215d0d4a297cec51875436',1,'Vector']]],
   ['error',['error',['../classLog.html#a891b2768b418be079ea77fc0aa3caec8',1,'Log::error()'],['../Log_8h.html#aac9d06502938110618f0326b5fec8a80',1,'ERROR():&#160;Log.h']]],
   ['escape',['ESCAPE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a0a311695a4f6c56869245418bebeb33d',1,'BasicTypes.h']]],
   ['explore',['EXPLORE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a9a80539c326b5f07cbdc2c4f6c0766d9',1,'BasicTypes.h']]]
