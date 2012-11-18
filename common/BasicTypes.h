@@ -163,11 +163,11 @@ enum ActionType
     ///        Parameters:      res_index (*uint*), tool_index (*uint*)
     MINE_OBJ,
 
-    /// @brief Description:     Repair building. \n
-    ///        Actor:           Humanoid \n
-    ///        Participants:    Building, Tool \n
-    ///        Parameters:      building_index (*uint*), tool_index (*uint*)
-    REPAIR_OBJ,
+    /// @brief Description:     Regenerate object. \n
+    ///        Actor:           Humanoid/Resource \n
+    ///        Participants:    Object, Tool \n
+    ///        Parameters:      object_index (*uint*), tool_index (*uint*)
+    REGENERATE_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
