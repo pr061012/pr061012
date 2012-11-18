@@ -140,7 +140,7 @@ enum DetailedHumAction
     HUNT, TAKE_FOOD_FROM_INVENTORY, FIND_FOOD,
 
     // RELAX actions
-    REALAX_AT_HOME,
+    RELAX_AT_HOME,
 
     // SLEEP ations
     SLEEP_AT_HOME, SLEEP_ON_THE_GROUND,
