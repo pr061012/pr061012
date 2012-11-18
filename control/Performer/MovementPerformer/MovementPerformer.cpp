@@ -15,7 +15,8 @@
 #include <string>
 
 MovementPerformer::MovementPerformer(World * world) :
-    world_size(world -> getSize()), indexator(world -> getIndexator())
+    world_size(world -> getSize()),
+    indexator(world -> getIndexator())
 {
 }
 
