@@ -72,6 +72,10 @@ std::vector <Action> * Weather::getActions()
     return &(this -> actions);
 }
 
+void Weather::receiveMessage(Message message)
+{
+}
+
 uint Weather::getHealthPoints() const
 {
     return this -> steps;

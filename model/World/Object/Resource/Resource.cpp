@@ -194,6 +194,10 @@ std::vector <Action> * Resource::getActions()
     return &(this -> actions);
 }
 
+void Resource::receiveMessage(Message message)
+{
+}
+
 uint Resource::getHealthPoints() const
 {
     return this -> amount;

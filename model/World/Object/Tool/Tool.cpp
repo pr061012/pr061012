@@ -76,6 +76,10 @@ std::vector <Action> * Tool::getActions()
     return &(this -> actions);
 }
 
+void Tool::receiveMessage(Message message)
+{
+}
+
 uint Tool::getHealthPoints() const
 {
     return this -> current_strength;

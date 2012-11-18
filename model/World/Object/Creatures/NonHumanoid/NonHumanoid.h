@@ -36,11 +36,8 @@ public:
     // NON_HUMANOID ACTIONS.
     //**************************************************************************
 
-    /**
-     * @brief  Gets actions.
-     * @return vector with actions.
-     */
     std::vector <Action> * getActions();
+    void receiveMessage(Message message);
 
     //**************************************************************************
     // NON-HUMANOID'S LOGICS.

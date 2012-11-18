@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "../Action/Action.h"
+#include "../Message/Message.h"
 #include "../../Utilities/Shape/Shape.h"
 #include "../../../common/BasicTypes.h"
 
@@ -47,8 +48,7 @@ public:
     /**
      * @brief Receives message.
      */
-    // TODO: Uncomment when we need it.
-    //virtual void receiveMessage(Action * action) = 0;
+    virtual void receiveMessage(Message message) = 0;
 
     /**
      * @brief Damages object.

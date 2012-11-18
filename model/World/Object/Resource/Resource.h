@@ -84,6 +84,7 @@ public:
     //**************************************************************************
 
     std::vector <Action> * getActions();
+    void receiveMessage(Message message);
 
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;

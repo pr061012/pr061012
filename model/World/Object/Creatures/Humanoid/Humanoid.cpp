@@ -258,6 +258,10 @@ std::vector <Action>* Humanoid::getActions()
     return &actions;
 }
 
+void Humanoid::receiveMessage(Message message)
+{
+}
+
 void Humanoid::updateAge()
 {
     this -> age++;
