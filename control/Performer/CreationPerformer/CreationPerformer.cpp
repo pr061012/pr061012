@@ -9,6 +9,7 @@
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../common/Random/Random.h"
+#include "../../../model/Utilities/Point/Point.h"
 
 CreationPerformer::CreationPerformer(World* world):
     indexator(world -> getIndexator()),
@@ -25,6 +26,7 @@ CreationPerformer::~CreationPerformer()
 
 void CreationPerformer::perform(Action& action)
 {
+    // Get initial value.
     Object* actor = action.getActor();
     Object* new_object;
     ObjectType type = actor -> getType();
@@ -34,17 +36,21 @@ void CreationPerformer::perform(Action& action)
     Point new_center(Random::double_range(size, 2*size), Random::double_range(size, 2*size));
     ParamArray param;
 
+    // Check of actor type.
     if ( type == RESOURCE || type == CREATURE )
     {
         switch (obj_type)
         {
             case CREATURE:
             {
+                // Create creature.
                 new_object = createCreature(action, param);
 
+                // Set coord new_object and check it.
                 new_object -> setCoords(actor -> getCoords() + new_center);
-                if (checkCoord(actor->getCoords() + new_center))
+                if (checkCoord(actor -> getShape()))
                 {
+                    // If all is OK, add new_object in world.
                     world -> addObject(true, new_object);
                     action.markAsSucceeded();
                 }
@@ -59,10 +65,16 @@ void CreationPerformer::perform(Action& action)
             {
                 if (type == RESOURCE)
                 {
+                    // Create new resource.
                     new_object = createResource(action, param);
+
+                    // Set coord new_object.
                     new_object -> setCoords(actor -> getCoords() + new_center);
+
+                    // If all is OK, add new_object in world.
                     world -> addObject(true, new_object);
 
+                    // Increase actor amount.
                     static_cast<Resource*>(actor) -> increaseAmount(1);
 
                     action.markAsSucceeded();
@@ -81,9 +93,11 @@ void CreationPerformer::perform(Action& action)
 */
             case BUILDING:
             {
+                // Create new resource.
                 new_object = createBuilding(action, param);
-                new_object -> setCoords(actor -> getCoords());
 
+                // Set coord new_object and add its in world.
+                new_object -> setCoords(actor -> getCoords());
                 world -> addObject(true, new_object);
 
                 action.markAsSucceeded();
@@ -101,13 +115,14 @@ void CreationPerformer::perform(Action& action)
     }
 }
 
-bool CreationPerformer::checkCoord(Point coord)
+bool CreationPerformer::checkCoord(Shape shape)
 {
     bool ret = false;
-    Shape ghost;
-    ghost.setCenter(coord);
 
-    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
+    // Get obstacles
+    ObjectHeap obstacles = indexator -> getAreaContents(shape);
+
+    //Check amount creature and resource in shape
     if (!obstacles.getTypeAmount(CREATURE) &&
         !obstacles.getTypeAmount(RESOURCE))
     {

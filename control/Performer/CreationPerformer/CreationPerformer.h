@@ -12,7 +12,6 @@
 #include "../../../model/World/Indexator/Indexator.h"
 #include "../../../model/World/Object/Object.h"
 #include "../../../common/ParamArray/ParamArray.h"
-#include "../../../model/Utilities/Point/Point.h"
 
 /**
  * @class CreationPerformer
@@ -53,24 +52,24 @@ private:
     //  ATTRIBUTES
     //**************************************************************************
 
-    /// The reference to worlds indexator
+    /// The pointer to worlds indexator
     Indexator* indexator;
 
-    /// The reference to world
+    /// The pointer to world
     World* world;
 
+    /// The pointer to world
     ObjectFactory* factory;
     //**************************************************************************
     // HELPER FUNCTIONS
     //**************************************************************************
 
     /**
-     * @brief check coordinate
-     * @param x
-     * @param y
+     * @brief Check coordinate
+     * @param shape
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(Point coord);
+    bool checkCoord(Shape shape);
 
     Object* createBuilding(Action& action, ParamArray& param);
 
