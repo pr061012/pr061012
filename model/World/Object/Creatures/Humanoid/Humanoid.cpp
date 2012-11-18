@@ -9,7 +9,6 @@
 #include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
-#include "../../Weather/Weather.h"
 #include "../../Resource/Resource.h"
 
 
@@ -202,7 +201,10 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == RUN_FROM_DANGER)
     {
+        if (aim == 0)
+        {
 
+        }
     }
     return &actions;
 }
@@ -235,28 +237,6 @@ void Humanoid::updateCommonAttrs()
 
     this -> common_steps = CREAT_STEPS;
     // TODO: func to calculate health, need in house and need in points
-}
-
-void Humanoid::updateSafety()
-{
-    ObjectHeap::const_iterator iter;
-    this -> safety = 0;
-    for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
-       )
-    {
-        Creature* creat = dynamic_cast<Creature*>(*iter);
-        this -> safety += creat -> getDangerLevel();
-    }
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        Weather* weath = dynamic_cast<Weather*>(*iter);
-        this -> safety += weath -> getDangerLevel();
-    }
 }
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
@@ -337,12 +317,13 @@ DetailedHumAction Humanoid:: chooseWayToEat()
     }
 }
 
-DetailedHumAction Humanoid:: chooseWayToSleep()
+DetailedHumAction Humanoid::chooseWayToSleep()
 {
-    if (
-            this -> getCoords().getDistance(this -> home -> getCoords()) <
-            SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
-       )
+    if
+    (
+        this -> getCoords().getDistance(this -> home -> getCoords()) <
+        SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
+    )
     {
         return SLEEP_AT_HOME;
     }
@@ -352,9 +333,16 @@ DetailedHumAction Humanoid:: chooseWayToSleep()
     }
 }
 
-DetailedHumAction Humanoid:: chooseWayToEscape()
+DetailedHumAction Humanoid::chooseWayToEscape()
 {
-
+    if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
+    {
+        return FIGHT;
+    }
+    else
+    {
+        return RUN_FROM_DANGER;
+    }
 }
 //******************************************************************************
 // HUMANOID'S LOGICS.

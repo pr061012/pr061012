@@ -4,7 +4,6 @@
 */
 
 #include <cstdlib>
-#include <cmath>
 
 #include "NonHumanoid.h"
 #include "../../Resource/Resource.h"
@@ -228,10 +227,6 @@ void NonHumanoid::updateCommonAttrs()
     this -> common_steps = CREAT_STEPS;
 }
 
-void NonHumanoid::updateSafety()
-{
-    ;
-}
 
 void NonHumanoid::findGrass()
 {

@@ -104,7 +104,6 @@ private:
     void updateAge();
     void updateCommonAttrs();
     void updateNeedInDesc();
-    void updateSafety();
 
     //**************************************************************************
     // HUMANOID'S LOGICS.
