@@ -14,51 +14,39 @@
 
 DecisionMaker::DecisionMaker(CreatureType type)
 {
-    std::ifstream some_matrix;
+    std::string matrix_path;
+
+    // Choosing matrix path.
+    switch (type)
+    {
+        case HUMANOID:     matrix_path = DM_PATH_TO_HUM_MATRIX;  break;
+        case NON_HUMANOID: matrix_path = DM_PATH_TO_NHUM_MATRIX; break;
+    }
+
+    // Trying to open file with matrix.
+    std::ifstream some_matrix(matrix_path);
+
+    if (some_matrix == NULL)
+    {
+        Log::ERROR("Cannot open file '" + matrix_path + "'.");
+        throw EInvalidResPath(matrix_path);
+    }
+
+    // Reading matrix from file.
     int a;
-    int i, j;
-    theta = arma::mat(ACT_CONST, ATR_CONST);
-
-    if (type == HUMANOID)
+    theta = arma::mat(DM_ACT_CONST, DM_ATR_CONST);
+    for (uint i = 0; i < DM_ATR_CONST; i++)
     {
-        some_matrix.open(PATH_TO_HUM_MATRIX);
-        if (some_matrix == NULL)
+        for (uint j = 0; j < DM_ACT_CONST; j++)
         {
-            Log::ERROR("Cannot open file '" + std::string(PATH_TO_HUM_MATRIX) + "'.");
-            throw EInvalidResPath(PATH_TO_HUM_MATRIX);
+            some_matrix >> a;
+            this -> theta(i, j) = a;
         }
-
-        for (i = 0; i < ATR_CONST; i++)
-            for (j = 0; j < ACT_CONST; j++)
-            {
-                some_matrix >> a;
-                this->theta(i,j) = a;
-            }
     }
-
-    if (type == NON_HUMANOID)
-    {
-        some_matrix.open(PATH_TO_NON_HUM_MATRIX);
-        if (some_matrix == NULL)
-        {
-            Log::ERROR("Cannot open file '" + std::string(PATH_TO_NON_HUM_MATRIX) + "'.");
-            throw EInvalidResPath(PATH_TO_NON_HUM_MATRIX);
-        }
-
-        for (i = 0; i < ATR_CONST; i++)
-            for (j = 0; j < ACT_CONST; j++ )
-            {
-                some_matrix >> a;
-                this->theta(i,j) = a;
-            }
-    }
-
-    some_matrix.close();
 }
 
 DecisionMaker::~DecisionMaker()
 {
-
 }
 
 //******************************************************************************
@@ -84,7 +72,7 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
         default:              return false; break;
     }
 
-    for (int i = 0; i < ACT_CONST; i++)
+    for (int i = 0; i < DM_ACT_CONST; i++)
     {
         if (act(i, 0) - act(index, 0) > CREAT_CRIT_CONST)
         {
@@ -98,28 +86,28 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
 CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 {
     std::vector <int> vect_of_actions;
-    int max = -1000;
-    CreatureAction decision = NONE;
-    int numb_of_decision;
-    arma::mat act = this -> theta * attrs;
-    act(7,0) += 550;
+    double max = -1000;
 
-    for(int i = 0; i < ACT_CONST; i++)
+    arma::mat act = this -> theta * attrs;
+    act(7, 0) += 550;
+
+    for(uint i = 0; i < act.size(); i++)
     {
-        if (act(i,0) == max)
+        if (act(i, 0) - max <= MATH_EPSILON)
         {
             vect_of_actions.push_back(i);
         }
 
-        if (act(i,0) > max)
+        if (act(i, 0) - max > MATH_EPSILON)
         {
-            max = act(i,0);
+            max = act(i, 0);
             vect_of_actions.clear();
             vect_of_actions.push_back(i);
         }
 
     }
-    
+
+    int numb_of_decision;
     if (vect_of_actions.size())
     {
         numb_of_decision = vect_of_actions[rand() % vect_of_actions.size()];
@@ -128,6 +116,8 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
     {
         numb_of_decision = 0;
     }
+
+    CreatureAction decision = NONE;
     switch(numb_of_decision)
     {
     case 0: decision = SLEEP; break;
@@ -143,4 +133,3 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 
     return decision;
 }
-

@@ -10,8 +10,17 @@ View::View(const IWorld& w)
 {
     initWindow();
 
-    view_world = new ViewWorld(w);
-    key_handler = new KeyHandler(this);
+    this -> view_world = new ViewWorld(w);
+    this -> key_handler = new KeyHandler(this);
+
+    this -> glc_context = glcGenContext();
+    glcContext(this -> glc_context);
+
+    this -> font = glcGenFontID();
+    glcNewFontFromMaster(this -> font, 0);
+
+    glcFont(this -> font);
+    glcScale(24.f, 24.f);
 }
 
 View::~View()
@@ -19,17 +28,19 @@ View::~View()
     delete view_world;
     delete key_handler;
 
+    glcDeleteFont(this -> font);
+
     glfwTerminate();
 }
 
 double View::getX()
 {
-    return view_world->getX();
+    return view_world -> getX();
 }
 
 double View::getY()
 {
-    return view_world->getY();
+    return view_world -> getY();
 }
 
 #ifdef __glfw3_h__
@@ -41,30 +52,70 @@ GLFWwindow View::getWindow()
 
 void View::setX(double new_var)
 {
-    view_world->setX(new_var);
+    view_world -> setX(new_var);
 }
 
 void View::setY(double new_var)
 {
     new_var = new_var > 0 ? new_var : 0;
-    view_world->setY(new_var);
+    view_world -> setY(new_var);
 }
+
+bool mouse_clicked = 0;
 
 void View::redraw()
 {
+    // Check for an update of window dimensions
+    glfwGetWindowSize(&this -> width,
+                      &this -> height);
+
     key_handler->handleKeys();
+
+    int mouse_x, mouse_y;
+    glfwGetMousePos(&mouse_x, &mouse_y);
+
+    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
+    double wy = view_world -> screenToWorldY(-((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
+
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
+    {
+        mouse_clicked = 1;
+
+        const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
+        if(selection.size()>0)
+        {
+            const Object* selected = selection.at(0);
+
+            std::cout << "=======  Coordinates  =========="
+                      << std::endl;
+            std::cout << "screen_center-world_x = " << this -> getX()
+                      << std::endl;
+            std::cout << "screen_center-world_y = " << this -> getY()
+                      << std::endl;
+            std::cout << "cursor-world_y = " << this -> getY()
+                      << std::endl;
+
+            std::cout << "=======Selected object=========="
+                      << std::endl;
+            std::cout << "type = " << selected -> getType()
+                      << std::endl;
+        }
+    }
+    else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
+    {
+        mouse_clicked = 0;
+    }
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
 
-    view_world->redraw();
+    view_world -> redraw();
 
 #ifdef VIEW_DEBUG
-    double xoff = view_world->getX();
-    double yoff = view_world->getY();
+    // In debug mode, draw a grid over the screen.
 
-    xoff /= VIEW_CAM_SIZE;
-    yoff /= VIEW_CAM_SIZE;
+    double xoff = view_world -> worldToScreenX(0.0);
+    double yoff = view_world -> worldToScreenY(0.0);
 
     xoff = (xoff - (int)xoff);
     yoff = (yoff - (int)yoff);
@@ -79,6 +130,12 @@ void View::redraw()
         glVertex2d( i - xoff,  10.0);
     }
     glEnd();
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
+    glcRenderString( (std::to_string(wx) + " " + std::to_string(wy)).c_str() );
 #endif
 
     glLoadIdentity();
@@ -97,12 +154,15 @@ void View::initWindow()
         Log::ERROR("Window initialized unsuccesfully.");
     }
 
+    glfwGetWindowSize(&this -> width,
+                      &this -> height);
+
     createContext();
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)VIEW_SCREEN_HEIGHT)/VIEW_SCREEN_WIDTH;
+    float aspect_ratio = ((float)height)/width;
 
     glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
@@ -111,8 +171,9 @@ void View::initWindow()
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
-    //glLoadIdentity();
+    glLoadIdentity();
 
+    glfwSwapBuffers();
 }
 
 bool View::continues()

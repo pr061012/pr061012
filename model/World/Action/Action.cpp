@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-Action::Action(const ActionType type, Object * actor) :
+Action::Action(const ActionType type, Object* actor) :
     type(type),
     actor(actor)
 {

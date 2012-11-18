@@ -3,12 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
-#include "Shape.h"
+#include <iostream>
 #include <cmath>
 
-#include <iostream>
-
-#define EPSILON 0.00000001
+#include "Shape.h"
+#include "../../../common/BasicDefines.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -110,7 +109,7 @@ bool Shape::hitTest (const Point& point) const
         case CIRCLE:
             // if a distance between a point and a circle center is less than
             // radius, return true
-            if (center.getDistance(point) - size/2 <= EPSILON)
+            if (center.getDistance(point) - size/2 <= MATH_EPSILON)
             {
                 return true;
             }
@@ -118,8 +117,8 @@ bool Shape::hitTest (const Point& point) const
 
         case SQUARE:
             // if a point lies nearer than sides of a square, return true
-            if (fabs(center.getY() - point.getY()) - size/2 <= EPSILON &&
-                fabs(center.getX() - point.getX()) - size/2 <= EPSILON)
+            if (fabs(center.getY() - point.getY()) - size/2 <= MATH_EPSILON &&
+                fabs(center.getX() - point.getX()) - size/2 <= MATH_EPSILON)
             {
                 return true;
             }

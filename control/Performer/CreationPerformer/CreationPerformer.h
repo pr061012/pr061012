@@ -8,8 +8,11 @@
 
 #include "../../../model/World/World.h"
 #include "../Performer.h"
+#include "../../../model/World/ObjectFactory/ObjectFactory.h"
 #include "../../../model/World/Indexator/Indexator.h"
 #include "../../../model/World/Object/Object.h"
+#include "../../../common/ParamArray/ParamArray.h"
+#include "../../../model/Utilities/Point/Point.h"
 
 /**
  * @class CreationPerformer
@@ -67,7 +70,7 @@ private:
      * @param y
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(double x, double y);
+    bool checkCoord(Point coord);
 
     Object* createBuilding(Action& action, ParamArray& param);
 

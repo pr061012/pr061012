@@ -6,9 +6,9 @@
 #include "CreationPerformer.h"
 #include "../../../common/BasicTypes.h"
 #include "../../../common/BasicDefines.h"
-#include "../../../model/World/ObjectFactory/ObjectFactory.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../common/Random/Random.h"
 
 CreationPerformer::CreationPerformer(World* world):
     indexator(world -> getIndexator()),
@@ -28,42 +28,48 @@ void CreationPerformer::perform(Action& action)
     Object* actor = action.getActor();
     Object* new_object;
     ObjectType type = actor -> getType();
+    double size = actor -> getShape().getSize();
 
     ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-
-    uint x = action.getParam<double>("x");
-    uint y = action.getParam<double>("y");
-
+    Point new_center(Random::double_range(size, 2*size), Random::double_range(size, 2*size));
     ParamArray param;
-    param.addKey<double>("x", x);
-    param.addKey<double>("y", y);
 
-    if (( type == RESOURCE || type == CREATURE ) && checkCoord(x, y))
+    if ( type == RESOURCE || type == CREATURE )
     {
         switch (obj_type)
         {
             case CREATURE:
             {
                 new_object = createCreature(action, param);
-                world -> addObject(true, new_object);
 
-                action.markAsSucceeded();
+                new_object -> setCoords(actor -> getCoords() + new_center);
+                if (checkCoord(actor->getCoords() + new_center))
+                {
+                    world -> addObject(true, new_object);
+                    action.markAsSucceeded();
+                }
+                else
+                {
+                    action.markAsFailed();
+                }
             }
             break;
 
             case RESOURCE:
             {
-                new_object = createResource(action, param);
-                world -> addObject(false, new_object);
                 if (type == RESOURCE)
                 {
-                    static_cast<Resource*>(actor) -> increaseAmount(1);
-                }
+                    new_object = createResource(action, param);
+                    new_object -> setCoords(actor -> getCoords() + new_center);
+                    world -> addObject(true, new_object);
 
-                action.markAsSucceeded();
+                    static_cast<Resource*>(actor) -> increaseAmount(1);
+
+                    action.markAsSucceeded();
+                }
             }
             break;
-
+/*
             case TOOL:
             {
                 new_object = createTool(action, param);
@@ -72,10 +78,12 @@ void CreationPerformer::perform(Action& action)
                 action.markAsSucceeded();
             }
             break;
-
+*/
             case BUILDING:
             {
                 new_object = createBuilding(action, param);
+                new_object -> setCoords(actor -> getCoords());
+
                 world -> addObject(true, new_object);
 
                 action.markAsSucceeded();
@@ -93,17 +101,15 @@ void CreationPerformer::perform(Action& action)
     }
 }
 
-bool CreationPerformer::checkCoord(double x, double y)
+bool CreationPerformer::checkCoord(Point coord)
 {
     bool ret = false;
     Shape ghost;
-    Point coord = Point(x, y);
-
     ghost.setCenter(coord);
 
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);
     if (!obstacles.getTypeAmount(CREATURE) &&
-        !obstacles.getTypeAmount(BUILDING))
+        !obstacles.getTypeAmount(RESOURCE))
     {
         ret = true;
     }

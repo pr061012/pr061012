@@ -21,10 +21,10 @@ ViewWorld::ViewWorld(const IWorld& w) :
         }
     }
 
-    x = 50.0;
-    y = 50.0;
+    this -> x = 50.0;
+    this -> y = 50.0;
 
-    frame = 0;
+    this -> frame = 0;
 }
 
 ViewWorld::~ViewWorld()
@@ -34,7 +34,7 @@ ViewWorld::~ViewWorld()
 
 void ViewWorld::loadTextures()
 {
-    texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
+    this -> texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
     (
         "res/rock.png",
         SOIL_LOAD_RGBA,
@@ -47,7 +47,7 @@ void ViewWorld::loadTextures()
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
-    texture_buf[1] = SOIL_load_OGL_texture
+    this -> texture_buf[1] = SOIL_load_OGL_texture
     (
         "res/tree.png",
         SOIL_LOAD_RGBA,
@@ -55,7 +55,7 @@ void ViewWorld::loadTextures()
         SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
     );
 
-    texture_buf[2] = SOIL_load_OGL_texture
+    this -> texture_buf[2] = SOIL_load_OGL_texture
     (
         "res/cow.png",
         SOIL_LOAD_RGBA,
@@ -68,14 +68,42 @@ void ViewWorld::loadTextures()
 
 void ViewWorld::redraw()
 {
-    renderBackground();
+    this -> renderBackground();
 
-    std::vector<Object*> objects = world.getViewObjectsInRange(x, y, VIEW_CAM_RADIUS);
+    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS);
 
     for(uint i=0; i < objects.size(); i++)
     {
-        renderObject(objects.at(i));
+        this -> renderObject(objects.at(i));
     }
+}
+
+
+const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
+{
+    return world.getViewObjectsInArea(x, y, VIEW_CURSOR_RAD);
+}
+
+double ViewWorld::worldToScreenX(double world_x)
+{
+    world_x -= this -> getX();
+    return world_x / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
+double ViewWorld::worldToScreenY(double world_y)
+{
+    world_y -= this -> getY();
+    return world_y / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
+double ViewWorld::screenToWorldX(double screen_x)
+{
+    return screen_x * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getX();
+}
+
+double ViewWorld::screenToWorldY(double screen_y)
+{
+    return screen_y * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getY();
 }
 
 double ViewWorld::getX()
@@ -99,38 +127,21 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
+    new_var = new_var > VIEW_CAM_RADIUS ?
+              new_var : VIEW_CAM_RADIUS;
     new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
               new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
     this -> y = new_var;
 }
 
-void ViewWorld::renderObject(Object* object)
+void ViewWorld::renderObject(const Object* object)
 {
     const Point &p = object -> getCoords();
 
-    double px = p.getX() - x;
-    double py = p.getY() - y;
-
-    px /= VIEW_CAM_RADIUS;
-    py /= VIEW_CAM_RADIUS;
-    px *= VIEW_CAM_SIZE;
-    py *= VIEW_CAM_SIZE;
-
-    // TODO: Redo image coordinates to be taken from (file?)
-    float x0;
-    float y0;
-    float x1;
-    float y1;
-
-    float x_sz;
-    float y_sz;
+    double px = this->worldToScreenX(p.getX());
+    double py = this->worldToScreenY(p.getY());
 
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
     switch(object -> getType())
     {
         case RESOURCE:
@@ -152,18 +163,31 @@ void ViewWorld::renderObject(Object* object)
 
     double angle;
     double radius = object->getShape().getSize()/2;
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     glBegin(GL_TRIANGLE_FAN);
-    for(int i = 0; i < 100; i++) {
-        angle = 2.0 * i * M_PI / 100;
-        glVertex2d((px + cos(angle) * radius),
-                   (py + sin(angle) * radius));
-    }
+        for(int i = 0; i < 100; i++) {
+            angle = 2.0 * i * M_PI / 100;
+            glVertex2d((px + cos(angle) * radius),
+                       (py + sin(angle) * radius));
+        }
     glEnd();
 
     glDisable(GL_BLEND);
 
     glColor4d(1.0,1.0,1.0,1.0);
 #else
+    // TODO: Redo image coordinates to be taken from (file?)
+    float x0;
+    float y0;
+    float x1;
+    float y1;
+
+    float x_sz;
+    float y_sz;
+
     if(object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
@@ -206,21 +230,22 @@ void ViewWorld::renderObject(Object* object)
 
 void ViewWorld::renderBackground()
 {
-    double px = x/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
-    double py = y/VIEW_CAM_RADIUS*VIEW_CAM_SIZE;
+#ifndef VIEW_DEBUG
+    double px = worldToScreenX( 0.0 );
+    double py = worldToScreenY( 0.0 );
 
-    py *= VIEW_ASPECT_RATIO;
+    //py *= VIEW_ASPECT_RATIO;
 
-    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
+    glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
 
     glEnable(GL_TEXTURE_2D);
 
     glBegin(GL_POLYGON);
-        glTexCoord2f(0.0  + px, py);
+        glTexCoord2f(px       , py);
         glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(16.0 + px, py);
+        glTexCoord2f(px + 16.0, py);
         glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(16.0 + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(px + 16.0, 16.0*VIEW_ASPECT_RATIO + py);
         glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
         glTexCoord2f(0.0  + px, 16.0*VIEW_ASPECT_RATIO + py);
         glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
@@ -229,4 +254,7 @@ void ViewWorld::renderBackground()
     glDisable(GL_TEXTURE_2D);
 
     glColor3f(1.0f, 1.0f, 1.0f);
+#else
+    glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
+#endif
 }

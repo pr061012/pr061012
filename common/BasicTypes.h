@@ -37,6 +37,9 @@ enum SpeedType
 /**
  * @enum ObjectType
  * @brief The ObjectType enum
+ *
+ *        *NOTE*: Don't forget to increase AMNT_OBJECT_TYPES while adding new
+ *                action types!
  */
 enum ObjectType
 {
@@ -131,10 +134,13 @@ enum CreatureType
 /**
  * @enum  ActionType
  * @brief The ActionType enum. In some cases there are ids in parameters. These
- *        ids denote index of object in participants array. *Example*: action
+ *        index denote index of object in participants array. *Example*: action
  *        MINE, actor is Humanoid, participants are Resource (index is 0) and
- *        Tool (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id
- *        (= 1).
+ *        Tool (PICKAXE) (index is 1), parameters are res_index (= 0) and
+ *        tool_index (= 1).
+ *
+ *        *NOTE*: Don't forget to increase AMNT_ACTION_TYPES while adding new
+ *                action types!
  */
 enum ActionType
 {
@@ -154,20 +160,20 @@ enum ActionType
     /// @brief Description:     Resource mining by tool. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Resource, Tool (PICKAXE) \n
-    ///        Parameters:      res_id (*uint*), tool_id (*uint*)
+    ///        Parameters:      res_index (*uint*), tool_index (*uint*)
     MINE_OBJ,
 
-    /// @brief Description:     Repair building. \n
-    ///        Actor:           Humanoid \n
-    ///        Participants:    Building, Tool \n
-    ///        Parameters:      building_id (*uint*), tool_id (*uint*)
-    REPAIR_OBJ,
+    /// @brief Description:     Regenerate object. \n
+    ///        Actor:           Humanoid/Resource \n
+    ///        Participants:    Object, Tool \n
+    ///        Parameters:      object_index (*uint*), tool_index (*uint*)
+    REGENERATE_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
     ///        Participants:    Tool (Creature only, optional),
     ///                         several objects \n
-    ///        Parameters:      tool_id (*uint*)
+    ///        Parameters:      tool_index (*uint*)
     HARM_OBJS,
 
     /// @brief Description:     Create object. \n
@@ -236,7 +242,8 @@ enum ActionError
     OBJ_IS_NOT_REPAIRABLE,
     OBJ_IS_NOT_MINEABLE,
     OBJ_IS_NOT_CREATABLE,
-    OBJ_IS_NOT_PICKABLE
+    OBJ_IS_NOT_PICKABLE,
+    AREA_IS_NOT_PASSABLE
 };
 
 /**

@@ -8,6 +8,8 @@
 
 #include <cstdlib>
 
+#include "../BasicDefines.h"
+
 /**
  * @brief Interface for getting pseudorandom numbers.
  *
@@ -38,8 +40,7 @@ public:
      */
     static double double_num(double top_boundary)
     {
-        // 1E-5 was chosen by fairly really random. I guarantee that.
-        if(top_boundary <= 1E-5)
+        if(top_boundary < MATH_EPSILON)
         {
             return 0;
         }

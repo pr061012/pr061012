@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include "Controller.h"
+
 #include "../Performer/TravelingPerformer/TravelingPerformer.h"
 #include "../Performer/CreationPerformer/CreationPerformer.h"
 #include "../Performer/HarmPerformer/HarmPerformer.h"
@@ -13,23 +15,22 @@
 #include "../Performer/MovementPerformer/MovementPerformer.h"
 #include "../Performer/PickupMaster/PickupMaster.h"
 #include "../../model/World/Action/Action.h"
-#include "Controller.h"
 #include "../../model/World/Object/Object.h"
 #include "../../model/World/Object/Weather/Weather.h"
 #include "../../model/World/Object/Creatures/Creature.h"
+#include "../../common/BasicDefines.h"
 
 Controller::Controller(World * world) :
     world(world)
 {
-    // FIXME: Dirty workaround.
-    performers.resize(20);
+    performers.resize(AMNT_ACTION_TYPES);
 
     performers[GO] = new TravelingPerformer(world -> getSize(),
                                                          world -> getIndexator());
     performers[CREATE_OBJ] = new CreationPerformer(world);
     performers[MINE_OBJ] = new MiningPerformer(*world -> getIndexator());
     performers[HARM_OBJS] = new HarmPerformer(*world -> getIndexator());
-    performers[REPAIR_OBJ] = new RegenerationPerformer();
+    performers[REGENERATE_OBJ] = new RegenerationPerformer(*world -> getIndexator());
     performers[DROP_OBJS] = new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = new PickupMaster(world);
     performers[EAT_OBJ] = new EatingPerformer(world);

@@ -4,8 +4,10 @@
 */
 
 #include "RegenerationPerformer.h"
+#include <vector>
 
-RegenerationPerformer::RegenerationPerformer()
+RegenerationPerformer::RegenerationPerformer(Indexator& indexator):
+    indexator(indexator)
 {
 
 }
@@ -18,11 +20,6 @@ RegenerationPerformer::~RegenerationPerformer()
 void RegenerationPerformer::perform(Action& action)
 {
     Object * actor = action.getActor();
-    int building_id = action.getParam<uint>("building_id");
-    int tool_id = action.getParam<uint>("tool_id");
+    std::vector<Object*> participants = action.getParticipants();
 
-    if (actor -> getType() != CREATURE)
-    {
-        action.markAsFailed();
-    }
 }

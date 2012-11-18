@@ -3,10 +3,10 @@
     See the LICENSE file for copying permission.
 */
 
-#include "Point.h"
 #include <cmath>
 
-#define EPSILON 0.00000001
+#include "Point.h"
+#include "../../../common/BasicDefines.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -57,7 +57,7 @@ Point Point::project(Point pt1, Point pt2) const
 {
     double length = pt1.getDistance(pt2);
     // if a line is not a line, project straight to the point
-    if (fabs(length) < EPSILON)
+    if (fabs(length) < MATH_EPSILON)
     {
         return pt1;
     }
@@ -80,8 +80,8 @@ double Point::scalarProduct(Point vec1, Point vec2)
 
 bool Point::equals(const Point& point) const
 {
-    return  (fabs(x - point.getX()) < EPSILON) &&
-            (fabs(y - point.getY()) < EPSILON);
+    return  (fabs(x - point.getX()) < MATH_EPSILON) &&
+            (fabs(y - point.getY()) < MATH_EPSILON);
 }
 
 //******************************************************************************

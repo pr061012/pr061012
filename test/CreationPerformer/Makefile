@@ -2,10 +2,10 @@
 CC          = g++
 CFLAGS      = -g -c -Wall -O2 -std=c++11 
 LFLAGS      =
-LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC
+LIBS        = -larmadillo -lGL -lSOIL -lglfw
 
 # Paths.
-INPUT_DIR   = ./
+INPUT_DIR   = ../../
 MODEL_DIR   = $(INPUT_DIR)model/
 CONTROL_DIR = $(INPUT_DIR)control/
 VIEW_DIR    = $(INPUT_DIR)view/
