@@ -81,7 +81,7 @@ void ViewWorld::redraw()
 
     for(uint i=0; i < objects.size(); i++)
     {
-        if(objects.at(i)->isDestroyed())
+        if(!objects.at(i)->isDestroyed())
         {
             this -> renderObject(objects.at(i));
         }
@@ -255,7 +255,7 @@ void ViewWorld::renderObject(const Object* object)
 
 void ViewWorld::renderBackground()
 {
-#ifdef VIEW_DEBUG
+#ifndef VIEW_DEBUG
     double px = worldToScreenX( 0.0 );
     double py = worldToScreenY( 0.0 );
 

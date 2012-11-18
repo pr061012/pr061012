@@ -16,6 +16,7 @@ View::View(const IWorld& w)
                       &this -> height);
 
     paused = false;
+    reset = false;
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height);
     this -> key_handler = new KeyHandler(this);
@@ -78,6 +79,16 @@ bool View::isPaused()
     return paused;
 }
 
+void View::setReset(bool reset)
+{
+    this -> reset = reset;
+}
+
+bool View::isReset()
+{
+    return this -> reset;
+}
+
 bool mouse_clicked = 0;
 
 void View::redraw()
@@ -96,10 +107,10 @@ void View::redraw()
     float x_koef = ((float)width ) / VIEW_SCREEN_WIDTH;
     float y_koef = ((float)height) / VIEW_SCREEN_HEIGHT;
 
-    glFrustum(-VIEW_CAM_SIZE * x_koef,
-               VIEW_CAM_SIZE * x_koef,
-              -VIEW_CAM_SIZE * aspect_ratio,
-               VIEW_CAM_SIZE * aspect_ratio, 1, 50);
+    glFrustum(-VIEW_CAM_SIZE / x_koef,
+               VIEW_CAM_SIZE / x_koef,
+              -VIEW_CAM_SIZE / y_koef * aspect_ratio,
+               VIEW_CAM_SIZE / y_koef * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
     // Handling screen presses
