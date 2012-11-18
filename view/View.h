@@ -60,6 +60,9 @@ class View
     /// Key handler for GUI
     KeyHandler* key_handler;
 
+    /// Indixates, whether world should be reset
+    bool reset;
+
     /// GLC context used to render text
     GLint glc_context;
     GLint font;
@@ -109,6 +112,15 @@ public:
      */
     void setPaused(bool new_state);
     bool isPaused();
+
+    /**
+     * @brief Sets variable, whether world should be reset
+     */
+    void setReset(bool reset);
+    /**
+     * @brief Returns boolean value, if world should be reset
+     */
+    bool isReset();
 
 #ifdef __glfw3_h__
     GLFWwindow getWindow();

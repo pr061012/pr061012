@@ -20,6 +20,10 @@ class ViewWorld
     /// World that is rendered by this class
     const IWorld& world;
 
+    /// Screen dimensions given by View
+    int width;
+    int height;
+
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
     /// required to get information about units that are not
@@ -34,8 +38,10 @@ public:
     /**
      * @brief Constructor
      * @param w world to render
+     * @param width width of screen to render
+     * @param height height of screen to render
      */
-    ViewWorld(const IWorld& w);
+    ViewWorld(const IWorld& w, const int& width, const int& height);
 
     /**
      * @brief Destructor
@@ -114,6 +120,11 @@ public:
     double getX();
     double getY();
     double getSize();
+
+    /**
+     * @brief changes current width and height attributes
+     */
+    void setDimensions(const int& width, const int& height);
 
     /**
      * @brief set coordinates of center of the game cam

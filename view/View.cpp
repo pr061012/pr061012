@@ -12,9 +12,13 @@ View::View(const IWorld& w)
 {
     initWindow();
 
-    paused = false;
+    glfwGetWindowSize(&this -> width,
+                      &this -> height);
 
-    this -> view_world = new ViewWorld(w);
+    paused = false;
+    reset = false;
+
+    this -> view_world = new ViewWorld(w, this -> width, this -> height);
     this -> key_handler = new KeyHandler(this);
 
     this -> glc_context = glcGenContext();
@@ -75,6 +79,16 @@ bool View::isPaused()
     return paused;
 }
 
+void View::setReset(bool reset)
+{
+    this -> reset = reset;
+}
+
+bool View::isReset()
+{
+    return this -> reset;
+}
+
 bool mouse_clicked = 0;
 
 void View::redraw()
@@ -83,10 +97,17 @@ void View::redraw()
     glfwGetWindowSize(&this -> width,
                       &this -> height);
 
+    // Tweak coordinate grid to correspond in screen dimension
+    // changes.
+
+    glViewport(0,0,width,height);
+
+    // Handling screen presses
+
     key_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0, 0, -2*VIEW_CAM_SIZE);
+    glTranslatef(0, 0, -1);
 
     view_world -> redraw();
 
@@ -112,16 +133,22 @@ void View::redraw()
         const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
         if(selection.size() > 0)
         {
-            const Object* selected = selection.at(0);
+            std::cout << "=======Selection stats=========="
+                      << std::endl;
 
-            std::cout << "=======Selected object=========="
-                      << std::endl;
-            std::cout << "type = " << selected -> getType()
-                      << std::endl;
-            std::cout << "x = " << selected -> getCoords().getX()
-                      << std::endl;
-            std::cout << "y = " << selected -> getCoords().getY()
-                      << std::endl;
+            for(uint i = 0; i < selection.size(); ++i)
+            {
+                const Object* selected = selection.at(i);
+
+                std::cout << "=======Selected object=========="
+                          << std::endl;
+                std::cout << "type = " << selected -> getType()
+                          << std::endl;
+                std::cout << "x = " << selected -> getCoords().getX()
+                          << std::endl;
+                std::cout << "y = " << selected -> getCoords().getY()
+                          << std::endl;
+            }
         }
 
         mouse_clicked = 0;
@@ -188,9 +215,7 @@ void View::redraw()
 void View::initWindow()
 {
     glfwInit();
-//    glfwWindowHint(GLFW_DEPTH_BITS, 16);
-//    if(!(this -> window = glfwCreateWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT,
-//                         GLFW_WINDOWED, "Project", NULL)))
+
     if (!createWindow(VIEW_SCREEN_WIDTH, VIEW_SCREEN_HEIGHT))
     {
         glfwTerminate();
@@ -207,14 +232,17 @@ void View::initWindow()
 
     float aspect_ratio = ((float)height)/width;
 
-    glFrustum(-.5, .5, -.5 * aspect_ratio, .5 * aspect_ratio, 1, 50);
+    glFrustum(-VIEW_CAM_SIZE,
+               VIEW_CAM_SIZE,
+              -VIEW_CAM_SIZE * aspect_ratio,
+               VIEW_CAM_SIZE * aspect_ratio, 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
     glfwSetWindowTitle("Project 0612");
 
     // needed for making OpenGl context, so glGetString does not return
     // NULL and SOIL funcs don't corrupt memory
-    glLoadIdentity();
+    // glLoadIdentity();
 
     glfwSwapBuffers();
 }
