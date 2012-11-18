@@ -63,10 +63,17 @@ void TravelingPerformer::perform(Action& action)
     ObjectHeap obstacles = indexator -> getAreaContents(ghost);
 
     // Nothing can stop weather, and creature can't stop itself
-    if (actor -> getType() == WEATHER || 
-        ((obstacles.getTypeAmount(CREATURE) == 1 && *obstacles.begin() == actor
-         || !obstacles.getTypeAmount(CREATURE))
-        && !obstacles.getTypeAmount(BUILDING)))
+    if
+    (
+        actor -> getType() == WEATHER ||
+        (
+            (
+                (obstacles.getTypeAmount(CREATURE) == 1 &&*obstacles.begin() == actor) ||
+                !obstacles.getTypeAmount(CREATURE)
+            ) &&
+            !obstacles.getTypeAmount(BUILDING)
+        )
+    )
     {
         actor -> setCoords(dest);
         indexator -> reindexate(actor);
