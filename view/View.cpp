@@ -86,8 +86,11 @@ void View::redraw()
     int mouse_x, mouse_y;
     glfwGetMousePos(&mouse_x, &mouse_y);
 
-    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
-    double wy = view_world -> screenToWorldY(-((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
+     // Handling way of down-to-up openGL coordinates
+    mouse_y = height - mouse_y;
+
+    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2 );
+    double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 );
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
