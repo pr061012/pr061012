@@ -49,7 +49,7 @@ public:
      * @param size size of side of square of generated world.
      * @param generate_creatures flag indicating whether to generate creatures or not
      */
-    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_creatures = true);
+    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_objects = true);
 
     //**************************************************************************
     // BASE METHODS.

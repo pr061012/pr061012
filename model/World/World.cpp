@@ -44,7 +44,7 @@ World::World(std::string filepath) :
 
 }
 
-World::World(int rand_seed, int size, bool generate_creatures) :
+World::World(int rand_seed, int size, bool generate_objects) :
     size(size > 0 ? size : DEFAULT_SIZE),
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
@@ -63,7 +63,7 @@ World::World(int rand_seed, int size, bool generate_creatures) :
 
     indexator = new Indexator((double)this->size);
 
-    if(generate_creatures)
+    if(generate_objects)
     {
         // Creating resources
         ParamArray food_params;
