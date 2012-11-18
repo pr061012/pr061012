@@ -25,17 +25,9 @@ int main()
     try
     {
         // Creating World, View and Controller.
-        World world(rand(), SZ_WORLD_HSIDE, false);
+        World world(rand(), SZ_WORLD_HSIDE);
         Controller control(&world);
         View view(world);
-
-        ParamArray food_params;
-        food_params.addKey<ResourceType>("res_type", RES_FOOD);
-        food_params.addKey<uint>("res_amount", 10);
-
-        Object* new_obj = world.getObjectFactory()->createObject(RESOURCE, food_params);
-        new_obj -> setCoords(Point(50.0,50.0));
-        world.addObject(true, new_obj);
 
         int t0 = clock();
 
@@ -44,7 +36,10 @@ int main()
             if(clock() - t0 > PERIOD)
             {
                 t0 += PERIOD;
-                control.step();
+                if(!view.isPaused())
+                {
+                    control.step();
+                }
                 view.redraw();
             }
         } while(view.continues());
