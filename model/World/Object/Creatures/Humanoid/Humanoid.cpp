@@ -354,7 +354,14 @@ DetailedHumAction Humanoid:: chooseWayToSleep()
 
 DetailedHumAction Humanoid:: chooseWayToEscape()
 {
-
+    if (force > 50 && bravery > 50 || force > 80 || bravery > 80)
+    {
+        return FIGHT;
+    }
+    else
+    {
+        return RUN_FROM_DANGER;
+    }
 }
 //******************************************************************************
 // HUMANOID'S LOGICS.
