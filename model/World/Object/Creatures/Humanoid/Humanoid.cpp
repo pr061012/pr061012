@@ -31,6 +31,9 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     this -> setShapeType(SHP_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
 
+    // Create visual_memory
+    visual_memory = new ObjectHeap();
+
     // TODO: Randomly initialize humanoid's name.
     name = "Name";
 
@@ -61,7 +64,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
 
 Humanoid::~Humanoid()
 {
-
+    delete visual_memory;
 }
 
 std::vector <Action>* Humanoid::getActions()
