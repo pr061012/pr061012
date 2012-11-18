@@ -33,6 +33,7 @@ void EatingPerformer::perform(Action& action)
     if (actor_type != CREATURE)
     {
         action.markAsFailed();
+        action.setError(OBJ_CANT_EAT);
         return;
     }
 
@@ -42,6 +43,7 @@ void EatingPerformer::perform(Action& action)
     if (participants.size() > 1)
     {
         action.markAsFailed();
+        action.setError(TOO_MANY_PARTICIPANTS);
         return;
     }
 
@@ -51,6 +53,7 @@ void EatingPerformer::perform(Action& action)
     if (food -> getType() == RESOURCE) 
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_NOT_EATABLE);
         return;
     }
 
@@ -73,6 +76,7 @@ void EatingPerformer::perform(Action& action)
     }
     if (action.isFailed())
     {
+        action.setError(OBJ_IS_NOT_EATABLE);
         return;
     }
      
