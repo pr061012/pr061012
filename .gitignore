@@ -3,6 +3,6 @@ model/*
 test/*
 view/*
 log/*
-
+doxygen/*
 LOG
 
