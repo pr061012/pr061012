@@ -40,6 +40,12 @@ public:
     //**************************************************************************
 
     /**
+     * @brief Get subtype
+     * @return creature subtype
+     */
+    CreatureType getSubtype();
+
+    /**
      * @brief Set the value of creature's window.
      * @param window    the new value of window
      */
@@ -49,7 +55,7 @@ public:
      * @brief  Get the value of creature's window.
      * @return the window
      */
-    ObjectHeap * getObjectsAround();
+    ObjectHeap* getObjectsAround();
 
     /**
      * @brief Set the value of view_area.
