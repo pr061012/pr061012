@@ -167,7 +167,7 @@ void ViewWorld::renderObject(const Object* object)
     }
 
     double angle;
-    double radius = object->getShape().getSize()/2 / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+    double radius = this -> worldToScreenDist(object->getShape().getSize()/2);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
