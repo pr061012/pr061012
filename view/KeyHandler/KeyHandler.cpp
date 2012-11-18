@@ -43,6 +43,10 @@ void KeyHandler::handleKeys()
         {
             view -> setPaused(!view -> isPaused());
         }
+        if(glfwGetKey('R') && key_was_pressed['R'] == false)
+        {
+            view -> setReset(true);
+        }
 
         for(int i = 0; i < GLFW_KEY_LAST; ++i)
         {

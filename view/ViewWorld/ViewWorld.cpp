@@ -12,7 +12,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w) :
+ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
     world(w)
 {
     loadTextures();
@@ -29,6 +29,9 @@ ViewWorld::ViewWorld(const IWorld& w) :
     this -> y = 50.0;
 
     this -> frame = 0;
+
+    this -> width = width;
+    this -> height = height;
 }
 
 ViewWorld::~ViewWorld()
@@ -78,7 +81,10 @@ void ViewWorld::redraw()
 
     for(uint i=0; i < objects.size(); i++)
     {
-        this -> renderObject(objects.at(i));
+        if(!objects.at(i)->isDestroyed())
+        {
+            this -> renderObject(objects.at(i));
+        }
     }
 }
 
@@ -253,7 +259,7 @@ void ViewWorld::renderBackground()
     double px = worldToScreenX( 0.0 );
     double py = worldToScreenY( 0.0 );
 
-    //py *= VIEW_ASPECT_RATIO;
+    py *= height/width;
 
     glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
 
@@ -276,4 +282,10 @@ void ViewWorld::renderBackground()
 #else
     glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
 #endif
+}
+
+void ViewWorld::setDimensions(const int &width, const int &height)
+{
+    this -> width  = width;
+    this -> height = height;
 }
