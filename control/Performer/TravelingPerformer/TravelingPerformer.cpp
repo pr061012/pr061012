@@ -8,6 +8,7 @@
 
 #include "TravelingPerformer.h"
 #include "../../../common/BasicDefines.h"
+#include "../../../common/Log/Log.h"
 
 TravelingPerformer::TravelingPerformer(const double world_size, 
                                      Indexator* indexator) :
@@ -29,6 +30,7 @@ void TravelingPerformer::perform(Action& action)
     if (actor_type != CREATURE && actor_type != WEATHER)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_NOT_MOVEABLE);
         return;
     }
 
@@ -47,40 +49,56 @@ void TravelingPerformer::perform(Action& action)
             break;
 
     }
-    Point dest = actor -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
+    Vector origin = actor -> getCoords();
+    Vector dest = origin + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
     if (dest.getX() < 0 || dest.getX() >= world_size || 
         dest.getY() < 0 || dest.getY() >= world_size)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
-    // Try to place an object and see if it collides with anything
-    Shape ghost = actor -> getShape();
-    ghost.setCenter(dest);
-    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
+    // place an object
+    actor -> setCoords(dest);
 
-    // Nothing can stop weather, and creature can't stop itself
-    if
-    (
-        actor -> getType() == WEATHER ||
-        (
-            (
-                (obstacles.getTypeAmount(CREATURE) == 1 &&*obstacles.begin() == actor) ||
-                !obstacles.getTypeAmount(CREATURE)
-            ) &&
-            !obstacles.getTypeAmount(BUILDING)
-        )
-    )
+    // Nothing can stop weather
+    if (actor -> getType() == WEATHER)
     {
-        actor -> setCoords(dest);
-        indexator -> reindexate(actor);
         action.markAsSucceeded();
+        indexator -> reindexate(actor);
+        return;
     }
     else
     {
-        action.markAsFailed();
+        action.markAsSucceeded();
+
+        // Look for all the obstacles and check if actor collides
+        // with anything
+        ObjectHeap obstacles = indexator -> getAreaContents(actor -> getShape());
+        for (ObjectHeap::iterator i = obstacles.begin();
+             i != obstacles.end(); i++)
+        {
+            if ((*i) -> isSolid() && (*i) != actor)
+            {
+                action.markAsFailed();
+                break;
+            }
+        }
+
+        // if everything is ok, reindexate actor
+        if (!action.isFailed())
+        {
+            indexator -> reindexate(actor);
+            return;
+        }
+
     }
+
+    // roll back if something wrong
+    actor -> setCoords(origin);
+    action.setError(OBJ_IS_STUCK);
+    action.markAsFailed();
 }

@@ -19,6 +19,7 @@
 #include "../../model/World/Object/Weather/Weather.h"
 #include "../../model/World/Object/Creatures/Creature.h"
 #include "../../common/BasicDefines.h"
+#include "../../common/Log/Log.h"
 
 Controller::Controller(World * world) :
     world(world)
@@ -94,6 +95,7 @@ void Controller::step()
                     world -> getIndexator() -> getAreaContents(
                         dynamic_cast<Weather*>(object) -> getShape()));
             }
+
         }
     }
 }

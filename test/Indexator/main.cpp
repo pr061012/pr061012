@@ -12,7 +12,7 @@ public:
     testObject() : Object(CREATURE)
     {
     }
-    testObject(Point center, Shape shape) : Object(CREATURE)
+    testObject(Vector center, Shape shape) : Object(CREATURE)
     {
         setCoords(center);
         setShapeSize(shape.getSize());
@@ -28,6 +28,14 @@ public:
     void damage(uint a){};
     void heal(uint b){};
     void receiveMessage(Action *){}
+    uint getHealthPoints() const
+    {
+        return 0; 
+    }
+    uint getMaxHealthPoints() const
+    {
+        return 0;
+    }
 
 };
 
@@ -50,13 +58,13 @@ int main()
     // Create a heap and a vector
     ObjectHeap heap;
     vector<testObject *> vec;
-    Shape form(Point(0,0), SQUARE, 80);
+    Shape form(Vector(0,0), SQUARE, 80);
     for (int i = 0; i < 10; i++)
     {
         // Create objects on a cross
-        vec.push_back(new testObject(Point(i * 100 + 50, i * 100 + 50),
+        vec.push_back(new testObject(Vector(i * 100 + 50, i * 100 + 50),
                                 form));
-        vec.push_back(new testObject(Point(i * 100 + 50, 1000 - i * 100 - 50),
+        vec.push_back(new testObject(Vector(i * 100 + 50, 1000 - i * 100 - 50),
                                 form));
         heap.push(vec[i * 2]);
         heap.push(vec[i * 2 + 1]);
@@ -66,7 +74,7 @@ int main()
     Indexator index(1000, &heap);
 
     // Create an area for looking for objects
-    Shape area(Point(500, 500), CIRCLE, 400);
+    Shape area(Vector(500, 500), CIRCLE, 400);
 
     // Get contents
     ObjectHeap contents = index.getAreaContents(area);
@@ -92,7 +100,7 @@ int main()
         assert(find(contents, vec[i]));
     }
 
-    area.setCenter(Point(250, 750));
+    area.setCenter(Vector(250, 750));
     
     contents = index.getAreaContents(area);
 
@@ -102,6 +110,13 @@ int main()
     {
         assert(find(contents, vec[i]));
     }
+
+    // borders of worlds
+    area.setCenter(Vector(0, 0));
+    contents = index.getAreaContents(area);
+
+    assert(contents.getAmount() == 1);
+    assert(find(contents, vec[0]));
     
     //*************************************************************************
     // move objects a little bit so they don't chnage their cells, 
@@ -110,7 +125,7 @@ int main()
     
     for (int i = 0; i < 20; i++)
     {
-        vec[i] -> setCoords(vec[i] -> getCoords() + Point (10, 10));
+        vec[i] -> setCoords(vec[i] -> getCoords() + Vector (10, 10));
         index.reindexate(vec[i]);
     }
 
@@ -118,7 +133,7 @@ int main()
     //
     
     area.setSize(400);
-    area.setCenter(Point(500, 500));
+    area.setCenter(Vector(500, 500));
 
     // Get contents
     
@@ -143,7 +158,7 @@ int main()
     }
     assert(find(contents, vec[6]));
 
-    area.setCenter(Point(250, 750));
+    area.setCenter(Vector(250, 750));
     
     contents = index.getAreaContents(area);
 
@@ -165,50 +180,50 @@ int main()
     vec.clear();
 
     form.setSize(100);
-    vec.push_back(new testObject(Point(300, 300), form));
+    vec.push_back(new testObject(Vector(300, 300), form));
     Indexator index1(1000);
     index1.reindexate(vec[0]);
 
     area.setSize(100);
-    area.setCenter(Point(200, 200));
+    area.setCenter(Vector(200, 200));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
     
-    area.setCenter(Point(220, 220));
+    area.setCenter(Vector(220, 220));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
     
     
-    area.setCenter(Point(400, 400));
+    area.setCenter(Vector(400, 400));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
     
-    area.setCenter(Point(380, 380));
+    area.setCenter(Vector(380, 380));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
 
     
-    area.setCenter(Point(200, 400));
+    area.setCenter(Vector(200, 400));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
     
-    area.setCenter(Point(220, 380));
+    area.setCenter(Vector(220, 380));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
 
     
-    area.setCenter(Point(400, 200));
+    area.setCenter(Vector(400, 200));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 0);
 
     
-    area.setCenter(Point(380, 220));
+    area.setCenter(Vector(380, 220));
     contents = index1.getAreaContents(area);
     assert(contents.getTypeAmount(ObjectType(-1)) == 1);
     assert(find(contents, vec[0]));
@@ -217,10 +232,10 @@ int main()
     // Testing moving objects
     //*************************************************************************
 
-    area.setCenter(Point(500, 500));
+    area.setCenter(Vector(500, 500));
     area.setSize(600);
-    vec.push_back(new testObject(Point(700, 1000), form));
-    vec.push_back(new testObject(Point(500, 400), form));
+    vec.push_back(new testObject(Vector(700, 1000), form));
+    vec.push_back(new testObject(Vector(500, 400), form));
 
     ObjectHeap heap1;
     heap1.push(vec[0]);
@@ -234,10 +249,10 @@ int main()
          * #1 goes on the circle (x = 700, y = 800, r = 200)
          * #2 goes on the parabola y = (500 - x)^2 / 100 + 400
          */
-        vec[0] -> setCoords(Point(t, 500));
-        vec[1] -> setCoords(Point(700 + cos(t) * 200, 700 + sin(t) * 200));
+        vec[0] -> setCoords(Vector(t, 500));
+        vec[1] -> setCoords(Vector(700 + cos(t) * 200, 700 + sin(t) * 200));
         // this also checks world for cycling :)
-        vec[2] -> setCoords(Point(t * 0.4 + 200,
+        vec[2] -> setCoords(Vector(t * 0.4 + 200,
                                  -pow((t * 0.4 + 200) - 500, 2) / 100 + 400));
         
         index1.reindexate(&heap1);
@@ -273,28 +288,28 @@ int main()
     form.setSize(90);
 
     // 0 - 3 near corners
-    vec.push_back(new testObject(Point( 50,  50), form));
-    vec.push_back(new testObject(Point( 50, 950), form));
-    vec.push_back(new testObject(Point(950, 950), form));
-    vec.push_back(new testObject(Point(950,  50), form));
+    vec.push_back(new testObject(Vector( 50,  50), form));
+    vec.push_back(new testObject(Vector( 50, 950), form));
+    vec.push_back(new testObject(Vector(950, 950), form));
+    vec.push_back(new testObject(Vector(950,  50), form));
 
     // 4 - 7 near middle of the bounds
-    vec.push_back(new testObject(Point(500,  50), form));
-    vec.push_back(new testObject(Point( 50, 500), form));
-    vec.push_back(new testObject(Point(500, 950), form));
-    vec.push_back(new testObject(Point(950, 500), form));
+    vec.push_back(new testObject(Vector(500,  50), form));
+    vec.push_back(new testObject(Vector( 50, 500), form));
+    vec.push_back(new testObject(Vector(500, 950), form));
+    vec.push_back(new testObject(Vector(950, 500), form));
 
     // 8 - 11 intersect corners
-    vec.push_back(new testObject(Point(  0,   0), form));
-    vec.push_back(new testObject(Point(  0, 999), form));
-    vec.push_back(new testObject(Point(999, 999), form));
-    vec.push_back(new testObject(Point(999,   0), form));
+    vec.push_back(new testObject(Vector(  0,   0), form));
+    vec.push_back(new testObject(Vector(  0, 999), form));
+    vec.push_back(new testObject(Vector(999, 999), form));
+    vec.push_back(new testObject(Vector(999,   0), form));
 
     // 12 - 15 intersect bounds
-    vec.push_back(new testObject(Point(500,   0), form));
-    vec.push_back(new testObject(Point(  0, 500), form));
-    vec.push_back(new testObject(Point(500, 999), form));
-    vec.push_back(new testObject(Point(999, 500), form));
+    vec.push_back(new testObject(Vector(500,   0), form));
+    vec.push_back(new testObject(Vector(  0, 500), form));
+    vec.push_back(new testObject(Vector(500, 999), form));
+    vec.push_back(new testObject(Vector(999, 500), form));
     
     ObjectHeap heap2;
     for (std::vector<testObject*>::iterator i = vec.begin();
@@ -310,28 +325,28 @@ int main()
     // check corners
     *************************************************************************
 
-    area.setCenter(Point(100, 100));
+    area.setCenter(Vector(100, 100));
     contents = index1.getAreaContents(area);
     assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[0]));
 
-    area.setCenter(Point(100, 900));
+    area.setCenter(Vector(100, 900));
     contents = index1.getAreaContents(area);
     assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[1]));
     
-    area.setCenter(Point(900, 900));
+    area.setCenter(Vector(900, 900));
     contents = index1.getAreaContents(area);
     assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));
     assert(find(contents, vec[9]) && find(contents, vec[10]));
     assert(find(contents, vec[2]));
 
-    area.setCenter(Point(900, 100));
+    area.setCenter(Vector(900, 100));
     contents = index1.getAreaContents(area);
     assert(contents.getAmount() == 5);
     assert(find(contents, vec[11]) && find(contents, vec[8]));

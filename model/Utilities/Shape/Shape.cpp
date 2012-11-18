@@ -13,7 +13,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Shape::Shape (Point center, int type, double size )
+Shape::Shape (Vector center, int type, double size )
 {
     this -> type = (ShapeType) type;
     this -> center = center;
@@ -34,13 +34,13 @@ Shape::~Shape ()
 // ACCESSORS.
 //******************************************************************************
 
-void Shape::setCenter ( Point new_var )
+void Shape::setCenter ( Vector new_var )
 {
     last_center = center;
     center = new_var;
 }
 
-const Point& Shape::getCenter ( ) const
+const Vector& Shape::getCenter ( ) const
 {
     return center;
 }
@@ -76,23 +76,23 @@ void Shape::computeCorners()
     switch(type)
     {
         case CIRCLE: case SQUARE:
-            left_bottom = Point(-size/2, -size/2);
+            left_bottom = Vector(-size/2, -size/2);
             right_top = -left_bottom;
             break;
     }
 }
 
-Point Shape::getLeftBottom() const
+Vector Shape::getLeftBottom() const
 {
     return center + left_bottom;
 }
 
-Point Shape::getRightTop() const
+Vector Shape::getRightTop() const
 {
     return center + right_top;
 }
 
-Point Shape::getLastCenter()
+Vector Shape::getLastCenter()
 {
     return last_center;
 }
@@ -101,24 +101,24 @@ Point Shape::getLastCenter()
 // HIT-TEST METHODS.
 //******************************************************************************
 
-// checks hittest with a point
-bool Shape::hitTest (const Point& point) const
+// checks hittest with a vector
+bool Shape::hitTest (const Vector& vector) const
 {
     switch(type)
     {
         case CIRCLE:
-            // if a distance between a point and a circle center is less than
+            // if a distance between a vector and a circle center is less than
             // radius, return true
-            if (center.getDistance(point) - size/2 <= MATH_EPSILON)
+            if (center.getDistance(vector) - size/2 <= MATH_EPSILON)
             {
                 return true;
             }
             break;
 
         case SQUARE:
-            // if a point lies nearer than sides of a square, return true
-            if (fabs(center.getY() - point.getY()) - size/2 <= MATH_EPSILON &&
-                fabs(center.getX() - point.getX()) - size/2 <= MATH_EPSILON)
+            // if a vector lies nearer than sides of a square, return true
+            if (fabs(center.getY() - vector.getY()) - size/2 <= MATH_EPSILON &&
+                fabs(center.getX() - vector.getX()) - size/2 <= MATH_EPSILON)
             {
                 return true;
             }
@@ -161,20 +161,20 @@ bool Shape::hitTest (const Shape& shape) const
                 // if a corner of one square lies inside another square,
                 // return true (this way won't work for abstract rectangles)
                 case SQUARE:
-                    Point lb = getLeftBottom();
+                    Vector lb = getLeftBottom();
                     if (shape.hitTest(lb))
                     {
                         return true;
                     }
 
-                    Point rt = getRightTop();
+                    Vector rt = getRightTop();
                     if (shape.hitTest(rt))
                     {
                         return true;
                     }
 
-                    Point lt = (Point(lb.getX(), rt.getY()));
-                    Point rb = Point(rt.getX(), lb.getY());
+                    Vector lt = (Vector(lb.getX(), rt.getY()));
+                    Vector rb = Vector(rt.getX(), lb.getY());
 
                     if (shape.hitTest(lt) ||
                         shape.hitTest(rb))
@@ -194,8 +194,8 @@ bool Shape::hitTest (const Shape& shape) const
                         return true;
                     }
 
-                    lt = (Point(lb.getX(), rt.getY()));
-                    rb = Point(rt.getX(), lb.getY());
+                    lt = (Vector(lb.getX(), rt.getY()));
+                    rb = Vector(rt.getX(), lb.getY());
 
                     if (this -> hitTest(lt) ||
                         this -> hitTest(rb))
@@ -212,10 +212,10 @@ bool Shape::hitTest (const Shape& shape) const
 // hittest of square and circle
 bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
 {
-    Point lb = square.getLeftBottom();
-    Point rt = square.getRightTop();
-    Point lt = Point(lb.getX(), rt.getY());
-    Point rb = Point(rt.getX(), lb.getY());
+    Vector lb = square.getLeftBottom();
+    Vector rt = square.getRightTop();
+    Vector lt = Vector(lb.getX(), rt.getY());
+    Vector rb = Vector(rt.getX(), lb.getY());
 
     // a square can have circle's center inside
     if (square.hitTest(circle.getCenter()))
@@ -236,26 +236,26 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
 }
 
 // check if a circle intersects segment
-bool Shape::circleOverlapsSegment(Shape shape, Point pt1, Point pt2) const
+bool Shape::circleOverlapsSegment(Shape shape, Vector pt1, Vector pt2) const
 {
-    Point project = shape.getCenter().project(pt1, pt2);
+    Vector project = shape.getCenter().project(pt1, pt2);
 
     // check if sement line is closer than radius and if 
     // one of the segments end lie inside a shape or
     // if a segment crosses circle with ends outside
     return (shape.getCenter().getDistanceToLine(pt1, pt2) < shape.getSize()/2)
             && (shape.hitTest(pt1) || shape.hitTest(pt2) ||
-                Point::scalarProduct(pt2 - project, pt1 - project) < 0);
+                Vector::scalarProduct(pt2 - project, pt1 - project) < 0);
 }
 
 // Calculates intersections
 int Shape::intersect(const Shape& shape)
 {
     // copy data
-    Point this_lb = this -> getLeftBottom();
-    Point this_rt = this -> getRightTop();
-    Point shape_lb = shape.getLeftBottom();
-    Point shape_rt = shape.getRightTop();
+    Vector this_lb = this -> getLeftBottom();
+    Vector this_rt = this -> getRightTop();
+    Vector shape_lb = shape.getLeftBottom();
+    Vector shape_rt = shape.getRightTop();
 
     double x1 = this_lb.getX();
     double y1 = this_lb.getY();

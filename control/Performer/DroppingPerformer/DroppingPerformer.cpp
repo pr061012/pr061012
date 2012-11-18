@@ -41,11 +41,12 @@ void DroppingPerformer::perform(Action& action)
     if (actor_type != CREATURE)
     {
         action.markAsFailed();
+        action.setError(OBJ_CANT_DROP);
         return;
     }
 
     // continue getting data
-    Point dest = actor -> getCoords();
+    Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
     ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
 
@@ -62,6 +63,7 @@ void DroppingPerformer::perform(Action& action)
         if (object == inventory -> end())
         {
             errors = true;
+            action.setError(OBJ_IS_NOT_IN_HEAP);
         }
         else 
         {

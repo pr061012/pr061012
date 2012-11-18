@@ -38,11 +38,12 @@ void PickupMaster::perform(Action& action)
     if (actor_type != CREATURE)
     {
         action.markAsFailed();
+        action.setError(OBJ_CANT_PICKUP);
         return;
     }
 
     // continue getting data
-    Point dest = actor -> getCoords();
+    Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
     ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
 
@@ -51,7 +52,7 @@ void PickupMaster::perform(Action& action)
     // check if creature can have enough place to pickup
     //*************************************************************************
     bool errors = false;
-    bool success = true;
+    bool success = false;
     // go through all objects in participants and put them in inventory
     for (ObjectHeap::iterator j = participants.begin(); 
             j != participants.end(); j++) 
@@ -60,6 +61,7 @@ void PickupMaster::perform(Action& action)
             (*j) -> getType() != TOOL) 
         {
             errors = true;
+            action.setError(OBJ_IS_NOT_PICKABLE);
         }
         else
         {

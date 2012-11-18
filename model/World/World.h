@@ -138,7 +138,7 @@ public:
     //******************************************************************************
 
     /**
-     * @brief Get objects visible in square region of certain size at certain point.
+     * @brief Get objects visible in square region of certain size at certain vector.
      * @param x x coordinate of screen center
      * @param y y coordinate of screen center
      * @param size maximal distance from screen center at which object is visible

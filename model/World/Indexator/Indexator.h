@@ -117,12 +117,12 @@ private:
     /**
      * @brief   Returns the minimum of two uints.
      */
-    uint min (uint a, uint b);
+    int min (int a, int b);
 
     /**
      * @brief   Returns maximum of two uints.
      */
-    uint max (uint a, uint b);
+    int max (int a, int b);
 
     /**
      * @brief   Returns cells within which the shape lies
@@ -137,7 +137,7 @@ private:
      * @param   coordinate
      * @return  index of coordinate
      */
-    uint getRow(double coordinate);
+    int getRow(double coordinate);
 
     /**
      * @brief   Initialize index

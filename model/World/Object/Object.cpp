@@ -13,7 +13,7 @@
 
 Object::Object(ObjectType type, bool solidity, bool immortality) :
     type(type),
-    shape(Shape(Point(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
+    shape(Shape(Vector(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
@@ -129,12 +129,12 @@ double Object::getAngle() const
     return this -> angle;
 }
 
-void Object::setCoords(const Point& coords)
+void Object::setCoords(const Vector& coords)
 {
     shape.setCenter(coords);
 }
 
-const Point& Object::getCoords() const
+const Vector& Object::getCoords() const
 {
     return shape.getCenter();
 }

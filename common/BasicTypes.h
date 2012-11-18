@@ -268,7 +268,14 @@ enum ActionError
     OBJ_IS_NOT_MINEABLE,
     OBJ_IS_NOT_CREATABLE,
     OBJ_IS_NOT_PICKABLE,
-    AREA_IS_NOT_PASSABLE
+    OBJ_IS_NOT_MOVEABLE,
+    OBJ_IS_STUCK,
+    OBJ_CANT_PICKUP,
+    OBJ_CANT_DROP,
+    OBJ_IS_NOT_IN_HEAP,
+    OBJ_CANT_EAT,
+    TOO_MANY_PARTICIPANTS,
+    OBJ_IS_NOT_EATABLE
 };
 
 //******************************************************************************

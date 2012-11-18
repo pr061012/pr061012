@@ -5,26 +5,26 @@
 
 #include <cmath>
 
-#include "Point.h"
+#include "Vector.h"
 #include "../../../common/BasicDefines.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-Point::Point(double x, double y)
+Vector::Vector(double x, double y)
 {
     this -> x = x;
     this -> y = y;
 }
 
-Point::Point()
+Vector::Vector()
 {
     this -> x = 0;
     this -> y = 0;
 }
 
-Point::~Point()
+Vector::~Vector()
 {
 
 }
@@ -33,18 +33,18 @@ Point::~Point()
 // DISTANCE.
 //******************************************************************************
 
-double Point::getDistance(Point point) const
+double Vector::getDistance(Vector vector) const
 {
-    return sqrt(pow(this -> x - point.getX(), 2) +
-                pow(this -> y - point.getY(), 2));
+    return sqrt(pow(this -> x - vector.getX(), 2) +
+                pow(this -> y - vector.getY(), 2));
 }
 
 // get distance to line using vector product
-double Point::getDistanceToLine(const Point& line_start,
-                                const Point& line_end) const
+double Vector::getDistanceToLine(const Vector& line_start,
+                                const Vector& line_end) const
 {
-    Point a = *this - line_start;
-    Point b = line_end - line_start;
+    Vector a = *this - line_start;
+    Vector b = line_end - line_start;
     return fabs(a.getX() * b.getY() - a.getY() * b.getX()) /
             line_start.getDistance(line_end);
 }
@@ -53,23 +53,23 @@ double Point::getDistanceToLine(const Point& line_start,
 // OTHER UTILITIES
 //**********************************************************
 
-Point Point::project(Point pt1, Point pt2) const
+Vector Vector::project(Vector pt1, Vector pt2) const
 {
     double length = pt1.getDistance(pt2);
-    // if a line is not a line, project straight to the point
+    // if a line is not a line, project straight to the vector
     if (fabs(length) < MATH_EPSILON)
     {
         return pt1;
     }
 
-    Point vec_line = pt2 - pt1;
-    Point vec_pt   = *this - pt1;
+    Vector vec_line = pt2 - pt1;
+    Vector vec_pt   = *this - pt1;
     double scale = scalarProduct(vec_pt, vec_line) / 
                    (pow(vec_line.getX(), 2) + pow(vec_line.getY(), 2));
-    return pt1 + Point(vec_line.getX() * scale, vec_line.getY() * scale); 
+    return pt1 + Vector(vec_line.getX() * scale, vec_line.getY() * scale); 
 }
 
-double Point::scalarProduct(Point vec1, Point vec2)
+double Vector::scalarProduct(Vector vec1, Vector vec2)
 {
     return vec1.getX() * vec2.getX() + vec1.getY() * vec2.getY();
 }
@@ -78,75 +78,75 @@ double Point::scalarProduct(Point vec1, Point vec2)
 // COMPARING
 //******************************************************************************
 
-bool Point::equals(const Point& point) const
+bool Vector::equals(const Vector& vector) const
 {
-    return  (fabs(x - point.getX()) < MATH_EPSILON) &&
-            (fabs(y - point.getY()) < MATH_EPSILON);
+    return  (fabs(x - vector.getX()) < MATH_EPSILON) &&
+            (fabs(y - vector.getY()) < MATH_EPSILON);
 }
 
 //******************************************************************************
 // OPERATORS.
 //******************************************************************************
 
-Point Point::operator+(Point point) const
+Vector Vector::operator+(Vector vector) const
 {
-    return Point(point.getX() + x, point.getY() + y);
+    return Vector(vector.getX() + x, vector.getY() + y);
 }
 
-Point Point::operator-(Point point) const
+Vector Vector::operator-(Vector vector) const
 {
-    return Point(x - point.getX(), y - point.getY());
+    return Vector(x - vector.getX(), y - vector.getY());
 }
 
-Point& Point::operator-=(Point point)
+Vector& Vector::operator-=(Vector vector)
 {
-    x -= point.getX();
-    y -= point.getY();
+    x -= vector.getX();
+    y -= vector.getY();
     return *this;
 }
 
-Point& Point::operator+=(Point point)
+Vector& Vector::operator+=(Vector vector)
 {
-    x += point.getX();
-    y += point.getY();
+    x += vector.getX();
+    y += vector.getY();
     return *this;
 }
 
-bool Point::operator==(Point point) const
+bool Vector::operator==(Vector vector) const
 {
-    return this -> equals(point);
+    return this -> equals(vector);
 }
 
-bool Point::operator!=(Point point) const
+bool Vector::operator!=(Vector vector) const
 {
-    return !(this -> equals(point));
+    return !(this -> equals(vector));
 }
 
-Point Point::operator -() const
+Vector Vector::operator -() const
 {
-    return (Point(-x, -y));
+    return (Vector(-x, -y));
 }
 
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
 
-double Point::getX() const
+double Vector::getX() const
 {
     return this -> x;
 }
 
-double Point::getY() const
+double Vector::getY() const
 {
     return this -> y;
 }
 
-void Point::setX(double x)
+void Vector::setX(double x)
 {
     this -> x = x;
 }
 
-void Point::setY(double y)
+void Vector::setY(double y)
 {
     this -> y = y;
 }
