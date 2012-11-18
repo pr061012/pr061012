@@ -161,8 +161,17 @@ private:
     Shape view_area;
 
 protected:
+    /**
+     * @brief    Calculate the angle between first (this) and second (aim) object
+     * @return   angle
+     */
+    double setDirection();
+
     /// Force of creations
     uint force;
+
+    /// Endurance of creations
+    uint endurance;
 
     /// Current creature's action.
     CreatureAction current_action;
@@ -220,7 +229,7 @@ protected:
     //**************************************************************************
     // DIRECTIONS
     //**************************************************************************
-    /// The direction of non_humanoid
+    /// The direction of creature
     double angle;
     /// Current direction (subject) oh NHum
     Object* aim;

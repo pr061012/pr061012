@@ -172,3 +172,12 @@ uint Creature::getMaxHealthPoints() const
 {
     return this -> max_health;
 }
+
+double Creature::setDirection()
+{
+    double delta_x;
+    double delta_y;
+    delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
+    delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
+    return angle = atan(delta_x / delta_y);
+}
