@@ -109,14 +109,20 @@ void World::genCreatures()
     ParamArray nhum_params;
     nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
 
+    ParamArray hum_params;
+    hum_params.addKey<CreatureType>("creat_type", HUMANOID);
+
     uint amount = Random::int_range(10, 20);
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-
         new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
                                     Random::double_range(20.0, 70.0)));
+        visible_objs -> push(new_obj);
 
+        new_obj = object_factory -> createObject(CREATURE, hum_params);
+        new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
+                                    Random::double_range(20.0, 70.0)));
         visible_objs -> push(new_obj);
     }
 
