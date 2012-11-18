@@ -3,6 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
+#include <cassert>
 #include <cstdlib>
 #include <armadillo>
 
@@ -10,7 +11,6 @@
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
 #include "../../Resource/Resource.h"
-
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -51,19 +51,19 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
-    attrs(ATTR_NEED_IN_POINTS,0) = need_in_points;
+    attrs(ATTR_NEED_IN_POINTS,0) = 0; // need_in_points;
     attrs(ATTR_LAZINESS,0)       = laziness;
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
-    attrs(ATTR_COMMUNICATION,0)  = 100 * sociability / max_sociability;
+    attrs(ATTR_COMMUNICATION,0)  = 0; // 100 * sociability / max_sociability;
     attrs(ATTR_SAFETY,0)         = safety;
-    attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
+    attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
 
     // Initialize home
     home = 0;
 
     // Initialize steps
-     decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-     decr_endur_step = HUM_DECR_ENDUR_STEPS;
+    decr_sleep_step = HUM_DECR_SLEEP_STEPS;
+    decr_endur_step = HUM_DECR_ENDUR_STEPS;
 }
 
 Humanoid::~Humanoid()
@@ -115,6 +115,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (angle == -1)
         {
+            assert(home != 0);
             aim = home;
             angle = setDirection();
         }
@@ -164,8 +165,17 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (angle == -1)
         {
-            angle = setDirection();
+            // FIXME: Dirty workaround.
+            if (aim == 0)
+            {
+                angle = Random::double_range(0, M_PI);
+            }
+            else
+            {
+                angle = setDirection();
+            }
         }
+
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             Action act(GO, this);
@@ -345,21 +355,21 @@ void Humanoid::updateCommonAttrs()
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
-    DetailedHumAction result_act = RELAX_AT_HOME;
+    DetailedHumAction result_act = SLEEP_ON_THE_GROUND;
 
     // Draft of father processing
     switch(action)
     {
-    case EAT: result_act = chooseWayToEat(); break;
-    case SLEEP: result_act = chooseWayToSleep(); break;
-    case COMMUNICATE: ; break;
-    case RELAX: result_act = chooseWayToRelax(); break;
-    case WORK: ; break;
-    case REALIZE_DREAM: ; break;
-    case ESCAPE: result_act = this -> chooseWayToEscape(); break;
-    case BUILD: result_act = chooseWayToBuild(); break;
-    case CONTINUE_GENDER: ; break;
-    default: ;
+        case EAT:               result_act = chooseWayToEat();      break;
+        case SLEEP:             result_act = chooseWayToSleep();    break;
+        case COMMUNICATE:                                           break;
+        case RELAX:             result_act = chooseWayToRelax();    break;
+        case WORK:                                                  break;
+        case REALIZE_DREAM:                                         break;
+        case ESCAPE:            result_act = chooseWayToEscape();   break;
+        case BUILD:             result_act = chooseWayToBuild();    break;
+        case CONTINUE_GENDER:                                       break;
+        default:                                                    break;
     }
 
     return result_act;
@@ -367,7 +377,12 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    return RELAX_AT_HOME;
+    if(home != 0)
+    {
+        return RELAX_AT_HOME;
+    }
+
+    return SLEEP_ON_THE_GROUND;
 }
 
 DetailedHumAction Humanoid::chooseWayToBuild()
