@@ -63,17 +63,11 @@ private:
      */
     void findGrass();
 
-    /**
-     * @brief    Calculate the angle between first (this) and second (aim) object
-     * @return   angle
-     */
-    double setDirection();
-
     //**************************************************************************
     // UPDATE STEP
     //**************************************************************************
     /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
-    unsigned int decr_sleep_step;
+    uint decr_sleep_step;
 
      //**************************************************************************
     // TYPE

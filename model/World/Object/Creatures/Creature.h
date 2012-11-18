@@ -154,13 +154,14 @@ private:
     /// Creature's type.
     const CreatureType subtype;
 
-    /// Creature's inventory.
-    ObjectHeap * inventory;
 
     /// View area for Indexator.
     Shape view_area;
 
 protected:
+    /// Creature's inventory.
+    ObjectHeap * inventory;
+
     /**
      * @brief    Calculate the angle between first (this) and second (aim) object
      * @return   angle

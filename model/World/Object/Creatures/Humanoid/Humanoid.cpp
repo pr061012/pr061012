@@ -9,6 +9,8 @@
 #include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
+#include "../../Weather/Weather.h"
+#include "../../Resource/Resource.h"
 
 
 //******************************************************************************
@@ -35,6 +37,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     // Randomly initialize some values.
     max_sociability = Random::int_range(HUM_SOCIABILITY_MIN, HUM_SOCIABILITY_MAX);
     laziness        = Random::int_range(HUM_LAZINESS_MIN,    HUM_LAZINESS_MAX);
+    bravery         = Random::int_range(HUM_BRAVERY_MIN,     HUM_BRAVERY_MAX);
 
     // Initialize other values.
     sociability    = 100 - max_sociability;
@@ -51,6 +54,9 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_COMMUNICATION,0)  = 100 * sociability / max_sociability;
     attrs(ATTR_SAFETY,0)         = safety;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
+
+    // Initialize home
+    home = 0;
 }
 
 Humanoid::~Humanoid()
@@ -64,6 +70,8 @@ std::vector <Action>* Humanoid::getActions()
     this -> common_steps--;
     this -> safety_steps--;
     this -> desc_steps--;
+    if (!this -> decr_sleep_step)
+        this -> decr_sleep_step--;
 
     if(age_steps == 0)
         updateAge();
@@ -92,7 +100,24 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == REALAX_AT_HOME)
     {
+        if (angle == -1)
+        {
+            aim = home;//////////////////////////////////////////////////////////
+            angle = setDirection();
+        }
 
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        {
+            Action act(GO, this);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            this -> actions.push_back(act);
+        }
+        else
+        {
+            if (this -> health < 100 && common_steps == CREAT_STEPS) //freq incr health
+                this -> increaseHealth(CREAT_DELTA_HEALTH);
+        }
     }
 
     if (detailed_act == HUNT)
@@ -107,12 +132,52 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == SLEEP_AT_HOME)
     {
+        if (angle == -1)
+        {
+            aim = home;//////////////////////////////////////////////////////////
+            angle = setDirection();
+        }
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        {
+            Action act(GO, this);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            this -> actions.push_back(act);
+        }
+        else
+        {
+            if (decr_sleep_step == 0)
+            {
+                if (sleepiness > 0)
+                {
+                    sleepiness--;
+                }
+                else
+                {
+                    current_decision = NONE;
+                }
+
+                decr_sleep_step = HUM_DECR_SLEEP_STEPS;
+            }
+        }
 
     }
 
     if (detailed_act == SLEEP_ON_THE_GROUND)
     {
+        if (decr_sleep_step == 0)
+        {
+            if (sleepiness > 0)
+            {
+                sleepiness--;
+            }
+            else
+            {
+                current_decision = NONE;
+            }
 
+            decr_sleep_step = HUM_DECR_SLEEP_STEPS;
+        }
     }
 
     if (detailed_act == MINE_RESOURSES)
@@ -144,8 +209,11 @@ std::vector <Action>* Humanoid::getActions()
 
 void Humanoid::updateAge()
 {
-    this -> age--; // age 0 - Hum is died
+    this -> age++;
     this -> age_steps = CREAT_AGE_STEPS;
+
+    if (this -> age == max_age)
+        this -> health = 0;
 }
 
 void Humanoid::updateNeedInDesc()
@@ -171,7 +239,24 @@ void Humanoid::updateCommonAttrs()
 
 void Humanoid::updateSafety()
 {
-    ;
+    ObjectHeap::const_iterator iter;
+    this -> safety = 0;
+    for(
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+       )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+        this -> safety += creat -> getDangerLevel();
+    }
+    for(
+        iter = objects_around.begin(WEATHER);
+        iter != objects_around.end(WEATHER); iter++
+       )
+    {
+        Weather* weath = dynamic_cast<Weather*>(*iter);
+        this -> safety += weath -> getDangerLevel();
+    }
 }
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
@@ -203,17 +288,68 @@ DetailedHumAction Humanoid::chooseWayToRelax()
 
 DetailedHumAction Humanoid:: chooseWayToBuild()
 {
-
+    if (this -> home == 0)
+        return CHOOSE_PLACE_FOR_HOME;//выбираем;задаем его размеры
+    else
+    {
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = inventory -> begin(RESOURCE);
+            iter != inventory -> end(RESOURCE); iter++
+           )
+        {
+            Resource* res_build = dynamic_cast<Resource*>(*iter);
+            if (res_build -> getSubtype() == RES_BUILDING_MAT)
+            {
+                return BUILD_HOUSE;
+            }
+        }
+        return MINE_RESOURSES;
+    }
 }
 
 DetailedHumAction Humanoid:: chooseWayToEat()
 {
+    ObjectHeap::const_iterator iter;
+    for(
+        iter = objects_around.begin(RESOURCE);
+        iter != objects_around.end(RESOURCE); iter++
+       )
+    {
+        Resource* res_food = dynamic_cast<Resource*>(*iter);
+        if (res_food -> getSubtype() == RES_FOOD)
+        {
+            this -> aim == res_food;
+            return TAKE_FOOD_FROM_INVENTORY;
+        }
+    }
 
+    {
+        if (force > 50 && bravery > 50 || force > 80 || bravery > 80)
+        {
+            return HUNT;
+        }
+        else
+        {
+            return FIND_FOOD;
+        }
+
+    }
 }
 
 DetailedHumAction Humanoid:: chooseWayToSleep()
 {
-
+    if (
+            this -> getCoords().getDistance(this -> home -> getCoords()) <
+            SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
+       )
+    {
+        return SLEEP_AT_HOME;
+    }
+    else
+    {
+        return SLEEP_ON_THE_GROUND;
+    }
 }
 
 DetailedHumAction Humanoid:: chooseWayToEscape()

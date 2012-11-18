@@ -9,6 +9,7 @@
 #include <string>
 
 #include "../Creature.h"
+#include "../../Building/Building.h"
 
 /**
  * @class Humanoid
@@ -60,7 +61,10 @@ private:
 
     /// Humanoid's name.
     std::string name;
-
+    //**************************************************************************
+    // HUMANOID'S OBJECTS
+    //**************************************************************************
+    Building* home;
     //**************************************************************************
     // RELATIVE COEFFICIENTS.
     // May have any value. In decision maker we use only quotient of them (in
@@ -91,7 +95,12 @@ private:
     // If = 100, humanoid needs resources.
     /// Need in points.
     unsigned int need_in_points;
-private:
+    /// Bravery
+    uint bravery;
+
+    //**************************************************************************
+    // UPDATES
+    //**************************************************************************
     void updateAge();
     void updateCommonAttrs();
     void updateNeedInDesc();
@@ -138,6 +147,12 @@ private:
      * @return DetailedHumAction detailed_act
      */
     DetailedHumAction chooseWayToRelax();
+
+    //**************************************************************************
+    // UPDATE STEP
+    //**************************************************************************
+    /// Amount of steps before decreasion of sleepiness. When HUM is sleeping
+    uint decr_sleep_step;
 };
 
 #endif // HUMANOID_H
