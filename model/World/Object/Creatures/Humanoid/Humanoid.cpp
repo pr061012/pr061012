@@ -12,13 +12,19 @@
 #include "../../../../../common/Random/Random.h"
 #include "../../Resource/Resource.h"
 
+// TODO:
+//  * Add comments.
+//
+// FIXME:
+//  * aim == 0?
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
 int Humanoid::CURRENT_ID = 0;
 
-Humanoid::Humanoid(const DecisionMaker & dmaker) :
+Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
     id(CURRENT_ID++)
 {
@@ -156,7 +162,11 @@ std::vector <Action>* Humanoid::getActions()
             Resource* res_food = dynamic_cast<Resource*>(*iter);
             if (res_food -> getSubtype() == RES_FOOD)
             {
-                if (this -> getCoords().getDistance(aim -> getCoords()) < min_dist)
+                if (aim == 0)
+                {
+                    aim = res_food;
+                }
+                else if (this -> getCoords().getDistance(aim -> getCoords()) < min_dist)
                 {
                     min_dist = this -> getCoords().getDistance(aim -> getCoords());
                     aim = res_food;
