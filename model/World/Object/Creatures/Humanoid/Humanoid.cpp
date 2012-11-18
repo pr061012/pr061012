@@ -9,7 +9,6 @@
 #include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
-#include "../../Weather/Weather.h"
 #include "../../Resource/Resource.h"
 
 
@@ -318,12 +317,13 @@ DetailedHumAction Humanoid:: chooseWayToEat()
     }
 }
 
-DetailedHumAction Humanoid:: chooseWayToSleep()
+DetailedHumAction Humanoid::chooseWayToSleep()
 {
-    if (
-            this -> getCoords().getDistance(this -> home -> getCoords()) <
-            SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
-       )
+    if
+    (
+        this -> getCoords().getDistance(this -> home -> getCoords()) <
+        SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
+    )
     {
         return SLEEP_AT_HOME;
     }
@@ -333,9 +333,9 @@ DetailedHumAction Humanoid:: chooseWayToSleep()
     }
 }
 
-DetailedHumAction Humanoid:: chooseWayToEscape()
+DetailedHumAction Humanoid::chooseWayToEscape()
 {
-    if (force > 50 && bravery > 50 || force > 80 || bravery > 80)
+    if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
     {
         return FIGHT;
     }
