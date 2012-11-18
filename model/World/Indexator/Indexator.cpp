@@ -313,10 +313,7 @@ uint * Indexator::getCellsArea(Shape& shape)
 // Row's index >= 0
 int Indexator::getRow(double coordinate)
 {
-    int result = int(floor(coordinate / cell_size)) % row_size;
-    result = max(0, result);
-    result = min(result, row_size - 1);
-    return result;
+    return max(0, min(coordinate / cell_size, row_size - 1));
 }
 
 // Destroys index and cells

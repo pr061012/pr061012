@@ -115,8 +115,8 @@ int main()
     area.setCenter(Vector(0, 0));
     contents = index.getAreaContents(area);
 
-    assert(contents.getAmount() == 2);
-    assert(find(contents, vec[0]) && find(contents, vec[2]));
+    assert(contents.getAmount() == 1);
+    assert(find(contents, vec[0]));
     
     //*************************************************************************
     // move objects a little bit so they don't chnage their cells, 
