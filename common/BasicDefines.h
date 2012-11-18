@@ -247,9 +247,9 @@
 #define CREAT_SLEEPINESS_MAX        100
 
 /// Minimum possible value of forse.
-#define CREAT_FORCE_MIN        0
+#define CREAT_FORCE_MIN             0
 /// Maximum possible value of force.
-#define CREAT_FORCE_MAX        100
+#define CREAT_FORCE_MAX             100
 
 /// Amount of steps before updates basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
@@ -266,7 +266,7 @@
 #define CREAT_DELTA_SLEEP           1
 
 /// Changes of health
-#define CREAT_DELTA_HEALTH           1
+#define CREAT_DELTA_HEALTH          1
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            50
@@ -324,16 +324,16 @@
 #define HUM_LAZINESS_MAX            100
 
 /// Minimum possible value of humanoid's bravery
-#define HUM_BRAVERY_MIN            0
+#define HUM_BRAVERY_MIN             0
 /// Maximum possible value of humanoid's bravery
-#define HUM_BRAVERY_MAX            100
+#define HUM_BRAVERY_MAX             100
 
 /// Changes of need in descendant for one step
 #define HUM_DELTA_NEED_IN_DESC      1
 /// Changes of sociability for one step
 #define HUM_DELTA_SOC               1
 /// Amount of steps to decrease sleepiness
-#define HUM_DECR_SLEEP_STEPS       150
+#define HUM_DECR_SLEEP_STEPS        150
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
