@@ -210,8 +210,8 @@ std::vector <Action>* Humanoid::getActions()
     {
         ObjectHeap::const_iterator iter;
         for(
-            iter = inventory.begin(RESOURCE);
-            iter != inventory.end(RESOURCE); iter++
+            iter = inventory -> begin(RESOURCE);
+            iter != inventory -> end(RESOURCE); iter++
            )
         {
             Resource* res_food = dynamic_cast<Resource*>(*iter);
@@ -223,7 +223,6 @@ std::vector <Action>* Humanoid::getActions()
         }
         Action act(EAT_OBJ, this);
         act.addParticipant(aim);
-
     }
 
     if (detailed_act == FIGHT)
@@ -310,7 +309,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    return REALAX_AT_HOME;
+    return RELAX_AT_HOME;
 }
 
 DetailedHumAction Humanoid:: chooseWayToBuild()
@@ -339,8 +338,8 @@ DetailedHumAction Humanoid:: chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
     for(
-        iter = inventory.begin(RESOURCE);
-        iter != inventory.end(RESOURCE); iter++
+        iter = inventory -> begin(RESOURCE);
+        iter != inventory -> end(RESOURCE); iter++
        )
     {
         Resource* res_food = dynamic_cast<Resource*>(*iter);
