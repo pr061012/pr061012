@@ -61,24 +61,44 @@ void TravelingPerformer::perform(Action& action)
         return;
     }
 
-    // Try to place an object and see if it collides with anything
+    // place an object
     actor -> setCoords(dest);
-    ObjectHeap obstacles = indexator -> getAreaContents(actor -> getShape());
 
-    // Nothing can stop weather, and creature can't stop itself
-    if (actor -> getType() == WEATHER || 
-        (actor -> getType() == CREATURE && obstacles.getTypeAmount(CREATURE) == 1 
-        && *obstacles.begin() == actor
-        && !obstacles.getTypeAmount(BUILDING)))
+    // Nothing can stop weather
+    if (actor -> getType() == WEATHER)
     {
-        //Log::NOTE(std::to_string(obstacles.getTypeAmount(CREATURE)));
-        indexator -> reindexate(actor);
         action.markAsSucceeded();
+        indexator -> reindexate(actor);
+        return;
     }
     else
     {
-        actor -> setCoords(origin);
-        action.setError(OBJ_IS_STUCK);
-        action.markAsFailed();
+        action.markAsSucceeded();
+
+        // Look for all the obstacles and check if actor collides
+        // with anything
+        ObjectHeap obstacles = indexator -> getAreaContents(actor -> getShape());
+        for (ObjectHeap::iterator i = obstacles.begin();
+             i != obstacles.end(); i++)
+        {
+            if ((*i) -> isSolid() && (*i) != actor)
+            {
+                action.markAsFailed();
+                break;
+            }
+        }
+
+        // if everything is ok, reindexate actor
+        if (!action.isFailed())
+        {
+            indexator -> reindexate(actor);
+            return;
+        }
+
     }
+
+    // roll back if something wrong
+    actor -> setCoords(origin);
+    action.setError(OBJ_IS_STUCK);
+    action.markAsFailed();
 }
