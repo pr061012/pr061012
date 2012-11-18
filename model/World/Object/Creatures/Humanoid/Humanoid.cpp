@@ -220,9 +220,10 @@ std::vector <Action>* Humanoid::getActions()
                 this -> aim == res_food;
                 break;
             }
-
+        }
         Action act(EAT_OBJ, this);
         act.addParticipant(aim);
+
     }
 
     if (detailed_act == FIGHT)
