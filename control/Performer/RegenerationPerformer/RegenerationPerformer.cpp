@@ -6,6 +6,8 @@
 #include "RegenerationPerformer.h"
 #include "../../../common/Random/Random.h"
 #include "../../../common/BasicDefines.h"
+#include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Object.h"
 
 #include <vector>
 
@@ -22,18 +24,21 @@ RegenerationPerformer::~RegenerationPerformer()
 
 void RegenerationPerformer::perform(Action& action)
 {
-    Object * actor = action.getActor();
+    Object* actor = action.getActor();
     ObjectType type = actor -> getType();
-
     std::vector<Object*> participants = action.getParticipants();
 
     uint delta = Random::int_num(actor->getHealthPoints());
 
     uint object_index = action.getParam<uint>("object_index");
+/*
     uint tool_index = action.getParam<uint>("tool_index");
-
-    ObjectHeap env = indexator.getAreaContents(actor->getShape());
-    ObjectHeap::const_iterator iter = env.end();
+*/
+    if (object_index > participants.size())
+    {
+        action.markAsFailed();
+        return;
+    }
 
     if ((type != RESOURCE) || (type != CREATURE))
     {
@@ -41,15 +46,36 @@ void RegenerationPerformer::perform(Action& action)
         return;
     }
 
-    if (env.find(participants[object_index], false) == iter)
+    if (type == RESOURCE)
     {
-        action.markAsFailed();
-        return;
+        if (actor == participants[object_index])
+        {
+            actor -> heal(delta);
+            action.markAsSucceeded();
+            return;
+        }
+        else
+        {
+            action.markAsFailed();
+            return;
+        }
     }
 
-    if (object_index <= participants.size())
+    if (type == CREATURE)
     {
-        participants[object_index] -> heal(delta);
-        action.markAsSucceeded();
+        Creature* creature = dynamic_cast<Creature*>(actor);
+        ObjectHeap env = indexator.getAreaContents(creature -> getViewArea());
+        ObjectHeap::const_iterator iter = env.end();
+
+        if (env.find(participants[object_index], false) == iter)
+        {
+            action.markAsFailed();
+            return;
+        }
+        else
+        {
+            participants[object_index] -> heal(delta);
+            action.markAsSucceeded();
+        }
     }
 }

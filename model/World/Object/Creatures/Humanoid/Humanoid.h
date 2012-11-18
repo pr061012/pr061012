@@ -99,6 +99,15 @@ private:
     uint bravery;
 
     //**************************************************************************
+    // MEMORY
+    //**************************************************************************
+    ObjectHeap* visual_memory;
+    /**
+     * @brief Memorize seen object
+     */
+    void visualMemorize();
+
+    //**************************************************************************
     // UPDATES
     //**************************************************************************
     void updateAge();
@@ -152,6 +161,8 @@ private:
     //**************************************************************************
     /// Amount of steps before decreasion of sleepiness. When HUM is sleeping
     uint decr_sleep_step;
+    /// Amount of steps before decreasion of endurance. When HUM is escaping
+    uint decr_endur_step;
 };
 
 #endif // HUMANOID_H

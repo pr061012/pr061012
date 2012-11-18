@@ -52,24 +52,24 @@ private:
     //  ATTRIBUTES
     //**************************************************************************
 
-    /// The reference to worlds indexator
+    /// The pointer to worlds indexator
     Indexator* indexator;
 
-    /// The reference to world
+    /// The pointer to world
     World* world;
 
+    /// The pointer to world
     ObjectFactory* factory;
     //**************************************************************************
     // HELPER FUNCTIONS
     //**************************************************************************
 
     /**
-     * @brief check coordinate
-     * @param x
-     * @param y
+     * @brief Check coordinate
+     * @param shape
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(Vector coord);
+    bool checkCoord(Shape shape);
 
     Object* createBuilding(Action& action, ParamArray& param);
 

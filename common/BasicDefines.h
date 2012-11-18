@@ -64,9 +64,9 @@
 #define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE              1000 * SZ_HUM_DIAM
+#define SZ_WORLD_VSIDE              300 * SZ_HUM_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE              1000 * SZ_HUM_DIAM
+#define SZ_WORLD_HSIDE              300 * SZ_HUM_DIAM
 
 /// Default size for everything.
 #define SZ_DEFAULT                  SZ_HUM_DIAM
@@ -122,6 +122,12 @@
 
 /// Tool's shape.
 #define SHP_TOOL                    CIRCLE
+
+/// Humanoid view area shape.
+#define SHP_HUM_VIEW_TYPE           CIRCLE
+
+/// NonHumanoid view area shape.
+#define SHP_NHUM_VIEW_TYPE          CIRCLE
 
 //******************************************************************************
 // WEATHER DEFINES.
@@ -245,6 +251,11 @@
 /// Maximum possible value of max_health.
 #define CREAT_HEALTH_MAX            100
 
+/// Minimum possible value of max_health.
+#define CREAT_ENDURANCE_MIN         50
+/// Maximum possible value of max_health.
+#define CREAT_ENDURANCE_MAX         100
+
 /// Minimum possible value of max_hunger.
 #define CREAT_HUNGER_MIN            50
 /// Maximum possible value of max_hunger
@@ -343,6 +354,8 @@
 #define HUM_DELTA_SOC               1
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_SLEEP_STEPS        150
+/// Amount of steps to decrease sleepiness
+#define HUM_DECR_ENDUR_STEPS        100
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.

@@ -29,6 +29,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     this -> setMaxAge(0);
     this -> setShapeSize(SZ_HUM_DIAM);
     this -> setShapeType(SHP_HUMANOID);
+    this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
 
     // TODO: Randomly initialize humanoid's name.
     name = "Name";
@@ -70,7 +71,13 @@ std::vector <Action>* Humanoid::getActions()
     this -> safety_steps--;
     this -> desc_steps--;
     if (!this -> decr_sleep_step)
+    {
         this -> decr_sleep_step--;
+    }
+    if (!this -> decr_endur_step)
+    {
+        this -> decr_endur_step--;
+    }
 
     if(age_steps == 0)
         updateAge();
@@ -97,25 +104,30 @@ std::vector <Action>* Humanoid::getActions()
         detailed_act = chooseAction(current_decision);
     }
 
-    if (detailed_act == REALAX_AT_HOME)
+    if (detailed_act == RELAX_AT_HOME)
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
             act.addParam<SpeedType>("speed", SLOW_SPEED);
+            visualMemorize();
             this -> actions.push_back(act);
         }
         else
         {
             if (this -> health < 100 && common_steps == CREAT_STEPS) //freq incr health
                 this -> increaseHealth(CREAT_DELTA_HEALTH);
+            if (endurance < max_endurance)
+            {
+                endurance++;
+            }
         }
     }
 
@@ -133,13 +145,14 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
+            visualMemorize();
             act.addParam<SpeedType>("speed", SLOW_SPEED);
             this -> actions.push_back(act);
         }
@@ -155,7 +168,10 @@ std::vector <Action>* Humanoid::getActions()
                 {
                     current_decision = NONE;
                 }
-
+                if (endurance < max_endurance)
+                {
+                    endurance++;
+                }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
         }
@@ -174,6 +190,10 @@ std::vector <Action>* Humanoid::getActions()
             {
                 current_decision = NONE;
             }
+            if (endurance < max_endurance)
+            {
+                endurance++;
+            }
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
         }
@@ -191,7 +211,21 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = inventory -> begin(RESOURCE);
+            iter != inventory -> end(RESOURCE); iter++
+           )
+        {
+            Resource* res_food = dynamic_cast<Resource*>(*iter);
+            if (res_food -> getSubtype() == RES_FOOD)
+            {
+                this -> aim = res_food;
+                break;
+            }
+        }
+        Action act(EAT_OBJ, this);
+        act.addParticipant(aim);
     }
 
     if (detailed_act == FIGHT)
@@ -201,10 +235,25 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == RUN_FROM_DANGER)
     {
-        if (aim == 0)
+        chooseDirectionToEscape();
+        Action act(GO, this);
+        act.addParam<double>("angle", angle);
+        visualMemorize();
+        if (this -> endurance > this -> max_endurance / 2)
         {
-
+            act.addParam<SpeedType>("speed", FAST_SPEED);
+            if (decr_endur_step == 0)
+            {
+                 decr_sleep_step = HUM_DECR_ENDUR_STEPS;
+            }
+            this -> actions.push_back(act);
         }
+        else
+        {
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            visualMemorize();
+        }
+
     }
     return &actions;
 }
@@ -241,7 +290,7 @@ void Humanoid::updateCommonAttrs()
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
-    DetailedHumAction result_act = REALAX_AT_HOME;
+    DetailedHumAction result_act = RELAX_AT_HOME;
 
     // Draft of father processing
     switch(action)
@@ -263,7 +312,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    return REALAX_AT_HOME;
+    return RELAX_AT_HOME;
 }
 
 DetailedHumAction Humanoid:: chooseWayToBuild()
@@ -292,20 +341,20 @@ DetailedHumAction Humanoid:: chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
     for(
-        iter = objects_around.begin(RESOURCE);
-        iter != objects_around.end(RESOURCE); iter++
+        iter = inventory -> begin(RESOURCE);
+        iter != inventory -> end(RESOURCE); iter++
        )
     {
         Resource* res_food = dynamic_cast<Resource*>(*iter);
         if (res_food -> getSubtype() == RES_FOOD)
         {
-            this -> aim == res_food;
+            this -> aim = res_food;
             return TAKE_FOOD_FROM_INVENTORY;
         }
     }
 
     {
-        if (force > 50 && bravery > 50 || force > 80 || bravery > 80)
+        if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
         {
             return HUNT;
         }
@@ -344,6 +393,29 @@ DetailedHumAction Humanoid::chooseWayToEscape()
         return RUN_FROM_DANGER;
     }
 }
+
+void Humanoid::visualMemorize()
+{
+
+    ObjectHeap::const_iterator iter;
+    for(
+        iter = inventory -> begin(BUILDING);
+        iter != inventory -> end(BUILDING); iter++
+       )
+    {
+        Building* build = dynamic_cast<Building*>(*iter);
+        this -> visual_memory -> push(build);
+    }
+    for(
+        iter = inventory -> begin(RESOURCE);
+        iter != inventory -> end(RESOURCE); iter++
+       )
+    {
+        Resource* res = dynamic_cast<Resource*>(*iter);
+        this -> visual_memory -> push(res);
+    }
+}
+
 //******************************************************************************
 // HUMANOID'S LOGICS.
 //******************************************************************************
