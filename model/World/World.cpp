@@ -136,6 +136,18 @@ void World::save(std::string filepath)
     // TODO: Create file at filepath and save it (format?)
 }
 
+void World::reset()
+{
+    ObjectHeap::const_iterator iter;
+    for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
+
+    this -> genCreatures();
+    this -> genResources();
+}
+
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************

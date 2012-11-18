@@ -43,6 +43,11 @@ int main()
                     control.step();
                 }
                 view.redraw();
+
+                if(view.isReset())
+                {
+                    world.reset();
+                }
             }
         } while(view.continues());
     }

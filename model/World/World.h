@@ -61,6 +61,13 @@ public:
 	 */
     void save(std::string filepath);
 
+
+    /**
+     * @brief Deletes all objects and generates world
+     *        one more time
+     */
+    void reset();
+
     //**************************************************************************
     // GENERATION METHODS.
     //**************************************************************************
