@@ -28,6 +28,14 @@
 #define TM_TICKS_PER_SECOND         32
 
 //******************************************************************************
+// AMOUNT DEFINES.
+// Prefix: AMNT.
+//******************************************************************************
+
+#define AMNT_OBJECT_TYPES           5
+#define AMNT_ACTION_TYPES           9
+
+//******************************************************************************
 // VIEW DEFINES.
 //******************************************************************************
 
@@ -38,9 +46,7 @@
 #define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
 
 /// Radius of field of view of game camera
-#define VIEW_CAM_RADIUS             30
-/// Max x and y of screen coordinates
-#define VIEW_CAM_SIZE               8
+#define VIEW_CAM_RADIUS             10
 
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
@@ -51,42 +57,45 @@
 //******************************************************************************
 
 /// Humanoid size.
-#define SZ_HUMANOID_DIAM            (double) 1
+#define SZ_HUM_DIAM                 (double) 1
 
 // TODO: Add sizes for different types of NonHums.
 /// NonHumanoid size.
-#define SZ_NON_HUMANOID_DIAM        SZ_HUMANOID_DIAM * 0.5
+#define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE              1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_VSIDE              1000 * SZ_HUM_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE              1000 * SZ_HUMANOID_DIAM
+#define SZ_WORLD_HSIDE              1000 * SZ_HUM_DIAM
 
 /// Default size for everything.
-#define SZ_DEFAULT                  SZ_HUMANOID_DIAM
+#define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Building side (minimum size).
-#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
 /// Building side (maximum size).
-#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUMANOID_DIAM
+#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM
 
 /// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM
 // TODO: Someday we will need to change this param.
 /// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUMANOID_DIAM
+#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM
 
 /// Resource shape diameter (minimum size).
-#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM
 // TODO: Someday we will need to change this param.
 /// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUMANOID_DIAM
+#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUM_DIAM
 
 /// Tool size (when dropped to ground).
-#define SZ_TOOL_DIAM                SZ_HUMANOID_DIAM * 0.1
+#define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
 
-/// View area for NonHum
-#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUMANOID_DIAM
+/// View area for NonHumanoid.
+#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM
+
+/// View area for Humanoid.
+#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
@@ -207,6 +216,14 @@
 #define RES_BERRIES_FOOD_VALUE      2
 
 //******************************************************************************
+// DAMAGE DEFINES
+// Prefix: DMG.
+//******************************************************************************
+
+#define DMG_PER_HIT_MIN             1
+#define DMG_PER_HIT_MAX             10
+
+//******************************************************************************
 // DECISION MAKER DEFINES.
 // Prefix: DM.
 //******************************************************************************
@@ -239,9 +256,9 @@
 #define CREAT_SLEEPINESS_MAX        100
 
 /// Minimum possible value of forse.
-#define CREAT_FORCE_MIN        0
+#define CREAT_FORCE_MIN             0
 /// Maximum possible value of force.
-#define CREAT_FORCE_MAX        100
+#define CREAT_FORCE_MAX             100
 
 /// Amount of steps before updates basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
@@ -257,14 +274,17 @@
 /// Changes of sleepiness for one step
 #define CREAT_DELTA_SLEEP           1
 
+/// Changes of health
+#define CREAT_DELTA_HEALTH          1
+
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            50
 
 /// Creature's fast speed.
-#define CREAT_SPEED_FAST_VALUE      (SZ_HUMANOID_DIAM * 9 / TM_TICKS_PER_SECOND)
+#define CREAT_SPEED_FAST_VALUE      (SZ_HUM_DIAM * 9 / TM_TICKS_PER_SECOND)
 
 /// Creature's slow speed.
-#define CREAT_SPEED_SLOW_VALUE      (SZ_HUMANOID_DIAM * 5 / TM_TICKS_PER_SECOND)
+#define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
@@ -312,10 +332,17 @@
 /// Maximum possible value of humanoid's diligence.
 #define HUM_LAZINESS_MAX            100
 
+/// Minimum possible value of humanoid's bravery
+#define HUM_BRAVERY_MIN             0
+/// Maximum possible value of humanoid's bravery
+#define HUM_BRAVERY_MAX             100
+
 /// Changes of need in descendant for one step
 #define HUM_DELTA_NEED_IN_DESC      1
 /// Changes of sociability for one step
 #define HUM_DELTA_SOC               1
+/// Amount of steps to decrease sleepiness
+#define HUM_DECR_SLEEP_STEPS        150
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.

@@ -40,6 +40,12 @@ public:
     //**************************************************************************
 
     /**
+     * @brief Get subtype
+     * @return creature subtype
+     */
+    CreatureType getSubtype();
+
+    /**
      * @brief Set the value of creature's window.
      * @param window    the new value of window
      */
@@ -49,7 +55,7 @@ public:
      * @brief  Get the value of creature's window.
      * @return the window
      */
-    ObjectHeap * getObjectsAround();
+    ObjectHeap* getObjectsAround();
 
     /**
      * @brief Set the value of view_area.
@@ -154,15 +160,25 @@ private:
     /// Creature's type.
     const CreatureType subtype;
 
-    /// Creature's inventory.
-    ObjectHeap * inventory;
 
     /// View area for Indexator.
     Shape view_area;
 
 protected:
+    /// Creature's inventory.
+    ObjectHeap * inventory;
+
+    /**
+     * @brief    Calculate the angle between first (this) and second (aim) object
+     * @return   angle
+     */
+    double setDirection();
+
     /// Force of creations
     uint force;
+
+    /// Endurance of creations
+    uint endurance;
 
     /// Current creature's action.
     CreatureAction current_action;
@@ -220,7 +236,7 @@ protected:
     //**************************************************************************
     // DIRECTIONS
     //**************************************************************************
-    /// The direction of non_humanoid
+    /// The direction of creature
     double angle;
     /// Current direction (subject) oh NHum
     Object* aim;
@@ -247,12 +263,17 @@ protected:
     /**
      * @brief Updates safety
      */
-    virtual void updateSafety() = 0;
+    void updateSafety();
 
     /**
      * @brief Updates hunger, sleepiness, health
      */
     virtual void updateCommonAttrs() = 0;
+
+    //**************************************************************************
+    // CHOOSE THE DIRECTION
+    //**************************************************************************
+    void chooseDirectionToEscape();
 };
 
 

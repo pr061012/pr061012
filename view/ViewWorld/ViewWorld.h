@@ -103,6 +103,8 @@ public:
     double screenToWorldX(double screen_x);
     double screenToWorldY(double screen_y);
 
+    double worldToScreenDist(double distance);
+
 
     //**************************************************************************
     // ACCESSORS.

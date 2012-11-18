@@ -4,7 +4,11 @@
 */
 
 #include "MiningPerformer.h"
+#include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Tool/Tool.h"
+#include "../../../model/World/Object/Resource/Resource.h"
 
+#include <vector>
 
 MiningPerformer::MiningPerformer(Indexator &indexator):
     indexator(indexator)
@@ -19,16 +23,41 @@ MiningPerformer::~MiningPerformer()
 void MiningPerformer::perform(Action& action)
 {
     Object * actor = action.getActor();
-    int res_id = action.getParam<int>("res_id");
-    int tool_id = action.getParam<int>("tool_id");
+    std::vector<Object*> participants = action.getParticipants();
 
-    if (actor->getType() != HUMANOID)
+    int res_index = action.getParam<int>("res_index");
+/*
+    int tool_index = action.getParam<int>("tool_index");
+*/
+    if ((actor -> getType() != CREATURE) && (participants.size() != 1))
     {
         action.markAsFailed();
+        return;
     }
-    else
+
+    Creature* creature = dynamic_cast<Creature*>(actor);
+    CreatureType subtype = creature -> getSubtype();
+
+    if (subtype == NON_HUMANOID)
     {
-
+        action.markAsFailed();
+        return;
     }
 
+    ObjectHeap env = indexator.getAreaContents(creature -> getViewArea());
+    Object* res = participants[res_index];
+/*
+    Object* tool = participant[tool_index];
+*/
+    ObjectHeap::const_iterator iter = env.end();
+
+    if (env.find(res, false) == iter)
+    {
+        action.markAsFailed();
+        return;
+    }
+
+    dynamic_cast<Resource*>(res) -> incrementProgress();
+
+    action.markAsSucceeded();
 }

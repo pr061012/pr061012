@@ -4,6 +4,9 @@
 
 #include "../../common/Log/Log.h"
 
+/// Max x and y of screen coordinates
+#define VIEW_CAM_SIZE               8
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -70,7 +73,7 @@ void ViewWorld::redraw()
 {
     this -> renderBackground();
 
-    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS);
+    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS*2);
 
     for(uint i=0; i < objects.size(); i++)
     {
@@ -106,6 +109,11 @@ double ViewWorld::screenToWorldY(double screen_y)
     return screen_y * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getY();
 }
 
+double ViewWorld::worldToScreenDist(double distance)
+{
+    return distance / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
 double ViewWorld::getX()
 {
     return this -> x;
@@ -118,10 +126,10 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
+    new_var = new_var > VIEW_CAM_RADIUS?
+              new_var : VIEW_CAM_RADIUS;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS;
     this -> x = new_var;
 }
 
@@ -129,8 +137,8 @@ void ViewWorld::setY(double new_var)
 {
     new_var = new_var > VIEW_CAM_RADIUS ?
               new_var : VIEW_CAM_RADIUS;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS;
     this -> y = new_var;
 }
 
@@ -162,7 +170,7 @@ void ViewWorld::renderObject(const Object* object)
     }
 
     double angle;
-    double radius = object->getShape().getSize()/2;
+    double radius = this -> worldToScreenDist(object->getShape().getSize()/2);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

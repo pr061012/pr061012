@@ -29,6 +29,8 @@ int main()
         Controller control(&world);
         View view(world);
 
+        view.setPaused(true);
+
         int t0 = clock();
 
         do
@@ -36,7 +38,10 @@ int main()
             if(clock() - t0 > PERIOD)
             {
                 t0 += PERIOD;
-                control.step();
+                if(!view.isPaused())
+                {
+                    control.step();
+                }
                 view.redraw();
             }
         } while(view.continues());

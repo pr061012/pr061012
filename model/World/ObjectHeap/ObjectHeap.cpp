@@ -5,18 +5,19 @@
 
 #include "ObjectHeap.h"
 
+#include "../../../common/BasicDefines.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
 ObjectHeap::ObjectHeap()
 {
-    data.resize(6);
+    data.resize(AMNT_OBJECT_TYPES + 1);
 }
 
 ObjectHeap::~ObjectHeap()
 {
-
 }
 
 //******************************************************************************

@@ -2,6 +2,8 @@
 
 #include "../common/Log/Log.h"
 
+#define VIEW_CAM_SIZE               8
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -9,6 +11,8 @@
 View::View(const IWorld& w)
 {
     initWindow();
+
+    paused = false;
 
     this -> view_world = new ViewWorld(w);
     this -> key_handler = new KeyHandler(this);
@@ -61,6 +65,16 @@ void View::setY(double new_var)
     view_world -> setY(new_var);
 }
 
+void View::setPaused(bool new_state)
+{
+    paused = new_state;
+}
+
+bool View::isPaused()
+{
+    return paused;
+}
+
 bool mouse_clicked = 0;
 
 void View::redraw()
@@ -74,8 +88,11 @@ void View::redraw()
     int mouse_x, mouse_y;
     glfwGetMousePos(&mouse_x, &mouse_y);
 
-    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE );
-    double wy = view_world -> screenToWorldY(-((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE );
+     // Handling way of down-to-up openGL coordinates
+    mouse_y = height - mouse_y;
+
+    double wx = view_world -> screenToWorldX( ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2 );
+    double wy = view_world -> screenToWorldY( ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 );
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
@@ -117,25 +134,30 @@ void View::redraw()
     double xoff = view_world -> worldToScreenX(0.0);
     double yoff = view_world -> worldToScreenY(0.0);
 
-    xoff = (xoff - (int)xoff);
-    yoff = (yoff - (int)yoff);
+    xoff = -(xoff - (int)xoff);
+    yoff = -(yoff - (int)yoff);
 
     glBegin(GL_LINES);
     for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
     {
-        glVertex2d(-10.0,  i - yoff);
-        glVertex2d( 10.0,  i - yoff);
+        glVertex2d(-VIEW_CAM_SIZE,  i - yoff);
+        glVertex2d( VIEW_CAM_SIZE,  i - yoff);
 
-        glVertex2d( i - xoff, -10.0);
-        glVertex2d( i - xoff,  10.0);
+        glVertex2d( i - xoff, -VIEW_CAM_SIZE);
+        glVertex2d( i - xoff,  VIEW_CAM_SIZE);
     }
     glEnd();
 
+    // Drawing debug message at the top of the screen.
     glColor3f(0.0f, 0.0f, 0.0f);
     glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
     glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
-    glcRenderString( (std::to_string(wx) + " " + std::to_string(wy)).c_str() );
+
+    std::string msg = std::to_string(wx) + " " + std::to_string(wy);
+    if(this -> isPaused()) msg += " PAUSED";
+
+    glcRenderString( msg.c_str() );
 #endif
 
     glLoadIdentity();

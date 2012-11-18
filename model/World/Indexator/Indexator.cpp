@@ -147,34 +147,32 @@ void Indexator::reindexate(ObjectHeap * objects)
  */
 void Indexator::reindexate(Object * object)
 {
-    uint j,k;
-
     Shape object_shape = object -> getShape();
-    uint * area = getCellsArea(object_shape);
 
     // Check if an object exists in our index
     Index::iterator i = index.find(object); 
     if (i == index.end())
     {
-        delete[] area;
         addObject(object);
         return;
     }
 
+    uint * area = getCellsArea(object_shape);
+
     // Check if an object moved to another cells
     uint * &old_area = index[object];
-    k = 0;
-    for (j = 0; j < 4; j++)
+    bool same_area = true;
+    for (uint j = 0; j < 4; j++)
     {
         if (area[j] != old_area[j])
         {
-            k = 1;
+            same_area = false;
             break;
         }
     }
 
     // If object did not move, don't do anything.
-    if (!k)
+    if (!same_area)
     {
         delete[] area;
         return;
@@ -249,7 +247,7 @@ void Indexator::removeObject(Object* object)
 // UTILITIES
 //******************************************************************************
 
-inline uint Indexator::min(uint a, uint b)
+inline int Indexator::min(int a, int b)
 {
     if (a < b)
         return a;
@@ -257,7 +255,7 @@ inline uint Indexator::min(uint a, uint b)
         return b;
 }
 
-inline uint Indexator::max(uint a, uint b)
+inline int Indexator::max(int a, int b)
 {
     if (a > b)
         return a;
@@ -313,11 +311,12 @@ uint * Indexator::getCellsArea(Shape& shape)
 // It is assumed that world controls that 0 <= coordinate < world_size
 // and size < world_size for any shape.
 // Row's index >= 0
-uint Indexator::getRow(double coordinate)
+int Indexator::getRow(double coordinate)
 {
-    return min(row_size - 1, max(0,
-               (uint)(floor(coordinate / cell_size)) 
-               % row_size));
+    int result = int(floor(coordinate / cell_size)) % row_size;
+    result = max(0, result);
+    result = min(result, row_size - 1);
+    return result;
 }
 
 // Destroys index and cells

@@ -3,9 +3,12 @@
     See the LICENSE file for copying permission.
 */
 
+#include <cmath>
+
 #include "Creature.h"
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Random/Random.h"
+#include "../Weather/Weather.h"
 
 
 //******************************************************************************
@@ -43,6 +46,10 @@ Creature::~Creature()
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
+CreatureType Creature::getSubtype()
+{
+    return this -> subtype;
+}
 
 void Creature::setObjectsAround(ObjectHeap objects_around)
 {
@@ -149,6 +156,67 @@ void Creature::feed(uint delta)
         hunger = 0;
     }
 }
+
+void Creature::updateSafety()
+{
+    ObjectHeap::const_iterator iter;
+    this -> safety = 0;
+    for(
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+       )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+        if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
+            this -> safety += creat -> getDangerLevel();
+    }
+    for(
+        iter = objects_around.begin(WEATHER);
+        iter != objects_around.end(WEATHER); iter++
+       )
+    {
+        Weather* weath = dynamic_cast<Weather*>(*iter);
+        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
+            this -> safety += weath -> getDangerLevel();
+    }
+}
+
+void Creature:: chooseDirectionToEscape()
+{
+    double global_x = 0;
+    double global_y = 0;
+    ObjectHeap::const_iterator iter;
+    for(
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+       )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+        if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
+        {
+            this -> aim = creat;
+            setDirection();
+            global_x += creat -> getDangerLevel() * cos(this -> angle);
+            global_y += creat -> getDangerLevel() * sin(this -> angle);
+        }
+    }
+    for(
+        iter = objects_around.begin(WEATHER);
+        iter != objects_around.end(WEATHER); iter++
+       )
+    {
+        Weather* weath = dynamic_cast<Weather*>(*iter);
+        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
+        {
+            this -> aim = weath;
+            setDirection();
+            global_x += weath -> getDangerLevel() * cos(this -> angle);
+            global_y += weath -> getDangerLevel() * sin(this -> angle);
+        }
+    }
+    this -> angle = atan(global_x / global_y) + M_PI;
+}
+
 //******************************************************************************
 // INHERETED THINGS.
 //******************************************************************************
@@ -171,4 +239,13 @@ uint Creature::getHealthPoints() const
 uint Creature::getMaxHealthPoints() const
 {
     return this -> max_health;
+}
+
+double Creature::setDirection()
+{
+    double delta_x;
+    double delta_y;
+    delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
+    delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
+    return angle = atan(delta_x / delta_y);
 }

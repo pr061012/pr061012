@@ -15,6 +15,10 @@
  */
 typedef unsigned int uint;
 
+//******************************************************************************
+// SHAPE.
+//******************************************************************************
+
 /**
  * @enum  ShapeType
  * @brief The ShapeType enum
@@ -24,19 +28,16 @@ enum ShapeType
     CIRCLE, SQUARE
 };
 
-/**
- * @enum SpeedType
- * @brief The SpeedType enum
- */
-enum SpeedType
-{
-    SLOW_SPEED, FAST_SPEED
-};
-
+//******************************************************************************
+// OBJECTS TYPES.
+//******************************************************************************
 
 /**
  * @enum ObjectType
  * @brief The ObjectType enum
+ *
+ *        *NOTE*: Don't forget to increase AMNT_OBJECT_TYPES while adding new
+ *                action types!
  */
 enum ObjectType
 {
@@ -85,6 +86,37 @@ enum ResourceType
 };
 
 /**
+ * @enum CreatureType
+ * @brief The CreatureType enum
+ */
+enum CreatureType
+{
+    HUMANOID, NON_HUMANOID
+};
+
+/**
+ * @enum NonHumanoidType
+ * @brief The NonHumanoidType enum
+ */
+enum NonHumanoidType
+{
+    COW, BEAR, DRAGON, GOOSE, SHEEP
+};
+
+//******************************************************************************
+// CREATURE.
+//******************************************************************************
+
+/**
+ * @enum SpeedType
+ * @brief The SpeedType enum
+ */
+enum SpeedType
+{
+    SLOW_SPEED, FAST_SPEED
+};
+
+/**
  * @enum CreatureAction
  * @brief The CreatureAction enum
  */
@@ -97,11 +129,11 @@ enum CreatureAction
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
     ESCAPE, CONTINUE_GENDER, DO_NOTHING
 };
-/**
- * @enum CreatureAction
- * @brief The CreatureAction enum
- */
 
+/**
+ * @enum DetailedHumAction
+ * @brief The DetailedHumAction enum
+ */
 enum DetailedHumAction
 {
     // EAT actions.
@@ -114,27 +146,26 @@ enum DetailedHumAction
     SLEEP_AT_HOME, SLEEP_ON_THE_GROUND,
 
     // BUILD actions
-    MINE_RESOURSES, BUILD_HOUSE,
+    MINE_RESOURSES, BUILD_HOUSE, CHOOSE_PLACE_FOR_HOME,
 
     // ESCAPE actions
     FIGHT, RUN_FROM_DANGER
 };
-/**
- * @enum CreatureType
- * @brief The CreatureType enum
- */
-enum CreatureType
-{
-    HUMANOID, NON_HUMANOID
-};
+
+//******************************************************************************
+// ACTION.
+//******************************************************************************
 
 /**
  * @enum  ActionType
  * @brief The ActionType enum. In some cases there are ids in parameters. These
- *        ids denote index of object in participants array. *Example*: action
+ *        index denote index of object in participants array. *Example*: action
  *        MINE, actor is Humanoid, participants are Resource (index is 0) and
- *        Tool (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id
- *        (= 1).
+ *        Tool (PICKAXE) (index is 1), parameters are res_index (= 0) and
+ *        tool_index (= 1).
+ *
+ *        *NOTE*: Don't forget to increase AMNT_ACTION_TYPES while adding new
+ *                action types!
  */
 enum ActionType
 {
@@ -154,20 +185,20 @@ enum ActionType
     /// @brief Description:     Resource mining by tool. \n
     ///        Actor:           Humanoid \n
     ///        Participants:    Resource, Tool (PICKAXE) \n
-    ///        Parameters:      res_id (*uint*), tool_id (*uint*)
+    ///        Parameters:      res_index (*uint*), tool_index (*uint*)
     MINE_OBJ,
 
-    /// @brief Description:     Repair building. \n
-    ///        Actor:           Humanoid \n
-    ///        Participants:    Building, Tool \n
-    ///        Parameters:      building_id (*uint*), tool_id (*uint*)
-    REPAIR_OBJ,
+    /// @brief Description:     Regenerate object. \n
+    ///        Actor:           Humanoid/Resource \n
+    ///        Participants:    Object, Tool \n
+    ///        Parameters:      object_index (*uint*), tool_index (*uint*)
+    REGENERATE_OBJ,
 
     /// @brief Description:     Harm one or more objects. \n
     ///        Actor:           Creature/Weather \n
     ///        Participants:    Tool (Creature only, optional),
     ///                         several objects \n
-    ///        Parameters:      tool_id (*uint*)
+    ///        Parameters:      tool_index (*uint*)
     HARM_OBJS,
 
     /// @brief Description:     Create object. \n
@@ -247,13 +278,17 @@ enum ActionError
     OBJ_IS_NOT_EATABLE
 };
 
+//******************************************************************************
+// MESSAGE.
+//******************************************************************************
+
 /**
- * @enum NonHumanoidType
- * @brief The NonHumanoidType enum
+ * @enum  MessageType
+ * @brief The MessageType enum
  */
-enum NonHumanoidType
+enum MessageType
 {
-    COW, BEAR, DRAGON, GOOSE, SHEEP
+    UNDER_ATTACK
 };
 
 #endif // BASIC_TYPES_H
