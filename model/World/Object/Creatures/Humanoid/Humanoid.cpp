@@ -138,7 +138,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIND_FOOD)
     {
-        double min_dist;
+        double min_dist = SZ_WORLD_VSIDE;
         ObjectHeap::const_iterator iter;
         for(
             iter = visual_memory -> begin(RESOURCE);
