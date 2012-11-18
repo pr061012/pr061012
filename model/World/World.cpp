@@ -87,13 +87,13 @@ void World::genResources()
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
 
-        newobj -> setCoords(Vector(Random::int_range(0, size),
-                                  Random::int_range(0, size)));
+        newobj -> setCoords(Vector(Random::double_range(0, size),
+                                   Random::double_range(0, size)));
 
         Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
 
-        grass -> setCoords(Vector(Random::int_range(0, size),
-                                 Random::int_range(0, size)));
+        grass -> setCoords(Vector(Random::double_range(0, size),
+                                  Random::double_range(0, size)));
 
         visible_objs -> push(newobj);
         visible_objs -> push(grass);
@@ -114,7 +114,7 @@ void World::genCreatures()
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
 
         new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
-                                   Random::double_range(20.0, 70.0)));
+                                    Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
     }
