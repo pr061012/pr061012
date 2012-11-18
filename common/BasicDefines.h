@@ -64,9 +64,9 @@
 #define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE              1000 * SZ_HUM_DIAM
+#define SZ_WORLD_VSIDE              300 * SZ_HUM_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE              1000 * SZ_HUM_DIAM
+#define SZ_WORLD_HSIDE              300 * SZ_HUM_DIAM
 
 /// Default size for everything.
 #define SZ_DEFAULT                  SZ_HUM_DIAM
