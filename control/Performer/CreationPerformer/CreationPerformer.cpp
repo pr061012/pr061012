@@ -133,8 +133,8 @@ bool CreationPerformer::checkCoord(Shape shape)
 
 Object* CreationPerformer::createBuilding(Action& action, ParamArray& param)
 {
-    uint max_health = action.getParam<uint>("max_health");
-    uint max_space = action.getParam<uint>("max_space");
+    uint max_health = action.getParam<uint>("building_max_health");
+    uint max_space = action.getParam<uint>("building_max_space");
 
     param.addKey<uint>("max_health",max_health);
     param.addKey<uint>("max_space",max_space);
