@@ -149,6 +149,30 @@ void Creature::feed(uint delta)
         hunger = 0;
     }
 }
+
+void Creature::updateSafety()
+{
+    ObjectHeap::const_iterator iter;
+    this -> safety = 0;
+    for(
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+       )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+        if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
+            this -> safety += creat -> getDangerLevel();
+    }
+    for(
+        iter = objects_around.begin(WEATHER);
+        iter != objects_around.end(WEATHER); iter++
+       )
+    {
+        Weather* weath = dynamic_cast<Weather*>(*iter);
+        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
+            this -> safety += weath -> getDangerLevel();
+    }
+}
 //******************************************************************************
 // INHERETED THINGS.
 //******************************************************************************

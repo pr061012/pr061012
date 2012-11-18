@@ -228,10 +228,6 @@ void NonHumanoid::updateCommonAttrs()
     this -> common_steps = CREAT_STEPS;
 }
 
-void NonHumanoid::updateSafety()
-{
-    ;
-}
 
 void NonHumanoid::findGrass()
 {

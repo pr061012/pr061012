@@ -257,7 +257,7 @@ protected:
     /**
      * @brief Updates safety
      */
-    virtual void updateSafety() = 0;
+    void updateSafety();
 
     /**
      * @brief Updates hunger, sleepiness, health
