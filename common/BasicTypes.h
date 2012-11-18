@@ -15,6 +15,10 @@
  */
 typedef unsigned int uint;
 
+//******************************************************************************
+// SHAPE.
+//******************************************************************************
+
 /**
  * @enum  ShapeType
  * @brief The ShapeType enum
@@ -24,15 +28,9 @@ enum ShapeType
     CIRCLE, SQUARE
 };
 
-/**
- * @enum SpeedType
- * @brief The SpeedType enum
- */
-enum SpeedType
-{
-    SLOW_SPEED, FAST_SPEED
-};
-
+//******************************************************************************
+// OBJECTS TYPES.
+//******************************************************************************
 
 /**
  * @enum ObjectType
@@ -88,6 +86,37 @@ enum ResourceType
 };
 
 /**
+ * @enum CreatureType
+ * @brief The CreatureType enum
+ */
+enum CreatureType
+{
+    HUMANOID, NON_HUMANOID
+};
+
+/**
+ * @enum NonHumanoidType
+ * @brief The NonHumanoidType enum
+ */
+enum NonHumanoidType
+{
+    COW, BEAR, DRAGON, GOOSE, SHEEP
+};
+
+//******************************************************************************
+// CREATURE.
+//******************************************************************************
+
+/**
+ * @enum SpeedType
+ * @brief The SpeedType enum
+ */
+enum SpeedType
+{
+    SLOW_SPEED, FAST_SPEED
+};
+
+/**
  * @enum CreatureAction
  * @brief The CreatureAction enum
  */
@@ -100,11 +129,11 @@ enum CreatureAction
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
     ESCAPE, CONTINUE_GENDER, DO_NOTHING
 };
-/**
- * @enum CreatureAction
- * @brief The CreatureAction enum
- */
 
+/**
+ * @enum DetailedHumAction
+ * @brief The DetailedHumAction enum
+ */
 enum DetailedHumAction
 {
     // EAT actions.
@@ -122,14 +151,10 @@ enum DetailedHumAction
     // ESCAPE actions
     FIGHT, RUN_FROM_DANGER
 };
-/**
- * @enum CreatureType
- * @brief The CreatureType enum
- */
-enum CreatureType
-{
-    HUMANOID, NON_HUMANOID
-};
+
+//******************************************************************************
+// ACTION.
+//******************************************************************************
 
 /**
  * @enum  ActionType
@@ -244,15 +269,6 @@ enum ActionError
     OBJ_IS_NOT_CREATABLE,
     OBJ_IS_NOT_PICKABLE,
     AREA_IS_NOT_PASSABLE
-};
-
-/**
- * @enum NonHumanoidType
- * @brief The NonHumanoidType enum
- */
-enum NonHumanoidType
-{
-    COW, BEAR, DRAGON, GOOSE, SHEEP
 };
 
 #endif // BASIC_TYPES_H
