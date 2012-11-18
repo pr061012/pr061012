@@ -135,7 +135,7 @@ uint Resource::getAmount() const
     return this -> amount;
 }
 
-void Resource::isRestorable() const
+bool Resource::isRestorable() const
 {
     return this -> restorable;
 }

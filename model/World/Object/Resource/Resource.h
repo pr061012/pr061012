@@ -65,7 +65,7 @@ public:
     /**
      * @brief Returns is resource restorable.
      */
-    void isRestorable() const;
+    bool isRestorable() const;
 
     /**
      * @brief Damages resource.
