@@ -84,6 +84,7 @@ public:
     //**************************************************************************
 
     std::vector <Action> * getActions();
+    void receiveMessage(Message message);
 
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
@@ -119,6 +120,16 @@ public:
      * @return is mineable or not
      */
     bool isMineable() const;
+
+    /**
+     * @brief Makes resource mineable.
+     */
+    void makeMineable();
+
+    /**
+     * @brief Makes resource pickable.
+     */
+    void makePickable();
 
 private:
     /// Type of resource

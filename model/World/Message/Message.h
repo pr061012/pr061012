@@ -10,6 +10,9 @@
 #include <vector>
 #include <map>
 
+class Object;
+class Message;
+
 #include "../Object/Object.h"
 #include "../../../common/BasicTypes.h"
 

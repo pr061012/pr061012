@@ -13,7 +13,7 @@
 //******************************************************************************
 
 Weather::Weather(WeatherType type, uint living_steps) :
-    Object(WEATHER),
+    Object(WEATHER, false),
     subtype(type)
 {
     this -> setShapeType(SHP_WEATHER);
@@ -70,6 +70,10 @@ std::vector <Action> * Weather::getActions()
     }
 
     return &(this -> actions);
+}
+
+void Weather::receiveMessage(Message message)
+{
 }
 
 uint Weather::getHealthPoints() const

@@ -32,7 +32,7 @@ void CreationPerformer::perform(Action& action)
     double size = actor -> getShape().getSize();
 
     ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-    Vector new_center(Random::double_range(size, 2*size), Random::double_range(size, 2*size));
+    Vector new_center(Random::double_range(2*size, 4*size), Random::double_range(2*size, 4*size));
     ParamArray param;
 
     // Check of actor type.
@@ -51,6 +51,7 @@ void CreationPerformer::perform(Action& action)
                 {
                     // If all is OK, add new_object in world.
                     world -> addObject(true, new_object);
+
                     action.markAsSucceeded();
                 }
                 else
@@ -67,11 +68,10 @@ void CreationPerformer::perform(Action& action)
                     // Create new resource.
                     new_object = createResource(action, param);
 
-                    // Set coord new_object.
-                    new_object -> setCoords(actor -> getCoords() + new_center);
 
+                    dynamic_cast<Resource*>(new_object) -> makePickable();
                     // If all is OK, add new_object in world.
-                    world -> addObject(true, new_object);
+                    world -> addObject(false, new_object);
 
                     // Increase actor amount.
                     static_cast<Resource*>(actor) -> increaseAmount(1);
@@ -133,8 +133,8 @@ bool CreationPerformer::checkCoord(Shape shape)
 
 Object* CreationPerformer::createBuilding(Action& action, ParamArray& param)
 {
-    uint max_health = action.getParam<uint>("max_health");
-    uint max_space = action.getParam<uint>("max_space");
+    uint max_health = action.getParam<uint>("building_max_health");
+    uint max_space = action.getParam<uint>("building_max_space");
 
     param.addKey<uint>("max_health",max_health);
     param.addKey<uint>("max_space",max_space);

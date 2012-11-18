@@ -151,8 +151,11 @@ public:
     // INHERETED THINGS.
     //**************************************************************************
 
+    virtual void receiveMessage(Message message) = 0;
+
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
+
     void damage(uint delta);
     void heal(uint delta);
 

@@ -194,6 +194,10 @@ std::vector <Action> * Resource::getActions()
     return &(this -> actions);
 }
 
+void Resource::receiveMessage(Message message)
+{
+}
+
 uint Resource::getHealthPoints() const
 {
     return this -> amount;
@@ -230,4 +234,14 @@ uint Resource::getDifficulty() const
 bool Resource::isMineable() const
 {
     return this -> mineable;
+}
+
+void Resource::makeMineable()
+{
+    this -> mineable = true;
+}
+
+void Resource::makePickable()
+{
+    this -> mineable = false;
 }

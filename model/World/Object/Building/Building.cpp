@@ -32,10 +32,14 @@ Building::~Building()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::vector <Action> * Building::getActions()
+std::vector<Action>* Building::getActions()
 {
     this -> actions.clear();
     return &(this -> actions);
+}
+
+void Building::receiveMessage(Message message)
+{
 }
 
 uint Building::getHealthPoints() const

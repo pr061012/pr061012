@@ -205,14 +205,15 @@ enum ActionType
     ///        Actor:           Humanoid/Resource \n
     ///        Participants:    none \n
     ///        Parameters:
-    ///                         * obj_type (*ObjectType*), x (*uint*) and y
-    ///                           (*uint*)
+    ///                         * obj_type (*ObjectType*)
     ///                         * for Resource creation: res_type
     ///                           (*ResourceType*), res_amount (*uint*)
     ///                         * for Tool creation: tool_type (*ToolType*),
     ///                           mat_type (*uint*)
     ///                         * for Creature creation: creat_type
     ///                           (*CreatureType*)
+    ///                         * for Building creation: building_max_space
+    ///                           (*uint*), building_max_health (*uint*)
     CREATE_OBJ,
 
     /// @brief Description:     Drop objects to ground. \n

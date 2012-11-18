@@ -204,6 +204,10 @@ std::vector <Action>* NonHumanoid::getActions()
 
 }
 
+void NonHumanoid::receiveMessage(Message message)
+{
+}
+
 void NonHumanoid::updateAge()
 {
     this -> age++;
