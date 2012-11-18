@@ -112,7 +112,7 @@ std::vector <Action>* Humanoid::getActions()
             angle = setDirection();
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
+        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -138,7 +138,41 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIND_FOOD)
     {
-
+        double min_dist;
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = visual_memory -> begin(RESOURCE);
+            iter != visual_memory -> end(RESOURCE); iter++
+           )
+        {
+            Resource* res_food = dynamic_cast<Resource*>(*iter);
+            if (res_food -> getSubtype() == RES_FOOD)
+            {
+                if (this -> getCoords().getDistance(aim -> getCoords()) < min_dist)
+                {
+                    min_dist = this -> getCoords().getDistance(aim -> getCoords());
+                    aim = res_food;
+                }
+            }
+        }
+        if (angle == -1)
+        {
+            angle = setDirection();
+        }
+        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+        {
+            Action act(GO, this);
+            act.addParam<double>("angle", angle);
+            visualMemorize();
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            this -> actions.push_back(act);
+        }
+        else
+        {
+            Action act(EAT_OBJ, this);
+            act.addParticipant(aim);
+            this -> actions.push_back(act);
+        }
     }
 
     if (detailed_act == SLEEP_AT_HOME)
@@ -148,7 +182,7 @@ std::vector <Action>* Humanoid::getActions()
             aim = home;
             angle = setDirection();
         }
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
+        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -226,6 +260,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         Action act(EAT_OBJ, this);
         act.addParticipant(aim);
+        this -> actions.push_back(act);
     }
 
     if (detailed_act == FIGHT)
@@ -419,23 +454,3 @@ void Humanoid::visualMemorize()
         this -> visual_memory -> push(res);
     }
 }
-
-//******************************************************************************
-// HUMANOID'S LOGICS.
-//******************************************************************************
-
-//~ void Humanoid::step()
-//~ {
-    //~ // Preparing main attributes.
-    //~ unsigned int relative_hunger      = 100 * hunger      / max_hunger;
-    //~ unsigned int relative_sleepiness  = 100 * sleepiness  / max_sleepiness;
-    //~ unsigned int relative_sociability = 100 * sociability / max_sociability;
-//~ 
-    //~ // Preparing vector of attributes.
-    //~ arma::vec attrs(9);
-    //~ attrs << relative_hunger << relative_sleepiness << need_in_house <<
-             //~ need_in_res << laziness << getHealth() << relative_sociability <<
-             //~ safety;
-//~ 
-    //~ // TODO Spawning desicion maker.
-//~ }
