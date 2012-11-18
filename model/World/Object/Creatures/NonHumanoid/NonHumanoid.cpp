@@ -23,7 +23,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     // Initialize some inhereted things.
     this -> setMaxAge(age);
     this -> setAge(0);
-    this -> setShapeSize(SZ_NON_HUMANOID_DIAM);
+    this -> setShapeSize(SZ_NHUM_DIAM);
     this -> setShapeType(SHP_NON_HUMANOID);
 
     // Initialize of matrix of attr

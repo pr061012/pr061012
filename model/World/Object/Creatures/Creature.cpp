@@ -48,6 +48,10 @@ Creature::~Creature()
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
+CreatureType Creature::getSubtype()
+{
+    return this -> subtype;
+}
 
 void Creature::setObjectsAround(ObjectHeap objects_around)
 {
