@@ -244,6 +244,11 @@
 /// Maximum possible value of max_health.
 #define CREAT_HEALTH_MAX            100
 
+/// Minimum possible value of max_health.
+#define CREAT_ENDURANCE_MIN         50
+/// Maximum possible value of max_health.
+#define CREAT_ENDURANCE_MAX         100
+
 /// Minimum possible value of max_hunger.
 #define CREAT_HUNGER_MIN            50
 /// Maximum possible value of max_hunger
@@ -342,6 +347,8 @@
 #define HUM_DELTA_SOC               1
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_SLEEP_STEPS        150
+/// Amount of steps to decrease sleepiness
+#define HUM_DECR_ENDUR_STEPS        100
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
