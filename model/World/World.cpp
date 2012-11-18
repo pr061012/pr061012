@@ -44,7 +44,7 @@ World::World(std::string filepath) :
 
 }
 
-World::World(int rand_seed, int size) :
+World::World(int rand_seed, int size, bool generate_objects) :
     size(size > 0 ? size : DEFAULT_SIZE),
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
@@ -63,7 +63,16 @@ World::World(int rand_seed, int size) :
 
     indexator = new Indexator((double)this->size);
 
-    // Creating resources
+    if(generate_objects)
+    {
+        genCreatures();
+        genResources();
+    }
+}
+
+// Creating resources!
+void World::genResources()
+{
     ParamArray food_params;
     ParamArray building_mat_params;
 
@@ -90,12 +99,16 @@ World::World(int rand_seed, int size) :
         visible_objs -> push(grass);
     }
 
-    // Creating cows!
+    indexator -> reindexate(visible_objs);
+}
 
+// Creating cows!
+void World::genCreatures()
+{
     ParamArray nhum_params;
     nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
 
-    amount = Random::int_range(10, 20);
+    uint amount = Random::int_range(10, 20);
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
@@ -132,6 +145,7 @@ void World::addObject(bool visibility, Object *obj)
     if (visibility)
     {
         this -> visible_objs -> push(obj);
+        this -> indexator -> reindexate(obj);
     }
     else
     {

@@ -26,7 +26,8 @@ void HarmPerformer::perform(Action& action)
 {
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
-    uint harm = Random::int_num(actor -> getDangerLevel());
+    uint harm = Random::int_range(DMG_PER_HIT_MIN, DMG_PER_HIT_MAX);
+    harm *= actor -> getDangerLevel();
 
     ObjectHeap obstacles = indexator.getAreaContents(actor -> getShape());
     ObjectHeap::const_iterator iter = obstacles.end();
