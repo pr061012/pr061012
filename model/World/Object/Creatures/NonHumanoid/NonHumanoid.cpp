@@ -48,11 +48,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 
     // Initialize of current decision
     current_decision = NONE;
-    // Initialize direction
-    // angle =-1 means that NonHum doesn't choose any direction still
-    // aim = 0 means the same
-    angle = -1;
-    aim = 0;
 
     //Initialize type
     type = COW;
@@ -236,15 +231,6 @@ void NonHumanoid::updateCommonAttrs()
 void NonHumanoid::updateSafety()
 {
     ;
-}
-
-double NonHumanoid::setDirection()
-{
-    double delta_x;
-    double delta_y;
-    delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
-    delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
-    return angle = atan(delta_x / delta_y);
 }
 
 void NonHumanoid::findGrass()
