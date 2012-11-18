@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include "Controller.h"
+
 #include "../Performer/TravelingPerformer/TravelingPerformer.h"
 #include "../Performer/CreationPerformer/CreationPerformer.h"
 #include "../Performer/HarmPerformer/HarmPerformer.h"
@@ -13,16 +15,15 @@
 #include "../Performer/MovementPerformer/MovementPerformer.h"
 #include "../Performer/PickupMaster/PickupMaster.h"
 #include "../../model/World/Action/Action.h"
-#include "Controller.h"
 #include "../../model/World/Object/Object.h"
 #include "../../model/World/Object/Weather/Weather.h"
 #include "../../model/World/Object/Creatures/Creature.h"
+#include "../../common/BasicDefines.h"
 
 Controller::Controller(World * world) :
     world(world)
 {
-    // FIXME: Dirty workaround.
-    performers.resize(20);
+    performers.resize(AMNT_ACTION_TYPES);
 
     performers[GO] = new TravelingPerformer(world -> getSize(),
                                                          world -> getIndexator());

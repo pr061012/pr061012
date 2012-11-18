@@ -37,6 +37,9 @@ enum SpeedType
 /**
  * @enum ObjectType
  * @brief The ObjectType enum
+ *
+ *        *NOTE*: Don't forget to increase AMNT_OBJECT_TYPES while adding new
+ *                action types!
  */
 enum ObjectType
 {
@@ -135,6 +138,9 @@ enum CreatureType
  *        MINE, actor is Humanoid, participants are Resource (index is 0) and
  *        Tool (PICKAXE) (index is 1), parameters are res_id (= 0) and tool_id
  *        (= 1).
+ *
+ *        *NOTE*: Don't forget to increase AMNT_ACTION_TYPES while adding new
+ *                action types!
  */
 enum ActionType
 {
