@@ -69,7 +69,7 @@ void CreationPerformer::perform(Action& action)
 
                     // Set coord new_object.
                     new_object -> setCoords(actor -> getCoords() + new_center);
-
+                    dynamic_cast<Resource*>(new_object) -> makePickable();
                     // If all is OK, add new_object in world.
                     world -> addObject(true, new_object);
 
