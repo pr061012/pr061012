@@ -34,6 +34,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     sleepiness  = 100 - max_sleepiness;
     safety      = 0; // we need in function to calculate it
                      // different for HUM and NON_HUM?
+    endurance   = max_endurance;
     // Initialize some inhereted things.
     setMaxHealth(health);
     setHealth(health);
