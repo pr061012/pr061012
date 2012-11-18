@@ -2,7 +2,11 @@
 
 #include "ViewWorld.h"
 
+
 #include "../../common/Log/Log.h"
+
+/// Max x and y of screen coordinates
+#define VIEW_CAM_SIZE               8
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -70,7 +74,7 @@ void ViewWorld::redraw()
 {
     this -> renderBackground();
 
-    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS);
+    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS*2);
 
     for(uint i=0; i < objects.size(); i++)
     {
@@ -150,10 +154,20 @@ void ViewWorld::renderObject(const Object* object)
     switch(object -> getType())
     {
         case RESOURCE:
-            glColor4d(1.0, 0.0, 0.0, 0.4);
+        {
+            Resource* res = (Resource*)object;
+            if(res -> getSubtype() == RES_BUILDING_MAT)
+            {
+                glColor4d(0.0, 1.0, 0.0, 0.4);
+            }
+            else
+            {
+                glColor4d(1.0, 0.0, 0.0, 0.4);
+            }
+        }
             break;
         case TOOL:
-            glColor4d(0.0, 1.0, 0.0, 0.4);
+            glColor4d(0.0, 1.0, 1.0, 0.4);
             break;
         case BUILDING:
             glColor4d(0.0, 0.0, 1.0, 0.4);

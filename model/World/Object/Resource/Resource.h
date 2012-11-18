@@ -63,6 +63,11 @@ public:
     uint getAmount() const;
 
     /**
+     * @brief Returns is resource restorable.
+     */
+    bool isRestorable() const;
+
+    /**
      * @brief Damages resource.
      * @param delta amount of damage
      */
@@ -139,6 +144,9 @@ private:
     /// @brief Resource maybe mineable (trees, ore, stone) or not. Look for
     ///        ResourceType enum for details.
     bool mineable;
+
+    /// Is resource restorable or not.
+    bool restorable;
 };
 
 #endif // RESOURCE_H

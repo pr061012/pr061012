@@ -26,6 +26,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
     {
         case RES_FOOD:
             this -> mineable        = false;
+            this -> restorable      = false;
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
             this -> amount_per_drop = 0;
@@ -34,6 +35,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
 
         case RES_BUILDING_MAT:
             this -> mineable        = true;
+            this -> restorable      = true;
             this -> difficulty      = RES_WOOD_DIFFICULTY;
             this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
             this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
@@ -84,6 +86,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
 
         default:
             this -> mineable        = false;
+            this -> restorable      = false;
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
             this -> amount_per_drop = 0;
@@ -130,6 +133,11 @@ void Resource::increaseAmount(uint delta)
 uint Resource::getAmount() const
 {
     return this -> amount;
+}
+
+bool Resource::isRestorable() const
+{
+    return this -> restorable;
 }
 
 void Resource::damage(uint delta)

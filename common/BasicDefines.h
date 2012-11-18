@@ -46,9 +46,7 @@
 #define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
 
 /// Radius of field of view of game camera
-#define VIEW_CAM_RADIUS             30
-/// Max x and y of screen coordinates
-#define VIEW_CAM_SIZE               8
+#define VIEW_CAM_RADIUS             10
 
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
@@ -124,6 +122,12 @@
 
 /// Tool's shape.
 #define SHP_TOOL                    CIRCLE
+
+/// Humanoid view area shape.
+#define SHP_HUM_VIEW_TYPE           CIRCLE
+
+/// NonHumanoid view area shape.
+#define SHP_NHUM_VIEW_TYPE          CIRCLE
 
 //******************************************************************************
 // WEATHER DEFINES.
@@ -247,6 +251,11 @@
 /// Maximum possible value of max_health.
 #define CREAT_HEALTH_MAX            100
 
+/// Minimum possible value of max_health.
+#define CREAT_ENDURANCE_MIN         50
+/// Maximum possible value of max_health.
+#define CREAT_ENDURANCE_MAX         100
+
 /// Minimum possible value of max_hunger.
 #define CREAT_HUNGER_MIN            50
 /// Maximum possible value of max_hunger
@@ -345,6 +354,8 @@
 #define HUM_DELTA_SOC               1
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_SLEEP_STEPS        150
+/// Amount of steps to decrease sleepiness
+#define HUM_DECR_ENDUR_STEPS        100
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
