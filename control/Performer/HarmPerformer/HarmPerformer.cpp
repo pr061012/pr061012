@@ -32,7 +32,7 @@ void HarmPerformer::perform(Action& action)
     ObjectHeap obstacles = indexator.getAreaContents(actor -> getShape());
     ObjectHeap::const_iterator iter = obstacles.end();
     uint count_error = 0;
-    if (type != CREATURE)
+    if ((type != CREATURE) || (type != WEATHER))
     {
         action.markAsFailed();
     }
