@@ -78,12 +78,12 @@ World::World(int rand_seed, int size) :
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
 
-        newobj -> setCoords(Point(Random::int_range(0, size),
+        newobj -> setCoords(Vector(Random::int_range(0, size),
                                   Random::int_range(0, size)));
 
         Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
 
-        grass -> setCoords(Point(Random::int_range(0, size),
+        grass -> setCoords(Vector(Random::int_range(0, size),
                                  Random::int_range(0, size)));
 
         visible_objs -> push(newobj);
@@ -100,7 +100,7 @@ World::World(int rand_seed, int size) :
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
 
-        new_obj -> setCoords(Point(Random::double_range(20.0, 70.0),
+        new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
                                    Random::double_range(20.0, 70.0)));
 
         visible_objs -> push(new_obj);
@@ -170,7 +170,7 @@ ObjectHeap* World::getHiddenObjects()
 
 std::vector<const Object*> World::getViewObjectsInArea(double x, double y, double size) const
 {
-    Point center(x, y);
+    Vector center(x, y);
     Shape area(center, CIRCLE, size*2);
     ObjectHeap objects = indexator->getAreaContents(area);
     ObjectHeap::const_iterator it;

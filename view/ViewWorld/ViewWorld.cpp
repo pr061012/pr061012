@@ -136,7 +136,7 @@ void ViewWorld::setY(double new_var)
 
 void ViewWorld::renderObject(const Object* object)
 {
-    const Point &p = object -> getCoords();
+    const Vector &p = object -> getCoords();
 
     double px = this->worldToScreenX(p.getX());
     double py = this->worldToScreenY(p.getY());

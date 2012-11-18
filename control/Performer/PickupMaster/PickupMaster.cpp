@@ -42,7 +42,7 @@ void PickupMaster::perform(Action& action)
     }
 
     // continue getting data
-    Point dest = actor -> getCoords();
+    Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
     ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
 

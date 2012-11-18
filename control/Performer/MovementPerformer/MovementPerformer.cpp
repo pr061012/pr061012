@@ -71,7 +71,7 @@ void MovementPerformer::perform(Action& action)
 
     }
     
-    Point dest = participant -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
+    Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
     if (dest.getX() < 0 || dest.getX() >= world_size || 

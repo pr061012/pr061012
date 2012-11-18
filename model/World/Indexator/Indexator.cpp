@@ -14,7 +14,7 @@ Indexator::Indexator(): world_size(0), row_size(0), cell_size(0)
 Indexator::Indexator(double size, ObjectHeap* list) :
     world_size(size), row_size(ceil(size/MAX_CELL_SIZE)),
     cell_size(size / row_size), 
-    world_shape(Shape(Point(size/2, size/2), SQUARE, size))
+    world_shape(Shape(Vector(size/2, size/2), SQUARE, size))
 {
     // say that our cells are not initizlized
     cells = 0;
@@ -51,35 +51,35 @@ ObjectHeap Indexator::getAreaContents(Shape area)
     // bounds of the world
     Shape areas[4];
     areas[0] = area;
-    Point center = area.getCenter();
+    Vector center = area.getCenter();
     
     // Get the left bottom shape
     if (center.getX() > world_size/2)
     {
         if (center.getY() > world_size / 2)
         {
-            areas[0].setCenter(center - Point(world_size, world_size));
+            areas[0].setCenter(center - Vector(world_size, world_size));
         }
         else
         {
-            areas[0].setCenter(center - Point(world_size, 0)); 
+            areas[0].setCenter(center - Vector(world_size, 0)); 
         }
     }
     else
     {
         if (center.getY() > world_size / 2)
         {
-            areas[0].setCenter(center - Point(0, world_size));
+            areas[0].setCenter(center - Vector(0, world_size));
         }
     }
     
     // Creat all other shapes
     areas[1] = areas[0];
-    areas[1].setCenter(areas[0].getCenter() + Point(0, world_size));
+    areas[1].setCenter(areas[0].getCenter() + Vector(0, world_size));
     areas[2] = areas[1];
-    areas[2].setCenter(areas[1].getCenter() + Point(world_size, 0));
+    areas[2].setCenter(areas[1].getCenter() + Vector(world_size, 0));
     areas[3] = areas[2];
-    areas[3].setCenter(areas[2].getCenter() + Point(0, -world_size));
+    areas[3].setCenter(areas[2].getCenter() + Vector(0, -world_size));
 
     */
 
@@ -270,8 +270,8 @@ inline uint Indexator::max(uint a, uint b)
 uint * Indexator::getCellsArea(Shape& shape)
 {
     // Get object boundaries
-    Point rt = shape.getRightTop();
-    Point lb = shape.getLeftBottom();
+    Vector rt = shape.getRightTop();
+    Vector lb = shape.getLeftBottom();
 
     // Compute the cells it intersects
     uint * area = new uint[4];
@@ -287,7 +287,7 @@ uint * Indexator::getCellsArea(Shape& shape)
     if (lb.getX() < 0)
     {
         area[2] += row_size;
-        shape.setCenter(shape.getCenter() + Point(row_size, 0));
+        shape.setCenter(shape.getCenter() + Vector(row_size, 0));
     } 
     else if (rt.getX() >= world_size) 
     {
@@ -297,7 +297,7 @@ uint * Indexator::getCellsArea(Shape& shape)
     if (lb.getY() < 0)
     {
         area[3] += row_size;
-        shape.setCenter(shape.getCenter() + Point(0, row_size));
+        shape.setCenter(shape.getCenter() + Vector(0, row_size));
     }
     else if (rt.getY() >= world_size) 
     {

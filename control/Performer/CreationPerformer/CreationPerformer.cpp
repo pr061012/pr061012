@@ -31,7 +31,7 @@ void CreationPerformer::perform(Action& action)
     double size = actor -> getShape().getSize();
 
     ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-    Point new_center(Random::double_range(size, 2*size), Random::double_range(size, 2*size));
+    Vector new_center(Random::double_range(size, 2*size), Random::double_range(size, 2*size));
     ParamArray param;
 
     if ( type == RESOURCE || type == CREATURE )
@@ -101,7 +101,7 @@ void CreationPerformer::perform(Action& action)
     }
 }
 
-bool CreationPerformer::checkCoord(Point coord)
+bool CreationPerformer::checkCoord(Vector coord)
 {
     bool ret = false;
     Shape ghost;

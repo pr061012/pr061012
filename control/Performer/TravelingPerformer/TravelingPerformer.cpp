@@ -47,7 +47,7 @@ void TravelingPerformer::perform(Action& action)
             break;
 
     }
-    Point dest = actor -> getCoords() + Point(speed * cos(angle), speed * sin(angle));
+    Vector dest = actor -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
     if (dest.getX() < 0 || dest.getX() >= world_size || 

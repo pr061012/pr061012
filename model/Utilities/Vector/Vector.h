@@ -3,14 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef POINT_H
-#define POINT_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
 /**
- * @class Point
- * @brief Point class
+ * @class Vector
+ * @brief Vector class
  */
-class Point
+class Vector
 {
 public:
     //**************************************************************************
@@ -22,47 +22,47 @@ public:
      * @param x X-coordinate
      * @param y Y-coordinate
      */
-    Point(double x, double y);
+    Vector(double x, double y);
 
     /**
      * @brief Constructor.
      */
-    Point();
+    Vector();
 
     /**
      * @brief Destructor.
      */
-    ~Point();
+    ~Vector();
 
     //**************************************************************************
     // DISTANCE.
     //**************************************************************************
 
     /**
-     *  @brief  Compute distance to another point
-     *  @param  point   another point
+     *  @brief  Compute distance to another vector
+     *  @param  vector   another vector
      *  @return distance
      */
-    double getDistance(Point point = Point(0,0)) const;
+    double getDistance(Vector vector = Vector(0,0)) const;
 
     /**
-     *  @brief  Compute distance to a line formed by two points
-     *  @param  line_start  first point of the line
-     *  @param  line_end    second point of the line
+     *  @brief  Compute distance to a line formed by two vectors
+     *  @param  line_start  first vector of the line
+     *  @param  line_end    second vector of the line
      *  @return distance
      */
 
-    double getDistanceToLine(const Point& line_start,
-                                const Point& line_end) const;
+    double getDistanceToLine(const Vector& line_start,
+                                const Vector& line_end) const;
 
     /**
-     *  @brief  Get projection of the point on the line
-     *  @param  pt1 first point of the line
-     *  @param  pt2 second point of the line
-     *  @return projection of the point on the line
+     *  @brief  Get projection of the vector on the line
+     *  @param  pt1 first vector of the line
+     *  @param  pt2 second vector of the line
+     *  @return projection of the vector on the line
      */
 
-    Point project(Point pt1, Point pt2) const;
+    Vector project(Vector pt1, Vector pt2) const;
 
     /**
      *    @brief    Get scalar product of two vectors
@@ -71,14 +71,14 @@ public:
      *    @return   Scalar product.
      */
 
-    static double scalarProduct(Point vec1, Point vec2);
+    static double scalarProduct(Vector vec1, Vector vec2);
 
     /**
-     * @brief  Compares two points.
-     * @param  point    point to compare with
+     * @brief  Compares two vectors.
+     * @param  vector    vector to compare with
      * @return true or false
      */
-    bool equals(const Point &point) const;
+    bool equals(const Vector &vector) const;
 
     //**************************************************************************
     // OPERATORS.
@@ -87,37 +87,37 @@ public:
     /**
      * @brief Operator +.
      */
-    Point operator+(Point) const;
+    Vector operator+(Vector) const;
 
     /**
      * @brief Operator -.
      */
-    Point operator-(Point) const;
+    Vector operator-(Vector) const;
 
     /**
      *  @brief Operator -=.
      */
-    Point& operator-=(Point);
+    Vector& operator-=(Vector);
 
     /**
      * @brief Operator +=.
      */
-    Point& operator+=(Point);
+    Vector& operator+=(Vector);
 
     /**
      *  @brief Operator unary -
      */
-    Point operator-() const;
+    Vector operator-() const;
 
     /**
      * @brief Operator ==.
      */
-    bool operator==(Point) const;
+    bool operator==(Vector) const;
 
     /**
      * @brief Operator !=.
      */
-    bool operator!=(Point) const;
+    bool operator!=(Vector) const;
 
     //**************************************************************************
     // ACCESSORS.
@@ -151,4 +151,4 @@ private:
     double y;
 };
 
-#endif // POINT_H
+#endif // VECTOR_H

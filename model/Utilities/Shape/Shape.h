@@ -2,7 +2,7 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
-#include "../Point/Point.h"
+#include "../Vector/Vector.h"
 #include "../../../common/BasicTypes.h"
 
 /// Intersection flags
@@ -29,7 +29,7 @@ public:
      *  @param  size size of the Shape
      *          (edge length for polygons, diameter for circle).
      */
-    Shape(Point center, int type, double size);
+    Shape(Vector center, int type, double size);
 
     /**
      *  @brief Constructor
@@ -50,14 +50,14 @@ public:
      * @param new_var the new value of center.
      */
 
-    void setCenter ( Point new_var );
+    void setCenter ( Vector new_var );
 
     /**
      * @brief Get the value of center.
      * @return the value of center.
      */
 
-    const Point& getCenter( ) const;
+    const Vector& getCenter( ) const;
 
     /**
      * @brief Get type of the shape.
@@ -92,18 +92,18 @@ public:
      * @return coordinates of the last position
      */
 
-    Point getLastCenter();
+    Vector getLastCenter();
 
     //**************************************************************************
     // HIT-TEST METHODS.
     //**************************************************************************
 
 	/**
-     * @brief   Tests if a Shape includes a point.
+     * @brief   Tests if a Shape includes a vector.
      * @return  true or false
-     * @param   point    point to test
+     * @param   vector    vector to test
 	 */
-    bool hitTest (const Point& point) const;
+    bool hitTest (const Vector& vector) const;
 
 	/**
      * @brief   Tests if a Shape intersects with another Shape.
@@ -124,18 +124,18 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Gets the left bottom point of the shape.
+     * @brief Gets the left bottom vector of the shape.
      */
-    Point getLeftBottom() const;
+    Vector getLeftBottom() const;
 
     /**
-     * @brief Gets the right top point of the shape.
+     * @brief Gets the right top vector of the shape.
      */
-    Point getRightTop() const;
+    Vector getRightTop() const;
 
 private:
     /// Coordinates of the center of the Shape.
-    Point center;
+    Vector center;
 
     /// Type of shape.
     ShapeType type;
@@ -143,21 +143,21 @@ private:
     /// Size of shape.
     double size;
 
-    /// Left bottom point related to center.
-    Point left_bottom;
+    /// Left bottom vector related to center.
+    Vector left_bottom;
 
-    /// Right top point related to center.
-    Point right_top;
+    /// Right top vector related to center.
+    Vector right_top;
 
     /// Last coordinates.
-    Point last_center;
+    Vector last_center;
 
     //**************************************************************************
     // CORNER METHODS
     //**************************************************************************
 
     /**
-     * @brief Computes new corner points related to center
+     * @brief Computes new corner vectors related to center
      */
 
     void computeCorners();
@@ -171,7 +171,7 @@ private:
     /**
      *    @brief Checks if a segment overlaps a circle
      */
-    bool circleOverlapsSegment(Shape shape, Point pt1, Point pt2) const;
+    bool circleOverlapsSegment(Shape shape, Vector pt1, Vector pt2) const;
 
 };
 

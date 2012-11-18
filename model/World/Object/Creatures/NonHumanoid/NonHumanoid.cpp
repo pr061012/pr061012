@@ -250,7 +250,7 @@ double NonHumanoid::setDirection()
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
-    Point coords;
+    Vector coords;
 
     double distance = SZ_NHUM_VIEW_DIAM;
     for(

@@ -63,12 +63,12 @@ public:
     virtual void heal(uint delta) = 0;
 
     /**
-     * @brief Gets current object's heatlh points.
+     * @brief Gets current object's heatlh vectors.
      */
     virtual uint getHealthPoints() const = 0;
 
     /**
-     * @brief Gets maximum possible object's health points.
+     * @brief Gets maximum possible object's health vectors.
      */
     virtual uint getMaxHealthPoints() const = 0;
 
@@ -192,13 +192,13 @@ public:
      * @brief Set object's coordinates
      * @param coords  new coordinates
      */
-    void setCoords(const Point& coords);
+    void setCoords(const Vector& coords);
 
     /**
      * @brief  Get object's coordinates
      * @return object's coordinates
      */
-    const Point& getCoords() const;
+    const Vector& getCoords() const;
 
 private:
     /// Object's type.
