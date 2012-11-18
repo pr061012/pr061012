@@ -294,9 +294,10 @@ std::vector <Action>* Humanoid::getActions()
     if(detailed_act == CHOOSE_PLACE_FOR_HOME)
     {
         Action act(CREATE_OBJ, this);
-        // FIX ME
+        // FIXME
         act.addParam<ObjectType>("obj_type", BUILDING);
-        act.addParam<int>()
+        act.addParam<uint>("building_max_space", 3);
+        act.addParam<uint>("building_max_health", 100);
     }
     return &actions;
 }
