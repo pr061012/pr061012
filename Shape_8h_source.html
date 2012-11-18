@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('Shape_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SHAPE_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../Point/Point.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../BasicTypes.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../../common/BasicTypes.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38">    9</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943d" title="Intersection flags.">IntersectionFlag</a> {<a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daab93581c38896233b0b7ba8626d976a7">NO_INTERSECTION</a> = 16, <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943dadb45120aafd37a973140edee24708065">LEFT</a> = 1, <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38">RIGHT</a> = 2,</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da0ad44897a70fba309c24a5b6007de3e3">   10</a></span>&#160;                        <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da8c371f4e766fb2c49c219bbc88989461">BOTTOM</a> = 4, <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da0ad44897a70fba309c24a5b6007de3e3">TOP</a> = 8};</div>
@@ -183,16 +183,18 @@ $(document).ready(function(){initNavTree('Shape_8h_source.html','');});
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">bool</span> squareCircleHitTest(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; square, <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; circle) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;};</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#endif // SHAPE_H</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">bool</span> circleOverlapsSegment(<a class="code" href="classShape.html">Shape</a> shape, <a class="code" href="classPoint.html" title="Point class.">Point</a> pt1, <a class="code" href="classPoint.html" title="Point class.">Point</a> pt2) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif // SHAPE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_727fd03e1bdee17994ea42767cf56f03.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_135edd27999c91be0305ec86036e475d.html">Shape</a></li><li class="navelem"><a class="el" href="Shape_8h.html">Shape.h</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 13:23:58 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

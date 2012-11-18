@@ -13,5 +13,7 @@ var searchData=
   ['work',['WORK',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a08b8829a0c9899440c48b2c2affc79af',1,'BasicTypes.h']]],
   ['world',['World',['../classWorld.html',1,'World'],['../classWorld.html#ac339c606fb3832d11bcf16ad05685f61',1,'World::World(std::string filepath)'],['../classWorld.html#aa2eb821136019047477f955fe3d8e7b0',1,'World::World(int rand_seed=0, int size=DEFAULT_SIZE)']]],
   ['world_2ecpp',['World.cpp',['../World_8cpp.html',1,'']]],
-  ['world_2eh',['World.h',['../World_8h.html',1,'']]]
+  ['world_2eh',['World.h',['../World_8h.html',1,'']]],
+  ['worldtoscreenx',['worldToScreenX',['../classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47',1,'ViewWorld']]],
+  ['worldtoscreeny',['worldToScreenY',['../classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3',1,'ViewWorld']]]
 ];

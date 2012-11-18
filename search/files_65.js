@@ -4,6 +4,6 @@ var searchData=
   ['eatingperformer_2eh',['EatingPerformer.h',['../EatingPerformer_8h.html',1,'']]],
   ['einvalidrespath_2ecpp',['EInvalidResPath.cpp',['../EInvalidResPath_8cpp.html',1,'']]],
   ['einvalidrespath_2eh',['EInvalidResPath.h',['../EInvalidResPath_8h.html',1,'']]],
-  ['eparamarraybadkey_2ecpp',['EParamArrayBadKey.cpp',['../EParamArrayBadKey_8cpp.html',1,'']]],
-  ['eparamarraybadkey_2eh',['EParamArrayBadKey.h',['../EParamArrayBadKey_8h.html',1,'']]]
+  ['eparamarrayinvalidkey_2ecpp',['EParamArrayInvalidKey.cpp',['../EParamArrayInvalidKey_8cpp.html',1,'']]],
+  ['eparamarrayinvalidkey_2eh',['EParamArrayInvalidKey.h',['../EParamArrayInvalidKey_8h.html',1,'']]]
 ];

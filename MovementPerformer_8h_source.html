@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('MovementPerformer_8h_source.html','');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MOVEMENT_PERFORMER_H__</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Performer.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Indexator/Indexator.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/World.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classMovementPerformer.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMovementPerformer.html" title="Performs a move if it is possible.">MovementPerformer</a> : <span class="keyword">public</span> <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('MovementPerformer_8h_source.html','');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//  CONSTRUCTOR/DESTRUCTOR</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//*************************************************************************</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classMovementPerformer.html#a0d6336185e76b26141cfe7d2cd1d2066" title="Constructor for a particular world.">MovementPerformer</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> world_size, <a class="code" href="classIndexator.html">Indexator</a>* indexator);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classMovementPerformer.html#ab4baccec6130b4b4bb973db264efc2fc" title="Constructor for a particular world.">MovementPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> * world);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classMovementPerformer.html#a1715f190dbee77f4cc4a2c9a58a9064a" title="Destructor.">~MovementPerformer</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
@@ -136,20 +136,21 @@ $(document).ready(function(){initNavTree('MovementPerformer_8h_source.html','');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//*************************************************************************</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//  ATTRIBUTES</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//*************************************************************************</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;   </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> world_size;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIndexator.html">Indexator</a>* indexator;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIndexator.html">Indexator</a> * indexator;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_bb16b8cbb152cee6d6e1d9518721f7a2.html">MovementPerformer</a></li><li class="navelem"><a class="el" href="MovementPerformer_8h.html">MovementPerformer.h</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 13:23:58 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

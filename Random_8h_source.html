@@ -112,39 +112,51 @@ $(document).ready(function(){initNavTree('Random_8h_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classRandom.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRandom.html" title="Interface for getting pseudorandom numbers.">Random</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462">   26</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462" title="Returns random number from range [0, top_boundary - 1].">int_num</a>(<span class="keywordtype">int</span> top_boundary)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> rand() % top_boundary;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3">   34</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3" title="Returns random double number from range [0, top_boundary - 1].">double_num</a>(<span class="keywordtype">double</span> top_boundary)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        top_boundary *= 1000;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> (rand() % ((<span class="keywordtype">int</span>) top_boundary)) / 1000.0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classRandom.html#acd56ceb2c6f3422cd0759995f43ec099">   43</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classRandom.html#acd56ceb2c6f3422cd0759995f43ec099" title="Returns random number from range [low_boundary, top_boundary].">int_range</a>(<span class="keywordtype">int</span> low_boundary, <span class="keywordtype">int</span> top_boundary)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462" title="Returns random number from range [0, top_boundary - 1].">Random::int_num</a>(top_boundary - low_boundary) + low_boundary;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../BasicDefines.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classRandom.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRandom.html" title="Interface for getting pseudorandom numbers.">Random</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462">   28</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462" title="Returns random number from range [0, top_boundary - 1].">int_num</a>(<span class="keywordtype">int</span> top_boundary)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(top_boundary == 0)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> rand() % top_boundary;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3">   41</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3" title="Returns random double number from range [0, top_boundary - 1].">double_num</a>(<span class="keywordtype">double</span> top_boundary)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span>(top_boundary &lt; <a class="code" href="BasicDefines_8h.html#af5c9d91107dc710f9abfa42cf2be2e6f">MATH_EPSILON</a>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78">   52</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">double_range</a>(<span class="keywordtype">double</span> low_boundary, <span class="keywordtype">double</span> top_boundary)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3" title="Returns random double number from range [0, top_boundary - 1].">Random::double_num</a>(top_boundary - low_boundary) + low_boundary;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // RANDOM_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        top_boundary *= 1000;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> (rand() % ((<span class="keywordtype">int</span>) top_boundary)) / 1000.0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classRandom.html#acd56ceb2c6f3422cd0759995f43ec099">   55</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classRandom.html#acd56ceb2c6f3422cd0759995f43ec099" title="Returns random number from range [low_boundary, top_boundary].">int_range</a>(<span class="keywordtype">int</span> low_boundary, <span class="keywordtype">int</span> top_boundary)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462" title="Returns random number from range [0, top_boundary - 1].">Random::int_num</a>(top_boundary - low_boundary) + low_boundary;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78">   64</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">double_range</a>(<span class="keywordtype">double</span> low_boundary, <span class="keywordtype">double</span> top_boundary)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRandom.html#a112197f7100c2d2335a468e998677de3" title="Returns random double number from range [0, top_boundary - 1].">Random::double_num</a>(top_boundary - low_boundary) + low_boundary;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // RANDOM_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="dir_52b76e9e0e7bbd77e3f84a19bd5111e8.html">Random</a></li><li class="navelem"><a class="el" href="Random_8h.html">Random.h</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:29 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 13:23:58 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

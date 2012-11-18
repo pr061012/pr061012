@@ -7,6 +7,7 @@ var searchData=
   ['res_5fbronze_5fore_5fdrop_5fmax',['RES_BRONZE_ORE_DROP_MAX',['../BasicDefines_8h.html#ad7951e58c83bd55c49774028843bcc0f',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5fdrop_5fmin',['RES_BRONZE_ORE_DROP_MIN',['../BasicDefines_8h.html#a651fe5925d65d3eebae04d9c178278ab',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5freg_5famount',['RES_BRONZE_ORE_REG_AMOUNT',['../BasicDefines_8h.html#a2adf1e0e0bce1e2335362fc93285a3fc',1,'BasicDefines.h']]],
+  ['res_5fdefault_5fdifficulty',['RES_DEFAULT_DIFFICULTY',['../BasicDefines_8h.html#a739211e0f2aff3dc8ce0d02c5310b616',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5famount_5fmax',['RES_GOLD_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a0fef6d98779e9efc5f7e9c60c717c9eb',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5famount_5fmin',['RES_GOLD_ORE_AMOUNT_MIN',['../BasicDefines_8h.html#a31ec083ce88c5ea72c8bc19011dd572d',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5fdifficulty',['RES_GOLD_ORE_DIFFICULTY',['../BasicDefines_8h.html#a69674a589d59b8b4c0edf5d90d989130',1,'BasicDefines.h']]],

@@ -14,6 +14,7 @@ var searchData=
   ['isimmortal',['isImmortal',['../classObject.html#a7a38ff74620fa8c16a21e46149027e6a',1,'Object']]],
   ['ismineable',['isMineable',['../classResource.html#ad87877637e96514ddefed5cae8adaa99',1,'Resource']]],
   ['ispending',['isPending',['../classAction.html#ae0e419e952716c6ba3d88bcd68b8859b',1,'Action']]],
+  ['issolid',['isSolid',['../classObject.html#ade65edee1451b414e5c88ed43fffbe5e',1,'Object']]],
   ['issucceeded',['isSucceeded',['../classAction.html#a5a17dd84ebf54e818df7d0d3e4ec8266',1,'Action']]],
   ['issucceededwitherrors',['isSucceededWithErrors',['../classAction.html#a1aa266d607395721502784b10c7e757b',1,'Action']]]
 ];

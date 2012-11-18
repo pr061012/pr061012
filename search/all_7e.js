@@ -14,6 +14,7 @@ var searchData=
   ['_7eindexator',['~Indexator',['../classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b',1,'Indexator']]],
   ['_7eiworld',['~IWorld',['../classIWorld.html#ab9a7fe6708d136457f27be89629143ed',1,'IWorld']]],
   ['_7ekeyhandler',['~KeyHandler',['../classKeyHandler.html#abcd8e7571a7a90ba891efa72f8d1bd51',1,'KeyHandler']]],
+  ['_7emessage',['~Message',['../classMessage.html#a3f7275462831f787a861271687bcad67',1,'Message']]],
   ['_7eminingperformer',['~MiningPerformer',['../classMiningPerformer.html#a9855d33e82be8f645d9c54b47f5fdad7',1,'MiningPerformer']]],
   ['_7emovementperformer',['~MovementPerformer',['../classMovementPerformer.html#a1715f190dbee77f4cc4a2c9a58a9064a',1,'MovementPerformer']]],
   ['_7enonhumanoid',['~NonHumanoid',['../classNonHumanoid.html#a48709f30b26043f168fa5ebef55014e1',1,'NonHumanoid']]],

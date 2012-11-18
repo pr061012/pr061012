@@ -9,5 +9,6 @@ var classWeather =
     [ "getLivingSteps", "classWeather.html#acfe16f3f5d7e762de9f199a685561d4e", null ],
     [ "getMaxHealthPoints", "classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea", null ],
     [ "getSubtype", "classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a", null ],
-    [ "heal", "classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c", null ]
+    [ "heal", "classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c", null ],
+    [ "setCoveredObjects", "classWeather.html#a936fc0d17f71087d4f88451af096b894", null ]
 ];

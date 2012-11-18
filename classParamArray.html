@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('classParamArray.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Assoсiative array (keys are strings, values are ints). Used in PendingAction and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>.  
+<p>Assoсiative array (keys are strings, value type &ndash; doesn't matter). Used in <a class="el" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>, <a class="el" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>.  
  <a href="classParamArray.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>&gt;</code></p>
@@ -117,25 +117,26 @@ $(document).ready(function(){initNavTree('classParamArray.html','');});
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a673c28a4afd5a62afe89ea2a2bab0459"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#a673c28a4afd5a62afe89ea2a2bab0459">ParamArray</a> ()</td></tr>
 <tr class="memdesc:a673c28a4afd5a62afe89ea2a2bab0459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a673c28a4afd5a62afe89ea2a2bab0459"></a><br/></td></tr>
+<tr class="memitem:ab23245e30537cb81c57b8b39cc3d2869"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#ab23245e30537cb81c57b8b39cc3d2869">ParamArray</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;pa)</td></tr>
+<tr class="memdesc:ab23245e30537cb81c57b8b39cc3d2869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ab23245e30537cb81c57b8b39cc3d2869"></a><br/></td></tr>
 <tr class="memitem:a4d5619b3bdf2a29f2e3c0f98221831ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#a4d5619b3bdf2a29f2e3c0f98221831ac">~ParamArray</a> ()</td></tr>
 <tr class="memdesc:a4d5619b3bdf2a29f2e3c0f98221831ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a4d5619b3bdf2a29f2e3c0f98221831ac"></a><br/></td></tr>
 <tr class="memitem:a01c7a07c832ce66628c182d7672ede54"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
 <tr class="memitem:a01c7a07c832ce66628c182d7672ede54"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#a01c7a07c832ce66628c182d7672ede54">addKey</a> (std::string key, Type value)</td></tr>
 <tr class="memdesc:a01c7a07c832ce66628c182d7672ede54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new key with value into param array. Note: it will overwrite value if such key already exists!  <a href="#a01c7a07c832ce66628c182d7672ede54"></a><br/></td></tr>
 <tr class="memitem:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
-<tr class="memitem:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3">getValue</a> (std::string key, bool suppress_err_msgs=false) const   throw (EParamArrayBadKey)</td></tr>
+<tr class="memitem:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classParamArray.html#aa6a02f5bc77c494b9ebb9a3221d20fb3">getValue</a> (std::string key, bool suppress_err_msgs=false) const   throw (EParamArrayInvalidKey)</td></tr>
 <tr class="memdesc:aa6a02f5bc77c494b9ebb9a3221d20fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets key value by key.  <a href="#aa6a02f5bc77c494b9ebb9a3221d20fb3"></a><br/></td></tr>
 <tr class="memitem:a798aa6b9f71dde5cf7f8182695a5d748"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748">removeKey</a> (std::string key, bool suppress_err_msgs=false)</td></tr>
 <tr class="memdesc:a798aa6b9f71dde5cf7f8182695a5d748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes key from param array.  <a href="#a798aa6b9f71dde5cf7f8182695a5d748"></a><br/></td></tr>
 <tr class="memitem:a3a6f77df7533ee30728f104c233abd81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html#a3a6f77df7533ee30728f104c233abd81">clear</a> ()</td></tr>
-<tr class="memdesc:a3a6f77df7533ee30728f104c233abd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a>.  <a href="#a3a6f77df7533ee30728f104c233abd81"></a><br/></td></tr>
+<tr class="memdesc:a3a6f77df7533ee30728f104c233abd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>.  <a href="#a3a6f77df7533ee30728f104c233abd81"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Assoсiative array (keys are strings, values are ints). Used in PendingAction and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>. </p>
-<p><b>NOTE</b>: Be very accurate while working with this class. You <em>shouldn't</em> store in <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> any classes instantiations. Reason of such restriction is pretty simple: <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a> uses C functions malloc() and free() (instead of new and delete).</p>
-<p>FIXME: It's working variant, but still ugly because of reinterpret_cast&lt;&gt;(). Need to look through boost::any and implement something similar. </p>
+<div class="textblock"><p>Assoсiative array (keys are strings, value type &ndash; doesn't matter). Used in <a class="el" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>, <a class="el" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>. </p>
+<p><em>NOTE</em>: You will experience memory leaks, if you will add classes instantations to this array. Reason is simple: <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> doesn't calling any destructors. </p>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00030">30</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00028">28</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a673c28a4afd5a62afe89ea2a2bab0459"></a>
 <div class="memitem">
@@ -160,7 +161,35 @@ Public Member Functions</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00040">40</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00038">38</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab23245e30537cb81c57b8b39cc3d2869"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParamArray::ParamArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>pa</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00048">48</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +216,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00045">45</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00060">60</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +264,7 @@ template&lt;class Type &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00068">68</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00075">75</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -260,9 +289,9 @@ template&lt;class Type &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all elements from <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, values are ints). Used in PendingAction and ObjectFactory.">ParamArray</a>. </p>
+<p>Removes all elements from <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>. </p>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00139">139</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00157">157</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +319,7 @@ template&lt;class Type &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const  throw (<a class="el" href="classEParamArrayBadKey.html">EParamArrayBadKey</a>)</td>
+          <td></td><td> const  throw (<a class="el" href="classEParamArrayInvalidKey.html">EParamArrayInvalidKey</a>)</td>
         </tr>
       </table>
   </td>
@@ -310,7 +339,7 @@ template&lt;class Type &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>key value </dd></dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00088">88</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00106">106</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
@@ -358,12 +387,12 @@ template&lt;class Type &gt; </div>
 <dd>
 false, if key wasn't existed </dd></dl>
 
-<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00114">114</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
+<p>Definition at line <a class="el" href="ParamArray_8h_source.html#l00133">133</a> of file <a class="el" href="ParamArray_8h_source.html">ParamArray.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>model/World/ParamArray/<a class="el" href="ParamArray_8h_source.html">ParamArray.h</a></li>
+<li>common/ParamArray/<a class="el" href="ParamArray_8h_source.html">ParamArray.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -371,7 +400,7 @@ false, if key wasn't existed </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classParamArray.html">ParamArray</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:33 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 13:24:02 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

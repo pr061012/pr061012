@@ -4,7 +4,7 @@ var hierarchy =
     [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
     [ "EInvalidResPath", "classEInvalidResPath.html", null ],
-    [ "EParamArrayBadKey", "classEParamArrayBadKey.html", null ],
+    [ "EParamArrayInvalidKey", "classEParamArrayInvalidKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
     [ "IWorld", "classIWorld.html", [
@@ -12,6 +12,7 @@ var hierarchy =
     ] ],
     [ "KeyHandler", "classKeyHandler.html", null ],
     [ "Log", "classLog.html", null ],
+    [ "Message", "classMessage.html", null ],
     [ "Object", "classObject.html", [
       [ "Building", "classBuilding.html", null ],
       [ "Creature", "classCreature.html", [

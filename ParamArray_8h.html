@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>pr061012: model/World/ParamArray/ParamArray.h File Reference</title>
+<title>pr061012: common/ParamArray/ParamArray.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,24 +106,27 @@ $(document).ready(function(){initNavTree('ParamArray_8h.html','');});
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;cstdlib&gt;</code><br/>
+<code>#include &lt;cstring&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;<a class="el" href="EParamArrayBadKey_8h_source.html">EParamArrayBadKey.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="EParamArrayInvalidKey_8h_source.html">EParamArrayInvalidKey.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="BasicTypes_8h_source.html">../BasicTypes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Log_8h_source.html">../Log/Log.h</a>&quot;</code><br/>
 </div>
 <p><a href="ParamArray_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamArray.html">ParamArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assoсiative array (keys are strings, values are ints). Used in PendingAction and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>.  <a href="classParamArray.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assoсiative array (keys are strings, value type &ndash; doesn't matter). Used in <a class="el" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>, <a class="el" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> and <a class="el" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>.  <a href="classParamArray.html#details">More...</a><br/></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_9b60a1ae4724a8354454acf0a617d37f.html">ParamArray</a></li><li class="navelem"><a class="el" href="ParamArray_8h.html">ParamArray.h</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:30 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="dir_8a5fbff53e2297281507883968ed5c29.html">ParamArray</a></li><li class="navelem"><a class="el" href="ParamArray_8h.html">ParamArray.h</a></li>
+    <li class="footer">Generated on Sun Nov 18 2012 13:23:59 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

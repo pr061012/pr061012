@@ -7,5 +7,6 @@ var searchData=
   ['bronze',['BRONZE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ad983993c64c637c2a38b49dfb94048b3',1,'BasicTypes.h']]],
   ['bronze_5fore',['BRONZE_ORE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1abe053ca4db96cfdbded902334df28830',1,'BasicTypes.h']]],
   ['build',['BUILD',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a36ea76657e6cba209d9d0a7148deef05',1,'BasicTypes.h']]],
+  ['build_5fhouse',['BUILD_HOUSE',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa8a456200db80fdcb92bec8dbcf8d57ec',1,'BasicTypes.h']]],
   ['building',['BUILDING',['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087',1,'BasicTypes.h']]]
 ];

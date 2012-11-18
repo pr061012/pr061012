@@ -3,9 +3,11 @@ var searchData=
   ['rain',['RAIN',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe',1,'BasicTypes.h']]],
   ['random',['Random',['../classRandom.html',1,'']]],
   ['random_2eh',['Random.h',['../Random_8h.html',1,'']]],
+  ['realax_5fat_5fhome',['REALAX_AT_HOME',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa7fd6ba4559082a8d1e229f7665d1422d',1,'BasicTypes.h']]],
   ['realize_5fdream',['REALIZE_DREAM',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706a6df69f33ea9d53566423bb7d23e6374c',1,'BasicTypes.h']]],
   ['redraw',['redraw',['../classView.html#a2e088b57c015d551b27605cab3530187',1,'View::redraw()'],['../classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6',1,'ViewWorld::redraw()']]],
-  ['regenerationperformer',['RegenerationPerformer',['../classRegenerationPerformer.html',1,'RegenerationPerformer'],['../classRegenerationPerformer.html#a0df4656ba8eff92c43c95e06456916e9',1,'RegenerationPerformer::RegenerationPerformer()']]],
+  ['regenerate_5fobj',['REGENERATE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba9a78d084a8154debd4fe83b872f03d1f',1,'BasicTypes.h']]],
+  ['regenerationperformer',['RegenerationPerformer',['../classRegenerationPerformer.html',1,'RegenerationPerformer'],['../classRegenerationPerformer.html#a4187dd8afa04e9391f646f81f33024a9',1,'RegenerationPerformer::RegenerationPerformer()']]],
   ['regenerationperformer_2ecpp',['RegenerationPerformer.cpp',['../RegenerationPerformer_8cpp.html',1,'']]],
   ['regenerationperformer_2eh',['RegenerationPerformer.h',['../RegenerationPerformer_8h.html',1,'']]],
   ['reindexate',['reindexate',['../classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127',1,'Indexator::reindexate(ObjectHeap *objects)'],['../classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8',1,'Indexator::reindexate(Object *object)']]],
@@ -14,7 +16,6 @@ var searchData=
   ['removekey',['removeKey',['../classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748',1,'ParamArray']]],
   ['removeobject',['removeObject',['../classIndexator.html#a494d579d9b7444788099ee9f57ba6420',1,'Indexator']]],
   ['repair',['repair',['../classBuilding.html#af5beff6811010a84af940243fab63041',1,'Building']]],
-  ['repair_5fobj',['REPAIR_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba8acb7321082badc3a20ab5f61ab1c673',1,'BasicTypes.h']]],
   ['res_5fberries_5ffood_5fvalue',['RES_BERRIES_FOOD_VALUE',['../BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5famount_5fmax',['RES_BRONZE_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a56d35f6feefa0535f680715f77cc76ae',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5famount_5fmin',['RES_BRONZE_ORE_AMOUNT_MIN',['../BasicDefines_8h.html#a1a1afbdf66be90927f27340e80c641fc',1,'BasicDefines.h']]],
@@ -22,6 +23,9 @@ var searchData=
   ['res_5fbronze_5fore_5fdrop_5fmax',['RES_BRONZE_ORE_DROP_MAX',['../BasicDefines_8h.html#ad7951e58c83bd55c49774028843bcc0f',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5fdrop_5fmin',['RES_BRONZE_ORE_DROP_MIN',['../BasicDefines_8h.html#a651fe5925d65d3eebae04d9c178278ab',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5freg_5famount',['RES_BRONZE_ORE_REG_AMOUNT',['../BasicDefines_8h.html#a2adf1e0e0bce1e2335362fc93285a3fc',1,'BasicDefines.h']]],
+  ['res_5fbuilding_5fmat',['RES_BUILDING_MAT',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a12a6d94d9800703a3be48933214788b1',1,'BasicTypes.h']]],
+  ['res_5fdefault_5fdifficulty',['RES_DEFAULT_DIFFICULTY',['../BasicDefines_8h.html#a739211e0f2aff3dc8ce0d02c5310b616',1,'BasicDefines.h']]],
+  ['res_5ffood',['RES_FOOD',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ac06c5bb4e50101a840021de18f45a33b',1,'BasicTypes.h']]],
   ['res_5fgold_5fore_5famount_5fmax',['RES_GOLD_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a0fef6d98779e9efc5f7e9c60c717c9eb',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5famount_5fmin',['RES_GOLD_ORE_AMOUNT_MIN',['../BasicDefines_8h.html#a31ec083ce88c5ea72c8bc19011dd572d',1,'BasicDefines.h']]],
   ['res_5fgold_5fore_5fdifficulty',['RES_GOLD_ORE_DIFFICULTY',['../BasicDefines_8h.html#a69674a589d59b8b4c0edf5d90d989130',1,'BasicDefines.h']]],
@@ -52,5 +56,6 @@ var searchData=
   ['resource_2ecpp',['Resource.cpp',['../Resource_8cpp.html',1,'']]],
   ['resource_2eh',['Resource.h',['../Resource_8h.html',1,'']]],
   ['resourcetype',['ResourceType',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1',1,'BasicTypes.h']]],
-  ['right',['RIGHT',['../Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38',1,'Shape.h']]]
+  ['right',['RIGHT',['../Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38',1,'Shape.h']]],
+  ['run_5ffrom_5fdanger',['RUN_FROM_DANGER',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa567e4a6de0c7b35c0c74f33922d31979',1,'BasicTypes.h']]]
 ];

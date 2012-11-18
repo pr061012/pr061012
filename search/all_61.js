@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['act_5fconst',['ACT_CONST',['../DecisionMaker_8h.html#a1d42aa0dad28c8394b57406d72709724',1,'DecisionMaker.h']]],
   ['action',['Action',['../classAction.html',1,'Action'],['../classAction.html#aa2f7cc08a31de184271b858ad1a1531b',1,'Action::Action()']]],
   ['action_2ecpp',['Action.cpp',['../Action_8cpp.html',1,'']]],
   ['action_2eh',['Action.h',['../Action_8h.html',1,'']]],
@@ -14,7 +13,11 @@ var searchData=
   ['addparticipant',['addParticipant',['../classAction.html#aae2912142691704bc9a61108fcb83205',1,'Action']]],
   ['age',['age',['../classCreature.html#aa3544784cbb26961f214a39b49fd171e',1,'Creature']]],
   ['age_5fsteps',['age_steps',['../classCreature.html#aa9bf4d151801ecb1326cd734b341167d',1,'Creature']]],
-  ['atr_5fconst',['ATR_CONST',['../DecisionMaker_8h.html#a8f9269c34267f71a6569eda0ed60f1b8',1,'DecisionMaker.h']]],
+  ['aim',['aim',['../classCreature.html#a5afe8922b7d190de59f4eed81333f04c',1,'Creature']]],
+  ['amnt_5faction_5ftypes',['AMNT_ACTION_TYPES',['../BasicDefines_8h.html#a2da95afb1e16f61fa251c393729fe3a4',1,'BasicDefines.h']]],
+  ['amnt_5fobject_5ftypes',['AMNT_OBJECT_TYPES',['../BasicDefines_8h.html#ab832f1efbeb4e430c55c605e2993d768',1,'BasicDefines.h']]],
+  ['angle',['angle',['../classCreature.html#ac4c9b3d40d693d119f8c59a9c697ded4',1,'Creature']]],
+  ['area_5fis_5fnot_5fpassable',['AREA_IS_NOT_PASSABLE',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aeb403356d9ef81f1673e388a1203929a',1,'BasicTypes.h']]],
   ['attr_5fcommunication',['ATTR_COMMUNICATION',['../BasicDefines_8h.html#a620518d9fbfa230e95531a1668cc2f5b',1,'BasicDefines.h']]],
   ['attr_5fhealth',['ATTR_HEALTH',['../BasicDefines_8h.html#abb264af405757854a8bfd5f46c72a439',1,'BasicDefines.h']]],
   ['attr_5fhunger',['ATTR_HUNGER',['../BasicDefines_8h.html#a6792239a974aedf05d810ffea55e7ffb',1,'BasicDefines.h']]],

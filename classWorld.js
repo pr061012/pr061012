@@ -8,7 +8,7 @@ var classWorld =
     [ "getIndexator", "classWorld.html#ad75ce919ba59eb32d7b9aa4b1ec89ea6", null ],
     [ "getObjectFactory", "classWorld.html#a25dfb5e9ccd3dd5540ccf6f56937ec28", null ],
     [ "getSize", "classWorld.html#ab595144aa998cddab7e9489467843cb6", null ],
-    [ "getViewObjectsInRange", "classWorld.html#a684dec40070244cc49e4030d93e69666", null ],
+    [ "getViewObjectsInArea", "classWorld.html#a18725db8fe88482c638464884f9661ba", null ],
     [ "getVisibleObjects", "classWorld.html#ae7d9c8d7590bfa0ed18ed42c05106664", null ],
     [ "getWeatherAtPoint", "classWorld.html#a302c8d4f515768e247db3b4f2a0f5ba1", null ],
     [ "save", "classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd", null ],

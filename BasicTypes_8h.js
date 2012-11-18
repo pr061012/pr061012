@@ -9,7 +9,8 @@ var BasicTypes_8h =
       [ "OBJ_IS_NOT_REPAIRABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a874ceebc7bb9861356e34c5bb1f411af", null ],
       [ "OBJ_IS_NOT_MINEABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a10d47f9cc859334f3438fed9815561cf", null ],
       [ "OBJ_IS_NOT_CREATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a771384e51d7308ede9febd5c755825b2", null ],
-      [ "OBJ_IS_NOT_PICKABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a569f06c27bbbad0dbb2f2d8e09f52272", null ]
+      [ "OBJ_IS_NOT_PICKABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a569f06c27bbbad0dbb2f2d8e09f52272", null ],
+      [ "AREA_IS_NOT_PASSABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aeb403356d9ef81f1673e388a1203929a", null ]
     ] ],
     [ "ActionState", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e", [
       [ "PENDING", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea1869818fd53ff519eb8e429301bdff73", null ],
@@ -21,7 +22,7 @@ var BasicTypes_8h =
       [ "GO", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba50d8e53aac4e002d0fd296c5033ce985", null ],
       [ "MOVE", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950baed3ef32890b6da0919b57254c5206c62", null ],
       [ "MINE_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba2e66a27a156f16bce68f9ab8d6df863a", null ],
-      [ "REPAIR_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba8acb7321082badc3a20ab5f61ab1c673", null ],
+      [ "REGENERATE_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba9a78d084a8154debd4fe83b872f03d1f", null ],
       [ "HARM_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b", null ],
       [ "CREATE_OBJ", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff", null ],
       [ "DROP_OBJS", "BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba3cf84148e5f0e4be54e30cee67546602", null ],
@@ -47,6 +48,22 @@ var BasicTypes_8h =
       [ "HUMANOID", "BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b", null ],
       [ "NON_HUMANOID", "BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a", null ]
     ] ],
+    [ "DetailedHumAction", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6ca", [
+      [ "HUNT", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa901c4adf422bb3fb42f7aaa88bc9561a", null ],
+      [ "TAKE_FOOD_FROM_INVENTORY", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caaf5f1d5e8c0f6c24906cab2803fb90007", null ],
+      [ "FIND_FOOD", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caad7354b8739afca05cf7f5d5ff3ca97ea", null ],
+      [ "REALAX_AT_HOME", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa7fd6ba4559082a8d1e229f7665d1422d", null ],
+      [ "SLEEP_AT_HOME", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa4a55cadedba0e3834fb99329e5a81831", null ],
+      [ "SLEEP_ON_THE_GROUND", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa156ab19e2b28c26e7f4612fb7361a366", null ],
+      [ "MINE_RESOURSES", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caacf66502bfc2b9fc8cbf63449a907fcd6", null ],
+      [ "BUILD_HOUSE", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa8a456200db80fdcb92bec8dbcf8d57ec", null ],
+      [ "CHOOSE_PLACE_FOR_HOME", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa0e3342ffd140d38f0b46b715aee15572", null ],
+      [ "FIGHT", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa9fdcc0b679e064b5fbc7bc05bd381ac4", null ],
+      [ "RUN_FROM_DANGER", "BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa567e4a6de0c7b35c0c74f33922d31979", null ]
+    ] ],
+    [ "MessageType", "BasicTypes_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013", [
+      [ "UNDER_ATTACK", "BasicTypes_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013a71ffa6e4bf89b9d4944beac486d181e0", null ]
+    ] ],
     [ "NonHumanoidType", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ec", [
       [ "COW", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca48505ba252c1ec37e34d882e6f4a3ecf", null ],
       [ "BEAR", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca2c8e784be44eaf71fd77dae142f27b42", null ],
@@ -62,6 +79,8 @@ var BasicTypes_8h =
       [ "CREATURE", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8", null ]
     ] ],
     [ "ResourceType", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1", [
+      [ "RES_FOOD", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ac06c5bb4e50101a840021de18f45a33b", null ],
+      [ "RES_BUILDING_MAT", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a12a6d94d9800703a3be48933214788b1", null ],
       [ "BRONZE_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1abe053ca4db96cfdbded902334df28830", null ],
       [ "IRON_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ae2a29c21bf073b3e0f86632fce0bf1b5", null ],
       [ "SILVER_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a4596d1575691d15d37118873e34160cf", null ],

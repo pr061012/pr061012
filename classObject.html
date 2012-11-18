@@ -131,8 +131,8 @@ Inheritance diagram for Object:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a07e8b69a7746aa44c1e7784a08583729"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a07e8b69a7746aa44c1e7784a08583729">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
-<tr class="memdesc:a07e8b69a7746aa44c1e7784a08583729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a07e8b69a7746aa44c1e7784a08583729"></a><br/></td></tr>
+<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type, bool solidity=true, bool immortality=false)</td></tr>
+<tr class="memdesc:ac3797e3194161ceeb6de884f7dae4083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac3797e3194161ceeb6de884f7dae4083"></a><br/></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
 <tr class="memitem:addf0658ee2f8da579d10a6682dc097d7"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
@@ -155,6 +155,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad73c94472b9a43a629ae4cd6d2def67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immortal.  <a href="#ad73c94472b9a43a629ae4cd6d2def67e"></a><br/></td></tr>
 <tr class="memitem:a7a38ff74620fa8c16a21e46149027e6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7a38ff74620fa8c16a21e46149027e6a">isImmortal</a> () const </td></tr>
 <tr class="memdesc:a7a38ff74620fa8c16a21e46149027e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is immortal.  <a href="#a7a38ff74620fa8c16a21e46149027e6a"></a><br/></td></tr>
+<tr class="memitem:adaa6e2ab7f5c25b538bbb9e011cde767"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#adaa6e2ab7f5c25b538bbb9e011cde767">makeSolid</a> ()</td></tr>
+<tr class="memdesc:adaa6e2ab7f5c25b538bbb9e011cde767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object solid.  <a href="#adaa6e2ab7f5c25b538bbb9e011cde767"></a><br/></td></tr>
+<tr class="memitem:ad53f9bda5a4b5829d0d808c60454d218"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ad53f9bda5a4b5829d0d808c60454d218">makeNonSolid</a> ()</td></tr>
+<tr class="memdesc:ad53f9bda5a4b5829d0d808c60454d218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object non-solid.  <a href="#ad53f9bda5a4b5829d0d808c60454d218"></a><br/></td></tr>
+<tr class="memitem:ade65edee1451b414e5c88ed43fffbe5e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ade65edee1451b414e5c88ed43fffbe5e">isSolid</a> () const </td></tr>
+<tr class="memdesc:ade65edee1451b414e5c88ed43fffbe5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is solid.  <a href="#ade65edee1451b414e5c88ed43fffbe5e"></a><br/></td></tr>
+<tr class="memitem:ae970ad5ee017ebf6acab62928c19d7c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae970ad5ee017ebf6acab62928c19d7c8">getDangerLevel</a> () const </td></tr>
+<tr class="memdesc:ae970ad5ee017ebf6acab62928c19d7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's danger level.  <a href="#ae970ad5ee017ebf6acab62928c19d7c8"></a><br/></td></tr>
+<tr class="memitem:a8f057c451361240ebc424622db893e63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> danger_level)</td></tr>
+<tr class="memdesc:a8f057c451361240ebc424622db893e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's danger level.  <a href="#a8f057c451361240ebc424622db893e63"></a><br/></td></tr>
 <tr class="memitem:a7660dc25529325326bc280e5f5fb0194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> type)</td></tr>
@@ -182,7 +192,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Object_8h_source.html#l00019">19</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a07e8b69a7746aa44c1e7784a08583729"></a>
+<a class="anchor" id="ac3797e3194161ceeb6de884f7dae4083"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -190,8 +200,24 @@ Protected Attributes</h2></td></tr>
           <td class="memname">Object::Object </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>solidity</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>immortality</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -315,7 +341,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of angle </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00095">95</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00127">127</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +361,27 @@ Protected Attributes</h2></td></tr>
 <p>Get object's coordinates. </p>
 <dl class="section return"><dt>Returns</dt><dd>object's coordinates </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00105">105</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00137">137</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae970ad5ee017ebf6acab62928c19d7c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Object::getDangerLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets object's danger level. </p>
+<dl class="section return"><dt>Returns</dt><dd>danger level </dd></dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00084">84</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +455,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of shape. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of shape </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00085">85</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00117">117</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -429,7 +475,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of type. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of type </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00066">66</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00098">98</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -483,7 +529,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns true if object is destroyed. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object destroyed or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00038">38</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00037">37</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +549,27 @@ Protected Attributes</h2></td></tr>
 <p>Returns true if object is immortal. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object immortal or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00057">57</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00056">56</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade65edee1451b414e5c88ed43fffbe5e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Object::isSolid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if object is solid. </p>
+<dl class="section return"><dt>Returns</dt><dd>is object solid or not </dd></dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00075">75</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -522,7 +588,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object immortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00052">52</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00051">51</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -541,7 +607,45 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object mortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00047">47</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00046">46</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad53f9bda5a4b5829d0d808c60454d218"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::makeNonSolid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes object non-solid. </p>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00070">70</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adaa6e2ab7f5c25b538bbb9e011cde767"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::makeSolid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes object solid. </p>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00065">65</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +664,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Marks this object as destroyed. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00033">33</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00032">32</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -586,7 +690,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00090">90</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00122">122</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -612,7 +716,33 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00100">100</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00132">132</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f057c451361240ebc424622db893e63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Object::setDangerLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>danger_level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets object's danger level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">danger_level</td><td>new danger level </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00089">89</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -638,7 +768,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00080">80</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00112">112</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -664,7 +794,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00075">75</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00107">107</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -689,7 +819,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Array with actions. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00184">184</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00227">227</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -703,7 +833,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Fri Nov 16 2012 00:59:33 for pr061012 by
+    <li class="footer">Generated on Sun Nov 18 2012 13:24:02 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -12,6 +12,9 @@ var searchData=
   ['hoe',['HOE',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a067001b7a28d81d13ae33b430e76cf3d',1,'BasicTypes.h']]],
   ['hum_5fage_5fmax',['HUM_AGE_MAX',['../BasicDefines_8h.html#ad359afc245a54a12c3bd5f6e21fb02ff',1,'BasicDefines.h']]],
   ['hum_5fage_5fmin',['HUM_AGE_MIN',['../BasicDefines_8h.html#a5c99ab2c218ed4f7bd5da5c886a8aa23',1,'BasicDefines.h']]],
+  ['hum_5fbravery_5fmax',['HUM_BRAVERY_MAX',['../BasicDefines_8h.html#af296789b92124b78cdaaf0c5f6f39fca',1,'BasicDefines.h']]],
+  ['hum_5fbravery_5fmin',['HUM_BRAVERY_MIN',['../BasicDefines_8h.html#a651508aca44e0c7a48ef70210219f156',1,'BasicDefines.h']]],
+  ['hum_5fdecr_5fsleep_5fsteps',['HUM_DECR_SLEEP_STEPS',['../BasicDefines_8h.html#acbbc012167d619037d7352434cf0b663',1,'BasicDefines.h']]],
   ['hum_5fdelta_5fneed_5fin_5fdesc',['HUM_DELTA_NEED_IN_DESC',['../BasicDefines_8h.html#a26309d03a95878b003e386e0a527662f',1,'BasicDefines.h']]],
   ['hum_5fdelta_5fsoc',['HUM_DELTA_SOC',['../BasicDefines_8h.html#aff9c53c4e09e86da8900ab3c8540c889',1,'BasicDefines.h']]],
   ['hum_5flaziness_5fmax',['HUM_LAZINESS_MAX',['../BasicDefines_8h.html#aa1693ea6bb0f7496bc5d9d5be356097e',1,'BasicDefines.h']]],
@@ -22,5 +25,6 @@ var searchData=
   ['humanoid_2ecpp',['Humanoid.cpp',['../Humanoid_8cpp.html',1,'']]],
   ['humanoid_2eh',['Humanoid.h',['../Humanoid_8h.html',1,'']]],
   ['hunger',['hunger',['../classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a',1,'Creature']]],
+  ['hunt',['HUNT',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa901c4adf422bb3fb42f7aaa88bc9561a',1,'BasicTypes.h']]],
   ['hurricane',['HURRICANE',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a36abd3d0e25831fb6a51172f650de239',1,'BasicTypes.h']]]
 ];
