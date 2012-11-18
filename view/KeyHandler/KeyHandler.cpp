@@ -14,7 +14,6 @@
 KeyHandler::KeyHandler(View* v):
     view(v)
 {
-
 }
 
 KeyHandler::~KeyHandler()
@@ -39,5 +38,14 @@ void KeyHandler::handleKeys()
         if(glfwGetKey(GLFW_KEY_UP))
         {
             view -> setY(view -> getY() + SPEED);
+        }
+        if(glfwGetKey('P') && key_was_pressed['P'] == false)
+        {
+            view -> setPaused(!view -> isPaused());
+        }
+
+        for(int i = 0; i < GLFW_KEY_LAST; ++i)
+        {
+            key_was_pressed[i] = glfwGetKey(i) ? true : false;
         }
 }
