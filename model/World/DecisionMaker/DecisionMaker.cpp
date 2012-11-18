@@ -14,51 +14,39 @@
 
 DecisionMaker::DecisionMaker(CreatureType type)
 {
-    std::ifstream some_matrix;
+    std::string matrix_path;
+
+    // Choosing matrix path.
+    switch (type)
+    {
+        case HUMANOID:     matrix_path = DM_PATH_TO_HUM_MATRIX;  break;
+        case NON_HUMANOID: matrix_path = DM_PATH_TO_NHUM_MATRIX; break;
+    }
+
+    // Trying to open file with matrix.
+    std::ifstream some_matrix(matrix_path);
+
+    if (some_matrix == NULL)
+    {
+        Log::ERROR("Cannot open file '" + matrix_path + "'.");
+        throw EInvalidResPath(matrix_path);
+    }
+
+    // Reading matrix from file.
     int a;
-    int i, j;
     theta = arma::mat(DM_ACT_CONST, DM_ATR_CONST);
-
-    if (type == HUMANOID)
+    for (uint i = 0; i < DM_ATR_CONST; i++)
     {
-        some_matrix.open(DM_PATH_TO_HUM_MATRIX);
-        if (some_matrix == NULL)
+        for (uint j = 0; j < DM_ACT_CONST; j++)
         {
-            Log::ERROR("Cannot open file '" + std::string(DM_PATH_TO_HUM_MATRIX) + "'.");
-            throw EInvalidResPath(DM_PATH_TO_HUM_MATRIX);
+            some_matrix >> a;
+            this -> theta(i, j) = a;
         }
-
-        for (i = 0; i < DM_ATR_CONST; i++)
-            for (j = 0; j < DM_ACT_CONST; j++)
-            {
-                some_matrix >> a;
-                this -> theta(i, j) = a;
-            }
     }
-
-    if (type == NON_HUMANOID)
-    {
-        some_matrix.open(DM_PATH_TO_NHUM_MATRIX);
-        if (some_matrix == NULL)
-        {
-            Log::ERROR("Cannot open file '" + std::string(DM_PATH_TO_NHUM_MATRIX) + "'.");
-            throw EInvalidResPath(DM_PATH_TO_NHUM_MATRIX);
-        }
-
-        for (i = 0; i < DM_ATR_CONST; i++)
-            for (j = 0; j < DM_ACT_CONST; j++)
-            {
-                some_matrix >> a;
-                this -> theta(i, j) = a;
-            }
-    }
-
-    some_matrix.close();
 }
 
 DecisionMaker::~DecisionMaker()
 {
-
 }
 
 //******************************************************************************
