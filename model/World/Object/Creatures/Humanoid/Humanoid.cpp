@@ -70,7 +70,13 @@ std::vector <Action>* Humanoid::getActions()
     this -> safety_steps--;
     this -> desc_steps--;
     if (!this -> decr_sleep_step)
+    {
         this -> decr_sleep_step--;
+    }
+    if (!this -> decr_endur_step)
+    {
+        this -> decr_endur_step--;
+    }
 
     if(age_steps == 0)
         updateAge();
@@ -101,11 +107,11 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -116,6 +122,10 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (this -> health < 100 && common_steps == CREAT_STEPS) //freq incr health
                 this -> increaseHealth(CREAT_DELTA_HEALTH);
+            if (endurance < max_endurance)
+            {
+                endurance++;
+            }
         }
     }
 
@@ -133,10 +143,10 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -155,7 +165,10 @@ std::vector <Action>* Humanoid::getActions()
                 {
                     current_decision = NONE;
                 }
-
+                if (endurance < max_endurance)
+                {
+                    endurance++;
+                }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
         }
@@ -173,6 +186,10 @@ std::vector <Action>* Humanoid::getActions()
             else
             {
                 current_decision = NONE;
+            }
+            if (endurance < max_endurance)
+            {
+                endurance++;
             }
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
@@ -201,10 +218,25 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == RUN_FROM_DANGER)
     {
-        if (aim == 0)
+        chooseDirectionToEscape();
+        Action act(GO, this);
+        act.addParam<double>("angle", angle);
+        if (this -> endurance > this -> max_endurance / 2)
         {
-
+            Action act(GO, this);
+            act.addParam<SpeedType>("speed", FAST_SPEED);
+            if (decr_endur_step == 0)
+            {
+                 decr_sleep_step = HUM_DECR_ENDUR_STEPS;
+            }
+            this -> actions.push_back(act);
         }
+        else
+        {
+            Action act(GO, this);
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+        }
+
     }
     return &actions;
 }

@@ -152,6 +152,8 @@ private:
     //**************************************************************************
     /// Amount of steps before decreasion of sleepiness. When HUM is sleeping
     uint decr_sleep_step;
+    /// Amount of steps before decreasion of endurance. When HUM is escaping
+    uint decr_endur_step;
 };
 
 #endif // HUMANOID_H
