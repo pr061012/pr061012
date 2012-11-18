@@ -271,4 +271,17 @@ enum ActionError
     AREA_IS_NOT_PASSABLE
 };
 
+//******************************************************************************
+// MESSAGE.
+//******************************************************************************
+
+/**
+ * @enum  MessageType
+ * @brief The MessageType enum
+ */
+enum MessageType
+{
+    UNDER_ATTACK
+};
+
 #endif // BASIC_TYPES_H
