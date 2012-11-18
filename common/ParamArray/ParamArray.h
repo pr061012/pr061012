@@ -69,11 +69,28 @@ public:
     /**
      * @brief Adds new key with value into param array. Note: it will overwrite
      *        value if such key already exists!
-     * @param key   key to add
-     * @param value key value
+     * @param key       key to add
+     * @param value     key value
+     * @param overwrite overwrite existed key or not
      */
-    template <class Type> void addKey(std::string key, Type value)
+    template <class Type> void addKey(std::string key, Type value, bool overwrite = true)
     {
+        // Check whether this key is already added.
+        std::map <std::string, uint> :: const_iterator iter = this -> map.find(key);
+
+        if (iter != this -> map.end())
+        {
+            Log::WARN(std::string("Tried to add value by key which is " ) +
+                      std::string("already added. ") +
+                      (overwrite ? "Overwritten with new value." :
+                                   "Didn't change anything."));
+
+            if(!overwrite)
+            {
+                return;
+            }
+        }
+
         // Don't have enough memory?
         if (this -> current_index + sizeof(Type) >= this -> memory_size)
         {
@@ -105,7 +122,7 @@ public:
      */
     template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayInvalidKey)
     {
-        std::map <std::string, uint>:: const_iterator iter = this -> map.find(key);
+        std::map<std::string, uint>:: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
@@ -161,7 +178,7 @@ public:
 
 private:
     /// Map with keys.
-    std::map <std::string, uint> map;
+    std::map<std::string, uint> map;
 
     /// Pointer to allocated memory.
     char* memory;
