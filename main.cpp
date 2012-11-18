@@ -25,7 +25,7 @@ int main()
     try
     {
         // Creating World, View and Controller.
-        World world(rand(), SZ_WORLD_HSIDE);
+        World world(1084681335, SZ_WORLD_HSIDE);
         Controller control(&world);
         View view(world);
 

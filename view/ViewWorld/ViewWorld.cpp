@@ -106,6 +106,11 @@ double ViewWorld::screenToWorldY(double screen_y)
     return screen_y * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getY();
 }
 
+double ViewWorld::worldToScreenDist(double distance)
+{
+    return distance / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+}
+
 double ViewWorld::getX()
 {
     return this -> x;
@@ -118,10 +123,10 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM ?
-              new_var : VIEW_CAM_RADIUS + SZ_HUMANOID_DIAM;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
+    new_var = new_var > VIEW_CAM_RADIUS?
+              new_var : VIEW_CAM_RADIUS;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS;
     this -> x = new_var;
 }
 
@@ -129,8 +134,8 @@ void ViewWorld::setY(double new_var)
 {
     new_var = new_var > VIEW_CAM_RADIUS ?
               new_var : VIEW_CAM_RADIUS;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS - SZ_HUMANOID_DIAM;
+    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
+              new_var : world.getSize() - VIEW_CAM_RADIUS;
     this -> y = new_var;
 }
 
@@ -162,7 +167,7 @@ void ViewWorld::renderObject(const Object* object)
     }
 
     double angle;
-    double radius = object->getShape().getSize()/2;
+    double radius = object->getShape().getSize()/2 / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
