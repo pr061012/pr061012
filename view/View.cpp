@@ -100,18 +100,7 @@ void View::redraw()
     // Tweak coordinate grid to correspond in screen dimension
     // changes.
 
-    glMatrixMode(GL_PROJECTION); // editing projection params
-    glLoadIdentity();
-
-    float aspect_ratio = ((float)height)/width;
-    float x_koef = ((float)width ) / VIEW_SCREEN_WIDTH;
-    float y_koef = ((float)height) / VIEW_SCREEN_HEIGHT;
-
-    glFrustum(-VIEW_CAM_SIZE / x_koef,
-               VIEW_CAM_SIZE / x_koef,
-              -VIEW_CAM_SIZE / y_koef * aspect_ratio,
-               VIEW_CAM_SIZE / y_koef * aspect_ratio, 1, 50);
-    glMatrixMode(GL_MODELVIEW);
+    glViewport(0,0,width,height);
 
     // Handling screen presses
 
