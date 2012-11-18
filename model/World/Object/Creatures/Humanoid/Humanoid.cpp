@@ -368,6 +368,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     if (this -> home == 0)
     {
         return CHOOSE_PLACE_FOR_HOME;
+    }
     else
     {
         ObjectHeap::const_iterator iter;
