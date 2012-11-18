@@ -129,17 +129,17 @@ void View::redraw()
     double xoff = view_world -> worldToScreenX(0.0);
     double yoff = view_world -> worldToScreenY(0.0);
 
-    xoff = (xoff - (int)xoff);
-    yoff = (yoff - (int)yoff);
+    xoff = -(xoff - (int)xoff);
+    yoff = -(yoff - (int)yoff);
 
     glBegin(GL_LINES);
     for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
     {
-        glVertex2d(-10.0,  i - yoff);
-        glVertex2d( 10.0,  i - yoff);
+        glVertex2d(-VIEW_CAM_SIZE,  i - yoff);
+        glVertex2d( VIEW_CAM_SIZE,  i - yoff);
 
-        glVertex2d( i - xoff, -10.0);
-        glVertex2d( i - xoff,  10.0);
+        glVertex2d( i - xoff, -VIEW_CAM_SIZE);
+        glVertex2d( i - xoff,  VIEW_CAM_SIZE);
     }
     glEnd();
 
@@ -148,8 +148,10 @@ void View::redraw()
     glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
     glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
+
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);
     if(this -> isPaused()) msg += " PAUSED";
+
     glcRenderString( msg.c_str() );
 #endif
 
