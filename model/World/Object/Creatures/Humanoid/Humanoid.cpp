@@ -290,6 +290,14 @@ std::vector <Action>* Humanoid::getActions()
         }
 
     }
+
+    if(detailed_act == CHOOSE_PLACE_FOR_HOME)
+    {
+        Action act(CREATE_OBJ, this);
+        // FIX ME
+        act.addParam<ObjectType>("obj_type", BUILDING);
+        act.addParam<int>()
+    }
     return &actions;
 }
 
@@ -350,10 +358,11 @@ DetailedHumAction Humanoid::chooseWayToRelax()
     return RELAX_AT_HOME;
 }
 
-DetailedHumAction Humanoid:: chooseWayToBuild()
+DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
-        return CHOOSE_PLACE_FOR_HOME;//выбираем;задаем его размеры
+    {
+        return CHOOSE_PLACE_FOR_HOME;
     else
     {
         ObjectHeap::const_iterator iter;
@@ -372,7 +381,7 @@ DetailedHumAction Humanoid:: chooseWayToBuild()
     }
 }
 
-DetailedHumAction Humanoid:: chooseWayToEat()
+DetailedHumAction Humanoid::chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
     for(
