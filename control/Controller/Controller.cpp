@@ -30,7 +30,7 @@ Controller::Controller(World * world) :
     performers[CREATE_OBJ] = new CreationPerformer(world);
     performers[MINE_OBJ] = new MiningPerformer(*world -> getIndexator());
     performers[HARM_OBJS] = new HarmPerformer(*world -> getIndexator());
-    performers[REPAIR_OBJ] = new RegenerationPerformer();
+    performers[REGENERATE_OBJ] = new RegenerationPerformer(*world -> getIndexator());
     performers[DROP_OBJS] = new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = new PickupMaster(world);
     performers[EAT_OBJ] = new EatingPerformer(world);

@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    RegenerationPerformer();
+    RegenerationPerformer(Indexator& indexator);
 
     /**
      * @brief Destructor
