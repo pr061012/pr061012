@@ -112,7 +112,7 @@ std::vector <Action>* Humanoid::getActions()
             angle = setDirection();
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
+        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -182,7 +182,7 @@ std::vector <Action>* Humanoid::getActions()
             aim = home;
             angle = setDirection();
         }
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
+        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
