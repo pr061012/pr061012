@@ -66,13 +66,16 @@ bool ObjectHeap::push(Object* object)
     return !exist;
 }
 
+int counter = 0;
+
 bool ObjectHeap::remove(Object* object)
 {
     bool del = false;
-
+    counter++;
     // Position in TypeObject array.
     unsigned int pos = 0;
     // Type remove object.
+
     const ObjectType my_type = object -> getType();
     // Getting type of the object in int.
     int type_int = static_cast<int>(my_type);
