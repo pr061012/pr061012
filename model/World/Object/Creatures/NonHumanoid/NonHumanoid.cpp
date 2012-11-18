@@ -167,9 +167,11 @@ std::vector <Action>* NonHumanoid::getActions()
 
     if (current_decision == ESCAPE)
     {
-        if (this -> type == COW ||
-            this -> type == GOOSE ||
-            this -> type == SHEEP)
+        if (
+                this -> type == COW ||
+                this -> type == GOOSE ||
+                this -> type == SHEEP
+           )
         {
             if (angle == -1)
             {

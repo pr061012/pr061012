@@ -103,7 +103,7 @@ std::vector <Action>* Humanoid::getActions()
         detailed_act = chooseAction(current_decision);
     }
 
-    if (detailed_act == REALAX_AT_HOME)
+    if (detailed_act == RELAX_AT_HOME)
     {
         if (angle == -1)
         {
@@ -208,7 +208,21 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = inventory.begin(RESOURCE);
+            iter != inventory.end(RESOURCE); iter++
+           )
+        {
+            Resource* res_food = dynamic_cast<Resource*>(*iter);
+            if (res_food -> getSubtype() == RES_FOOD)
+            {
+                this -> aim == res_food;
+                break;
+            }
 
+        Action act(EAT_OBJ, this);
+        act.addParticipant(aim);
     }
 
     if (detailed_act == FIGHT)
@@ -273,7 +287,7 @@ void Humanoid::updateCommonAttrs()
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
-    DetailedHumAction result_act = REALAX_AT_HOME;
+    DetailedHumAction result_act = RELAX_AT_HOME;
 
     // Draft of father processing
     switch(action)
@@ -324,8 +338,8 @@ DetailedHumAction Humanoid:: chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
     for(
-        iter = objects_around.begin(RESOURCE);
-        iter != objects_around.end(RESOURCE); iter++
+        iter = inventory.begin(RESOURCE);
+        iter != inventory.end(RESOURCE); iter++
        )
     {
         Resource* res_food = dynamic_cast<Resource*>(*iter);
