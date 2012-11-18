@@ -54,17 +54,17 @@ World::World(int rand_seed, int size, bool generate_creatures) :
     Log::NOTE(std::string("Creating world with random seed ") +
               std::to_string(rand_seed) + ".");
 
+    // Initializing class attributes
+
+    object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
+
+    visible_objs = new ObjectHeap();
+    hidden_objs  = new ObjectHeap();
+
+    indexator = new Indexator((double)this->size);
+
     if(generate_creatures)
     {
-        // Initializing class attributes
-
-        object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
-
-        visible_objs = new ObjectHeap();
-        hidden_objs  = new ObjectHeap();
-
-        indexator = new Indexator((double)this->size);
-
         // Creating resources
         ParamArray food_params;
         ParamArray building_mat_params;
@@ -136,6 +136,7 @@ void World::addObject(bool visibility, Object *obj)
     if (visibility)
     {
         this -> visible_objs -> push(obj);
+        this -> indexator -> reindexate(obj);
     }
     else
     {
