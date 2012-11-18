@@ -60,6 +60,10 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
 
     // Initialize home
     home = 0;
+
+    // Initialize steps
+     decr_sleep_step = HUM_DECR_SLEEP_STEPS;
+     decr_endur_step = HUM_DECR_ENDUR_STEPS;
 }
 
 Humanoid::~Humanoid()
