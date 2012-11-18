@@ -21,12 +21,12 @@ void RegenerationPerformer::perform(Action& action)
 {
     Object * actor = action.getActor();
     std::vector<Object*> participants = action.getParticipants();
-
+    uint delta;
     ObjectType type = actor -> getType();
     uint object_index = action.getParam<uint>("object_index");
 
     ObjectHeap env = indexator.getAreaContents(actor->getShape());
-    ObjectHeap::const_iterator iter = obstacles.end();
+    ObjectHeap::const_iterator iter = env.end();
 
     if ((type != RESOURCE) || (type != CREATURE))
     {
