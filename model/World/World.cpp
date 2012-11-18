@@ -141,6 +141,7 @@ void World::reset()
     ObjectHeap::const_iterator iter;
     for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
     {
+        indexator -> removeObject(*iter);
         delete *iter;
     }
 
