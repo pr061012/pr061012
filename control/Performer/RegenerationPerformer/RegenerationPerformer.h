@@ -7,8 +7,7 @@
 #define REGENERATION_PERFORMER_H
 
 #include "../Performer.h"
-#include "../../../model/World/Object/Building/Building.h"
-#include "../../../model/World/Object/Tool/Tool.h"
+#include "../../../model/World/Indexator/Indexator.h"
 
 /**
  * @class RegenerationPerformer
@@ -48,6 +47,7 @@ private:
     //  ATTRIBUTES
     //*************************************************************************
 
+    Indexator& indexator;
 };
 
 #endif
