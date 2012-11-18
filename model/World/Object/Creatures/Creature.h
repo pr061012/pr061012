@@ -176,8 +176,10 @@ protected:
     /// Force of creations
     uint force;
 
-    /// Endurance of creations
+    /// Current endurance of creations
     uint endurance;
+    /// Max endurance of creations
+    uint max_endurance;
 
     /// Current creature's action.
     CreatureAction current_action;

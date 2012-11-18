@@ -71,7 +71,13 @@ std::vector <Action>* Humanoid::getActions()
     this -> safety_steps--;
     this -> desc_steps--;
     if (!this -> decr_sleep_step)
+    {
         this -> decr_sleep_step--;
+    }
+    if (!this -> decr_endur_step)
+    {
+        this -> decr_endur_step--;
+    }
 
     if(age_steps == 0)
         updateAge();
@@ -98,15 +104,15 @@ std::vector <Action>* Humanoid::getActions()
         detailed_act = chooseAction(current_decision);
     }
 
-    if (detailed_act == REALAX_AT_HOME)
+    if (detailed_act == RELAX_AT_HOME)
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -117,6 +123,10 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (this -> health < 100 && common_steps == CREAT_STEPS) //freq incr health
                 this -> increaseHealth(CREAT_DELTA_HEALTH);
+            if (endurance < max_endurance)
+            {
+                endurance++;
+            }
         }
     }
 
@@ -134,10 +144,10 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (angle == -1)
         {
-            aim = home;//////////////////////////////////////////////////////////
+            aim = home;
             angle = setDirection();
         }
-        if (this -> getCoords().getDistance(aim -> getCoords()) != 0) /////////////////////////
+        if (this -> getCoords().getDistance(aim -> getCoords()) != 0)
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
@@ -156,7 +166,10 @@ std::vector <Action>* Humanoid::getActions()
                 {
                     current_decision = NONE;
                 }
-
+                if (endurance < max_endurance)
+                {
+                    endurance++;
+                }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
         }
@@ -175,6 +188,10 @@ std::vector <Action>* Humanoid::getActions()
             {
                 current_decision = NONE;
             }
+            if (endurance < max_endurance)
+            {
+                endurance++;
+            }
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
         }
@@ -192,6 +209,21 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = inventory.begin(RESOURCE);
+            iter != inventory.end(RESOURCE); iter++
+           )
+        {
+            Resource* res_food = dynamic_cast<Resource*>(*iter);
+            if (res_food -> getSubtype() == RES_FOOD)
+            {
+                this -> aim == res_food;
+                break;
+            }
+        }
+        Action act(EAT_OBJ, this);
+        act.addParticipant(aim);
 
     }
 
@@ -202,10 +234,25 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == RUN_FROM_DANGER)
     {
-        if (aim == 0)
+        chooseDirectionToEscape();
+        Action act(GO, this);
+        act.addParam<double>("angle", angle);
+        if (this -> endurance > this -> max_endurance / 2)
         {
-
+            Action act(GO, this);
+            act.addParam<SpeedType>("speed", FAST_SPEED);
+            if (decr_endur_step == 0)
+            {
+                 decr_sleep_step = HUM_DECR_ENDUR_STEPS;
+            }
+            this -> actions.push_back(act);
         }
+        else
+        {
+            Action act(GO, this);
+            act.addParam<SpeedType>("speed", SLOW_SPEED);
+        }
+
     }
     return &actions;
 }
@@ -242,7 +289,7 @@ void Humanoid::updateCommonAttrs()
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
-    DetailedHumAction result_act = REALAX_AT_HOME;
+    DetailedHumAction result_act = RELAX_AT_HOME;
 
     // Draft of father processing
     switch(action)
@@ -293,8 +340,8 @@ DetailedHumAction Humanoid:: chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
     for(
-        iter = objects_around.begin(RESOURCE);
-        iter != objects_around.end(RESOURCE); iter++
+        iter = inventory.begin(RESOURCE);
+        iter != inventory.end(RESOURCE); iter++
        )
     {
         Resource* res_food = dynamic_cast<Resource*>(*iter);
