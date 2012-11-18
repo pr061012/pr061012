@@ -8,6 +8,7 @@
 
 #include "TravelingPerformer.h"
 #include "../../../common/BasicDefines.h"
+#include "../../../common/Log/Log.h"
 
 TravelingPerformer::TravelingPerformer(const double world_size, 
                                      Indexator* indexator) :
@@ -29,6 +30,7 @@ void TravelingPerformer::perform(Action& action)
     if (actor_type != CREATURE && actor_type != WEATHER)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_NOT_MOVEABLE);
         return;
     }
 
@@ -47,33 +49,36 @@ void TravelingPerformer::perform(Action& action)
             break;
 
     }
-    Vector dest = actor -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
+    Vector origin = actor -> getCoords();
+    Vector dest = origin + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
     if (dest.getX() < 0 || dest.getX() >= world_size || 
         dest.getY() < 0 || dest.getY() >= world_size)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
     // Try to place an object and see if it collides with anything
-    Shape ghost = actor -> getShape();
-    ghost.setCenter(dest);
-    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
+    actor -> setCoords(dest);
+    ObjectHeap obstacles = indexator -> getAreaContents(actor -> getShape());
 
     // Nothing can stop weather, and creature can't stop itself
     if (actor -> getType() == WEATHER || 
-        ((obstacles.getTypeAmount(CREATURE) == 1 && *obstacles.begin() == actor
-         || !obstacles.getTypeAmount(CREATURE))
+        (actor -> getType() == CREATURE && obstacles.getTypeAmount(CREATURE) == 1 
+        && *obstacles.begin() == actor
         && !obstacles.getTypeAmount(BUILDING)))
     {
-        actor -> setCoords(dest);
+        //Log::NOTE(std::to_string(obstacles.getTypeAmount(CREATURE)));
         indexator -> reindexate(actor);
         action.markAsSucceeded();
     }
     else
     {
+        actor -> setCoords(origin);
+        action.setError(OBJ_IS_STUCK);
         action.markAsFailed();
     }
 }
