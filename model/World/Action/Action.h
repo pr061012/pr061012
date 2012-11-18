@@ -35,7 +35,7 @@ public:
      * @param type          action's type
      * @param actor         action's actor
      */
-    Action(const ActionType type, Object * actor);
+    Action(const ActionType type, Object* actor);
 
     /**
      * @brief Destructor,
