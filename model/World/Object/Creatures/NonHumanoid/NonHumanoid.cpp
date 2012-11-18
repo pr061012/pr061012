@@ -25,6 +25,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setAge(0);
     this -> setShapeSize(SZ_NHUM_DIAM);
     this -> setShapeType(SHP_NON_HUMANOID);
+    this -> setViewArea(Shape(Point(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
 
     // Initialize of matrix of attr
     attrs(ATTR_HEALTH,0)         = 100 * hunger / max_hunger;

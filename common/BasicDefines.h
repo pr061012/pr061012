@@ -125,6 +125,12 @@
 /// Tool's shape.
 #define SHP_TOOL                    CIRCLE
 
+/// Humanoid view area shape.
+#define SHP_HUM_VIEW_TYPE           CIRCLE
+
+/// NonHumanoid view area shape.
+#define SHP_NHUM_VIEW_TYPE          CIRCLE
+
 //******************************************************************************
 // WEATHER DEFINES.
 // Prefix: WEAT.

@@ -28,7 +28,7 @@ public:
      * @param type      creature's type
      * @param dmaker    creature's decision maker
      */
-    Creature(CreatureType type, const DecisionMaker & dmaker);
+    Creature(CreatureType type, const DecisionMaker& dmaker);
 
     /**
      * @brief Destructor.
@@ -121,7 +121,7 @@ public:
      * @brief  Get inventory
      * @return inventory
      */
-    ObjectHeap * getInventory();
+    ObjectHeap* getInventory();
 
     //**************************************************************************
     // CHANGING HEALTH.
@@ -160,7 +160,6 @@ private:
     /// Creature's type.
     const CreatureType subtype;
 
-
     /// View area for Indexator.
     Shape view_area;
 
@@ -186,11 +185,11 @@ protected:
     /// Creature's enviroment
     ObjectHeap objects_around;
 
-     /// Matrix of attributes
+    /// Matrix of attributes
     arma::mat attrs;
 
     /// Reference to creature's DecisionMaker.
-    const DecisionMaker & brains;
+    const DecisionMaker& brains;
 
     /// Current age.
     uint age;
