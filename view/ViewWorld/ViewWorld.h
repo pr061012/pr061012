@@ -13,6 +13,7 @@
 #include "../../common/BasicDefines.h"
 #include "../../model/World/IWorld.h"
 #include "../../model/World/Object/Object.h"
+#include "../../model/World/Object/Resource/Resource.h"
 
 class ViewWorld
 {

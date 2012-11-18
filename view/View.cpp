@@ -131,11 +131,11 @@ void View::redraw()
 #ifdef VIEW_DEBUG
     // In debug mode, draw a grid over the screen.
 
-    double xoff = view_world -> worldToScreenX(0.0);
-    double yoff = view_world -> worldToScreenY(0.0);
+    double xoff = -view_world -> worldToScreenX(0.0);
+    double yoff = -view_world -> worldToScreenY(0.0);
 
-    xoff = -(xoff - (int)xoff);
-    yoff = -(yoff - (int)yoff);
+    xoff = xoff - (int)xoff;
+    yoff = yoff - (int)yoff;
 
     glBegin(GL_LINES);
     for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)

@@ -29,6 +29,7 @@ Humanoid::Humanoid(const DecisionMaker & dmaker) :
     this -> setMaxAge(0);
     this -> setShapeSize(SZ_HUM_DIAM);
     this -> setShapeType(SHP_HUMANOID);
+    this -> setViewArea(Shape(Point(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
 
     // TODO: Randomly initialize humanoid's name.
     name = "Name";
