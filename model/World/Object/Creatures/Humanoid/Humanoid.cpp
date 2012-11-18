@@ -117,6 +117,7 @@ std::vector <Action>* Humanoid::getActions()
             Action act(GO, this);
             act.addParam<double>("angle", angle);
             act.addParam<SpeedType>("speed", SLOW_SPEED);
+            visualMemorize();
             this -> actions.push_back(act);
         }
         else
@@ -151,6 +152,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             Action act(GO, this);
             act.addParam<double>("angle", angle);
+            visualMemorize();
             act.addParam<SpeedType>("speed", SLOW_SPEED);
             this -> actions.push_back(act);
         }
@@ -218,7 +220,7 @@ std::vector <Action>* Humanoid::getActions()
             Resource* res_food = dynamic_cast<Resource*>(*iter);
             if (res_food -> getSubtype() == RES_FOOD)
             {
-                this -> aim == res_food;
+                this -> aim = res_food;
                 break;
             }
         }
@@ -236,9 +238,9 @@ std::vector <Action>* Humanoid::getActions()
         chooseDirectionToEscape();
         Action act(GO, this);
         act.addParam<double>("angle", angle);
+        visualMemorize();
         if (this -> endurance > this -> max_endurance / 2)
         {
-            Action act(GO, this);
             act.addParam<SpeedType>("speed", FAST_SPEED);
             if (decr_endur_step == 0)
             {
@@ -248,8 +250,8 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            Action act(GO, this);
             act.addParam<SpeedType>("speed", SLOW_SPEED);
+            visualMemorize();
         }
 
     }
@@ -346,13 +348,13 @@ DetailedHumAction Humanoid:: chooseWayToEat()
         Resource* res_food = dynamic_cast<Resource*>(*iter);
         if (res_food -> getSubtype() == RES_FOOD)
         {
-            this -> aim == res_food;
+            this -> aim = res_food;
             return TAKE_FOOD_FROM_INVENTORY;
         }
     }
 
     {
-        if (force > 50 && bravery > 50 || force > 80 || bravery > 80)
+        if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
         {
             return HUNT;
         }
@@ -391,6 +393,29 @@ DetailedHumAction Humanoid::chooseWayToEscape()
         return RUN_FROM_DANGER;
     }
 }
+
+void Humanoid::visualMemorize()
+{
+
+    ObjectHeap::const_iterator iter;
+    for(
+        iter = inventory -> begin(BUILDING);
+        iter != inventory -> end(BUILDING); iter++
+       )
+    {
+        Building* build = dynamic_cast<Building*>(*iter);
+        this -> visual_memory -> push(build);
+    }
+    for(
+        iter = inventory -> begin(RESOURCE);
+        iter != inventory -> end(RESOURCE); iter++
+       )
+    {
+        Resource* res = dynamic_cast<Resource*>(*iter);
+        this -> visual_memory -> push(res);
+    }
+}
+
 //******************************************************************************
 // HUMANOID'S LOGICS.
 //******************************************************************************
