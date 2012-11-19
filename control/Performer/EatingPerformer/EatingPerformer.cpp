@@ -47,10 +47,10 @@ void EatingPerformer::perform(Action& action)
         return;
     }
 
-    Object * food = *participants.begin();
+    Object * food = *(participants.begin());
 
     // check resource type
-    if (food -> getType() == RESOURCE) 
+    if (food -> getType() != RESOURCE)
     {
         action.markAsFailed();
         action.setError(OBJ_IS_NOT_EATABLE);
@@ -62,6 +62,10 @@ void EatingPerformer::perform(Action& action)
     action.markAsPending();
     switch(dynamic_cast<Resource*>(food) -> getSubtype())
     {
+        case RES_FOOD:
+            food_value = 3;
+            break;
+
         case GRASS:
             food_value = RES_BERRIES_FOOD_VALUE;
             break;
