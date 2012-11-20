@@ -1,5 +1,6 @@
 #include <iostream>
-#include <ctime>
+#include <chrono>
+#include <thread>
 #include <random>
 #include <cstdlib>
 
@@ -10,8 +11,7 @@
 #include "model/World/World.h"
 #include "view/View.h"
 
-/// Period for world updating.
-const int PERIOD = CLOCKS_PER_SEC / TM_TICKS_PER_SECOND;
+#define PERIOD          CLOCKS_PER_SEC / TM_TICKS_PER_SECOND
 
 int main()
 {
@@ -32,17 +32,27 @@ int main()
         // Pausing game.
         view.setPaused(true);
 
-        int t0 = clock();
+        long long beginning = clock();
 
-        do
+        while(true)
         {
-            if(clock() - t0 > PERIOD)
+            // Au revoir.
+            if(!view.continues())
             {
-                t0 += PERIOD;
+                break;
+            }
+
+            if(clock() - beginning > PERIOD)
+            {
+                beginning += PERIOD;
+
+                // Running controller step (if needed).
                 if(!view.isPaused())
                 {
                     control.step();
                 }
+
+                // Redrawing picture.
                 view.redraw();
 
                 // Check if user wants to reset world.
@@ -52,7 +62,11 @@ int main()
                     world.reset();
                 }
             }
-        } while(view.continues());
+            else
+            {
+                // TODO: Sleep?
+            }
+        }
     }
     // Invalid game resource path exception.
     catch(EInvalidResPath& exc)
