@@ -92,7 +92,7 @@ Humanoid::~Humanoid()
 // ID.
 //******************************************************************************
 
-uint Humanoid::getHumanoidId() const
+uint Humanoid::getHumanoidID() const
 {
     return this -> hum_id;
 }

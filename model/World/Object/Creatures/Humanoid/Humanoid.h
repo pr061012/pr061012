@@ -51,7 +51,7 @@ public:
      * @brief  Returns humanoid's id.
      * @return humanoid's id
      */
-    uint getHumanoidId() const;
+    uint getHumanoidID() const;
 
 private:
     //**************************************************************************
