@@ -16,6 +16,8 @@
 
 // TODO:
 //  * Add comments.
+//  * Move (where it's needed) comparison between two doubles by comparison
+//    between their difference and MATH_EPSILON const.
 //
 // FIXME:
 //  * aim == 0?
