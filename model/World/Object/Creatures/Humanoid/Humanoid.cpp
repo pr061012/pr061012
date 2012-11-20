@@ -24,11 +24,11 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-int Humanoid::CURRENT_ID = 0;
+int Humanoid::CURRENT_HUM_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
-    id(CURRENT_ID++)
+    hum_id(CURRENT_HUM_ID++)
 {
     int age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
@@ -79,13 +79,13 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
 
     // Initialize decision
     this -> current_decision = NONE;
-
 }
 
 Humanoid::~Humanoid()
 {
     delete visual_memory;
 }
+
 std::vector <Action>* Humanoid::getActions()
 {
     Log::NOTE("start");

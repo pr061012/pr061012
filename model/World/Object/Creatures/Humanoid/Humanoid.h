@@ -29,7 +29,7 @@ public:
      *        attributes).
      * @param dmaker    humanoid's decision maker
      */
-    Humanoid(const DecisionMaker & dmaker);
+    Humanoid(const DecisionMaker& dmaker);
 
     /**
      * @brief Destructor
@@ -48,9 +48,9 @@ private:
     // IDS.
     //**************************************************************************
 
-    static int CURRENT_ID;
+    static int CURRENT_HUM_ID;
 
-    const unsigned int id;
+    const unsigned int hum_id;
 
     //**************************************************************************
     // COMMON INFORMATION.
