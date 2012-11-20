@@ -43,14 +43,24 @@ public:
     std::vector <Action>* getActions();
     void receiveMessage(Message message);
 
+    //**************************************************************************
+    // ID.
+    //**************************************************************************
+
+    /**
+     * @brief  Returns humanoid's id.
+     * @return humanoid's id
+     */
+    uint getHumanoidId() const;
+
 private:
     //**************************************************************************
     // IDS.
     //**************************************************************************
 
-    static int CURRENT_HUM_ID;
+    static uint CURRENT_HUM_ID;
 
-    const unsigned int hum_id;
+    const uint hum_id;
 
     //**************************************************************************
     // COMMON INFORMATION.
@@ -58,10 +68,13 @@ private:
 
     /// Humanoid's name.
     std::string name;
+
     //**************************************************************************
     // HUMANOID'S OBJECTS
     //**************************************************************************
+
     Building* home;
+
     //**************************************************************************
     // RELATIVE COEFFICIENTS.
     // May have any value. In decision maker we use only quotient of them (in
@@ -92,13 +105,16 @@ private:
     // If = 100, humanoid needs resources.
     /// Need in points.
     unsigned int need_in_points;
+
     /// Bravery
     uint bravery;
 
     //**************************************************************************
     // MEMORY
     //**************************************************************************
+
     ObjectHeap* visual_memory;
+
     /**
      * @brief Memorize seen object
      */
@@ -107,6 +123,7 @@ private:
     //**************************************************************************
     // UPDATES
     //**************************************************************************
+
     void updateAge();
     void updateCommonAttrs();
     void updateNeedInDesc();
@@ -114,6 +131,7 @@ private:
     //**************************************************************************
     // HUMANOID'S LOGICS.
     //**************************************************************************
+
     /// Detailed action of humanoid
     DetailedHumAction detailed_act;
 
@@ -156,8 +174,10 @@ private:
     //**************************************************************************
     // UPDATE STEP
     //**************************************************************************
+
     /// Amount of steps before decreasion of sleepiness. When HUM is sleeping
     uint decr_sleep_step;
+
     /// Amount of steps before decreasion of endurance. When HUM is escaping
     uint decr_endur_step;
 };

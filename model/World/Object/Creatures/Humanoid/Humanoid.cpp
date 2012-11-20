@@ -24,7 +24,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-int Humanoid::CURRENT_HUM_ID = 0;
+uint Humanoid::CURRENT_HUM_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
@@ -85,6 +85,19 @@ Humanoid::~Humanoid()
 {
     delete visual_memory;
 }
+
+//******************************************************************************
+// ID.
+//******************************************************************************
+
+uint Humanoid::getHumanoidId() const
+{
+    return this -> hum_id;
+}
+
+//******************************************************************************
+// ACTIONS.
+//******************************************************************************
 
 std::vector <Action>* Humanoid::getActions()
 {
