@@ -29,6 +29,7 @@ int main()
         Controller control(&world);
         View view(world);
 
+        // Pausing game.
         view.setPaused(true);
 
         int t0 = clock();
@@ -53,12 +54,14 @@ int main()
             }
         } while(view.continues());
     }
+    // Invalid game resource path exception.
     catch(EInvalidResPath& exc)
     {
         error = true;
         Log::ERROR("Failed to load game resource '" + exc.getResPath() +
                    "'. Terminating.");
     }
+    // Bad alloc exception.
     catch(std::bad_alloc& exc)
     {
         error = true;
@@ -69,6 +72,7 @@ int main()
     {
         std::cout << "An error occurred during game execution. Look for LOG " <<
                      "file for details." << std::endl;
+        return 1;
     }
 
     return 0;
