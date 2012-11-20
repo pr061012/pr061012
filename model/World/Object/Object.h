@@ -145,17 +145,23 @@ public:
     void setDangerLevel(uint danger_level);
 
     //**************************************************************************
-    // OBJECT TYPE.
+    // OBJECT TYPE AND ID.
     //**************************************************************************
 
     /**
-     * @brief Get the value of type.
+     * @brief  Gets the value of type.
      * @return the value of type
      */
     ObjectType getType() const;
 
+    /**
+     * @brief  Returns object's ID.
+     * @return object's ID.
+     */
+    uint getObjectID() const;
+
     //**************************************************************************
-    // OBJECT SHAPE AND ANGLE.
+    // OBJECT SHAPE, ANGLE AND COORDINATES.
     //**************************************************************************
 
     /**
@@ -201,6 +207,18 @@ public:
     const Vector& getCoords() const;
 
 private:
+    //**************************************************************************
+    // IDS.
+    //**************************************************************************
+
+    static uint CURRENT_ID;
+
+    const uint id;
+
+    //**************************************************************************
+    // OBJECT'S INFORMATION.
+    //**************************************************************************
+
     /// Object's type.
     const ObjectType type;
 

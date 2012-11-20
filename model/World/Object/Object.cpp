@@ -11,7 +11,10 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
+uint Object::CURRENT_ID = 0;
+
 Object::Object(ObjectType type, bool solidity, bool immortality) :
+    id(CURRENT_ID++),
     type(type),
     shape(Shape(Vector(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
     destroyed(false),
@@ -92,12 +95,17 @@ void Object::setDangerLevel(uint danger_level)
 }
 
 //******************************************************************************
-// OBJECT TYPE.
+// OBJECT TYPE AND ID.
 //******************************************************************************
 
 ObjectType Object::getType() const
 {
     return this -> type;
+}
+
+uint Object::getObjectID() const
+{
+    return this -> id;
 }
 
 //******************************************************************************
