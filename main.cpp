@@ -11,7 +11,12 @@
 #include "model/World/World.h"
 #include "view/View.h"
 
-#define PERIOD          CLOCKS_PER_SEC / TM_TICKS_PER_SECOND
+// TODO: Use threads, Luke! We really don't need clock() and usleep().
+
+// Clock period.
+#define CLOCK_PERIOD        CLOCKS_PER_SEC / TM_TICKS_PER_SECOND
+// Period for usleep() (in microseconds). Divided by 3 for better perfomance.
+#define USLEEP_PERIOD       1000 * 1000 / TM_TICKS_PER_SECOND / 3
 
 int main()
 {
@@ -19,7 +24,7 @@ int main()
     bool error = false;
 
     // Initializing random.
-    srand(time(NULL));
+    srand(time(0));
 
     // Running game.
     try
@@ -42,9 +47,9 @@ int main()
                 break;
             }
 
-            if(clock() - beginning > PERIOD)
+            if(clock() - beginning > CLOCK_PERIOD)
             {
-                beginning += PERIOD;
+                beginning += CLOCK_PERIOD;
 
                 // Running controller step (if needed).
                 if(!view.isPaused())
@@ -61,10 +66,8 @@ int main()
                     view.setReset(false);
                     world.reset();
                 }
-            }
-            else
-            {
-                // TODO: Sleep?
+
+                usleep(USLEEP_PERIOD);
             }
         }
     }
