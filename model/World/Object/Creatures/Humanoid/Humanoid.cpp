@@ -30,7 +30,7 @@ uint Humanoid::CURRENT_HUM_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
-    hum_id(CURRENT_HUM_ID++)
+hum_id(CURRENT_HUM_ID++)
 {
     int age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
@@ -184,7 +184,15 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIND_FOOD)
     {
-        aim = 0;
+        // check if we have some resources on our mind`
+        if (visual_memory -> getTypeAmount(RESOURCE))
+        {
+            aim = *(visual_memory -> begin(RESOURCE));
+        }
+        else
+        {
+            aim = 0;
+        }
         double min_dist = SZ_WORLD_VSIDE;
         ObjectHeap::const_iterator iter;
         for(
@@ -214,7 +222,6 @@ std::vector <Action>* Humanoid::getActions()
                 angle = setDirection();
             }
         }
-        assert(aim == 0);
         if (aim != 0)/////////////////////////////////////////////////////////////////////////////////////////.
         {
 
@@ -543,17 +550,28 @@ void Humanoid::visualMemorize()
 
     ObjectHeap::const_iterator iter;
     for(
-        iter = inventory -> begin(BUILDING);
-        iter != inventory -> end(BUILDING); iter++
+        iter = objects_around.begin(BUILDING);
+        iter != objects_around.end(BUILDING); iter++
        )
     {
         this -> visual_memory -> push(*iter);
     }
     for(
-        iter = inventory -> begin(RESOURCE);
-        iter != inventory -> end(RESOURCE); iter++
+        iter = objects_around.begin(RESOURCE);
+        iter != objects_around.end(RESOURCE); iter++
        )
     {
          this -> visual_memory -> push(*iter);
     }
+}
+
+//**********************************************************
+// DEBUG
+//**********************************************************
+
+
+// returns current decision of humanoid
+uint Humanoid::getCurrentDetailedAct() const
+{
+    return detailed_act;
 }

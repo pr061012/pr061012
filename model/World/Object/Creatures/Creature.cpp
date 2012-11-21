@@ -49,7 +49,7 @@ Creature::~Creature()
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
-CreatureType Creature::getSubtype()
+CreatureType Creature::getSubtype() const
 {
     return this -> subtype;
 }
@@ -249,4 +249,13 @@ double Creature::setDirection()
     double delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
     double delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
     return angle = atan(delta_x / delta_y);
+}
+
+//**********************************************************
+// DEBUG
+//**********************************************************
+
+uint Creature::getCurrentDecision() const
+{
+    return current_decision;
 }

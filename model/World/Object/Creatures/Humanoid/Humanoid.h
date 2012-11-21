@@ -53,6 +53,13 @@ public:
      */
     uint getHumanoidID() const;
 
+    //**********************************************************
+    // DEBUG
+    //**********************************************************
+   
+    /// Gets current desicion of humanoid
+    uint getCurrentDetailedAct() const;
+
 private:
     //**************************************************************************
     // IDS.

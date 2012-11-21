@@ -1,3 +1,6 @@
+// FIXME Needed for sleep_for
+#define _GLIBCXX_USE_NANOSLEEP
+
 #include <iostream>
 #include <chrono>
 #include <thread>

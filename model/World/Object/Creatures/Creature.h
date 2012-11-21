@@ -43,7 +43,7 @@ public:
      * @brief Get subtype
      * @return creature subtype
      */
-    CreatureType getSubtype();
+    CreatureType getSubtype() const;
 
     /**
      * @brief Set the value of creature's window.
@@ -122,6 +122,13 @@ public:
      * @return inventory
      */
     ObjectHeap* getInventory();
+
+    //**********************************************************
+    // DEBUG
+    //**********************************************************
+    
+    /// Get current action
+    uint getCurrentDecision() const;
 
     //**************************************************************************
     // CHANGING HEALTH.

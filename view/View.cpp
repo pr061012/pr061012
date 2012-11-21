@@ -1,4 +1,6 @@
 #include "View.h"
+#include "../model/World/Object/Creatures/Creature.h"
+#include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
 
 #include "../common/Log/Log.h"
 
@@ -148,6 +150,17 @@ void View::redraw()
                           << std::endl;
                 std::cout << "y = " << selected -> getCoords().getY()
                           << std::endl;
+                if (selected -> getType() == CREATURE)
+                {
+                    std::cout << "decison = " << 
+                        dynamic_cast<const Creature*>(selected) -> getCurrentDecision() 
+                        << std::endl;
+                    if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
+                        std::cout << "detailed_act = " <<
+                            dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct()
+                            << std::endl;
+                }
+                        
             }
         }
 
