@@ -2,7 +2,6 @@
 #include <chrono>
 #include <thread>
 #include <random>
-#include <cstdlib>
 
 #include "common/BasicDefines.h"
 #include "common/Log/Log.h"
@@ -11,12 +10,8 @@
 #include "model/World/World.h"
 #include "view/View.h"
 
-// TODO: Use threads, Luke! We really don't need clock() and usleep().
-
-// Clock period.
-#define CLOCK_PERIOD        CLOCKS_PER_SEC / TM_TICKS_PER_SECOND
-// Period for usleep() (in microseconds). Divided by 3 for better perfomance.
-#define USLEEP_PERIOD       1000 * 1000 / TM_TICKS_PER_SECOND / 3
+// Period (in milliseconds).
+#define PERIOD          (uint) 1000 / TM_TICKS_PER_SECOND
 
 int main()
 {
@@ -37,7 +32,8 @@ int main()
         // Pausing game.
         view.setPaused(true);
 
-        long long beginning = clock();
+        // Starting time point.
+        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
         while(true)
         {
@@ -47,9 +43,15 @@ int main()
                 break;
             }
 
-            if(clock() - beginning > CLOCK_PERIOD)
+            // Current time point and difference between current and previous
+            // points.
+            std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+            std::chrono::duration<double> time_span = std::chrono::duration_cast< std::chrono::duration<double> >(t2 - t1);
+
+            // Check whether we need to update world and picture.
+            if(time_span.count() * 1000 > PERIOD)
             {
-                beginning += CLOCK_PERIOD;
+                t1 = t2;
 
                 // Running controller step (if needed).
                 if(!view.isPaused())
@@ -67,7 +69,8 @@ int main()
                     world.reset();
                 }
 
-                usleep(USLEEP_PERIOD);
+                // Sleeping.
+                std::this_thread::sleep_for(std::chrono::milliseconds(PERIOD));
             }
         }
     }
