@@ -63,25 +63,38 @@ public:
 
 
     /**
-     * @brief Deletes all objects and generates world
-     *        one more time
+     * @brief Deletes all objects and generates world one more time
      */
     void reset();
+
+private:
+    //**************************************************************************
+    // CREATING/DELETING WORLD'S ATTRS.
+    //**************************************************************************
+
+    /**
+     * @brief Clears world and deletes everything.
+     */
+    void deleteEverything();
+
+    /**
+     * @brief Creates all world's attributes.
+     */
+    void createEverything(bool generate_objs = true);
 
     //**************************************************************************
     // GENERATION METHODS.
     //**************************************************************************
 
-private:
     void genCreatures();
     void genResources();
     void genWeather();
 
+public:
     //**************************************************************************
     // OBJECT HEAP METHODS.
     //**************************************************************************
 
-public:
     void setObjectVisibility(Object* obj, bool visibility);
 
     //**************************************************************************
