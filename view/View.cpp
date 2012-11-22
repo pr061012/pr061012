@@ -37,6 +37,8 @@ View::View(const IWorld& w)
 
     //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
     //this -> addInterfaceObject(console);
+
+    this -> setFocus( rendered.at(0) );
 }
 
 View::~View()
