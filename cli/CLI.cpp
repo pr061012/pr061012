@@ -357,6 +357,9 @@ std::string CLI::info(std::stringstream& ss)
         return sformat("Error: object with id %d doesn't exist.\n", id);
     }
 
+    output += "\n========= COMMON INFORMATION =========\n";
+    output += sformat("ID\t\t\t%d\n", obj -> getObjectID());
+
     // Getting object information.
     ObjectType type = obj -> getType();
 
@@ -382,6 +385,7 @@ std::string CLI::info(std::stringstream& ss)
     if (type == CREATURE)
     {
         output += "Type:\t\t\tCREATURE\n";
+        output += "======== CREATURE INFORMATION ========\n";
 
         Creature* creat = dynamic_cast<Creature*>(obj);
         CreatureType subtype = creat -> getSubtype();
@@ -400,19 +404,38 @@ std::string CLI::info(std::stringstream& ss)
                           view_area.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
                           view_area.getSize());
 
-        // TODO: Print inventory, objects around.
+        // Printing inventory.
+        output += "Inventory\t\t";
+        ObjectHeap* inv = creat -> getInventory();
+        ObjectHeap::const_iterator iter;
+        for (iter = inv -> begin(); iter != inv -> end(); iter++)
+        {
+            output += sformat("%d\t", (*iter) -> getObjectID());
+        }
+        output += "\n";
+
+        // Printing objects around.
+        output += "Objects around\t";
+        ObjectHeap* objs_around = creat -> getObjectsAround();
+        for (iter = objs_around -> begin(); iter != objs_around -> end(); iter++)
+        {
+            output += sformat("%d\t", (*iter) -> getObjectID());
+        }
+        output += "\n";
 
         if (subtype == HUMANOID)
         {
             output += "Subtype\t\t\tHUMANOID\n";
+            output += "======== HUMANOID INFORMATION ========\n";
 
             Humanoid* hum = dynamic_cast<Humanoid*>(creat);
 
-            // TODO: Print visual memory, humanoid id.
+            output += sformat("Humanoid ID\t\t%d\n", hum -> getHumanoidID());
         }
         else if (subtype == NON_HUMANOID)
         {
             output += "Subtype\t\t\tNON_HUMANOID\n";
+            output += "====== NON-HUMANOID INFORMATION ======\n";
 
             NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
         }
