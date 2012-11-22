@@ -47,17 +47,17 @@ private:
     // UPDATES
     //**************************************************************************
     /**
-     * @brief updateAge
+     * @brief Update age.
      */
     void updateAge();
 
     /**
-     * @brief updateCommonAttrs
+     * @brief Update common attributes.
      */
     void updateCommonAttrs();
 
     /**
-     * @brief updateNeedInDesc
+     * @brief Update need in descendants.
      */
     void updateNeedInDesc();
     //**************************************************************************
