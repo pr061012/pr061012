@@ -58,18 +58,11 @@ private:
     //**************************************************************************
 
     /**
-     * @brief  `init` command.
+     * @brief  `init` and `random-init` commands.
      * @param  ss   stream with args
      * @return command output
      */
-    std::string init(std::stringstream& ss);
-
-    /**
-     * @brief  `random-init` command.
-     * @param  ss   stream with args
-     * @return command output
-     */
-    std::string randomInit(std::stringstream& ss);
+    std::string init(std::stringstream& ss, bool random);
 
     /**
      * @brief  `create` command.

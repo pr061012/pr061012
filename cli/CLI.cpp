@@ -33,12 +33,12 @@ std::string CLI::runCommand(std::string command)
     // Running processors.
     if (cmd == "init")
     {
-        return this -> init(ss);
+        return this -> init(ss, false);
     }
 
     if (cmd == "random-init")
     {
-        return this -> randomInit(ss);
+        return this -> init(ss, true);
     }
 
     if (cmd == "create")
@@ -78,7 +78,7 @@ std::string CLI::runCommand(std::string command)
 // COMMAND'S PROCESSORS.
 //******************************************************************************
 
-std::string CLI::init(std::stringstream &ss)
+std::string CLI::init(std::stringstream &ss, bool random)
 {
     // FIXME: Interpreting only one size.
     int size = -1;
@@ -95,12 +95,8 @@ std::string CLI::init(std::stringstream &ss)
         return "Error: Size must be greater than 0.\n";
     }
 
-    this -> world -> reset(false);
-    return "Successfully created clear world.\n";
-}
-
-std::string CLI::randomInit(std::stringstream &ss)
-{
+    this -> world -> reset(size, random);
+    return "Successfully created world.\n";
 }
 
 std::string CLI::create(std::stringstream& ss)

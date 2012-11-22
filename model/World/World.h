@@ -49,7 +49,7 @@ public:
      * @param size size of side of square of generated world.
      * @param generate_objs     flag indicating whether generate objects or not
      */
-    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_objs = true);
+    World(int rand_seed = 0, uint size = DEFAULT_SIZE, bool generate_objs = true);
 
     //**************************************************************************
     // BASE METHODS.
@@ -65,7 +65,7 @@ public:
      * @brief Deletes all objects and generates world one more time
      * @param generate_objs     flag indicating whether generate objects or not
      */
-    void reset(bool generate_objs = true);
+    void reset(uint size = DEFAULT_SIZE, bool generate_objs = true);
 
 private:
     //**************************************************************************
@@ -177,7 +177,7 @@ public:
 
 private:
     /// Size of World's region
-    const int size;
+    uint size;
 
     /// Heap containing all visible World's objects
     ObjectHeap* visible_objs;
