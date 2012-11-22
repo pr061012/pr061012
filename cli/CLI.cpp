@@ -146,7 +146,7 @@ std::string CLI::init(std::stringstream &ss, bool random)
     if (ss.fail())
     {
         return sformat("Error: integer argument expected.\n") +
-               sformat("Syntax: init <size>");
+               sformat("Syntax: init <size>\n");
     }
 
     if (size < 50)
@@ -212,7 +212,8 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return "Error: Unknown CreatureType.\n";
+            return sformat("Error: Unknown CreatureType (%s), possible values: %s, %s.\n",
+                           creat_type.c_str(), TN_HUMANOID, TN_NON_HUMANOID);
         }
     }
     else if (type == TN_BUILDING)
@@ -247,7 +248,7 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: ResourceType expected.\n") +
-                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>\n");
         }
 
         if (ss == TN_RESOURCE_FOOD)
@@ -260,7 +261,8 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return "Error: unknown ResourceType.\n";
+            return sformat("Error: unknown ResourceType (%s), possible values: %s, %s.\n",
+                           res_type.c_str(), TN_RESOURCE_FOOD, TN_RESOURCE_BUILDING_MAT);
         }
 
         uint res_amount;
@@ -268,7 +270,7 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: res_amount expected.\n") +
-                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>\n");
         }
 
         pa.addKey<uint>("res_amount", res_amount);
@@ -283,14 +285,15 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: weat_steps expected.\n") +
-                   sformat("Syntax: create <x> <y> WEATHER <weat_steps>");
+                   sformat("Syntax: create <x> <y> WEATHER <weat_steps>\n");
         }
 
         pa.addKey<uint>("weat_steps", weat_steps);
     }
     else
     {
-        return "Error: unknown ObjectType.\n";
+        return sformat("Error: unknown ObjectType (%s), possible values: %s, %s, %s, %s\n",
+                       type.c_str(), TN_BUILDING, TN_CREATURE, TN_RESOURCE, TN_WEATHER);
     }
 
     // Creating object.
