@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    HarmPerformer(World * world);
+    HarmPerformer(World* world);
 
     /**
      * @brief Destructor
