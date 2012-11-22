@@ -208,8 +208,8 @@ std::vector <Action>* Humanoid::getActions()
             {
                 if (this -> getCoords().getDistance(res_food -> getCoords()) < min_dist)
                 {
-                    min_dist = this -> getCoords().getDistance(aim -> getCoords());
                     aim = res_food;
+                    min_dist = this -> getCoords().getDistance(aim -> getCoords());
                 }
             }
         }
