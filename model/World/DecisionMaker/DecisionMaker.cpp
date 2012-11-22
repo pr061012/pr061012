@@ -26,7 +26,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
     // Trying to open file with matrix.
     std::ifstream some_matrix(matrix_path);
 
-    if (some_matrix == NULL)
+    if (!some_matrix)
     {
         Log::ERROR("Cannot open file '" + matrix_path + "'.");
         throw EInvalidResPath(matrix_path);
@@ -68,7 +68,7 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
         case COMMUNICATE:     index = 5;    break;
         case ESCAPE:          index = 6;    break;
         case REALIZE_DREAM:   index = 7;    break;
-        case CONTINUE_GENDER: index = 8;    break;
+        case REPRODUCE: index = 8;    break;
         default:              return false; break;
     }
 
@@ -128,7 +128,7 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
     case 5: decision = COMMUNICATE; break;
     case 6: decision = ESCAPE; break;
     case 7: decision = REALIZE_DREAM; break;
-    case 8: decision = CONTINUE_GENDER;
+    case 8: decision = REPRODUCE;
     }
 
     return decision;

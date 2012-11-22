@@ -9,6 +9,7 @@
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../common/Random/Random.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 
 CreationPerformer::CreationPerformer(World* world):
     Performer(world)
@@ -34,8 +35,9 @@ void CreationPerformer::perform(Action& action)
     ParamArray param;
 
     // Check of actor type.
-    if ( type == RESOURCE || type == CREATURE )
+    if ( type == CREATURE )
     {
+        Creature* cr = dynamic_cast<Creature*>(actor);
         switch (obj_type)
         {
             case CREATURE:
@@ -51,30 +53,12 @@ void CreationPerformer::perform(Action& action)
                     world -> addObject(true, new_object);
 
                     action.markAsSucceeded();
+                    return;
                 }
                 else
                 {
                     action.markAsFailed();
-                }
-            }
-            break;
-
-            case RESOURCE:
-            {
-                if (type == RESOURCE)
-                {
-                    // Create new resource.
-                    new_object = createResource(action, param);
-
-
-                    dynamic_cast<Resource*>(new_object) -> makePickable();
-                    // If all is OK, add new_object in world.
-                    world -> addObject(false, new_object);
-
-                    // Increase actor amount.
-                    static_cast<Resource*>(actor) -> increaseAmount(1);
-
-                    action.markAsSucceeded();
+                    return;
                 }
             }
             break;
@@ -90,25 +74,63 @@ void CreationPerformer::perform(Action& action)
 */
             case BUILDING:
             {
-                // Create new resource.
-                new_object = createBuilding(action, param);
+                if (cr -> getSubtype() != NON_HUMANOID)
+                {
+                    // Create new resource.
+                    new_object = createBuilding(action, param);
 
-                // Set coord new_object and add its in world.
-                new_object -> setCoords(actor -> getCoords());
-                world -> addObject(true, new_object);
+                    // Set coord new_object and add its in world.
+                    new_object -> setCoords(actor -> getCoords());
+                    world -> addObject(true, new_object);
 
-                action.markAsSucceeded();
-            }
+                    Building* new_home = dynamic_cast<Building*>(new_object);
+                    dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
+
+                    action.markAsSucceeded();
+                    return;
+                }
+                else
+                {
+                    action.markAsFailed();
+                    return;
+                }
             break;
 
             default:
                 action.markAsFailed();
+                return;
             break;
+        }
+
+        }
+    }
+    else if (type == RESOURCE)
+    {
+        if (obj_type == RESOURCE)
+        {
+            // Create new resource.
+            new_object = createResource(action, param);
+
+            dynamic_cast<Resource*>(new_object) -> makePickable();
+            // If all is OK, add new_object in world.
+            world -> addObject(false, new_object);
+
+            // Increase actor amount.
+            static_cast<Resource*>(actor) -> increaseAmount(1);
+
+            action.markAsSucceeded();
+            return;
+        }
+        else
+        {
+            action.markAsFailed();
+            return;
         }
     }
     else
     {
         action.markAsFailed();
+        return;
     }
 }
 

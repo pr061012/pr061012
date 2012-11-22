@@ -298,6 +298,10 @@ protected:
     void go(SpeedType speed);
 
 
+    void go(Object * target, SpeedType speed);
+
+    void go(SpeedType speed);
+
 };
 
 

@@ -119,10 +119,7 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             angle = Random::double_num(2 * M_PI);
         }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        go(SLOW_SPEED);
     }
 
     if (current_decision == EAT)
@@ -142,10 +139,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                Action act(GO, this);
-                act.addParam<double>("angle", angle);
-                act.addParam<SpeedType>("speed", SLOW_SPEED);
-                this -> actions.push_back(act);
+                go(SLOW_SPEED);
             }
         }
         else
@@ -155,10 +149,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
+            go(SLOW_SPEED);
         }
 
         if (hunger == 0)
@@ -182,10 +173,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", FAST_SPEED);
-            this -> actions.push_back(act);
+            go(SLOW_SPEED);
         }
         else
         {
@@ -194,7 +182,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (current_decision == CONTINUE_GENDER)
+    if (current_decision == REPRODUCE)
     {
 
     }
@@ -251,7 +239,7 @@ void NonHumanoid::findGrass()
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype()  == GRASS)
+        if (res -> getSubtype()  == RES_FOOD)
         {
             coords = res -> getCoords();
             if (distance < coords.getDistance(this -> getCoords()))
