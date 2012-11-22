@@ -177,7 +177,7 @@ public:
 
 private:
     /// Size of World's region
-    const int size;
+    uint size;
 
     /// Heap containing all visible World's objects
     ObjectHeap* visible_objs;

@@ -133,6 +133,7 @@ void World::save(std::string filepath)
 
 void World::reset(uint size, bool generate_objs)
 {
+    this -> size = size > 0 ? size : DEFAULT_SIZE;
     this -> deleteEverything();
     this -> createEverything(generate_objs);
 }
