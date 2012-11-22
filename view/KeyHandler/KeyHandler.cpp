@@ -23,6 +23,9 @@ KeyHandler::~KeyHandler()
 
 void KeyHandler::handleKeys()
 {
+
+    if(!view -> getFocus())
+    {
         if(glfwGetKey(GLFW_KEY_RIGHT))
         {
             view -> setX(view -> getX() + SPEED);
@@ -47,9 +50,42 @@ void KeyHandler::handleKeys()
         {
             view -> setReset(true);
         }
-
-        for(int i = 0; i < GLFW_KEY_LAST; ++i)
+    }
+    else
+    {
+        TextField* focus = view -> getFocus();
+        if(glfwGetKey(GLFW_KEY_BACKSPACE) && !key_was_pressed[GLFW_KEY_BACKSPACE])
         {
-            key_was_pressed[i] = glfwGetKey(i) ? true : false;
+            std::string text = focus -> getText();
+            focus -> setText( text.erase(text.length()-1) );
         }
+        else if(glfwGetKey(GLFW_KEY_ENTER) && !key_was_pressed[GLFW_KEY_ENTER])
+        {
+            view -> setUserInput(focus -> getText());
+            focus -> setText("");
+        }
+        else
+        {
+            char tempChar = '\0';
+            for(int c = 'A'; c<='Z'; ++c)
+            {
+                if(glfwGetKey(c) && !key_was_pressed[c])
+                {
+                    if(!glfwGetKey(GLFW_KEY_LSHIFT) && !glfwGetKey(GLFW_KEY_RSHIFT))
+                    {
+                        // Convert pressed char to lower case
+                        tempChar = c - 'A' + 'a';
+                    }
+                    else tempChar = c;
+                }
+            }
+            // Print symbol that is pressed last by index.
+            if(tempChar != '\0') focus -> setText(focus -> getText() + tempChar);
+        }
+    }
+
+    for(int i = 0; i < GLFW_KEY_LAST; ++i)
+    {
+        key_was_pressed[i] = glfwGetKey(i) ? true : false;
+    }
 }
