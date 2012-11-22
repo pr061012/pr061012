@@ -90,13 +90,15 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : NONE
+    // DECISION : NONE | OK
     //**************************************************************************
     else if (current_decision == NONE)
     {
+        // Make decision.
         current_decision = brains.makeDecision(attrs);
+
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
     //**************************************************************************
@@ -120,7 +122,7 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //*************************************************************************
-    // DECISION : RELAX
+    // DECISION : RELAX | OK
     //**************************************************************************
     else if (current_decision == RELAX)
     {
@@ -129,7 +131,7 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : EAT
+    // DECISION : EAT | OK
     //**************************************************************************
     else if (current_decision == EAT)
     {
@@ -151,7 +153,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                go(aim, SLOW_SPEED);
+                go(SLOW_SPEED);
             }
         }
         else
@@ -246,7 +248,7 @@ void NonHumanoid::findGrass()
     Vector coords;
     double distance = SZ_NHUM_VIEW_DIAM;
 
-    // Find grass in around object.
+    // Find grass in around objects.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
