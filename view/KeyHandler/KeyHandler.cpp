@@ -21,6 +21,27 @@ KeyHandler::~KeyHandler()
 
 }
 
+bool KeyHandler::isCharPressed(int c)
+{
+    if(c >= 'A' && c <= 'Z')
+    {
+        if(!glfwGetKey(GLFW_KEY_LSHIFT) && !glfwGetKey(GLFW_KEY_RSHIFT))
+        {
+            return false;
+        }
+    }
+    if(c >= 'a' && c <= 'z')
+    {
+        if(glfwGetKey(GLFW_KEY_LSHIFT) || glfwGetKey(GLFW_KEY_RSHIFT))
+        {
+            return false;
+        }
+        c = c - 'a' + 'A';
+    }
+
+    return glfwGetKey(c) && !key_was_pressed[c];
+}
+
 void KeyHandler::handleKeys()
 {
 
@@ -72,27 +93,17 @@ void KeyHandler::handleKeys()
             char tempChar = '\0';
             for(int c = 'A'; c<='Z'; ++c)
             {
-                if(glfwGetKey(c) && !key_was_pressed[c])
-                {
-                    if(!glfwGetKey(GLFW_KEY_LSHIFT) && !glfwGetKey(GLFW_KEY_RSHIFT))
-                    {
-                        // Convert pressed char to lower case
-                        tempChar = c - 'A' + 'a';
-                    }
-                    else tempChar = c;
-                }
+                if(isCharPressed(c)) tempChar = c;
+                if(isCharPressed(c - 'A' + 'a')) tempChar = c - 'A' + 'a';
             }
             for(int c = '0'; c<='9'; ++c)
             {
-                if(glfwGetKey(c) && !key_was_pressed[c])
-                {
-                    tempChar = c;
-                }
+                if(isCharPressed(c)) tempChar = c;
             }
-            if(glfwGetKey(GLFW_KEY_SPACE) && !key_was_pressed[GLFW_KEY_SPACE])
-            {
-                tempChar = ' ';
-            }
+            if(isCharPressed(' ')) tempChar = ' ';
+            if(isCharPressed('.')) tempChar = '.';
+            if(isCharPressed('-')) tempChar = '-';
+            if(isCharPressed('_')) tempChar = '_';
 
             // Print symbol that is pressed last by index.
             if(tempChar != '\0') focus -> setText(focus -> getText() + tempChar);
