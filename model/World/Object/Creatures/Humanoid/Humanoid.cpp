@@ -115,10 +115,6 @@ std::vector <Action>* Humanoid::getActions()
     {
         this -> decr_sleep_step--;
     }
-    if (!this -> decr_endur_step)
-    {
-        this -> decr_endur_step--;
-    }
 
     // Updates parametr.
     if(age_steps == 0)
@@ -131,7 +127,7 @@ std::vector <Action>* Humanoid::getActions()
         updateDanger();
     this -> actions.clear();
 
-    // If decision is not actual humanoid make new decision.
+    // If decision is not actual humanoid makes new decision.
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
@@ -195,7 +191,7 @@ std::vector <Action>* Humanoid::getActions()
     //**************************************************************************
 
     // Searching for food inside humanoid visual memory. If it is founded he
-    // eat it. In other case he just shuffle on the street and explore enviro-
+    // eat it. In other case he just shuffles on the street and explores enviro-
     // ment.
 
     if (detailed_act == FIND_FOOD)
@@ -241,13 +237,19 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : SLEEP_AT_HOME
+    //**************************************************************************
+
+    // First of all, humanoid comes home. After that we decrease his sleepiness
+    // and increase endurance. We do it one time in HUM_DECR_SLEEP_STEPS steps.
     if (detailed_act == SLEEP_AT_HOME)
     {
-        if (angle == -1)
+        if (aim == nullptr)
         {
             aim = home;
-            angle = setDirection();
         }
+
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
             go(SLOW_SPEED);
@@ -271,10 +273,19 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
+            else
+            {
+                this -> decr_endur_step--;
+            }
         }
 
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : SLEEP_ON_THE_GROUND
+    //**************************************************************************
+
+    // Humanoid just increases endurance and decrease sleepiness
     if (detailed_act == SLEEP_ON_THE_GROUND)
     {
         if (decr_sleep_step == 0)
@@ -294,7 +305,15 @@ std::vector <Action>* Humanoid::getActions()
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
         }
+        else
+        {
+            this -> decr_endur_step--;
+        }
     }
+
+    //**************************************************************************
+    // DETAILED DECISION : MINE_RESOURSE
+    //**************************************************************************
 
     // If we don't choose which resource humanoid want to mine, we check
     // his visual memory. After that humanoid come to this resource. If he
@@ -351,6 +370,12 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : BUILD_HOUSE
+    //**************************************************************************
+
+    // Humanoid just asking controller for permission to increase health
+    // of building.
     if (detailed_act == BUILD_HOUSE)
     {
         Action act(REGENERATE_OBJ, this);
@@ -358,6 +383,12 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam("object_index", 0);
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : TAKE_FOOD_FROM_INVENTORY
+    //**************************************************************************
+
+    // Humanoid searching for resource_food in inventory. After that he just
+    // eat it.
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
         ObjectHeap::const_iterator iter;
@@ -378,18 +409,21 @@ std::vector <Action>* Humanoid::getActions()
         this -> actions.push_back(act);
     }
 
-    if (detailed_act == FIGHT)///////////////////////////////////////////////////////////////
+    //**************************************************************************
+    // DETAILED DECISION : FIGHT           BAD FUNC!!!!!!!
+    //**************************************************************************
+
+    if (detailed_act == FIGHT)
     {
-        if (angle == -1)
-        {
-            angle = Random::double_num(2 * M_PI);
-        }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        go(SLOW_SPEED);
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : RUN_FROM_DANGER
+    //**************************************************************************
+
+    // Humanoid chooses direction to escape. After thart he run, if he doesn't
+    // tired. In other case he just goes.
     if (detailed_act == RUN_FROM_DANGER)
     {
         chooseDirectionToEscape();
@@ -409,6 +443,10 @@ std::vector <Action>* Humanoid::getActions()
         }
 
     }
+
+    //**************************************************************************
+    // DETAILED DECISION : CHOOSE_PLACE_FOR_HOME            BAD FUNC!!!!!!!!!
+    //**************************************************************************
 
     if(detailed_act == CHOOSE_PLACE_FOR_HOME)
     {
