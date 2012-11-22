@@ -637,6 +637,25 @@ void Humanoid::setHome(Building *home)
 // DEBUG
 //**********************************************************
 
+uint Humanoid::getBravery() const
+{
+    return this -> bravery;
+}
+
+uint Humanoid::getNeedInHouse() const
+{
+    return this -> need_in_house;
+}
+
+Building* Humanoid::getHome() const
+{
+    return this -> home;
+}
+
+ObjectHeap* Humanoid::getVisMem() const
+{
+    return this -> visual_memory;
+}
 
 // returns current decision of humanoid
 uint Humanoid::getCurrentDetailedAct() const
