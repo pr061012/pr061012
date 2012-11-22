@@ -11,7 +11,7 @@ TextField::TextField(double x, double y, double width, double height, std::strin
     this -> content = content;
     this -> hidden = false;
 
-    this -> font_size = height*0.8;
+    this -> font_size = height*0.6;
 }
 
 TextField::~TextField()
@@ -30,7 +30,7 @@ void TextField::setText(std::string content)
 
 void TextField::render()
 {
-    glColor4f(0.0f, 0.0f, 0.0f, 0.5f);
+    glColor4f(0.0f, 0.0f, 0.0f, 0.8f);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
