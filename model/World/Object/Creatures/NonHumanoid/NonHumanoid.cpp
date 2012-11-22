@@ -51,6 +51,10 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 
     //Initialize type
     type = COW;
+
+    // Initialize directions
+    angle = 0;
+    direction_is_set = false; 
 }
 
 NonHumanoid::~NonHumanoid()
@@ -81,14 +85,14 @@ std::vector <Action>* NonHumanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
-        angle = -1;
+        direction_is_set = false;
         aim = 0;
     }
 
     if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
-        angle = -1;
+        direction_is_set = false;
         aim = 0;
     }
 

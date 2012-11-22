@@ -23,7 +23,7 @@
 // Improve movement algo
 
 DroppingPerformer::DroppingPerformer(World * world) :
-    world(world)
+    Performer(world)
 {
 }
 

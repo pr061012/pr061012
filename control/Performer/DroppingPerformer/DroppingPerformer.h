@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor for a particular world
      * @param world_size size of the world
-     * @param indexator indexator
+     * @param world world
      */
     DroppingPerformer(World* world);
 
@@ -43,14 +43,6 @@ public:
      */
     void perform(Action& action);
 
-private:
-
-    //*************************************************************************
-    //  ATTRIBUTES
-    //*************************************************************************
-    
-    /// Size of the world
-    World * world;
 };
 
 #endif

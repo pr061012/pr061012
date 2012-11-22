@@ -11,9 +11,7 @@
 #include "../../../common/Random/Random.h"
 
 CreationPerformer::CreationPerformer(World* world):
-    indexator(world -> getIndexator()),
-    world(world),
-    factory(world -> getObjectFactory())
+    Performer(world)
 {
 
 }
@@ -119,7 +117,7 @@ bool CreationPerformer::checkCoord(Shape shape)
     bool ret = false;
 
     // Get obstacles
-    ObjectHeap obstacles = indexator -> getAreaContents(shape);
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(shape);
 
     //Check amount creature and resource in shape
     if (!obstacles.getTypeAmount(CREATURE) &&
@@ -139,7 +137,7 @@ Object* CreationPerformer::createBuilding(Action& action, ParamArray& param)
     param.addKey<uint>("max_health",max_health);
     param.addKey<uint>("max_space",max_space);
 
-    return factory -> createObject(BUILDING, param);
+    return world -> getObjectFactory() -> createObject(BUILDING, param);
 }
 
 Object* CreationPerformer::createCreature(Action& action, ParamArray& param)
@@ -148,7 +146,7 @@ Object* CreationPerformer::createCreature(Action& action, ParamArray& param)
 
     param.addKey<CreatureType>("creat_type", creat_type);
 
-    return factory -> createObject(CREATURE, param);
+    return world -> getObjectFactory() -> createObject(CREATURE, param);
 }
 
 Object* CreationPerformer::createResource(Action& action, ParamArray& param)
@@ -159,7 +157,7 @@ Object* CreationPerformer::createResource(Action& action, ParamArray& param)
     param.addKey<ResourceType>("res_type", res_type);
     param.addKey<uint>("res_amount", res_amount);
 
-    return factory -> createObject(RESOURCE, param);
+    return world -> getObjectFactory() -> createObject(RESOURCE, param);
 }
 
 Object* CreationPerformer::createTool(Action& action, ParamArray& param)
@@ -172,5 +170,5 @@ Object* CreationPerformer::createTool(Action& action, ParamArray& param)
     param.addKey<ResourceType>("mat_type", mat_type);
     param.addKey<uint>("tool_str",tool_str);
 
-    return factory -> createObject(TOOL, param);
+    return world -> getObjectFactory() -> createObject(TOOL, param);
 }
