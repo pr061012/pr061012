@@ -101,6 +101,23 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
 std::string CLI::create(std::stringstream& ss)
 {
+    // Reading coordinates.
+    double x;
+    ss >> x;
+    if (ss.fail())
+    {
+        return std::string("Error: x coordinate expected.\n") +
+               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+    }
+
+    double y;
+    ss >> y;
+    if (ss.fail())
+    {
+        return std::string("Error: y coordinate expected.\n") +
+               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+    }
+
     // Reading type.
     ObjectType obj_type;
     std::string type;
@@ -219,7 +236,12 @@ std::string CLI::create(std::stringstream& ss)
     // Creating object.
     ObjectFactory* obj_factory = this -> world -> getObjectFactory();
     Object* obj = obj_factory -> createObject(obj_type, pa);
+    obj -> setCoords(Vector(x, y));
     this -> world -> addObject(true, obj);
+
+    return std::string("Succesfully created object (id is ") +
+           std::to_string(obj -> getObjectID()) +
+           std::string(").\n");
 }
 
 std::string CLI::list(std::stringstream& ss)
