@@ -68,8 +68,6 @@ std::vector <Action>* NonHumanoid::getActions()
     this -> common_steps--;
     this -> safety_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
-        this -> decr_sleep_step--;
 
     if (age_steps == 0)
         updateAge();
@@ -80,6 +78,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (safety_steps == 0)
         updateSafety();
 
+    // Clear actions.
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
@@ -102,22 +101,30 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : SLEEP
+    // DECISION : SLEEP | OK
     //**************************************************************************
     else if (current_decision == SLEEP)
     {
+        // Check timesteps before wake up.
         if (decr_sleep_step == 0)
         {
+            // Check sleepiness.
             if (sleepiness > 0)
             {
                 sleepiness--;
-            }
+            } 
             else
             {
+                // If NH is awake, set NONE decision.
                 current_decision = NONE;
             }
 
+            // Set timesteps, before increase sleepness.
             decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
+        }
+        else
+        {
+            decr_sleep_step--;
         }
     }
 
@@ -200,11 +207,6 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == REPRODUCE)
     {
 
-    }
-
-    if (age == max_age)
-    {
-        health = 0;
     }
 
     return &actions;
