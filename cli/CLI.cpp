@@ -87,7 +87,7 @@ std::string CLI::init(std::stringstream &ss, bool random)
     if (ss.fail())
     {
         return std::string("Error: Integer argument expected.\n") +
-               std::string("`init` syntax: init <size>\n");
+               std::string("Syntax: init <size>\n");
     }
 
     if (size <= 0)
@@ -101,6 +101,75 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
 std::string CLI::create(std::stringstream& ss)
 {
+    // Reading type.
+    ObjectType obj_type;
+    std::string type;
+    ss >> type;
+    if (ss.fail())
+    {
+        return std::string("Error: ObjectType argument expected.\n") +
+               std::string("Syntax: create <type> [additional args]");
+    }
+
+    // Reading additional args depending on ObjectType.
+    ParamArray pa;
+    if (type == "CREATURE")
+    {
+        obj_type = CREATURE;
+
+        std::string creat_type;
+        ss >> creat_type;
+        if (ss.fail())
+        {
+            return std::string("Error: CreatureType argument expected.\n") +
+                   std::string("Syntax: create CreatureType");
+        }
+
+        if (creat_type == "HUMANOID")
+        {
+            pa.addKey<CreatureType>("creat_type", HUMANOID);
+        }
+        else if (creat_type == "NON_HUMANOID")
+        {
+            pa.addKey<CreatureType>("creat_type", NON_HUMANOID);
+        }
+        else
+        {
+            return std::string("Error: Unknown CreatureType.\n");
+        }
+    }
+    else if (type == "BUILDING")
+    {
+        obj_type = BUILDING;
+
+        uint max_health, max_space;
+
+        ss >> max_health;
+        if (ss.fail())
+        {
+            return std::string("Error: first uint argument expected.\n") +
+                   std::string("Syntax: create BUILDING max_health max_space");
+        }
+
+        ss >> max_space;
+        if (ss.fail())
+        {
+            return std::string("Error: second uint argument expected.\n") +
+                   std::string("Syntax: create BUILDING max_health max_space");
+        }
+
+        pa.addKey<uint>("max_health", max_health);
+        pa.addKey<uint>("max_space", max_space);
+    }
+    else
+    {
+        return std::string("Error: unknown ObjectType.\n");
+    }
+
+    // Creating object.
+    ObjectFactory* obj_factory = this -> world -> getObjectFactory();
+    Object* obj = obj_factory -> createObject(obj_type, pa);
+    this -> world -> addObject(true, obj);
 }
 
 std::string CLI::list(std::stringstream& ss)
