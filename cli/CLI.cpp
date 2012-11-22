@@ -108,7 +108,7 @@ std::string CLI::create(std::stringstream& ss)
     if (ss.fail())
     {
         return std::string("Error: ObjectType argument expected.\n") +
-               std::string("Syntax: create <type> [additional args]");
+               std::string("Syntax: create <x> <y> <type> [additional args]\n");
     }
 
     // Reading additional args depending on ObjectType.
@@ -122,7 +122,7 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return std::string("Error: CreatureType argument expected.\n") +
-                   std::string("Syntax: create CreatureType");
+                   std::string("Syntax: create <x> <y> <CreatureType>\n");
         }
 
         if (creat_type == "HUMANOID")
@@ -147,19 +147,54 @@ std::string CLI::create(std::stringstream& ss)
         ss >> max_health;
         if (ss.fail())
         {
-            return std::string("Error: first uint argument expected.\n") +
-                   std::string("Syntax: create BUILDING max_health max_space");
+            return std::string("Error: max_health expected.\n") +
+                   std::string("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
         }
 
         ss >> max_space;
         if (ss.fail())
         {
-            return std::string("Error: second uint argument expected.\n") +
-                   std::string("Syntax: create BUILDING max_health max_space");
+            return std::string("Error: max_space expected.\n") +
+                   std::string("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
         }
 
         pa.addKey<uint>("max_health", max_health);
         pa.addKey<uint>("max_space", max_space);
+    }
+    else if (type == "RESOURCE")
+    {
+        obj_type = RESOURCE;
+
+        std::string res_type;
+        ss >> res_type;
+        if (ss.fail())
+        {
+            return std::string("Error: ResourceType expected.\n") +
+                   std::string("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+        }
+
+        if (ss == "RES_FOOD")
+        {
+            pa.addKey<ResourceType>("res_type", RES_FOOD);
+        }
+        else if (ss == "RES_BUILDING_MAT")
+        {
+            pa.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+        }
+        else
+        {
+            return std::string("Error: unknown ResourceType.\n");
+        }
+
+        uint res_amount;
+        ss >> res_amount;
+        if (ss.fail())
+        {
+            return std::string("Error: res_amount expected.\n") +
+                   std::string("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+        }
+
+        pa.addKey<uint>("res_amount", res_amount);
     }
     else
     {
