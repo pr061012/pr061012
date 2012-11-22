@@ -299,16 +299,29 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
-    if (detailed_act == MINE_RESOURSES)//////////////////////////////////////////////////
+    if (detailed_act == MINE_RESOURSES)/////////////////////////////////////////////////////////////////
     {
-        if (angle == -1)
+        ObjectHeap::const_iterator iter;
+        Vector coords;
+
+        double distance = SZ_NHUM_VIEW_DIAM;
+        for(
+            iter = objects_around.begin(RESOURCE);
+            iter != objects_around.end(RESOURCE); iter++
+           )
         {
-            angle = Random::double_num(2 * M_PI);
+            Resource* res = dynamic_cast<Resource*>(*iter);
+            if (res -> getSubtype()  == RES_FOOD)
+            {
+                coords = res -> getCoords();
+                if (distance < coords.getDistance(this -> getCoords()))
+                {
+                    this -> aim = res;
+                    this -> angle = -1;
+                    distance = coords.getDistance(this -> getCoords());
+                }
+            }
         }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
     }
 
     if (detailed_act == BUILD_HOUSE)
