@@ -182,7 +182,7 @@ private:
     Path route;
 
     /// Current goal towards which creature is moving
-    Object * goal;
+    Object* goal;
 
 protected:
     /// Creature's inventory.
@@ -232,6 +232,9 @@ protected:
     uint sleepiness;
     /// Maximum possible value of sleepiness.
     uint max_sleepiness;
+
+    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
+    uint decr_sleep_step;
 
     /// Current value of need_in_descendants (0-100)
 	uint need_in_descendants;

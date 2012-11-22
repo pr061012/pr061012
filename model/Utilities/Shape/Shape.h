@@ -63,15 +63,14 @@ public:
      * @brief Get type of the shape.
      * @return type of the shape.
      */
-
-    int getType() const;
+    ShapeType getType() const;
 
     /**
      * @brief Set type.
      * @param type new type.
      */
 
-    void setType(int type);
+    void setType(ShapeType type);
 
     /**
      * @brief Get size (edge length for polygons, diameter for circle).

@@ -123,7 +123,6 @@ public:
     std::string getUserInput();
 
     void addConsoleOutput(std::string app);
-
 #ifdef __glfw3_h__
     GLFWwindow getWindow();
 #endif

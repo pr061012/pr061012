@@ -45,12 +45,12 @@ const Vector& Shape::getCenter ( ) const
     return center;
 }
 
-void Shape::setType(int type)
+void Shape::setType(ShapeType type)
 {
-    this -> type = (ShapeType) type;
+    this -> type = type;
 }
 
-int Shape::getType() const
+ShapeType Shape::getType() const
 {
     return type;
 }

@@ -7,6 +7,11 @@
 
 #include <sstream>
 
+#include "../model/Utilities/Vector/Vector.h"
+#include "../model/World/Object/Creatures/Creature.h"
+#include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
+
 //******************************************************************************
 // CONSTRUCTOR.
 //******************************************************************************
@@ -101,6 +106,23 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
 std::string CLI::create(std::stringstream& ss)
 {
+    // Reading coordinates.
+    double x;
+    ss >> x;
+    if (ss.fail())
+    {
+        return std::string("Error: x coordinate expected.\n") +
+               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+    }
+
+    double y;
+    ss >> y;
+    if (ss.fail())
+    {
+        return std::string("Error: y coordinate expected.\n") +
+               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+    }
+
     // Reading type.
     ObjectType obj_type;
     std::string type;
@@ -219,7 +241,12 @@ std::string CLI::create(std::stringstream& ss)
     // Creating object.
     ObjectFactory* obj_factory = this -> world -> getObjectFactory();
     Object* obj = obj_factory -> createObject(obj_type, pa);
+    obj -> setCoords(Vector(x, y));
     this -> world -> addObject(true, obj);
+
+    return std::string("Succesfully created object (id is ") +
+           std::to_string(obj -> getObjectID()) +
+           std::string(").\n");
 }
 
 std::string CLI::list(std::stringstream& ss)
@@ -243,6 +270,97 @@ std::string CLI::list(std::stringstream& ss)
 
 std::string CLI::info(std::stringstream& ss)
 {
+    std::string output;
+
+    // Reading id.
+    uint id;
+    ss >> id;
+    if (ss.fail())
+    {
+        return std::string("Error: object id expected.\n") +
+               std::string("Syntax: info <id>\n");
+    }
+
+    // Looking for object.
+    ObjectHeap* objs = this -> world -> getVisibleObjects();
+    ObjectHeap::const_iterator iter;
+    Object* obj;
+    for (iter = objs -> begin(); iter != objs -> end(); iter++)
+    {
+        obj = *iter;
+
+        if (obj -> getObjectID() == id)
+        {
+            break;
+        }
+    }
+
+    if (iter == objs -> end())
+    {
+        return std::string("Error: object with id ") +
+               std::to_string(id) +
+               std::string(" doesn't exist.\n");
+    }
+
+    // Getting object information.
+    ObjectType type = obj -> getType();
+
+    // Coordinates and angle.
+    Vector v = obj -> getCoords();
+    output += std::string("X:\t\t\t") + std::to_string(v.getX()) + "\n";
+    output += std::string("Y:\t\t\t") + std::to_string(v.getY()) + "\n";
+    output += std::string("Angle:\t\t\t") + std::to_string(obj -> getAngle()) + "\n";
+
+    // Shape type.
+    ShapeType shape = obj -> getShape().getType();
+    output += std::string("Shape:\t\t\t");
+    if (shape == CIRCLE)
+    {
+        output += "CIRCLE\n";
+    }
+    else if (shape == SQUARE)
+    {
+        output += "SQUARE\n";
+    }
+
+    // Danger level.
+    output += std::string("Danger level:\t\t") + std::to_string(obj -> getDangerLevel()) + "\n";
+
+    // HP.
+    output += std::string("HP:\t\t\t") + std::to_string(obj -> getHealthPoints()) + "\n";
+    output += std::string("Max HP:\t\t\t") + std::to_string(obj -> getMaxHealthPoints()) + "\n";
+
+    if (type == CREATURE)
+    {
+        output += "Type:\t\t\tCREATURE\n";
+
+        Creature* creat = dynamic_cast<Creature*>(obj);
+        CreatureType subtype = creat -> getSubtype();
+
+        // Printing age.
+        output += std::string("Age:\t\t\t") + std::to_string(creat -> getAge()) +
+                  std::string("/") + std::to_string(creat -> getMaxAge()) +
+                  std::string(".\n");
+
+        // Printing decision.
+        output += std::string("Current decision:\t") +
+                  std::to_string(creat -> getCurrentDecision()) + "\n";
+
+        if (subtype == HUMANOID)
+        {
+            output += "Subtype:\t\tHUMANOID\n";
+
+            Humanoid* hum = dynamic_cast<Humanoid*>(creat);
+        }
+        else if (subtype == NON_HUMANOID)
+        {
+            output += "Subtype:\t\tNON_HUMANOID\n";
+
+            NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
+        }
+    }
+
+    return output;
 }
 
 std::string CLI::step(std::stringstream& ss)

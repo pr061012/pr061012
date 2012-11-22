@@ -33,7 +33,7 @@ View::View(const IWorld& w)
 
     glcFont(this -> font);
 
-    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.0, 10.0, 0.5
+    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.01 - VIEW_CAM_SIZE/2, 10.0, 0.5
 #ifdef __glfw3_h__
     ,window
 #endif
@@ -224,6 +224,8 @@ void View::redraw()
 
         if(!focus_changed)
         {
+
+            // Draw a circle at cursor position
             double angle;
             double radius = view_world -> worldToScreenDist(1.0);
 

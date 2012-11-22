@@ -36,25 +36,20 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
                                         // so it always wants to relax
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
-    attrs(ATTR_SAFETY,0)         = safety;
+    attrs(ATTR_SAFETY,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
-    // Initialize of steps
-    age_steps       = CREAT_AGE_STEPS;
-    common_steps    = CREAT_STEPS;
-    safety_steps    = CREAT_SAFETY_STEPS;
-    desc_steps      = CREAT_DESC_STEPS;
+    age_steps = CREAT_AGE_STEPS;
+    common_steps = CREAT_STEPS;
+    danger_steps = CREAT_SAFETY_STEPS;
+    desc_steps = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
-
-    // Initialize of current decision
     current_decision = NONE;
+    angle = 0;
+    direction_is_set = false;
 
     //Initialize type
-    type = COW;
-
-    // Initialize directions
-    angle = 0;
-    direction_is_set = false; 
+    subsubtype = COW;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -62,14 +57,16 @@ NonHumanoid::~NonHumanoid()
 
 }
 
+//**************************************************************************
+// NON_HUMANOID ACTIONS.
+//**************************************************************************
+
 std::vector <Action>* NonHumanoid::getActions()
 {
     this -> age_steps--;
     this -> common_steps--;
-    this -> safety_steps--;
+    this -> danger_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
-        this -> decr_sleep_step--;
 
     if (age_steps == 0)
         updateAge();
@@ -77,9 +74,10 @@ std::vector <Action>* NonHumanoid::getActions()
         updateNeedInDesc();
     if (common_steps == 0)
         updateCommonAttrs();
-    if (safety_steps == 0)
-        updateSafety();
+    if (danger_steps == 0)
+        updateDanger();
 
+    // Clear actions.
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
@@ -90,37 +88,47 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : NONE
+    // DECISION : NONE | OK
     //**************************************************************************
     else if (current_decision == NONE)
     {
+        // Make decision.
         current_decision = brains.makeDecision(attrs);
+
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
     //**************************************************************************
-    // DECISION : SLEEP
+    // DECISION : SLEEP | OK
     //**************************************************************************
     else if (current_decision == SLEEP)
     {
+        // Check timesteps before wake up.
         if (decr_sleep_step == 0)
         {
+            // Check sleepiness.
             if (sleepiness > 0)
             {
                 sleepiness--;
-            }
+            } 
             else
             {
+                // If NH is awake, set NONE decision.
                 current_decision = NONE;
             }
 
+            // Set timesteps, before increase sleepness.
             decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
+        }
+        else
+        {
+            decr_sleep_step--;
         }
     }
 
     //*************************************************************************
-    // DECISION : RELAX
+    // DECISION : RELAX | OK
     //**************************************************************************
     else if (current_decision == RELAX)
     {
@@ -129,7 +137,7 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : EAT
+    // DECISION : EAT | OK
     //**************************************************************************
     else if (current_decision == EAT)
     {
@@ -151,7 +159,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                go(aim, SLOW_SPEED);
+                go(SLOW_SPEED);
             }
         }
         else
@@ -174,9 +182,9 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == ESCAPE)
     {
         if (
-                this -> type == COW ||
-                this -> type == GOOSE ||
-                this -> type == SHEEP
+                this -> subsubtype == COW ||
+                this -> subsubtype == GOOSE ||
+                this -> subsubtype == SHEEP
            )
         {
             if (angle == -1)
@@ -200,11 +208,6 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (age == max_age)
-    {
-        health = 0;
-    }
-
     return &actions;
 
 }
@@ -213,6 +216,13 @@ void NonHumanoid::receiveMessage(Message message)
 {
 }
 
+//**************************************************************************
+// NON-HUMANOID'S LOGICS.
+//**************************************************************************
+
+//**************************************************************************
+// UPDATES
+//**************************************************************************
 void NonHumanoid::updateAge()
 {
     this -> age++;
@@ -239,14 +249,16 @@ void NonHumanoid::updateCommonAttrs()
     this -> common_steps = CREAT_STEPS;
 }
 
-
+//**************************************************************************
+// AUXILIARY FUNTIONS
+//**************************************************************************
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
     double distance = SZ_NHUM_VIEW_DIAM;
 
-    // Find grass in around object.
+    // Find grass in around objects.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++

@@ -47,17 +47,17 @@ private:
     // UPDATES
     //**************************************************************************
     /**
-     * @brief updateAge
+     * @brief Update age.
      */
     void updateAge();
 
     /**
-     * @brief updateCommonAttrs
+     * @brief Update common attributes.
      */
     void updateCommonAttrs();
 
     /**
-     * @brief updateNeedInDesc
+     * @brief Update need in descendants.
      */
     void updateNeedInDesc();
     //**************************************************************************
@@ -71,15 +71,9 @@ private:
     void findGrass();
 
     //**************************************************************************
-    // UPDATE STEP
-    //**************************************************************************
-    /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
-    uint decr_sleep_step;
-
-    //**************************************************************************
     // TYPE
     //**************************************************************************
-    NonHumanoidType type;
+    NonHumanoidType subsubtype;
 };
 
 #endif // NON_HUMANOID_H

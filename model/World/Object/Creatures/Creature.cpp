@@ -218,7 +218,7 @@ void Creature:: chooseDirectionToEscape()
         iter != objects_around.end(WEATHER); iter++
        )
     {
-        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel() + 10)
         {
             angle = getCoords().getAngle((*iter) -> getCoords());
             global_x += (*iter) -> getDangerLevel() * cos(this -> angle);
