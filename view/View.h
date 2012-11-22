@@ -156,6 +156,8 @@ public:
      */
     bool continues();
 
+    void addInterfaceObject(TextField* new_obj);
+
 private:
     /**
      * @brief initialize graphics window

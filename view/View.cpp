@@ -29,13 +29,19 @@ View::View(const IWorld& w)
     glcNewFontFromMaster(this -> font, 0);
 
     glcFont(this -> font);
-    glcScale(24.f, 24.f);
+
+    //this -> addInterfaceObject(new TextField(VIEW_SIZE/2, 0.0, 10.0, 2.5, );
 }
 
 View::~View()
 {
     delete view_world;
     delete key_handler;
+
+    for(uint i = rendered.size()-1; i >= 0 ; --i)
+    {
+        delete rendered.at(i);
+    }
 
     glcDeleteFont(this -> font);
 
@@ -208,6 +214,7 @@ void View::redraw()
     glEnd();
 
     // Drawing debug message at the top of the screen.
+
     glColor3f(0.0f, 0.0f, 0.0f);
     glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
@@ -216,14 +223,16 @@ void View::redraw()
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);
     if(this -> isPaused()) msg += " PAUSED";
 
+    glcScale(24.f, 24.f);
     glcRenderString( msg.c_str() );
+    glcScale(1.0/24, 1.0/24);
 #endif
 
     // Render interface objectsTextField* focus
 
-    for(int i = 0; i < rendered.size(); ++i)
+    for(uint i = 0; i < rendered.size(); ++i)
     {
-        rendered[i]->render();
+        rendered.at(i)->render();
     }
 
     glLoadIdentity();
@@ -269,4 +278,9 @@ bool View::continues()
 {
     return ! glfwGetKey(GLFW_KEY_ESC) 
             && windowOpened();
+}
+
+void View::addInterfaceObject(TextField *new_obj)
+{
+    rendered.push_back(new_obj);
 }
