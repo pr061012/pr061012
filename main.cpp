@@ -29,7 +29,7 @@ int main()
     try
     {
         // Creating World, View and Controller.
-        World world(rand(), SZ_WORLD_HSIDE);
+        World world(rand(), SZ_WORLD_HSIDE, false);
         Controller control(&world);
         View view(world);
         CLI cli(&world, &control);

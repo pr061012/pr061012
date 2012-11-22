@@ -39,28 +39,27 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_SAFETY,0)         = safety;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
-    // Initialize of steps
-    age_steps       = CREAT_AGE_STEPS;
-    common_steps    = CREAT_STEPS;
-    safety_steps    = CREAT_SAFETY_STEPS;
-    desc_steps      = CREAT_DESC_STEPS;
+    age_steps = CREAT_AGE_STEPS;
+    common_steps = CREAT_STEPS;
+    safety_steps = CREAT_SAFETY_STEPS;
+    desc_steps = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
-
-    // Initialize of current decision
     current_decision = NONE;
+    angle = 0;
+    direction_is_set = false;
 
     //Initialize type
-    type = COW;
-
-    // Initialize directions
-    angle = 0;
-    direction_is_set = false; 
+    subsubtype = COW;
 }
 
 NonHumanoid::~NonHumanoid()
 {
 
 }
+
+//**************************************************************************
+// NON_HUMANOID ACTIONS.
+//**************************************************************************
 
 std::vector <Action>* NonHumanoid::getActions()
 {
@@ -183,9 +182,9 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == ESCAPE)
     {
         if (
-                this -> type == COW ||
-                this -> type == GOOSE ||
-                this -> type == SHEEP
+                this -> subsubtype == COW ||
+                this -> subsubtype == GOOSE ||
+                this -> subsubtype == SHEEP
            )
         {
             if (angle == -1)
@@ -217,6 +216,13 @@ void NonHumanoid::receiveMessage(Message message)
 {
 }
 
+//**************************************************************************
+// NON-HUMANOID'S LOGICS.
+//**************************************************************************
+
+//**************************************************************************
+// UPDATES
+//**************************************************************************
 void NonHumanoid::updateAge()
 {
     this -> age++;
@@ -243,7 +249,9 @@ void NonHumanoid::updateCommonAttrs()
     this -> common_steps = CREAT_STEPS;
 }
 
-
+//**************************************************************************
+// AUXILIARY FUNTIONS
+//**************************************************************************
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;

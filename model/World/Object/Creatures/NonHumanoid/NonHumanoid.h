@@ -71,15 +71,9 @@ private:
     void findGrass();
 
     //**************************************************************************
-    // UPDATE STEP
-    //**************************************************************************
-    /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
-    uint decr_sleep_step;
-
-    //**************************************************************************
     // TYPE
     //**************************************************************************
-    NonHumanoidType type;
+    NonHumanoidType subsubtype;
 };
 
 #endif // NON_HUMANOID_H
