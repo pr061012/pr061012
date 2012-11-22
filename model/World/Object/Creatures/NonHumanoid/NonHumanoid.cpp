@@ -182,7 +182,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (current_decision == CONTINUE_GENDER)
+    if (current_decision == REPRODUCE)
     {
 
     }
