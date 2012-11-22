@@ -33,7 +33,11 @@ View::View(const IWorld& w)
 
     glcFont(this -> font);
 
-    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.01 -VIEW_CAM_SIZE/2, 10.0, 0.5));
+    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.01 - VIEW_CAM_SIZE/2, 10.0, 0.5
+#ifdef __glfw3_h__
+    ,window
+#endif
+    ));
 
     //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
     //this -> addInterfaceObject(console);

@@ -36,12 +36,12 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
                                         // so it always wants to relax
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
-    attrs(ATTR_SAFETY,0)         = safety;
+    attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
     age_steps = CREAT_AGE_STEPS;
     common_steps = CREAT_STEPS;
-    safety_steps = CREAT_SAFETY_STEPS;
+    danger_steps = CREAT_DANGER_STEPS;
     desc_steps = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
     current_decision = NONE;
@@ -65,7 +65,7 @@ std::vector <Action>* NonHumanoid::getActions()
 {
     this -> age_steps--;
     this -> common_steps--;
-    this -> safety_steps--;
+    this -> danger_steps--;
     this -> desc_steps--;
 
     if (age_steps == 0)
@@ -74,8 +74,8 @@ std::vector <Action>* NonHumanoid::getActions()
         updateNeedInDesc();
     if (common_steps == 0)
         updateCommonAttrs();
-    if (safety_steps == 0)
-        updateSafety();
+    if (danger_steps == 0)
+        updateDanger();
 
     // Clear actions.
     this -> actions.clear();

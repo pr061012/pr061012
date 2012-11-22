@@ -240,8 +240,8 @@ protected:
 	uint need_in_descendants;
 
     // If = 100, creature is in danger.
-    /// Current safety.
-    uint safety;
+    /// Current danger.
+    uint danger;
 
     // Quotient = 100 => creature wants eat.
     /// Current value of hunger.
@@ -255,8 +255,8 @@ protected:
     uint age_steps;
     /// Amount for steps to need_in_descendant update.
     uint desc_steps;
-    /// Amount for steps to safety update.
-    uint safety_steps;
+    /// Amount for steps to danger update.
+    uint danger_steps;
 
     //**************************************************************************
     // DIRECTION
@@ -288,9 +288,9 @@ protected:
     virtual void updateNeedInDesc() = 0;
 
     /**
-     * @brief Updates safety
+     * @brief Updates danger
      */
-    void updateSafety();
+    void updateDanger();
 
     /**
      * @brief Updates hunger, sleepiness, health

@@ -32,7 +32,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // Initialize other values.
     hunger      = 100 - max_hunger;
     sleepiness  = 100 - max_sleepiness;
-    safety      = 0; // we need in function to calculate it
+    danger      = 0; // we need in function to calculate it
                      // different for HUM and NON_HUM?
     endurance   = max_endurance;
     // Initialize some inhereted things.
@@ -162,10 +162,13 @@ void Creature::feed(uint delta)
     }
 }
 
-void Creature::updateSafety()
+// look for objects around and count danger level
+void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
-    this -> safety = 0;
+    this -> danger = 0;
+
+    // Only creatures and weather can be dangerous
     for(
         iter = objects_around.begin(CREATURE);
         iter != objects_around.end(CREATURE); iter++
@@ -173,8 +176,9 @@ void Creature::updateSafety()
     {
         Creature* creat = dynamic_cast<Creature*>(*iter);
         if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
-            this -> safety += creat -> getDangerLevel();
+            this -> danger += creat -> getDangerLevel();
     }
+
     for(
         iter = objects_around.begin(WEATHER);
         iter != objects_around.end(WEATHER); iter++
@@ -182,44 +186,48 @@ void Creature::updateSafety()
     {
         Weather* weath = dynamic_cast<Weather*>(*iter);
         if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
-            this -> safety += weath -> getDangerLevel();
+            this -> danger += weath -> getDangerLevel();
     }
 }
 
 void Creature:: chooseDirectionToEscape()
 {
+    // Initialize vector of escaping.
     double global_x = 0;
     double global_y = 0;
+
+    // Add all dangerous objects danger levels as vectors
+    // with length equal to object's danger level and
+    // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
     for(
         iter = objects_around.begin(CREATURE);
         iter != objects_around.end(CREATURE); iter++
        )
     {
-        Creature* creat = dynamic_cast<Creature*>(*iter);
-        if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel() + 10)
         {
-            this -> aim = creat;
-            angle = this -> getCoords().getAngle(aim -> getCoords());
-            global_x += creat -> getDangerLevel() * cos(this -> angle);
-            global_y += creat -> getDangerLevel() * sin(this -> angle);
+            angle = getCoords().getAngle((*iter) -> getCoords());
+            global_x += (*iter) -> getDangerLevel() * cos(angle);
+            global_y += (*iter) -> getDangerLevel() * sin(angle);
         }
     }
+
     for(
         iter = objects_around.begin(WEATHER);
         iter != objects_around.end(WEATHER); iter++
        )
     {
-        Weather* weath = dynamic_cast<Weather*>(*iter);
-        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel() + 10)
         {
-            this -> aim = weath;
-            setDirection();
-            global_x += weath -> getDangerLevel() * cos(this -> angle);
-            global_y += weath -> getDangerLevel() * sin(this -> angle);
+            angle = getCoords().getAngle((*iter) -> getCoords());
+            global_x += (*iter) -> getDangerLevel() * cos(this -> angle);
+            global_y += (*iter) -> getDangerLevel() * sin(this -> angle);
         }
     }
-    this -> angle = atan(global_x / global_y) + M_PI;
+
+    // go to the opposite direction of biggest danger
+    this -> angle = atan(global_y / global_x) + M_PI;
 }
 
 // Go with the given speed
@@ -295,6 +303,12 @@ void Creature::go(SpeedType speed)
 // Implement A*
 Creature::Path Creature::generateRoute(Object * goal)
 {
+    // Find 
+    double miny = this -> getCoords().getY();
+    double minx = this -> getCoords().getX();
+    double maxx = minx;
+    double maxy = miny;
+
     Path result;
     result.push(goal -> getCoords());
     return result;
