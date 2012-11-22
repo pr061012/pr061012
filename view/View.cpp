@@ -90,7 +90,7 @@ bool View::isReset()
     return this -> reset;
 }
 
-const TextField* View::getFocus()
+TextField* const View::getFocus()
 {
     return focus;
 }
