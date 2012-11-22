@@ -9,12 +9,14 @@ INPUT_DIR   = ./
 MODEL_DIR   = $(INPUT_DIR)model/
 CONTROL_DIR = $(INPUT_DIR)control/
 VIEW_DIR    = $(INPUT_DIR)view/
+CLI_DIR     = $(INPUT_DIR)cli/
 COMMON_DIR  = $(INPUT_DIR)common/
 
 # Files with sources.
 SOURCES     = $(wildcard $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)*/*/*/*.cpp $(MODEL_DIR)*/*/*/*/*.cpp)
 SOURCES    += $(wildcard $(CONTROL_DIR)*.cpp $(CONTROL_DIR)*/*.cpp $(CONTROL_DIR)*/*/*.cpp)
 SOURCES    += $(wildcard $(VIEW_DIR)*.cpp $(VIEW_DIR)*/*.cpp)
+SOURCES    += $(wildcard $(CLI_DIR)*.cpp)
 SOURCES    += $(wildcard $(COMMON_DIR)*/*.cpp)
 SOURCES    += main.cpp
 

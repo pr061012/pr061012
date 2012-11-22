@@ -16,24 +16,7 @@
 
 World::~World()
 {
-    // Deleting factory and indexator.
-    delete object_factory;
-    delete indexator;
-
-    // Deleting visible objects.
-    ObjectHeap::iterator iter;
-    for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
-    {
-        delete *iter;
-    }
-    delete visible_objs;
-
-    // Deleting hidden objects.
-    for(iter = hidden_objs -> begin(); iter != hidden_objs -> end(); iter++)
-    {
-        delete *iter;
-    }
-    delete hidden_objs;
+    this -> deleteEverything();
 }
 
 World::World(std::string filepath) :
@@ -41,7 +24,6 @@ World::World(std::string filepath) :
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
 {
-
 }
 
 World::World(int rand_seed, int size, bool generate_objects) :
@@ -54,21 +36,7 @@ World::World(int rand_seed, int size, bool generate_objects) :
     Log::NOTE(std::string("Creating world with random seed ") +
               std::to_string(rand_seed) + ".");
 
-    // Initializing class attributes
-
-    object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
-
-    visible_objs = new ObjectHeap();
-    hidden_objs  = new ObjectHeap();
-
-    indexator = new Indexator((double)this->size);
-
-    if(generate_objects)
-    {
-        genCreatures();
-        genResources();
-        genWeather();
-    }
+    this -> createEverything(generate_objects);
 }
 
 // Creating resources!
@@ -165,24 +133,47 @@ void World::save(std::string filepath)
 
 void World::reset()
 {
+    this -> deleteEverything();
+    this -> createEverything();
+}
+
+void World::deleteEverything()
+{
+    // Deleting factory and indexator.
+    delete object_factory;
+    delete indexator;
+
+    // Deleting visible objects.
     ObjectHeap::iterator iter;
     for(iter = visible_objs -> begin(); iter != visible_objs -> end(); iter++)
     {
-        if(*iter)
-        {
-            delete *iter;
-        }
+        delete *iter;
     }
-
     delete visible_objs;
-    delete indexator;
 
-    this -> visible_objs = new ObjectHeap();
-    this -> indexator    = new Indexator(this -> getSize());
+    // Deleting hidden objects.
+    for(iter = hidden_objs -> begin(); iter != hidden_objs -> end(); iter++)
+    {
+        delete *iter;
+    }
+    delete hidden_objs;
+}
 
-    this -> genCreatures();
-    this -> genResources();
-    this -> genWeather();
+void World::createEverything(bool generate_objs)
+{
+    object_factory = new ObjectFactory(hum_dmaker, nhum_dmaker);
+
+    visible_objs = new ObjectHeap();
+    hidden_objs  = new ObjectHeap();
+
+    indexator = new Indexator((double) this -> size);
+
+    if (generate_objs)
+    {
+        genCreatures();
+        genResources();
+        genWeather();
+    }
 }
 
 //******************************************************************************
