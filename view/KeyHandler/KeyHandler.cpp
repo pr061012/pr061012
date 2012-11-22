@@ -120,6 +120,10 @@ void KeyHandler::handleKeys()
 
     for(int i = 0; i < GLFW_KEY_LAST; ++i)
     {
+        if(glfwGetKey(i) && !key_was_pressed[i])
+        {
+            std::cout << "pressed key: " << i << std::endl;
+        }
         key_was_pressed[i] = glfwGetKey(i) ? true : false;
     }
 }
