@@ -357,6 +357,9 @@
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
 
+/// Humanoid danger level
+#define HUM_DANGER_LEVEL            5
+
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
