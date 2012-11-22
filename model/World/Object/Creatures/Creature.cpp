@@ -38,7 +38,9 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // Initialize some inhereted things.
     setMaxHealth(health);
     setHealth(health);
-
+    
+    // Init vars for moving
+    goal = 0;
 }
 
 Creature::~Creature()
@@ -252,18 +254,50 @@ void Creature::go(SpeedType speed)
     }
     else
     {
-        // if we can't go the way we went,
+        // if we can't go the way we went, or the aim changed,
         // reset route
-        if (!direction_is_set)
+        if (!direction_is_set || aim != goal)
         {
-            angle = this -> getCoords().getAngle(aim -> getCoords()); 
+            goal = aim;
+            //generate route
+            route = generateRoute(goal);
+
+            angle = this -> getCoords().getAngle(route.top()); 
+            direction_is_set = true;
+        }
+
+        // if we reached the target, face to the next point
+        if (this -> getShape().hitTest(route.top()))
+        {
+            route.pop();
+
+            // check if we reached the end
+            if (route.empty())
+            {
+                direction_is_set = false;
+                return;
+            }
+
+            // face to the the next point
+            angle = this -> getCoords().getAngle(route.top());
+            direction_is_set = true;
         }
     }
 
+    // Generate GO action
     Action act(GO, this);
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
     this -> actions.push_back(act);
+}
+
+// TODO
+// Implement A*
+Creature::Path Creature::generateRoute(Object * goal)
+{
+    Path result;
+    result.push(goal -> getCoords());
+    return result;
 }
 
 
