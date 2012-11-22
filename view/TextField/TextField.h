@@ -8,7 +8,7 @@
 
 #include <string>
 #include <GL/glc.h>
-#include <GL/glfw.h>
+#include "../dev_glfw.h"
 
 class TextField
 {
@@ -19,10 +19,18 @@ class TextField
     double width;
     bool hidden;
     double font_size;
+    
+#ifdef __glfw3_h__ 
+    GLFWwindow window;
+#endif
 
 public:
 
-    TextField(double x, double y, double width, double height, std::string content = "");
+    TextField(double x, double y, double width, double height, 
+#ifdef __glfw3_h__
+    GLFWwindow window = 0,
+#endif
+    std::string content = "");
 
     ~TextField();
 

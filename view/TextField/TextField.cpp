@@ -2,16 +2,23 @@
 
 #define VIEW_CAM_SIZE               8
 
-TextField::TextField(double x, double y, double width, double height, std::string content)
-{
-    this -> x = x;
-    this -> y = y;
-    this -> width = width;
-    this -> height = height;
-    this -> content = content;
-    this -> hidden = false;
 
-    this -> font_size = height*0.6;
+TextField::TextField(double x, double y, double width, double height, 
+#ifdef __glfw3_h__
+    GLFWwindow window,
+#endif
+      std::string content) : content(content),
+          x(x), 
+          y(y),
+          height(height),
+          width(width),
+          hidden(false),
+          font_size(height * 0.6)
+
+#ifdef __glfw3_h__
+    , window(window)
+#endif
+{
 }
 
 TextField::~TextField()
