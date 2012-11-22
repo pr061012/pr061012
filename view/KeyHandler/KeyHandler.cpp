@@ -61,7 +61,8 @@ void KeyHandler::handleKeys()
         }
         else if(glfwGetKey(GLFW_KEY_ENTER) && !key_was_pressed[GLFW_KEY_ENTER])
         {
-
+            view -> setUserInput(focus -> getText());
+            focus -> setText("");
         }
         else
         {

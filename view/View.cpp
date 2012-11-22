@@ -18,6 +18,7 @@ View::View(const IWorld& w)
     paused = false;
     reset = false;
     focus = NULL;
+    console_input = "";
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height);
     this -> key_handler = new KeyHandler(this);
@@ -107,6 +108,18 @@ TextField* const View::getFocus()
 void View::setFocus(TextField* focus)
 {
     this -> focus = focus;
+}
+
+void View::setUserInput(std::string input)
+{
+    this -> console_input = input;
+}
+
+std::string View::getUserInput()
+{
+    std::string temp = console_input;
+    console_input = "";
+    return temp;
 }
 
 bool mouse_clicked = 0;

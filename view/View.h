@@ -76,6 +76,8 @@ class View
 
     /// TextField that is used as a debug console
     TextField* console;
+    /// Console input send by user
+    std::string console_input;
 
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
@@ -138,6 +140,8 @@ public:
     TextField* const getFocus();
 
     void setFocus(TextField* focus);
+
+    void setUserInput(std::string input);
 
     /**
      * @brief Returns user console input
