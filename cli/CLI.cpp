@@ -256,11 +256,11 @@ std::string CLI::create(std::stringstream& ss)
                            TN_RESOURCE);
         }
 
-        if (ss == TN_RESOURCE_FOOD)
+        if (res_type == TN_RESOURCE_FOOD)
         {
             pa.addKey<ResourceType>("res_type", RES_FOOD);
         }
-        else if (ss == TN_RESOURCE_BUILDING_MAT)
+        else if (res_type == TN_RESOURCE_BUILDING_MAT)
         {
             pa.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
         }
