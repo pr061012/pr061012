@@ -20,7 +20,7 @@
 #endif
 
 PickupMaster::PickupMaster(World * world) :
-    world(world)
+    Performer(world)
 {
 }
 

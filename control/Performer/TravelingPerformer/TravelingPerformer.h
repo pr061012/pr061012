@@ -26,7 +26,7 @@ public:
      * @param world_size size of the world
      * @param indexator indexator
      */
-    TravelingPerformer(const double world_size, Indexator* indexator);
+    TravelingPerformer(World * world);
 
     /**
      * @brief Destructor
@@ -43,17 +43,6 @@ public:
      */
     void perform(Action& action);
 
-private:
-
-    //*************************************************************************
-    //  ATTRIBUTES
-    //*************************************************************************
-    
-    /// Size of the world
-    const double world_size;
-    
-    /// The reference to worlds indexator
-    Indexator* indexator;
 };
 
 #endif

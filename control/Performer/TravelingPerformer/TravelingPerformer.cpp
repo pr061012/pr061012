@@ -10,9 +10,8 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 
-TravelingPerformer::TravelingPerformer(const double world_size, 
-                                     Indexator* indexator) :
-    world_size(world_size), indexator(indexator)
+TravelingPerformer::TravelingPerformer(World * world) :
+    Performer(world)
 {
 }
 
@@ -53,8 +52,8 @@ void TravelingPerformer::perform(Action& action)
     Vector dest = origin + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
-    if (dest.getX() < 0 || dest.getX() >= world_size || 
-        dest.getY() < 0 || dest.getY() >= world_size)
+    if (dest.getX() < 0 || dest.getX() >= world -> getSize() || 
+        dest.getY() < 0 || dest.getY() >= world -> getSize())
     {
         action.markAsFailed();
         action.setError(OBJ_IS_OUT_OF_RANGE);
@@ -68,7 +67,7 @@ void TravelingPerformer::perform(Action& action)
     if (actor -> getType() == WEATHER)
     {
         action.markAsSucceeded();
-        indexator -> reindexate(actor);
+        world -> getIndexator() -> reindexate(actor);
         return;
     }
     else
@@ -77,7 +76,7 @@ void TravelingPerformer::perform(Action& action)
 
         // Look for all the obstacles and check if actor collides
         // with anything
-        ObjectHeap obstacles = indexator -> getAreaContents(actor -> getShape());
+        ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(actor -> getShape());
         for (ObjectHeap::iterator i = obstacles.begin();
              i != obstacles.end(); i++)
         {
@@ -91,7 +90,7 @@ void TravelingPerformer::perform(Action& action)
         // if everything is ok, reindexate actor
         if (!action.isFailed())
         {
-            indexator -> reindexate(actor);
+            world -> getIndexator() -> reindexate(actor);
             return;
         }
 

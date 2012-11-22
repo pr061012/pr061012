@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    HarmPerformer(Indexator& indexator);
+    HarmPerformer(World * world);
 
     /**
      * @brief Destructor
@@ -41,12 +41,6 @@ public:
      */
     void perform(Action& action);
 
-private:
-
-    //*************************************************************************
-    //  ATTRIBUTES
-    //*************************************************************************
-    Indexator& indexator;
 };
 
 #endif

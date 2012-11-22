@@ -74,6 +74,13 @@ public:
     static double scalarProduct(Vector vec1, Vector vec2);
 
     /**
+     * @brief Get angle to next point
+     * @param angle angle
+     */
+
+    double getAngle(Vector vec);
+
+    /**
      * @brief  Compares two vectors.
      * @param  vector    vector to compare with
      * @return true or false

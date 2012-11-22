@@ -7,7 +7,7 @@
 #define REGENERATION_PERFORMER_H
 
 #include "../Performer.h"
-#include "../../../model/World/Indexator/Indexator.h"
+#include "../../../model/World/World.h"
 
 /**
  * @class RegenerationPerformer
@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructor
      */
-    RegenerationPerformer(Indexator& indexator);
+    RegenerationPerformer(World * world);
 
     /**
      * @brief Destructor
@@ -41,13 +41,5 @@ public:
      */
     void perform(Action& action);
 
-private:
-
-    //*************************************************************************
-    //  ATTRIBUTES
-    //*************************************************************************
-
-    Indexator& indexator;
 };
-
 #endif

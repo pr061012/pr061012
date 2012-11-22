@@ -51,6 +51,10 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 
     //Initialize type
     type = COW;
+
+    // Initialize directions
+    angle = 0;
+    direction_is_set = false; 
 }
 
 NonHumanoid::~NonHumanoid()
@@ -81,14 +85,14 @@ std::vector <Action>* NonHumanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
-        angle = -1;
+        direction_is_set = false;
         aim = 0;
     }
 
     if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
-        angle = -1;
+        direction_is_set = false;
         aim = 0;
     }
 
@@ -115,10 +119,7 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             angle = Random::double_num(2 * M_PI);
         }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        toGo();
     }
 
     if (current_decision == EAT)
@@ -138,10 +139,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                Action act(GO, this);
-                act.addParam<double>("angle", angle);
-                act.addParam<SpeedType>("speed", SLOW_SPEED);
-                this -> actions.push_back(act);
+                toGo();
             }
         }
         else
@@ -151,10 +149,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
+            toGo();
         }
 
         if (hunger == 0)
@@ -178,10 +173,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", FAST_SPEED);
-            this -> actions.push_back(act);
+            toRun();
         }
         else
         {
@@ -247,7 +239,7 @@ void NonHumanoid::findGrass()
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype()  == GRASS)
+        if (res -> getSubtype()  == RES_FOOD)
         {
             coords = res -> getCoords();
             if (distance < coords.getDistance(this -> getCoords()))

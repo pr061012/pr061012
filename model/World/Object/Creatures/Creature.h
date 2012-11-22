@@ -249,6 +249,8 @@ protected:
     //**************************************************************************
     /// The direction of creature
     double angle;
+    /// Flag that shows if direction is set
+    bool direction_is_set;
     /// Current direction (subject) oh NHum
     Object* aim;
 
