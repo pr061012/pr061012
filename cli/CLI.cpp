@@ -5,6 +5,7 @@
 
 #include "CLI.h"
 
+#include <cstdarg>
 #include <sstream>
 
 #include "../model/Utilities/Vector/Vector.h"
@@ -25,6 +26,45 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+
+//******************************************************************************
+// STATIC FUNCTIONS.
+//******************************************************************************
+
+// Insolent copypaste:
+// http://stackoverflow.com/a/8098080
+std::string sformat(const std::string& format, ...)
+{
+    int size = 100;
+    std::string result;
+    va_list ap;
+
+    while (true)
+    {
+        result.resize(size);
+
+        va_start(ap, format);
+        int n = vsnprintf((char *) result.c_str(), size, format.c_str(), ap);
+        va_end(ap);
+
+        if (n > -1 && n < size)
+        {
+            result.resize(n);
+            break;
+        }
+
+        if (n > -1)
+        {
+            size = n + 1;
+        }
+        else
+        {
+            size *= 2;
+        }
+    }
+
+    return result;
+}
 
 //******************************************************************************
 // CONSTRUCTOR.
@@ -90,7 +130,7 @@ std::string CLI::runCommand(std::string command)
         return this -> traceStep(ss);
     }
 
-    return "Unknown command `" + cmd + "`.\n";
+    return sformat("Unknown command `%s`.\n", cmd.c_str());
 }
 
 //******************************************************************************
@@ -105,17 +145,18 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
     if (ss.fail())
     {
-        return std::string("Error: Integer argument expected.\n") +
-               std::string("Syntax: init <size>\n");
+        return sformat("Error: integer argument expected.\n") +
+               sformat("Syntax: init <size>");
     }
 
-    if (size <= 0)
+    if (size < 50)
     {
-        return "Error: Size must be greater than 0.\n";
+        return sformat("Error: size must be greater than 50 (%d is given).\n",
+                       size);
     }
 
     this -> world -> reset(size, random);
-    return "Successfully created world.\n";
+    return sformat("Successfully created world %dx%d.\n", size, size);
 }
 
 std::string CLI::create(std::stringstream& ss)
@@ -125,16 +166,16 @@ std::string CLI::create(std::stringstream& ss)
     ss >> x;
     if (ss.fail())
     {
-        return std::string("Error: x coordinate expected.\n") +
-               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+        return sformat("Error: x coordinate expected.\n") +
+               sformat("Syntax: create <x> <y> <type> [additional args]\n");
     }
 
     double y;
     ss >> y;
     if (ss.fail())
     {
-        return std::string("Error: y coordinate expected.\n") +
-               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+        return sformat("Error: y coordinate expected.\n") +
+               sformat("Syntax: create <x> <y> <type> [additional args]\n");
     }
 
     // Reading type.
@@ -143,8 +184,8 @@ std::string CLI::create(std::stringstream& ss)
     ss >> type;
     if (ss.fail())
     {
-        return std::string("Error: ObjectType argument expected.\n") +
-               std::string("Syntax: create <x> <y> <type> [additional args]\n");
+        return sformat("Error: ObjectType expected.\n") +
+               sformat("Syntax: create <x> <y> <type> [additional args]\n");
     }
 
     // Reading additional args depending on ObjectType.
@@ -157,8 +198,8 @@ std::string CLI::create(std::stringstream& ss)
         ss >> creat_type;
         if (ss.fail())
         {
-            return std::string("Error: CreatureType argument expected.\n") +
-                   std::string("Syntax: create <x> <y> <CreatureType>\n");
+            return sformat("Error: CreatureType expected.\n") +
+                   sformat("Syntax: create <x> <y> <CreatureType>\n");
         }
 
         if (creat_type == TN_HUMANOID)
@@ -171,7 +212,7 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return std::string("Error: Unknown CreatureType.\n");
+            return "Error: Unknown CreatureType.\n";
         }
     }
     else if (type == TN_BUILDING)
@@ -183,15 +224,15 @@ std::string CLI::create(std::stringstream& ss)
         ss >> max_health;
         if (ss.fail())
         {
-            return std::string("Error: max_health expected.\n") +
-                   std::string("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
+            return sformat("Error: max_health expected.\n") +
+                   sformat("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
         }
 
         ss >> max_space;
         if (ss.fail())
         {
-            return std::string("Error: max_space expected.\n") +
-                   std::string("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
+            return sformat("Error: max_space expected.\n") +
+                   sformat("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
         }
 
         pa.addKey<uint>("max_health", max_health);
@@ -205,8 +246,8 @@ std::string CLI::create(std::stringstream& ss)
         ss >> res_type;
         if (ss.fail())
         {
-            return std::string("Error: ResourceType expected.\n") +
-                   std::string("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+            return sformat("Error: ResourceType expected.\n") +
+                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
         }
 
         if (ss == TN_RESOURCE_FOOD)
@@ -219,15 +260,15 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return std::string("Error: unknown ResourceType.\n");
+            return "Error: unknown ResourceType.\n";
         }
 
         uint res_amount;
         ss >> res_amount;
         if (ss.fail())
         {
-            return std::string("Error: res_amount expected.\n") +
-                   std::string("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
+            return sformat("Error: res_amount expected.\n") +
+                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
         }
 
         pa.addKey<uint>("res_amount", res_amount);
@@ -241,15 +282,15 @@ std::string CLI::create(std::stringstream& ss)
         ss >> weat_steps;
         if (ss.fail())
         {
-            return std::string("Error: weat_steps expected.\n") +
-                   std::string("Syntax: create <x> <y> WEATHER <weat_steps>");
+            return sformat("Error: weat_steps expected.\n") +
+                   sformat("Syntax: create <x> <y> WEATHER <weat_steps>");
         }
 
         pa.addKey<uint>("weat_steps", weat_steps);
     }
     else
     {
-        return std::string("Error: unknown ObjectType.\n");
+        return "Error: unknown ObjectType.\n";
     }
 
     // Creating object.
@@ -258,9 +299,8 @@ std::string CLI::create(std::stringstream& ss)
     obj -> setCoords(Vector(x, y));
     this -> world -> addObject(true, obj);
 
-    return std::string("Succesfully created object (id is ") +
-           std::to_string(obj -> getObjectID()) +
-           std::string(").\n");
+    return sformat("Succesfully created object (id is %d).\n",
+                   obj -> getObjectID());
 }
 
 std::string CLI::list(std::stringstream& ss)
@@ -273,8 +313,8 @@ std::string CLI::list(std::stringstream& ss)
     for (iter = objs -> begin(); iter != objs -> end(); iter++)
     {
         Object* obj = *iter;
-        output += std::to_string(obj -> getObjectID()) + "\t|";
-        output += std::to_string(obj -> getType()) + "\t|\n";
+        output += sformat("|%d\t|%d\t|", obj -> getObjectID(),
+                          obj -> getType());
     }
 
     return output;
@@ -291,8 +331,8 @@ std::string CLI::info(std::stringstream& ss)
     ss >> id;
     if (ss.fail())
     {
-        return std::string("Error: object id expected.\n") +
-               std::string("Syntax: info <id>\n");
+        return sformat("Error: object id expected.\n") +
+               sformat("Syntax: info <id>\n");
     }
 
     // Looking for object.
@@ -311,9 +351,7 @@ std::string CLI::info(std::stringstream& ss)
 
     if (iter == objs -> end())
     {
-        return std::string("Error: object with id ") +
-               std::to_string(id) +
-               std::string(" doesn't exist.\n");
+        return sformat("Error: object with id %d doesn't exist.\n", id);
     }
 
     // Getting object information.
@@ -321,28 +359,22 @@ std::string CLI::info(std::stringstream& ss)
 
     // Coordinates and angle.
     Vector v = obj -> getCoords();
-    output += std::string("X:\t\t\t") + std::to_string(v.getX()) + "\n";
-    output += std::string("Y:\t\t\t") + std::to_string(v.getY()) + "\n";
-    output += std::string("Angle:\t\t\t") + std::to_string(obj -> getAngle()) + "\n";
+    output += sformat("X\t\t\t%f\n", v.getX());
+    output += sformat("Y\t\t\t%f\n", v.getY());
+    output += sformat("Angle\t\t\t%f\n", obj -> getAngle());
 
     // Shape type.
-    ShapeType shape = obj -> getShape().getType();
-    output += std::string("Shape:\t\t\t");
-    if (shape == CIRCLE)
-    {
-        output += "CIRCLE\n";
-    }
-    else if (shape == SQUARE)
-    {
-        output += "SQUARE\n";
-    }
+    Shape shape = obj -> getShape();
+    output += sformat("Shape\t\t\t%s (%f)\n",
+                      shape.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
+                      shape.getSize());
 
     // Danger level.
-    output += std::string("Danger level:\t\t") + std::to_string(obj -> getDangerLevel()) + "\n";
+    output += sformat("Danger level\t\t%u\n", obj -> getDangerLevel());
 
     // HP.
-    output += std::string("HP:\t\t\t") + std::to_string(obj -> getHealthPoints()) + "\n";
-    output += std::string("Max HP:\t\t\t") + std::to_string(obj -> getMaxHealthPoints()) + "\n";
+    output += sformat("HP\t\t\t%d/%d\n", obj -> getHealthPoints(),
+                      obj -> getMaxHealthPoints());
 
     if (type == CREATURE)
     {
@@ -352,32 +384,24 @@ std::string CLI::info(std::stringstream& ss)
         CreatureType subtype = creat -> getSubtype();
 
         // Printing age.
-        output += std::string("Age:\t\t\t") + std::to_string(creat -> getAge()) +
-                  std::string("/") + std::to_string(creat -> getMaxAge()) +
-                  std::string("\n");
+        output += sformat("Age\t\t\t%d/%d\n", creat -> getAge(),
+                          creat -> getMaxAge());
 
         // Printing decision.
-        output += std::string("Current decision:\t") +
-                  std::to_string(creat -> getCurrentDecision()) + "\n";
+        output += sformat("Current decision\t%d\n",
+                          creat -> getCurrentDecision());
 
         // Printing view area.
         Shape view_area = creat -> getViewArea();
-        output += std::string("View area size:\t\t") + std::to_string(view_area.getSize()) + "\n";
-        output += std::string("View area shape:\t");
-        if (view_area.getType() == CIRCLE)
-        {
-            output += "CIRCLE\n";
-        }
-        else if (view_area.getType() == SQUARE)
-        {
-            output += "SQUARE\n";
-        }
+        output += sformat("View area\t\t%s (%f)\n",
+                          view_area.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
+                          view_area.getSize());
 
         // TODO: Print inventory, objects around.
 
         if (subtype == HUMANOID)
         {
-            output += "Subtype:\t\tHUMANOID\n";
+            output += "Subtype\t\t\tHUMANOID\n";
 
             Humanoid* hum = dynamic_cast<Humanoid*>(creat);
 
@@ -385,7 +409,7 @@ std::string CLI::info(std::stringstream& ss)
         }
         else if (subtype == NON_HUMANOID)
         {
-            output += "Subtype:\t\tNON_HUMANOID\n";
+            output += "Subtype\t\t\tNON_HUMANOID\n";
 
             NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
         }
