@@ -247,7 +247,7 @@ void NonHumanoid::findGrass()
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype()  == GRASS)
+        if (res -> getSubtype()  == RES_FOOD)
         {
             coords = res -> getCoords();
             if (distance < coords.getDistance(this -> getCoords()))
