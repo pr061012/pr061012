@@ -229,13 +229,14 @@ std::string CLI::list(std::stringstream& ss)
     // Listing visible objects.
     ObjectHeap* objs = this -> world -> getVisibleObjects();
     ObjectHeap::const_iterator iter;
-    for(iter = objs -> begin(); iter != objs -> end(); iter++)
+    for (iter = objs -> begin(); iter != objs -> end(); iter++)
     {
         Object* obj = *iter;
-        output += obj -> getObjectID() + "\t|";
-        output += obj -> getType() + "\t|\n";
+        output += std::to_string(obj -> getObjectID()) + "\t|";
+        output += std::to_string(obj -> getType()) + "\t|\n";
     }
 
+    return output;
     // TODO: Listing hidden objects.
     //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
 }

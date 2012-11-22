@@ -8,6 +8,7 @@
 
 #include <string>
 #include <GL/glc.h>
+#include <GL/glfw.h>
 
 class TextField
 {
@@ -16,6 +17,8 @@ class TextField
     double y;
     double height;
     double width;
+    bool hidden;
+    double font_size;
 
 public:
 
@@ -30,6 +33,9 @@ public:
     void render();
 
     bool hitTest(double x, double y);
+
+    void setHidden(bool hidden);
+    bool isHidden();
 };
 
 #endif // TEXT_FIELD_H
