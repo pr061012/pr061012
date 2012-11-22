@@ -150,9 +150,8 @@ std::vector <Action>* Humanoid::getActions()
 
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
-            toGo();
+            go(SLOW_SPEED);
             visualMemorize();
-            this -> actions.push_back(act);
         }
         else
         {
