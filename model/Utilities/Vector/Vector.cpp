@@ -74,6 +74,11 @@ double Vector::scalarProduct(Vector vec1, Vector vec2)
     return vec1.getX() * vec2.getX() + vec1.getY() * vec2.getY();
 }
 
+double Vector::getAngle(Vector vec) const
+{
+    return atan((vec.getY() - y) / (vec.getX() - x));
+}
+
 //******************************************************************************
 // COMPARING
 //******************************************************************************

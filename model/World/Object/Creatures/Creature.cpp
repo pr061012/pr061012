@@ -38,7 +38,9 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // Initialize some inhereted things.
     setMaxHealth(health);
     setHealth(health);
-
+    
+    // Init vars for moving
+    goal = 0;
 }
 
 Creature::~Creature()
@@ -198,7 +200,7 @@ void Creature:: chooseDirectionToEscape()
         if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
         {
             this -> aim = creat;
-            setDirection();
+            angle = this -> getCoords().getAngle(aim -> getCoords());
             global_x += creat -> getDangerLevel() * cos(this -> angle);
             global_y += creat -> getDangerLevel() * sin(this -> angle);
         }
@@ -220,19 +222,82 @@ void Creature:: chooseDirectionToEscape()
     this -> angle = atan(global_x / global_y) + M_PI;
 }
 
-void Creature::go(Object * target, SpeedType speed)
-{
-    aim = target;
-    setDirection();
-    go(speed);
-}
-
+// Go with the given speed
 void Creature::go(SpeedType speed)
 {
+    bool failed = false;
+
+    // First check if previous go action failed
+    for (std::vector<Action>::iterator i = actions.begin();
+            i != actions.end(); i++)
+    {
+        if ((*i).isFailed())
+        {
+            failed = true;
+        }
+    }
+
+    // If we could not move, then reset direction
+    if (failed)
+        direction_is_set = false;
+
+    // if we don't have any aim, go the way we went before
+    if (!aim)
+    {
+        // if there is no direction, then go random
+        // or there is an error in angle
+        if (!direction_is_set || isnan(angle))
+        {
+            direction_is_set = true;
+            angle = Random::double_num(M_PI * 2);
+        }
+    }
+    else
+    {
+        // if we can't go the way we went, or the aim changed,
+        // reset route
+        if (!direction_is_set || aim != goal)
+        {
+            goal = aim;
+            //generate route
+            route = generateRoute(goal);
+
+            angle = this -> getCoords().getAngle(route.top()); 
+            direction_is_set = true;
+        }
+
+        // if we reached the target, face to the next point
+        if (this -> getShape().hitTest(route.top()))
+        {
+            route.pop();
+
+            // check if we reached the end
+            if (route.empty())
+            {
+                direction_is_set = false;
+                return;
+            }
+
+            // face to the the next point
+            angle = this -> getCoords().getAngle(route.top());
+            direction_is_set = true;
+        }
+    }
+
+    // Generate GO action
     Action act(GO, this);
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
     this -> actions.push_back(act);
+}
+
+// TODO
+// Implement A*
+Creature::Path Creature::generateRoute(Object * goal)
+{
+    Path result;
+    result.push(goal -> getCoords());
+    return result;
 }
 
 
