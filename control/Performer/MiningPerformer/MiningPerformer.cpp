@@ -25,9 +25,9 @@ void MiningPerformer::perform(Action& action)
     Object * actor = action.getActor();
     std::vector<Object*> participants = action.getParticipants();
 
-    int res_index = action.getParam<int>("res_index");
+    uint res_index = action.getParam<uint>("res_index");
 /*
-    int tool_index = action.getParam<int>("tool_index");
+    uint tool_index = action.getParam<uint>("tool_index");
 */
     if ((actor -> getType() != CREATURE) && (participants.size() != 1))
     {

@@ -26,7 +26,7 @@ World::World(std::string filepath) :
 {
 }
 
-World::World(int rand_seed, int size, bool generate_objects) :
+World::World(int rand_seed, int size, bool generate_objs) :
     size(size > 0 ? size : DEFAULT_SIZE),
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
@@ -36,7 +36,7 @@ World::World(int rand_seed, int size, bool generate_objects) :
     Log::NOTE(std::string("Creating world with random seed ") +
               std::to_string(rand_seed) + ".");
 
-    this -> createEverything(generate_objects);
+    this -> createEverything(generate_objs);
 }
 
 // Creating resources!
@@ -131,10 +131,10 @@ void World::save(std::string filepath)
     // TODO: Create file at filepath and save it (format?)
 }
 
-void World::reset()
+void World::reset(bool generate_objs)
 {
     this -> deleteEverything();
-    this -> createEverything();
+    this -> createEverything(generate_objs);
 }
 
 void World::deleteEverything()

@@ -47,9 +47,9 @@ public:
      * @brief World generation by given seed and by specific width/height.
      * @param rand_seed seed of world generation
      * @param size size of side of square of generated world.
-     * @param generate_creatures flag indicating whether to generate objects or not
+     * @param generate_objs     flag indicating whether generate objects or not
      */
-    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_objects = true);
+    World(int rand_seed = 0, int size = DEFAULT_SIZE, bool generate_objs = true);
 
     //**************************************************************************
     // BASE METHODS.
@@ -57,15 +57,15 @@ public:
 
 	/**
      * @brief Save world to file.
-     * @param filepath
+     * @param filepath  path to file
 	 */
     void save(std::string filepath);
 
-
     /**
      * @brief Deletes all objects and generates world one more time
+     * @param generate_objs     flag indicating whether generate objects or not
      */
-    void reset();
+    void reset(bool generate_objs = true);
 
 private:
     //**************************************************************************
