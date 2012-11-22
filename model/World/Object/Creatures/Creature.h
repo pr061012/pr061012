@@ -194,14 +194,6 @@ protected:
      */
     double setDirection();
 
-    /// Force of creations
-    uint force;
-
-    /// Current endurance of creations
-    uint endurance;
-    /// Max endurance of creations
-    uint max_endurance;
-
     /// Current creature's action.
     CreatureAction current_action;
 
@@ -214,40 +206,44 @@ protected:
     /// Reference to creature's DecisionMaker.
     const DecisionMaker& brains;
 
-    /// Current age.
-    uint age;
+    /// Force of creations
+    uint force;
+
+    /// Max endurance of creations
+    uint max_endurance;
+    /// Current endurance of creations
+    uint endurance;
 
     /// Maximum possible age.
     uint max_age;
-
-    /// Current health.
-    uint health;
+    /// Current age.
+    uint age;
 
     /// Maximum possible health.
     uint max_health;
+    /// Current health.
+    uint health;
 
     // Quotient = 100 => creature wants sleep.
 
-    /// Current value of sleepiness.
-    uint sleepiness;
     /// Maximum possible value of sleepiness.
     uint max_sleepiness;
 
-    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
-    uint decr_sleep_step;
+    /// Current value of sleepiness.
+    uint sleepiness;
 
+    /// Maximum possible value of hunger.
+    uint max_hunger;
+    // Quotient = 100 => creature wants eat.
+    /// Current value of hunger.
+
+    uint hunger;
     /// Current value of need_in_descendants (0-100)
 	uint need_in_descendants;
 
     // If = 100, creature is in danger.
     /// Current danger.
     uint danger;
-
-    // Quotient = 100 => creature wants eat.
-    /// Current value of hunger.
-    uint hunger;
-    /// Maximum possible value of hunger.
-    uint max_hunger;
 
     /// Amount for steps to common update.
     uint common_steps;
@@ -257,6 +253,8 @@ protected:
     uint desc_steps;
     /// Amount for steps to danger update.
     uint danger_steps;
+    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
+    uint decr_sleep_step;
 
     //**************************************************************************
     // DIRECTION

@@ -39,15 +39,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
-    age_steps = CREAT_AGE_STEPS;
-    common_steps = CREAT_STEPS;
-    danger_steps = CREAT_DANGER_STEPS;
-    desc_steps = CREAT_DESC_STEPS;
-    decr_sleep_step = 0;
-    current_decision = NONE;
-    angle = 0;
-    direction_is_set = false;
-
     //Initialize type
     subsubtype = COW;
 }

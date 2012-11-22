@@ -76,14 +76,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
 
     // Initialize steps
     decr_endur_step = 0;
-    age_steps       = CREAT_AGE_STEPS;
-    common_steps    = CREAT_STEPS;
-    danger_steps    = CREAT_DANGER_STEPS;
-    desc_steps      = CREAT_DESC_STEPS;
-    decr_sleep_step = 0;
 
-    // Initialize decision
-    this -> current_decision = NONE;
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
 }
 
