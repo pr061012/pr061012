@@ -340,17 +340,34 @@ std::string CLI::info(std::stringstream& ss)
         // Printing age.
         output += std::string("Age:\t\t\t") + std::to_string(creat -> getAge()) +
                   std::string("/") + std::to_string(creat -> getMaxAge()) +
-                  std::string(".\n");
+                  std::string("\n");
 
         // Printing decision.
         output += std::string("Current decision:\t") +
                   std::to_string(creat -> getCurrentDecision()) + "\n";
+
+        // Printing view area.
+        Shape view_area = creat -> getViewArea();
+        output += std::string("View area size:\t\t") + std::to_string(view_area.getSize()) + "\n";
+        output += std::string("View area shape:\t");
+        if (view_area.getType() == CIRCLE)
+        {
+            output += "CIRCLE\n";
+        }
+        else if (view_area.getType() == SQUARE)
+        {
+            output += "SQUARE\n";
+        }
+
+        // TODO: Print inventory, objects around.
 
         if (subtype == HUMANOID)
         {
             output += "Subtype:\t\tHUMANOID\n";
 
             Humanoid* hum = dynamic_cast<Humanoid*>(creat);
+
+            // TODO: Print visual memory, humanoid id.
         }
         else if (subtype == NON_HUMANOID)
         {

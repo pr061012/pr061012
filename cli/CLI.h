@@ -11,6 +11,46 @@
 
 /**
  * @brief Command-Line-Interface class.
+ *
+ *        **TODO**: Write full `create` and `list` description.
+ *
+ *        Commands
+ *        ========
+ *
+ *        init
+ *        ----
+ *        *init <size>* -- initialises clear world with specified size
+ *
+ *        random-init
+ *        -----------
+ *        *random-init <size>* -- initialises world with specified size and
+ *        randomly generated units
+ *
+ *        create
+ *        ------
+ *        *create <x> <y> <type> [additional args]* -- creates new object
+ *
+ *        list
+ *        ----
+ *        *list [type]* -- list objects by type, if specified, otherwise list
+ *        all objects
+ *
+ *        info
+ *        ----
+ *        *info <id>* -- prints object's information by id
+ *
+ *        change
+ *        ------
+ *        *change <id> <field> <new_value>* -- changes object's field
+ *
+ *        step
+ *        ----
+ *        *step* -- does one Controller's step
+ *
+ *        trace-step
+ *        ----------
+ *        *trace-step [list of ids]* -- does on Controller's step and prints out
+ *        changes for specified objects
  */
 class CLI
 {
