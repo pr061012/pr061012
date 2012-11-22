@@ -9,6 +9,7 @@
 #include <sstream>
 
 #include "../model/Utilities/Vector/Vector.h"
+#include "../model/World/Object/Resource/Resource.h"
 #include "../model/World/Object/Creatures/Creature.h"
 #include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
@@ -280,6 +281,8 @@ std::string CLI::create(std::stringstream& ss)
         obj_type = WEATHER;
 
         // FIXME: Ignoring weather type.
+        pa.addKey<WeatherType>("weat_type", METEOR_SHOWER);
+
         uint weat_steps;
         ss >> weat_steps;
         if (ss.fail())
@@ -375,6 +378,14 @@ std::string CLI::info(std::stringstream& ss)
                       shape.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
                       shape.getSize());
 
+    // Is destroyed, solid or immort.
+    output += sformat("Is destroyed\t\t%s\n",
+                      obj -> isDestroyed() ? "yes" : "no");
+    output += sformat("Is solid\t\t%s\n",
+                      obj -> isSolid() ? "yes" : "no");
+    output += sformat("Is immortal\t\t%s\n",
+                      obj -> isImmortal() ? "yes" : "no");
+
     // Danger level.
     output += sformat("Danger level\t\t%u\n", obj -> getDangerLevel());
 
@@ -382,7 +393,35 @@ std::string CLI::info(std::stringstream& ss)
     output += sformat("HP\t\t\t%d/%d\n", obj -> getHealthPoints(),
                       obj -> getMaxHealthPoints());
 
-    if (type == CREATURE)
+    if (type == BUILDING)
+    {
+        output += "Type:\t\t\tBUILDING\n";
+        output += "======== BUILDING INFORMATION ========\n";
+
+        Building* building = dynamic_cast<Building*>(obj);
+
+        // Completness.
+        output += sformat("Is complete\t\t%s\n",
+                          building -> getCompleteness() ? "yes" : "no");
+    }
+    else if (type == RESOURCE)
+    {
+        output += "Type:\t\t\tRESOURCE\n";
+        output += "======== RESOURCE INFORMATION ========\n";
+
+        Resource* res = dynamic_cast<Resource*>(obj);
+
+        // Mineability and restorability.
+        output += sformat("Is mineable\t\t%s\n",
+                          res -> isMineable() ? "yes" : "no");
+        output += sformat("Is restorable\t%s\n",
+                          res -> isRestorable() ? "yes" : "no");
+
+        // Difficulty and progress.
+        output += sformat("Difficulty\t\t%u\n", res -> getDifficulty());
+        output += sformat("Progress\t\t%u\n", res -> getProgress());
+    }
+    else if (type == CREATURE)
     {
         output += "Type:\t\t\tCREATURE\n";
         output += "======== CREATURE INFORMATION ========\n";
