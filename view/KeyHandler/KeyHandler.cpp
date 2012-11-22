@@ -38,6 +38,14 @@ bool KeyHandler::isCharPressed(int c)
         }
         c = c - 'a' + 'A';
     }
+    if(c == '_')
+    {
+        if(!glfwGetKey(GLFW_KEY_LSHIFT) && !glfwGetKey(GLFW_KEY_RSHIFT))
+        {
+            return false;
+        }
+        c = '-';
+    }
 
     return glfwGetKey(c) && !key_was_pressed[c];
 }
