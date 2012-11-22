@@ -13,6 +13,20 @@
 #include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
 //******************************************************************************
+// TRUNCATED NAMES.
+// Prefix: TN.
+//******************************************************************************
+
+#define TN_CREATURE                 "c"
+#define TN_HUMANOID                 "h"
+#define TN_NON_HUMANOID             "nh"
+#define TN_BUILDING                 "b"
+#define TN_RESOURCE                 "r"
+#define TN_RESOURCE_FOOD            "f"
+#define TN_RESOURCE_BUILDING_MAT    "bm"
+#define TN_WEATHER                  "w"
+
+//******************************************************************************
 // CONSTRUCTOR.
 //******************************************************************************
 
@@ -135,7 +149,7 @@ std::string CLI::create(std::stringstream& ss)
 
     // Reading additional args depending on ObjectType.
     ParamArray pa;
-    if (type == "CREATURE")
+    if (type == TN_CREATURE)
     {
         obj_type = CREATURE;
 
@@ -147,11 +161,11 @@ std::string CLI::create(std::stringstream& ss)
                    std::string("Syntax: create <x> <y> <CreatureType>\n");
         }
 
-        if (creat_type == "HUMANOID")
+        if (creat_type == TN_HUMANOID)
         {
             pa.addKey<CreatureType>("creat_type", HUMANOID);
         }
-        else if (creat_type == "NON_HUMANOID")
+        else if (creat_type == TN_NON_HUMANOID)
         {
             pa.addKey<CreatureType>("creat_type", NON_HUMANOID);
         }
@@ -160,7 +174,7 @@ std::string CLI::create(std::stringstream& ss)
             return std::string("Error: Unknown CreatureType.\n");
         }
     }
-    else if (type == "BUILDING")
+    else if (type == TN_BUILDING)
     {
         obj_type = BUILDING;
 
@@ -183,7 +197,7 @@ std::string CLI::create(std::stringstream& ss)
         pa.addKey<uint>("max_health", max_health);
         pa.addKey<uint>("max_space", max_space);
     }
-    else if (type == "RESOURCE")
+    else if (type == TN_RESOURCE)
     {
         obj_type = RESOURCE;
 
@@ -195,11 +209,11 @@ std::string CLI::create(std::stringstream& ss)
                    std::string("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>");
         }
 
-        if (ss == "RES_FOOD")
+        if (ss == TN_RESOURCE_FOOD)
         {
             pa.addKey<ResourceType>("res_type", RES_FOOD);
         }
-        else if (ss == "RES_BUILDING_MAT")
+        else if (ss == TN_RESOURCE_BUILDING_MAT)
         {
             pa.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
         }
@@ -218,7 +232,7 @@ std::string CLI::create(std::stringstream& ss)
 
         pa.addKey<uint>("res_amount", res_amount);
     }
-    else if (type == "WEATHER")
+    else if (type == TN_WEATHER)
     {
         obj_type = WEATHER;
 
