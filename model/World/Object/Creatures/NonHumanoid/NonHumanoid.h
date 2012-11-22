@@ -36,7 +36,7 @@ public:
     // NON_HUMANOID ACTIONS.
     //**************************************************************************
 
-    std::vector <Action> * getActions();
+    std::vector <Action>* getActions();
     void receiveMessage(Message message);
 
     //**************************************************************************
@@ -46,8 +46,19 @@ private:
     //**************************************************************************
     // UPDATES
     //**************************************************************************
+    /**
+     * @brief Update age.
+     */
     void updateAge();
+
+    /**
+     * @brief Update common attributes.
+     */
     void updateCommonAttrs();
+
+    /**
+     * @brief Update need in descendants.
+     */
     void updateNeedInDesc();
     //**************************************************************************
     // AUXILIARY FUNTIONS
@@ -60,15 +71,9 @@ private:
     void findGrass();
 
     //**************************************************************************
-    // UPDATE STEP
-    //**************************************************************************
-    /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
-    uint decr_sleep_step;
-
-     //**************************************************************************
     // TYPE
     //**************************************************************************
-    NonHumanoidType type;
+    NonHumanoidType subsubtype;
 };
 
 #endif // NON_HUMANOID_H

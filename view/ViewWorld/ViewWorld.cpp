@@ -71,11 +71,9 @@ void ViewWorld::loadTextures()
     );
 }
 
-
-
 void ViewWorld::redraw()
 {
-    this -> renderBackground();
+     this -> renderBackground();
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS*2);
 
@@ -133,7 +131,7 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS?
+    new_var = new_var > VIEW_CAM_RADIUS ?
               new_var : VIEW_CAM_RADIUS;
     new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
               new_var : world.getSize() - VIEW_CAM_RADIUS;

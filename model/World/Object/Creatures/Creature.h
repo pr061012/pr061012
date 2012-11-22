@@ -6,6 +6,8 @@
 #ifndef CREATURE_H
 #define CREATURE_H
 
+#include <stack>
+
 #include "../Object.h"
 #include "../../DecisionMaker/DecisionMaker.h"
 #include "../../ObjectHeap/ObjectHeap.h"
@@ -173,6 +175,15 @@ private:
     /// View area for Indexator.
     Shape view_area;
 
+    /// Typedef for path
+    typedef std::stack<Vector> Path;
+
+    /// Route to the goal
+    Path route;
+
+    /// Current goal towards which creature is moving
+    Object* goal;
+
 protected:
     /// Creature's inventory.
     ObjectHeap * inventory;
@@ -221,6 +232,9 @@ protected:
     uint sleepiness;
     /// Maximum possible value of sleepiness.
     uint max_sleepiness;
+
+    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
+    uint decr_sleep_step;
 
     /// Current value of need_in_descendants (0-100)
 	uint need_in_descendants;
@@ -293,18 +307,16 @@ protected:
     void chooseDirectionToEscape();
     /**
      * @brief Generate action GO for creature (slow speed)
+     * @param speed type of speed
      */
-    void toGo();
-
-    /**
-     * @brief Generate action GO for creature (fast speed)
-     */
-    void toRun();
-
-    void go(Object * target, SpeedType speed);
-
     void go(SpeedType speed);
 
+    /**
+     * @brief   Generate route to the given object
+     * @param   goal Object to go to
+     * @return  path to the goal
+     */
+    Path generateRoute(Object * goal);
 };
 
 

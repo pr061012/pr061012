@@ -12,6 +12,7 @@
 #include "control/Controller/Controller.h"
 #include "model/World/World.h"
 #include "view/View.h"
+#include "cli/CLI.h"
 
 // Period (in milliseconds).
 #define PERIOD          (uint) 1000 / TM_TICKS_PER_SECOND
@@ -28,9 +29,10 @@ int main()
     try
     {
         // Creating World, View and Controller.
-        World world(rand(), SZ_WORLD_HSIDE);
+        World world(rand(), SZ_WORLD_HSIDE, false);
         Controller control(&world);
         View view(world);
+        CLI cli(&world, &control);
 
         // Pausing game.
         view.setPaused(true);
@@ -38,10 +40,10 @@ int main()
         // Starting time point.
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
-        while(true)
+        while (true)
         {
             // Au revoir.
-            if(!view.continues())
+            if (!view.continues())
             {
                 break;
             }
@@ -52,12 +54,19 @@ int main()
             std::chrono::duration<double> time_span = std::chrono::duration_cast< std::chrono::duration<double> >(t2 - t1);
 
             // Check whether we need to update world and picture.
-            if(time_span.count() * 1000 > PERIOD)
+            if (time_span.count() * 1000 > PERIOD)
             {
                 t1 = t2;
 
+                // Running CLI.
+                std::string cmd = view.getUserInput();
+                if (cmd != "")
+                {
+                    std::cout << cli.runCommand(cmd);
+                }
+
                 // Running controller step (if needed).
-                if(!view.isPaused())
+                if (!view.isPaused())
                 {
                     control.step();
                 }
@@ -66,7 +75,7 @@ int main()
                 view.redraw();
 
                 // Check if user wants to reset world.
-                if(view.isReset())
+                if (view.isReset())
                 {
                     view.setReset(false);
                     world.reset();
@@ -78,20 +87,20 @@ int main()
         }
     }
     // Invalid game resource path exception.
-    catch(EInvalidResPath& exc)
+    catch (EInvalidResPath& exc)
     {
         error = true;
         Log::ERROR("Failed to load game resource '" + exc.getResPath() +
                    "'. Terminating.");
     }
     // Bad alloc exception.
-    catch(std::bad_alloc& exc)
+    catch (std::bad_alloc& exc)
     {
         error = true;
         Log::ERROR("Failed to allocate memory. Terminating.");
     }
 
-    if(error)
+    if (error)
     {
         std::cout << "An error occurred during game execution. Look for LOG " <<
                      "file for details." << std::endl;

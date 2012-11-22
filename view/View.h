@@ -15,12 +15,16 @@
 
 #include <GL/gl.h>
 #include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <vector>
 
 #include "ViewWorld/ViewWorld.h"
 #include "KeyHandler/KeyHandler.h"
 #include "../common/BasicTypes.h"
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
+#include "TextField/TextField.h"
 
 #include <GL/glc.h>
 
@@ -66,6 +70,17 @@ class View
     /// GLC context used to render text
     GLint glc_context;
     GLint font;
+
+    /// Object that is currently in focus. NULL if main window is in focus.
+    TextField* focus;
+
+    /// TextField that is used as a debug console
+    TextField* console;
+    /// Console input send by user
+    std::string console_input;
+
+    /// Interface objects that are currently rendered by View
+    std::vector<TextField*> rendered;
 
     /// Dimensions of program window, in pixels
     int width;
@@ -122,6 +137,18 @@ public:
      */
     bool isReset();
 
+    TextField* const getFocus();
+
+    void setFocus(TextField* focus);
+
+    void setUserInput(std::string input);
+
+    /**
+     * @brief Returns user console input
+     */
+    std::string getUserInput();
+
+    void addConsoleOutput(std::string app);
 #ifdef __glfw3_h__
     GLFWwindow getWindow();
 #endif
@@ -141,6 +168,8 @@ public:
      * @return result of exit conditions
      */
     bool continues();
+
+    void addInterfaceObject(TextField* new_obj);
 
 private:
     /**

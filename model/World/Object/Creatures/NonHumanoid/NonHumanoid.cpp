@@ -39,22 +39,17 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_SAFETY,0)         = safety;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
-    // Initialize of steps
-    age_steps       = CREAT_AGE_STEPS;
-    common_steps    = CREAT_STEPS;
-    safety_steps    = CREAT_SAFETY_STEPS;
-    desc_steps      = CREAT_DESC_STEPS;
+    age_steps = CREAT_AGE_STEPS;
+    common_steps = CREAT_STEPS;
+    safety_steps = CREAT_SAFETY_STEPS;
+    desc_steps = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
-
-    // Initialize of current decision
     current_decision = NONE;
+    angle = 0;
+    direction_is_set = false;
 
     //Initialize type
-    type = COW;
-
-    // Initialize directions
-    angle = 0;
-    direction_is_set = false; 
+    subsubtype = COW;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -62,14 +57,16 @@ NonHumanoid::~NonHumanoid()
 
 }
 
+//**************************************************************************
+// NON_HUMANOID ACTIONS.
+//**************************************************************************
+
 std::vector <Action>* NonHumanoid::getActions()
 {
     this -> age_steps--;
     this -> common_steps--;
     this -> safety_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
-        this -> decr_sleep_step--;
 
     if (age_steps == 0)
         updateAge();
@@ -80,6 +77,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (safety_steps == 0)
         updateSafety();
 
+    // Clear actions.
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
@@ -89,53 +87,75 @@ std::vector <Action>* NonHumanoid::getActions()
         aim = 0;
     }
 
-    if (current_decision == NONE)
+    //**************************************************************************
+    // DECISION : NONE | OK
+    //**************************************************************************
+    else if (current_decision == NONE)
     {
+        // Make decision.
         current_decision = brains.makeDecision(attrs);
+
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
-    if (current_decision == SLEEP)
+    //**************************************************************************
+    // DECISION : SLEEP | OK
+    //**************************************************************************
+    else if (current_decision == SLEEP)
     {
+        // Check timesteps before wake up.
         if (decr_sleep_step == 0)
         {
+            // Check sleepiness.
             if (sleepiness > 0)
             {
                 sleepiness--;
-            }
+            } 
             else
             {
+                // If NH is awake, set NONE decision.
                 current_decision = NONE;
             }
 
+            // Set timesteps, before increase sleepness.
             decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
+        }
+        else
+        {
+            decr_sleep_step--;
         }
     }
 
-    if (current_decision == RELAX)
+    //*************************************************************************
+    // DECISION : RELAX | OK
+    //**************************************************************************
+    else if (current_decision == RELAX)
     {
-        if (angle == -1)
-        {
-            angle = Random::double_num(2 * M_PI);
-        }
+        direction_is_set = false;
         go(SLOW_SPEED);
     }
 
-    if (current_decision == EAT)
+    //**************************************************************************
+    // DECISION : EAT | OK
+    //**************************************************************************
+    else if (current_decision == EAT)
     {
-        if (aim == 0);
-            findGrass();
-
-        if (aim != 0)
+        // If aim isn't exist, then find grass.
+        if (aim == nullptr)
         {
-            if (angle == -1)
-                angle = setDirection();
-            if (this -> getCoords().getDistance(aim -> getCoords()) == 0)
-                                                   // FIXME: maybe<some_epsilon?
+            findGrass();
+        }
+
+        // If aim is exist, then...
+        if (aim != nullptr)
+        {
+            // Check distance to aim.
+            if (this -> getCoords().getDistance(aim -> getCoords()) < MATH_EPSILON)
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
+                actions.push_back(act);
             }
             else
             {
@@ -144,29 +164,27 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
-            // FIXME: Erm. Is using -1 as a sign of uncertainty good idea?
-            if (angle == -1)
-            {
-                angle = Random::double_num(2 * M_PI);
-            }
             go(SLOW_SPEED);
         }
 
+        // Check hunger state.
         if (hunger == 0)
         {
             this -> current_action = NONE;
-            angle = -1;
-            aim = 0;
+            direction_is_set = false;
+            aim = nullptr;
         }
-
     }
 
-    if (current_decision == ESCAPE)
+    //**************************************************************************
+    // DECISION : ESCAPE
+    //**************************************************************************
+    else if (current_decision == ESCAPE)
     {
         if (
-                this -> type == COW ||
-                this -> type == GOOSE ||
-                this -> type == SHEEP
+                this -> subsubtype == COW ||
+                this -> subsubtype == GOOSE ||
+                this -> subsubtype == SHEEP
            )
         {
             if (angle == -1)
@@ -182,14 +200,12 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (current_decision == REPRODUCE)
+    //**************************************************************************
+    // DECISION : REPRODUCE
+    //**************************************************************************
+    else if (current_decision == REPRODUCE)
     {
 
-    }
-
-    if (age == max_age)
-    {
-        health = 0;
     }
 
     return &actions;
@@ -200,6 +216,13 @@ void NonHumanoid::receiveMessage(Message message)
 {
 }
 
+//**************************************************************************
+// NON-HUMANOID'S LOGICS.
+//**************************************************************************
+
+//**************************************************************************
+// UPDATES
+//**************************************************************************
 void NonHumanoid::updateAge()
 {
     this -> age++;
@@ -226,26 +249,30 @@ void NonHumanoid::updateCommonAttrs()
     this -> common_steps = CREAT_STEPS;
 }
 
-
+//**************************************************************************
+// AUXILIARY FUNTIONS
+//**************************************************************************
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-
     double distance = SZ_NHUM_VIEW_DIAM;
+
+    // Find grass in around objects.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype()  == RES_FOOD)
+        if (res -> getSubtype() == RES_FOOD)
         {
             coords = res -> getCoords();
-            if (distance < coords.getDistance(this -> getCoords()))
+            // Check distance to grass.
+            if (coords.getDistance(this -> getCoords()) > distance)
             {
                 this -> aim = res;
-                this -> angle = -1;
+                direction_is_set = false;
                 distance = coords.getDistance(this -> getCoords());
             }
         }
