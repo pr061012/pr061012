@@ -30,7 +30,7 @@ std::string CLI::runCommand(std::string command)
     std::string cmd;
     ss >> cmd;
 
-    // Reading command args and running processors.
+    // Running processors.
     if (cmd == "init")
     {
         return this -> init(ss);
@@ -38,25 +38,37 @@ std::string CLI::runCommand(std::string command)
 
     if (cmd == "random-init")
     {
+        return this -> randomInit(ss);
     }
-    else if (cmd == "create")
+
+    if (cmd == "create")
     {
+        return this -> create(ss);
     }
-    else if (cmd == "list")
+
+    if (cmd == "list")
     {
+        return this -> list(ss);
     }
-    else if (cmd == "info")
+
+    if (cmd == "info")
     {
+        return this -> info(ss);
     }
-    else if (cmd == "change")
+
+    if (cmd == "change")
     {
+        return this -> change(ss);
     }
-    else if (cmd == "step")
+
+    if (cmd == "step")
     {
         return this -> step(ss);
     }
-    else if (cmd == "trace-step")
+
+    if (cmd == "trace-step")
     {
+        return this -> traceStep(ss);
     }
 
     return "Unknown command `" + cmd + "`.\n";
@@ -87,8 +99,32 @@ std::string CLI::init(std::stringstream &ss)
     return "Successfully created clear world.\n";
 }
 
+std::string CLI::randomInit(std::stringstream &ss)
+{
+}
+
+std::string CLI::create(std::stringstream& ss)
+{
+}
+
+std::string CLI::list(std::stringstream& ss)
+{
+}
+
+std::string CLI::info(std::stringstream& ss)
+{
+}
+
 std::string CLI::step(std::stringstream& ss)
 {
     this -> control -> step();
     return "Successfully updated world.\n";
+}
+
+std::string CLI::traceStep(std::stringstream& ss)
+{
+}
+
+std::string CLI::change(std::stringstream& ss)
+{
 }
