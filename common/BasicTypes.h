@@ -136,19 +136,19 @@ enum CreatureAction
  */
 enum DetailedHumAction
 {
-    // EAT actions.
+    // EAT actions. 0 1 2
     HUNT, TAKE_FOOD_FROM_INVENTORY, FIND_FOOD,
 
-    // RELAX actions
+    // RELAX actions 3
     RELAX_AT_HOME,
 
-    // SLEEP ations
+    // SLEEP ations 4 5
     SLEEP_AT_HOME, SLEEP_ON_THE_GROUND,
 
-    // BUILD actions
+    // BUILD actions 6 7 8
     MINE_RESOURSES, BUILD_HOUSE, CHOOSE_PLACE_FOR_HOME,
 
-    // ESCAPE actions
+    // ESCAPE actions 9 10
     FIGHT, RUN_FROM_DANGER
 };
 

@@ -81,6 +81,7 @@ hum_id(CURRENT_HUM_ID++)
 
     // Initialize decision
     this -> current_decision = NONE;
+    this -> detailed_act     = SLEEP_ON_THE_GROUND;
 }
 
 Humanoid::~Humanoid()
@@ -116,6 +117,7 @@ std::vector <Action>* Humanoid::getActions()
         this -> decr_endur_step--;
     }
 
+    // Updates parametr.
     if(age_steps == 0)
         updateAge();
     if(desc_steps == 0)
@@ -129,23 +131,25 @@ std::vector <Action>* Humanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
-        angle = -1;
-        aim = 0;
     }
+
     if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
-        angle = -1;
+        direction_is_set = false;
         aim = 0;
         detailed_act = chooseAction(current_decision);
     }
+
+    // First of all, we set direction (to home). If direction is seted
+    // HUMANOID goes to home. If he is in home his health and endurance will
+    // increase.
     if (detailed_act == RELAX_AT_HOME)
     {
-        if (angle == -1)
+        if ((aim != nullptr) && (!direction_is_set))
         {
-            assert(home != 0);
             aim = home;
-            angle = setDirection();
+            direction_is_set = true;
         }
 
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
@@ -155,8 +159,11 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (this -> health < 100 && common_steps == CREAT_STEPS) //freq incr health
+            if (this -> health < 100 && common_steps == CREAT_STEPS)
+            {
                 this -> increaseHealth(CREAT_DELTA_HEALTH);
+            }
+
             if (endurance < max_endurance)
             {
                 endurance++;
@@ -166,33 +173,21 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == HUNT)/////////////////////////////////////////////////////////////
     {
-        if (angle == -1)
-        {
-            angle = Random::double_num(2 * M_PI);
-        }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        go(SLOW_SPEED);
     }
 
+    // Searching for food inside humanoid visual memory. If it is founded he
+    // eat it. In other case he just shuffle on the street and explore enviro-
+    // ment.
     if (detailed_act == FIND_FOOD)
     {
-        // check if we have some resources on our mind`
-        if (visual_memory -> getTypeAmount(RESOURCE))
-        {
-            aim = *(visual_memory -> begin(RESOURCE));
-        }
-        else
-        {
-            aim = 0;
-        }
         double min_dist = SZ_WORLD_VSIDE;
         ObjectHeap::const_iterator iter;
-        for(
+        for
+        (
             iter = visual_memory -> begin(RESOURCE);
             iter != visual_memory -> end(RESOURCE); iter++
-           )
+        )
         {
             Resource* res_food = dynamic_cast<Resource*>(*iter);
             if (res_food -> getSubtype() == RES_FOOD)
@@ -204,42 +199,26 @@ std::vector <Action>* Humanoid::getActions()
                 }
             }
         }
-        if (angle == -1)
-        {
-            // FIXME: Dirty workaround.
-            if (aim == 0)
-            {
-                angle = Random::double_range(0, M_PI);
-            }
-            else
-            {
-                angle = setDirection();
-            }
-        }
-        if (aim != 0)/////////////////////////////////////////////////////////////////////////////////////////.
-        {
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+        if (aim == nullptr)
         {
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
+            go(SLOW_SPEED);
             visualMemorize();
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
         }
         else
         {
-            Action act(EAT_OBJ, this);
-            act.addParticipant(aim);
-            this -> actions.push_back(act);
-        }
-        }
-        else {
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            visualMemorize();
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
+
+            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
+            else
+            {
+                Action act(EAT_OBJ, this);
+                act.addParticipant(aim);
+                this -> actions.push_back(act);
+            }
         }
     }
 
@@ -300,26 +279,39 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == MINE_RESOURSES)/////////////////////////////////////////////////////////////////
     {
-        ObjectHeap::const_iterator iter;
-        Vector coords;
-
-        double distance = SZ_NHUM_VIEW_DIAM;
-        for(
-            iter = objects_around.begin(RESOURCE);
-            iter != objects_around.end(RESOURCE); iter++
-           )
+        if (visual_memory != nullptr)
         {
-            Resource* res = dynamic_cast<Resource*>(*iter);
-            if (res -> getSubtype()  == RES_FOOD)
+            ObjectHeap::const_iterator iter;
+            Vector coords;
+
+            double distance = SZ_WORLD_HSIDE;
+            for
+            (
+                iter = visual_memory -> begin(RESOURCE);
+                iter != visual_memory -> end(RESOURCE); iter++
+            )
             {
-                coords = res -> getCoords();
-                if (distance < coords.getDistance(this -> getCoords()))
+                Resource* res = dynamic_cast<Resource*>(*iter);
+                if (res -> getSubtype()  == RES_BUILDING_MAT)
                 {
-                    this -> aim = res;
-                    this -> angle = -1;
-                    distance = coords.getDistance(this -> getCoords());
+                    coords = res -> getCoords();
+                    if (distance < coords.getDistance(this -> getCoords()))
+                    {
+                        this -> aim = res;
+                        this -> angle = -1;
+                        distance = coords.getDistance(this -> getCoords());
+                    }
                 }
             }
+            if (aim == nullptr)
+            {
+                direction_is_set = false;
+                go(SLOW_SPEED);
+            }
+        }
+        else
+        {
+
         }
     }
 
@@ -389,6 +381,7 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam<ObjectType>("obj_type", BUILDING);
         act.addParam<uint>("building_max_space", 3);
         act.addParam<uint>("building_max_health", 100);
+        current_decision = NONE;
     }
     return &actions;
 }
