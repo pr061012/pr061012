@@ -17,6 +17,7 @@ View::View(const IWorld& w)
 
     paused = false;
     reset = false;
+    focus = NULL;
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height);
     this -> key_handler = new KeyHandler(this);
@@ -87,6 +88,16 @@ void View::setReset(bool reset)
 bool View::isReset()
 {
     return this -> reset;
+}
+
+const TextField* View::getFocus()
+{
+    return focus;
+}
+
+void View::setFocus(TextField* focus)
+{
+    this -> focus = focus;
 }
 
 bool mouse_clicked = 0;
@@ -207,6 +218,13 @@ void View::redraw()
 
     glcRenderString( msg.c_str() );
 #endif
+
+    // Render interface objectsTextField* focus
+
+    for(int i = 0; i < rendered.size(); ++i)
+    {
+        rendered[i]->render();
+    }
 
     glLoadIdentity();
     glfwSwapBuffers();

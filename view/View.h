@@ -15,12 +15,15 @@
 
 #include <GL/gl.h>
 #include <iostream>
+#include <vector>
+#include <string.h>
 
 #include "ViewWorld/ViewWorld.h"
 #include "KeyHandler/KeyHandler.h"
 #include "../common/BasicTypes.h"
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
+#include "TextField/TextField.h"
 
 #include <GL/glc.h>
 
@@ -66,6 +69,12 @@ class View
     /// GLC context used to render text
     GLint glc_context;
     GLint font;
+
+    /// Object that is currently in focus. NULL if main window is in focus.
+    TextField* focus;
+
+    /// Interface objects that are currently rendered by View
+    std::vector<TextField*> rendered;
 
     /// Dimensions of program window, in pixels
     int width;
@@ -121,6 +130,10 @@ public:
      * @brief Returns boolean value, if world should be reset
      */
     bool isReset();
+
+    TextField* const getFocus();
+
+    void setFocus(TextField* focus);
 
 #ifdef __glfw3_h__
     GLFWwindow getWindow();

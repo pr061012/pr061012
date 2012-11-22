@@ -23,6 +23,9 @@ KeyHandler::~KeyHandler()
 
 void KeyHandler::handleKeys()
 {
+
+    if(!view -> getFocus())
+    {
         if(glfwGetKey(GLFW_KEY_RIGHT))
         {
             view -> setX(view -> getX() + SPEED);
@@ -52,4 +55,24 @@ void KeyHandler::handleKeys()
         {
             key_was_pressed[i] = glfwGetKey(i) ? true : false;
         }
+    }
+    else
+    {
+        TextField* focus = view -> getFocus();
+        char tempChar = '\0';
+        for(char c = 'A'; c<='Z'; ++c)
+        {
+            if(glfwGetKey(c))
+            {
+                if(!glfwGetKey(GLFW_KEY_LSHIFT) && !glfwGetKey(GLFW_KEY_RSHIFT))
+                {
+                    // Convert pressed char to lower case
+                    tempChar = c - 'A' + 'a';
+                }
+                else tempChar = c;
+            }
+        }
+        // Print symbol that is pressed last by index.
+        if(tempChar != '\0') focus -> setText(focus -> getText() + tempChar);
+    }
 }
