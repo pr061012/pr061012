@@ -103,7 +103,6 @@ uint Humanoid::getHumanoidID() const
 
 std::vector <Action>* Humanoid::getActions()
 {
-    Log::NOTE("start");
     this -> age_steps--;
     this -> common_steps--;
     this -> safety_steps--;
@@ -125,7 +124,6 @@ std::vector <Action>* Humanoid::getActions()
         updateCommonAttrs();
     if(safety_steps == 0)
         updateSafety();
-    Log::NOTE("start2");
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
@@ -141,7 +139,6 @@ std::vector <Action>* Humanoid::getActions()
         aim = 0;
         detailed_act = chooseAction(current_decision);
     }
-    Log::NOTE("start3");
     if (detailed_act == RELAX_AT_HOME)
     {
         if (angle == -1)
@@ -153,9 +150,7 @@ std::vector <Action>* Humanoid::getActions()
 
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            toGo();
             visualMemorize();
             this -> actions.push_back(act);
         }
@@ -258,11 +253,8 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
         {
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
+            go(SLOW_SPEED);
             visualMemorize();
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
         }
         else
         {
@@ -319,16 +311,11 @@ std::vector <Action>* Humanoid::getActions()
         this -> actions.push_back(act);
     }
 
-    if (detailed_act == BUILD_HOUSE)//////////////////////////////////////////////////////
+    if (detailed_act == BUILD_HOUSE)
     {
-        if (angle == -1)
-        {
-            angle = Random::double_num(2 * M_PI);
-        }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        Action act(REGENERATE_OBJ, this);
+        act.addParticipant(home);
+        act.addParam("object_index", 0);
     }
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
@@ -366,21 +353,18 @@ std::vector <Action>* Humanoid::getActions()
     if (detailed_act == RUN_FROM_DANGER)
     {
         chooseDirectionToEscape();
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        visualMemorize();
         if (this -> endurance > this -> max_endurance / 2)
         {
-            act.addParam<SpeedType>("speed", FAST_SPEED);
             if (decr_endur_step == 0)
             {
                  decr_sleep_step = HUM_DECR_ENDUR_STEPS;
             }
-            this -> actions.push_back(act);
+            go(FAST_SPEED);
+            visualMemorize();
         }
         else
         {
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
+            go(SLOW_SPEED);
             visualMemorize();
         }
 
@@ -446,7 +430,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
         case REALIZE_DREAM:                                         break;
         case ESCAPE:            result_act = chooseWayToEscape();   break;
         case BUILD:             result_act = chooseWayToBuild();    break;
-        case CONTINUE_GENDER:                                       break;
+        case REPRODUCE:                                             break;
         default:                                                    break;
     }
 
@@ -563,6 +547,11 @@ void Humanoid::visualMemorize()
     {
          this -> visual_memory -> push(*iter);
     }
+}
+
+void Humanoid::setHome(Building *home)
+{
+    this -> home = home;
 }
 
 //**********************************************************
