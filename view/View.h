@@ -15,8 +15,9 @@
 
 #include <GL/gl.h>
 #include <iostream>
+#include <string>
+#include <stdlib.h>
 #include <vector>
-#include <string.h>
 
 #include "ViewWorld/ViewWorld.h"
 #include "KeyHandler/KeyHandler.h"
