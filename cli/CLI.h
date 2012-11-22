@@ -51,7 +51,7 @@ private:
     World* world;
 
     /// Pointer to Controller.
-    Controller * control;
+    Controller* control;
 
     //**************************************************************************
     // COMMAND'S PROCESSORS.
@@ -59,59 +59,59 @@ private:
 
     /**
      * @brief  `init` command.
-     * @param  vsize    World's vertical size
-     * @param  hsize    World's horizontal size
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string init(uint vsize, uint hsize);
+    std::string init(std::stringstream& ss);
 
     /**
      * @brief  `random-init` command.
-     * @param  seed     World's seed
-     * @param  vsize    World's vertical size
-     * @param  hsize    World's horizontal size
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string randomInit(uint seed, uint vsize, uint hsize);
+    std::string randomInit(std::stringstream& ss);
 
     /**
      * @brief  `create` command.
-     * @param  type     object's type
-     * @param  x        x coordinate
-     * @param  y        y coordinate
-     * @param  args     ParamArray with additional args
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string create(ObjectType type, double x, double y, ParamArray args);
+    std::string create(std::stringstream& ss);
 
     /**
      * @brief  `list` command.
-     * @param  type     ParamArray with specified object types
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string list(ParamArray type);
+    std::string list(std::stringstream& ss);
 
     /**
      * @brief  `info` command.
-     * @param  id       object's id
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string info(uint id);
+    std::string info(std::stringstream& ss);
 
     /**
      * @brief  `step` command.
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string step();
+    std::string step(std::stringstream& ss);
 
     /**
      * @brief  `trace-step` command.
-     * @param  ids      array with ids of traced objects
+     * @param  ss   stream with args
      * @return command output
      */
-    std::string traceStep(std::vector<uint> ids);
+    std::string traceStep(std::stringstream& ss);
 
-    // TODO: Add `change`. What about interface?
+    /**
+     * @brief  `change` command.
+     * @param  ss   stream with args
+     * @return command output
+     */
+    std::string change(std::stringstream& ss);
 };
 
 #endif // CLI_H

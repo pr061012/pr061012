@@ -26,12 +26,11 @@ Controller::Controller(World * world) :
 {
     performers.resize(AMNT_ACTION_TYPES);
 
-    performers[GO] = new TravelingPerformer(world -> getSize(),
-                                                         world -> getIndexator());
+    performers[GO] = new TravelingPerformer(world);
     performers[CREATE_OBJ] = new CreationPerformer(world);
-    performers[MINE_OBJ] = new MiningPerformer(*world -> getIndexator());
-    performers[HARM_OBJS] = new HarmPerformer(*world -> getIndexator());
-    performers[REGENERATE_OBJ] = new RegenerationPerformer(*world -> getIndexator());
+    performers[MINE_OBJ] = new MiningPerformer(world);
+    performers[HARM_OBJS] = new HarmPerformer(world);
+    performers[REGENERATE_OBJ] = new RegenerationPerformer(world);
     performers[DROP_OBJS] = new DroppingPerformer(world);
     performers[PICK_UP_OBJS] = new PickupMaster(world);
     performers[EAT_OBJ] = new EatingPerformer(world);

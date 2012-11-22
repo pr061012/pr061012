@@ -30,47 +30,101 @@ std::string CLI::runCommand(std::string command)
     std::string cmd;
     ss >> cmd;
 
-    // Reading command args and running processors.
-    std::string output;
+    // Running processors.
     if (cmd == "init")
     {
-    }
-    else if (cmd == "random-init")
-    {
-    }
-    else if (cmd == "create")
-    {
-    }
-    else if (cmd == "list")
-    {
-    }
-    else if (cmd == "info")
-    {
-    }
-    else if (cmd == "change")
-    {
-    }
-    else if (cmd == "step")
-    {
-        output = this -> step();
-    }
-    else if (cmd == "trace-step")
-    {
-    }
-    else
-    {
-        output = "Unknown command `" + cmd + "`.\n";
+        return this -> init(ss);
     }
 
-    return output;
+    if (cmd == "random-init")
+    {
+        return this -> randomInit(ss);
+    }
+
+    if (cmd == "create")
+    {
+        return this -> create(ss);
+    }
+
+    if (cmd == "list")
+    {
+        return this -> list(ss);
+    }
+
+    if (cmd == "info")
+    {
+        return this -> info(ss);
+    }
+
+    if (cmd == "change")
+    {
+        return this -> change(ss);
+    }
+
+    if (cmd == "step")
+    {
+        return this -> step(ss);
+    }
+
+    if (cmd == "trace-step")
+    {
+        return this -> traceStep(ss);
+    }
+
+    return "Unknown command `" + cmd + "`.\n";
 }
 
 //******************************************************************************
 // COMMAND'S PROCESSORS.
 //******************************************************************************
 
-std::string CLI::step()
+std::string CLI::init(std::stringstream &ss)
+{
+    // FIXME: Interpreting only one size.
+    int size = -1;
+    ss >> size;
+
+    if (ss.fail())
+    {
+        return std::string("Error: Integer argument expected.\n") +
+               std::string("`init` syntax: init <size>\n");
+    }
+
+    if (size <= 0)
+    {
+        return "Error: Size must be greater than 0.\n";
+    }
+
+    this -> world -> reset(false);
+    return "Successfully created clear world.\n";
+}
+
+std::string CLI::randomInit(std::stringstream &ss)
+{
+}
+
+std::string CLI::create(std::stringstream& ss)
+{
+}
+
+std::string CLI::list(std::stringstream& ss)
+{
+}
+
+std::string CLI::info(std::stringstream& ss)
+{
+}
+
+std::string CLI::step(std::stringstream& ss)
 {
     this -> control -> step();
-    return std::string();
+    return "Successfully updated world.\n";
+}
+
+std::string CLI::traceStep(std::stringstream& ss)
+{
+}
+
+std::string CLI::change(std::stringstream& ss)
+{
 }

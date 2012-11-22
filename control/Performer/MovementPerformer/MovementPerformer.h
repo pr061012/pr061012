@@ -43,18 +43,6 @@ public:
      */
     void perform(Action& action);
 
-private:
-
-    //*************************************************************************
-    //  ATTRIBUTES
-    //*************************************************************************
-   
-    /// Size of the world
-    const double world_size;
-
-    /// Indexator of the controlled world
-    Indexator * indexator;
-
 };
 
 #endif

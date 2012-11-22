@@ -11,8 +11,8 @@
 
 #include <vector>
 
-RegenerationPerformer::RegenerationPerformer(Indexator& indexator):
-    indexator(indexator)
+RegenerationPerformer::RegenerationPerformer(World * world):
+    Performer(world)
 {
 
 }
@@ -64,7 +64,7 @@ void RegenerationPerformer::perform(Action& action)
     if (type == CREATURE)
     {
         Creature* creature = dynamic_cast<Creature*>(actor);
-        ObjectHeap env = indexator.getAreaContents(creature -> getViewArea());
+        ObjectHeap env = world -> getIndexator() -> getAreaContents(creature -> getViewArea());
         ObjectHeap::const_iterator iter = env.end();
 
         if (env.find(participants[object_index], false) == iter)

@@ -15,8 +15,7 @@
 #include <string>
 
 MovementPerformer::MovementPerformer(World * world) :
-    world_size(world -> getSize()),
-    indexator(world -> getIndexator())
+    Performer(world)
 {
 }
 
@@ -75,8 +74,8 @@ void MovementPerformer::perform(Action& action)
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
 
     // Do not let objects fall of the bounds
-    if (dest.getX() < 0 || dest.getX() >= world_size || 
-        dest.getY() < 0 || dest.getY() >= world_size)
+    if (dest.getX() < 0 || dest.getX() >= world -> getSize() || 
+        dest.getY() < 0 || dest.getY() >= world -> getSize())
     {
         action.markAsFailed();
         return;
@@ -85,14 +84,14 @@ void MovementPerformer::perform(Action& action)
     // Try to place an object and see if it collides with anything
     Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
-    ObjectHeap obstacles = indexator -> getAreaContents(ghost);
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost);
 
     // Can't place things over creatures and buildings
     if (!obstacles.getTypeAmount(CREATURE)
         && !obstacles.getTypeAmount(BUILDING))
     {
         participant -> setCoords(dest);
-        indexator -> reindexate(participant);
+        world -> getIndexator() -> reindexate(participant);
         action.markAsSucceeded();
     }
     else

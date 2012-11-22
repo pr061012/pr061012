@@ -220,21 +220,21 @@ void Creature:: chooseDirectionToEscape()
     this -> angle = atan(global_x / global_y) + M_PI;
 }
 
-void Creature::toGo()
+void Creature::go(Object * target, SpeedType speed)
+{
+    aim = target;
+    setDirection();
+    go(speed);
+}
+
+void Creature::go(SpeedType speed)
 {
     Action act(GO, this);
-    act.addParam<double>("angle", this -> angle);
-    act.addParam<SpeedType>("speed", SLOW_SPEED);
+    act.addParam<double>("angle", angle);
+    act.addParam<SpeedType>("speed", speed);
     this -> actions.push_back(act);
 }
 
-void Creature::toRun()
-{
-    Action act(GO, this);
-    act.addParam<double>("angle", this -> angle);
-    act.addParam<SpeedType>("speed", FAST_SPEED);
-    this -> actions.push_back(act);
-}
 
 //******************************************************************************
 // INHERETED THINGS.

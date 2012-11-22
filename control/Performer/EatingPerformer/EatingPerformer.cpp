@@ -15,7 +15,7 @@
 // Improve movement algo
 
 EatingPerformer::EatingPerformer(World * world) :
-    world(world)
+    Performer(world)
 {
 }
 
