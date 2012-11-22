@@ -200,7 +200,8 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: CreatureType expected.\n") +
-                   sformat("Syntax: create <x> <y> <CreatureType>\n");
+                   sformat("Syntax: create <x> <y> %s <CreatureType>\n",
+                           TN_CREATURE);
         }
 
         if (creat_type == TN_HUMANOID)
@@ -227,14 +228,16 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: max_health expected.\n") +
-                   sformat("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
+                   sformat("Syntax: create <x> <y> %s <max_health> <max_space>\n",
+                           TN_BUILDING);
         }
 
         ss >> max_space;
         if (ss.fail())
         {
             return sformat("Error: max_space expected.\n") +
-                   sformat("Syntax: create <x> <y> BUILDING <max_health> <max_space>\n");
+                   sformat("Syntax: create <x> <y> %s <max_health> <max_space>\n",
+                           TN_BUILDING);
         }
 
         pa.addKey<uint>("max_health", max_health);
@@ -249,7 +252,8 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: ResourceType expected.\n") +
-                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>\n");
+                   sformat("Syntax: create <x> <y> %s <res_type> <res_amount>\n",
+                           TN_RESOURCE);
         }
 
         if (ss == TN_RESOURCE_FOOD)
@@ -271,7 +275,8 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: res_amount expected.\n") +
-                   sformat("Syntax: create <x> <y> RESOURCE <res_type> <res_amount>\n");
+                   sformat("Syntax: create <x> <y> %s <res_type> <res_amount>\n",
+                           TN_RESOURCE);
         }
 
         pa.addKey<uint>("res_amount", res_amount);
@@ -288,7 +293,8 @@ std::string CLI::create(std::stringstream& ss)
         if (ss.fail())
         {
             return sformat("Error: weat_steps expected.\n") +
-                   sformat("Syntax: create <x> <y> WEATHER <weat_steps>\n");
+                   sformat("Syntax: create <x> <y> %s <weat_steps>\n",
+                           TN_WEATHER);
         }
 
         pa.addKey<uint>("weat_steps", weat_steps);
