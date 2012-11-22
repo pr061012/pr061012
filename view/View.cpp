@@ -29,7 +29,8 @@ View::View(const IWorld& w)
     glcContext(this -> glc_context);
 
     this -> font = glcGenFontID();
-    glcNewFontFromMaster(this -> font, 0);
+    //glcNewFontFromMaster(this -> font, 0);
+    glcNewFontFromFamily(this -> font, "monospace");
 
     glcFont(this -> font);
 
