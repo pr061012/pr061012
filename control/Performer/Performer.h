@@ -51,7 +51,7 @@ public:
 protected:
     
     /// Pointer to controlled world
-    World * world;
+    World* world;
 };
 
 #endif

@@ -9,7 +9,8 @@ Performer::Performer()
 {
 }
 
-Performer::Performer(World * world) : world(world)
+Performer::Performer(World* world):
+    world(world)
 {
 }
 
