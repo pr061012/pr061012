@@ -87,6 +87,12 @@ void Controller::step()
                 dynamic_cast<Creature*>(object) -> setObjectsAround(
                     world -> getIndexator() -> getAreaContents(
                         dynamic_cast<Creature*>(object) -> getViewArea()));
+                // check age
+                if (dynamic_cast<Creature*>(object) -> getAge() >=
+                    dynamic_cast<Creature*>(object) -> getMaxAge())
+                {
+                    object -> markAsDestroyed();
+                }
             }
             else if (object -> getType() == WEATHER)
             {

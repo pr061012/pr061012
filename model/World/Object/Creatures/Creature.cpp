@@ -295,6 +295,12 @@ void Creature::go(SpeedType speed)
 // Implement A*
 Creature::Path Creature::generateRoute(Object * goal)
 {
+    // Find 
+    double miny = this -> getCoords().getY();
+    double minx = this -> getCoords().getX();
+    double maxx = minx;
+    double maxy = miny;
+
     Path result;
     result.push(goal -> getCoords());
     return result;
