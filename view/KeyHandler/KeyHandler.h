@@ -32,6 +32,8 @@ public:
      */
     ~KeyHandler();
 
+    bool isCharPressed(int c);
+
     /**
      * @brief Returns some enum indicating what action should be
      *        performed by View.

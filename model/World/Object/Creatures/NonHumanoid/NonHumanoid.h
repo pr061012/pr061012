@@ -36,7 +36,7 @@ public:
     // NON_HUMANOID ACTIONS.
     //**************************************************************************
 
-    std::vector <Action> * getActions();
+    std::vector <Action>* getActions();
     void receiveMessage(Message message);
 
     //**************************************************************************
@@ -46,8 +46,19 @@ private:
     //**************************************************************************
     // UPDATES
     //**************************************************************************
+    /**
+     * @brief updateAge
+     */
     void updateAge();
+
+    /**
+     * @brief updateCommonAttrs
+     */
     void updateCommonAttrs();
+
+    /**
+     * @brief updateNeedInDesc
+     */
     void updateNeedInDesc();
     //**************************************************************************
     // AUXILIARY FUNTIONS
@@ -65,7 +76,7 @@ private:
     /// Amount of steps before decreasion of sleepiness. When NHUM is sleeping
     uint decr_sleep_step;
 
-     //**************************************************************************
+    //**************************************************************************
     // TYPE
     //**************************************************************************
     NonHumanoidType type;

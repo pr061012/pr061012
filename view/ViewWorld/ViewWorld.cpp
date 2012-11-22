@@ -71,8 +71,6 @@ void ViewWorld::loadTextures()
     );
 }
 
-
-
 void ViewWorld::redraw()
 {
     this -> renderBackground();
@@ -133,7 +131,7 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS?
+    new_var = new_var > VIEW_CAM_RADIUS ?
               new_var : VIEW_CAM_RADIUS;
     new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
               new_var : world.getSize() - VIEW_CAM_RADIUS;

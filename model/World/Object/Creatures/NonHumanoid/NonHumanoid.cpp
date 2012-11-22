@@ -244,8 +244,9 @@ void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-
     double distance = SZ_NHUM_VIEW_DIAM;
+
+    // Find grass in around object.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
@@ -255,6 +256,7 @@ void NonHumanoid::findGrass()
         if (res -> getSubtype() == RES_FOOD)
         {
             coords = res -> getCoords();
+            // Check distance to grass.
             if (coords.getDistance(this -> getCoords()) > distance)
             {
                 this -> aim = res;

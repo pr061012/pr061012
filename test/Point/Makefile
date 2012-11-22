@@ -8,7 +8,7 @@ LIBS       =
 MODEL_DIR  = ../../model/
 
 # Files with sources.
-SOURCES    = $(MODEL_DIR)Utilities/Point/Point.cpp
+SOURCES    = $(MODEL_DIR)Utilities/Vector/Vector.cpp
 SOURCES   += main.cpp
 
 # Object files.
