@@ -84,13 +84,13 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         current_decision = NONE;
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
     //**************************************************************************
     // DECISION : NONE | OK
     //**************************************************************************
-    else if (current_decision == NONE)
+    if (current_decision == NONE)
     {
         // Make decision.
         current_decision = brains.makeDecision(attrs);
@@ -132,6 +132,15 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == RELAX)
     {
+        if (this -> health < 100 && common_steps == CREAT_STEPS)
+        {
+            this -> increaseHealth(CREAT_DELTA_HEALTH);
+        }
+
+        if (endurance < max_endurance)
+        {
+            endurance++;
+        }
         direction_is_set = false;
         go(SLOW_SPEED);
     }
