@@ -36,12 +36,12 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
                                         // so it always wants to relax
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
-    attrs(ATTR_SAFETY,0)         = danger;
+    attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
     age_steps = CREAT_AGE_STEPS;
     common_steps = CREAT_STEPS;
-    danger_steps = CREAT_SAFETY_STEPS;
+    danger_steps = CREAT_DANGER_STEPS;
     desc_steps = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
     current_decision = NONE;

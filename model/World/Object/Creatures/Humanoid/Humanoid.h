@@ -54,11 +54,23 @@ public:
     uint getHumanoidID() const;
 
     //**********************************************************
-    // DEBUG
+    // GETTERS
     //**********************************************************
-   
+
     /// Gets current desicion of humanoid
     uint getCurrentDetailedAct() const;
+
+    ///  Gets humanoid's home
+    Building* getHome() const;
+
+    /// Gets visual memory of humanoid
+    ObjectHeap* getVisMem() const;
+
+    /// Gets need in house
+    uint getNeedInHouse() const;
+
+    /// Gets bravery
+    uint getBravery() const;
 
     //**************************************************************************
     // SET HOME
