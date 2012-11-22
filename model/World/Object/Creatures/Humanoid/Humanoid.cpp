@@ -32,14 +32,17 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
 hum_id(CURRENT_HUM_ID++)
 {
-    int age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
+    int max_age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
     // Initialize some inhereted things.
-    this -> setMaxAge(age);
-    this -> setMaxAge(0);
+    this -> setMaxAge(max_age);
+    this -> setAge(0);
     this -> setShapeSize(SZ_HUM_DIAM);
     this -> setShapeType(SHP_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
+
+    // Set danger level
+    setDangerLevel(HUM_DANGER_LEVEL);
 
     // Create visual_memory
     visual_memory = new ObjectHeap();
@@ -69,7 +72,7 @@ hum_id(CURRENT_HUM_ID++)
     attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
 
     // Initialize home
-    home = 0;
+    home = nullptr;
 
     // Initialize steps
     decr_endur_step = 0;
@@ -128,22 +131,29 @@ std::vector <Action>* Humanoid::getActions()
         updateDanger();
     this -> actions.clear();
 
+    // If decision is not actual humanoid make new decision.
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
     }
 
+    // Make new decision and set aim and direction.
     if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
         detailed_act = chooseAction(current_decision);
     }
+
+    //**************************************************************************
+    // DETAILED DECISION : RELAX_AT_HOME
+    //**************************************************************************
 
     // First of all, we set direction (to home). If direction is seted
     // HUMANOID goes to home. If he is in home his health and endurance will
     // increase.
+
     if (detailed_act == RELAX_AT_HOME)
     {
         if ((aim != nullptr) && (!direction_is_set))
@@ -171,14 +181,23 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
-    if (detailed_act == HUNT)/////////////////////////////////////////////////////////////
+    //**************************************************************************
+    // DETAILED DECISION : HUNT |        BAD FUNC !!!!!!!!!!
+    //**************************************************************************
+
+    if (detailed_act == HUNT)
     {
         go(SLOW_SPEED);
     }
 
+    //**************************************************************************
+    // DETAILED DECISION : FIND_FOOD
+    //**************************************************************************
+
     // Searching for food inside humanoid visual memory. If it is founded he
     // eat it. In other case he just shuffle on the street and explore enviro-
     // ment.
+
     if (detailed_act == FIND_FOOD)
     {
         double min_dist = SZ_WORLD_VSIDE;
@@ -277,9 +296,14 @@ std::vector <Action>* Humanoid::getActions()
         }
     }
 
-    if (detailed_act == MINE_RESOURSES)/////////////////////////////////////////////////////////////////
+    // If we don't choose which resource humanoid want to mine, we check
+    // his visual memory. After that humanoid come to this resource. If he
+    // did not find any resource in his memory, he will just shuffle on the
+    // street and memorize new object.
+
+    if (detailed_act == MINE_RESOURSES)
     {
-        if (visual_memory != nullptr)
+        if ((visual_memory != nullptr) && (aim == nullptr))
         {
             ObjectHeap::const_iterator iter;
             Vector coords;
@@ -298,20 +322,32 @@ std::vector <Action>* Humanoid::getActions()
                     if (distance < coords.getDistance(this -> getCoords()))
                     {
                         this -> aim = res;
-                        this -> angle = -1;
                         distance = coords.getDistance(this -> getCoords());
                     }
                 }
             }
-            if (aim == nullptr)
-            {
-                direction_is_set = false;
-                go(SLOW_SPEED);
-            }
+        }
+
+        if (aim == nullptr)
+        {
+             go(SLOW_SPEED);
+             visualMemorize();
         }
         else
         {
-
+            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
+            else
+            {
+                Action act(MINE_OBJ, this);
+                act.addParticipant(aim);
+                act.addParam("res_index", 0);
+                this -> actions.push_back(act);
+                //detailed_act = BUILD_HOUSE;
+            }
         }
     }
 
