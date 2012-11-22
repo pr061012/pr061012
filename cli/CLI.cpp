@@ -31,11 +31,12 @@ std::string CLI::runCommand(std::string command)
     ss >> cmd;
 
     // Reading command args and running processors.
-    std::string output;
     if (cmd == "init")
     {
+        return this -> init(ss);
     }
-    else if (cmd == "random-init")
+
+    if (cmd == "random-init")
     {
     }
     else if (cmd == "create")
@@ -52,25 +53,42 @@ std::string CLI::runCommand(std::string command)
     }
     else if (cmd == "step")
     {
-        output = this -> step();
+        return this -> step(ss);
     }
     else if (cmd == "trace-step")
     {
     }
-    else
-    {
-        output = "Unknown command `" + cmd + "`.\n";
-    }
 
-    return output;
+    return "Unknown command `" + cmd + "`.\n";
 }
 
 //******************************************************************************
 // COMMAND'S PROCESSORS.
 //******************************************************************************
 
-std::string CLI::step()
+std::string CLI::init(std::stringstream &ss)
+{
+    // FIXME: Interpreting only one size.
+    int size = -1;
+    ss >> size;
+
+    if (ss.fail())
+    {
+        return std::string("Error: Integer argument expected.\n") +
+               std::string("`init` syntax: init <size>\n");
+    }
+
+    if (size <= 0)
+    {
+        return "Error: Size must be greater than 0.\n";
+    }
+
+    this -> world -> reset(false);
+    return "Successfully created clear world.\n";
+}
+
+std::string CLI::step(std::stringstream& ss)
 {
     this -> control -> step();
-    return std::string();
+    return "Successfully updated world.\n";
 }
