@@ -135,7 +135,7 @@ std::string CLI::runCommand(std::string command)
 }
 
 //******************************************************************************
-// COMMAND'S PROCESSORS.
+// `INIT` PROCESSOR.
 //******************************************************************************
 
 std::string CLI::init(std::stringstream &ss, bool random)
@@ -159,6 +159,10 @@ std::string CLI::init(std::stringstream &ss, bool random)
     this -> world -> reset(size, random);
     return sformat("Successfully created world %dx%d.\n", size, size);
 }
+
+//******************************************************************************
+// `CREATE` PROCESSOR.
+//******************************************************************************
 
 std::string CLI::create(std::stringstream& ss)
 {
@@ -189,8 +193,8 @@ std::string CLI::create(std::stringstream& ss)
                sformat("Syntax: create <x> <y> <type> [additional args]\n");
     }
 
-    // Reading additional args depending on ObjectType.
     ParamArray pa;
+
     if (type == TN_CREATURE)
     {
         obj_type = CREATURE;
@@ -311,9 +315,14 @@ std::string CLI::create(std::stringstream& ss)
     obj -> setCoords(Vector(x, y));
     this -> world -> addObject(true, obj);
 
+    // Returning message about success.
     return sformat("Succesfully created object (id is %d).\n",
                    obj -> getObjectID());
 }
+
+//******************************************************************************
+// `LIST` PROCESSOR.
+//******************************************************************************
 
 std::string CLI::list(std::stringstream& ss)
 {
@@ -333,6 +342,10 @@ std::string CLI::list(std::stringstream& ss)
     // TODO: Listing hidden objects.
     //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
 }
+
+//******************************************************************************
+// `INFO` PROCESSOR.
+//******************************************************************************
 
 std::string CLI::info(std::stringstream& ss)
 {
@@ -420,7 +433,7 @@ std::string CLI::info(std::stringstream& ss)
         // Mineability and restorability.
         output += sformat("Is mineable\t\t%s\n",
                           res -> isMineable() ? "yes" : "no");
-        output += sformat("Is restorable\t%s\n",
+        output += sformat("Is restorable\t\t%s\n",
                           res -> isRestorable() ? "yes" : "no");
 
         // Difficulty and progress.
@@ -489,15 +502,27 @@ std::string CLI::info(std::stringstream& ss)
     return output;
 }
 
+//******************************************************************************
+// `STEP` PROCESSOR.
+//******************************************************************************
+
 std::string CLI::step(std::stringstream& ss)
 {
     this -> control -> step();
     return "Successfully updated world.\n";
 }
 
+//******************************************************************************
+// `TRACE-STEP` PROCESSOR.
+//******************************************************************************
+
 std::string CLI::traceStep(std::stringstream& ss)
 {
 }
+
+//******************************************************************************
+// `CHANGE` PROCESSOR.
+//******************************************************************************
 
 std::string CLI::change(std::stringstream& ss)
 {
