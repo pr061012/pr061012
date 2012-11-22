@@ -14,7 +14,7 @@
 Building::Building(uint max_space, uint max_health) :
     Object(BUILDING, false),
     contents(new ObjectHeap),
-    health(0),
+    health(1),
     max_health(max_health),
     max_space(max_space),
     completeness(false)
