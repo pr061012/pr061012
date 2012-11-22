@@ -132,7 +132,8 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == RELAX)
     {
-        if (this -> health < 100 && common_steps == CREAT_STEPS)
+        aim = nullptr;
+        if (this -> health < max_health && common_steps == CREAT_STEPS)
         {
             this -> increaseHealth(CREAT_DELTA_HEALTH);
         }
