@@ -224,6 +224,21 @@ std::string CLI::create(std::stringstream& ss)
 
 std::string CLI::list(std::stringstream& ss)
 {
+    std::string output;
+
+    // Listing visible objects.
+    ObjectHeap* objs = this -> world -> getVisibleObjects();
+    ObjectHeap::const_iterator iter;
+    for (iter = objs -> begin(); iter != objs -> end(); iter++)
+    {
+        Object* obj = *iter;
+        output += std::to_string(obj -> getObjectID()) + "\t|";
+        output += std::to_string(obj -> getType()) + "\t|\n";
+    }
+
+    return output;
+    // TODO: Listing hidden objects.
+    //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
 }
 
 std::string CLI::info(std::stringstream& ss)

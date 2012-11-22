@@ -89,14 +89,20 @@ std::vector <Action>* NonHumanoid::getActions()
         aim = 0;
     }
 
-    if (current_decision == NONE)
+    //**************************************************************************
+    // DECISION : NONE
+    //**************************************************************************
+    else if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
         direction_is_set = false;
         aim = 0;
     }
 
-    if (current_decision == SLEEP)
+    //**************************************************************************
+    // DECISION : SLEEP
+    //**************************************************************************
+    else if (current_decision == SLEEP)
     {
         if (decr_sleep_step == 0)
         {
@@ -113,55 +119,59 @@ std::vector <Action>* NonHumanoid::getActions()
         }
     }
 
-    if (current_decision == RELAX)
+    //*************************************************************************
+    // DECISION : RELAX
+    //**************************************************************************
+    else if (current_decision == RELAX)
     {
-        if (angle == -1)
-        {
-            angle = Random::double_num(2 * M_PI);
-        }
+        direction_is_set = false;
         go(SLOW_SPEED);
     }
 
-    if (current_decision == EAT)
+    //**************************************************************************
+    // DECISION : EAT
+    //**************************************************************************
+    else if (current_decision == EAT)
     {
-        if (aim == 0);
-            findGrass();
-
-        if (aim != 0)
+        // If aim isn't exist, then find grass.
+        if (aim == nullptr)
         {
-            if (angle == -1)
-                angle = setDirection();
-            if (this -> getCoords().getDistance(aim -> getCoords()) == 0)
-                                                   // FIXME: maybe<some_epsilon?
+            findGrass();
+        }
+
+        // If aim is exist, then...
+        if (aim != nullptr)
+        {
+            // Check distance to aim.
+            if (this -> getCoords().getDistance(aim -> getCoords()) < MATH_EPSILON)
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
+                actions.push_back(act);
             }
             else
             {
-                go(SLOW_SPEED);
+                go(aim, SLOW_SPEED);
             }
         }
         else
         {
-            // FIXME: Erm. Is using -1 as a sign of uncertainty good idea?
-            if (angle == -1)
-            {
-                angle = Random::double_num(2 * M_PI);
-            }
             go(SLOW_SPEED);
         }
 
+        // Check hunger state.
         if (hunger == 0)
         {
             this -> current_action = NONE;
-            angle = -1;
-            aim = 0;
+            direction_is_set = false;
+            aim = nullptr;
         }
-
     }
 
-    if (current_decision == ESCAPE)
+    //**************************************************************************
+    // DECISION : ESCAPE
+    //**************************************************************************
+    else if (current_decision == ESCAPE)
     {
         if (
                 this -> type == COW ||
@@ -182,7 +192,10 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (current_decision == REPRODUCE)
+    //**************************************************************************
+    // DECISION : REPRODUCE
+    //**************************************************************************
+    else if (current_decision == REPRODUCE)
     {
 
     }
@@ -231,21 +244,23 @@ void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-
     double distance = SZ_NHUM_VIEW_DIAM;
+
+    // Find grass in around object.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
        )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype()  == RES_FOOD)
+        if (res -> getSubtype() == RES_FOOD)
         {
             coords = res -> getCoords();
-            if (distance < coords.getDistance(this -> getCoords()))
+            // Check distance to grass.
+            if (coords.getDistance(this -> getCoords()) > distance)
             {
                 this -> aim = res;
-                this -> angle = -1;
+                direction_is_set = false;
                 distance = coords.getDistance(this -> getCoords());
             }
         }

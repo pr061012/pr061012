@@ -51,7 +51,7 @@ void World::genResources()
     building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
     building_mat_params.addKey<uint>("res_amount", 10);
 
-    uint amount = Random::int_range(3000, 5000);
+    uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
     {
         Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
@@ -103,7 +103,7 @@ void World::genWeather()
     weat_params.addKey<WeatherType>("weat_type", METEOR_SHOWER);
     weat_params.addKey<uint>("weat_steps", 10);
 
-    uint amount = Random::int_range(50, 100);
+    uint amount = Random::int_range(5, 10);
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(WEATHER, weat_params);
