@@ -282,7 +282,7 @@ std::vector <Action>* Humanoid::getActions()
 
     //**************************************************************************
     // DETAILED DECISION : SLEEP_ON_THE_GROUND
-    // Humanoid just increases endurance and decrease sleepiness
+    // Humanoid just increases endurance and decreases sleepiness
     //**************************************************************************
 
     if (detailed_act == SLEEP_ON_THE_GROUND)
@@ -379,7 +379,8 @@ std::vector <Action>* Humanoid::getActions()
         Action act(REGENERATE_OBJ, this);
         act.addParticipant(home);
         act.addParam("object_index", 0);
-        this -> need_in_house = 100 - 100 * home -> health / home -> max_health;
+        this -> need_in_house = 100 - 100 * home -> getHealthPoints()
+                                                / home -> getMaxHealthPoints();
     }
 
     //**************************************************************************
