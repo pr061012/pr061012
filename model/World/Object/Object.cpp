@@ -146,3 +146,11 @@ const Vector& Object::getCoords() const
 {
     return shape.getCenter();
 }
+
+Object::operator const ViewObject *()
+{
+    Vector v = this -> getShape().getCenter();
+    ViewObject* ret = new ViewObject(this -> getType(), v.getX(), v.getY());
+    return ret;
+}
+

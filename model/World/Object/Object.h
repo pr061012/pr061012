@@ -12,6 +12,7 @@
 #include "../Message/Message.h"
 #include "../../Utilities/Shape/Shape.h"
 #include "../../../common/BasicTypes.h"
+#include "../../../view/ViewObject/ViewObject.h"
 
 /**
  * @class Object
@@ -205,6 +206,14 @@ public:
      * @return object's coordinates
      */
     const Vector& getCoords() const;
+
+    //**************************************************************************
+    // CAST OPERATORS
+    //**************************************************************************
+    /**
+     * @brief Operator to cast an Object to const ViewObject*
+     */
+    operator const ViewObject*();
 
 private:
     //**************************************************************************

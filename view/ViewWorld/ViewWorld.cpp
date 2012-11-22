@@ -73,7 +73,7 @@ void ViewWorld::loadTextures()
 
 void ViewWorld::redraw()
 {
-    this -> renderBackground();
+     this -> renderBackground();
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS*2);
 
