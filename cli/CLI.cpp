@@ -96,7 +96,7 @@ std::string CLI::init(std::stringstream &ss, bool random)
     }
 
     this -> world -> reset(random);
-    return "Successfully created clear world.\n";
+    return "Successfully created world.\n";
 }
 
 std::string CLI::create(std::stringstream& ss)
