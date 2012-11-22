@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('DroppingPerformer_8cpp_source.html',''
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// Improve movement algo</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classDroppingPerformer.html#a5a507b3572ae68a347b67bd4e1e96cd9">   25</a></span>&#160;<a class="code" href="classDroppingPerformer.html#a5a507b3572ae68a347b67bd4e1e96cd9" title="Constructor for a particular world.">DroppingPerformer::DroppingPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> * world) :</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    world(world)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
@@ -174,15 +174,15 @@ $(document).ready(function(){initNavTree('DroppingPerformer_8cpp_source.html',''
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            success = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="comment">// make object visible</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            world -&gt; getHiddenObjects() -&gt; <span class="keyword">remove</span>(*j);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            world -&gt; getVisibleObjects() -&gt; push(*j);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getHiddenObjects() -&gt; <span class="keyword">remove</span>(*j);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getVisibleObjects() -&gt; push(*j);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="comment">// place it on the ground</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            inventory -&gt; <span class="keyword">remove</span>(*j);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            (*j) -&gt; setCoords(actor -&gt; getCoords());</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">// add to index</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            world -&gt; getIndexator() -&gt; addObject(*j);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; addObject(*j);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('DroppingPerformer_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_ef61484fdaa72a438f9c089f675c460f.html">DroppingPerformer</a></li><li class="navelem"><a class="el" href="DroppingPerformer_8cpp.html">DroppingPerformer.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

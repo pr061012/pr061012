@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "Action", "classAction.html", null ],
+    [ "CLI", "classCLI.html", null ],
     [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
     [ "EInvalidResPath", "classEInvalidResPath.html", null ],

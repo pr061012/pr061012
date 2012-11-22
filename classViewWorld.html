@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('classViewWorld.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a588ea8915d54fb2399937550d4fe2154"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a588ea8915d54fb2399937550d4fe2154">ViewWorld</a> (const <a class="el" href="classIWorld.html">IWorld</a> &amp;w)</td></tr>
-<tr class="memdesc:a588ea8915d54fb2399937550d4fe2154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame. This is required to get information about units that are not rendered right now but selected by player.  <a href="#a588ea8915d54fb2399937550d4fe2154"></a><br/></td></tr>
+<tr class="memitem:a5100ab32e80e97a26b5d3ab2d3e09c01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a5100ab32e80e97a26b5d3ab2d3e09c01">ViewWorld</a> (const <a class="el" href="classIWorld.html">IWorld</a> &amp;w, const int &amp;width, const int &amp;height)</td></tr>
+<tr class="memdesc:a5100ab32e80e97a26b5d3ab2d3e09c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame. This is required to get information about units that are not rendered right now but selected by player.  <a href="#a5100ab32e80e97a26b5d3ab2d3e09c01"></a><br/></td></tr>
 <tr class="memitem:abb9df78187bde4033e76a0b54040bf7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c">~ViewWorld</a> ()</td></tr>
 <tr class="memdesc:abb9df78187bde4033e76a0b54040bf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#abb9df78187bde4033e76a0b54040bf7c"></a><br/></td></tr>
 <tr class="memitem:aad2482a6e97ebf49c0c2c6be94790ed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6">redraw</a> ()</td></tr>
@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aba76c52554aa4c07004d3ac910556393"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">getX</a> ()</td></tr>
 <tr class="memitem:a6486c2eabc3be2c5d65856076642b492"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a> ()</td></tr>
 <tr class="memitem:a78161b08d1fbad54573eff78ffad0b87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a78161b08d1fbad54573eff78ffad0b87">getSize</a> ()</td></tr>
+<tr class="memitem:a3f237b82eb8273c7e1e2c98627620c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b">setDimensions</a> (const int &amp;width, const int &amp;height)</td></tr>
+<tr class="memdesc:a3f237b82eb8273c7e1e2c98627620c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes current width and height attributes  <a href="#a3f237b82eb8273c7e1e2c98627620c1b"></a><br/></td></tr>
 <tr class="memitem:a7ebce26c23ecfd8440b963bca91bb5bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb">setX</a> (double new_var)</td></tr>
 <tr class="memdesc:a7ebce26c23ecfd8440b963bca91bb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">set coordinates of center of the game cam  <a href="#a7ebce26c23ecfd8440b963bca91bb5bb"></a><br/></td></tr>
 <tr class="memitem:afde0728835545722c51fcf1c88eba6d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">setY</a> (double new_var)</td></tr>
@@ -136,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock">
 <p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00018">18</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a588ea8915d54fb2399937550d4fe2154"></a>
+<a class="anchor" id="a5100ab32e80e97a26b5d3ab2d3e09c01"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -144,8 +146,24 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ViewWorld::ViewWorld </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classIWorld.html">IWorld</a> &amp;&#160;</td>
-          <td class="paramname"><em>w</em></td><td>)</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -155,6 +173,8 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">w</td><td>world to render </td></tr>
+    <tr><td class="paramname">width</td><td>width of screen to render </td></tr>
+    <tr><td class="paramname">height</td><td>height of screen to render </td></tr>
   </table>
   </dd>
 </dl>
@@ -178,7 +198,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00034">34</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00037">37</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +251,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00086">86</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00092">92</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -248,7 +268,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00118">118</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00124">124</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +285,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00123">123</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00129">129</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,7 +304,7 @@ Public Member Functions</h2></td></tr>
 
 <p>redraw background and all objects in range of the game camera </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00073">73</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00076">76</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -302,7 +322,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00103">103</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00109">109</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +340,37 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00108">108</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00114">114</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f237b82eb8273c7e1e2c98627620c1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ViewWorld::setDimensions </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>changes current width and height attributes </p>
+
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00287">287</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +390,7 @@ Public Member Functions</h2></td></tr>
 
 <p>set coordinates of center of the game cam </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00128">128</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00134">134</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -358,7 +408,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00137">137</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00143">143</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +426,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00113">113</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00119">119</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -394,7 +444,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00091">91</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00097">97</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -412,7 +462,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00097">97</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00103">103</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +476,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classViewWorld.html">ViewWorld</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:58 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:46 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

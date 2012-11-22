@@ -137,38 +137,32 @@ $(document).ready(function(){initNavTree('CreationPerformer_8h_source.html','');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//  ATTRIBUTES</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIndexator.html">Indexator</a>* indexator;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>* factory;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// HELPER FUNCTIONS</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classObjectFactory.html" title="Object factory allows to creates any objects (you need to provide ParamArray with parameters to do th...">ObjectFactory</a>* factory;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// HELPER FUNCTIONS</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> checkCoord(<a class="code" href="classShape.html">Shape</a> shape);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> checkCoord(<a class="code" href="classShape.html">Shape</a> shape);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createBuilding(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createBuilding(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createCreature(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createResource(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createTool(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> &amp;param);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createCreature(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createResource(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* createTool(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> &amp;param);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_31f305295161df862c73fa8b04512573.html">CreationPerformer</a></li><li class="navelem"><a class="el" href="CreationPerformer_8h.html">CreationPerformer.h</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

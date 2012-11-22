@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('MiningPerformer_8h_source.html','');})
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MINING_PERFORMER_H__</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Performer.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Indexator/Indexator.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/World.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Resource/Resource.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Tool/Tool.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('MiningPerformer_8h_source.html','');})
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//  CONSTRUCTOR/DESTRUCTOR</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//*************************************************************************</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classMiningPerformer.html#a479529b5ff8ada471ad4185ac5b8fd5e" title="Constructor.">MiningPerformer</a>(<a class="code" href="classIndexator.html">Indexator</a>&amp; indexator);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classMiningPerformer.html#a07efc7bc065d1d53c84d6620ed10e70a" title="Constructor.">MiningPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> * <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a>);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classMiningPerformer.html#a9855d33e82be8f645d9c54b47f5fdad7" title="Destructor.">~MiningPerformer</a>();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
@@ -134,24 +134,16 @@ $(document).ready(function(){initNavTree('MiningPerformer_8h_source.html','');})
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMiningPerformer.html#abfc1f91322ab3dd52af98a4cb6e3f30b" title="Check if an object can mine and mine it.">perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//*************************************************************************</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//  ATTRIBUTES</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//*************************************************************************</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classIndexator.html">Indexator</a>&amp; indexator;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_0c1706ddd68b8263e1ec53dd58429a57.html">MiningPerformer</a></li><li class="navelem"><a class="el" href="MiningPerformer_8h.html">MiningPerformer.h</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -27,7 +27,7 @@ var searchData=
   ['meteor_5fshower',['METEOR_SHOWER',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a1142a5e72ceed9f7c5aa3d7fa6f93225',1,'BasicTypes.h']]],
   ['mine_5fobj',['MINE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba2e66a27a156f16bce68f9ab8d6df863a',1,'BasicTypes.h']]],
   ['mine_5fresourses',['MINE_RESOURSES',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caacf66502bfc2b9fc8cbf63449a907fcd6',1,'BasicTypes.h']]],
-  ['miningperformer',['MiningPerformer',['../classMiningPerformer.html',1,'MiningPerformer'],['../classMiningPerformer.html#a479529b5ff8ada471ad4185ac5b8fd5e',1,'MiningPerformer::MiningPerformer()']]],
+  ['miningperformer',['MiningPerformer',['../classMiningPerformer.html',1,'MiningPerformer'],['../classMiningPerformer.html#a07efc7bc065d1d53c84d6620ed10e70a',1,'MiningPerformer::MiningPerformer()']]],
   ['miningperformer_2ecpp',['MiningPerformer.cpp',['../MiningPerformer_8cpp.html',1,'']]],
   ['miningperformer_2eh',['MiningPerformer.h',['../MiningPerformer_8h.html',1,'']]],
   ['mouse_5fclicked',['mouse_clicked',['../View_8cpp.html#abc0cbcf92ec1ca2f5913bb1623c4b07a',1,'View.cpp']]],

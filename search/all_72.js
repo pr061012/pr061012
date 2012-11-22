@@ -7,7 +7,7 @@ var searchData=
   ['receivemessage',['receiveMessage',['../classBuilding.html#a14d3e43a10e522356ea0022663a63d01',1,'Building::receiveMessage()'],['../classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b',1,'Creature::receiveMessage()'],['../classHumanoid.html#a04292a5c4df8a91373585d8120703c10',1,'Humanoid::receiveMessage()'],['../classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9',1,'NonHumanoid::receiveMessage()'],['../classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5',1,'Object::receiveMessage()'],['../classResource.html#a57195a6cea3aa37c11cf038119e88de3',1,'Resource::receiveMessage()'],['../classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f',1,'Tool::receiveMessage()'],['../classWeather.html#ac8c475e135a64a6893141f1f3cee5519',1,'Weather::receiveMessage()']]],
   ['redraw',['redraw',['../classView.html#a2e088b57c015d551b27605cab3530187',1,'View::redraw()'],['../classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6',1,'ViewWorld::redraw()']]],
   ['regenerate_5fobj',['REGENERATE_OBJ',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba9a78d084a8154debd4fe83b872f03d1f',1,'BasicTypes.h']]],
-  ['regenerationperformer',['RegenerationPerformer',['../classRegenerationPerformer.html',1,'RegenerationPerformer'],['../classRegenerationPerformer.html#a4187dd8afa04e9391f646f81f33024a9',1,'RegenerationPerformer::RegenerationPerformer()']]],
+  ['regenerationperformer',['RegenerationPerformer',['../classRegenerationPerformer.html',1,'RegenerationPerformer'],['../classRegenerationPerformer.html#a44769e3105fc39821f932e51fdb0ca3d',1,'RegenerationPerformer::RegenerationPerformer()']]],
   ['regenerationperformer_2ecpp',['RegenerationPerformer.cpp',['../RegenerationPerformer_8cpp.html',1,'']]],
   ['regenerationperformer_2eh',['RegenerationPerformer.h',['../RegenerationPerformer_8h.html',1,'']]],
   ['reindexate',['reindexate',['../classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127',1,'Indexator::reindexate(ObjectHeap *objects)'],['../classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8',1,'Indexator::reindexate(Object *object)']]],
@@ -53,10 +53,12 @@ var searchData=
   ['res_5fwood_5fdrop_5fmax',['RES_WOOD_DROP_MAX',['../BasicDefines_8h.html#acc93a23b208d1387c5728bb8dc8a2713',1,'BasicDefines.h']]],
   ['res_5fwood_5fdrop_5fmin',['RES_WOOD_DROP_MIN',['../BasicDefines_8h.html#a14b424b354ab1e772549840c5d56c19a',1,'BasicDefines.h']]],
   ['res_5fwood_5freg_5famount',['RES_WOOD_REG_AMOUNT',['../BasicDefines_8h.html#ac0e79a9923d76ed46b7632edf2a9c8ac',1,'BasicDefines.h']]],
+  ['reset',['reset',['../classWorld.html#a8e8dbb884b0d3169981f6c7f24fcbdfa',1,'World']]],
   ['resource',['Resource',['../classResource.html',1,'Resource'],['../classResource.html#a5740e20b90ce4cc9dd8cdb96947bd298',1,'Resource::Resource()'],['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4',1,'RESOURCE():&#160;BasicTypes.h']]],
   ['resource_2ecpp',['Resource.cpp',['../Resource_8cpp.html',1,'']]],
   ['resource_2eh',['Resource.h',['../Resource_8h.html',1,'']]],
   ['resourcetype',['ResourceType',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1',1,'BasicTypes.h']]],
   ['right',['RIGHT',['../Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38',1,'Shape.h']]],
-  ['run_5ffrom_5fdanger',['RUN_FROM_DANGER',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa567e4a6de0c7b35c0c74f33922d31979',1,'BasicTypes.h']]]
+  ['run_5ffrom_5fdanger',['RUN_FROM_DANGER',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa567e4a6de0c7b35c0c74f33922d31979',1,'BasicTypes.h']]],
+  ['runcommand',['runCommand',['../classCLI.html#a5aa72bf48995ece3ad760e80010be374',1,'CLI']]]
 ];

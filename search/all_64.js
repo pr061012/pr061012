@@ -10,6 +10,7 @@ var searchData=
   ['default_5fsize',['DEFAULT_SIZE',['../World_8h.html#a9771cabfd673a8e350f1f8ce0b8f458f',1,'World.h']]],
   ['desc_5fsteps',['desc_steps',['../classCreature.html#ad80371401e4349fd4c5b05367964b530',1,'Creature']]],
   ['detailedhumaction',['DetailedHumAction',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6ca',1,'BasicTypes.h']]],
+  ['direction_5fis_5fset',['direction_is_set',['../classCreature.html#a7d2a48a8b2e369b5d39e6b034ecf2356',1,'Creature']]],
   ['dm_5fact_5fconst',['DM_ACT_CONST',['../BasicDefines_8h.html#aa49defee0bd0fa1193d67f47b4319b9e',1,'BasicDefines.h']]],
   ['dm_5fatr_5fconst',['DM_ATR_CONST',['../BasicDefines_8h.html#af632a4b398cfb78799deeb6d2c7f07d6',1,'BasicDefines.h']]],
   ['dm_5fpath_5fto_5fhum_5fmatrix',['DM_PATH_TO_HUM_MATRIX',['../BasicDefines_8h.html#af08b7bd368983913d6c2f61c209a5dd2',1,'BasicDefines.h']]],

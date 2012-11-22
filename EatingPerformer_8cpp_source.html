@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('EatingPerformer_8cpp_source.html','');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// Improve movement algo</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classEatingPerformer.html#af730b3117865a66d295f84a6cc3fb366">   17</a></span>&#160;<a class="code" href="classEatingPerformer.html#af730b3117865a66d295f84a6cc3fb366" title="Constructor for a particular world.">EatingPerformer::EatingPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> * world) :</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    world(world)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
@@ -151,10 +151,10 @@ $(document).ready(function(){initNavTree('EatingPerformer_8cpp_source.html','');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * food = *participants.begin();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * food = *(participants.begin());</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// check resource type</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (food -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>) </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (food -&gt; getType() != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c">OBJ_IS_NOT_EATABLE</a>);</div>
@@ -166,48 +166,52 @@ $(document).ready(function(){initNavTree('EatingPerformer_8cpp_source.html','');
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    action.<a class="code" href="classAction.html#a9b66a527201aca5d34be6dcf632718e0" title="Marks action as pending.">markAsPending</a>();</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">switch</span>(dynamic_cast&lt;Resource*&gt;(food) -&gt; getSubtype())</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa">GRASS</a>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            food_value = <a class="code" href="BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67">RES_BERRIES_FOOD_VALUE</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ac06c5bb4e50101a840021de18f45a33b">RES_FOOD</a>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            food_value = 3;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444">BERRIES</a>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            food_value = <a class="code" href="BasicDefines_8h.html#a3d2b19438c485c5091277a689896e7a2">RES_GRASS_FOOD_VALUE</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa">GRASS</a>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            food_value = <a class="code" href="BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67">RES_BERRIES_FOOD_VALUE</a>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444">BERRIES</a>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            food_value = <a class="code" href="BasicDefines_8h.html#a3d2b19438c485c5091277a689896e7a2">RES_GRASS_FOOD_VALUE</a>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (action.<a class="code" href="classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe" title="Failed state checker.">isFailed</a>())</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c">OBJ_IS_NOT_EATABLE</a>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;     </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// check if an object lies in inventory or around object</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * inventory = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; getInventory();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> surroundings = world -&gt; getIndexator() -&gt; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                getAreaContents(actor -&gt; getShape());</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (inventory -&gt; find(food) != inventory -&gt; end() ||</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        surroundings.<a class="code" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a>(food) != surroundings.<a class="code" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a>())</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// EPIC MEAL TIME!!!</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(food) -&gt; decreaseAmount(1);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; feed(food_value);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (action.<a class="code" href="classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe" title="Failed state checker.">isFailed</a>())</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c">OBJ_IS_NOT_EATABLE</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;     </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// check if an object lies in inventory or around object</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * inventory = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; getInventory();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> surroundings = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                getAreaContents(actor -&gt; getShape());</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (inventory -&gt; find(food) != inventory -&gt; end() ||</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        surroundings.<a class="code" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a>(food) != surroundings.<a class="code" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a>())</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">// EPIC MEAL TIME!!!</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(food) -&gt; decreaseAmount(1);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; feed(food_value);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_718f186d661df1cca80d72794ef9f535.html">EatingPerformer</a></li><li class="navelem"><a class="el" href="EatingPerformer_8cpp.html">EatingPerformer.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -9,6 +9,7 @@ var classObject =
     [ "getDangerLevel", "classObject.html#ae970ad5ee017ebf6acab62928c19d7c8", null ],
     [ "getHealthPoints", "classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7", null ],
     [ "getMaxHealthPoints", "classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d", null ],
+    [ "getObjectID", "classObject.html#a3a1956dcb8025283e34d497abbff3a32", null ],
     [ "getShape", "classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7", null ],
     [ "getType", "classObject.html#a7660dc25529325326bc280e5f5fb0194", null ],
     [ "heal", "classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc", null ],

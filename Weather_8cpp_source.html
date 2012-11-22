@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classWeather.html#aecb2d4cf892c498e09bf9e8a00ae9cbd">   15</a></span>&#160;<a class="code" href="classWeather.html#aecb2d4cf892c498e09bf9e8a00ae9cbd" title="Constructor.">Weather::Weather</a>(<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> type, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> living_steps) :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>),</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>, false),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    subtype(type)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5" title="Sets object&#39;s shape type.">setShapeType</a>(<a class="code" href="BasicDefines_8h.html#a7ff0bdaea8e1824dc1fad64600786353" title="Weather&#39;s shape.">SHP_WEATHER</a>);</div>
@@ -180,12 +180,12 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">   79</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966" title="Gets current object&#39;s heatlh vectors.">Weather::getHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">   79</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966" title="Gets current object&#39;s heatlh points.">Weather::getHealthPoints</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; steps;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">   84</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea" title="Gets maximum possible object&#39;s health vectors.">Weather::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">   84</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea" title="Gets maximum possible object&#39;s health points.">Weather::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; steps;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('Weather_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_7e573448718ff7a001fb2fdecb4ec432.html">Weather</a></li><li class="navelem"><a class="el" href="Weather_8cpp.html">Weather.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

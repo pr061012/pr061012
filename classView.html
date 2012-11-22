@@ -125,6 +125,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf7b022a42b09309a6a7e0260e8b7895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#aaf7b022a42b09309a6a7e0260e8b7895">setPaused</a> (bool new_state)</td></tr>
 <tr class="memdesc:aaf7b022a42b09309a6a7e0260e8b7895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets game state to paused.  <a href="#aaf7b022a42b09309a6a7e0260e8b7895"></a><br/></td></tr>
 <tr class="memitem:a081a223723c725fbfe36a459ab1811bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a081a223723c725fbfe36a459ab1811bb">isPaused</a> ()</td></tr>
+<tr class="memitem:a26909c3b833e47444e756a9015b563c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a26909c3b833e47444e756a9015b563c8">setReset</a> (bool reset)</td></tr>
+<tr class="memdesc:a26909c3b833e47444e756a9015b563c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets variable, whether world should be reset.  <a href="#a26909c3b833e47444e756a9015b563c8"></a><br/></td></tr>
+<tr class="memitem:a1e63c63ac672f609a2e7bbc7907cbcbf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a1e63c63ac672f609a2e7bbc7907cbcbf">isReset</a> ()</td></tr>
+<tr class="memdesc:a1e63c63ac672f609a2e7bbc7907cbcbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns boolean value, if world should be reset.  <a href="#a1e63c63ac672f609a2e7bbc7907cbcbf"></a><br/></td></tr>
 <tr class="memitem:a2e088b57c015d551b27605cab3530187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a2e088b57c015d551b27605cab3530187">redraw</a> ()</td></tr>
 <tr class="memdesc:a2e088b57c015d551b27605cab3530187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw currently displayed world.  <a href="#a2e088b57c015d551b27605cab3530187"></a><br/></td></tr>
 <tr class="memitem:a4efadcdfb36125ba4dcb3ef6627d5ecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd">continues</a> ()</td></tr>
@@ -156,7 +160,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00011">11</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00013">13</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -175,7 +179,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00030">30</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00036">36</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -196,7 +200,7 @@ Public Member Functions</h2></td></tr>
 <p>checks conditions to exit the program </p>
 <dl class="section return"><dt>Returns</dt><dd>result of exit conditions </dd></dl>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00222">222</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00263">263</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -215,7 +219,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns in-game x coordinate of camera center. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00040">40</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00046">46</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -234,7 +238,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns in-game y coordinate of camera center. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00045">45</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00051">51</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +255,26 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00073">73</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00079">79</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e63c63ac672f609a2e7bbc7907cbcbf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool View::isReset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns boolean value, if world should be reset. </p>
+
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00089">89</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -270,7 +293,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Redraw currently displayed world. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00080">80</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00096">96</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +313,27 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets game state to paused. </p>
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00068">68</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00074">74</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26909c3b833e47444e756a9015b563c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void View::setReset </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets variable, whether world should be reset. </p>
+
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00084">84</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,7 +351,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00057">57</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00063">63</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,7 +369,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="View_8cpp_source.html#l00062">62</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
+<p>Definition at line <a class="el" href="View_8cpp_source.html#l00068">68</a> of file <a class="el" href="View_8cpp_source.html">View.cpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +383,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classView.html">View</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:58 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:46 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

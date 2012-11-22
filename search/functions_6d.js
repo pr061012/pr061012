@@ -14,6 +14,6 @@ var searchData=
   ['markassucceeded',['markAsSucceeded',['../classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b',1,'Action']]],
   ['markassucceededwitherrors',['markAsSucceededWithErrors',['../classAction.html#ac7b59d155f6b3426d75d2d689bf8648d',1,'Action']]],
   ['message',['Message',['../classMessage.html#ac5154163c2db9de0485dd200062d276c',1,'Message']]],
-  ['miningperformer',['MiningPerformer',['../classMiningPerformer.html#a479529b5ff8ada471ad4185ac5b8fd5e',1,'MiningPerformer']]],
+  ['miningperformer',['MiningPerformer',['../classMiningPerformer.html#a07efc7bc065d1d53c84d6620ed10e70a',1,'MiningPerformer']]],
   ['movementperformer',['MovementPerformer',['../classMovementPerformer.html#ab4baccec6130b4b4bb973db264efc2fc',1,'MovementPerformer']]]
 ];

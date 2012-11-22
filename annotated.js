@@ -2,6 +2,7 @@ var annotated =
 [
     [ "Action", "classAction.html", "classAction" ],
     [ "Building", "classBuilding.html", "classBuilding" ],
+    [ "CLI", "classCLI.html", "classCLI" ],
     [ "Controller", "classController.html", "classController" ],
     [ "CreationPerformer", "classCreationPerformer.html", "classCreationPerformer" ],
     [ "Creature", "classCreature.html", "classCreature" ],

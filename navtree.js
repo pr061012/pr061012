@@ -31,8 +31,8 @@ var NAVTREEINDEX =
 [
 "Action_8cpp.html",
 "Building_8h.html",
-"classCreature.html#aaa12115f414e42efcdefff606656a47d",
-"classView.html#ad0dc854db9aabbea98a334dec89f785c"
+"classCreature.html#a769dea424947603c2fc0fc70513da83e",
+"classVector.html#a6f80c73b5f18dcf3f8e36065bdc8b9e5"
 ];
 
 var navTreeSubIndices = new Array();

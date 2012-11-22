@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Trying to open file with matrix.</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::ifstream some_matrix(matrix_path);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (some_matrix == NULL)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (!some_matrix)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="Log_8h.html#aac9d06502938110618f0326b5fec8a80">Log::ERROR</a>(<span class="stringliteral">&quot;Cannot open file &#39;&quot;</span> + matrix_path + <span class="stringliteral">&quot;&#39;.&quot;</span>);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classEInvalidResPath.html" title="Invalid resource path exception: failed to load game resource with specified path because it doesn&#39;t ...">EInvalidResPath</a>(matrix_path);</div>
@@ -243,7 +243,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_37a7fb4939ea20255b8443f0fa7b8d58.html">DecisionMaker</a></li><li class="navelem"><a class="el" href="DecisionMaker_8cpp.html">DecisionMaker.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 18 2012 17:42:51 for pr061012 by
+    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
