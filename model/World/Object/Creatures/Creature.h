@@ -245,7 +245,7 @@ protected:
     uint safety_steps;
 
     //**************************************************************************
-    // DIRECTIONS
+    // DIRECTION
     //**************************************************************************
     /// The direction of creature
     double angle;
@@ -282,9 +282,23 @@ protected:
     virtual void updateCommonAttrs() = 0;
 
     //**************************************************************************
-    // CHOOSE THE DIRECTION
+    // GO ACTION
     //**************************************************************************
+    /**
+     * @brief Updates hunger, sleepiness, health
+     */
+
     void chooseDirectionToEscape();
+    /**
+     * @brief Generate action GO for creature (slow speed)
+     */
+    void toGo();
+
+    /**
+     * @brief Generate action GO for creature (fast speed)
+     */
+    void toRun();
+
 };
 
 
