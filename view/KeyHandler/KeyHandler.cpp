@@ -42,11 +42,11 @@ void KeyHandler::handleKeys()
         {
             view -> setY(view -> getY() + SPEED);
         }
-        if(glfwGetKey('P') && key_was_pressed['P'] == false)
+        if(glfwGetKey('P') && !key_was_pressed['P'])
         {
             view -> setPaused(!view -> isPaused());
         }
-        if(glfwGetKey('R') && key_was_pressed['R'] == false)
+        if(glfwGetKey('R') && !key_was_pressed['R'])
         {
             view -> setReset(true);
         }
@@ -57,7 +57,10 @@ void KeyHandler::handleKeys()
         if(glfwGetKey(GLFW_KEY_BACKSPACE) && !key_was_pressed[GLFW_KEY_BACKSPACE])
         {
             std::string text = focus -> getText();
-            focus -> setText( text.erase(text.length()-1) );
+            if(text.length() > 0)
+            {
+                focus -> setText( text.erase(text.length()-1) );
+            }
         }
         else if(glfwGetKey(GLFW_KEY_ENTER) && !key_was_pressed[GLFW_KEY_ENTER])
         {
@@ -79,6 +82,18 @@ void KeyHandler::handleKeys()
                     else tempChar = c;
                 }
             }
+            for(int c = '0'; c<='9'; ++c)
+            {
+                if(glfwGetKey(c) && !key_was_pressed[c])
+                {
+                    tempChar = c;
+                }
+            }
+            if(glfwGetKey(GLFW_KEY_SPACE) && !key_was_pressed[GLFW_KEY_SPACE])
+            {
+                tempChar = ' ';
+            }
+
             // Print symbol that is pressed last by index.
             if(tempChar != '\0') focus -> setText(focus -> getText() + tempChar);
         }
