@@ -274,7 +274,7 @@
 /// Amount of steps before updates basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates safety
-#define CREAT_SAFETY_STEPS          1 * TM_TICKS_PER_SECOND
+#define CREAT_DANGER_STEPS          1 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates need_in_descendants.
 #define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates age.
@@ -317,7 +317,7 @@
 /// Attribute communication
 #define ATTR_COMMUNICATION          6
 /// Attribute safety
-#define ATTR_SAFETY                 7
+#define ATTR_DANGER                 7
 /// Attribute need in descendant
 #define ATTR_NEED_IN_DESC           8
 

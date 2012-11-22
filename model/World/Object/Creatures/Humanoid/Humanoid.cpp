@@ -65,7 +65,7 @@ hum_id(CURRENT_HUM_ID++)
     attrs(ATTR_LAZINESS,0)       = laziness;
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0; // 100 * sociability / max_sociability;
-    attrs(ATTR_SAFETY,0)         = safety;
+    attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
 
     // Initialize home
@@ -75,7 +75,7 @@ hum_id(CURRENT_HUM_ID++)
     decr_endur_step = 0;
     age_steps       = CREAT_AGE_STEPS;
     common_steps    = CREAT_STEPS;
-    safety_steps    = CREAT_SAFETY_STEPS;
+    danger_steps    = CREAT_DANGER_STEPS;
     desc_steps      = CREAT_DESC_STEPS;
     decr_sleep_step = 0;
 
@@ -106,7 +106,7 @@ std::vector <Action>* Humanoid::getActions()
 {
     this -> age_steps--;
     this -> common_steps--;
-    this -> safety_steps--;
+    this -> danger_steps--;
     this -> desc_steps--;
     if (!this -> decr_sleep_step)
     {
@@ -124,8 +124,8 @@ std::vector <Action>* Humanoid::getActions()
         updateNeedInDesc();
     if(common_steps == 0)
         updateCommonAttrs();
-    if(safety_steps == 0)
-        updateSafety();
+    if(danger_steps == 0)
+        updateDanger();
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
