@@ -144,7 +144,7 @@ std::vector <Action>* Humanoid::getActions()
 
     //**************************************************************************
     // DETAILED DECISION : RELAX_AT_HOME
-    // First of all, we set direction (to home). If direction is seted
+    // First of all, we set direction (to home). If direction is set
     // HUMANOID goes to home. If he is in home his health and endurance will
     // increase.
     //**************************************************************************
@@ -379,6 +379,7 @@ std::vector <Action>* Humanoid::getActions()
         Action act(REGENERATE_OBJ, this);
         act.addParticipant(home);
         act.addParam("object_index", 0);
+        this -> need_in_house = 100 - 100 * home -> health / home -> max_health;
     }
 
     //**************************************************************************
