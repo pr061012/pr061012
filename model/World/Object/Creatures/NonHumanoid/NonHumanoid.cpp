@@ -115,10 +115,7 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             angle = Random::double_num(2 * M_PI);
         }
-        Action act(GO, this);
-        act.addParam<double>("angle", angle);
-        act.addParam<SpeedType>("speed", SLOW_SPEED);
-        this -> actions.push_back(act);
+        toGo();
     }
 
     if (current_decision == EAT)
@@ -138,10 +135,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                Action act(GO, this);
-                act.addParam<double>("angle", angle);
-                act.addParam<SpeedType>("speed", SLOW_SPEED);
-                this -> actions.push_back(act);
+                toGo();
             }
         }
         else
@@ -151,10 +145,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", SLOW_SPEED);
-            this -> actions.push_back(act);
+            toGo();
         }
 
         if (hunger == 0)
@@ -178,10 +169,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            Action act(GO, this);
-            act.addParam<double>("angle", angle);
-            act.addParam<SpeedType>("speed", FAST_SPEED);
-            this -> actions.push_back(act);
+            toRun();
         }
         else
         {
