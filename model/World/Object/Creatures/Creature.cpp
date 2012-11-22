@@ -198,7 +198,7 @@ void Creature:: chooseDirectionToEscape()
         if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
         {
             this -> aim = creat;
-            setDirection();
+            angle = this -> getCoords().getAngle(aim -> getCoords());
             global_x += creat -> getDangerLevel() * cos(this -> angle);
             global_y += creat -> getDangerLevel() * sin(this -> angle);
         }
@@ -220,15 +220,46 @@ void Creature:: chooseDirectionToEscape()
     this -> angle = atan(global_x / global_y) + M_PI;
 }
 
-void Creature::go(Object * target, SpeedType speed)
-{
-    aim = target;
-    setDirection();
-    go(speed);
-}
-
+// Go with the given speed
 void Creature::go(SpeedType speed)
 {
+    bool failed = false;
+
+    // First check if previous go action failed
+    for (std::vector<Action>::iterator i = actions.begin();
+            i != actions.end(); i++)
+    {
+        if ((*i).isFailed())
+        {
+            failed = true;
+        }
+    }
+
+    // If we could not move, then reset direction
+    if (failed)
+        direction_is_set = false;
+
+    // if we don't have any aim, go the way we went before
+    if (!aim)
+    {
+        // if there is no direction, then go random
+        // or there is an error in angle
+        if (!direction_is_set || isnan(angle))
+        {
+            direction_is_set = true;
+            angle = Random::double_num(M_PI * 2);
+        }
+    }
+    else
+    {
+        // if we can't go the way we went,
+        // reset route
+        if (!direction_is_set)
+        {
+            angle = this -> getCoords().getAngle(aim -> getCoords()); 
+        }
+    }
+
     Action act(GO, this);
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);

@@ -293,13 +293,10 @@ protected:
     void chooseDirectionToEscape();
     /**
      * @brief Generate action GO for creature (slow speed)
+     * @param speed type of speed
      */
-    void toGo();
+    void go(SpeedType speed);
 
-    /**
-     * @brief Generate action GO for creature (fast speed)
-     */
-    void toRun();
 
 };
 
