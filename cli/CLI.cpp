@@ -95,7 +95,7 @@ std::string CLI::init(std::stringstream &ss, bool random)
         return "Error: Size must be greater than 0.\n";
     }
 
-    this -> world -> reset(random);
+    this -> world -> reset(size, random);
     return "Successfully created world.\n";
 }
 
