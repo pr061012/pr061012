@@ -508,8 +508,15 @@ std::string CLI::info(std::stringstream& ss)
 
 std::string CLI::step(std::stringstream& ss)
 {
-    this -> control -> step();
-    return "Successfully updated world.\n";
+    uint amount = 1;
+    ss >> amount;
+
+    for (uint i = 0; i < amount; i++)
+    {
+        this -> control -> step();
+    }
+
+    return sformat("Successfully made %u steps.\n", amount);
 }
 
 //******************************************************************************
