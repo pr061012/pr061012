@@ -196,6 +196,21 @@ std::string CLI::create(std::stringstream& ss)
 
         pa.addKey<uint>("res_amount", res_amount);
     }
+    else if (type == "WEATHER")
+    {
+        obj_type = WEATHER;
+
+        // FIXME: Ignoring weather type.
+        uint weat_steps;
+        ss >> weat_steps;
+        if (ss.fail())
+        {
+            return std::string("Error: weat_steps expected.\n") +
+                   std::string("Syntax: create <x> <y> WEATHER <weat_steps>");
+        }
+
+        pa.addKey<uint>("weat_steps", weat_steps);
+    }
     else
     {
         return std::string("Error: unknown ObjectType.\n");
