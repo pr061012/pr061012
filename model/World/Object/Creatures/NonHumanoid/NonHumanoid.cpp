@@ -89,6 +89,9 @@ std::vector <Action>* NonHumanoid::getActions()
         aim = 0;
     }
 
+    //**************************************************************************
+    // DECISION : NONE
+    //**************************************************************************
     else if (current_decision == NONE)
     {
         current_decision = brains.makeDecision(attrs);
@@ -96,6 +99,9 @@ std::vector <Action>* NonHumanoid::getActions()
         aim = 0;
     }
 
+    //**************************************************************************
+    // DECISION : SLEEP
+    //**************************************************************************
     else if (current_decision == SLEEP)
     {
         if (decr_sleep_step == 0)
@@ -162,6 +168,9 @@ std::vector <Action>* NonHumanoid::getActions()
         }
     }
 
+    //**************************************************************************
+    // DECISION : ESCAPE
+    //**************************************************************************
     else if (current_decision == ESCAPE)
     {
         if (
@@ -183,12 +192,15 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
+    //**************************************************************************
+    // DECISION : REPRODUCE
+    //**************************************************************************
     else if (current_decision == REPRODUCE)
     {
 
     }
 
-    else if (age == max_age)
+    if (age == max_age)
     {
         health = 0;
     }
