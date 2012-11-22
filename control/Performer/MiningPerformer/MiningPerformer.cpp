@@ -10,8 +10,8 @@
 
 #include <vector>
 
-MiningPerformer::MiningPerformer(Indexator &indexator):
-    indexator(indexator)
+MiningPerformer::MiningPerformer(World * world):
+    Performer(world)
 {
 
 }
@@ -44,7 +44,7 @@ void MiningPerformer::perform(Action& action)
         return;
     }
 
-    ObjectHeap env = indexator.getAreaContents(creature -> getViewArea());
+    ObjectHeap env = world -> getIndexator() -> getAreaContents(creature -> getViewArea());
     Object* res = participants[res_index];
 /*
     Object* tool = participant[tool_index];

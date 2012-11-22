@@ -11,8 +11,8 @@
 
 #include <vector>
 
-HarmPerformer::HarmPerformer(Indexator &indexator):
-    indexator(indexator)
+HarmPerformer::HarmPerformer(World * world):
+    Performer(world)
 {
 
 }
@@ -29,7 +29,7 @@ void HarmPerformer::perform(Action& action)
     uint harm = Random::int_range(DMG_PER_HIT_MIN, DMG_PER_HIT_MAX);
     harm *= actor -> getDangerLevel();
 
-    ObjectHeap obstacles = indexator.getAreaContents(actor -> getShape());
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(actor -> getShape());
     ObjectHeap::const_iterator iter = obstacles.end();
     uint count_error = 0;
     if ((type != CREATURE) || (type != WEATHER))

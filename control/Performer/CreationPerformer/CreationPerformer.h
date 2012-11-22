@@ -27,7 +27,7 @@ public:
 
     /**
      * @brief Constructor
-     * @param indexator indexator
+     * @param world world
      */
     CreationPerformer(World* world);
 
@@ -47,13 +47,6 @@ public:
     void perform(Action& action);
 
 private:
-
-    //**************************************************************************
-    //  ATTRIBUTES
-    //**************************************************************************
-
-    /// The pointer to worlds indexator
-    Indexator* indexator;
 
     /// The pointer to world
     World* world;
