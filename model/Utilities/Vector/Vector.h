@@ -78,7 +78,7 @@ public:
      * @param angle angle
      */
 
-    double getAngle(Vector vec);
+    double getAngle(Vector vec) const;
 
     /**
      * @brief  Compares two vectors.

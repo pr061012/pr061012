@@ -68,8 +68,6 @@ std::vector <Action>* NonHumanoid::getActions()
     this -> common_steps--;
     this -> safety_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
-        this -> decr_sleep_step--;
 
     if (age_steps == 0)
         updateAge();
@@ -80,6 +78,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (safety_steps == 0)
         updateSafety();
 
+    // Clear actions.
     this -> actions.clear();
 
     if (!brains.isDecisionActual(attrs, current_decision))
@@ -90,37 +89,47 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : NONE
+    // DECISION : NONE | OK
     //**************************************************************************
     else if (current_decision == NONE)
     {
+        // Make decision.
         current_decision = brains.makeDecision(attrs);
+
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
     //**************************************************************************
-    // DECISION : SLEEP
+    // DECISION : SLEEP | OK
     //**************************************************************************
     else if (current_decision == SLEEP)
     {
+        // Check timesteps before wake up.
         if (decr_sleep_step == 0)
         {
+            // Check sleepiness.
             if (sleepiness > 0)
             {
                 sleepiness--;
-            }
+            } 
             else
             {
+                // If NH is awake, set NONE decision.
                 current_decision = NONE;
             }
 
+            // Set timesteps, before increase sleepness.
             decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
+        }
+        else
+        {
+            decr_sleep_step--;
         }
     }
 
     //*************************************************************************
-    // DECISION : RELAX
+    // DECISION : RELAX | OK
     //**************************************************************************
     else if (current_decision == RELAX)
     {
@@ -129,7 +138,7 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : EAT
+    // DECISION : EAT | OK
     //**************************************************************************
     else if (current_decision == EAT)
     {
@@ -151,7 +160,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                go(aim, SLOW_SPEED);
+                go(SLOW_SPEED);
             }
         }
         else
@@ -200,11 +209,6 @@ std::vector <Action>* NonHumanoid::getActions()
 
     }
 
-    if (age == max_age)
-    {
-        health = 0;
-    }
-
     return &actions;
 
 }
@@ -246,7 +250,7 @@ void NonHumanoid::findGrass()
     Vector coords;
     double distance = SZ_NHUM_VIEW_DIAM;
 
-    // Find grass in around object.
+    // Find grass in around objects.
     for(
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
