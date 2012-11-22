@@ -119,7 +119,7 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             angle = Random::double_num(2 * M_PI);
         }
-        toGo();
+        go(SLOW_SPEED);
     }
 
     if (current_decision == EAT)
@@ -139,7 +139,7 @@ std::vector <Action>* NonHumanoid::getActions()
             }
             else
             {
-                toGo();
+                go(SLOW_SPEED);
             }
         }
         else
@@ -149,7 +149,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            toGo();
+            go(SLOW_SPEED);
         }
 
         if (hunger == 0)
@@ -173,7 +173,7 @@ std::vector <Action>* NonHumanoid::getActions()
             {
                 angle = Random::double_num(2 * M_PI);
             }
-            toRun();
+            go(SLOW_SPEED);
         }
         else
         {
