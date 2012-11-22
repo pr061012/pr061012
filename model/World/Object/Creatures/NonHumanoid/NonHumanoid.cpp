@@ -28,7 +28,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
 
     // Initialize of matrix of attr
-    attrs(ATTR_HEALTH,0)         = 100 * hunger / max_hunger;
+    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
@@ -250,6 +250,10 @@ void NonHumanoid::updateCommonAttrs()
 {
     if (current_decision != EAT)
         this -> hunger   += CREAT_DELTA_HUNGER;
+    if (hunger == max_hunger)
+    {
+        this -> decreaseHealth(CREAT_DELTA_HEALTH);
+    }
     if (current_decision != SLEEP)
         this -> sleepiness += CREAT_DELTA_SLEEP;
 
