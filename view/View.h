@@ -74,6 +74,9 @@ class View
     /// Object that is currently in focus. NULL if main window is in focus.
     TextField* focus;
 
+    /// TextField that is used as a debug console
+    TextField* console;
+
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
 
@@ -135,6 +138,13 @@ public:
     TextField* const getFocus();
 
     void setFocus(TextField* focus);
+
+    /**
+     * @brief Returns user console input
+     */
+    std::string getUserInput();
+
+    void addConsoleOutput(std::string app);
 
 #ifdef __glfw3_h__
     GLFWwindow getWindow();

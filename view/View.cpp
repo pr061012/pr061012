@@ -30,7 +30,10 @@ View::View(const IWorld& w)
 
     glcFont(this -> font);
 
-    //this -> addInterfaceObject(new TextField(VIEW_SIZE/2, 0.0, 10.0, 2.5, );
+    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.0, 10.0, 2.5));
+
+    //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
+    //this -> addInterfaceObject(console);
 }
 
 View::~View()
@@ -38,7 +41,7 @@ View::~View()
     delete view_world;
     delete key_handler;
 
-    for(uint i = rendered.size()-1; i >= 0 ; --i)
+    for(uint i = rendered.size()-1; i > 0 ; --i)
     {
         delete rendered.at(i);
     }
@@ -137,6 +140,7 @@ void View::redraw()
     // Screen X and Y
     double sx = ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2;
     double sy = ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 * height/width;
+
     // World  X and Y
     double wx = view_world -> screenToWorldX( sx );
     double wy = view_world -> screenToWorldY( sy );
@@ -173,25 +177,42 @@ void View::redraw()
 
     if(mouse_clicked)
     {
-        double angle;
-        double radius = view_world -> worldToScreenDist(1.0);
+        bool focus_changed = false;
 
-        glColor4d(0.0, 0.0, 0.0, 0.6);
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        this -> setFocus(NULL);
 
-        glBegin(GL_TRIANGLE_FAN);
-            for(int i = 0; i < 100; i++) {
-                angle = 2.0 * i * M_PI / 100;
-                glVertex2d((sx + cos(angle) * radius),
-                           (sy + sin(angle) * radius));
+        for(uint i = 0; i < this -> rendered.size(); ++i)
+        {
+            if(rendered.at(i) -> hitTest(sx, sy))
+            {
+                focus_changed = true;
+                this -> setFocus(this -> rendered.at(i));
             }
-        glEnd();
+        }
 
-        glDisable(GL_BLEND);
+        if(!focus_changed)
+        {
+            double angle;
+            double radius = view_world -> worldToScreenDist(1.0);
 
-        glColor4d(1.0,1.0,1.0,1.0);
+            glColor4d(0.0, 0.0, 0.0, 0.6);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+            glBegin(GL_TRIANGLE_FAN);
+                for(int i = 0; i < 100; i++) {
+                    angle = 2.0 * i * M_PI / 100;
+                    glVertex2d((sx + cos(angle) * radius),
+                               (sy + sin(angle) * radius));
+                }
+            glEnd();
+
+            glDisable(GL_BLEND);
+
+            glColor4d(1.0,1.0,1.0,1.0);
+        }
     }
+
 
 #ifdef VIEW_DEBUG
     // In debug mode, draw a grid over the screen.
@@ -283,4 +304,10 @@ bool View::continues()
 void View::addInterfaceObject(TextField *new_obj)
 {
     rendered.push_back(new_obj);
+}
+
+void View::addConsoleOutput(std::string app)
+{
+    std::string text = console -> getText();
+    console -> setText(text + "\n" + app);
 }
