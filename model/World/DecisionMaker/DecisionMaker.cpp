@@ -26,7 +26,7 @@ DecisionMaker::DecisionMaker(CreatureType type)
     // Trying to open file with matrix.
     std::ifstream some_matrix(matrix_path);
 
-    if (some_matrix == NULL)
+    if (!some_matrix)
     {
         Log::ERROR("Cannot open file '" + matrix_path + "'.");
         throw EInvalidResPath(matrix_path);

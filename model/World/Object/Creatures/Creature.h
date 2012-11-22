@@ -301,6 +301,10 @@ protected:
      */
     void toRun();
 
+    void go(Object * target, SpeedType speed);
+
+    void go(SpeedType speed);
+
 };
 
 
