@@ -516,6 +516,10 @@ std::string CLI::info(std::stringstream& ss)
 
         Building* building = dynamic_cast<Building*>(obj);
 
+        // Free and max space.
+        output += sformat("Free space\t\t%d/%d\n", building -> getFreeSpace(),
+                          building -> getMaxSpace());
+
         // Completness.
         output += sformat("Is complete\t\t%s\n",
                           building -> getCompleteness() ? "yes" : "no");
