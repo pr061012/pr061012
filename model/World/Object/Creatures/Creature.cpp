@@ -311,21 +311,6 @@ void Creature::go(SpeedType speed)
     this -> actions.push_back(act);
 }
 
-// TODO
-// Implement A*
-Creature::Path Creature::generateRoute(Object * goal)
-{
-    // Find 
-    double miny = this -> getCoords().getY();
-    double minx = this -> getCoords().getX();
-    double maxx = minx;
-    double maxy = miny;
-
-    Path result;
-    result.push(goal -> getCoords());
-    return result;
-}
-
 
 //******************************************************************************
 // INHERETED THINGS.
