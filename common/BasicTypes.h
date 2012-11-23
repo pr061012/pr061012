@@ -90,9 +90,13 @@ enum ResourceType
     GRASS
 };
 
+/// Amount of creature types.
+#define AMNT_CREATURE_TYPES         2
+
 /**
  * @enum CreatureType
- * @brief The CreatureType enum
+ * @brief The CreatureType enum. *Don't forget to change AMNT_CREATURE_TYPES
+ *        while adding new elements!*
  */
 enum CreatureType
 {
