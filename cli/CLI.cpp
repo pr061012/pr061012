@@ -557,8 +557,17 @@ std::string CLI::info(std::stringstream& ss)
                           this -> creat_types[subtype].c_str());
 
         // Printing age.
-        output += sformat("Age\t\t\t%d/%d\n", creat -> getAge(),
+        output += sformat("Age\t\t\t%u/%u\n", creat -> getAge(),
                           creat -> getMaxAge());
+
+        // Printing stats.
+        output += sformat("Hunger\t\t\t%u/%u\n", creat -> getHunger(),
+                          creat -> getMaxHunger());
+        output += sformat("Sleepiness\t\t%u/%u\n", creat -> getSleepiness(),
+                          creat -> getMaxSleepiness());
+        output += sformat("Endurance\t\t%u/%u\n", creat -> getEndurance(),
+                          creat -> getMaxEndurance());
+        output += sformat("Force\t\t\t%u\n", creat -> getForce());
 
         // Printing decision.
         // FIXME: I use static cast there. Not good.
