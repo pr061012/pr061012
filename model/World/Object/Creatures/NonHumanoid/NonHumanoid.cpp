@@ -273,10 +273,11 @@ void NonHumanoid::updateNeedInDesc()
 
 void NonHumanoid::updateCommonAttrs()
 {
-    if (current_decision != EAT)
+    if ((current_decision != EAT) && (hunger != max_hunger))
         this -> hunger   += CREAT_DELTA_HUNGER;
     if (hunger == max_hunger)
     {
+
         this -> decreaseHealth(CREAT_DELTA_HEALTH);
     }
     if (current_decision != SLEEP)
