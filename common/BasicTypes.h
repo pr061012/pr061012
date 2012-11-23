@@ -19,9 +19,13 @@ typedef unsigned int uint;
 // SHAPE.
 //******************************************************************************
 
+/// Amount of shape types.
+#define AMNT_SHAPE_TYPES            2
+
 /**
  * @enum  ShapeType
- * @brief The ShapeType enum
+ * @brief The ShapeType enum. *Don't forget to change AMNT_SHAPE_TYPES while
+ *        adding new elements!*
  */
 enum ShapeType
 {
@@ -32,12 +36,13 @@ enum ShapeType
 // OBJECTS TYPES.
 //******************************************************************************
 
+/// Amount of object types.
+#define AMNT_OBJECT_TYPES           5
+
 /**
  * @enum ObjectType
- * @brief The ObjectType enum
- *
- *        *NOTE*: Don't forget to increase AMNT_OBJECT_TYPES while adding new
- *                action types!
+ * @brief The ObjectType enum. *Don't forget to change AMNT_OBJECT_TYPES while
+ *        adding new elements!*
  */
 enum ObjectType
 {
@@ -116,9 +121,13 @@ enum SpeedType
     SLOW_SPEED, FAST_SPEED
 };
 
+/// Amount of creature actions.
+#define AMNT_CREATURE_ACTS          13
+
 /**
  * @enum CreatureAction
- * @brief The CreatureAction enum
+ * @brief The CreatureAction enum. *Don't forget to change AMNT_CREATURE_ACTS
+ *        while adding new elements!*
  */
 enum CreatureAction
 {
@@ -129,6 +138,9 @@ enum CreatureAction
     SLEEP, EAT, BUILD, GATHER, RELAX, EXPLORE, COMMUNICATE, WORK, REALIZE_DREAM,
     ESCAPE, REPRODUCE, DO_NOTHING
 };
+
+/// Amount of detailed humanoid actions.
+#define AMNT_DET_HUM_ACTS           11
 
 /**
  * @enum DetailedHumAction
@@ -156,6 +168,9 @@ enum DetailedHumAction
 // ACTION.
 //******************************************************************************
 
+/// Amount of action types.
+#define AMNT_ACTION_TYPES           9
+
 /**
  * @enum  ActionType
  * @brief The ActionType enum. In some cases there are ids in parameters. These
@@ -164,8 +179,8 @@ enum DetailedHumAction
  *        Tool (PICKAXE) (index is 1), parameters are res_index (= 0) and
  *        tool_index (= 1).
  *
- *        *NOTE*: Don't forget to increase AMNT_ACTION_TYPES while adding new
- *                action types!
+ *        *Don't forget to increase AMNT_ACTION_TYPES while adding new action
+ *        types!*
  */
 enum ActionType
 {
