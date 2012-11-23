@@ -93,7 +93,7 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 
     for(uint i = 0; i < act.size(); i++)
     {
-        if (act(i, 0) - max <= MATH_EPSILON)
+        if (act(i, 0) - max == 0)
         {
             vect_of_actions.push_back(i);
         }
