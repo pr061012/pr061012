@@ -81,13 +81,13 @@ CLI::CLI(World* world, Controller* control) :
     this -> obj_types.resize(AMNT_OBJECT_TYPES);
     this -> obj_types[RESOURCE] = "RESOURCE";
     this -> obj_types[BUILDING] = "BUILDING";
-    this -> obj_types[TOOL]     = "TOOL";
-    this -> obj_types[WEATHER]  = "WEATHER";
+    this -> obj_types[TOOL]     = "TOOL    ";
+    this -> obj_types[WEATHER]  = "WEATHER ";
     this -> obj_types[CREATURE] = "CREATURE";
 
     // Initialising array with creature types names.
     this -> creat_types.resize(AMNT_CREATURE_TYPES);
-    this -> creat_types[HUMANOID]     = "HUMANOID";
+    this -> creat_types[HUMANOID]     = "HUMANOID    ";
     this -> creat_types[NON_HUMANOID] = "NON_HUMANOID";
 
     // Initialising array with shape types names.
@@ -382,8 +382,20 @@ std::string CLI::list(std::stringstream& ss)
     for (iter = objs -> begin(); iter != objs -> end(); iter++)
     {
         Object* obj = *iter;
-        output += sformat("%d\t%s\t(%f, %f)\n", obj -> getObjectID(),
-                          this -> obj_types[obj -> getType()].c_str(),
+
+        // Preparing type.
+        std::string type = this -> obj_types[obj -> getType()];
+
+        // Preparing flags.
+        std::string flags = "v";
+        flags += obj -> isDestroyed() ? "d" : " ";
+        flags += obj -> isImmortal() ? "i" : " ";
+        flags += obj -> isSolid() ? "s" : "";
+
+        // Printing output.
+        output += sformat("%d\t%s\t%s\t(%f,\t%f)\n", obj -> getObjectID(),
+                          flags.c_str(),
+                          type.c_str(),
                           obj -> getCoords().getX(),
                           obj -> getCoords().getY());
     }
