@@ -62,6 +62,11 @@ int main()
                 std::string cmd = view.getUserInput();
                 if (cmd != "")
                 {
+                    if (cmd == "exit")
+                    {
+                        break;
+                    }
+
                     std::cout << cli.runCommand(cmd);
                 }
 
