@@ -619,7 +619,23 @@ std::string CLI::info(std::stringstream& ss)
             Humanoid* hum = dynamic_cast<Humanoid*>(creat);
 
             // Printing ID.
-            output += sformat("Humanoid ID\t\t%d\n", hum -> getHumanoidID());
+            output += sformat("Humanoid ID\t\t%u\n", hum -> getHumanoidID());
+
+            // Printing stats.
+            output += sformat("Bravery\t\t\t%u\n", hum -> getBravery());
+            output += sformat("Need in house\t\t%u\n", hum -> getNeedInHouse());
+
+            // Printing home information.
+            Building* home = hum -> getHome();
+            output += "Home ID\t\t\t";
+            if (home == nullptr)
+            {
+                output += "none\n";
+            }
+            else
+            {
+                output += sformat("%u\n", home -> getObjectID());
+            }
 
             // Printing detailed act.
             output += sformat("Detailed action\t\t%s\n",
