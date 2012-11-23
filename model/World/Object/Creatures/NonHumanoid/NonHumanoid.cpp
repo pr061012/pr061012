@@ -69,8 +69,8 @@ std::vector <Action>* NonHumanoid::getActions()
     if (danger_steps == 0)
         updateDanger();
 
-    // Clear actions.
-    this -> actions.clear();
+    // Store the result of last action and clear actions.
+    clearActions();
 
     if (!brains.isDecisionActual(attrs, current_decision))
     {

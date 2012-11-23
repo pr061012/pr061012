@@ -313,6 +313,16 @@ private:
     Object* goal;
 
 protected:
+
+    /// Prevoius action.
+    ActionType prev_action;
+
+    /// Previous action result
+    ActionState prev_action_state;
+
+    /// Previous action error
+    ActionError prev_action_error;
+
     /// Creature's inventory.
     ObjectHeap * inventory;
 
@@ -443,6 +453,16 @@ protected:
      * @return  path to the goal
      */
     Path generateRoute(Object * goal);
+
+    //**********************************************************
+    // ACTIONS
+    //**********************************************************
+
+    /**
+     * @brief Store results of previous action and clear actions
+     */
+    
+    void clearActions();
 };
 
 

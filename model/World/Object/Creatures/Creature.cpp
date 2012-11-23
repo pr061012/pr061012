@@ -453,3 +453,20 @@ uint Creature::getCurrentDecision() const
 {
     return current_decision;
 }
+
+//**********************************************************
+// ACTIONS
+//**********************************************************
+
+void Creature::clearActions()
+{
+    // TODO
+    // Make it better (more info, history)
+    if (actions.size())
+    {
+        prev_action = actions[0].getType();
+        prev_action_state = actions[0].getState();
+        prev_action_error = actions[0].getError();
+    }
+    actions.clear();
+}

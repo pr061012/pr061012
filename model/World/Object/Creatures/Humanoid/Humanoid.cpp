@@ -118,7 +118,9 @@ std::vector <Action>* Humanoid::getActions()
         updateCommonAttrs();
     if(danger_steps == 0)
         updateDanger();
-    this -> actions.clear();
+
+    // Store the result of last action and clear actions
+    clearActions();
 
     // If decision is not actual humanoid makes new decision.
     if (!brains.isDecisionActual(attrs, current_decision))
