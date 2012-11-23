@@ -63,42 +63,56 @@ void Controller::step()
         for (ObjectHeap::iterator i = objects -> begin(); i != objects -> end(); i++)
         {
             // check objects health
-            
             if ((*i) -> getHealthPoints() <= 0 && !(*i) -> isDestroyed())
             {
                 (*i) -> markAsDestroyed();
             }
-            
-            // perform object's actions
-            Object* object = (*i);
-            if (!object -> isDestroyed())
-            {
-                std::vector<Action> * actions = object -> getActions();
 
+            // don't do anything with destored objects
+            if ((*i) -> isDestroyed())
+            {
+                continue;
+            }
+            
+            std::vector<Action> * actions = (*i) -> getActions();
+
+            // creatures are special
+            if ((*i) -> getType() == CREATURE)
+            {
+                // show creature objects around it
+                dynamic_cast<Creature*>(*i) -> setObjectsAround(
+                    world -> getIndexator() -> getAreaContents(
+                        dynamic_cast<Creature*>(*i) -> getViewArea()));
+
+                // check age
+                if (dynamic_cast<Creature*>(*i) -> getAge() >=
+                    dynamic_cast<Creature*>(*i) -> getMaxAge())
+                {
+                    (*i) -> markAsDestroyed();
+                }
+
+                // execute a single action
+                if (actions -> size())
+                {
+                    performers[actions -> at(0).getType()] -> perform(actions -> at(0));
+                }
+            }
+            else 
+            {
+                // show weather what's under it
+                if ((*i) -> getType() == WEATHER)
+                {
+                    dynamic_cast<Weather*>(*i) -> setCoveredObjects(
+                            world -> getIndexator() -> getAreaContents(
+                                dynamic_cast<Weather*>(*i) -> getShape()));
+                }
+
+                // perform all actions
                 for (uint j = 0; j < actions -> size(); j++)
                 {
                     performers[(actions->at(j)).getType()] -> perform(actions->at(j));
                 }
-            }
 
-            // give weather and creatures objects to view
-            if (object -> getType() == CREATURE)
-            {
-                dynamic_cast<Creature*>(object) -> setObjectsAround(
-                    world -> getIndexator() -> getAreaContents(
-                        dynamic_cast<Creature*>(object) -> getViewArea()));
-                // check age
-                if (dynamic_cast<Creature*>(object) -> getAge() >=
-                    dynamic_cast<Creature*>(object) -> getMaxAge())
-                {
-                    object -> markAsDestroyed();
-                }
-            }
-            else if (object -> getType() == WEATHER)
-            {
-                dynamic_cast<Weather*>(object) -> setCoveredObjects(
-                    world -> getIndexator() -> getAreaContents(
-                        dynamic_cast<Weather*>(object) -> getShape()));
             }
 
         }
