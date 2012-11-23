@@ -88,6 +88,15 @@ Shape Creature::getViewArea()
     return this -> view_area;
 }
 
+ObjectHeap * Creature::getInventory()
+{
+    return this -> inventory;
+}
+
+//**********************************************************
+// AGE
+//**********************************************************
+
 void Creature::setAge(uint age)
 {
     this -> age = age;
@@ -107,6 +116,10 @@ uint Creature::getMaxAge()
 {
     return this -> max_age;
 }
+
+//**********************************************************
+// HEALTH
+//**********************************************************
 
 
 void Creature::setHealth(uint health)
@@ -129,10 +142,93 @@ uint Creature::getMaxHealth()
     return this -> max_health;
 }
 
-ObjectHeap * Creature::getInventory()
+//**********************************************************
+// HUNGER
+//**********************************************************
+
+
+void Creature::setHunger(uint hunger)
 {
-    return this -> inventory;
+    this -> hunger = hunger;
 }
+
+uint Creature::getHunger()
+{
+    return this -> hunger;
+}
+
+void Creature::setMaxHunger(uint max_hunger)
+{
+    this -> max_hunger = max_hunger;
+}
+
+uint Creature::getMaxHunger()
+{
+    return this -> max_hunger;
+}
+
+//**********************************************************
+// ENDURANCE
+//**********************************************************
+
+void Creature::setEndurance(uint endurance)
+{
+    this -> endurance = endurance;
+}
+
+uint Creature::getEndurance()
+{
+    return this -> endurance;
+}
+
+void Creature::setMaxEndurance(uint max_endurance)
+{
+    this -> max_endurance = max_endurance;
+}
+
+uint Creature::getMaxEndurance()
+{
+    return this -> max_endurance;
+}
+
+//**********************************************************
+// SLEEPINESS
+//**********************************************************
+
+void Creature::setSleepiness(uint max_sleepiness)
+{
+    this -> max_sleepiness = max_sleepiness;
+}
+
+uint Creature::getSleepiness()
+{
+    return this -> max_sleepiness;
+}
+
+void Creature::setMaxSleepiness(uint max_sleepiness)
+{
+    this -> max_sleepiness = max_sleepiness;
+}
+
+uint Creature::getMaxSleepiness()
+{
+    return this -> max_sleepiness;
+}
+
+//**********************************************************
+// FORCE
+//**********************************************************
+
+void Creature::setForce(uint force)
+{
+    this -> force = force;
+}
+
+uint Creature::getForce()
+{
+    return this -> force;
+}
+
 
 //******************************************************************************
 // CHANGING HEALTH.

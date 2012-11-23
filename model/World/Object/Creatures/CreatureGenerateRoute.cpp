@@ -1,7 +1,7 @@
-#include <set>
-#include "Creatures.h"
+#include <map>
+#include "Creature.h"
 
-#define __creatures_generate_route_complete 0
+#define __creature_generate_route_complete 0
 
 struct Vertex
 {
@@ -10,7 +10,12 @@ struct Vertex
     double distance_to_origin;
     double distance_to_goal;
     double value;
-}
+};
+
+struct Point
+{
+    int x,y;
+};
 
 bool comp(Vertex * a, Vertex * b)
 {
@@ -23,8 +28,7 @@ Creature::Path Creature::generateRoute(Object * goal)
 {
     if (__creature_generate_route_complete)
     {
-        // Create
-        std::set<Vertex*, comp> 
+        //std::set<Vertex*, comp> 
     }
     else
     {

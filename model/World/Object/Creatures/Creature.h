@@ -72,6 +72,16 @@ public:
     Shape getViewArea();
 
     /**
+     * @brief  Get inventory
+     * @return inventory
+     */
+    ObjectHeap* getInventory();
+
+    //**********************************************************
+    // AGE
+    //**********************************************************
+
+    /**
      * @brief Set the value of age.
      * @param age   new value of age
      */
@@ -94,6 +104,10 @@ public:
      * @return the value of max age
      */
     uint getMaxAge();
+
+    //**********************************************************
+    // HEALTH
+    //**********************************************************
 
     /**
      * @brief Set the value of health.
@@ -119,11 +133,120 @@ public:
      */
     uint getMaxHealth();
 
+    //**********************************************************
+    // HUNGER
+    //**********************************************************
+
     /**
-     * @brief  Get inventory
-     * @return inventory
+     * @brief Set the value of hunger
+     * @param hunger new value of hunger 
      */
-    ObjectHeap* getInventory();
+
+    void setHunger(uint hunger);
+
+    /**
+     * @brief  Get the value of hunger
+     * @return the value of hunger
+     */
+
+    uint getHunger();
+
+    /**
+     * @brief Set the value of max_hunger
+     * @param max_hunger new value of max_hunger 
+     */
+
+    void setMaxHunger(uint max_hunger);
+
+    /**
+     * @brief  Get the value of max_hunger
+     * @return the value of max_hunger
+     */
+
+    uint getMaxHunger();
+
+    //**********************************************************
+    // ENDURANCE
+    //**********************************************************
+    
+    /**
+     * @brief Set the value of endurance
+     * @param endurance new value of endurance 
+     */
+
+    void setEndurance(uint endurance);
+
+    /**
+     * @brief  Get the value of endurance
+     * @return the value of endurance
+     */
+
+    uint getEndurance();
+
+    /**
+     * @brief Set the value of max_endurance
+     * @param max_endurance new value of max_endurance 
+     */
+
+    void setMaxEndurance(uint max_endurance);
+
+    /**
+     * @brief  Get the value of max_endurance
+     * @return the value of max_endurance
+     */
+
+    uint getMaxEndurance();
+
+    //**********************************************************
+    // FORCE
+    //**********************************************************
+
+    /**
+     * @brief Set the value of force
+     * @param force new value of force 
+     */
+    
+    void setForce(uint force);
+    
+    /**
+     * @brief  Get the value of force
+     * @return the value of force
+     */
+    
+    uint getForce();
+   
+    //**********************************************************
+    // SLEEPINESS
+    //**********************************************************
+
+    /**
+     * @brief Set the value of sleepiness
+     * @param sleepiness new value of sleepiness 
+     */
+    
+    void setSleepiness(uint sleepiness);
+    
+    /**
+     * @brief  Get the value of sleepiness
+     * @return the value of sleepiness
+     */
+    
+    uint getSleepiness();
+    
+    /**
+     * @brief Set the value of max_sleepines
+     * @param max_sleepines new value of max_sleepines 
+     */
+    
+    void setMaxSleepiness(uint max_sleepines);
+    
+    /**
+     * @brief  Get the value of max_sleepines
+     * @return the value of max_sleepines
+     */
+    
+    uint getMaxSleepiness();
+    
 
     //**********************************************************
     // DEBUG
