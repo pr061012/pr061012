@@ -376,15 +376,49 @@ std::string CLI::list(std::stringstream& ss)
 {
     std::string output;
 
+    // Reading type.
+    std::string type = "";
+    ss >> type;
+
     // Listing visible objects.
     ObjectHeap* objs = this -> world -> getVisibleObjects();
+
+    // Preparing begin and end iterators.
+    ObjectHeap::const_iterator iter_begin, iter_end;
+    if (type == "")
+    {
+        iter_begin = objs -> begin();
+        iter_end   = objs -> end();
+    }
+    else if (type == TN_BUILDING)
+    {
+        iter_begin = objs -> begin(BUILDING);
+        iter_end   = objs -> end(BUILDING);
+    }
+    else if (type == TN_CREATURE)
+    {
+        iter_begin = objs -> begin(CREATURE);
+        iter_end   = objs -> end(CREATURE);
+    }
+    else if (type == TN_RESOURCE)
+    {
+        iter_begin = objs -> begin(RESOURCE);
+        iter_end   = objs -> end(RESOURCE);
+    }
+    else if (type == TN_WEATHER)
+    {
+        iter_begin = objs -> begin(WEATHER);
+        iter_end   = objs -> end(WEATHER);
+    }
+    else
+    {
+        return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
+    }
+
     ObjectHeap::const_iterator iter;
-    for (iter = objs -> begin(); iter != objs -> end(); iter++)
+    for (iter = iter_begin; iter != iter_end; iter++)
     {
         Object* obj = *iter;
-
-        // Preparing type.
-        std::string type = this -> obj_types[obj -> getType()];
 
         // Preparing flags.
         std::string flags = "v";
@@ -395,12 +429,13 @@ std::string CLI::list(std::stringstream& ss)
         // Printing output.
         output += sformat("%d\t%s\t%s\t(%f,\t%f)\n", obj -> getObjectID(),
                           flags.c_str(),
-                          type.c_str(),
+                          this -> obj_types[obj -> getType()].c_str(),
                           obj -> getCoords().getX(),
                           obj -> getCoords().getY());
     }
 
     return output;
+
     // TODO: Listing hidden objects.
     //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
 }
