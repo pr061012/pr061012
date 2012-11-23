@@ -39,7 +39,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
     attrs(ATTR_DANGER,0)         = danger;
-    attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
+    attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
 
     //Initialize type
     subsubtype = COW;
