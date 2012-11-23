@@ -84,13 +84,13 @@ void World::genCreatures()
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-        new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
-                                    Random::double_range(20.0, 70.0)));
+        new_obj -> setCoords(Vector(Random::double_range(0, size / 3),
+                                    Random::double_range(0, size / 3)));
         visible_objs -> push(new_obj);
 
         new_obj = object_factory -> createObject(CREATURE, hum_params);
-        new_obj -> setCoords(Vector(Random::double_range(20.0, 70.0),
-                                    Random::double_range(20.0, 70.0)));
+        new_obj -> setCoords(Vector(Random::double_range(0, size / 3),
+                                    Random::double_range(0, size / 3)));
         visible_objs -> push(new_obj);
     }
 
