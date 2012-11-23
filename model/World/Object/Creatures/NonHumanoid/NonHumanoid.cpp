@@ -223,6 +223,17 @@ std::vector <Action>* NonHumanoid::getActions()
         Log::NOTE("WORK");
     }
 
+    else if (current_decision == GATHER)
+    {
+        Log::NOTE("GATHER");
+    }
+
+    else if (current_decision == EXPLORE)
+    {
+        Log::NOTE("EXPLORE");
+    }
+
+
     else if (current_decision == REALIZE_DREAM)
     {
         Log::NOTE("REALIZE_DREAM");
