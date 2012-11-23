@@ -247,6 +247,11 @@ public:
     
     uint getMaxSleepiness();
     
+    /**
+     * @brief get the id of aim
+     * @return id of aim
+     */
+    const Object* getAim();
 
     //**********************************************************
     // DEBUG
