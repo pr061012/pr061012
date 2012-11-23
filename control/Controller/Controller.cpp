@@ -66,6 +66,7 @@ void Controller::step()
             if ((*i) -> getHealthPoints() <= 0 && !(*i) -> isDestroyed())
             {
                 (*i) -> markAsDestroyed();
+                world -> getIndexator() -> removeObject(*i);
             }
 
             // don't do anything with destored objects
@@ -89,6 +90,8 @@ void Controller::step()
                     dynamic_cast<Creature*>(*i) -> getMaxAge())
                 {
                     (*i) -> markAsDestroyed();
+                    world -> getIndexator() -> removeObject(*i);
+                    continue;
                 }
 
                 // execute a single action
