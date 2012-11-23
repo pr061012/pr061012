@@ -40,7 +40,7 @@ void RegenerationPerformer::perform(Action& action)
         return;
     }
 
-    if ((type != RESOURCE) || (type != CREATURE))
+    if ((type != RESOURCE) && (type != CREATURE))
     {
         action.markAsFailed();
         return;

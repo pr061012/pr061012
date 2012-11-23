@@ -14,43 +14,40 @@
  *
  *        **TODO**: Write full `create` and `list` description.
  *
- *        Commands
- *        ========
+ *        **init**
  *
- *        init
- *        ----
- *        *init <size>* -- initialises clear world with specified size
+ *          *init <size>* -- initialises clear world with specified size.
  *
- *        random-init
- *        -----------
- *        *random-init <size>* -- initialises world with specified size and
- *        randomly generated units
+ *        **random-init**
  *
- *        create
- *        ------
- *        *create <x> <y> <type> [additional args]* -- creates new object
+ *          *random-init <size>* -- initialises world with specified size and
+ *        randomly generated units.
  *
- *        list
- *        ----
- *        *list [type]* -- list objects by type, if specified, otherwise list
- *        all objects
+ *        **create**
  *
- *        info
- *        ----
- *        *info <id>* -- prints object's information by id
+ *          *create <x> <y> <type> [additional args]* -- creates new object.
  *
- *        change
- *        ------
- *        *change <id> <field> <new_value>* -- changes object's field
+ *        **list**
  *
- *        step
- *        ----
- *        *step* -- does one Controller's step
+ *          *list [type]* -- list objects by type, if specified, otherwise list
+ *          all objects.
  *
- *        trace-step
- *        ----------
- *        *trace-step [list of ids]* -- does on Controller's step and prints out
- *        changes for specified objects
+ *        **info**
+ *
+ *          *info <id>* -- prints object's information by id.
+ *
+ *        **change**
+ *
+ *          *change <id> <field> <new_value>* -- changes object's field.
+ *
+ *        **step**
+ *
+ *          *step [amount]* -- does Controller's steps (suppose amount = 1, if
+ *          isn't specified).
+ *
+ *        **trace-step**
+ *          *trace-step [list of ids]* -- does on Controller's step and prints
+ *          out changes for specified objects.
  */
 class CLI
 {
@@ -92,6 +89,25 @@ private:
 
     /// Pointer to Controller.
     Controller* control;
+
+    //**************************************************************************
+    // ARRAYS WITH NAMES.
+    //**************************************************************************
+
+    /// Array with object types names.
+    std::vector <std::string> obj_types;
+
+    /// Array with creature types names.
+    std::vector <std::string> creat_types;
+
+    /// Array with shape types names.
+    std::vector <std::string> shape_types;
+
+    /// Array with creature actions names.
+    std::vector <std::string> creat_acts;
+
+    /// Array with detailed humanoid actions names.
+    std::vector <std::string> hum_acts;
 
     //**************************************************************************
     // COMMAND'S PROCESSORS.

@@ -35,7 +35,7 @@ void HarmPerformer::perform(Action& action)
     harm *= actor -> getDangerLevel();
 
     // Check type of actor.
-    if ((type != CREATURE) || (type != WEATHER))
+    if ((type != CREATURE) && (type != WEATHER))
     {
         action.markAsFailed();
         return;
@@ -59,7 +59,7 @@ void HarmPerformer::perform(Action& action)
     }
 
     // Get area contents of actor.
-    ObjectHeap obstacles = world->getIndexator()->getAreaContents(env_shape);
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(env_shape);
     ObjectHeap::const_iterator iter = obstacles.end();
 
     // Harm object in view area.

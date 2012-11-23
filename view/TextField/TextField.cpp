@@ -44,7 +44,7 @@ void TextField::render()
         glRectf(x, y, x+width, y+height);
     glDisable(GL_BLEND);
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(x, y);
+    glRasterPos2f(x, y+height/4);
 
     int scr_width, scr_height;
     glfwGetWindowSize(&scr_width,

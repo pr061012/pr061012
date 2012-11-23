@@ -75,6 +75,52 @@ CLI::CLI(World* world, Controller* control) :
     world(world),
     control(control)
 {
+    // Initialising array with object types names.
+    this -> obj_types.resize(AMNT_OBJECT_TYPES);
+    this -> obj_types[RESOURCE] = "RESOURCE";
+    this -> obj_types[BUILDING] = "BUILDING";
+    this -> obj_types[TOOL]     = "TOOL";
+    this -> obj_types[WEATHER]  = "WEATHER";
+    this -> obj_types[CREATURE] = "CREATURE";
+
+    // Initialising array with creature types names.
+    this -> creat_types.resize(AMNT_CREATURE_TYPES);
+    this -> creat_types[HUMANOID]     = "HUMANOID";
+    this -> creat_types[NON_HUMANOID] = "NON_HUMANOID";
+
+    // Initialising array with shape types names.
+    this -> shape_types.resize(AMNT_SHAPE_TYPES);
+    this -> shape_types[CIRCLE] = "CIRCLE";
+    this -> shape_types[SQUARE] = "SQUARE";
+
+    // Initialising array with creature actions names.
+    this -> creat_acts.resize(AMNT_CREATURE_ACTS);
+    this -> creat_acts[NONE]          = "NONE";
+    this -> creat_acts[SLEEP]         = "SLEEP";
+    this -> creat_acts[EAT]           = "EAT";
+    this -> creat_acts[BUILD]         = "BUILD";
+    this -> creat_acts[GATHER]        = "GATHER";
+    this -> creat_acts[RELAX]         = "RELAX";
+    this -> creat_acts[EXPLORE]       = "EXPLORE";
+    this -> creat_acts[COMMUNICATE]   = "COMMUNICATE";
+    this -> creat_acts[WORK]          = "WORK";
+    this -> creat_acts[REALIZE_DREAM] = "REALIZE_DREAM";
+    this -> creat_acts[ESCAPE]        = "ESCAPE";
+    this -> creat_acts[REPRODUCE]     = "REPRODUCE";
+    this -> creat_acts[DO_NOTHING]    = "DO_NOTHING";
+
+    // Initialising array with detailed humanoid action types.
+    this -> hum_acts.resize(AMNT_DET_HUM_ACTS);
+    this -> hum_acts[HUNT]                     = "HUNT";
+    this -> hum_acts[TAKE_FOOD_FROM_INVENTORY] = "TAKE_FOOD_FROM_INVENTORY";
+    this -> hum_acts[FIND_FOOD]                = "FIND_FOOD";
+    this -> hum_acts[RELAX_AT_HOME]            = "RELAX_AT_HOME";
+    this -> hum_acts[SLEEP_AT_HOME]            = "SLEEP_AT_HOME";
+    this -> hum_acts[SLEEP_ON_THE_GROUND]      = "SLEEP_ON_THE_GROUND";
+    this -> hum_acts[BUILD_HOUSE]              = "BUILD_HOUSE";
+    this -> hum_acts[CHOOSE_PLACE_FOR_HOME]    = "CHOOSE_PLACE_FOR_HOME";
+    this -> hum_acts[FIGHT]                    = "FIGHT";
+    this -> hum_acts[RUN_FROM_DANGER]          = "RUN_FROM_DANGER";
 }
 
 //******************************************************************************
@@ -382,8 +428,9 @@ std::string CLI::info(std::stringstream& ss)
     output += "\n========= COMMON INFORMATION =========\n";
     output += sformat("ID\t\t\t%d\n", obj -> getObjectID());
 
-    // Getting object information.
+    // Printing object type.
     ObjectType type = obj -> getType();
+    output += sformat("Type\t\t\t%s\n", this -> obj_types[type].c_str());
 
     // Coordinates and angle.
     Vector v = obj -> getCoords();
@@ -394,7 +441,7 @@ std::string CLI::info(std::stringstream& ss)
     // Shape type.
     Shape shape = obj -> getShape();
     output += sformat("Shape\t\t\t%s (%f)\n",
-                      shape.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
+                      this -> shape_types[shape.getType()].c_str(),
                       shape.getSize());
 
     // Is destroyed, solid or immort.
@@ -414,7 +461,6 @@ std::string CLI::info(std::stringstream& ss)
 
     if (type == BUILDING)
     {
-        output += "Type:\t\t\tBUILDING\n";
         output += "======== BUILDING INFORMATION ========\n";
 
         Building* building = dynamic_cast<Building*>(obj);
@@ -425,7 +471,6 @@ std::string CLI::info(std::stringstream& ss)
     }
     else if (type == RESOURCE)
     {
-        output += "Type:\t\t\tRESOURCE\n";
         output += "======== RESOURCE INFORMATION ========\n";
 
         Resource* res = dynamic_cast<Resource*>(obj);
@@ -442,24 +487,29 @@ std::string CLI::info(std::stringstream& ss)
     }
     else if (type == CREATURE)
     {
-        output += "Type:\t\t\tCREATURE\n";
         output += "======== CREATURE INFORMATION ========\n";
 
         Creature* creat = dynamic_cast<Creature*>(obj);
+
+        // Printing type.
         CreatureType subtype = creat -> getSubtype();
+        output += sformat("Subtype\t\t\t%s\n",
+                          this -> creat_types[subtype].c_str());
 
         // Printing age.
         output += sformat("Age\t\t\t%d/%d\n", creat -> getAge(),
                           creat -> getMaxAge());
 
         // Printing decision.
-        output += sformat("Current decision\t%d\n",
-                          creat -> getCurrentDecision());
+        // FIXME: I use static cast there. Not good.
+        CreatureAction act = static_cast<CreatureAction>(creat -> getCurrentDecision());
+        output += sformat("Current decision\t%s\n",
+                          this -> creat_acts[act].c_str());
 
         // Printing view area.
         Shape view_area = creat -> getViewArea();
         output += sformat("View area\t\t%s (%f)\n",
-                          view_area.getType() == CIRCLE ? "CIRCLE" : "SQUARE",
+                          this -> shape_types[view_area.getType()].c_str(),
                           view_area.getSize());
 
         // Printing inventory.
@@ -483,16 +533,19 @@ std::string CLI::info(std::stringstream& ss)
 
         if (subtype == HUMANOID)
         {
-            output += "Subtype\t\t\tHUMANOID\n";
             output += "======== HUMANOID INFORMATION ========\n";
 
             Humanoid* hum = dynamic_cast<Humanoid*>(creat);
 
+            // Printing ID.
             output += sformat("Humanoid ID\t\t%d\n", hum -> getHumanoidID());
+
+            // Printing detailed act.
+            output += sformat("Detailed action\t\t%s\n",
+                              this -> hum_acts[hum -> getCurrentDetailedAct()].c_str());
         }
         else if (subtype == NON_HUMANOID)
         {
-            output += "Subtype\t\t\tNON_HUMANOID\n";
             output += "====== NON-HUMANOID INFORMATION ======\n";
 
             NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
@@ -508,8 +561,15 @@ std::string CLI::info(std::stringstream& ss)
 
 std::string CLI::step(std::stringstream& ss)
 {
-    this -> control -> step();
-    return "Successfully updated world.\n";
+    uint amount = 1;
+    ss >> amount;
+
+    for (uint i = 0; i < amount; i++)
+    {
+        this -> control -> step();
+    }
+
+    return sformat("Successfully made %u steps.\n", amount);
 }
 
 //******************************************************************************

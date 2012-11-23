@@ -28,7 +28,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
 
     // Initialize of matrix of attr
-    attrs(ATTR_HEALTH,0)         = 100 * hunger / max_hunger;
+    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
@@ -75,13 +75,13 @@ std::vector <Action>* NonHumanoid::getActions()
     {
         current_decision = NONE;
         direction_is_set = false;
-        aim = 0;
+        aim = nullptr;
     }
 
     //**************************************************************************
     // DECISION : NONE | OK
     //**************************************************************************
-    else if (current_decision == NONE)
+    if (current_decision == NONE)
     {
         // Make decision.
         current_decision = brains.makeDecision(attrs);
@@ -123,6 +123,16 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == RELAX)
     {
+        aim = nullptr;
+        if (this -> health < max_health && common_steps == CREAT_STEPS)
+        {
+            this -> increaseHealth(CREAT_DELTA_HEALTH);
+        }
+
+        if (endurance < max_endurance)
+        {
+            endurance++;
+        }
         direction_is_set = false;
         go(SLOW_SPEED);
     }
@@ -231,6 +241,10 @@ void NonHumanoid::updateCommonAttrs()
 {
     if (current_decision != EAT)
         this -> hunger   += CREAT_DELTA_HUNGER;
+    if (hunger == max_hunger)
+    {
+        this -> decreaseHealth(CREAT_DELTA_HEALTH);
+    }
     if (current_decision != SLEEP)
         this -> sleepiness += CREAT_DELTA_SLEEP;
 
