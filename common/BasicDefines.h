@@ -122,6 +122,28 @@
 #define SHP_NHUM_VIEW_TYPE          CIRCLE
 
 //******************************************************************************
+// DANGER DEFINES.
+// Prefix: DNGR.
+//******************************************************************************
+
+/// Humanoid's danger level.
+#define DNGR_HUMANOID               5
+
+// TODO: Different values for different types of NonHumanoid.
+/// NonHumanoid's danger level.
+#define DNGR_NON_HUMANOID           3
+
+/// Resource's danger level.
+#define DNGR_RESOURCE               0
+
+// TODO: Different values for different types of Weather.
+/// Weather's danger level.
+#define DNGR_WEATHER                15
+
+/// Building's danger level.
+#define DNGR_BUILDING               0
+
+//******************************************************************************
 // WEATHER DEFINES.
 // Prefix: WEAT.
 //******************************************************************************
@@ -348,9 +370,6 @@
 #define HUM_DECR_SLEEP_STEPS        150
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
-
-/// Humanoid danger level
-#define HUM_DANGER_LEVEL            5
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.

@@ -42,7 +42,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
 
     // Set danger level
-    setDangerLevel(HUM_DANGER_LEVEL);
+    this -> setDangerLevel(DNGR_HUMANOID);
 
     // Create visual_memory
     visual_memory = new ObjectHeap();
