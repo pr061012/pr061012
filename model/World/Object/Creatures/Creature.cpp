@@ -18,29 +18,41 @@
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
+    goal(0),
     inventory(new ObjectHeap),
-    brains(dmaker)
-{
-    attrs = arma::mat(DM_ATR_CONST, 1);
-    // Randomly initialize some values.
-    max_hunger      = Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX);
-    max_sleepiness  = Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX);
-    max_endurance   = Random::int_range(CREAT_ENDURANCE_MAX,  CREAT_ENDURANCE_MAX);
-    int health      = Random::int_range(CREAT_HEALTH_MIN,     CREAT_HEALTH_MAX);
-    force           = Random::int_range(CREAT_FORCE_MIN,      CREAT_FORCE_MAX);
+    current_action(NONE),
+    attrs(arma::mat(DM_ATR_CONST, 1)),
+    brains(dmaker),
 
-    // Initialize other values.
-    hunger      = 100 - max_hunger;
-    sleepiness  = 100 - max_sleepiness;
-    danger      = 0; // we need in function to calculate it
-                     // different for HUM and NON_HUM?
-    endurance   = max_endurance;
-    // Initialize some inhereted things.
-    setMaxHealth(health);
-    setHealth(health);
+    // some general attributes
+    force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
+    max_endurance(Random::int_range(CREAT_ENDURANCE_MAX,  CREAT_ENDURANCE_MAX)),
+    endurance(max_endurance),
+    max_health(Random::int_range(CREAT_HEALTH_MIN, CREAT_HEALTH_MAX)),
+    health(max_health),
+    max_sleepiness(Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX)),
+    sleepiness (100 - max_sleepiness),
+    max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
+    hunger(100 - max_hunger),
     
-    // Init vars for moving
-    goal = 0;
+    // needs
+    need_in_descendants(0),
+    danger(0),               // we need in function to calculate it
+                             // different for HUM and NON_HUM?
+                             //
+    // step counters
+    common_steps(CREAT_STEPS),
+    age_steps(CREAT_AGE_STEPS),
+    desc_steps(CREAT_DESC_STEPS),
+    danger_steps(CREAT_DANGER_STEPS),
+    decr_sleep_step(0),
+    
+    // direction
+    angle(0),
+    direction_is_set(false),
+    aim(0),
+    current_decision(NONE)
+{
 }
 
 Creature::~Creature()
@@ -76,6 +88,15 @@ Shape Creature::getViewArea()
     return this -> view_area;
 }
 
+ObjectHeap * Creature::getInventory()
+{
+    return this -> inventory;
+}
+
+//**********************************************************
+// AGE
+//**********************************************************
+
 void Creature::setAge(uint age)
 {
     this -> age = age;
@@ -95,6 +116,10 @@ uint Creature::getMaxAge()
 {
     return this -> max_age;
 }
+
+//**********************************************************
+// HEALTH
+//**********************************************************
 
 
 void Creature::setHealth(uint health)
@@ -117,10 +142,93 @@ uint Creature::getMaxHealth()
     return this -> max_health;
 }
 
-ObjectHeap * Creature::getInventory()
+//**********************************************************
+// HUNGER
+//**********************************************************
+
+
+void Creature::setHunger(uint hunger)
 {
-    return this -> inventory;
+    this -> hunger = hunger;
 }
+
+uint Creature::getHunger()
+{
+    return this -> hunger;
+}
+
+void Creature::setMaxHunger(uint max_hunger)
+{
+    this -> max_hunger = max_hunger;
+}
+
+uint Creature::getMaxHunger()
+{
+    return this -> max_hunger;
+}
+
+//**********************************************************
+// ENDURANCE
+//**********************************************************
+
+void Creature::setEndurance(uint endurance)
+{
+    this -> endurance = endurance;
+}
+
+uint Creature::getEndurance()
+{
+    return this -> endurance;
+}
+
+void Creature::setMaxEndurance(uint max_endurance)
+{
+    this -> max_endurance = max_endurance;
+}
+
+uint Creature::getMaxEndurance()
+{
+    return this -> max_endurance;
+}
+
+//**********************************************************
+// SLEEPINESS
+//**********************************************************
+
+void Creature::setSleepiness(uint max_sleepiness)
+{
+    this -> max_sleepiness = max_sleepiness;
+}
+
+uint Creature::getSleepiness()
+{
+    return this -> max_sleepiness;
+}
+
+void Creature::setMaxSleepiness(uint max_sleepiness)
+{
+    this -> max_sleepiness = max_sleepiness;
+}
+
+uint Creature::getMaxSleepiness()
+{
+    return this -> max_sleepiness;
+}
+
+//**********************************************************
+// FORCE
+//**********************************************************
+
+void Creature::setForce(uint force)
+{
+    this -> force = force;
+}
+
+uint Creature::getForce()
+{
+    return this -> force;
+}
+
 
 //******************************************************************************
 // CHANGING HEALTH.
@@ -299,21 +407,6 @@ void Creature::go(SpeedType speed)
     this -> actions.push_back(act);
 }
 
-// TODO
-// Implement A*
-Creature::Path Creature::generateRoute(Object * goal)
-{
-    // Find 
-    double miny = this -> getCoords().getY();
-    double minx = this -> getCoords().getX();
-    double maxx = minx;
-    double maxy = miny;
-
-    Path result;
-    result.push(goal -> getCoords());
-    return result;
-}
-
 
 //******************************************************************************
 // INHERETED THINGS.
@@ -341,9 +434,10 @@ uint Creature::getMaxHealthPoints() const
 
 double Creature::setDirection()
 {
-    double delta_x = aim -> getCoords().getX() - this -> getCoords().getX();
-    double delta_y = aim -> getCoords().getY() - this -> getCoords().getY();
-    return angle = atan(delta_x / delta_y);
+    if (aim)
+        return this -> getCoords().getAngle(aim -> getCoords());
+    else
+        return Random::double_num(M_PI * 2);
 }
 
 //**********************************************************

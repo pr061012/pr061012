@@ -7,6 +7,7 @@
 #include <string>
 
 #include "TravelingPerformer.h"
+#include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 
@@ -44,7 +45,27 @@ void TravelingPerformer::perform(Action& action)
             break;
 
         case FAST_SPEED:
-            speed = CREAT_SPEED_FAST_VALUE;
+            // If actor is creature, it can't run with 0 endurance.
+            if (actor -> getType() == CREATURE)
+            {
+                if (dynamic_cast<Creature*>(actor) -> getEndurance() > 0)
+                {
+                    dynamic_cast<Creature*>(actor) -> setEndurance( 
+                    dynamic_cast<Creature*>(actor) -> getEndurance() - 1);
+                    speed = CREAT_SPEED_FAST_VALUE;
+                }
+                else
+                {
+                    speed = CREAT_SPEED_SLOW_VALUE;
+                }
+            }
+            // No restrictions for weather.
+            else
+            {
+                // TODO
+                // Do all things move with the speed of creatures?
+                speed = CREAT_SPEED_FAST_VALUE;
+            }
             break;
 
     }

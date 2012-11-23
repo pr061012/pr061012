@@ -39,15 +39,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = need_in_descendants;
 
-    age_steps = CREAT_AGE_STEPS;
-    common_steps = CREAT_STEPS;
-    danger_steps = CREAT_DANGER_STEPS;
-    desc_steps = CREAT_DESC_STEPS;
-    decr_sleep_step = 0;
-    current_decision = NONE;
-    angle = 0;
-    direction_is_set = false;
-
     //Initialize type
     subsubtype = COW;
 }
@@ -83,8 +74,6 @@ std::vector <Action>* NonHumanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
-        direction_is_set = false;
-        aim = nullptr;
     }
 
     //**************************************************************************
@@ -102,7 +91,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : SLEEP | OK
     //**************************************************************************
-    else if (current_decision == SLEEP)
+    if (current_decision == SLEEP)
     {
         // Check timesteps before wake up.
         if (decr_sleep_step == 0)
@@ -132,7 +121,6 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == RELAX)
     {
-        aim = nullptr;
         if (this -> health < max_health && common_steps == CREAT_STEPS)
         {
             this -> increaseHealth(CREAT_DELTA_HEALTH);
@@ -142,7 +130,6 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             endurance++;
         }
-        direction_is_set = false;
         go(SLOW_SPEED);
     }
 
