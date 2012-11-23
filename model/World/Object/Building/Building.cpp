@@ -60,7 +60,7 @@ uint Building::getMaxHealthPoints() const
 
 void Building::decreaseHealth(uint delta)
 {
-    if(this -> health > delta)
+    if (this -> health > delta)
     {
         this -> health -= delta;
     }
@@ -72,13 +72,19 @@ void Building::decreaseHealth(uint delta)
 
 void Building::increaseHealth(uint delta)
 {
-    if(this -> health + delta < this -> max_health)
+    if (this -> health + delta < this -> max_health)
     {
         this -> health += delta;
     }
     else
     {
         this -> health = this -> max_health;
+    }
+
+    if (this -> health == this -> max_health)
+    {
+        this -> completeness = true;
+        this -> makeSolid();
     }
 }
 
@@ -113,11 +119,6 @@ bool Building::takeOut(Object * object)
 void Building::repair(uint delta)
 {
     this -> increaseHealth(delta);
-
-    if(this -> health == this -> max_health)
-    {
-        this -> completeness = true;
-    }
 }
 
 //******************************************************************************
