@@ -11,7 +11,7 @@
 
 /**
  * @class TravelingPerformer
- * @brief Performs a move if it is possible
+ * @brief Allows objects to travel around the world if it is possible
  */
 class TravelingPerformer : public Performer
 {
@@ -23,8 +23,7 @@ public:
 
     /**
      * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @param world controlled world
      */
     TravelingPerformer(World * world);
 
@@ -38,7 +37,7 @@ public:
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
+     * @brief Check if an object can travel and moves it
      * @param action a request for moving
      */
     void perform(Action& action);

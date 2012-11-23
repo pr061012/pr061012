@@ -23,8 +23,7 @@ public:
 
     /**
      * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param world world
+     * @param world controlled world
      */
     DroppingPerformer(World* world);
 
@@ -38,8 +37,8 @@ public:
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can drop an object
+     * @param action a request for dropping item
      */
     void perform(Action& action);
 

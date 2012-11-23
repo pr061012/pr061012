@@ -11,7 +11,7 @@
 
 /**
  * @class PickupMaster
- * @brief No comments
+ * @brief Allows objects to pick up another objects
  */
 class PickupMaster : public Performer
 {
@@ -23,8 +23,7 @@ public:
 
     /**
      * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param world world
+     * @param world controlled world
      */
     PickupMaster(World* world);
 
@@ -39,7 +38,7 @@ public:
     
     /**
      * @brief Check if we can pick objects
-     * @param action a request for moving
+     * @param action a request for pick up
      */
     void perform(Action& action);
 

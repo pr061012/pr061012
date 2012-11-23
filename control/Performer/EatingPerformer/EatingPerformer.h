@@ -11,7 +11,7 @@
 
 /**
  * @class EatingPerformer
- * @brief Performs a move if it is possible
+ * @brief Lets objects eat
  */
 class EatingPerformer : public Performer
 {
@@ -23,8 +23,7 @@ public:
 
     /**
      * @brief Constructor for a particular world
-     * @param world_size size of the world
-     * @param indexator indexator
+     * @param world controlled world
      */
     EatingPerformer(World * world);
 
@@ -38,8 +37,8 @@ public:
     //*************************************************************************
     
     /**
-     * @brief Check if an object can move and move it
-     * @param action a request for moving
+     * @brief Check if an object can eat objects
+     * @param action a request for eating
      */
     void perform(Action& action);
 

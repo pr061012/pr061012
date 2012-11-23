@@ -56,26 +56,27 @@ public:
                                 const Vector& line_end) const;
 
     /**
-     *  @brief  Get projection of the vector on the line
-     *  @param  pt1 first vector of the line
-     *  @param  pt2 second vector of the line
-     *  @return projection of the vector on the line
+     *  @brief  Get projection of the point on the line
+     *  @param  pt1 first point of the line
+     *  @param  pt2 second point of the line
+     *  @return projection of the point on the line
      */
 
     Vector project(Vector pt1, Vector pt2) const;
 
     /**
      *    @brief    Get scalar product of two vectors
-     *    @param    pt1 first vector
-     *    @param    pt2 second vector
+     *    @param    vec1 first vector
+     *    @param    vec2 second vector
      *    @return   Scalar product.
      */
 
     static double scalarProduct(Vector vec1, Vector vec2);
 
     /**
-     * @brief Get angle to next point
-     * @param angle angle
+     * @brief  Get angle to next point
+     * @param  vec point
+     * @return an angle to the point
      */
 
     double getAngle(Vector vec) const;
