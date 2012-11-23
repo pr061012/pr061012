@@ -190,13 +190,20 @@ void ViewWorld::renderObject(const Object* object)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    glBegin(GL_TRIANGLE_FAN);
-        for(int i = 0; i < 100; i++) {
-            angle = 2.0 * i * M_PI / 100;
-            glVertex2d((px + cos(angle) * radius),
-                       (py + sin(angle) * radius));
-        }
-    glEnd();
+    if( object -> getShape().getType() == CIRCLE )
+    {
+        glBegin(GL_TRIANGLE_FAN);
+            for(int i = 0; i < 100; i++) {
+                angle = 2.0 * i * M_PI / 100;
+                glVertex2d((px + cos(angle) * radius),
+                           (py + sin(angle) * radius));
+            }
+        glEnd();
+    }
+    else
+    {
+        glRectd(px-radius, py-radius, px+radius, py+radius);
+    }
 
     glDisable(GL_BLEND);
 
