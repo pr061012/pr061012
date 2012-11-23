@@ -9,6 +9,7 @@
 #include "../../Resource/Resource.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Random/Random.h"
+#include "../../../../../common/Log/Log.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -33,7 +34,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
-    attrs(ATTR_LAZINESS,0)       = 100; // our animal is very lazy,
+    attrs(ATTR_LAZINESS,0)       = 50; // our animal is very lazy,
                                         // so it always wants to relax
     attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
     attrs(ATTR_COMMUNICATION,0)  = 0;
@@ -55,6 +56,7 @@ NonHumanoid::~NonHumanoid()
 
 std::vector <Action>* NonHumanoid::getActions()
 {
+// FIXME: Delete Log::NOTE();
     this -> age_steps--;
     this -> common_steps--;
     this -> danger_steps--;
@@ -82,6 +84,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     if (current_decision == NONE)
     {
+        Log::NOTE("NONE");
         // Make decision.
         current_decision = brains.makeDecision(attrs);
 
@@ -94,6 +97,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     if (current_decision == SLEEP)
     {
+        Log::NOTE("SLEEP");
         // Check timesteps before wake up.
         if (decr_sleep_step == 0)
         {
@@ -122,6 +126,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == RELAX)
     {
+        Log::NOTE("RELAX");
         if (this -> health < max_health && common_steps == CREAT_STEPS)
         {
             this -> increaseHealth(CREAT_DELTA_HEALTH);
@@ -139,6 +144,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == EAT)
     {
+        Log::NOTE("EAT");
         // If aim isn't exist, then find grass.
         if (aim == nullptr)
         {
@@ -179,6 +185,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == ESCAPE)
     {
+        Log::NOTE("ESCAPE");
         if (
                 this -> subsubtype == COW ||
                 this -> subsubtype == GOOSE ||
@@ -203,9 +210,28 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     else if (current_decision == REPRODUCE)
     {
-
+        Log::NOTE("REPRODUCE");
     }
 
+    else if (current_decision == COMMUNICATE)
+    {
+        Log::NOTE("COMMUNICATE");
+    }
+
+    else if (current_decision == WORK)
+    {
+        Log::NOTE("WORK");
+    }
+
+    else if (current_decision == REALIZE_DREAM)
+    {
+        Log::NOTE("REALIZE_DREAM");
+    }
+
+    else if (current_decision == BUILD)
+    {
+        Log::NOTE("BUILD");
+    }
     return &actions;
 
 }
