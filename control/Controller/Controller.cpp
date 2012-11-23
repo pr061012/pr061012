@@ -80,10 +80,13 @@ void Controller::step()
             // creatures are special
             if ((*i) -> getType() == CREATURE)
             {
+                // place view_area at the object
+                Shape view_area = dynamic_cast<Creature*>(*i) -> getViewArea();
+                view_area.setCenter((*i) -> getCoords());
+
                 // show creature objects around it
                 dynamic_cast<Creature*>(*i) -> setObjectsAround(
-                    world -> getIndexator() -> getAreaContents(
-                        dynamic_cast<Creature*>(*i) -> getViewArea()));
+                    world -> getIndexator() -> getAreaContents(view_area));
 
                 // check age
                 if (dynamic_cast<Creature*>(*i) -> getAge() >=
