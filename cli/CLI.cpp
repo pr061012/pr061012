@@ -539,6 +539,11 @@ std::string CLI::info(std::stringstream& ss)
         // Difficulty and progress.
         output += sformat("Difficulty\t\t%u\n", res -> getDifficulty());
         output += sformat("Progress\t\t%u\n", res -> getProgress());
+
+        // Mining parameters.
+        output += sformat("Steps to regeneration\t%u\n", res -> getStepsToReg());
+        output += sformat("Regeneration amount\t%u\n", res -> getRegAmount());
+        output += sformat("Amount per drop\t\t%u\n", res -> getAmountPerDrop());
     }
     else if (type == CREATURE)
     {
