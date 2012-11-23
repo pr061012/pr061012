@@ -346,20 +346,8 @@ void Creature:: chooseDirectionToEscape()
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
-    bool failed = false;
-
-    // First check if previous go action failed
-    for (std::vector<Action>::iterator i = actions.begin();
-            i != actions.end(); i++)
-    {
-        if ((*i).isFailed())
-        {
-            failed = true;
-        }
-    }
-
     // If we could not move, then reset direction
-    if (failed)
+    if (prev_action == GO && prev_action_state == FAILED)
         direction_is_set = false;
 
     // if we don't have any aim, go the way we went before
