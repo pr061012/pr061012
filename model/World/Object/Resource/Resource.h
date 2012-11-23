@@ -116,6 +116,24 @@ public:
     uint getDifficulty() const;
 
     /**
+     * @brief  Gets amount of steps to next resource regeneration.
+     * @return value of steps to reg
+     */
+    uint getStepsToReg() const;
+
+    /**
+     * @brief  Gets resource's regeneration rate.
+     * @return value of reg amount
+     */
+    uint getRegAmount() const;
+
+    /**
+     * @brief  Gets amount of resource, which will drop at each mining.
+     * @return value of amount per drop
+     */
+    uint getAmountPerDrop() const;
+
+    /**
      * @brief  Returns true if resource is mineable.
      * @return is mineable or not
      */

@@ -232,6 +232,21 @@ uint Resource::getDifficulty() const
     return this -> difficulty;
 }
 
+uint Resource::getStepsToReg() const
+{
+    return this -> steps_to_reg;
+}
+
+uint Resource::getRegAmount() const
+{
+    return this -> reg_amount;
+}
+
+uint Resource::getAmountPerDrop() const
+{
+    return this -> amount_per_drop;
+}
+
 bool Resource::isMineable() const
 {
     return this -> mineable;
