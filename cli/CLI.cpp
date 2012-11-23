@@ -14,6 +14,8 @@
 #include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
+static const uint COLUMNS = 5;
+
 //******************************************************************************
 // TRUNCATED NAMES.
 // Prefix: TN.
@@ -380,8 +382,10 @@ std::string CLI::list(std::stringstream& ss)
     for (iter = objs -> begin(); iter != objs -> end(); iter++)
     {
         Object* obj = *iter;
-        output += sformat("|%d\t|%d\t|", obj -> getObjectID(),
-                          obj -> getType());
+        output += sformat("%d\t%s\t(%f, %f)\n", obj -> getObjectID(),
+                          this -> obj_types[obj -> getType()].c_str(),
+                          obj -> getCoords().getX(),
+                          obj -> getCoords().getY());
     }
 
     return output;
@@ -513,23 +517,35 @@ std::string CLI::info(std::stringstream& ss)
                           view_area.getSize());
 
         // Printing inventory.
-        output += "Inventory\t\t";
+        output += "Inventory\n";
         ObjectHeap* inv = creat -> getInventory();
         ObjectHeap::const_iterator iter;
+        uint cur_column = 1;
         for (iter = inv -> begin(); iter != inv -> end(); iter++)
         {
-            output += sformat("%d\t", (*iter) -> getObjectID());
+            output += sformat("\t%d", (*iter) -> getObjectID());
+
+            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
+            {
+                cur_column = 1;
+                output += "\n";
+            }
         }
-        output += "\n";
 
         // Printing objects around.
-        output += "Objects around\t";
+        output += "Objects around\n";
         ObjectHeap* objs_around = creat -> getObjectsAround();
+        cur_column = 1;
         for (iter = objs_around -> begin(); iter != objs_around -> end(); iter++)
         {
-            output += sformat("%d\t", (*iter) -> getObjectID());
+            output += sformat("\t%d", (*iter) -> getObjectID());
+
+            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
+            {
+                cur_column = 1;
+                output += "\n";
+            }
         }
-        output += "\n";
 
         if (subtype == HUMANOID)
         {
