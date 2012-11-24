@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <sstream>
 
->>>>>>> e6278b26c12313adebdd20f13fe394c9896576b1
 #include "../../../../../common/Log/Log.h"
 
 #include "Humanoid.h"
@@ -130,7 +129,6 @@ std::vector <Action>* Humanoid::getActions()
     if(common_steps == 0)
     {
         // bad
-        cout << "success";
         updateCommonAttrs();
     }
     if(danger_steps == 0)
