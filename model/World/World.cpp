@@ -291,7 +291,19 @@ void World::genTreeAt(double x, double y, const ParamArray& tree_params)
     this -> addObject(true, new_obj);
 }
 
-Object *World::getObjectById(int id)
+Object *World::getObjectByID(int id)
 {
+    ObjectHeap::const_iterator it;
 
+    for(it = visible_objs->begin(); it != visible_objs->end(); it++)
+    {
+        if((*it) -> getObjectID() == id) return *it;
+    }
+
+    for(it = hidden_objs->begin(); it != hidden_objs->end(); it++)
+    {
+        if((*it) -> getObjectID() == id) return *it;
+    }
+
+    return NULL;
 }
