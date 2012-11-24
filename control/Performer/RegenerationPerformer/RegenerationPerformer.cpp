@@ -4,7 +4,7 @@
 */
 
 #include "RegenerationPerformer.h"
-#include "../../../common/Random/Random.h"
+#include "../../../common/Math/Random.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Object.h"

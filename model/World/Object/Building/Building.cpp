@@ -3,8 +3,10 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "Building.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 #include "../../../../common/BasicDefines.h"
 
 //******************************************************************************
@@ -44,6 +46,19 @@ void Building::receiveMessage(Message message)
 {
 }
 
+std::string Building::printObjectInfo() const
+{
+    std::string output = Object::printObjectInfo();
+
+    std::stringstream ss;
+
+    ss << "Is complete\t\t" << (completeness ? "yes" : "no") << std::endl <<
+          "Free space\t\t"  << free_space << "/" << max_space << std::endl <<
+          "Contents"        << std::endl << contents -> printIDs();
+
+    return output + ss.str();
+}
+
 uint Building::getHealthPoints() const
 {
     return this -> health;
@@ -52,6 +67,11 @@ uint Building::getHealthPoints() const
 uint Building::getMaxHealthPoints() const
 {
     return this -> max_health;
+}
+
+std::string Building::getTypeName() const
+{
+    return "building";
 }
 
 //******************************************************************************

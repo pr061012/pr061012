@@ -8,7 +8,7 @@
 #include "NonHumanoid.h"
 #include "../../Resource/Resource.h"
 #include "../../../../../common/BasicDefines.h"
-#include "../../../../../common/Random/Random.h"
+#include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
 
 //******************************************************************************
@@ -50,9 +50,23 @@ NonHumanoid::~NonHumanoid()
 
 }
 
-//**************************************************************************
-// NON_HUMANOID ACTIONS.
-//**************************************************************************
+//******************************************************************************
+// INHERETED THINGS.
+//******************************************************************************
+
+std::string NonHumanoid::getTypeName() const
+{
+    return "non-humanoid";
+}
+
+std::string NonHumanoid::printObjectInfo() const
+{
+    return Creature::printObjectInfo();
+}
+
+//******************************************************************************
+// NON-HUMANOID ACTIONS.
+//******************************************************************************
 
 std::vector <Action>* NonHumanoid::getActions()
 {

@@ -5,7 +5,7 @@
 
 #include "HarmPerformer.h"
 #include "../../../model/World/Object/Object.h"
-#include "../../../common/Random/Random.h"
+#include "../../../common/Math/Random.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../common/BasicTypes.h"
 #include "../../../model/World/Object/Creatures/Creature.h"

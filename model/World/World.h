@@ -86,9 +86,35 @@ private:
     // GENERATION METHODS.
     //**************************************************************************
 
+    /**
+     * @brief Methods for generating objects of different types.
+     */
     void genCreatures();
     void genResources();
     void genWeather();
+
+public:
+    /**
+     * @brief Generate forest at specific location. That would
+     *        create tree and try to create trees in some range
+     *        around this point inside specified angle from
+     *        fromAngle to toAngle
+     * @param prob probability to create tree at this point
+     */
+    void genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle = 0.0, double toAngle = 2*M_PI);
+
+    /**
+     * @brief Overloading of forementioned function. Generates
+     *        trees with default parameters
+     */
+    void genForestAt(double x, double y, double prob = 1.0, double fromAngle = 0.0, double toAngle = 2*M_PI);
+
+private:
+
+    /**
+     * @brief Generate tree at specific location.
+     */
+    void genTreeAt(double x, double y, const ParamArray& tree_params);
 
 public:
     //**************************************************************************
@@ -153,6 +179,9 @@ public:
      *         around (x,y)
      */
     // ObjectHeap* getObjectsInRange(double x, double y, double radius);
+
+    Object* getObjectByID(int id);
+
 
     //******************************************************************************
     // VIEW METHODS.

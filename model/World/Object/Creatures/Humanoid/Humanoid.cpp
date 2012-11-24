@@ -3,16 +3,17 @@
     See the LICENSE file for copying permission.
 */
 
+#include <armadillo>
 #include <cassert>
 #include <cstdlib>
-#include <armadillo>
-#include <assert.h>
-#include <iostream>
+#include <sstream>
+
+>>>>>>> e6278b26c12313adebdd20f13fe394c9896576b1
 #include "../../../../../common/Log/Log.h"
 
 #include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
-#include "../../../../../common/Random/Random.h"
+#include "../../../../../common/Math/Random.h"
 #include "../../Resource/Resource.h"
 
 // TODO:
@@ -95,6 +96,15 @@ Humanoid::~Humanoid()
 uint Humanoid::getHumanoidID() const
 {
     return this -> hum_id;
+}
+
+//******************************************************************************
+// TYPE NAME.
+//******************************************************************************
+
+std::string Humanoid::getTypeName() const
+{
+    return "humanoid";
 }
 
 //******************************************************************************
@@ -659,9 +669,52 @@ void Humanoid::setHome(Building *home)
     this -> home = home;
 }
 
-//**********************************************************
+//******************************************************************************
+// INHERETED THINGS.
+//******************************************************************************
+
+std::string Humanoid::printObjectInfo() const
+{
+    std::string output = Creature::printObjectInfo();
+
+    std::stringstream ss;
+
+    // TODO: Print visual memory and detailed action.
+    ss << "Detailed action\t\t";
+    switch (detailed_act)
+    {
+        case HUNT:                     ss << "hunt";                     break;
+        case TAKE_FOOD_FROM_INVENTORY: ss << "take food from inventory"; break;
+        case FIND_FOOD:                ss << "find food";                break;
+        case RELAX_AT_HOME:            ss << "relax at home";            break;
+        case SLEEP_AT_HOME:            ss << "sleep at home";            break;
+        case SLEEP_ON_THE_GROUND:      ss << "sleep on the ground";      break;
+        case MINE_RESOURSES:           ss << "mine resource";            break;
+        case BUILD_HOUSE:              ss << "build house";              break;
+        case CHOOSE_PLACE_FOR_HOME:    ss << "choose place for home";    break;
+        case FIGHT:                    ss << "fight";                    break;
+        case RUN_FROM_DANGER:          ss << "run from danger";          break;
+        default:                       ss << "unknown";                  break;
+    }
+    ss << "\n";
+
+    ss << "Sociability\t\t"    << sociability << "/" << max_sociability <<
+                                  std::endl <<
+          "Bravery\t\t\t"      << bravery << std::endl <<
+          "Laziness\t\t"       << laziness << std::endl <<
+          "Need in house\t\t"  << need_in_house << std::endl <<
+          "Need in points\t\t" << need_in_points << std::endl <<
+          "Home ID\t\t\t"      << (home == nullptr ? "none" :
+                                   std::to_string(home -> getObjectID())) <<
+                                  std::endl <<
+          "Visual memory\t\t"  << visual_memory -> printIDs() << std::endl;
+
+    return output + ss.str();
+}
+
+//******************************************************************************
 // DEBUG
-//**********************************************************
+//******************************************************************************
 
 uint Humanoid::getBravery() const
 {

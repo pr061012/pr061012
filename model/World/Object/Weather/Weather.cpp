@@ -3,10 +3,12 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "Weather.h"
 
 #include "../../../../common/BasicDefines.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -85,6 +87,11 @@ uint Weather::getHealthPoints() const
 uint Weather::getMaxHealthPoints() const
 {
     return this -> steps;
+}
+
+std::string Weather::getTypeName() const
+{
+    return "weather";
 }
 
 //******************************************************************************

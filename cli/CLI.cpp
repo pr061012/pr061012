@@ -14,8 +14,6 @@
 #include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
-static const uint COLUMNS = 5;
-
 //******************************************************************************
 // TRUNCATED NAMES.
 // Prefix: TN.
@@ -29,6 +27,7 @@ static const uint COLUMNS = 5;
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+#define TN_CLUSTER_BUILDING_MAT     "fr"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -85,16 +84,6 @@ CLI::CLI(World* world, Controller* control) :
     this -> obj_types[WEATHER]  = "WEATHER ";
     this -> obj_types[CREATURE] = "CREATURE";
 
-    // Initialising array with creature types names.
-    this -> creat_types.resize(AMNT_CREATURE_TYPES);
-    this -> creat_types[HUMANOID]     = "HUMANOID    ";
-    this -> creat_types[NON_HUMANOID] = "NON_HUMANOID";
-
-    // Initialising array with shape types names.
-    this -> shape_types.resize(AMNT_SHAPE_TYPES);
-    this -> shape_types[CIRCLE] = "CIRCLE";
-    this -> shape_types[SQUARE] = "SQUARE";
-
     // Initialising array with creature actions names.
     this -> creat_acts.resize(AMNT_CREATURE_ACTS);
     this -> creat_acts[NONE]          = "NONE";
@@ -147,6 +136,11 @@ std::string CLI::runCommand(std::string command)
     if (cmd == "random-init")
     {
         return this -> init(ss, true);
+    }
+
+    if (cmd == "generate")
+    {
+        return this -> generate(ss);
     }
 
     if (cmd == "create")
@@ -206,6 +200,52 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
     this -> world -> reset(size, random);
     return sformat("Successfully created world %dx%d.\n", size, size);
+}
+
+//******************************************************************************
+// `GENERATE` PROCESSOR.
+//******************************************************************************
+
+std::string CLI::generate(std::stringstream& ss)
+{
+    // Reading coordinates.
+    double x;
+    ss >> x;
+    if (ss.fail())
+    {
+        return sformat("Error: x coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    double y;
+    ss >> y;
+    if (ss.fail())
+    {
+        return sformat("Error: y coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    // Reading type.
+    std::string type;
+    ss >> type;
+    if (ss.fail())
+    {
+        return sformat("Error: ClusterType expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    if (type == TN_CLUSTER_BUILDING_MAT)
+    {
+        this -> world -> genForestAt(x, y);
+    }
+    else
+    {
+        return sformat("Error: unknown ClusterType. Possible values: %s.\n",
+                       TN_CLUSTER_BUILDING_MAT);
+    }
+
+    return sformat("Successfully generated cluster (%s) at (%f, %f).\n",
+                   type.c_str(), x, y);
 }
 
 //******************************************************************************
@@ -458,198 +498,14 @@ std::string CLI::info(std::stringstream& ss)
     }
 
     // Looking for object.
-    ObjectHeap* objs = this -> world -> getVisibleObjects();
-    ObjectHeap::const_iterator iter;
-    Object* obj;
-    for (iter = objs -> begin(); iter != objs -> end(); iter++)
-    {
-        obj = *iter;
+    Object* obj = this -> world -> getObjectByID(id);
 
-        if (obj -> getObjectID() == id)
-        {
-            break;
-        }
+    if (obj == nullptr)
+    {
+        return sformat("Error: object with id %u doesn't exist.\n", id);
     }
 
-    if (iter == objs -> end())
-    {
-        return sformat("Error: object with id %d doesn't exist.\n", id);
-    }
-
-    output += "\n========= COMMON INFORMATION =========\n";
-    output += sformat("ID\t\t\t%d\n", obj -> getObjectID());
-
-    // Printing object type.
-    ObjectType type = obj -> getType();
-    output += sformat("Type\t\t\t%s\n", this -> obj_types[type].c_str());
-
-    // Coordinates and angle.
-    Vector v = obj -> getCoords();
-    output += sformat("X\t\t\t%f\n", v.getX());
-    output += sformat("Y\t\t\t%f\n", v.getY());
-    output += sformat("Angle\t\t\t%f\n", obj -> getAngle());
-
-    // Shape type.
-    Shape shape = obj -> getShape();
-    output += sformat("Shape\t\t\t%s (%f)\n",
-                      this -> shape_types[shape.getType()].c_str(),
-                      shape.getSize());
-
-    // Is destroyed, solid or immort.
-    output += sformat("Is destroyed\t\t%s\n",
-                      obj -> isDestroyed() ? "yes" : "no");
-    output += sformat("Is solid\t\t%s\n",
-                      obj -> isSolid() ? "yes" : "no");
-    output += sformat("Is immortal\t\t%s\n",
-                      obj -> isImmortal() ? "yes" : "no");
-
-    // Danger level.
-    output += sformat("Danger level\t\t%u\n", obj -> getDangerLevel());
-
-    // HP.
-    output += sformat("HP\t\t\t%d/%d\n", obj -> getHealthPoints(),
-                      obj -> getMaxHealthPoints());
-
-    if (type == BUILDING)
-    {
-        output += "======== BUILDING INFORMATION ========\n";
-
-        Building* building = dynamic_cast<Building*>(obj);
-
-        // Free and max space.
-        output += sformat("Free space\t\t%d/%d\n", building -> getFreeSpace(),
-                          building -> getMaxSpace());
-
-        // Completness.
-        output += sformat("Is complete\t\t%s\n",
-                          building -> getCompleteness() ? "yes" : "no");
-    }
-    else if (type == RESOURCE)
-    {
-        output += "======== RESOURCE INFORMATION ========\n";
-
-        Resource* res = dynamic_cast<Resource*>(obj);
-
-        // Mineability and restorability.
-        output += sformat("Is mineable\t\t%s\n",
-                          res -> isMineable() ? "yes" : "no");
-        output += sformat("Is restorable\t\t%s\n",
-                          res -> isRestorable() ? "yes" : "no");
-
-        // Difficulty and progress.
-        output += sformat("Difficulty\t\t%u\n", res -> getDifficulty());
-        output += sformat("Progress\t\t%u\n", res -> getProgress());
-
-        // Mining parameters.
-        output += sformat("Steps to regeneration\t%u\n", res -> getStepsToReg());
-        output += sformat("Regeneration amount\t%u\n", res -> getRegAmount());
-        output += sformat("Amount per drop\t\t%u\n", res -> getAmountPerDrop());
-    }
-    else if (type == CREATURE)
-    {
-        output += "======== CREATURE INFORMATION ========\n";
-
-        Creature* creat = dynamic_cast<Creature*>(obj);
-
-        // Printing type.
-        CreatureType subtype = creat -> getSubtype();
-        output += sformat("Subtype\t\t\t%s\n",
-                          this -> creat_types[subtype].c_str());
-
-        // Printing age.
-        output += sformat("Age\t\t\t%u/%u\n", creat -> getAge(),
-                          creat -> getMaxAge());
-
-        // Printing stats.
-        output += sformat("Hunger\t\t\t%u/%u\n", creat -> getHunger(),
-                          creat -> getMaxHunger());
-        output += sformat("Sleepiness\t\t%u/%u\n", creat -> getSleepiness(),
-                          creat -> getMaxSleepiness());
-        output += sformat("Endurance\t\t%u/%u\n", creat -> getEndurance(),
-                          creat -> getMaxEndurance());
-        output += sformat("Force\t\t\t%u\n", creat -> getForce());
-
-        // Printing decision.
-        // FIXME: I use static cast there. Not good.
-        CreatureAction act = static_cast<CreatureAction>(creat -> getCurrentDecision());
-        output += sformat("Current decision\t%s\n",
-                          this -> creat_acts[act].c_str());
-
-        // Printing view area.
-        Shape view_area = creat -> getViewArea();
-        output += sformat("View area\t\t%s (%f)\n",
-                          this -> shape_types[view_area.getType()].c_str(),
-                          view_area.getSize());
-
-        // Printing inventory.
-        output += "Inventory\n";
-        ObjectHeap* inv = creat -> getInventory();
-        ObjectHeap::const_iterator iter;
-        uint cur_column = 1;
-        for (iter = inv -> begin(); iter != inv -> end(); iter++)
-        {
-            output += sformat("\t%d", (*iter) -> getObjectID());
-
-            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
-            {
-                cur_column = 1;
-                output += "\n";
-            }
-        }
-
-        // Printing objects around.
-        output += "Objects around\n";
-        ObjectHeap* objs_around = creat -> getObjectsAround();
-        cur_column = 1;
-        for (iter = objs_around -> begin(); iter != objs_around -> end(); iter++)
-        {
-            output += sformat("\t%d", (*iter) -> getObjectID());
-
-            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
-            {
-                cur_column = 1;
-                output += "\n";
-            }
-        }
-
-        if (subtype == HUMANOID)
-        {
-            output += "======== HUMANOID INFORMATION ========\n";
-
-            Humanoid* hum = dynamic_cast<Humanoid*>(creat);
-
-            // Printing ID.
-            output += sformat("Humanoid ID\t\t%u\n", hum -> getHumanoidID());
-
-            // Printing stats.
-            output += sformat("Bravery\t\t\t%u\n", hum -> getBravery());
-            output += sformat("Need in house\t\t%u\n", hum -> getNeedInHouse());
-
-            // Printing home information.
-            Building* home = hum -> getHome();
-            output += "Home ID\t\t\t";
-            if (home == nullptr)
-            {
-                output += "none\n";
-            }
-            else
-            {
-                output += sformat("%u\n", home -> getObjectID());
-            }
-
-            // Printing detailed act.
-            output += sformat("Detailed action\t\t%s\n",
-                              this -> hum_acts[hum -> getCurrentDetailedAct()].c_str());
-        }
-        else if (subtype == NON_HUMANOID)
-        {
-            output += "====== NON-HUMANOID INFORMATION ======\n";
-
-            NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
-        }
-    }
-
-    return output;
+    return obj -> printObjectInfo() + "\n";
 }
 
 //******************************************************************************
@@ -683,4 +539,23 @@ std::string CLI::traceStep(std::stringstream& ss)
 
 std::string CLI::change(std::stringstream& ss)
 {
+    // Reading id.
+    uint id;
+    ss >> id;
+    if (ss.fail())
+    {
+        return sformat("Error: object id expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // Reading field name.
+    std::string field;
+    ss >> field;
+    if (ss.fail())
+    {
+        return sformat("Error: field name expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // TODO: Implement it.
 }

@@ -8,7 +8,7 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Resource/Resource.h"
-#include "../../../common/Random/Random.h"
+#include "../../../common/Math/Random.h"
 #include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 
 CreationPerformer::CreationPerformer(World* world):

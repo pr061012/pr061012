@@ -7,7 +7,7 @@
 
 #include "Creature.h"
 #include "../../../../common/BasicDefines.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 #include "../Weather/Weather.h"
 
 
@@ -341,6 +341,8 @@ void Creature:: chooseDirectionToEscape()
 
     // go to the opposite direction of biggest danger
     this -> angle = atan(global_y / global_x) + M_PI;
+    aim = 0;
+    direction_is_set = true;
 }
 
 // Go with the given speed
@@ -369,7 +371,7 @@ void Creature::go(SpeedType speed)
         {
             goal = aim;
             //generate route
-            route = generateRoute(goal);
+            route = generateRoute();
 
             angle = this -> getCoords().getAngle(route.top()); 
             direction_is_set = true;
@@ -423,6 +425,53 @@ uint Creature::getHealthPoints() const
 uint Creature::getMaxHealthPoints() const
 {
     return this -> max_health;
+}
+
+std::string Creature::printObjectInfo() const
+{
+    std::string output = Object::printObjectInfo();
+
+    std::stringstream ss;
+
+    ss << "Current action\t\t";
+    switch (current_action)
+    {
+        case NONE:          ss << "none";          break;
+        case SLEEP:         ss << "sleep";         break;
+        case EAT:           ss << "eat";           break;
+        case BUILD:         ss << "build";         break;
+        case GATHER:        ss << "gather";        break;
+        case RELAX:         ss << "relax";         break;
+        case EXPLORE:       ss << "explore";       break;
+        case COMMUNICATE:   ss << "communicate";   break;
+        case WORK:          ss << "work";          break;
+        case REALIZE_DREAM: ss << "realize dream"; break;
+        case ESCAPE:        ss << "escape";        break;
+        case REPRODUCE:     ss << "reproduce";     break;
+        case DO_NOTHING:    ss << "do nothing";    break;
+        default:            ss << "unknown";       break;
+    }
+    ss << "\n";
+
+    ss << "Force\t\t\t"           << force << std::endl <<
+          "Age\t\t\t"             << age << "/" << max_age << std::endl <<
+          "Endurance\t\t"         << endurance << "/" << max_endurance <<
+                                     std::endl <<
+          "Sleepiness\t\t"        << sleepiness << "/" << max_sleepiness <<
+                                     std::endl <<
+          "Hunger\t\t\t"          << hunger << "/" << max_hunger << std::endl <<
+          "Need in descendants\t" << need_in_descendants << std::endl <<
+          "Danger around\t\t"     << danger << std::endl <<
+          "Direction is set\t"    << (direction_is_set ? "yes" : "no") <<
+                                     std::endl <<
+          "Direction angle\t\t"   << angle << std::endl <<
+          "Aim ID\t\t\t"          << (aim == nullptr ? "none" :
+                                     std::to_string(aim -> getObjectID())) <<
+                                     std::endl <<
+          "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
+          "Objects around\t\t"    << std::endl << objects_around.printIDs();
+
+    return output + ss.str();
 }
 
 double Creature::setDirection()

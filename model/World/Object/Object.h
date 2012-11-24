@@ -44,12 +44,26 @@ public:
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector <Action> * getActions() = 0;
+    virtual std::vector<Action>* getActions() = 0;
 
     /**
      * @brief Receives message.
      */
     virtual void receiveMessage(Message message) = 0;
+
+    //**************************************************************************
+    // OBJECT'S INFORMATION.
+    //**************************************************************************
+
+    /**
+     * @brief  Prints out object's information.
+     * @return string with information
+     */
+    virtual std::string printObjectInfo() const;
+
+    //**************************************************************************
+    // HEALING/DAMAGING.
+    //**************************************************************************
 
     /**
      * @brief Damages object.
@@ -128,9 +142,8 @@ public:
      */
     bool isSolid() const;
 
-
     //**************************************************************************
-    // DANGEROUS.
+    // DANGER.
     //**************************************************************************
 
     /**
@@ -154,6 +167,12 @@ public:
      * @return the value of type
      */
     ObjectType getType() const;
+
+    /**
+     * @brief  Gets type's name.
+     * @return the name of the type
+     */
+    virtual std::string getTypeName() const = 0;
 
     /**
      * @brief  Returns object's ID.
@@ -208,12 +227,13 @@ public:
     const Vector& getCoords() const;
 
     //**************************************************************************
-    // CAST OPERATORS
+    // CAST OPERATORS.
     //**************************************************************************
+
     /**
-     * @brief Operator to cast an Object to const ViewObject*
+     * @brief Operator to cast an Object to const ViewObject.
      */
-    operator const ViewObject*();
+    operator const ViewObject();
 
 private:
     //**************************************************************************

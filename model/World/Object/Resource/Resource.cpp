@@ -3,10 +3,12 @@
     See the COPYING file for copying permission.
 */
 
+#include <sstream>
+
 #include "Resource.h"
 
 #include "../../../../common/BasicDefines.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -31,6 +33,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> makeNonSolid();
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
+            this -> max_amount      = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -41,6 +44,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> makeSolid();
             this -> difficulty      = RES_WOOD_DIFFICULTY;
             this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> max_amount      = 1.5 * this -> amount;
             this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
             this -> reg_amount      = RES_WOOD_REG_AMOUNT;
         break;
@@ -92,6 +96,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> restorable      = false;
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
+            this -> max_amount      = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -117,7 +122,7 @@ void Resource::incrementProgress()
 
 void Resource::decreaseAmount(uint delta)
 {
-    if(this -> amount >= delta)
+    if (this -> amount >= delta)
     {
         this -> amount -= delta;
     }
@@ -129,8 +134,14 @@ void Resource::decreaseAmount(uint delta)
 
 void Resource::increaseAmount(uint delta)
 {
-    // TODO: We don't have top boundary yet. Do we need it?
-    this -> amount += delta;
+    if (this -> amount + delta <= this -> max_amount)
+    {
+        this -> amount += delta;
+    }
+    else
+    {
+        this -> amount = this -> max_amount;
+    }
 }
 
 uint Resource::getAmount() const
@@ -199,6 +210,23 @@ void Resource::receiveMessage(Message message)
 {
 }
 
+std::string Resource::printObjectInfo() const
+{
+    std::string output = Object::printObjectInfo();
+
+    std::stringstream ss;
+
+    ss << "Progress\t\t"      << progress << std::endl <<
+          "Difficulty\t\t"    << difficulty << std::endl <<
+          "Drop amount\t\t"   << amount_per_drop << std::endl <<
+          "Reg amount\t\t"    << reg_amount << std::endl <<
+          "Steps to reg\t\t"  << steps_to_reg << std::endl <<
+          "Is mineable\t\t"   << (mineable ? "yes" : "no") << std::endl <<
+          "Is restorable\t\t" << (restorable ? "yes" : "no") << std::endl;
+
+    return output + ss.str();
+}
+
 uint Resource::getHealthPoints() const
 {
     return this -> amount;
@@ -206,7 +234,12 @@ uint Resource::getHealthPoints() const
 
 uint Resource::getMaxHealthPoints() const
 {
-    return this -> amount;
+    return this -> max_amount;
+}
+
+std::string Resource::getTypeName() const
+{
+    return "resource";
 }
 
 //******************************************************************************

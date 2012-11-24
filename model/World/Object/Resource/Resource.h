@@ -86,8 +86,12 @@ public:
     std::vector <Action> * getActions();
     void receiveMessage(Message message);
 
+    std::string printObjectInfo() const;
+
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
+
+    std::string getTypeName() const;
 
     //**************************************************************************
     // RESOURCE TYPE.
@@ -161,6 +165,8 @@ private:
 
     /// Amount of resource.
     uint amount;
+    /// Maximum possible amount.
+    uint max_amount;
     /// Amount of resources received on each mining.
     uint amount_per_drop;
 
