@@ -10,7 +10,7 @@
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
-
+#include "../../../../../common/Math/DoubleComparison.h"
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -150,6 +150,8 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             endurance++;
         }
+        direction_is_set = false;
+        aim = nullptr;
         go(SLOW_SPEED);
     }
 
@@ -169,7 +171,8 @@ std::vector <Action>* NonHumanoid::getActions()
         if (aim != nullptr)
         {
             // Check distance to aim.
-            if (this -> getCoords().getDistance(aim -> getCoords()) < MATH_EPSILON)
+            double distance = (this -> getCoords()).getDistance(aim -> getCoords());
+            if (DoubleComparison::areEqual(distance, 0))
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -291,7 +294,6 @@ void NonHumanoid::updateCommonAttrs()
         this -> hunger   += CREAT_DELTA_HUNGER;
     if (hunger == max_hunger)
     {
-
         this -> decreaseHealth(CREAT_DELTA_HEALTH);
     }
     if (current_decision != SLEEP)
@@ -323,10 +325,10 @@ void NonHumanoid::findGrass()
         {
             coords = res -> getCoords();
             // Check distance to grass.
-            if (coords.getDistance(this -> getCoords()) > distance)
+            if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;
-                direction_is_set = false;
+                direction_is_set = true;
                 distance = coords.getDistance(this -> getCoords());
             }
         }
