@@ -575,15 +575,7 @@ std::string CLI::info(std::stringstream& ss)
 
         // Printing aim.
         const Object* aim = creat -> getAim();
-        output += "Aim ID\t\t\t";
-        if (aim == nullptr)
-        {
-            output += "none\n";
-        }
-        else
-        {
-            output += sformat("%u\n", aim -> getObjectID());
-        }
+        output += sformat("Aim ID\t\t\t%s\n", this -> printObjectID(aim).c_str());
 
         // Printing view area.
         Shape view_area = creat -> getViewArea();
@@ -614,15 +606,7 @@ std::string CLI::info(std::stringstream& ss)
 
             // Printing home information.
             Building* home = hum -> getHome();
-            output += "Home ID\t\t\t";
-            if (home == nullptr)
-            {
-                output += "none\n";
-            }
-            else
-            {
-                output += sformat("%u\n", home -> getObjectID());
-            }
+            output += sformat("Home ID\t\t\t%s\n", this -> printObjectID(home).c_str());
 
             // Printing visual memory.
             output += "Visual memory\n";
@@ -680,7 +664,7 @@ std::string CLI::change(std::stringstream& ss)
 // HELPFULL METHODS.
 //******************************************************************************
 
-std::string CLI::printObjectHeap(ObjectHeap* obj_heap, std::string indent,
+std::string CLI::printObjectHeap(const ObjectHeap* obj_heap, std::string indent,
                                  uint columns)
 {
     std::string output;
@@ -699,4 +683,14 @@ std::string CLI::printObjectHeap(ObjectHeap* obj_heap, std::string indent,
     }
 
     return output;
+}
+
+std::string CLI::printObjectID(const Object* obj)
+{
+    if (obj == nullptr)
+    {
+        return "none";
+    }
+
+    return std::to_string(obj -> getObjectID());
 }

@@ -173,8 +173,15 @@ private:
      * @param  columns  amount of columns
      * @return string with ids
      */
-    std::string printObjectHeap(ObjectHeap* obj_heap, std::string indent = "\t",
-                                uint columns = 5);
+    std::string printObjectHeap(const ObjectHeap* obj_heap,
+                                std::string indent = "\t", uint columns = 5);
+
+    /**
+     * @brief  Prints object's ID (if object isn't nullptr).
+     * @param  obj  Object
+     * @return id or none
+     */
+    std::string printObjectID(const Object* obj);
 };
 
 #endif // CLI_H
