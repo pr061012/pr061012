@@ -7,7 +7,7 @@
 #include <cmath>
 
 #include "Shape.h"
-#include "../../../common/BasicDefines.h"
+#include "../../../common/Math/DoubleComparison.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -109,7 +109,7 @@ bool Shape::hitTest (const Vector& vector) const
         case CIRCLE:
             // if a distance between a vector and a circle center is less than
             // radius, return true
-            if (center.getDistance(vector) - size/2 <= MATH_EPSILON)
+            if (DoubleComparison::isLess(center.getDistance(vector), size/2))
             {
                 return true;
             }
@@ -117,8 +117,10 @@ bool Shape::hitTest (const Vector& vector) const
 
         case SQUARE:
             // if a vector lies nearer than sides of a square, return true
-            if (fabs(center.getY() - vector.getY()) - size/2 <= MATH_EPSILON &&
-                fabs(center.getX() - vector.getX()) - size/2 <= MATH_EPSILON)
+            if (DoubleComparison::isLess(fabs(center.getY() - vector.getY()), 
+                                         size/2) &&
+                DoubleComparison::isLess(fabs(center.getX() - vector.getX()),
+                                         size/2))
             {
                 return true;
             }
@@ -138,8 +140,8 @@ bool Shape::hitTest (const Shape& shape) const
                 // if sum of radiuses is more than distance between centers,
                 // return true
                 case CIRCLE:
-                    if (center.getDistance(shape.getCenter()) <=
-                        (size + shape.getSize())/ 2)
+                    if (DoubleComaprison::isLess(center.getDistance(shape.getCenter()),
+                                                 (size + shape.getSize()) / 2))
                     {
                         return true;
                     }
@@ -243,10 +245,16 @@ bool Shape::circleOverlapsSegment(Shape shape, Vector pt1, Vector pt2) const
     // check if sement line is closer than radius and if 
     // one of the segments end lie inside a shape or
     // if a segment crosses circle with ends outside
-    return (shape.getCenter().getDistanceToLine(pt1, pt2) < shape.getSize()/2)
-            && (shape.hitTest(pt1) || shape.hitTest(pt2) ||
-                Vector::scalarProduct(pt2 - project, pt1 - project) < 0);
+    return DoubleComparison::isLess(shape.getCenter().getDistanceToLine(pt1, pt2),
+                                     shape.getSize()/2) && 
+                (shape.hitTest(pt1) || shape.hitTest(pt2) ||
+                 DoubleComparison::isLess(Vector::scalarProduct(pt2 - project, 
+                                                                pt1 - project), 0));
 }
+
+//**********************************************************
+// UNUSED
+//**********************************************************
 
 // Calculates intersections
 int Shape::intersect(const Shape& shape)
