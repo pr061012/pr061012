@@ -103,6 +103,12 @@ private:
     void genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle = 0.0, double toAngle = 2*M_PI);
 
     /**
+     * @brief Overloading of forementioned function. Generates
+     *        trees with default parameters
+     */
+    void genForestAt(double x, double y, double prob = 1.0, double fromAngle = 0.0, double toAngle = 2*M_PI);
+
+    /**
      * @brief Generate tree at specific location.
      */
     void genTreeAt(double x, double y, const ParamArray& tree_params);
