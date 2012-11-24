@@ -246,3 +246,8 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     // and return the closest type of weather for this area.
     return RAIN;
 }
+
+void World::genForestAt(double x, double y)
+{
+
+}

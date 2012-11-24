@@ -93,6 +93,11 @@ private:
     void genResources();
     void genWeather();
 
+    /**
+     * @brief Generate forest at specific location.
+     */
+    void genForestAt(double x, double y);
+
 public:
     //**************************************************************************
     // OBJECT HEAP METHODS.
