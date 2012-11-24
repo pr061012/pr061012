@@ -431,8 +431,7 @@ std::string Creature::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Print inventory and objs_around, current action.
-    //       Need to print steps?
+    // TODO: Print current action. Need to print steps?
     ss << "Force\t\t\t"           << force << std::endl <<
           "Age\t\t\t"             << age << "/" << max_age << std::endl <<
           "Endurance\t\t"         << endurance << "/" << max_endurance <<
@@ -447,7 +446,9 @@ std::string Creature::printObjectInfo() const
           "Direction angle\t\t"   << angle << std::endl <<
           "Aim ID\t\t\t"          << (aim == nullptr ? "none" :
                                      std::to_string(aim -> getObjectID())) <<
-                                     std::endl;
+                                     std::endl <<
+          "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
+          "Objects around\t\t"    << std::endl << objects_around.printIDs();
 
     return output + ss.str();
 }

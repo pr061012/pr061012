@@ -509,38 +509,3 @@ std::string CLI::traceStep(std::stringstream& ss)
 std::string CLI::change(std::stringstream& ss)
 {
 }
-
-//******************************************************************************
-// HELPFULL METHODS.
-//******************************************************************************
-
-std::string CLI::printObjectHeap(const ObjectHeap* obj_heap, std::string indent,
-                                 uint columns)
-{
-    std::string output;
-    uint cur_column = 1;
-
-    ObjectHeap::const_iterator iter;
-    for (iter = obj_heap -> begin(); iter != obj_heap -> end(); iter++)
-    {
-        output += sformat("%s%d", indent.c_str(), (*iter) -> getObjectID());
-
-        if (cur_column++ == columns || iter + 1 == obj_heap -> end())
-        {
-            cur_column = 1;
-            output += "\n";
-        }
-    }
-
-    return output;
-}
-
-std::string CLI::printObjectID(const Object* obj)
-{
-    if (obj == nullptr)
-    {
-        return "none";
-    }
-
-    return std::to_string(obj -> getObjectID());
-}

@@ -52,9 +52,9 @@ std::string Building::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Add contents printing.
     ss << "Is complete\t\t" << (completeness ? "yes" : "no") << std::endl <<
-          "Free space\t\t" << free_space << "/" << max_space << std::endl;
+          "Free space\t\t"  << free_space << "/" << max_space << std::endl <<
+          "Contents"        << std::endl << contents -> printIDs();
 
     return output + ss.str();
 }
