@@ -8,6 +8,8 @@
 
 #include <cfloat>
 
+#define EPSILON DBL_EPSILON * 16 * 1000
+
 /**
  * @brief Interface for double comparison.
  *        The following definitions of functions are from Knuth's ''The art of
@@ -24,7 +26,7 @@ public:
      */
     static bool areEqual(double a, double b)
     {
-        return fabs(a - b) <= DBL_EPSILON * fmax(fabs(a), fabs(b));
+        return fabs(a - b) <= EPSILON * fmax(fabs(a), fabs(b));
     }
 
     /**
@@ -46,7 +48,7 @@ public:
      */
     static bool isGreater(double a, double b)
     {
-        return (a - b) > DBL_EPSILON * fmax(fabs(a), fabs(b));
+        return (a - b) > EPSILON * fmax(fabs(a), fabs(b));
     }
 
     /**
@@ -57,7 +59,7 @@ public:
      */
     static bool isLess(double a, double b)
     {
-        return (b - a) > DBL_EPSILON * fmax(fabs(a), fabs(b));
+        return (b - a) > EPSILON * fmax(fabs(a), fabs(b));
     }
 };
 

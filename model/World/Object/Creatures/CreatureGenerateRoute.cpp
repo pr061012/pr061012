@@ -1,7 +1,7 @@
 #include <set>
 #include "Creature.h"
 
-#define __creature_generate_route_complete 1
+#define __creature_generate_route_complete 0
 
 // Class for vertices with which we will build our graph.
 class Vertex
