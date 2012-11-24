@@ -43,9 +43,10 @@ void MiningPerformer::perform(Action& action)
         action.markAsFailed();
         return;
     }
-
-    ObjectHeap env = world -> getIndexator() -> getAreaContents(creature -> getViewArea());
     Object* res = participants[res_index];
+    double size = creature -> getShape().getSize() * 1.5;
+    Shape shape(creature -> getCoords(), CIRCLE, size);
+    ObjectHeap env = world -> getIndexator() -> getAreaContents(shape);
 /*
     Object* tool = participant[tool_index];
 */
