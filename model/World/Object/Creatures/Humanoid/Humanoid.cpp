@@ -371,7 +371,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             double required_distance = //MINING_RADIUS +
-                    this -> getShape().getSize() / 1.8 + aim -> getShape().getSize() / 1.8;
+                    this -> getShape().getSize() / 1.9 + aim -> getShape().getSize() / 1.9;
             double current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
@@ -578,7 +578,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
     {
-        return MINE_RESOURSES;// bad CHOOSE_PLACE_FOR_HOME;
+        return CHOOSE_PLACE_FOR_HOME;// bad ;MINE_RESOURSES;
     }
     else
     {
