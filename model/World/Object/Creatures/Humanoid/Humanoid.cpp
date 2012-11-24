@@ -227,7 +227,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
 
-            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+            if (!this -> getShape().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
