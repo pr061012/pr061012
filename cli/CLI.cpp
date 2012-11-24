@@ -84,16 +84,6 @@ CLI::CLI(World* world, Controller* control) :
     this -> obj_types[WEATHER]  = "WEATHER ";
     this -> obj_types[CREATURE] = "CREATURE";
 
-    // Initialising array with creature types names.
-    this -> creat_types.resize(AMNT_CREATURE_TYPES);
-    this -> creat_types[HUMANOID]     = "HUMANOID    ";
-    this -> creat_types[NON_HUMANOID] = "NON_HUMANOID";
-
-    // Initialising array with shape types names.
-    this -> shape_types.resize(AMNT_SHAPE_TYPES);
-    this -> shape_types[CIRCLE] = "CIRCLE";
-    this -> shape_types[SQUARE] = "SQUARE";
-
     // Initialising array with creature actions names.
     this -> creat_acts.resize(AMNT_CREATURE_ACTS);
     this -> creat_acts[NONE]          = "NONE";

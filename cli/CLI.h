@@ -101,12 +101,6 @@ private:
     /// Array with object types names.
     std::vector <std::string> obj_types;
 
-    /// Array with creature types names.
-    std::vector <std::string> creat_types;
-
-    /// Array with shape types names.
-    std::vector <std::string> shape_types;
-
     /// Array with creature actions names.
     std::vector <std::string> creat_acts;
 
