@@ -14,6 +14,7 @@
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../Resource/Resource.h"
+#include "../../../../../common/Math/DoubleComparison.h"
 
 // TODO:
 //  * Add comments.
@@ -57,8 +58,8 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     bravery         = Random::int_range(HUM_BRAVERY_MIN,     HUM_BRAVERY_MAX);
 
     // Initialize other values.
-    sociability    = 100 - max_sociability;
-    need_in_points = 100;
+    sociability    = 0;  // BAD 100 - max_sociability;
+    need_in_points = 0;  //100;
     need_in_house  = 100;
 
     //Initialize of matrix of attr. bad
@@ -141,6 +142,7 @@ std::vector <Action>* Humanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_decision))
     {
         current_decision = NONE;
+        detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
     // Make new decision and set aim and direction.
@@ -334,9 +336,6 @@ std::vector <Action>* Humanoid::getActions()
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
             ObjectHeap::const_iterator iter;
-            Vector coords;
-
-            double distance = SZ_WORLD_HSIDE;
             for
             (
                 iter = visual_memory -> begin(RESOURCE);
@@ -346,12 +345,15 @@ std::vector <Action>* Humanoid::getActions()
                 Resource* res = dynamic_cast<Resource*>(*iter);
                 if (res -> getSubtype()  == RES_BUILDING_MAT)
                 {
+                    Vector coords;
+                    double distance = SZ_WORLD_VSIDE;
                     coords = res -> getCoords();
-                    if (distance < coords.getDistance(this -> getCoords()))
+                    if (distance > coords.getDistance(this -> getCoords()))
                     {
                         this -> aim = res;
                         distance = coords.getDistance(this -> getCoords());
                     }
+                    this -> aim = res;
                 }
             }
         }
@@ -363,18 +365,23 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+            double required_distance = //MINING_RADIUS +
+                    this -> getShape().getSize() / 2.0 + aim -> getShape().getSize() / 2.0;
+            double current_distance = this -> getCoords().getDistance
+                    (aim -> getCoords());
+
+            if (DoubleComparison::areNotEqual(current_distance, required_distance))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
             }
             else
             {
+                Log::note("success!","ee",6,"fe");
                 Action act(MINE_OBJ, this);
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-                //detailed_act = BUILD_HOUSE;
             }
         }
     }
@@ -469,6 +476,7 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam<ObjectType>("obj_type", BUILDING);
         act.addParam<uint>("building_max_space", 3);
         act.addParam<uint>("building_max_health", 100);
+        this -> actions.push_back(act);
         current_decision = NONE;
     }
 
