@@ -140,7 +140,7 @@ bool Shape::hitTest (const Shape& shape) const
                 // if sum of radiuses is more than distance between centers,
                 // return true
                 case CIRCLE:
-                    if (DoubleComaprison::isLess(center.getDistance(shape.getCenter()),
+                    if (DoubleComparison::isLess(center.getDistance(shape.getCenter()),
                                                  (size + shape.getSize()) / 2))
                     {
                         return true;
