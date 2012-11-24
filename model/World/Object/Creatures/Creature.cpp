@@ -369,7 +369,7 @@ void Creature::go(SpeedType speed)
         {
             goal = aim;
             //generate route
-            route = generateRoute(goal);
+            route = generateRoute();
 
             angle = this -> getCoords().getAngle(route.top()); 
             direction_is_set = true;

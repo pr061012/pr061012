@@ -452,7 +452,20 @@ protected:
      * @param   goal Object to go to
      * @return  path to the goal
      */
-    Path generateRoute(Object * goal);
+    Path generateRoute();
+
+    /**
+     * @brief  Checks if creature can stand on the point
+     * @param  point the point we check
+     * @return 0 if creature can stand on the point
+     *         1 if the point is the goal point
+     *        -1 if creature can't stand on the point
+     */
+
+    virtual int checkPointIsPassable(Vector point);
+
+    /// Neighnour offsets for generating vertices for path graph
+    static const Vector neighbour_offsets[8];
 
     //**********************************************************
     // ACTIONS
