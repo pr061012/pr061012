@@ -8,7 +8,7 @@
 #include "NonHumanoid.h"
 #include "../../Resource/Resource.h"
 #include "../../../../../common/BasicDefines.h"
-#include "../../../../../common/Random/Random.h"
+#include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
 
 //******************************************************************************

@@ -14,8 +14,6 @@
 #include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
-static const uint COLUMNS = 5;
-
 //******************************************************************************
 // TRUNCATED NAMES.
 // Prefix: TN.
@@ -575,6 +573,10 @@ std::string CLI::info(std::stringstream& ss)
         output += sformat("Current decision\t%s\n",
                           this -> creat_acts[act].c_str());
 
+        // Printing aim.
+        const Object* aim = creat -> getAim();
+        output += sformat("Aim ID\t\t\t%s\n", this -> printObjectID(aim).c_str());
+
         // Printing view area.
         Shape view_area = creat -> getViewArea();
         output += sformat("View area\t\t%s (%f)\n",
@@ -583,34 +585,11 @@ std::string CLI::info(std::stringstream& ss)
 
         // Printing inventory.
         output += "Inventory\n";
-        ObjectHeap* inv = creat -> getInventory();
-        ObjectHeap::const_iterator iter;
-        uint cur_column = 1;
-        for (iter = inv -> begin(); iter != inv -> end(); iter++)
-        {
-            output += sformat("\t%d", (*iter) -> getObjectID());
-
-            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
-            {
-                cur_column = 1;
-                output += "\n";
-            }
-        }
+        output += this -> printObjectHeap(creat -> getInventory());
 
         // Printing objects around.
         output += "Objects around\n";
-        ObjectHeap* objs_around = creat -> getObjectsAround();
-        cur_column = 1;
-        for (iter = objs_around -> begin(); iter != objs_around -> end(); iter++)
-        {
-            output += sformat("\t%d", (*iter) -> getObjectID());
-
-            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
-            {
-                cur_column = 1;
-                output += "\n";
-            }
-        }
+        output += this -> printObjectHeap(creat -> getObjectsAround());
 
         if (subtype == HUMANOID)
         {
@@ -627,15 +606,11 @@ std::string CLI::info(std::stringstream& ss)
 
             // Printing home information.
             Building* home = hum -> getHome();
-            output += "Home ID\t\t\t";
-            if (home == nullptr)
-            {
-                output += "none\n";
-            }
-            else
-            {
-                output += sformat("%u\n", home -> getObjectID());
-            }
+            output += sformat("Home ID\t\t\t%s\n", this -> printObjectID(home).c_str());
+
+            // Printing visual memory.
+            output += "Visual memory\n";
+            output += this -> printObjectHeap(hum -> getVisMem());
 
             // Printing detailed act.
             output += sformat("Detailed action\t\t%s\n",
@@ -683,4 +658,39 @@ std::string CLI::traceStep(std::stringstream& ss)
 
 std::string CLI::change(std::stringstream& ss)
 {
+}
+
+//******************************************************************************
+// HELPFULL METHODS.
+//******************************************************************************
+
+std::string CLI::printObjectHeap(const ObjectHeap* obj_heap, std::string indent,
+                                 uint columns)
+{
+    std::string output;
+    uint cur_column = 1;
+
+    ObjectHeap::const_iterator iter;
+    for (iter = obj_heap -> begin(); iter != obj_heap -> end(); iter++)
+    {
+        output += sformat("%s%d", indent.c_str(), (*iter) -> getObjectID());
+
+        if (cur_column++ == columns || iter + 1 == obj_heap -> end())
+        {
+            cur_column = 1;
+            output += "\n";
+        }
+    }
+
+    return output;
+}
+
+std::string CLI::printObjectID(const Object* obj)
+{
+    if (obj == nullptr)
+    {
+        return "none";
+    }
+
+    return std::to_string(obj -> getObjectID());
 }
