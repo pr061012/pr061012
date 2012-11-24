@@ -273,6 +273,15 @@ void World::genForestAt(double x, double y, double prob, const ParamArray& tree_
     }
 }
 
+void World::genForestAt(double x, double y, double prob, double fromAngle, double toAngle)
+{
+    ParamArray tree_params;
+    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    tree_params.addKey<uint>("res_amount", 10);
+
+    this -> genForestAt(x, y, prob, tree_params, fromAngle, toAngle);
+}
+
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 {
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
