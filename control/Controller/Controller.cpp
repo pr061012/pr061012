@@ -45,6 +45,29 @@ Controller::~Controller()
     }
 }
 
+void Controller::destroy(Object * object)
+{
+    object -> markAsDestroyed();
+    world -> getIndexator() -> removeObject(object);
+
+    if (object -> getType() == CREATURE)
+    {
+        // Drop all belongings to the ground.
+        ObjectHeap * inventory = 
+            dynamic_cast<Creature*>(object) -> getInventory();
+
+        for (ObjectHeap::iterator i = inventory -> begin();
+             i != inventory -> end(); i++)
+        {
+            world -> getHiddenObjects() -> remove(*i);
+            world -> getVisibleObjects() -> find(*i);
+            world -> getIndexator() -> addObject(*i);
+            (*i) -> setCoords(object -> getCoords());
+        }
+
+    }
+}
+
 void Controller::step()
 {
     for (int k = 0; k < 2; k++)
@@ -65,8 +88,7 @@ void Controller::step()
             // check objects health
             if ((*i) -> getHealthPoints() <= 0 && !(*i) -> isDestroyed())
             {
-                (*i) -> markAsDestroyed();
-                world -> getIndexator() -> removeObject(*i);
+                destroy(*i);
             }
 
             // don't do anything with destored objects
@@ -92,8 +114,7 @@ void Controller::step()
                 if (dynamic_cast<Creature*>(*i) -> getAge() >=
                     dynamic_cast<Creature*>(*i) -> getMaxAge())
                 {
-                    (*i) -> markAsDestroyed();
-                    world -> getIndexator() -> removeObject(*i);
+                    destroy(*i);
                     continue;
                 }
 
