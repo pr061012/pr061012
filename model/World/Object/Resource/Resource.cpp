@@ -33,6 +33,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> makeNonSolid();
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
+            this -> max_amount      = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -43,6 +44,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> makeSolid();
             this -> difficulty      = RES_WOOD_DIFFICULTY;
             this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> max_amount      = 1.5 * this -> amount;
             this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
             this -> reg_amount      = RES_WOOD_REG_AMOUNT;
         break;
@@ -94,6 +96,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> restorable      = false;
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             this -> amount          = res_amount;
+            this -> max_amount      = res_amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -119,7 +122,7 @@ void Resource::incrementProgress()
 
 void Resource::decreaseAmount(uint delta)
 {
-    if(this -> amount >= delta)
+    if (this -> amount >= delta)
     {
         this -> amount -= delta;
     }
@@ -131,8 +134,14 @@ void Resource::decreaseAmount(uint delta)
 
 void Resource::increaseAmount(uint delta)
 {
-    // TODO: We don't have top boundary yet. Do we need it?
-    this -> amount += delta;
+    if (this -> amount + delta <= this -> max_amount)
+    {
+        this -> amount += delta;
+    }
+    else
+    {
+        this -> amount = this -> max_amount;
+    }
 }
 
 uint Resource::getAmount() const
@@ -225,7 +234,7 @@ uint Resource::getHealthPoints() const
 
 uint Resource::getMaxHealthPoints() const
 {
-    return this -> amount;
+    return this -> max_amount;
 }
 
 std::string Resource::getTypeName() const

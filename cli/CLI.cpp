@@ -27,6 +27,7 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+#define TN_CLUSTER_BUILDING_MAT     "fr"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -83,16 +84,6 @@ CLI::CLI(World* world, Controller* control) :
     this -> obj_types[WEATHER]  = "WEATHER ";
     this -> obj_types[CREATURE] = "CREATURE";
 
-    // Initialising array with creature types names.
-    this -> creat_types.resize(AMNT_CREATURE_TYPES);
-    this -> creat_types[HUMANOID]     = "HUMANOID    ";
-    this -> creat_types[NON_HUMANOID] = "NON_HUMANOID";
-
-    // Initialising array with shape types names.
-    this -> shape_types.resize(AMNT_SHAPE_TYPES);
-    this -> shape_types[CIRCLE] = "CIRCLE";
-    this -> shape_types[SQUARE] = "SQUARE";
-
     // Initialising array with creature actions names.
     this -> creat_acts.resize(AMNT_CREATURE_ACTS);
     this -> creat_acts[NONE]          = "NONE";
@@ -145,6 +136,11 @@ std::string CLI::runCommand(std::string command)
     if (cmd == "random-init")
     {
         return this -> init(ss, true);
+    }
+
+    if (cmd == "generate")
+    {
+        return this -> generate(ss);
     }
 
     if (cmd == "create")
@@ -204,6 +200,52 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
     this -> world -> reset(size, random);
     return sformat("Successfully created world %dx%d.\n", size, size);
+}
+
+//******************************************************************************
+// `GENERATE` PROCESSOR.
+//******************************************************************************
+
+std::string CLI::generate(std::stringstream& ss)
+{
+    // Reading coordinates.
+    double x;
+    ss >> x;
+    if (ss.fail())
+    {
+        return sformat("Error: x coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    double y;
+    ss >> y;
+    if (ss.fail())
+    {
+        return sformat("Error: y coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    // Reading type.
+    std::string type;
+    ss >> type;
+    if (ss.fail())
+    {
+        return sformat("Error: ClusterType expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    if (type == TN_CLUSTER_BUILDING_MAT)
+    {
+        this -> world -> genForestAt(x, y);
+    }
+    else
+    {
+        return sformat("Error: unknown ClusterType. Possible values: %s.\n",
+                       TN_CLUSTER_BUILDING_MAT);
+    }
+
+    return sformat("Successfully generated cluster (%s) at (%f, %f).\n",
+                   type.c_str(), x, y);
 }
 
 //******************************************************************************
@@ -456,22 +498,11 @@ std::string CLI::info(std::stringstream& ss)
     }
 
     // Looking for object.
-    ObjectHeap* objs = this -> world -> getVisibleObjects();
-    ObjectHeap::const_iterator iter;
-    Object* obj;
-    for (iter = objs -> begin(); iter != objs -> end(); iter++)
-    {
-        obj = *iter;
+    Object* obj = this -> world -> getObjectByID(id);
 
-        if (obj -> getObjectID() == id)
-        {
-            break;
-        }
-    }
-
-    if (iter == objs -> end())
+    if (obj == nullptr)
     {
-        return sformat("Error: object with id %d doesn't exist.\n", id);
+        return sformat("Error: object with id %u doesn't exist.\n", id);
     }
 
     return obj -> printObjectInfo() + "\n";
@@ -508,4 +539,23 @@ std::string CLI::traceStep(std::stringstream& ss)
 
 std::string CLI::change(std::stringstream& ss)
 {
+    // Reading id.
+    uint id;
+    ss >> id;
+    if (ss.fail())
+    {
+        return sformat("Error: object id expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // Reading field name.
+    std::string field;
+    ss >> field;
+    if (ss.fail())
+    {
+        return sformat("Error: field name expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // TODO: Implement it.
 }

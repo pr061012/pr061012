@@ -22,7 +22,7 @@
 //
 // FIXME:
 //  * aim == 0?
-
+using namespace std;
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -61,7 +61,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     need_in_points = 100;
     need_in_house  = 100;
 
-    //Initialize of matrix of attr
+    //Initialize of matrix of attr. bad
     attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
@@ -79,6 +79,8 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     decr_endur_step = 0;
 
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
+
+    //bad
 }
 
 Humanoid::~Humanoid()
@@ -114,7 +116,7 @@ std::vector <Action>* Humanoid::getActions()
     this -> common_steps--;
     this -> danger_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
+    if (this -> decr_sleep_step)
     {
         this -> decr_sleep_step--;
     }
@@ -125,7 +127,10 @@ std::vector <Action>* Humanoid::getActions()
     if(desc_steps == 0)
         updateNeedInDesc();
     if(common_steps == 0)
+    {
+        // bad
         updateCommonAttrs();
+    }
     if(danger_steps == 0)
         updateDanger();
 
@@ -282,16 +287,17 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
-            else
-            {
-                this -> decr_endur_step--;
-            }
+          //  else
+// bad           {
+//                this -> decr_endur_step--;
+
+//            }
         }
 
     }
 
     //**************************************************************************
-    // DETAILED DECISION : SLEEP_ON_THE_GROUND
+    // DETAILED DECISION : SLEEP_ON_THE_GROUND | OK
     // Humanoid just increases endurance and decreases sleepiness
     //**************************************************************************
 
@@ -314,10 +320,10 @@ std::vector <Action>* Humanoid::getActions()
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
         }
-        else
-        {
-            this -> decr_endur_step--;
-        }
+//        else
+//        {
+//            this -> decr_sleep_step--;
+//        }
     }
 
     //**************************************************************************
@@ -470,12 +476,18 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam<uint>("building_max_health", 100);
         current_decision = NONE;
     }
+
     return &actions;
 }
 
 void Humanoid::receiveMessage(Message message)
 {
 }
+
+//**********************************************************
+// UPDATES
+// We change attrs of our hum
+//**********************************************************
 
 void Humanoid::updateAge()
 {
@@ -495,17 +507,31 @@ void Humanoid::updateNeedInDesc()
 
 void Humanoid::updateCommonAttrs()
 {
-    this -> hunger      += CREAT_DELTA_HUNGER;
-    this -> sleepiness  += CREAT_DELTA_SLEEP;
-    this -> sociability += HUM_DELTA_SOC;
+    if (this -> hunger < this -> max_hunger)
+    {
+        this -> hunger                 += CREAT_DELTA_HUNGER;
+        this -> attrs(ATTR_HUNGER,0)    = 100 * hunger / max_hunger;
+    }
 
-    this -> attrs(ATTR_HUNGER,0)        = 100 * hunger / max_hunger;
-    this -> attrs(ATTR_SLEEPINESS,0)    = 100 * sleepiness / max_sleepiness; // what about health?
-    this -> attrs(ATTR_COMMUNICATION,0) = 100 * sociability / max_sociability;
+    if (this -> sleepiness < this -> max_sleepiness)
+    {
+        this -> sleepiness += CREAT_DELTA_SLEEP;
+        if (current_decision != SLEEP)
+        {
+            this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
+        }
+    }
+    // this -> sociability += HUM_DELTA_SOC;
+    // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
 
     this -> common_steps = CREAT_STEPS;
-    // TODO: func to calculate health, need in house and need in points
+    this -> attrs(ATTR_HEALTH,0) = 100 * (100 -health) / max_health;
 }
+
+//**********************************************************
+// CHOOSE ACTION
+// Bad
+//**********************************************************
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
@@ -543,7 +569,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
     {
-        return CHOOSE_PLACE_FOR_HOME;
+        return MINE_RESOURSES;// bad CHOOSE_PLACE_FOR_HOME;
     }
     else
     {
@@ -657,6 +683,24 @@ std::string Humanoid::printObjectInfo() const
     std::stringstream ss;
 
     // TODO: Print visual memory and detailed action.
+    ss << "Detailed action\t\t";
+    switch (detailed_act)
+    {
+        case HUNT:                     ss << "hunt";                     break;
+        case TAKE_FOOD_FROM_INVENTORY: ss << "take food from inventory"; break;
+        case FIND_FOOD:                ss << "find food";                break;
+        case RELAX_AT_HOME:            ss << "relax at home";            break;
+        case SLEEP_AT_HOME:            ss << "sleep at home";            break;
+        case SLEEP_ON_THE_GROUND:      ss << "sleep on the ground";      break;
+        case MINE_RESOURSES:           ss << "mine resource";            break;
+        case BUILD_HOUSE:              ss << "build house";              break;
+        case CHOOSE_PLACE_FOR_HOME:    ss << "choose place for home";    break;
+        case FIGHT:                    ss << "fight";                    break;
+        case RUN_FROM_DANGER:          ss << "run from danger";          break;
+        default:                       ss << "unknown";                  break;
+    }
+    ss << "\n";
+
     ss << "Sociability\t\t"    << sociability << "/" << max_sociability <<
                                   std::endl <<
           "Bravery\t\t\t"      << bravery << std::endl <<
@@ -665,7 +709,8 @@ std::string Humanoid::printObjectInfo() const
           "Need in points\t\t" << need_in_points << std::endl <<
           "Home ID\t\t\t"      << (home == nullptr ? "none" :
                                    std::to_string(home -> getObjectID())) <<
-                                  std::endl;
+                                  std::endl <<
+          "Visual memory\t\t"  << visual_memory -> printIDs() << std::endl;
 
     return output + ss.str();
 }

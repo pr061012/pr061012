@@ -12,7 +12,7 @@
 /**
  * @brief Command-Line-Interface class.
  *
- *        **TODO**: Write full `create` and `list` description.
+ *        **TODO**: Write full `create` description.
  *
  *        **init**
  *
@@ -21,7 +21,11 @@
  *        **random-init**
  *
  *          *random-init <size>* -- initialises world with specified size and
- *        randomly generated units.
+ *          randomly generated units.
+ *
+ *        **generate**
+ *          *generate <x> <y> <density> <cluster_type>* -- generates a bundle of
+ *          objects around (x, y) point.
  *
  *        **create**
  *
@@ -46,8 +50,8 @@
  *          isn't specified).
  *
  *        **trace-step**
- *          *trace-step [list of ids]* -- does on Controller's step and prints
- *          out changes for specified objects.
+ *          *trace-step [list of ids]* -- does Controller's step and prints out
+ *          changes for specified objects.
  */
 class CLI
 {
@@ -97,12 +101,6 @@ private:
     /// Array with object types names.
     std::vector <std::string> obj_types;
 
-    /// Array with creature types names.
-    std::vector <std::string> creat_types;
-
-    /// Array with shape types names.
-    std::vector <std::string> shape_types;
-
     /// Array with creature actions names.
     std::vector <std::string> creat_acts;
 
@@ -119,6 +117,13 @@ private:
      * @return command output
      */
     std::string init(std::stringstream& ss, bool random);
+
+    /**
+     * @brief  `generate` command.
+     * @param  ss   stream with args
+     * @return command output
+     */
+    std::string generate(std::stringstream& ss);
 
     /**
      * @brief  `create` command.

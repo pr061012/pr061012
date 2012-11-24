@@ -202,7 +202,7 @@ void Creature::setSleepiness(uint max_sleepiness)
 
 uint Creature::getSleepiness()
 {
-    return this -> max_sleepiness;
+    return this -> sleepiness;
 }
 
 void Creature::setMaxSleepiness(uint max_sleepiness)
@@ -433,7 +433,26 @@ std::string Creature::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Print current action. Need to print steps?
+    ss << "Current action\t\t";
+    switch (current_action)
+    {
+        case NONE:          ss << "none";          break;
+        case SLEEP:         ss << "sleep";         break;
+        case EAT:           ss << "eat";           break;
+        case BUILD:         ss << "build";         break;
+        case GATHER:        ss << "gather";        break;
+        case RELAX:         ss << "relax";         break;
+        case EXPLORE:       ss << "explore";       break;
+        case COMMUNICATE:   ss << "communicate";   break;
+        case WORK:          ss << "work";          break;
+        case REALIZE_DREAM: ss << "realize dream"; break;
+        case ESCAPE:        ss << "escape";        break;
+        case REPRODUCE:     ss << "reproduce";     break;
+        case DO_NOTHING:    ss << "do nothing";    break;
+        default:            ss << "unknown";       break;
+    }
+    ss << "\n";
+
     ss << "Force\t\t\t"           << force << std::endl <<
           "Age\t\t\t"             << age << "/" << max_age << std::endl <<
           "Endurance\t\t"         << endurance << "/" << max_endurance <<
