@@ -161,6 +161,20 @@ private:
      * @return command output
      */
     std::string change(std::stringstream& ss);
+
+    //**************************************************************************
+    // HELPFULL METHODS.
+    //**************************************************************************
+
+    /**
+     * @brief  Prints out ObjectHeap (objects' ids).
+     * @param  obj_heap ObjectHeap
+     * @param  indent   indentation prefix
+     * @param  columns  amount of columns
+     * @return string with ids
+     */
+    std::string printObjectHeap(ObjectHeap* obj_heap, std::string indent = "\t",
+                                uint columns = 5);
 };
 
 #endif // CLI_H
