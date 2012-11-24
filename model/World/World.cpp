@@ -284,6 +284,7 @@ void World::genForestAt(double x, double y, double prob, double fromAngle, doubl
 
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 {
+    std::cout<<"Generating tree at specific position."<<std::endl;
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
 
     new_obj -> setCoords(Vector(x, y));
@@ -295,12 +296,12 @@ Object *World::getObjectByID(int id)
 {
     ObjectHeap::const_iterator it;
 
-    for(it = visible_objs->begin(); it != visible_objs->end(); it++)
+    for (it = visible_objs -> begin(); it != visible_objs -> end(); it++)
     {
         if((*it) -> getObjectID() == id) return *it;
     }
 
-    for(it = hidden_objs->begin(); it != hidden_objs->end(); it++)
+    for (it = hidden_objs -> begin(); it != hidden_objs -> end(); it++)
     {
         if((*it) -> getObjectID() == id) return *it;
     }
