@@ -118,140 +118,143 @@ $(document).ready(function(){initNavTree('Building_8cpp_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5">   14</a></span>&#160;<a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5" title="Constructor.">Building::Building</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health) :</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>, false),</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    contents(new <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>),</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    health(0),</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    health(1),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    max_health(max_health),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    max_space(max_space),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    completeness(false)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5" title="Sets object&#39;s shape type.">setShapeType</a>(<a class="code" href="BasicDefines_8h.html#a0cbf71972f094dcce2c650fca8f684c6" title="Building&#39;s shape.">SHP_BUILDING</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b" title="Sets object&#39;s shape size.">setShapeSize</a>(<a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(<a class="code" href="BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f" title="Building side (minimum size).">SZ_BUILDING_SIDE_MIN</a>, <a class="code" href="BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3" title="Building side (maximum size).">SZ_BUILDING_SIDE_MAX</a>));</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439">   26</a></span>&#160;<a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439" title="Destructor.">Building::~Building</a>()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">delete</span> contents;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// INHERETED THINGS.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    free_space(max_space),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    max_space(max_space),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    completeness(false)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a8f057c451361240ebc424622db893e63" title="Sets object&#39;s danger level.">setDangerLevel</a>(<a class="code" href="BasicDefines_8h.html#a5d1c0525a55a20280f65cd0169439938" title="Building&#39;s danger level.">DNGR_BUILDING</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5" title="Sets object&#39;s shape type.">setShapeType</a>(<a class="code" href="BasicDefines_8h.html#a0cbf71972f094dcce2c650fca8f684c6" title="Building&#39;s shape.">SHP_BUILDING</a>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b" title="Sets object&#39;s shape size.">setShapeSize</a>(<a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(<a class="code" href="BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f" title="Building side (minimum size).">SZ_BUILDING_SIDE_MIN</a>, <a class="code" href="BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3" title="Building side (maximum size).">SZ_BUILDING_SIDE_MAX</a>));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439">   28</a></span>&#160;<a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439" title="Destructor.">Building::~Building</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">delete</span> contents;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">   35</a></span>&#160;std::vector&lt;Action&gt;* <a class="code" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf" title="Gets objects pending actions.">Building::getActions</a>()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>.clear();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> &amp;(<span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01" title="Receives message.">Building::receiveMessage</a>(<a class="code" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> message)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">   45</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#aebc5432120fc676a62817e9db746172d" title="Gets current object&#39;s heatlh points.">Building::getHealthPoints</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; health;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">   50</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6" title="Gets maximum possible object&#39;s health points.">Building::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_health;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// HEALTH MANIPULATION.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// INHERETED THINGS.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">   37</a></span>&#160;std::vector&lt;Action&gt;* <a class="code" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf" title="Gets objects pending actions.">Building::getActions</a>()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>.clear();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> &amp;(<span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01" title="Receives message.">Building::receiveMessage</a>(<a class="code" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> message)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">   47</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#aebc5432120fc676a62817e9db746172d" title="Gets current object&#39;s heatlh points.">Building::getHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; health;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">   52</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6" title="Gets maximum possible object&#39;s health points.">Building::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_health;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c" title="Decreases building&#39;s health.">Building::decreaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health &gt; delta)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">this</span> -&gt; health -= delta;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">this</span> -&gt; health = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">Building::increaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health + delta &lt; this -&gt; max_health)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">this</span> -&gt; health += delta;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">this</span> -&gt; health = <span class="keyword">this</span> -&gt; max_health;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af" title="Damages building.">Building::damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c" title="Decreases building&#39;s health.">decreaseHealth</a>(delta);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="classBuilding.html#a4266475915167761e483886535382f90">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a4266475915167761e483886535382f90" title="Repairs buidling.">Building::heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">// CONTENTS MANIPULATION.</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classBuilding.html#a4c019de587cb657f2566cbb27623fc6f">   97</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a4c019de587cb657f2566cbb27623fc6f" title="Puts object inside building.">Building::putInside</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents -&gt; push(<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2">  102</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2" title="Takes out object from building.">Building::takeOut</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents -&gt; <span class="keyword">remove</span>(object);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">// REPAIRING.</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041">  111</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041" title="Repairs building (adds delta to building health).">Building::repair</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// HEALTH MANIPULATION.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c" title="Decreases building&#39;s health.">Building::decreaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; health &gt; delta)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">this</span> -&gt; health -= delta;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">this</span> -&gt; health = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984">   73</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">Building::increaseHealth</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; health + delta &lt; this -&gt; max_health)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">this</span> -&gt; health += delta;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">this</span> -&gt; health = <span class="keyword">this</span> -&gt; max_health;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; health == <span class="keyword">this</span> -&gt; max_health)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">this</span> -&gt; completeness = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classObject.html#adaa6e2ab7f5c25b538bbb9e011cde767" title="Makes object solid.">makeSolid</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af">   91</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af" title="Damages building.">Building::damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c" title="Decreases building&#39;s health.">decreaseHealth</a>(delta);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classBuilding.html#a4266475915167761e483886535382f90">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#a4266475915167761e483886535382f90" title="Repairs buidling.">Building::heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">// CONTENTS MANIPULATION.</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classBuilding.html#a4c019de587cb657f2566cbb27623fc6f">  105</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a4c019de587cb657f2566cbb27623fc6f" title="Puts object inside building.">Building::putInside</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents -&gt; push(<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2">  110</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2" title="Takes out object from building.">Building::takeOut</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents -&gt; <span class="keyword">remove</span>(object);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">this</span> -&gt; health == <span class="keyword">this</span> -&gt; max_health)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">this</span> -&gt; completeness = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">// CONTENTS AND SPACE ACCESSORS.</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97">  125</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * <a class="code" href="classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97" title="Get the value of contents.">Building::getContents</a>()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b">  130</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b" title="Get the value of free_space.">Building::getFreeSpace</a>()</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; free_space;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6">  135</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6" title="Get the value of max_space.">Building::getMaxSpace</a>()</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_space;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="code" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88">  140</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88" title="Get the value of isFinished.">Building::getCompleteness</a>()</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; completeness;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">// REPAIRING.</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classBuilding.html#af5beff6811010a84af940243fab63041" title="Repairs building (adds delta to building health).">Building::repair</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classBuilding.html#a3b373e84180fba24ba0afe981e550984" title="Increases building&#39;s health.">increaseHealth</a>(delta);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">// CONTENTS AND SPACE ACCESSORS.</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97">  128</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * <a class="code" href="classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97" title="Get the value of contents.">Building::getContents</a>()</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; contents;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b">  133</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a112e8d1b75492e9cf4fef0468a64b19b" title="Get the value of free_space.">Building::getFreeSpace</a>()</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; free_space;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6">  138</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#ac37f23792d59ba27ba82dabe988752f6" title="Get the value of max_space.">Building::getMaxSpace</a>()</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_space;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="code" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88">  143</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88" title="Get the value of isFinished.">Building::getCompleteness</a>()</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; completeness;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_6e1c2001ff250873cab74c79ba8b43d2.html">Building</a></li><li class="navelem"><a class="el" href="Building_8cpp.html">Building.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

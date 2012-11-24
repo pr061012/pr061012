@@ -4,7 +4,7 @@ var classVector =
     [ "Vector", "classVector.html#a6f80c73b5f18dcf3f8e36065bdc8b9e5", null ],
     [ "~Vector", "classVector.html#a2eb3c49587a4f12cade7895ccb73f6a0", null ],
     [ "equals", "classVector.html#a23f670f9a6215d0d4a297cec51875436", null ],
-    [ "getAngle", "classVector.html#a689123a25d0265953f7be11bc3bdd3fa", null ],
+    [ "getAngle", "classVector.html#a1b4547e377907571141294cb2e5274c2", null ],
     [ "getDistance", "classVector.html#a94d7e5f383d91daff28e2f54e47a01fa", null ],
     [ "getDistanceToLine", "classVector.html#a57634d3a1ca08e5b328c637ddb922713", null ],
     [ "getX", "classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f", null ],

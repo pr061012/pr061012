@@ -1,5 +1,11 @@
 var BasicTypes_8h =
 [
+    [ "AMNT_ACTION_TYPES", "BasicTypes_8h.html#a2da95afb1e16f61fa251c393729fe3a4", null ],
+    [ "AMNT_CREATURE_ACTS", "BasicTypes_8h.html#a61e3f1d5a7b3881566a018d80283b26e", null ],
+    [ "AMNT_CREATURE_TYPES", "BasicTypes_8h.html#ade99668a0687706f722b2b9b3f7eec62", null ],
+    [ "AMNT_DET_HUM_ACTS", "BasicTypes_8h.html#a8a22ac8586bb28c52f6c39aa492f3b2b", null ],
+    [ "AMNT_OBJECT_TYPES", "BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768", null ],
+    [ "AMNT_SHAPE_TYPES", "BasicTypes_8h.html#a631294ec44ed927aeca29878908cf102", null ],
     [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
     [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
       [ "NO_ERROR", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abf350750d0d4fabd8954c0f1e9bbae94", null ],
@@ -48,7 +54,7 @@ var BasicTypes_8h =
       [ "WORK", "BasicTypes_8h.html#a5303344c79577371e13252b373606706a08b8829a0c9899440c48b2c2affc79af", null ],
       [ "REALIZE_DREAM", "BasicTypes_8h.html#a5303344c79577371e13252b373606706a6df69f33ea9d53566423bb7d23e6374c", null ],
       [ "ESCAPE", "BasicTypes_8h.html#a5303344c79577371e13252b373606706a0a311695a4f6c56869245418bebeb33d", null ],
-      [ "CONTINUE_GENDER", "BasicTypes_8h.html#a5303344c79577371e13252b373606706a4f1715bad2e1952e07a8ae75bcfe9c63", null ],
+      [ "REPRODUCE", "BasicTypes_8h.html#a5303344c79577371e13252b373606706af14cbd3b28e14ae7ed23756bfe852b6c", null ],
       [ "DO_NOTHING", "BasicTypes_8h.html#a5303344c79577371e13252b373606706aa3c06bc7e4d652a970cab72026c6fed1", null ]
     ] ],
     [ "CreatureType", "BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df", [

@@ -113,176 +113,198 @@ $(document).ready(function(){initNavTree('CreationPerformer_8cpp_source.html',''
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Creatures/Creature.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Resource/Resource.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../common/Random/Random.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a9a4c05a741464b60f2f6dc69c03c9070">   13</a></span>&#160;<a class="code" href="classCreationPerformer.html#a9a4c05a741464b60f2f6dc69c03c9070" title="Constructor.">CreationPerformer::CreationPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a7b117d6c88ab14ec084e580faf245df1">   19</a></span>&#160;<a class="code" href="classCreationPerformer.html#a7b117d6c88ab14ec084e580faf245df1" title="Destructor.">CreationPerformer::~CreationPerformer</a>()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a910e6f4c9e88fde870a4ca35e01c0173">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreationPerformer.html#a910e6f4c9e88fde870a4ca35e01c0173" title="Check if an object can create.">CreationPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Get initial value.</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* new_object;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> type = actor -&gt; getType();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">double</span> size = actor -&gt; getShape().getSize();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> obj_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a>&gt;(<span class="stringliteral">&quot;obj_type&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> new_center(<a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(2*size, 4*size), <a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(2*size, 4*size));</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> param;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Check of actor type.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> ( type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a> || type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a> )</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">switch</span> (obj_type)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="comment">// Create creature.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                new_object = createCreature(action, param);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="comment">// Set coord new_object and check it.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                new_object -&gt; setCoords(actor -&gt; getCoords() + new_center);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (checkCoord(actor -&gt; getShape()))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="comment">// If all is OK, add new_object in world.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    world -&gt; addObject(<span class="keyword">true</span>, new_object);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="comment">// Create new resource.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    new_object = createResource(action, param);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(new_object) -&gt; makePickable();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <span class="comment">// If all is OK, add new_object in world.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    world -&gt; addObject(<span class="keyword">false</span>, new_object);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="comment">// Increase actor amount.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keyword">static_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(actor) -&gt; increaseAmount(1);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">            case TOOL:</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">            {</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">                new_object = createTool(action, param);</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">                world -&gt; addObject(false, new_object);</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">                action.markAsSucceeded();</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">            }</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">            break;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="comment">// Create new resource.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                new_object = createBuilding(action, param);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">// Set coord new_object and add its in world.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                new_object -&gt; setCoords(actor -&gt; getCoords());</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                world -&gt; addObject(<span class="keyword">true</span>, new_object);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Creatures/Humanoid/Humanoid.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a9a4c05a741464b60f2f6dc69c03c9070">   14</a></span>&#160;<a class="code" href="classCreationPerformer.html#a9a4c05a741464b60f2f6dc69c03c9070" title="Constructor.">CreationPerformer::CreationPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world):</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a7b117d6c88ab14ec084e580faf245df1">   20</a></span>&#160;<a class="code" href="classCreationPerformer.html#a7b117d6c88ab14ec084e580faf245df1" title="Destructor.">CreationPerformer::~CreationPerformer</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classCreationPerformer.html#a910e6f4c9e88fde870a4ca35e01c0173">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCreationPerformer.html#a910e6f4c9e88fde870a4ca35e01c0173" title="Check if an object can create.">CreationPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Get initial value.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* new_object;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type = actor -&gt; getType();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> size = actor -&gt; getShape().getSize();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> obj_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a>&gt;(<span class="stringliteral">&quot;obj_type&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> new_center(<a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(2*size, 4*size), <a class="code" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78" title="Returns random double number from range [low_boundary, top_boundary].">Random::double_range</a>(2*size, 4*size));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> param;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Check of actor type.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> ( type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a> )</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">switch</span> (obj_type)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="comment">// Create creature.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                new_object = createCreature(action, param);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="comment">// Set coord new_object and check it.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                new_object -&gt; setCoords(actor -&gt; getCoords() + new_center);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> (checkCoord(actor -&gt; getShape()))</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="comment">// If all is OK, add new_object in world.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    world -&gt; addObject(<span class="keyword">true</span>, new_object);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">            case TOOL:</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">            {</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">                new_object = createTool(action, param);</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">                world -&gt; addObject(false, new_object);</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">                action.markAsSucceeded();</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">            }</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">            break;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">if</span> (cr -&gt; getSubtype() != <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a">NON_HUMANOID</a>)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="comment">// Create new resource.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    new_object = createBuilding(action, param);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="comment">// Set coord new_object and add its in world.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    new_object -&gt; setCoords(actor -&gt; getCoords());</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    world -&gt; addObject(<span class="keyword">true</span>, new_object);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <a class="code" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a>* new_home = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a>*<span class="keyword">&gt;</span>(new_object);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>* <span class="keyword">&gt;</span>(cr) -&gt; setHome(new_home);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">bool</span> CreationPerformer::checkCoord(<a class="code" href="classShape.html">Shape</a> shape)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> ret = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// Get obstacles</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = world -&gt; getIndexator() -&gt; getAreaContents(shape);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">//Check amount creature and resource in shape</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> (!obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        !obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>))</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        ret = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createBuilding(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;building_max_health&quot;</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;building_max_space&quot;</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> (obj_type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="comment">// Create new resource.</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            new_object = createResource(action, param);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(new_object) -&gt; makePickable();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="comment">// If all is OK, add new_object in world.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            world -&gt; addObject(<span class="keyword">false</span>, new_object);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="comment">// Increase actor amount.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keyword">static_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(actor) -&gt; increaseAmount(1);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;max_health&quot;</span>,max_health);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;max_space&quot;</span>,max_space);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>, param);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createCreature(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a> creat_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a>&gt;(<span class="stringliteral">&quot;creat_type&quot;</span>);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a>&gt;(<span class="stringliteral">&quot;creat_type&quot;</span>, creat_type);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>, param);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createResource(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> res_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> res_amount = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>, res_type);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>, res_amount);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>, param);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createTool(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> tool_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a>&gt;(<span class="stringliteral">&quot;tool_type&quot;</span>);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> mat_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;mat_type&quot;</span>);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> tool_str = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;tool_str&quot;</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordtype">bool</span> CreationPerformer::checkCoord(<a class="code" href="classShape.html">Shape</a> shape)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">bool</span> ret = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">// Get obstacles</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = world -&gt; getIndexator() -&gt; getAreaContents(shape);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">//Check amount creature and resource in shape</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span> (!obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        !obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>))</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        ret = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createBuilding(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;building_max_health&quot;</span>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;building_max_space&quot;</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;max_health&quot;</span>,max_health);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;max_space&quot;</span>,max_space);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>, param);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createCreature(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a> creat_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a>&gt;(<span class="stringliteral">&quot;creat_type&quot;</span>);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a>&gt;(<span class="stringliteral">&quot;tool_type&quot;</span>, tool_type);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;mat_type&quot;</span>, mat_type);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;tool_str&quot;</span>,tool_str);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>, param);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a>&gt;(<span class="stringliteral">&quot;creat_type&quot;</span>, creat_type);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>, param);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createResource(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> res_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> res_amount = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>, res_type);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>, res_amount);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>, param);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;}</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* CreationPerformer::createTool(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action, <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a>&amp; param)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;{</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> tool_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a>&gt;(<span class="stringliteral">&quot;tool_type&quot;</span>);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> mat_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;mat_type&quot;</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> tool_str = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;tool_str&quot;</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a>&gt;(<span class="stringliteral">&quot;tool_type&quot;</span>, tool_type);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;mat_type&quot;</span>, mat_type);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    param.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;tool_str&quot;</span>,tool_str);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">return</span> world -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>, param);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_31f305295161df862c73fa8b04512573.html">CreationPerformer</a></li><li class="navelem"><a class="el" href="CreationPerformer_8cpp.html">CreationPerformer.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

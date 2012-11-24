@@ -99,20 +99,23 @@ $(document).ready(function(){initNavTree('View_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">View.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;GL/glfw.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="dev__glfw_8h_source.html">dev_glfw.h</a>&quot;</code><br/>
 <code>#include &lt;GL/gl.h&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 <code>#include &quot;<a class="el" href="ViewWorld_8h_source.html">ViewWorld/ViewWorld.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="KeyHandler_8h_source.html">KeyHandler/KeyHandler.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="BasicTypes_8h_source.html">../common/BasicTypes.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="BasicDefines_8h_source.html">../common/BasicDefines.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="IWorld_8h_source.html">../model/World/IWorld.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TextField_8h_source.html">TextField/TextField.h</a>&quot;</code><br/>
 <code>#include &lt;GL/glc.h&gt;</code><br/>
 </div>
 <p><a href="View_8h_source.html">Go to the source code of this file.</a></p>
@@ -120,85 +123,14 @@ $(document).ready(function(){initNavTree('View_8h.html','');});
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classView.html">View</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a82544f303344c0ef5009c99a1f495e67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="View_8h.html#a82544f303344c0ef5009c99a1f495e67">createWindow</a>(width, height)</td></tr>
-<tr class="memitem:a8a7adee127451f2bc84f1b609b752d3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="View_8h.html#a8a7adee127451f2bc84f1b609b752d3f">createContext</a>()</td></tr>
-<tr class="memitem:abe16c6333e5fcc860ab9acbce7565acd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="View_8h.html#abe16c6333e5fcc860ab9acbce7565acd">windowOpened</a>()&#160;&#160;&#160;glfwGetWindowParam(GLFW_OPENED)</td></tr>
 </table>
-<h2>Macro Definition Documentation</h2>
-<a class="anchor" id="a8a7adee127451f2bc84f1b609b752d3f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define createContext</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="View_8h_source.html#l00044">44</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a82544f303344c0ef5009c99a1f495e67"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define createWindow</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">width, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">height&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">glfwOpenWindow(width, height, \</div>
-<div class="line">                                           0, 0, 0, 0, 0, 0, GLFW_WINDOW)</div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="View_8h_source.html#l00042">42</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abe16c6333e5fcc860ab9acbce7565acd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define windowOpened</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;glfwGetWindowParam(GLFW_OPENED)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="View_8h_source.html#l00045">45</a> of file <a class="el" href="View_8h_source.html">View.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f2a51cd3127c93b57800170255376407.html">view</a></li><li class="navelem"><a class="el" href="View_8h.html">View.h</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:40 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

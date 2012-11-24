@@ -135,11 +135,11 @@ $(document).ready(function(){initNavTree('DroppingPerformer_8cpp_source.html',''
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4" title="Check if an object can move and move it.">DroppingPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4" title="Check if an object can drop an object.">DroppingPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Get needed data</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum.">ObjectType</a> actor_type = actor -&gt; getType();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> actor_type = actor -&gt; getType();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// check if actor can go</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (actor_type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('DroppingPerformer_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_ef61484fdaa72a438f9c089f675c460f.html">DroppingPerformer</a></li><li class="navelem"><a class="el" href="DroppingPerformer_8cpp.html">DroppingPerformer.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -98,21 +98,188 @@ $(document).ready(function(){initNavTree('CLI_8cpp.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CLI.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="CLI_8h_source.html">CLI.h</a>&quot;</code><br/>
+<code>#include &lt;cstdarg&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="Vector_8h_source.html">../model/Utilities/Vector/Vector.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Resource_8h_source.html">../model/World/Object/Resource/Resource.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Creature_8h_source.html">../model/World/Object/Creatures/Creature.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Humanoid_8h_source.html">../model/World/Object/Creatures/Humanoid/Humanoid.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="NonHumanoid_8h_source.html">../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h</a>&quot;</code><br/>
 </div>
 <p><a href="CLI_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8728ef07dc225c85c4c8d5655785bbc2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a8728ef07dc225c85c4c8d5655785bbc2">TN_CREATURE</a>&#160;&#160;&#160;&quot;c&quot;</td></tr>
+<tr class="memitem:a000c19ae7c64ccafaaf9f0ab34e170bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a000c19ae7c64ccafaaf9f0ab34e170bf">TN_HUMANOID</a>&#160;&#160;&#160;&quot;h&quot;</td></tr>
+<tr class="memitem:afb506a0a36f313d6f0c6b348343083f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#afb506a0a36f313d6f0c6b348343083f6">TN_NON_HUMANOID</a>&#160;&#160;&#160;&quot;nh&quot;</td></tr>
+<tr class="memitem:abb8894b7d735bdc14ec0b0fa77db5b62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#abb8894b7d735bdc14ec0b0fa77db5b62">TN_BUILDING</a>&#160;&#160;&#160;&quot;b&quot;</td></tr>
+<tr class="memitem:ad9da8efa3758cb7aa1c551bbd0490a62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ad9da8efa3758cb7aa1c551bbd0490a62">TN_RESOURCE</a>&#160;&#160;&#160;&quot;r&quot;</td></tr>
+<tr class="memitem:a51d875a51bf7f377eb62da2d4ceab713"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a51d875a51bf7f377eb62da2d4ceab713">TN_RESOURCE_FOOD</a>&#160;&#160;&#160;&quot;f&quot;</td></tr>
+<tr class="memitem:aa30bed640c7e784484d27a35b741d84e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aa30bed640c7e784484d27a35b741d84e">TN_RESOURCE_BUILDING_MAT</a>&#160;&#160;&#160;&quot;bm&quot;</td></tr>
+<tr class="memitem:ac9a1eb1f1020d44eb7ec327e97362aaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ac9a1eb1f1020d44eb7ec327e97362aaf">TN_WEATHER</a>&#160;&#160;&#160;&quot;w&quot;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aaf8f45ca14f9796d3881cece9d767631"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aaf8f45ca14f9796d3881cece9d767631">sformat</a> (const std::string &amp;format,...)</td></tr>
+</table>
+<h2>Macro Definition Documentation</h2>
+<a class="anchor" id="abb8894b7d735bdc14ec0b0fa77db5b62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_BUILDING&#160;&#160;&#160;&quot;b&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00027">27</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8728ef07dc225c85c4c8d5655785bbc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_CREATURE&#160;&#160;&#160;&quot;c&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00024">24</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a000c19ae7c64ccafaaf9f0ab34e170bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_HUMANOID&#160;&#160;&#160;&quot;h&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00025">25</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb506a0a36f313d6f0c6b348343083f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_NON_HUMANOID&#160;&#160;&#160;&quot;nh&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00026">26</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9da8efa3758cb7aa1c551bbd0490a62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_RESOURCE&#160;&#160;&#160;&quot;r&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00028">28</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa30bed640c7e784484d27a35b741d84e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_RESOURCE_BUILDING_MAT&#160;&#160;&#160;&quot;bm&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00030">30</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51d875a51bf7f377eb62da2d4ceab713"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_RESOURCE_FOOD&#160;&#160;&#160;&quot;f&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00029">29</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9a1eb1f1020d44eb7ec327e97362aaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_WEATHER&#160;&#160;&#160;&quot;w&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00031">31</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Function Documentation</h2>
+<a class="anchor" id="aaf8f45ca14f9796d3881cece9d767631"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string sformat </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00039">39</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_2663b12ed719ba69be18e0dee24290b5.html">cli</a></li><li class="navelem"><a class="el" href="CLI_8cpp.html">CLI.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:40 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

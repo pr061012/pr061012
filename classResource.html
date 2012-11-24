@@ -156,6 +156,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a512a227f9ddfaf59d40cf878dbf6c937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of progress.  <a href="#a512a227f9ddfaf59d40cf878dbf6c937"></a><br/></td></tr>
 <tr class="memitem:a0b6ea6582c309b2db3c57274b687e7d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a0b6ea6582c309b2db3c57274b687e7d2">getDifficulty</a> () const </td></tr>
 <tr class="memdesc:a0b6ea6582c309b2db3c57274b687e7d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of difficulty.  <a href="#a0b6ea6582c309b2db3c57274b687e7d2"></a><br/></td></tr>
+<tr class="memitem:aa5edfbdfef006f4aab8e86acaaf94120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#aa5edfbdfef006f4aab8e86acaaf94120">getStepsToReg</a> () const </td></tr>
+<tr class="memdesc:aa5edfbdfef006f4aab8e86acaaf94120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets amount of steps to next resource regeneration.  <a href="#aa5edfbdfef006f4aab8e86acaaf94120"></a><br/></td></tr>
+<tr class="memitem:a53a0205cfdb995964f0202047965eeb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a53a0205cfdb995964f0202047965eeb9">getRegAmount</a> () const </td></tr>
+<tr class="memdesc:a53a0205cfdb995964f0202047965eeb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets resource's regeneration rate.  <a href="#a53a0205cfdb995964f0202047965eeb9"></a><br/></td></tr>
+<tr class="memitem:ab4461d823ce807fd5013c287930ca1d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ab4461d823ce807fd5013c287930ca1d9">getAmountPerDrop</a> () const </td></tr>
+<tr class="memdesc:ab4461d823ce807fd5013c287930ca1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets amount of resource, which will drop at each mining.  <a href="#ab4461d823ce807fd5013c287930ca1d9"></a><br/></td></tr>
 <tr class="memitem:ad87877637e96514ddefed5cae8adaa99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#ad87877637e96514ddefed5cae8adaa99">isMineable</a> () const </td></tr>
 <tr class="memdesc:ad87877637e96514ddefed5cae8adaa99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if resource is mineable.  <a href="#ad87877637e96514ddefed5cae8adaa99"></a><br/></td></tr>
 <tr class="memitem:a4b6b0ec18709861808eea76f3c1b6b74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResource.html#a4b6b0ec18709861808eea76f3c1b6b74">makeMineable</a> ()</td></tr>
@@ -205,6 +211,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a64299bd3d9948e455dd4751c465ef750 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set object's coordinates.  <a href="#a64299bd3d9948e455dd4751c465ef750"></a><br/></td></tr>
 <tr class="memitem:a98ae671267306c09d28a0a4afa1a8a55 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a98ae671267306c09d28a0a4afa1a8a55">getCoords</a> () const </td></tr>
 <tr class="memdesc:a98ae671267306c09d28a0a4afa1a8a55 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a98ae671267306c09d28a0a4afa1a8a55"></a><br/></td></tr>
+<tr class="memitem:a9742064d6a68018715a51cc00131fb46 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9742064d6a68018715a51cc00131fb46">operator const ViewObject *</a> ()</td></tr>
+<tr class="memdesc:a9742064d6a68018715a51cc00131fb46 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const ViewObject*.  <a href="#a9742064d6a68018715a51cc00131fb46"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -270,7 +278,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00100">100</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00101">101</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +315,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a816838bab5c67fce2cead6cb9122ad47">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00145">145</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00146">146</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +341,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00117">117</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00118">118</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -363,7 +371,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00159">159</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00160">160</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +391,27 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets amount of resource. </p>
 <dl class="section return"><dt>Returns</dt><dd>amount of resource </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00135">135</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00136">136</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4461d823ce807fd5013c287930ca1d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Resource::getAmountPerDrop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets amount of resource, which will drop at each mining. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of amount per drop </dd></dl>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00245">245</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -403,7 +431,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of difficulty. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of difficulty </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00229">229</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00230">230</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +460,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00201">201</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00202">202</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +489,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00206">206</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00207">207</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -481,7 +509,47 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of progress. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of progress </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00224">224</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00225">225</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53a0205cfdb995964f0202047965eeb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Resource::getRegAmount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets resource's regeneration rate. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of reg amount </dd></dl>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00240">240</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5edfbdfef006f4aab8e86acaaf94120"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Resource::getStepsToReg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets amount of steps to next resource regeneration. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of steps to reg </dd></dl>
+
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00235">235</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +569,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the value of subtype. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of subtype </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00215">215</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00216">216</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +605,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00150">150</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00151">151</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -563,7 +631,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00129">129</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00130">130</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -582,7 +650,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Increment progress of mining by one. </p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00108">108</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00109">109</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -602,7 +670,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns true if resource is mineable. </p>
 <dl class="section return"><dt>Returns</dt><dd>is mineable or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00234">234</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00250">250</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -621,7 +689,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns is resource restorable. </p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00140">140</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00141">141</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +708,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Makes resource mineable. </p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00239">239</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00255">255</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -659,7 +727,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Makes resource pickable. </p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00244">244</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00260">260</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -689,7 +757,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00197">197</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Resource_8cpp_source.html#l00198">198</a> of file <a class="el" href="Resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -703,7 +771,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classResource.html">Resource</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:45 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:10 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

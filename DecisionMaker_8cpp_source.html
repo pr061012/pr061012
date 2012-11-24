@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c">   15</a></span>&#160;<a class="code" href="classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c" title="Constructor.">DecisionMaker::DecisionMaker</a>(<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum.">CreatureType</a> type)</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c">   15</a></span>&#160;<a class="code" href="classDecisionMaker.html#a85c907bce0904c520e748ec9d1047e0c" title="Constructor.">DecisionMaker::DecisionMaker</a>(<a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a> type)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string matrix_path;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// PREDICTION.</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c" title="Calculate the difference between current decision and other actions.">DecisionMaker::isDecisionActual</a>(arma::mat attrs, <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> current_decision)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c" title="Calculate the difference between current decision and other actions.">DecisionMaker::isDecisionActual</a>(arma::mat attrs, <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> current_decision)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    arma::mat act = <span class="keyword">this</span> -&gt; theta * attrs;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> index = -1;</div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a27d572ab3e817bd504ce3b47f1627630">COMMUNICATE</a>:     index = 5;    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a0a311695a4f6c56869245418bebeb33d">ESCAPE</a>:          index = 6;    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a6df69f33ea9d53566423bb7d23e6374c">REALIZE_DREAM</a>:   index = 7;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a4f1715bad2e1952e07a8ae75bcfe9c63">CONTINUE_GENDER</a>: index = 8;    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706af14cbd3b28e14ae7ed23756bfe852b6c">REPRODUCE</a>: index = 8;    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">default</span>:              <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c">   86</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> <a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c" title="Makes a creature&#39;s decision about next action.">DecisionMaker::makeDecision</a>(arma::mat attrs)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c">   86</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> <a class="code" href="classDecisionMaker.html#a2ff03b6b1b4efe9e559dd5078e96054c" title="Makes a creature&#39;s decision about next action.">DecisionMaker::makeDecision</a>(arma::mat attrs)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::vector &lt;int&gt; vect_of_actions;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">double</span> max = -1000;</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt; act.size(); i++)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> (act(i, 0) - max &lt;= <a class="code" href="BasicDefines_8h.html#af5c9d91107dc710f9abfa42cf2be2e6f">MATH_EPSILON</a>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> (act(i, 0) - max == 0)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            vect_of_actions.push_back(i);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        numb_of_decision = 0;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum.">CreatureAction</a> decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706ac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">switch</span>(numb_of_decision)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    {</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">case</span> 0: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706ad6137abebe4fdc59e2f0f2c84bdbe3fa">SLEEP</a>; <span class="keywordflow">break</span>;</div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">case</span> 5: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a27d572ab3e817bd504ce3b47f1627630">COMMUNICATE</a>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">case</span> 6: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a0a311695a4f6c56869245418bebeb33d">ESCAPE</a>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">case</span> 7: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a6df69f33ea9d53566423bb7d23e6374c">REALIZE_DREAM</a>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">case</span> 8: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706a4f1715bad2e1952e07a8ae75bcfe9c63">CONTINUE_GENDER</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">case</span> 8: decision = <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706af14cbd3b28e14ae7ed23756bfe852b6c">REPRODUCE</a>;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> decision;</div>
@@ -243,7 +243,7 @@ $(document).ready(function(){initNavTree('DecisionMaker_8cpp_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_37a7fb4939ea20255b8443f0fa7b8d58.html">DecisionMaker</a></li><li class="navelem"><a class="el" href="DecisionMaker_8cpp.html">DecisionMaker.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 22 2012 12:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

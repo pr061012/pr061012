@@ -30,9 +30,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Action_8cpp.html",
-"Building_8h.html",
-"classCreature.html#a769dea424947603c2fc0fc70513da83e",
-"classVector.html#a6f80c73b5f18dcf3f8e36065bdc8b9e5"
+"BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3eac416a0ceff582d19692ee0238278f307",
+"classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a",
+"classResource.html#ab4461d823ce807fd5013c287930ca1d9",
+"globals_0x69.html"
 ];
 
 var navTreeSubIndices = new Array();

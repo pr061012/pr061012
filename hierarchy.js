@@ -40,7 +40,10 @@ var hierarchy =
     ] ],
     [ "Random", "classRandom.html", null ],
     [ "Shape", "classShape.html", null ],
+    [ "TextField", "classTextField.html", null ],
     [ "Vector", "classVector.html", null ],
+    [ "Vertex", "structVertex.html", null ],
+    [ "VertexComp", "structVertexComp.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
     [ "ViewWorld", "classViewWorld.html", null ]

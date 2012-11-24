@@ -21,6 +21,7 @@ var classObject =
     [ "makeNonSolid", "classObject.html#ad53f9bda5a4b5829d0d808c60454d218", null ],
     [ "makeSolid", "classObject.html#adaa6e2ab7f5c25b538bbb9e011cde767", null ],
     [ "markAsDestroyed", "classObject.html#a9df0b8f5aef27057192b874ebd0d361e", null ],
+    [ "operator const ViewObject *", "classObject.html#a9742064d6a68018715a51cc00131fb46", null ],
     [ "receiveMessage", "classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5", null ],
     [ "setAngle", "classObject.html#a075891336e08ea144917d8468f8480f1", null ],
     [ "setCoords", "classObject.html#a64299bd3d9948e455dd4751c465ef750", null ],
