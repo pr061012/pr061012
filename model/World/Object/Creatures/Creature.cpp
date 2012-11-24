@@ -7,7 +7,7 @@
 
 #include "Creature.h"
 #include "../../../../common/BasicDefines.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 #include "../Weather/Weather.h"
 
 

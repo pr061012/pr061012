@@ -4,7 +4,7 @@
 */
 
 #include "Building.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 #include "../../../../common/BasicDefines.h"
 
 //******************************************************************************
