@@ -50,8 +50,8 @@
  *          isn't specified).
  *
  *        **trace-step**
- *          *trace-step [list of ids]* -- does on Controller's step and prints
- *          out changes for specified objects.
+ *          *trace-step [list of ids]* -- does Controller's step and prints out
+ *          changes for specified objects.
  */
 class CLI
 {

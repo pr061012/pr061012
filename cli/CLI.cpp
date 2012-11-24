@@ -560,4 +560,23 @@ std::string CLI::traceStep(std::stringstream& ss)
 
 std::string CLI::change(std::stringstream& ss)
 {
+    // Reading id.
+    uint id;
+    ss >> id;
+    if (ss.fail())
+    {
+        return sformat("Error: object id expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // Reading field name.
+    std::string field;
+    ss >> field;
+    if (ss.fail())
+    {
+        return sformat("Error: field name expected.\n") +
+               sformat("Syntax: change <id> <field> <new_value>\n");
+    }
+
+    // TODO: Implement it.
 }
