@@ -69,6 +69,16 @@ public:
      */
     bool remove(Object* object);
 
+    //**************************************************************************
+    // PRINTING CONTENTS.
+    //**************************************************************************
+
+    /**
+     * @brief  Print IDs of contained objects.
+     * @return string with ids.
+     */
+    std::string printIDs(std::string indent = "\t", uint columns = 5) const;
+
 private:
     /// Vector with all objects.
     std::vector < std::vector <Object*> > data;

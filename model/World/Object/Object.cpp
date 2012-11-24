@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "../../../common/BasicDefines.h"
 
 #include "Object.h"
@@ -26,6 +28,32 @@ Object::Object(ObjectType type, bool solidity, bool immortality) :
 
 Object::~Object()
 {
+}
+
+
+//******************************************************************************
+// OBJECT'S INFORMATION.
+//******************************************************************************
+
+std::string Object::printObjectInfo() const
+{
+    std::stringstream ss;
+
+    ss << "ID\t\t\t"             << id << std::endl <<
+          "Type\t\t\t"           << getTypeName() << std::endl <<
+          "Flags\t\t\t"          << (destroyed   ? "d" : "") <<
+                                    (immortality ? "i" : "") <<
+                                    (solidity    ? "s" : "") << std::endl <<
+          "Centre coordinates\t" << "(" << shape.getCenter().getX() << ", " <<
+                                           shape.getCenter().getY() << ")" <<
+                                    std::endl <<
+          "HP\t\t\t"             << getHealthPoints() << "/" <<
+                                    getMaxHealthPoints() << std::endl <<
+          "Danger level\t\t"     << danger_level << std::endl <<
+          "Shape\t\t\t"          << shape.getTypeName() << " (" <<
+                                    shape.getSize() << ")" << std::endl;
+
+    return ss.str();
 }
 
 //******************************************************************************
@@ -81,7 +109,7 @@ bool Object::isSolid() const
 }
 
 //******************************************************************************
-// DANGEROUS.
+// DANGER.
 //******************************************************************************
 
 uint Object::getDangerLevel() const
@@ -147,10 +175,12 @@ const Vector& Object::getCoords() const
     return shape.getCenter();
 }
 
-Object::operator const ViewObject *()
+//******************************************************************************
+// CAST OPERATORS.
+//******************************************************************************
+
+Object::operator const ViewObject()
 {
     Vector v = this -> getShape().getCenter();
-    ViewObject* ret = new ViewObject(this -> getType(), v.getX(), v.getY());
-    return ret;
+    return ViewObject(this -> getType(), v.getX(), v.getY());
 }
-

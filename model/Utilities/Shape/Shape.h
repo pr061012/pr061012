@@ -66,6 +66,12 @@ public:
     ShapeType getType() const;
 
     /**
+     * @brief  Gets type's name.
+     * @return type of the shape
+     */
+    std::string getTypeName() const;
+
+    /**
      * @brief Set type.
      * @param type new type.
      */

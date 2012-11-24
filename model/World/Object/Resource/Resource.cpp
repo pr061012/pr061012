@@ -3,6 +3,8 @@
     See the COPYING file for copying permission.
 */
 
+#include <sstream>
+
 #include "Resource.h"
 
 #include "../../../../common/BasicDefines.h"
@@ -199,6 +201,23 @@ void Resource::receiveMessage(Message message)
 {
 }
 
+std::string Resource::printObjectInfo() const
+{
+    std::string output = Object::printObjectInfo();
+
+    std::stringstream ss;
+
+    ss << "Progress\t\t"      << progress << std::endl <<
+          "Difficulty\t\t"    << difficulty << std::endl <<
+          "Drop amount\t\t"   << amount_per_drop << std::endl <<
+          "Reg amount\t\t"    << reg_amount << std::endl <<
+          "Steps to reg\t\t"  << steps_to_reg << std::endl <<
+          "Is mineable\t\t"   << (mineable ? "yes" : "no") << std::endl <<
+          "Is restorable\t\t" << (restorable ? "yes" : "no") << std::endl;
+
+    return output + ss.str();
+}
+
 uint Resource::getHealthPoints() const
 {
     return this -> amount;
@@ -207,6 +226,11 @@ uint Resource::getHealthPoints() const
 uint Resource::getMaxHealthPoints() const
 {
     return this -> amount;
+}
+
+std::string Resource::getTypeName() const
+{
+    return "resource";
 }
 
 //******************************************************************************

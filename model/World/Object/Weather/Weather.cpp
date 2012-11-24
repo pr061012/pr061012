@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "Weather.h"
 
 #include "../../../../common/BasicDefines.h"
@@ -85,6 +87,11 @@ uint Weather::getHealthPoints() const
 uint Weather::getMaxHealthPoints() const
 {
     return this -> steps;
+}
+
+std::string Weather::getTypeName() const
+{
+    return "weather";
 }
 
 //******************************************************************************
