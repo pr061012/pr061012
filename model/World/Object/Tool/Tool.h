@@ -39,6 +39,8 @@ public:
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
 
+    std::string getTypeName() const;
+
     //**************************************************************************
     // STRENGTH.
     //**************************************************************************

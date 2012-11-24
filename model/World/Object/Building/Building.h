@@ -39,8 +39,12 @@ public:
     std::vector <Action> * getActions();
     void receiveMessage(Message message);
 
+    std::string printObjectInfo();
+
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
+
+    std::string getTypeName() const;
 
     //**************************************************************************
     // HEALTH MANIPULATION.
@@ -128,7 +132,7 @@ public:
 
 private:
     /// Building contents.
-    ObjectHeap * contents;
+    ObjectHeap* contents;
 
     /// Building's health.
     uint health;

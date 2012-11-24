@@ -90,6 +90,11 @@ uint Tool::getMaxHealthPoints() const
     return this -> max_strength;
 }
 
+std::string Tool::getTypeName() const
+{
+    return "tool";
+}
+
 //******************************************************************************
 // STRENGTH.
 //******************************************************************************

@@ -209,6 +209,11 @@ uint Resource::getMaxHealthPoints() const
     return this -> amount;
 }
 
+std::string Resource::getTypeName() const
+{
+    return "resource";
+}
+
 //******************************************************************************
 // RESOURCE TYPE.
 //******************************************************************************

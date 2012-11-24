@@ -87,6 +87,11 @@ uint Weather::getMaxHealthPoints() const
     return this -> steps;
 }
 
+std::string Weather::getTypeName() const
+{
+    return "weather";
+}
+
 //******************************************************************************
 // WEATHER TYPE.
 //******************************************************************************

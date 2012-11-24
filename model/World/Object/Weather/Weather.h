@@ -40,6 +40,8 @@ public:
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
 
+    std::string getTypeName() const;
+
     //**************************************************************************
     // WEATHER TYPE.
     //**************************************************************************

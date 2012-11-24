@@ -44,12 +44,22 @@ public:
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector <Action> * getActions() = 0;
+    virtual std::vector<Action>* getActions() = 0;
 
     /**
      * @brief Receives message.
      */
     virtual void receiveMessage(Message message) = 0;
+
+    //**************************************************************************
+    // OBJECT'S INFORMATION.
+    //**************************************************************************
+
+    virtual std::string printObjectInfo();
+
+    //**************************************************************************
+    // HEALING/DAMAGING.
+    //**************************************************************************
 
     /**
      * @brief Damages object.
@@ -128,7 +138,6 @@ public:
      */
     bool isSolid() const;
 
-
     //**************************************************************************
     // DANGER.
     //**************************************************************************
@@ -154,6 +163,12 @@ public:
      * @return the value of type
      */
     ObjectType getType() const;
+
+    /**
+     * @brief  Gets type's name.
+     * @return the name of the type
+     */
+    virtual std::string getTypeName() const = 0;
 
     /**
      * @brief  Returns object's ID.
