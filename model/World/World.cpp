@@ -249,13 +249,24 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
 
 void World::genForestAt(double x, double y, double fromAngle, double toAngle, double prob)
 {
-    genTreeAt(x, y);
-    double a = fromAngle;
-    double interval = 2*M_PI/GEN_TREE_DENSITY;
-
-    for(a; a < toAngle; a +=interval)
+    if(!DoubleComparision::isLess(prox, 0.0))
     {
         if(prox <= double_range(0.0, 1.0))
+        {
+            genTreeAt(x, y);
+        }
+
+
+        double interval = 2*M_PI/GEN_TREE_DENSITY;
+        double a = fromAngle + interval;
+
+        for(a; a < toAngle; a +=interval)
+        {
+            double newx = x + GEN_TREE_INTERVAL*cos(a);
+            double newy = y + GEN_TREE_INTERVAL*sin(a);
+            this -> genForestAt(newx, newy, a - interval, a + interval,
+                                prob - GEN_TREE_PROB_DECAY);
+        }
     }
 }
 

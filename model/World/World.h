@@ -13,6 +13,7 @@
 #include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
+#include "../../common/Math/DoubleComparison.h"
 #include "Indexator/Indexator.h"
 #include "../../view/ViewObject/ViewObject.h"
 
