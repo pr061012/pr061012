@@ -7,6 +7,7 @@
 
 #include "Vector.h"
 #include "../../../common/BasicDefines.h"
+#include "../../../common/Math/DoubleComparison.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -57,7 +58,7 @@ Vector Vector::project(Vector pt1, Vector pt2) const
 {
     double length = pt1.getDistance(pt2);
     // if a line is not a line, project straight to the vector
-    if (fabs(length) < MATH_EPSILON)
+    if (DoubleComparison::areEqual(length, 0))
     {
         return pt1;
     }
@@ -85,8 +86,8 @@ double Vector::getAngle(Vector vec) const
 
 bool Vector::equals(const Vector& vector) const
 {
-    return  (fabs(x - vector.getX()) < MATH_EPSILON) &&
-            (fabs(y - vector.getY()) < MATH_EPSILON);
+    return  DoubleComparison::areEqual(x, vector.getX()) &&
+            DoubleComparison::areEqual(y, vector.getY());
 }
 
 //******************************************************************************
@@ -132,6 +133,29 @@ Vector Vector::operator -() const
     return (Vector(-x, -y));
 }
 
+Vector Vector::operator*(double a) const
+{
+    return (Vector(x * a, y * a));
+}
+
+Vector Vector::operator/(double a) const
+{
+    return (Vector(x / a, y / a));
+}
+
+Vector& Vector::operator*=(double a)
+{
+    x *= a;
+    y *= a;
+    return *this;
+}
+
+Vector& Vector::operator/=(double a)
+{
+    x /= a;
+    y /= a;
+    return *this;
+}
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
