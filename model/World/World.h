@@ -180,7 +180,7 @@ public:
      */
     // ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
-    Object* getObjectById(int id);
+    Object* getObjectByID(int id);
 
 
     //******************************************************************************
