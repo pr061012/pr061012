@@ -202,7 +202,7 @@ void Creature::setSleepiness(uint max_sleepiness)
 
 uint Creature::getSleepiness()
 {
-    return this -> max_sleepiness;
+    return this -> sleepiness;
 }
 
 void Creature::setMaxSleepiness(uint max_sleepiness)
