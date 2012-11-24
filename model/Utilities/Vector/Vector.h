@@ -113,9 +113,29 @@ public:
     Vector& operator+=(Vector);
 
     /**
-     *  @brief Operator unary -
+     *  @brief Operator unary -.
      */
     Vector operator-() const;
+
+    /**
+     * @brief Operator *.
+     */
+    Vector operator*(double) const;
+
+    /**
+     * @brief Operator /.
+     */
+    Vector operator/(double) const;
+
+    /**
+     * @brief Operator *=.
+     */
+    Vector& operator*=(double);
+
+    /**
+     * @brief Operator /=.
+     */
+    Vector& operator/=(double);
 
     /**
      * @brief Operator ==.

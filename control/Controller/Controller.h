@@ -43,6 +43,12 @@ public:
     void step();
 
 private:
+
+    /**
+     * @brief Destroys an object.
+     * @param object object to be destroyed.
+     */
+    void destroy(Object * object);
     
     //*************************************************************************
     // ATTRIBUTES
