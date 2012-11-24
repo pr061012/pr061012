@@ -27,6 +27,7 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+#define TN_CLUSTER_BUILDING_MAT     "fr"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -147,6 +148,11 @@ std::string CLI::runCommand(std::string command)
         return this -> init(ss, true);
     }
 
+    if (cmd == "generate")
+    {
+        return this -> generate(ss);
+    }
+
     if (cmd == "create")
     {
         return this -> create(ss);
@@ -204,6 +210,52 @@ std::string CLI::init(std::stringstream &ss, bool random)
 
     this -> world -> reset(size, random);
     return sformat("Successfully created world %dx%d.\n", size, size);
+}
+
+//******************************************************************************
+// `GENERATE` PROCESSOR.
+//******************************************************************************
+
+std::string CLI::generate(std::stringstream& ss)
+{
+    // Reading coordinates.
+    double x;
+    ss >> x;
+    if (ss.fail())
+    {
+        return sformat("Error: x coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    double y;
+    ss >> y;
+    if (ss.fail())
+    {
+        return sformat("Error: y coordinate expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    // Reading type.
+    std::string type;
+    ss >> type;
+    if (ss.fail())
+    {
+        return sformat("Error: ClusterType expected.\n") +
+               sformat("Syntax: generate <x> <y> <type>\n");
+    }
+
+    if (type == TN_CLUSTER_BUILDING_MAT)
+    {
+        this -> world -> genForestAt(x, y);
+    }
+    else
+    {
+        return sformat("Error: unknown ClusterType. Possible values: %s.\n",
+                       TN_CLUSTER_BUILDING_MAT);
+    }
+
+    return sformat("Successfully generated cluster (%s) at (%f, %f).\n",
+                   type.c_str(), x, y);
 }
 
 //******************************************************************************

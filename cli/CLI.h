@@ -12,7 +12,7 @@
 /**
  * @brief Command-Line-Interface class.
  *
- *        **TODO**: Write full `create` and `list` description.
+ *        **TODO**: Write full `create` description.
  *
  *        **init**
  *
@@ -21,7 +21,11 @@
  *        **random-init**
  *
  *          *random-init <size>* -- initialises world with specified size and
- *        randomly generated units.
+ *          randomly generated units.
+ *
+ *        **generate**
+ *          *generate <x> <y> <density> <cluster_type>* -- generates a bundle of
+ *          objects around (x, y) point.
  *
  *        **create**
  *
@@ -119,6 +123,13 @@ private:
      * @return command output
      */
     std::string init(std::stringstream& ss, bool random);
+
+    /**
+     * @brief  `generate` command.
+     * @param  ss   stream with args
+     * @return command output
+     */
+    std::string generate(std::stringstream& ss);
 
     /**
      * @brief  `create` command.
