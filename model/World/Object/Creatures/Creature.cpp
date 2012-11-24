@@ -341,6 +341,8 @@ void Creature:: chooseDirectionToEscape()
 
     // go to the opposite direction of biggest danger
     this -> angle = atan(global_y / global_x) + M_PI;
+    aim = 0;
+    direction_is_set = true;
 }
 
 // Go with the given speed

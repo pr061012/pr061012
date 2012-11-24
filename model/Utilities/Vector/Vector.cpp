@@ -132,6 +132,29 @@ Vector Vector::operator -() const
     return (Vector(-x, -y));
 }
 
+Vector Vector::operator*(double a) const
+{
+    return (Vector(x * a, y * a));
+}
+
+Vector Vector::operator/(double a) const
+{
+    return (Vector(x / a, y / a));
+}
+
+Vector& Vector::operator*=(double a)
+{
+    x *= a;
+    y *= a;
+    return *this;
+}
+
+Vector& Vector::operator/=(double a)
+{
+    x /= a;
+    y /= a;
+    return *this;
+}
 //******************************************************************************
 // ACCESSORS.
 //******************************************************************************
