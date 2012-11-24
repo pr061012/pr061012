@@ -427,6 +427,34 @@ uint Creature::getMaxHealthPoints() const
     return this -> max_health;
 }
 
+std::string Creature::printObjectInfo() const
+{
+    std::string output = Object::printObjectInfo();
+
+    std::stringstream ss;
+
+    // TODO: Print current action. Need to print steps?
+    ss << "Force\t\t\t"           << force << std::endl <<
+          "Age\t\t\t"             << age << "/" << max_age << std::endl <<
+          "Endurance\t\t"         << endurance << "/" << max_endurance <<
+                                     std::endl <<
+          "Sleepiness\t\t"        << sleepiness << "/" << max_sleepiness <<
+                                     std::endl <<
+          "Hunger\t\t\t"          << hunger << "/" << max_hunger << std::endl <<
+          "Need in descendants\t" << need_in_descendants << std::endl <<
+          "Danger around\t\t"     << danger << std::endl <<
+          "Direction is set\t"    << (direction_is_set ? "yes" : "no") <<
+                                     std::endl <<
+          "Direction angle\t\t"   << angle << std::endl <<
+          "Aim ID\t\t\t"          << (aim == nullptr ? "none" :
+                                     std::to_string(aim -> getObjectID())) <<
+                                     std::endl <<
+          "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
+          "Objects around\t\t"    << std::endl << objects_around.printIDs();
+
+    return output + ss.str();
+}
+
 double Creature::setDirection()
 {
     if (aim)

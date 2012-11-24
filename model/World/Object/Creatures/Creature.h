@@ -290,6 +290,8 @@ public:
 
     virtual void receiveMessage(Message message) = 0;
 
+    std::string printObjectInfo() const;
+
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
 

@@ -55,6 +55,17 @@ ShapeType Shape::getType() const
     return type;
 }
 
+std::string Shape::getTypeName() const
+{
+    switch (type)
+    {
+        case CIRCLE: return "circle"; break;
+        case SQUARE: return "square"; break;
+    }
+
+    return "unknown";
+}
+
 void Shape::setSize(double size)
 {
     this -> size = size;

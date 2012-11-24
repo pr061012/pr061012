@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "ObjectHeap.h"
 
 #include "../../../common/BasicDefines.h"
@@ -102,4 +104,28 @@ bool ObjectHeap::remove(Object* object)
     }
 
     return del;
+}
+
+//******************************************************************************
+// PRINTING CONTENTS.
+//******************************************************************************
+
+std::string ObjectHeap::printIDs(std::string indent, uint columns) const
+{
+    std::stringstream ss;
+    uint cur_column = 1;
+
+    ObjectHeap::const_iterator iter;
+    for (iter = this -> begin(); iter != this -> end(); iter++)
+    {
+        ss << indent << (*iter) -> getObjectID();
+
+        if (cur_column++ == columns || iter + 1 == this -> end())
+        {
+            cur_column = 1;
+            ss << std::endl;
+        }
+    }
+
+    return ss.str();
 }

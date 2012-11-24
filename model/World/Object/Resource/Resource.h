@@ -86,8 +86,12 @@ public:
     std::vector <Action> * getActions();
     void receiveMessage(Message message);
 
+    std::string printObjectInfo() const;
+
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
+
+    std::string getTypeName() const;
 
     //**************************************************************************
     // RESOURCE TYPE.
