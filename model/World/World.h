@@ -93,6 +93,7 @@ private:
     void genResources();
     void genWeather();
 
+public:
     /**
      * @brief Generate forest at specific location. That would
      *        create tree and try to create trees in some range
@@ -107,6 +108,8 @@ private:
      *        trees with default parameters
      */
     void genForestAt(double x, double y, double prob = 1.0, double fromAngle = 0.0, double toAngle = 2*M_PI);
+
+private:
 
     /**
      * @brief Generate tree at specific location.
@@ -176,6 +179,9 @@ public:
      *         around (x,y)
      */
     // ObjectHeap* getObjectsInRange(double x, double y, double radius);
+
+    Object* getObjectById(int id);
+
 
     //******************************************************************************
     // VIEW METHODS.

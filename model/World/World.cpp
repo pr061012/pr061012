@@ -290,3 +290,8 @@ void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 
     this -> addObject(true, new_obj);
 }
+
+Object *World::getObjectById(int id)
+{
+
+}
