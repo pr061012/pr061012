@@ -13,7 +13,6 @@
 #include "IWorld.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "ObjectFactory/ObjectFactory.h"
-#include "../../common/Math/DoubleComparison.h"
 #include "Indexator/Indexator.h"
 #include "../../view/ViewObject/ViewObject.h"
 
@@ -101,12 +100,12 @@ private:
      *        fromAngle to toAngle
      * @param prob probability to create tree at this point
      */
-    void genForestAt(double x, double y, double fromAngle, double toAngle, double prob);
+    void genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle = 0.0, double toAngle = 2*M_PI);
 
     /**
      * @brief Generate tree at specific location.
      */
-    void genTreeAt(double x, double y);
+    void genTreeAt(double x, double y, const ParamArray& tree_params);
 
 public:
     //**************************************************************************

@@ -247,29 +247,38 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     return RAIN;
 }
 
-void World::genForestAt(double x, double y, double fromAngle, double toAngle, double prob)
+void World::genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle, double toAngle)
 {
-    if(!DoubleComparision::isLess(prox, 0.0))
+    if(prob >= MATH_EPSILON)
     {
-        if(prox <= double_range(0.0, 1.0))
+        if(prob <= Random::double_range(0.0, 1.0))
         {
-            genTreeAt(x, y);
+            genTreeAt(x, y, tree_params);
         }
 
 
         double interval = 2*M_PI/GEN_TREE_DENSITY;
         double a = fromAngle + interval;
 
-        for(a; a < toAngle; a +=interval)
+        while(a <= toAngle)
         {
             double newx = x + GEN_TREE_INTERVAL*cos(a);
             double newy = y + GEN_TREE_INTERVAL*sin(a);
-            this -> genForestAt(newx, newy, a - interval, a + interval,
-                                prob - GEN_TREE_PROB_DECAY);
+            this -> genForestAt(newx, newy,
+                                prob - GEN_TREE_PROB_DECAY, tree_params,
+                                a - interval, a + interval);
+
+            a += interval;
         }
     }
 }
 
-void World::genTreeAt(double x, double y)
+void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 {
+    Object* new_obj = object_factory -> createObject(WEATHER, tree_params);
+
+    new_obj -> setCoords(Vector(Random::double_range(0, size),
+                                Random::double_range(0, size)));
+
+    this -> addObject(true, new_obj);
 }
