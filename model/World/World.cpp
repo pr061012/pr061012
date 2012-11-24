@@ -275,10 +275,9 @@ void World::genForestAt(double x, double y, double prob, const ParamArray& tree_
 
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 {
-    Object* new_obj = object_factory -> createObject(WEATHER, tree_params);
+    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
 
-    new_obj -> setCoords(Vector(Random::double_range(0, size),
-                                Random::double_range(0, size)));
+    new_obj -> setCoords(Vector(x, y));
 
     this -> addObject(true, new_obj);
 }
