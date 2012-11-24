@@ -165,6 +165,8 @@ private:
 
     /// Amount of resource.
     uint amount;
+    /// Maximum possible amount.
+    uint max_amount;
     /// Amount of resources received on each mining.
     uint amount_per_drop;
 
