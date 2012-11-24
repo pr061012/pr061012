@@ -48,11 +48,7 @@ public:
 
 private:
 
-    /// The pointer to world
-    World* world;
 
-    /// The pointer to world
-    ObjectFactory* factory;
     //**************************************************************************
     // HELPER FUNCTIONS
     //**************************************************************************

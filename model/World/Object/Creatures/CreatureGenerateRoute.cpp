@@ -1,7 +1,8 @@
 #include <set>
+#include "../../../../common/Math/DoubleComparison.h"
 #include "Creature.h"
 
-#define __creature_generate_route_complete 0
+#define __creature_generate_route_complete 1
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -67,9 +68,12 @@ struct VectorComp
         }
         else
         {
-            // Something random
-            return (a -> point.getX() + a -> point.getY() <
-                    b -> point.getX() + b -> point.getY());
+            // left-bottom to right top
+            if (DoubleComparison::areEqual(a -> point.getX(), b -> point.getX()))
+            {
+                return DoubleComparison::isLess(a -> point.getY(), b -> point.getY());
+            }
+            return DoubleComparison::isLess(a -> point.getX(), b -> point.getX());
         }
     }
 };
@@ -92,15 +96,15 @@ const Vector Creature::neighbour_offsets[8] =
 // Check whether given point is passable or not, and check if it hits the goal.
 int Creature::checkPointIsPassable(Vector point)
 {
-    // Place our body on the point
-    Shape sample = this -> getShape();
-    sample.setCenter(point);
-    
     // Check if we can hit the goal.
-    if (sample.hitTest(goal -> getShape()))
+    if (goal -> getShape().hitTest(point))
     {
         return 1;
     }
+
+    // Place our body on the point
+    Shape sample = this -> getShape();
+    sample.setCenter(point);
 
     // Check if it collides with something that we see
     for (ObjectHeap::iterator i = objects_around.begin();
@@ -154,6 +158,7 @@ Creature::Path Creature::generateRoute()
             // Get vertex with lowest value = the best one
             vertex_iter = open_vertex_set.begin();
             current = *vertex_iter;
+
             // Move it to processed list
             open_vertex_set.erase(vertex_iter);
             open_vector_set.erase(current);
@@ -177,7 +182,6 @@ Creature::Path Creature::generateRoute()
                     // Reached the goal.
                     case 1:
                         // Get the result path
-                        result.pop();
                         while (current)
                         {
                             result.push(current -> point);
@@ -185,9 +189,10 @@ Creature::Path Creature::generateRoute()
                         }
 
                         delete neighbour;
-                        // Make the loop stop
+                        // Make the loops stop
                         open_vertex_set.clear();
-                        break;
+                        i = 100;
+                        continue;
 
                     case 0:
                         neighbour = new Vertex(next_point, current,

@@ -7,6 +7,7 @@
 #define DOUBLE_COMPARISON_H
 
 #include <cfloat>
+#include <cmath>
 
 #define EPSILON DBL_EPSILON * 16 * 100000
 
