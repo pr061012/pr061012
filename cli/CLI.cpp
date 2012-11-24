@@ -498,7 +498,7 @@ std::string CLI::info(std::stringstream& ss)
     }
 
     // Looking for object.
-    Object* obj = this -> world -> getObjectById(id);
+    Object* obj = this -> world -> getObjectByID(id);
 
     if (obj == nullptr)
     {
