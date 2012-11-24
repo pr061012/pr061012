@@ -605,7 +605,7 @@ std::string CLI::info(std::stringstream& ss)
         {
             output += sformat("\t%d", (*iter) -> getObjectID());
 
-            if (cur_column++ == COLUMNS || iter + 1 == inv -> end())
+            if (cur_column++ == COLUMNS || iter + 1 == objs_around -> end())
             {
                 cur_column = 1;
                 output += "\n";
