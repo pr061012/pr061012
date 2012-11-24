@@ -637,6 +637,8 @@ std::string CLI::info(std::stringstream& ss)
                 output += sformat("%u\n", home -> getObjectID());
             }
 
+            // TODO: Print visual memory.
+
             // Printing detailed act.
             output += sformat("Detailed action\t\t%s\n",
                               this -> hum_acts[hum -> getCurrentDetailedAct()].c_str());

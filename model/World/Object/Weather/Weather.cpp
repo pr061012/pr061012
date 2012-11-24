@@ -6,7 +6,7 @@
 #include "Weather.h"
 
 #include "../../../../common/BasicDefines.h"
-#include "../../../../common/Random/Random.h"
+#include "../../../../common/Math/Random.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
