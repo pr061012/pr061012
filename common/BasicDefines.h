@@ -144,6 +144,22 @@
 #define DNGR_BUILDING               0
 
 //******************************************************************************
+// GENERATION DEFINES.
+// Prefix: GEN.
+//******************************************************************************
+
+/// How many trees may be (at max) generated around another tree
+/// during forest generation.
+#define GEN_TREE_DENSITY 10
+
+/// Linear decrease of proximity as tree generation goes further
+/// from forest center (initial is 1.0 == 100%).
+#define GEN_TREE_PROX_DECAY 0.1
+
+/// Interval in distance of trees generation.
+#define GEN_TREE_INTERVAL SZ_RESOURCE_DIAM_MIN
+
+//******************************************************************************
 // WEATHER DEFINES.
 // Prefix: WEAT.
 //******************************************************************************

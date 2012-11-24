@@ -247,7 +247,18 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     return RAIN;
 }
 
-void World::genForestAt(double x, double y)
+void World::genForestAt(double x, double y, double fromAngle, double toAngle, double prob)
 {
+    genTreeAt(x, y);
+    double a = fromAngle;
+    double interval = 2*M_PI/GEN_TREE_DENSITY;
 
+    for(a; a < toAngle; a +=interval)
+    {
+        if(prox <= double_range(0.0, 1.0))
+    }
+}
+
+void World::genTreeAt(double x, double y)
+{
 }

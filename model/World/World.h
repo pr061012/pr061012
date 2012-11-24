@@ -94,9 +94,18 @@ private:
     void genWeather();
 
     /**
-     * @brief Generate forest at specific location.
+     * @brief Generate forest at specific location. That would
+     *        create tree and try to create trees in some range
+     *        around this point inside specified angle from
+     *        fromAngle to toAngle
+     * @param prob probability to create tree at this point
      */
-    void genForestAt(double x, double y);
+    void genForestAt(double x, double y, double fromAngle, double toAngle, double prob);
+
+    /**
+     * @brief Generate tree at specific location.
+     */
+    void genTreeAt(double x, double y);
 
 public:
     //**************************************************************************
