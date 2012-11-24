@@ -508,22 +508,11 @@ std::string CLI::info(std::stringstream& ss)
     }
 
     // Looking for object.
-    ObjectHeap* objs = this -> world -> getVisibleObjects();
-    ObjectHeap::const_iterator iter;
-    Object* obj;
-    for (iter = objs -> begin(); iter != objs -> end(); iter++)
-    {
-        obj = *iter;
+    Object* obj = this -> world -> getObjectById(id);
 
-        if (obj -> getObjectID() == id)
-        {
-            break;
-        }
-    }
-
-    if (iter == objs -> end())
+    if (obj == nullptr)
     {
-        return sformat("Error: object with id %d doesn't exist.\n", id);
+        return sformat("Error: object with id %u doesn't exist.\n", id);
     }
 
     return obj -> printObjectInfo() + "\n";
