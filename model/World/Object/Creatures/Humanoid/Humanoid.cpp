@@ -3,10 +3,11 @@
     See the LICENSE file for copying permission.
 */
 
+#include <armadillo>
 #include <cassert>
 #include <cstdlib>
-#include <armadillo>
-#include <assert.h>
+#include <sstream>
+
 #include "../../../../../common/Log/Log.h"
 
 #include "Humanoid.h"
@@ -640,9 +641,33 @@ void Humanoid::setHome(Building *home)
     this -> home = home;
 }
 
-//**********************************************************
+//******************************************************************************
+// INHERETED THINGS.
+//******************************************************************************
+
+std::string Humanoid::printObjectInfo() const
+{
+    std::string output = Creature::printObjectInfo();
+
+    std::stringstream ss;
+
+    // TODO: Print visual memory and detailed action.
+    ss << "Sociability\t\t"    << sociability << "/" << max_sociability <<
+                                  std::endl <<
+          "Bravery\t\t\t"      << bravery << std::endl <<
+          "Laziness\t\t"       << laziness << std::endl <<
+          "Need in house\t\t"  << need_in_house << std::endl <<
+          "Need in points\t\t" << need_in_points << std::endl <<
+          "Home ID\t\t\t"      << (home == nullptr ? "none" :
+                                   std::to_string(home -> getObjectID())) <<
+                                  std::endl;
+
+    return output + ss.str();
+}
+
+//******************************************************************************
 // DEBUG
-//**********************************************************
+//******************************************************************************
 
 uint Humanoid::getBravery() const
 {

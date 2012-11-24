@@ -33,10 +33,11 @@ public:
     virtual ~NonHumanoid();
 
     //**************************************************************************
-    // TYPE NAME.
+    // INHERETED THINGS.
     //**************************************************************************
 
     std::string getTypeName() const;
+    std::string printObjectInfo() const;
 
     //**************************************************************************
     // NON-HUMANOID ACTIONS.

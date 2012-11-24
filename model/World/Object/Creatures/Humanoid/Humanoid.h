@@ -49,6 +49,8 @@ public:
     std::vector <Action>* getActions();
     void receiveMessage(Message message);
 
+    std::string printObjectInfo() const;
+
     //**************************************************************************
     // ID.
     //**************************************************************************

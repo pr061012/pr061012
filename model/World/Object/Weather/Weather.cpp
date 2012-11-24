@@ -3,6 +3,8 @@
     See the LICENSE file for copying permission.
 */
 
+#include <sstream>
+
 #include "Weather.h"
 
 #include "../../../../common/BasicDefines.h"

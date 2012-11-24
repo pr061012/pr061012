@@ -46,7 +46,7 @@ void Building::receiveMessage(Message message)
 {
 }
 
-std::string Building::printObjectInfo()
+std::string Building::printObjectInfo() const
 {
     std::string output = Object::printObjectInfo();
 

@@ -35,7 +35,7 @@ Object::~Object()
 // OBJECT'S INFORMATION.
 //******************************************************************************
 
-std::string Object::printObjectInfo()
+std::string Object::printObjectInfo() const
 {
     std::stringstream ss;
 

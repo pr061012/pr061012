@@ -55,7 +55,11 @@ public:
     // OBJECT'S INFORMATION.
     //**************************************************************************
 
-    virtual std::string printObjectInfo();
+    /**
+     * @brief  Prints out object's information.
+     * @return string with information
+     */
+    virtual std::string printObjectInfo() const;
 
     //**************************************************************************
     // HEALING/DAMAGING.
