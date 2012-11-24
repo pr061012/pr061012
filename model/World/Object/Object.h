@@ -130,7 +130,7 @@ public:
 
 
     //**************************************************************************
-    // DANGEROUS.
+    // DANGER.
     //**************************************************************************
 
     /**
@@ -208,12 +208,13 @@ public:
     const Vector& getCoords() const;
 
     //**************************************************************************
-    // CAST OPERATORS
+    // CAST OPERATORS.
     //**************************************************************************
+
     /**
-     * @brief Operator to cast an Object to const ViewObject*
+     * @brief Operator to cast an Object to const ViewObject.
      */
-    operator const ViewObject*();
+    operator const ViewObject();
 
 private:
     //**************************************************************************
