@@ -208,6 +208,11 @@ std::vector <Action>* Humanoid::getActions()
             iter != visual_memory -> end(RESOURCE); iter++
         )
         {
+            // skip all destroyed objects 
+            if ((*iter) -> isDestroyed())
+            {
+                continue;
+            }
             Resource* res_food = dynamic_cast<Resource*>(*iter);
             if (res_food -> getSubtype() == RES_FOOD)
             {

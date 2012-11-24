@@ -182,7 +182,6 @@ Creature::Path Creature::generateRoute()
                     // Reached the goal.
                     case 1:
                         // Get the result path
-                        result.pop();
                         while (current)
                         {
                             result.push(current -> point);
