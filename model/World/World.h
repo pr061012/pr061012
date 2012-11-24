@@ -86,6 +86,9 @@ private:
     // GENERATION METHODS.
     //**************************************************************************
 
+    /**
+     * @brief Methods for generating objects of different types.
+     */
     void genCreatures();
     void genResources();
     void genWeather();

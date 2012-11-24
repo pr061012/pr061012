@@ -30,6 +30,10 @@
  * CREATURE - white.
  */
 
+
+// TODO: I guess that would be adequate to replace TextField to some interface like IRenderable
+//       that is going to be used by View and its inner classes.
+
 class View
 {
     /// World to be rendered by View.
@@ -100,6 +104,10 @@ public:
      * @brief Sets game state to paused
      */
     void setPaused(bool new_state);
+
+    /**
+     * @brief Returns boolean value indicating if game state is set to paused
+     */
     bool isPaused();
 
     /**
@@ -110,6 +118,7 @@ public:
      * @brief Returns boolean value, if world should be reset
      */
     bool isReset();
+
 
     TextField* const getFocus();
 
@@ -133,12 +142,12 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Redraw currently displayed world
+     * @brief Redraw currently displayed world.
      */
     void redraw();
 
     /**
-     * @brief checks conditions to exit the program
+     * @brief checks conditions to exit the program.
      * @return result of exit conditions
      */
     bool continues();
