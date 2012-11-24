@@ -575,6 +575,18 @@ std::string CLI::info(std::stringstream& ss)
         output += sformat("Current decision\t%s\n",
                           this -> creat_acts[act].c_str());
 
+        // Printing aim.
+        const Object* aim = creat -> getAim();
+        output += "Aim ID\t\t\t";
+        if (aim == nullptr)
+        {
+            output += "none\n";
+        }
+        else
+        {
+            output += sformat("%u\n", aim -> getObjectID());
+        }
+
         // Printing view area.
         Shape view_area = creat -> getViewArea();
         output += sformat("View area\t\t%s (%f)\n",
