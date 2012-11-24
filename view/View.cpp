@@ -191,6 +191,8 @@ void View::redraw()
                           << std::endl;
                 std::cout << "y = " << selected -> getCoords().getY()
                           << std::endl;
+                std::cout << "id = " << selected -> getObjectID() 
+                          << std::endl;
                 if (selected -> getType() == CREATURE)
                 {
                     std::cout << "decison = " << 
