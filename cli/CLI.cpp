@@ -474,7 +474,7 @@ std::string CLI::info(std::stringstream& ss)
         return sformat("Error: object with id %d doesn't exist.\n", id);
     }
 
-    return obj -> printObjectInfo();
+    return obj -> printObjectInfo() + "\n";
 }
 
 //******************************************************************************
