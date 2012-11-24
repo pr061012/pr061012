@@ -371,7 +371,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             double required_distance = //MINING_RADIUS +
-                    this -> getShape().getSize() / 2.0 + aim -> getShape().getSize() / 2.0;
+                    this -> getShape().getSize() / 1.8 + aim -> getShape().getSize() / 1.8;
             double current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
@@ -404,6 +404,7 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam("object_index", 0);
         this -> need_in_house = 100 - 100 * home -> getHealthPoints()
                                                 / home -> getMaxHealthPoints();
+        this -> actions.push_back(act);
     }
 
     //**************************************************************************
