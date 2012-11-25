@@ -4,6 +4,7 @@
 */
 
 #include "CLI.h"
+#include "ECLIInvalidInput.h"
 
 #include <cstdarg>
 #include <sstream>
@@ -37,6 +38,22 @@
 #define TN_FIELD_SHAPE              "shape"
 #define TN_FIELD_SIZE               "size"
 #define TN_FIELD_DANGER             "danger"
+#define TN_FIELD_IMMORTALITY        "immortality"
+#define TN_FIELD_SOLIDITY           "solidity"
+#define TN_FIELD_DESTROYED          "destroyed"
+
+#define TN_FIELD_AGE                "age"
+#define TN_FIELD_ENDURANCE          "endurance"
+#define TN_FIELD_HUNGER             "hunger"
+#define TN_FIELD_HEALTH             "health"
+#define TN_FIELD_SLEEPINESS         "sleepiness"
+#define TN_FIELD_MAX_AGE            "mage"
+#define TN_FIELD_MAX_DIRECTION      "mdirection"
+#define TN_FIELD_MAX_ENDURANCE      "mendurance"
+#define TN_FIELD_MAX_HUNGER         "mhunger"
+#define TN_FIELD_MAX_HEALTH         "mhealth"
+#define TN_FIELD_MAX_SLEEPINESS     "msleepiness"
+#define TN_FIELD_FORCE              "force"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -44,7 +61,7 @@
 
 // Insolent copypaste:
 // http://stackoverflow.com/a/8098080
-std::string sformat(const std::string& format, ...)
+static std::string sformat(const std::string& format, ...)
 {
     int size = 100;
     std::string result;
@@ -76,6 +93,20 @@ std::string sformat(const std::string& format, ...)
 
     return result;
 }
+
+template<class T> static T readFromSS(std::stringstream& ss, std::string arg_name) throw(ECLIInvalidInput)
+{
+    T t;
+
+    ss >> t;
+    if (!ss)
+    {
+        throw ECLIInvalidInput(arg_name + " expected");
+    }
+
+    return t;
+}
+
 
 //******************************************************************************
 // CONSTRUCTOR.
@@ -137,49 +168,21 @@ std::string CLI::runCommand(std::string command)
     ss >> cmd;
 
     // Running processors.
-    if (cmd == "init")
+    try
     {
-        return this -> init(ss, false);
+        if (cmd == "init")          return this -> init(ss, false);
+        if (cmd == "random-init")   return this -> init(ss, true);
+        if (cmd == "generate")      return this -> generate(ss);
+        if (cmd == "create")        return this -> create(ss);
+        if (cmd == "list")          return this -> list(ss);
+        if (cmd == "info")          return this -> info(ss);
+        if (cmd == "change")        return this -> change(ss);
+        if (cmd == "step")          return this -> step(ss);
+        if (cmd == "trace-step")    return this -> traceStep(ss);
     }
-
-    if (cmd == "random-init")
+    catch(ECLIInvalidInput& exc)
     {
-        return this -> init(ss, true);
-    }
-
-    if (cmd == "generate")
-    {
-        return this -> generate(ss);
-    }
-
-    if (cmd == "create")
-    {
-        return this -> create(ss);
-    }
-
-    if (cmd == "list")
-    {
-        return this -> list(ss);
-    }
-
-    if (cmd == "info")
-    {
-        return this -> info(ss);
-    }
-
-    if (cmd == "change")
-    {
-        return this -> change(ss);
-    }
-
-    if (cmd == "step")
-    {
-        return this -> step(ss);
-    }
-
-    if (cmd == "trace-step")
-    {
-        return this -> traceStep(ss);
+        return exc.what();
     }
 
     return sformat("Unknown command `%s`.\n", cmd.c_str());
@@ -192,19 +195,11 @@ std::string CLI::runCommand(std::string command)
 std::string CLI::init(std::stringstream &ss, bool random)
 {
     // FIXME: Interpreting only one size.
-    int size = -1;
-    ss >> size;
-
-    if (ss.fail())
-    {
-        return sformat("Error: integer argument expected.\n") +
-               sformat("Syntax: init <size>\n");
-    }
+    uint size = readFromSS<uint>(ss, "size");
 
     if (size < 50)
     {
-        return sformat("Error: size must be greater than 50 (%d is given).\n",
-                       size);
+        throw ECLIInvalidInput("size must be greater than 50");
     }
 
     this -> world -> reset(size, random);
@@ -218,30 +213,11 @@ std::string CLI::init(std::stringstream &ss, bool random)
 std::string CLI::generate(std::stringstream& ss)
 {
     // Reading coordinates.
-    double x;
-    ss >> x;
-    if (ss.fail())
-    {
-        return sformat("Error: x coordinate expected.\n") +
-               sformat("Syntax: generate <x> <y> <type>\n");
-    }
-
-    double y;
-    ss >> y;
-    if (ss.fail())
-    {
-        return sformat("Error: y coordinate expected.\n") +
-               sformat("Syntax: generate <x> <y> <type>\n");
-    }
+    double x = readFromSS<double>(ss, "X coordinate");
+    double y = readFromSS<double>(ss, "Y coordinate");
 
     // Reading type.
-    std::string type;
-    ss >> type;
-    if (ss.fail())
-    {
-        return sformat("Error: ClusterType expected.\n") +
-               sformat("Syntax: generate <x> <y> <type>\n");
-    }
+    std::string type = readFromSS<std::string>(ss, "ClusterType");
 
     if (type == TN_CLUSTER_BUILDING_MAT)
     {
@@ -249,8 +225,7 @@ std::string CLI::generate(std::stringstream& ss)
     }
     else
     {
-        return sformat("Error: unknown ClusterType. Possible values: %s.\n",
-                       TN_CLUSTER_BUILDING_MAT);
+        throw ECLIInvalidInput("unknown ClusterType");
     }
 
     return sformat("Successfully generated cluster (%s) at (%f, %f).\n",
@@ -264,47 +239,20 @@ std::string CLI::generate(std::stringstream& ss)
 std::string CLI::create(std::stringstream& ss)
 {
     // Reading coordinates.
-    double x;
-    ss >> x;
-    if (ss.fail())
-    {
-        return sformat("Error: x coordinate expected.\n") +
-               sformat("Syntax: create <x> <y> <type> [additional args]\n");
-    }
-
-    double y;
-    ss >> y;
-    if (ss.fail())
-    {
-        return sformat("Error: y coordinate expected.\n") +
-               sformat("Syntax: create <x> <y> <type> [additional args]\n");
-    }
+    double x = readFromSS<double>(ss, "X coordinate");
+    double y = readFromSS<double>(ss, "Y coordinate");
 
     // Reading type.
     ObjectType obj_type;
-    std::string type;
-    ss >> type;
-    if (ss.fail())
-    {
-        return sformat("Error: ObjectType expected.\n") +
-               sformat("Syntax: create <x> <y> <type> [additional args]\n");
-    }
+    std::string type = readFromSS<std::string>(ss, "ObjectType");
 
+    // Creating object.
     ParamArray pa;
-
     if (type == TN_CREATURE)
     {
         obj_type = CREATURE;
 
-        std::string creat_type;
-        ss >> creat_type;
-        if (ss.fail())
-        {
-            return sformat("Error: CreatureType expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <CreatureType>\n",
-                           TN_CREATURE);
-        }
-
+        std::string creat_type = readFromSS<std::string>(ss, "CreatureType");
         if (creat_type == TN_HUMANOID)
         {
             pa.addKey<CreatureType>("creat_type", HUMANOID);
@@ -315,31 +263,15 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return sformat("Error: Unknown CreatureType (%s), possible values: %s, %s.\n",
-                           creat_type.c_str(), TN_HUMANOID, TN_NON_HUMANOID);
+            throw ECLIInvalidInput("unknown CreatureType");
         }
     }
     else if (type == TN_BUILDING)
     {
         obj_type = BUILDING;
 
-        uint max_health, max_space;
-
-        ss >> max_health;
-        if (ss.fail())
-        {
-            return sformat("Error: max_health expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <max_health> <max_space>\n",
-                           TN_BUILDING);
-        }
-
-        ss >> max_space;
-        if (ss.fail())
-        {
-            return sformat("Error: max_space expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <max_health> <max_space>\n",
-                           TN_BUILDING);
-        }
+        uint max_health = readFromSS<uint>(ss, "max health");
+        uint max_space  = readFromSS<uint>(ss, "max space");
 
         pa.addKey<uint>("max_health", max_health);
         pa.addKey<uint>("max_space", max_space);
@@ -348,15 +280,7 @@ std::string CLI::create(std::stringstream& ss)
     {
         obj_type = RESOURCE;
 
-        std::string res_type;
-        ss >> res_type;
-        if (ss.fail())
-        {
-            return sformat("Error: ResourceType expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <res_type> <res_amount>\n",
-                           TN_RESOURCE);
-        }
-
+        std::string res_type = readFromSS<std::string>(ss, "ResourceType");
         if (res_type == TN_RESOURCE_FOOD)
         {
             pa.addKey<ResourceType>("res_type", RES_FOOD);
@@ -367,19 +291,10 @@ std::string CLI::create(std::stringstream& ss)
         }
         else
         {
-            return sformat("Error: unknown ResourceType (%s), possible values: %s, %s.\n",
-                           res_type.c_str(), TN_RESOURCE_FOOD, TN_RESOURCE_BUILDING_MAT);
+            throw ECLIInvalidInput("unknown ResourceType");
         }
 
-        uint res_amount;
-        ss >> res_amount;
-        if (ss.fail())
-        {
-            return sformat("Error: res_amount expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <res_type> <res_amount>\n",
-                           TN_RESOURCE);
-        }
-
+        uint res_amount = readFromSS<uint>(ss, "resource amount");
         pa.addKey<uint>("res_amount", res_amount);
     }
     else if (type == TN_WEATHER)
@@ -389,21 +304,12 @@ std::string CLI::create(std::stringstream& ss)
         // FIXME: Ignoring weather type.
         pa.addKey<WeatherType>("weat_type", METEOR_SHOWER);
 
-        uint weat_steps;
-        ss >> weat_steps;
-        if (ss.fail())
-        {
-            return sformat("Error: weat_steps expected.\n") +
-                   sformat("Syntax: create <x> <y> %s <weat_steps>\n",
-                           TN_WEATHER);
-        }
-
+        uint weat_steps = readFromSS<uint>(ss, "weather living steps");
         pa.addKey<uint>("weat_steps", weat_steps);
     }
     else
     {
-        return sformat("Error: unknown ObjectType (%s), possible values: %s, %s, %s, %s\n",
-                       type.c_str(), TN_BUILDING, TN_CREATURE, TN_RESOURCE, TN_WEATHER);
+        throw ECLIInvalidInput("unknown ObjectType");
     }
 
     // Creating object.
@@ -508,23 +414,15 @@ std::string CLI::list(std::stringstream& ss, uint columns)
 
 std::string CLI::info(std::stringstream& ss)
 {
-    std::string output;
-
     // Reading id.
-    uint id;
-    ss >> id;
-    if (ss.fail())
-    {
-        return sformat("Error: object id expected.\n") +
-               sformat("Syntax: info <id>\n");
-    }
+    uint id = readFromSS<uint>(ss, "object ID");
 
     // Looking for object.
     Object* obj = this -> world -> getObjectByID(id);
 
     if (obj == nullptr)
     {
-        return sformat("Error: object with id %u doesn't exist.\n", id);
+        throw ECLIInvalidInput("object with specified id doesn't exist");
     }
 
     return obj -> printObjectInfo() + "\n";
@@ -562,64 +460,34 @@ std::string CLI::traceStep(std::stringstream& ss)
 std::string CLI::change(std::stringstream& ss)
 {
     // Reading id.
-    uint id;
-    ss >> id;
-    if (ss.fail())
-    {
-        return sformat("Error: object id expected.\n") +
-               sformat("Syntax: change <id> <field> <new_value>\n");
-    }
+    uint id = readFromSS<uint>(ss, "object ID");
 
     // Getting object.
     Object* obj = this -> world -> getObjectByID(id);
     if (obj == nullptr)
     {
-        return sformat("Error: object with id %u doesn't exist.\n", id);
+        throw ECLIInvalidInput("object with specified id doesn't exist");
     }
 
-    // Reading field name.
-    std::string field;
-    ss >> field;
-    if (ss.fail())
-    {
-        return sformat("Error: field name expected.\n") +
-               sformat("Syntax: change <id> <field> <new_value>\n");
-    }
+    std::string field = readFromSS<std::string>(ss, "field name");
 
+    // Changing coordinates.
     if (field == TN_FIELD_CENTER)
     {
-        double x, y;
-        ss >> x >> y;
-        if (!ss)
-        {
-            return sformat("Error: center coordinates expected.\n") +
-                   sformat("Syntax: change <id> %s <x> <y>\n", TN_FIELD_SIZE);
-        }
-
+        double x = readFromSS<double>(ss, "X coordinate");
+        double y = readFromSS<double>(ss, "Y coordinate");
         obj -> setCoords(Vector(x, y));
     }
+    // Changing size.
     else if (field == TN_FIELD_SIZE)
     {
-        double size;
-        ss >> size;
-        if (!ss)
-        {
-            return sformat("Error: size expected.\n") +
-                   sformat("Syntax: change <id> %s <size>\n", TN_FIELD_SIZE);
-        }
-
+        double size = readFromSS<double>(ss, "size");
         obj -> setShapeSize(size);
     }
+    // Changing shape.
     else if (field == TN_FIELD_SHAPE)
     {
-        std::string shape;
-        ss >> shape;
-        if (!ss)
-        {
-            return sformat("Error: ShapeType expected.\n") +
-                   sformat("Syntax: change <id> %s <ShapeType>\n",
-                           TN_FIELD_SHAPE);
-        }
+        std::string shape = readFromSS<std::string>(ss, "ShapeType");
 
         ShapeType type;
         if (shape == TN_SHAPE_CIRCLE)
@@ -632,28 +500,98 @@ std::string CLI::change(std::stringstream& ss)
         }
         else
         {
-            return sformat("Error: unknown ShapeType. Possible values: %s, %s.\n",
-                           TN_SHAPE_CIRCLE, TN_SHAPE_SQUARE);
+            throw ECLIInvalidInput("unknown ShapeType");
         }
 
         obj -> setShapeType(type);
     }
+    // Changing danger.
     else if (field == TN_FIELD_DANGER)
     {
-        uint danger_level;
-        ss >> danger_level;
-        if (!ss)
-        {
-            return sformat("Error: uint expected.\n") +
-                   sformat("Syntax: change <id> %s <danger>\n",
-                           TN_FIELD_DANGER);
-        }
-
+        uint danger_level = readFromSS<uint>(ss, "danger level");
         obj -> setDangerLevel(danger_level);
     }
+    // Immortality.
+    else if (field == TN_FIELD_IMMORTALITY)
+    {
+        uint immortality = readFromSS<uint>(ss, "immortality");
+        if (immortality) obj -> makeImmortal(); else obj -> makeMortal();
+    }
+    // Solidity.
+    else if (field == TN_FIELD_SOLIDITY)
+    {
+        uint solidity = readFromSS<uint>(ss, "solidity");
+        if (solidity) obj -> makeSolid(); else obj -> makeNonSolid();
+    }
+    // Changing creature params.
+    else if (obj -> getType() == CREATURE)
+    {
+        Creature* creat = dynamic_cast<Creature*>(obj);
+
+        if (field == TN_FIELD_AGE)
+        {
+            uint age = readFromSS<uint>(ss, "age");
+            creat -> setAge(age);
+        }
+        else if (field == TN_FIELD_MAX_AGE)
+        {
+            uint max_age = readFromSS<uint>(ss, "max age");
+            creat -> setMaxAge(max_age);
+        }
+        else if (field == TN_FIELD_ENDURANCE)
+        {
+            uint endurance = readFromSS<uint>(ss, "endurance");
+            creat -> setEndurance(endurance);
+        }
+        else if (field == TN_FIELD_MAX_ENDURANCE)
+        {
+            uint max_endurance = readFromSS<uint>(ss, "max endurance");
+            creat -> setMaxEndurance(max_endurance);
+        }
+        else if (field == TN_FIELD_HUNGER)
+        {
+            uint hunger = readFromSS<uint>(ss, "hunger");
+            creat -> setHunger(hunger);
+        }
+        else if (field == TN_FIELD_MAX_HUNGER)
+        {
+            uint max_hunger = readFromSS<uint>(ss, "max hunger");
+            creat -> setMaxHunger(max_hunger);
+        }
+        else if (field == TN_FIELD_HEALTH)
+        {
+            uint health = readFromSS<uint>(ss, "health");
+            creat -> setHealth(health);
+        }
+        else if (field == TN_FIELD_MAX_HEALTH)
+        {
+            uint max_health = readFromSS<uint>(ss, "max health");
+            creat -> setMaxHealth(max_health);
+        }
+        else if (field == TN_FIELD_SLEEPINESS)
+        {
+            uint sleepiness = readFromSS<uint>(ss, "sleepiness");
+            creat -> setSleepiness(sleepiness);
+        }
+        else if (field == TN_FIELD_MAX_SLEEPINESS)
+        {
+            uint max_sleepiness = readFromSS<uint>(ss, "max sleepiness");
+            creat -> setMaxSleepiness(max_sleepiness);
+        }
+        else if (field == TN_FIELD_FORCE)
+        {
+            uint force = readFromSS<uint>(ss, "force");
+            creat -> setForce(force);
+        }
+        else
+        {
+            throw ECLIInvalidInput("unknown field name for Creature");
+        }
+    }
+    // Unknown field name.
     else
     {
-        return sformat("Error: unknown FieldName.\n");
+        throw ECLIInvalidInput("unknown field name");
     }
 
     return "Successfully changed object.\n";
