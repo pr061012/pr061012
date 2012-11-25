@@ -1,5 +1,6 @@
 #include <set>
 #include "../../../../common/Math/DoubleComparison.h"
+#include "../../../../common/BasicDefines.h"
 #include "Creature.h"
 
 #define __creature_generate_route_complete 1
@@ -102,6 +103,13 @@ int Creature::checkPointIsPassable(Vector point)
         return 1;
     }
 
+    // Check if we are out of bounds.
+    if (point.getX() < 0 || point.getY() < 0 ||
+        point.getX() >= SZ_WORLD_HSIDE ||
+        point.getY() >= SZ_WORLD_VSIDE)
+    {
+        return -1;
+    }
     // Place our body on the point
     Shape sample = this -> getShape();
     sample.setCenter(point);

@@ -60,7 +60,7 @@ void Controller::destroy(Object * object)
              i != inventory -> end(); i++)
         {
             world -> getHiddenObjects() -> remove(*i);
-            world -> getVisibleObjects() -> find(*i);
+            world -> getVisibleObjects() -> push(*i);
             world -> getIndexator() -> addObject(*i);
             (*i) -> setCoords(object -> getCoords());
         }
