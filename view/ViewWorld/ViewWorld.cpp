@@ -36,7 +36,7 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 
 ViewWorld::~ViewWorld()
 {
-    glDeleteTextures( 3, texture_buf ); // Clearing textures created
+    glDeleteTextures( 3, texture_buf ); // Clearing textures that were previously created
 }
 
 void ViewWorld::loadTextures()
@@ -140,10 +140,11 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS ?
-              new_var : VIEW_CAM_RADIUS;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS;
+    const double y_max_rad = (double)VIEW_CAM_RADIUS * height / width;
+    new_var = new_var > y_max_rad ?
+              new_var : y_max_rad;
+    new_var = new_var < world.getSize() - y_max_rad ?
+              new_var : world.getSize() - y_max_rad;
     this -> y = new_var;
 }
 
