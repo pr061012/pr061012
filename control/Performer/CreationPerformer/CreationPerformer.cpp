@@ -97,14 +97,13 @@ void CreationPerformer::perform(Action& action)
                     action.markAsFailed();
                     return;
                 }
+            }
             break;
 
             default:
                 action.markAsFailed();
                 return;
             break;
-        }
-
         }
     }
     else if (type == RESOURCE)
