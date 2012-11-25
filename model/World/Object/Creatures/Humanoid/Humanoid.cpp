@@ -503,8 +503,12 @@ std::vector <Action>* Humanoid::getActions()
     {
         Action act(CREATE_OBJ, this);
         act.addParam<ObjectType>("obj_type", BUILDING);
-        act.addParam<uint>("building_max_space", 3);
-        act.addParam<uint>("building_max_health", 100);
+        // TODO: Ugly. Humanoid need to pick max_space and max_health values
+        //       more accuratly.
+        act.addParam<uint>("building_max_space",
+                           Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
+        act.addParam<uint>("building_max_health",
+                           Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
         this -> actions.push_back(act);
         current_action = NONE;
     }
