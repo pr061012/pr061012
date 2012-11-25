@@ -67,7 +67,6 @@ void PickupMaster::perform(Action& action)
         else
         {
             // make object hidden
-            buffer -> push(*j);
             world -> getVisibleObjects() -> remove(*j);
             world -> getHiddenObjects() -> push(*j);
             world -> getIndexator() -> removeObject(*j);

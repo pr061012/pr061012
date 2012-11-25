@@ -53,7 +53,7 @@ void CreationPerformer::perform(Action& action)
                 if (checkCoord(new_object))
                 {
                     // If all is OK, add new_object in world.
-                    visible -> push(new_object);
+                    world -> addObject(true, new_object);
 
                     action.markAsSucceeded();
                     return;
@@ -87,7 +87,7 @@ void CreationPerformer::perform(Action& action)
                     if (checkCoord(new_object))
                     {
                         // Set coord new_object and add its in world.
-                        visible -> push(new_object);
+                        world -> addObject(true, new_object);
 
                         Building* new_home = dynamic_cast<Building*>(new_object);
                         dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
@@ -130,7 +130,7 @@ void CreationPerformer::perform(Action& action)
             if (checkCoord(new_object))
             {
                 // If all is OK, add new_object in world.
-                visible -> push(new_object);
+                world -> addObject(true, new_object);
                 // Increase actor amount.
                 static_cast<Resource*>(actor) -> increaseAmount(1);
 
