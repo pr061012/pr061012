@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../model/World/Object/Tool/Tool.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../common/BasicDefines.h"
@@ -49,18 +50,59 @@ void MiningPerformer::perform(Action& action)
     Object* res = participants[res_index];
     // Object* tool = participant[tool_index];
 
+    // Getting object is reach area.
     Shape reach_area = creature -> getReachArea();
     reach_area.setCenter(creature -> getCoords());
     ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
 
+    // Trying to find required object.
     ObjectHeap::const_iterator iter = env.end();
     if (env.find(res, false) == iter)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
-    dynamic_cast<Resource*>(res) -> incrementProgress();
+    // Check whether resource is mineable.
+    Resource* resource = dynamic_cast<Resource*>(res);
+    if (!resource -> isMineable())
+    {
+        action.markAsFailed();
+        action.setError(OBJ_IS_NOT_MINEABLE);
+    }
+
+    // Incrementing progress.
+    resource -> incrementProgress();
+
+    // Creating new resource object (if needed) and adding it to inventory.
+    if (resource -> getProgress() == resource -> getDifficulty())
+    {
+        // Zeroing progress.
+        resource -> setProgress(0);
+
+        // Calculating drop amount.
+        uint drop_amount = resource -> getAmountPerDrop();
+        if (drop_amount > resource -> getAmount())
+        {
+            drop_amount = resource -> getAmount();
+        }
+
+        // Decreasing amount of resource.
+        resource -> decreaseAmount(drop_amount);
+
+        // Creating new resource.
+        ParamArray pa;
+        pa.addKey<ResourceType>("res_type", resource -> getSubtype());
+        pa.addKey<uint>("res_amount", drop_amount);
+        Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
+
+        // Making it only pickable.
+        drop -> makePickable();
+
+        // Adding object to inventory.
+        dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
+    }
 
     action.markAsSucceeded();
 }
