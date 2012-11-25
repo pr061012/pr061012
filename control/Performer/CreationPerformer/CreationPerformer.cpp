@@ -106,31 +106,6 @@ void CreationPerformer::perform(Action& action)
             break;
         }
     }
-    else if (type == RESOURCE)
-    {
-        if (obj_type == RESOURCE)
-        {
-            // Create new resource.
-            new_object = createResource(action, param);
-
-            dynamic_cast<Resource*>(new_object) -> makePickable();
-            // If all is OK, add new_object in world.
-            //world -> addObject(false, new_object);
-            // FIXME What is this supposed to mean?
-            visible -> push(new_object);
-
-            // Increase actor amount.
-            static_cast<Resource*>(actor) -> increaseAmount(1);
-
-            action.markAsSucceeded();
-            return;
-        }
-        else
-        {
-            action.markAsFailed();
-            return;
-        }
-    }
     else
     {
         action.markAsFailed();
