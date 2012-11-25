@@ -184,30 +184,18 @@ void ViewWorld::renderObject(const Object* object)
             break;
     }
 
-    double angle;
     double radius = this -> worldToScreenDist(object->getShape().getSize()/2);
-
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     if( object -> getShape().getType() == CIRCLE )
     {
-        glBegin(GL_TRIANGLE_FAN);
-            for(int i = 0; i < 100; i++) {
-                angle = 2.0 * i * M_PI / 100;
-                glVertex2d((px + cos(angle) * radius),
-                           (py + sin(angle) * radius));
-            }
-        glEnd();
+        ViewUtilities::glCirclef_blend(px, py, radius);
     }
     else
     {
-        glRectd(px-radius, py-radius, px+radius, py+radius);
+        ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius);
     }
 
-    glDisable(GL_BLEND);
-
-    glColor4d(1.0,1.0,1.0,1.0);
+    glColor3d(1.0, 1.0, 1.0);
 #else
     // TODO: Redo image coordinates to be taken from (file?)
     float x0;

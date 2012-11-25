@@ -270,7 +270,7 @@ void View::redraw()
     // Drawing debug message at the top of the screen.
 
     glColor4f(0.0f, 0.0f, 0.0f, 0.4f);
-    ViewUtilites::glRectf_blend(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
+    ViewUtilities::glRectf_blend(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
 
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);

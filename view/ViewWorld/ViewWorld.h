@@ -9,6 +9,8 @@
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
 
+#include "../Utilities/ViewUtilities.h"
+
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
 #include "../../model/World/IWorld.h"
