@@ -19,6 +19,7 @@
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
+#include "Utilities/ViewFuncs.h"
 
 #include <GL/glc.h>
 
@@ -97,8 +98,17 @@ public:
      */
     double getY();
 
+    /**
+     * @brief Sets in-game x and y coordinates of game cam center
+     */
     void setX(double new_var);
     void setY(double new_var);
+
+    /**
+     * @brief Returns max on-screen coordinates
+     */
+    double getMaxScrX();
+    double getMaxScrY();
 
     /**
      * @brief Sets game state to paused
@@ -114,6 +124,7 @@ public:
      * @brief Sets variable, whether world should be reset
      */
     void setReset(bool reset);
+
     /**
      * @brief Returns boolean value, if world should be reset
      */

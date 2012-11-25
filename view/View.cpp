@@ -89,6 +89,16 @@ void View::setY(double new_var)
     view_world -> setY(new_var);
 }
 
+double View::getMaxScrX()
+{
+    return VIEW_CAM_SIZE;
+}
+
+double View::getMaxScrY()
+{
+    return VIEW_CAM_SIZE * height/width;
+}
+
 void View::setPaused(bool new_state)
 {
     paused = new_state;
@@ -160,8 +170,8 @@ void View::redraw()
     mouse_y = this -> height - mouse_y;
 
     // Screen X and Y
-    double sx = ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2;
-    double sy = ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 * height/width;
+    double sx = ((double)mouse_x/width  - 0.5) * getMaxScrX() * 2;
+    double sy = ((double)mouse_y/height - 0.5) * getMaxScrY() * 2;
 
     // World  X and Y
     double wx = view_world -> screenToWorldX( sx );
@@ -261,22 +271,22 @@ void View::redraw()
     yoff = yoff - (int)yoff;
 
     glBegin(GL_LINES);
-    for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
+    for(int i = -getMaxScrX(); i <= getMaxScrX(); i++)
     {
-        glVertex2d(-VIEW_CAM_SIZE,  i - yoff);
-        glVertex2d( VIEW_CAM_SIZE,  i - yoff);
+        glVertex2d(-getMaxScrX(),  i - yoff);
+        glVertex2d( getMaxScrX(),  i - yoff);
 
-        glVertex2d( i - xoff, -VIEW_CAM_SIZE);
-        glVertex2d( i - xoff,  VIEW_CAM_SIZE);
+        glVertex2d( i - xoff, -getMaxScrY());
+        glVertex2d( i - xoff,  getMaxScrY());
     }
     glEnd();
 
     // Drawing debug message at the top of the screen.
 
     glColor3f(0.0f, 0.0f, 0.0f);
-    glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
+    glRectf(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
+    glRasterPos2f(-getMaxScrX(), getMaxScrY() - 0.5f);
 
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);
     if(this -> isPaused()) msg += " PAUSED";
@@ -317,10 +327,10 @@ void View::initWindow()
 
     float aspect_ratio = ((float)height)/width;
 
-    glFrustum(-VIEW_CAM_SIZE,
-               VIEW_CAM_SIZE,
-              -VIEW_CAM_SIZE * aspect_ratio,
-               VIEW_CAM_SIZE * aspect_ratio, 1, 50);
+    glFrustum(-getMaxScrX(),
+               getMaxScrX(),
+              -getMaxScrY(),
+               getMaxScrY(), 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
     glfwSetWindowTitle("Project 0612");
