@@ -117,6 +117,52 @@ void World::genWeather()
     indexator -> reindexate(visible_objs);
 }
 
+void World::genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle, double toAngle)
+{
+    if(prob >= MATH_EPSILON)
+    {
+        if(prob <= Random::double_range(0.0, 1.0))
+        {
+            genTreeAt(x, y, tree_params);
+        }
+
+
+        double interval = 2*M_PI/GEN_TREE_DENSITY;
+        double a = fromAngle + interval;
+
+        while(a <= toAngle)
+        {
+            double newx = x + GEN_TREE_INTERVAL*cos(a);
+            double newy = y + GEN_TREE_INTERVAL*sin(a);
+            this -> genForestAt(newx, newy,
+                                prob - GEN_TREE_PROB_DECAY, tree_params,
+                                a - interval, a + interval);
+
+            a += interval;
+        }
+    }
+}
+
+void World::genForestAt(double x, double y, double prob, double fromAngle, double toAngle)
+{
+    ParamArray tree_params;
+    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    tree_params.addKey<uint>("res_amount", 10);
+
+    this -> genForestAt(x, y, prob, tree_params, fromAngle, toAngle);
+}
+
+void World::genTreeAt(double x, double y, const ParamArray& tree_params)
+{
+    std::cout<<"Generating tree at specific position."<<std::endl;
+    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
+    std::cout<<"Generated tree at specific position."<<std::endl;
+
+    new_obj -> setCoords(Vector(x, y));
+
+    //this -> addObject(true, new_obj);
+}
+
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
@@ -245,51 +291,6 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     // TODO: Cycle through weather objects
     // and return the closest type of weather for this area.
     return RAIN;
-}
-
-void World::genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle, double toAngle)
-{
-    if(prob >= MATH_EPSILON)
-    {
-        if(prob <= Random::double_range(0.0, 1.0))
-        {
-            genTreeAt(x, y, tree_params);
-        }
-
-
-        double interval = 2*M_PI/GEN_TREE_DENSITY;
-        double a = fromAngle + interval;
-
-        while(a <= toAngle)
-        {
-            double newx = x + GEN_TREE_INTERVAL*cos(a);
-            double newy = y + GEN_TREE_INTERVAL*sin(a);
-            this -> genForestAt(newx, newy,
-                                prob - GEN_TREE_PROB_DECAY, tree_params,
-                                a - interval, a + interval);
-
-            a += interval;
-        }
-    }
-}
-
-void World::genForestAt(double x, double y, double prob, double fromAngle, double toAngle)
-{
-    ParamArray tree_params;
-    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
-    tree_params.addKey<uint>("res_amount", 10);
-
-    this -> genForestAt(x, y, prob, tree_params, fromAngle, toAngle);
-}
-
-void World::genTreeAt(double x, double y, const ParamArray& tree_params)
-{
-    std::cout<<"Generating tree at specific position."<<std::endl;
-    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
-
-    new_obj -> setCoords(Vector(x, y));
-
-    this -> addObject(true, new_obj);
 }
 
 Object *World::getObjectByID(int id)
