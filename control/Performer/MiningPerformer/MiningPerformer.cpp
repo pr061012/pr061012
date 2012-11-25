@@ -45,15 +45,15 @@ void MiningPerformer::perform(Action& action)
         action.markAsFailed();
         return;
     }
-    Object* res = participants[res_index];
-    double size = creature -> getShape().getSize() * SZ_HUM_REACH_AREA_COEF;
-    Shape shape(creature -> getCoords(), CIRCLE, size);
-    ObjectHeap env = world -> getIndexator() -> getAreaContents(shape);
-/*
-    Object* tool = participant[tool_index];
-*/
-    ObjectHeap::const_iterator iter = env.end();
 
+    Object* res = participants[res_index];
+    // Object* tool = participant[tool_index];
+
+    Shape reach_area = creature -> getReachArea();
+    reach_area.setCenter(creature -> getCoords());
+    ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
+
+    ObjectHeap::const_iterator iter = env.end();
     if (env.find(res, false) == iter)
     {
         action.markAsFailed();

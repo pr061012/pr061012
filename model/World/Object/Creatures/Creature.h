@@ -72,6 +72,18 @@ public:
     Shape getViewArea();
 
     /**
+     * @brief Set the value of reachg_area.
+     * @param view_area the new value of reach_area
+     */
+    void setReachArea(Shape reach_area);
+
+    /**
+     * @brief  Get the value of reach_area.
+     * @return the value of reach_area
+     */
+    Shape getReachArea();
+
+    /**
      * @brief  Get inventory
      * @return inventory
      */
@@ -214,10 +226,10 @@ public:
      */
     
     uint getForce();
-   
-    //**********************************************************
+
+    //**************************************************************************
     // SLEEPINESS
-    //**********************************************************
+    //**************************************************************************
 
     /**
      * @brief Set the value of sleepiness
@@ -253,9 +265,9 @@ public:
      */
     const Object* getAim();
 
-    //**********************************************************
+    //**************************************************************************
     // DEBUG
-    //**********************************************************
+    //**************************************************************************
     
     /// Get current action
     uint getCurrentDecision() const;
@@ -304,6 +316,9 @@ private:
 
     /// View area for Indexator.
     Shape view_area;
+
+    /// Reach area.
+    Shape reach_area;
 
     /// Typedef for path
     typedef std::stack<Vector> Path;
