@@ -137,7 +137,7 @@ private:
      * @param  ss   stream with args
      * @return command output
      */
-    std::string list(std::stringstream& ss);
+    std::string list(std::stringstream& ss, uint columns = 2);
 
     /**
      * @brief  `info` command.
