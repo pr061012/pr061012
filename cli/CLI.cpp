@@ -38,16 +38,22 @@
 #define TN_FIELD_SHAPE              "shape"
 #define TN_FIELD_SIZE               "size"
 #define TN_FIELD_DANGER             "danger"
+#define TN_FIELD_IMMORTALITY        "immortality"
+#define TN_FIELD_SOLIDITY           "solidity"
+#define TN_FIELD_DESTROYED          "destroyed"
 
 #define TN_FIELD_AGE                "age"
 #define TN_FIELD_ENDURANCE          "endurance"
 #define TN_FIELD_HUNGER             "hunger"
 #define TN_FIELD_HEALTH             "health"
+#define TN_FIELD_SLEEPINESS         "sleepiness"
 #define TN_FIELD_MAX_AGE            "mage"
 #define TN_FIELD_MAX_DIRECTION      "mdirection"
 #define TN_FIELD_MAX_ENDURANCE      "mendurance"
 #define TN_FIELD_MAX_HUNGER         "mhunger"
 #define TN_FIELD_MAX_HEALTH         "mhealth"
+#define TN_FIELD_MAX_SLEEPINESS     "msleepiness"
+#define TN_FIELD_FORCE              "force"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -505,6 +511,18 @@ std::string CLI::change(std::stringstream& ss)
         uint danger_level = readFromSS<uint>(ss, "danger level");
         obj -> setDangerLevel(danger_level);
     }
+    // Immortality.
+    else if (field == TN_FIELD_IMMORTALITY)
+    {
+        uint immortality = readFromSS<uint>(ss, "immortality");
+        if (immortality) obj -> makeImmortal(); else obj -> makeMortal();
+    }
+    // Solidity.
+    else if (field == TN_FIELD_SOLIDITY)
+    {
+        uint solidity = readFromSS<uint>(ss, "solidity");
+        if (solidity) obj -> makeSolid(); else obj -> makeNonSolid();
+    }
     // Changing creature params.
     else if (obj -> getType() == CREATURE)
     {
@@ -539,6 +557,31 @@ std::string CLI::change(std::stringstream& ss)
         {
             uint max_hunger = readFromSS<uint>(ss, "max hunger");
             creat -> setMaxHunger(max_hunger);
+        }
+        else if (field == TN_FIELD_HEALTH)
+        {
+            uint health = readFromSS<uint>(ss, "health");
+            creat -> setHealth(health);
+        }
+        else if (field == TN_FIELD_MAX_HEALTH)
+        {
+            uint max_health = readFromSS<uint>(ss, "max health");
+            creat -> setMaxHealth(max_health);
+        }
+        else if (field == TN_FIELD_SLEEPINESS)
+        {
+            uint sleepiness = readFromSS<uint>(ss, "sleepiness");
+            creat -> setSleepiness(sleepiness);
+        }
+        else if (field == TN_FIELD_MAX_SLEEPINESS)
+        {
+            uint max_sleepiness = readFromSS<uint>(ss, "max sleepiness");
+            creat -> setMaxSleepiness(max_sleepiness);
+        }
+        else if (field == TN_FIELD_FORCE)
+        {
+            uint force = readFromSS<uint>(ss, "force");
+            creat -> setForce(force);
         }
         else
         {
