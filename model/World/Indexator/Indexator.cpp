@@ -172,7 +172,7 @@ void Indexator::reindexate(Object * object)
     }
 
     // If object did not move, don't do anything.
-    if (!same_area)
+    if (same_area)
     {
         delete[] area;
         return;
