@@ -281,6 +281,7 @@ enum ActionState
 enum ActionError
 {
     NO_ERROR,
+    NO_PLACE_TO_PLACE_OBJ_ON,
     OBJ_IS_OUT_OF_RANGE,
     OBJ_IS_OUT_OF_VIEW,
     OBJ_IS_IMMORTAL,

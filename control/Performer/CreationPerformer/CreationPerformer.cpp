@@ -34,7 +34,7 @@ void CreationPerformer::perform(Action& action)
     double size = actor -> getShape().getSize();
 
     ObjectType obj_type = action.getParam<ObjectType>("obj_type");
-    Vector new_center(Random::double_range(2*size, 4*size), Random::double_range(2*size, 4*size));
+    Vector new_center(Random::double_range(size,2*size), Random::double_range(size, 2*size));
     ParamArray param;
 
     // Check of actor type.
@@ -50,16 +50,16 @@ void CreationPerformer::perform(Action& action)
 
                 // Set coord new_object and check it.
                 new_object -> setCoords(actor -> getCoords() + new_center);
-                if (checkCoord(actor -> getShape()))
+                if (checkCoord(new_object))
                 {
                     // If all is OK, add new_object in world.
-                    visible-> push(new_object);
-
+                    visible -> push(new_object);
                     action.markAsSucceeded();
                     return;
                 }
                 else
                 {
+                    action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                     action.markAsFailed();
                     return;
                 }
@@ -81,25 +81,35 @@ void CreationPerformer::perform(Action& action)
                 {
                     // Create new resource.
                     new_object = createBuilding(action, param);
-
-                    // Set coord new_object and add its in world.
                     new_object -> setCoords(actor -> getCoords());
-                    visible -> push(new_object);
+                    if (checkCoord(new_object))
+                    {
+                        // Set coord new_object and add its in world.
+                        visible -> push(new_object);
 
-                    Building* new_home = dynamic_cast<Building*>(new_object);
-                    dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
+                        Building* new_home = dynamic_cast<Building*>(new_object);
+                        dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
 
-                    action.markAsSucceeded();
+                        action.markAsSucceeded();
+                    }
+                    else
+                    {
+                        action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
+                        action.markAsFailed();
+                    }
                     return;
                 }
                 else
                 {
+                    action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
+
                     action.markAsFailed();
                     return;
                 }
             break;
 
             default:
+                action.setError(OBJ_IS_NOT_CREATABLE);
                 action.markAsFailed();
                 return;
             break;
@@ -114,15 +124,21 @@ void CreationPerformer::perform(Action& action)
             new_object = createResource(action, param);
 
             dynamic_cast<Resource*>(new_object) -> makePickable();
-            // If all is OK, add new_object in world.
-            //world -> addObject(false, new_object);
-            // FIXME What is this supposed to mean?
-            visible -> push(new_object);
+            if (checkCoord(new_object))
+            {
+                // If all is OK, add new_object in world.
+                visible -> push(new_object);
 
-            // Increase actor amount.
-            static_cast<Resource*>(actor) -> increaseAmount(1);
+                // Increase actor amount.
+                static_cast<Resource*>(actor) -> increaseAmount(1);
 
-            action.markAsSucceeded();
+                action.markAsSucceeded();
+            }
+            else
+            {
+                action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
+                action.markAsFailed();
+            }
             return;
         }
         else
@@ -138,18 +154,50 @@ void CreationPerformer::perform(Action& action)
     }
 }
 
-bool CreationPerformer::checkCoord(Shape shape)
+bool CreationPerformer::checkCoord(Object* new_obj)
 {
     bool ret = false;
-
+    Shape shape = new_obj -> getShape();
     // Get obstacles
+    ObjectType type = new_obj -> getType();
     ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(shape);
-
-    //Check amount creature and resource in shape
-    if (!obstacles.getTypeAmount(CREATURE) &&
-        !obstacles.getTypeAmount(RESOURCE))
+    uint count_building = obstacles.getTypeAmount(BUILDING);
+    uint count_creature = obstacles.getTypeAmount(CREATURE);
+    uint count_resource = obstacles.getTypeAmount(RESOURCE);
+    Vector center = new_obj -> getCoords();
+    double size =  shape.getSize();
+    if
+    (
+        center.getX() - size / 2 < 0 ||
+        center.getX() + size / 2 >= world -> getSize() ||
+        center.getY() - size / 2 < 0 ||
+        center.getY() + size / 2 >= world -> getSize()
+    )
     {
-        ret = true;
+        ret = false;
+    }
+    else if (type == BUILDING)
+    {
+        if
+        (
+            !count_building &&
+            !count_resource &&
+            count_creature == 1
+        )
+        {
+            ret = true;
+        }
+    }
+    else if (type == CREATURE)
+    {
+        if
+        (
+            !count_creature &&
+            !count_resource
+        )
+        {
+            ret = true;
+        }
     }
 
     return ret;

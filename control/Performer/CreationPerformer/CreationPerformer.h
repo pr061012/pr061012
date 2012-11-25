@@ -58,7 +58,7 @@ private:
      * @param shape
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(Shape shape);
+    bool checkCoord(Object *new_obj);
 
     Object* createBuilding(Action& action, ParamArray& param);
 
