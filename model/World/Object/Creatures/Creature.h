@@ -482,7 +482,7 @@ protected:
      *        -1 if creature can't stand on the point
      */
 
-    virtual int checkPointIsPassable(Vector point);
+    virtual int checkPointIsPassable(Vector point, bool goal_in_sight);
 
     /// Neighnour offsets for generating vertices for path graph
     static const Vector neighbour_offsets[8];

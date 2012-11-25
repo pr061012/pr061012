@@ -27,7 +27,16 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+
 #define TN_CLUSTER_BUILDING_MAT     "fr"
+
+#define TN_SHAPE_CIRCLE             "cr"
+#define TN_SHAPE_SQUARE             "s"
+
+#define TN_FIELD_CENTER             "center"
+#define TN_FIELD_SHAPE              "shape"
+#define TN_FIELD_SIZE               "size"
+#define TN_FIELD_DANGER             "danger"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -418,76 +427,79 @@ std::string CLI::list(std::stringstream& ss, uint columns)
     std::string type = "";
     ss >> type;
 
-    // Listing visible objects.
-    ObjectHeap* objs = this -> world -> getVisibleObjects();
+    // Output.
+    std::string output;
 
-    // Preparing begin and end iterators.
-    ObjectHeap::const_iterator iter_begin, iter_end;
-    if (type == "")
+    for (uint k = 0; k < 2; k++)
     {
-        iter_begin = objs -> begin();
-        iter_end   = objs -> end();
-    }
-    else if (type == TN_BUILDING)
-    {
-        iter_begin = objs -> begin(BUILDING);
-        iter_end   = objs -> end(BUILDING);
-    }
-    else if (type == TN_CREATURE)
-    {
-        iter_begin = objs -> begin(CREATURE);
-        iter_end   = objs -> end(CREATURE);
-    }
-    else if (type == TN_RESOURCE)
-    {
-        iter_begin = objs -> begin(RESOURCE);
-        iter_end   = objs -> end(RESOURCE);
-    }
-    else if (type == TN_WEATHER)
-    {
-        iter_begin = objs -> begin(WEATHER);
-        iter_end   = objs -> end(WEATHER);
-    }
-    else
-    {
-        return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
-    }
+        ObjectHeap* objs = (k == 0 ? this -> world -> getVisibleObjects() :
+                                     this -> world -> getHiddenObjects());
 
-    // Output stream.
-    std::stringstream os;
-
-    ObjectHeap::const_iterator iter;
-    uint cur_column = 1;
-    for (iter = iter_begin; iter != iter_end; iter++)
-    {
-        Object* obj = *iter;
-
-        // Preparing flags.
-        std::string flags = "v";
-        flags += obj -> isDestroyed() ? "d" : " ";
-        flags += obj -> isImmortal() ? "i" : " ";
-        flags += obj -> isSolid() ? "s" : " ";
-
-        // Printing output.
-        os << obj -> getObjectID() << "\t│ " << flags << " │ " <<
-              this -> obj_types[obj -> getType()] << " │ " <<
-              obj -> getCoords().getX() << "\t" << obj -> getCoords().getY();
-
-        if (cur_column++ == columns)
+        // Preparing begin and end iterators.
+        ObjectHeap::const_iterator iter_begin, iter_end;
+        if (type == "")
         {
-            os << "\n";
-            cur_column = 1;
+            iter_begin = objs -> begin();
+            iter_end   = objs -> end();
+        }
+        else if (type == TN_BUILDING)
+        {
+            iter_begin = objs -> begin(BUILDING);
+            iter_end   = objs -> end(BUILDING);
+        }
+        else if (type == TN_CREATURE)
+        {
+            iter_begin = objs -> begin(CREATURE);
+            iter_end   = objs -> end(CREATURE);
+        }
+        else if (type == TN_RESOURCE)
+        {
+            iter_begin = objs -> begin(RESOURCE);
+            iter_end   = objs -> end(RESOURCE);
+        }
+        else if (type == TN_WEATHER)
+        {
+            iter_begin = objs -> begin(WEATHER);
+            iter_end   = objs -> end(WEATHER);
         }
         else
         {
-            os << "\t\t║\t";
+            return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
+        }
+
+        // Listing objects.
+        ObjectHeap::const_iterator iter;
+        uint cur_column = 1;
+        for (iter = iter_begin; iter != iter_end; iter++)
+        {
+            Object* obj = *iter;
+
+            // Preparing flags.
+            std::string flags = k == 0 ? "v" : "h";
+            flags += obj -> isDestroyed() ? "d" : " ";
+            flags += obj -> isImmortal() ? "i" : " ";
+            flags += obj -> isSolid() ? "s" : " ";
+
+            // Printing output.
+            output += sformat("%d\t│ %s │ %s │ %f\t%f", obj -> getObjectID(),
+                              flags.c_str(),
+                              this -> obj_types[obj -> getType()].c_str(),
+                              obj -> getCoords().getX(),
+                              obj -> getCoords().getY());
+
+            if (cur_column++ == columns)
+            {
+                output += "\n";
+                cur_column = 1;
+            }
+            else
+            {
+                output += "\t\t║\t";
+            }
         }
     }
 
-    return os.str() + "\n";
-
-    // TODO: Listing hidden objects.
-    //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
+    return output + "\n";
 }
 
 //******************************************************************************
@@ -558,6 +570,13 @@ std::string CLI::change(std::stringstream& ss)
                sformat("Syntax: change <id> <field> <new_value>\n");
     }
 
+    // Getting object.
+    Object* obj = this -> world -> getObjectByID(id);
+    if (obj == nullptr)
+    {
+        return sformat("Error: object with id %u doesn't exist.\n", id);
+    }
+
     // Reading field name.
     std::string field;
     ss >> field;
@@ -567,5 +586,75 @@ std::string CLI::change(std::stringstream& ss)
                sformat("Syntax: change <id> <field> <new_value>\n");
     }
 
-    // TODO: Implement it.
+    if (field == TN_FIELD_CENTER)
+    {
+        double x, y;
+        ss >> x >> y;
+        if (!ss)
+        {
+            return sformat("Error: center coordinates expected.\n") +
+                   sformat("Syntax: change <id> %s <x> <y>\n", TN_FIELD_SIZE);
+        }
+
+        obj -> setCoords(Vector(x, y));
+    }
+    else if (field == TN_FIELD_SIZE)
+    {
+        double size;
+        ss >> size;
+        if (!ss)
+        {
+            return sformat("Error: size expected.\n") +
+                   sformat("Syntax: change <id> %s <size>\n", TN_FIELD_SIZE);
+        }
+
+        obj -> setShapeSize(size);
+    }
+    else if (field == TN_FIELD_SHAPE)
+    {
+        std::string shape;
+        ss >> shape;
+        if (!ss)
+        {
+            return sformat("Error: ShapeType expected.\n") +
+                   sformat("Syntax: change <id> %s <ShapeType>\n",
+                           TN_FIELD_SHAPE);
+        }
+
+        ShapeType type;
+        if (shape == TN_SHAPE_CIRCLE)
+        {
+            type = CIRCLE;
+        }
+        else if (shape == TN_SHAPE_SQUARE)
+        {
+            type = SQUARE;
+        }
+        else
+        {
+            return sformat("Error: unknown ShapeType. Possible values: %s, %s.\n",
+                           TN_SHAPE_CIRCLE, TN_SHAPE_SQUARE);
+        }
+
+        obj -> setShapeType(type);
+    }
+    else if (field == TN_FIELD_DANGER)
+    {
+        uint danger_level;
+        ss >> danger_level;
+        if (!ss)
+        {
+            return sformat("Error: uint expected.\n") +
+                   sformat("Syntax: change <id> %s <danger>\n",
+                           TN_FIELD_DANGER);
+        }
+
+        obj -> setDangerLevel(danger_level);
+    }
+    else
+    {
+        return sformat("Error: unknown FieldName.\n");
+    }
+
+    return "Successfully changed object.\n";
 }
