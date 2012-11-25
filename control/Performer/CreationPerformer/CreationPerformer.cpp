@@ -53,12 +53,8 @@ void CreationPerformer::perform(Action& action)
                 if (checkCoord(new_object))
                 {
                     // If all is OK, add new_object in world.
-<<<<<<< HEAD
                     visible -> push(new_object);
-=======
-                    world -> addObject(true, new_object);
 
->>>>>>> c13fd057e4c6fb339c1e8c81c4993ed75db1e660
                     action.markAsSucceeded();
                     return;
                 }
@@ -87,7 +83,7 @@ void CreationPerformer::perform(Action& action)
                     // Create new resource.
                     new_object = createBuilding(action, param);
                     new_object -> setCoords(actor -> getCoords());
-<<<<<<< HEAD
+
                     if (checkCoord(new_object))
                     {
                         // Set coord new_object and add its in world.
@@ -103,14 +99,6 @@ void CreationPerformer::perform(Action& action)
                         action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                         action.markAsFailed();
                     }
-=======
-                    world -> addObject(true, new_object);
-
-                    Building* new_home = dynamic_cast<Building*>(new_object);
-                    dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
-
-                    action.markAsSucceeded();
->>>>>>> c13fd057e4c6fb339c1e8c81c4993ed75db1e660
                     return;
                 }
                 else
