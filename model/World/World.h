@@ -102,13 +102,13 @@ public:
      *        fromAngle to toAngle
      * @param prob probability to create tree at this point
      */
-    void genForestAt(double x, double y, double prob, const ParamArray& tree_params);
+    void genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params);
 
     /**
      * @brief Overloading of forementioned function. Generates
      *        trees with default parameters
      */
-    void genForestAt(double x, double y, double prob = 1.0);
+    void genForestAt(double x, double y);
 
 private:
 
@@ -116,6 +116,12 @@ private:
      * @brief Generate tree at specific location.
      */
     void genTreeAt(double x, double y, const ParamArray& tree_params);
+
+    /**
+     * @brief Generate tree at specific location with random offset <= rand_offset.
+     * @return if tree generation succeeded with current probability, 0 is returned. Otherwise, 1 is returned.
+     */
+    int genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray& tree_params);
 
 public:
     //**************************************************************************
