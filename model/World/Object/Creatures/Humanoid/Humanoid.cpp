@@ -146,21 +146,21 @@ std::vector <Action>* Humanoid::getActions()
     clearActions();
 
     // If decision is not actual humanoid makes new decision.
-    if (!brains.isDecisionActual(attrs, current_decision))
+    if (!brains.isDecisionActual(attrs, current_action))
     {
-        current_decision = NONE;
+        current_action = NONE;
         detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
     // Make new decision and set aim and direction.
-    if (current_decision == NONE)
+    if (current_action == NONE)
     {
         // BAD
         this -> sociability += 10;
-        current_decision = brains.makeDecision(attrs);
+        current_action = brains.makeDecision(attrs);
         direction_is_set = false;
         aim = nullptr;
-        detailed_act = chooseAction(current_decision);
+        detailed_act = chooseAction(current_action);
     }
 
     //**************************************************************************
@@ -290,7 +290,7 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 else
                 {
-                    current_decision = NONE;
+                    current_action = NONE;
                 }
                 if (endurance < max_endurance)
                 {
@@ -298,11 +298,6 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
-          //  else
-// bad           {
-//                this -> decr_endur_step--;
-
-//            }
         }
 
     }
@@ -322,7 +317,7 @@ std::vector <Action>* Humanoid::getActions()
             }
             else
             {
-                current_decision = NONE;
+                current_action = NONE;
             }
             if (endurance < max_endurance)
             {
@@ -331,10 +326,6 @@ std::vector <Action>* Humanoid::getActions()
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
         }
-//        else
-//        {
-//            this -> decr_sleep_step--;
-//        }
     }
 
     //**************************************************************************
@@ -362,14 +353,8 @@ std::vector <Action>* Humanoid::getActions()
             act.addParticipant(home);
             act.addParam("object_index", 0);
             this -> actions.push_back(act);
-            current_decision = NONE;
+            current_action = NONE;
         }
-
-//   BAD     if (home -> completeness)
-//        {
-//            this -> need_in_house = 0;
-//        }
-
     }
 
     //**************************************************************************
@@ -381,13 +366,6 @@ std::vector <Action>* Humanoid::getActions()
     //**************************************************************************
 
     if (detailed_act == MINE_RESOURSES)
-//        Shape reach_area = this -> getReachArea();
-//        reach_area.setCenter(this -> getCoords());
-//        if (!reach_area.hitTest(this -> getShape()))
-//        {
-//            go(SLOW_SPEED);
-//            visualMemorize();
-//        }
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
@@ -421,12 +399,9 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            required_distance = (this -> getReachArea().getSize() +
-                    aim -> getShape().getSize()) / 2.0;
-            current_distance = this -> getCoords().getDistance
-                    (aim -> getCoords());
-
-            if (current_distance > required_distance) // FIXME
+            Shape reach_area = this -> getReachArea();
+            reach_area.setCenter(this -> getCoords());
+            if (!reach_area.hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
@@ -531,7 +506,7 @@ std::vector <Action>* Humanoid::getActions()
         act.addParam<uint>("building_max_space", 3);
         act.addParam<uint>("building_max_health", 100);
         this -> actions.push_back(act);
-        current_decision = NONE;
+        current_action = NONE;
     }
 
     return &actions;
@@ -573,7 +548,7 @@ void Humanoid::updateCommonAttrs()
     if (this -> sleepiness < this -> max_sleepiness)
     {
         this -> sleepiness += CREAT_DELTA_SLEEP;
-        if (current_decision != SLEEP)
+        if (current_action != SLEEP)
         {
             this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
         }
