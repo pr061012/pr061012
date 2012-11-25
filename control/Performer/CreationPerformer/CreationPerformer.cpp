@@ -11,11 +11,8 @@
 #include "../../../common/Math/Random.h"
 #include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 
-CreationPerformer::CreationPerformer(World* world, ObjectHeap * visible,
-                                     ObjectHeap * hidden):
-    Performer(world), 
-    visible(visible),
-    hidden(hidden)
+CreationPerformer::CreationPerformer(World* world):
+    Performer(world) 
 {
 
 }
