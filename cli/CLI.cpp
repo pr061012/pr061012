@@ -27,7 +27,16 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+
 #define TN_CLUSTER_BUILDING_MAT     "fr"
+
+#define TN_SHAPE_CIRCLE             "cr"
+#define TN_SHAPE_SQUARE             "s"
+
+#define TN_FIELD_CENTER             "center"
+#define TN_FIELD_SHAPE              "shape"
+#define TN_FIELD_SIZE               "size"
+#define TN_FIELD_DANGER             "danger"
 
 //******************************************************************************
 // STATIC FUNCTIONS.
@@ -561,6 +570,13 @@ std::string CLI::change(std::stringstream& ss)
                sformat("Syntax: change <id> <field> <new_value>\n");
     }
 
+    // Getting object.
+    Object* obj = this -> world -> getObjectByID(id);
+    if (obj == nullptr)
+    {
+        return sformat("Error: object with id %u doesn't exist.\n", id);
+    }
+
     // Reading field name.
     std::string field;
     ss >> field;
@@ -570,5 +586,75 @@ std::string CLI::change(std::stringstream& ss)
                sformat("Syntax: change <id> <field> <new_value>\n");
     }
 
-    // TODO: Implement it.
+    if (field == TN_FIELD_CENTER)
+    {
+        double x, y;
+        ss >> x >> y;
+        if (!ss)
+        {
+            return sformat("Error: center coordinates expected.\n") +
+                   sformat("Syntax: change <id> %s <x> <y>\n", TN_FIELD_SIZE);
+        }
+
+        obj -> setCoords(Vector(x, y));
+    }
+    else if (field == TN_FIELD_SIZE)
+    {
+        double size;
+        ss >> size;
+        if (!ss)
+        {
+            return sformat("Error: size expected.\n") +
+                   sformat("Syntax: change <id> %s <size>\n", TN_FIELD_SIZE);
+        }
+
+        obj -> setShapeSize(size);
+    }
+    else if (field == TN_FIELD_SHAPE)
+    {
+        std::string shape;
+        ss >> shape;
+        if (!ss)
+        {
+            return sformat("Error: ShapeType expected.\n") +
+                   sformat("Syntax: change <id> %s <ShapeType>\n",
+                           TN_FIELD_SHAPE);
+        }
+
+        ShapeType type;
+        if (shape == TN_SHAPE_CIRCLE)
+        {
+            type = CIRCLE;
+        }
+        else if (shape == TN_SHAPE_SQUARE)
+        {
+            type = SQUARE;
+        }
+        else
+        {
+            return sformat("Error: unknown ShapeType. Possible values: %s, %s.\n",
+                           TN_SHAPE_CIRCLE, TN_SHAPE_SQUARE);
+        }
+
+        obj -> setShapeType(type);
+    }
+    else if (field == TN_FIELD_DANGER)
+    {
+        uint danger_level;
+        ss >> danger_level;
+        if (!ss)
+        {
+            return sformat("Error: uint expected.\n") +
+                   sformat("Syntax: change <id> %s <danger>\n",
+                           TN_FIELD_DANGER);
+        }
+
+        obj -> setDangerLevel(danger_level);
+    }
+    else
+    {
+        return sformat("Error: unknown FieldName.\n");
+    }
+
+    return "Successfully changed object.\n";
 }
