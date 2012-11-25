@@ -329,6 +329,9 @@ private:
     /// Current goal towards which creature is moving
     Object* goal;
 
+    /// Length of the last route
+    uint last_route_size;
+
 protected:
 
     /// Prevoius action.

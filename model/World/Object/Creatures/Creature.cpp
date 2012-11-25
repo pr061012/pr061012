@@ -19,6 +19,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
     goal(0),
+    last_route_size(0),
     prev_action(GO),
     prev_action_state(SUCCEEDED),
     inventory(new ObjectHeap),
@@ -363,7 +364,19 @@ void Creature::go(SpeedType speed)
 {
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)
+    {
         direction_is_set = false;
+        // If we have the same route to the same aim, try to go random
+        if (aim != nullptr && aim == goal && last_route_size == route.size())
+        {
+            angle = Random::double_num(M_PI * 2);
+            Action act(GO, this);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", speed);
+            this -> actions.push_back(act);
+            return;
+        }
+    }
 
     // if we don't have any aim, go the way we went before
     if (!aim)
@@ -384,8 +397,8 @@ void Creature::go(SpeedType speed)
         {
             goal = aim;
             //generate route
+            last_route_size = route.size();
             route = generateRoute();
-
             angle = this -> getCoords().getAngle(route.top()); 
             direction_is_set = true;
         }
