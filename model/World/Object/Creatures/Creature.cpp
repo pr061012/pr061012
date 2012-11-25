@@ -19,6 +19,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
     goal(0),
+    prev_action(GO),
+    prev_action_state(SUCCEEDED),
     inventory(new ObjectHeap),
     current_action(NONE),
     attrs(arma::mat(DM_ATR_CONST, 1)),
@@ -51,7 +53,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     angle(0),
     direction_is_set(false),
     aim(0),
-    current_decision(NONE)
+    current_decision(NONE),
+    obstacles(new ObjectHeap())
 {
 }
 

@@ -27,12 +27,13 @@ Controller::Controller(World * world) :
     performers.resize(AMNT_ACTION_TYPES);
 
     performers[GO] = new TravelingPerformer(world);
-    performers[CREATE_OBJ] = new CreationPerformer(world);
+    performers[CREATE_OBJ] = new CreationPerformer(world, &hiddenToVisible,
+                                                    &visibleToHidden);
     performers[MINE_OBJ] = new MiningPerformer(world);
     performers[HARM_OBJS] = new HarmPerformer(world);
     performers[REGENERATE_OBJ] = new RegenerationPerformer(world);
-    performers[DROP_OBJS] = new DroppingPerformer(world);
-    performers[PICK_UP_OBJS] = new PickupMaster(world);
+    performers[DROP_OBJS] = new DroppingPerformer(world, &hiddenToVisible);
+    performers[PICK_UP_OBJS] = new PickupMaster(world, &visibleToHidden);
     performers[EAT_OBJ] = new EatingPerformer(world);
     performers[MOVE] = new MovementPerformer(world);
 }
@@ -59,9 +60,7 @@ void Controller::destroy(Object * object)
         for (ObjectHeap::iterator i = inventory -> begin();
              i != inventory -> end(); i++)
         {
-            world -> getHiddenObjects() -> remove(*i);
-            world -> getVisibleObjects() -> find(*i);
-            world -> getIndexator() -> addObject(*i);
+            hiddenToVisible.push(*i);
             (*i) -> setCoords(object -> getCoords());
         }
 
@@ -72,6 +71,10 @@ void Controller::step()
 {
     for (int k = 0; k < 2; k++)
     {
+        // clear buffers
+        hiddenToVisible.clear();
+        visibleToHidden.clear();
+
         // first look for visible objects, then for hidden
         ObjectHeap* objects;
         if (!k)
@@ -144,4 +147,23 @@ void Controller::step()
 
         }
     }
+
+    // Swap buffers
+    for (ObjectHeap::iterator i = hiddenToVisible.begin();
+         i != hiddenToVisible.end(); i++)
+    {
+        world -> getHiddenObjects() -> remove(*i);
+        world -> getVisibleObjects() -> push(*i);
+        world -> getIndexator() -> addObject(*i);
+    }
+
+
+    for (ObjectHeap::iterator i = visibleToHidden.begin();
+         i != visibleToHidden.end(); i++)
+    {
+        world -> getHiddenObjects() -> push(*i);
+        world -> getVisibleObjects() -> remove(*i);
+        world -> getIndexator() -> removeObject(*i);
+    }
+
 }

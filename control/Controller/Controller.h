@@ -57,8 +57,14 @@ private:
     /// World
     World * world;
 
-    // List of performers
+    /// List of performers
     std::vector <Performer *> performers;
+
+    /// Swap buffer from hidden to visible objects
+    ObjectHeap hiddenToVisible;
+
+    /// Swap buffer from visible to hidden objects
+    ObjectHeap visibleToHidden;
 };
 
 #endif
