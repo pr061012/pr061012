@@ -154,7 +154,7 @@
 
 /// Linear decrease of tree gen probability as tree generation goes
 /// further from forest center (initial is 1.0 == 100%).
-#define GEN_TREE_PROB_DECAY 0.1
+#define GEN_TREE_PROB_DECAY 0.5
 
 /// Interval in distance of trees generation.
 #define GEN_TREE_INTERVAL SZ_RESOURCE_DIAM_MIN

@@ -15,6 +15,7 @@
 #include "ObjectFactory/ObjectFactory.h"
 #include "Indexator/Indexator.h"
 #include "../../view/ViewObject/ViewObject.h"
+#include "../../common/Math/DoubleComparison.h"
 
 /**
  * @brief Default value for max x and y.
@@ -180,7 +181,7 @@ public:
      */
     // ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
-    Object* getObjectByID(int id);
+    Object* getObjectByID(uint id);
 
 
     //******************************************************************************

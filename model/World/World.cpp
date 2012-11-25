@@ -39,6 +39,10 @@ World::World(int rand_seed, uint size, bool generate_objs) :
     this -> createEverything(generate_objs);
 }
 
+//******************************************************************************
+// GENERATION METHODS.
+//******************************************************************************
+
 // Creating resources!
 void World::genResources()
 {
@@ -119,7 +123,7 @@ void World::genWeather()
 
 void World::genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle, double toAngle)
 {
-    if(prob >= MATH_EPSILON)
+    if(DoubleComparison::isGreater(prob, 0.0))
     {
         if(prob <= Random::double_range(0.0, 1.0))
         {
@@ -134,9 +138,9 @@ void World::genForestAt(double x, double y, double prob, const ParamArray& tree_
         {
             double newx = x + GEN_TREE_INTERVAL*cos(a);
             double newy = y + GEN_TREE_INTERVAL*sin(a);
-            this -> genForestAt(newx, newy,
-                                prob - GEN_TREE_PROB_DECAY, tree_params,
-                                a - interval, a + interval);
+//            this -> genForestAt(newx, newy,
+//                                prob - GEN_TREE_PROB_DECAY, tree_params,
+//                                a - interval, a + interval);
 
             a += interval;
         }
@@ -154,9 +158,7 @@ void World::genForestAt(double x, double y, double prob, double fromAngle, doubl
 
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
 {
-    std::cout<<"Generating tree at specific position."<<std::endl;
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
-    std::cout<<"Generated tree at specific position."<<std::endl;
 
     new_obj -> setCoords(Vector(x, y));
 
@@ -293,7 +295,7 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     return RAIN;
 }
 
-Object *World::getObjectByID(int id)
+Object *World::getObjectByID(uint id)
 {
     ObjectHeap::const_iterator it;
 
