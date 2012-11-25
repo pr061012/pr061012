@@ -29,7 +29,7 @@ public:
      * @brief Constructor
      * @param world world
      */
-    CreationPerformer(World* world, ObjectHeap * visible, ObjectHeap * hidden);
+    CreationPerformer(World* world);
 
     /**
      * @brief Destructor
@@ -58,7 +58,7 @@ private:
      * @param shape
      * @return possibility creation object with coordinate
      */
-    bool checkCoord(Shape shape);
+    bool checkCoord(Object *new_obj);
 
     Object* createBuilding(Action& action, ParamArray& param);
 
@@ -68,11 +68,6 @@ private:
 
     Object* createTool(Action& action, ParamArray &param);
 
-    /// Buffer for visible objects
-    ObjectHeap * visible;
-
-    /// Buffer for hidden objects
-    ObjectHeap * hidden;
 };
 
 #endif

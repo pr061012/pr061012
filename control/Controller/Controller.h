@@ -65,6 +65,9 @@ private:
 
     /// Swap buffer from visible to hidden objects
     ObjectHeap visibleToHidden;
+
+    /// Actions accumulator
+    std::vector<Action*> actions;
 };
 
 #endif

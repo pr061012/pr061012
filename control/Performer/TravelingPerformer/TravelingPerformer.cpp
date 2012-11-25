@@ -23,7 +23,7 @@ TravelingPerformer::~TravelingPerformer()
 void TravelingPerformer::perform(Action& action)
 {
     // Get needed data
-    Object * actor = action.getActor();
+    Object* actor = action.getActor();
     ObjectType actor_type = actor -> getType();
 
     // check if actor can go
@@ -71,10 +71,15 @@ void TravelingPerformer::perform(Action& action)
     }
     Vector origin = actor -> getCoords();
     Vector dest = origin + Vector(speed * cos(angle), speed * sin(angle));
-
+    double size = actor -> getShape().getSize() / 2;
     // Do not let objects fall of the bounds
-    if (dest.getX() < 0 || dest.getX() >= world -> getSize() || 
-        dest.getY() < 0 || dest.getY() >= world -> getSize())
+    if
+    (
+        dest.getX() - size < 0 ||
+        dest.getX() + size >= world -> getSize() ||
+        dest.getY() - size < 0 ||
+        dest.getY() + size >= world -> getSize()
+    )
     {
         action.markAsFailed();
         action.setError(OBJ_IS_OUT_OF_RANGE);

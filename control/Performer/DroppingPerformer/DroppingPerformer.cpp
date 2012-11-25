@@ -22,9 +22,8 @@
 // TODO
 // Improve movement algo
 
-DroppingPerformer::DroppingPerformer(World * world, ObjectHeap * buffer) :
-    Performer(world),
-    buffer(buffer)
+DroppingPerformer::DroppingPerformer(World * world) :
+    Performer(world)
 {
 }
 
@@ -71,11 +70,14 @@ void DroppingPerformer::perform(Action& action)
             success = true;
 
             // make object visible
-            buffer -> push(*j);
+            world -> getVisibleObjects() -> push(*j);
+            world -> getHiddenObjects() -> remove(*j);
 
             // place it on the ground
             inventory -> remove(*j);
             (*j) -> setCoords(actor -> getCoords());
+
+            world -> getIndexator() -> addObject(*j);
         }
     }
 

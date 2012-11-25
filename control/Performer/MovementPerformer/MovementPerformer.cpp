@@ -47,9 +47,12 @@ void MovementPerformer::perform(Action& action)
     Object * participant = *participants.begin();
 
     // check if a participant can be moved (tools and mined resources)
-    if (participant -> getType() != TOOL &&
+    if
+    (
+        participant -> getType() != TOOL &&
         !(participant -> getType() == RESOURCE &&
-          !dynamic_cast<Resource*>(participant) -> isMineable()))
+        !dynamic_cast<Resource*>(participant) -> isMineable())
+    )
     {
         action.markAsFailed();
         return;

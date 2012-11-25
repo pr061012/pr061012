@@ -115,6 +115,8 @@ std::string Humanoid::getTypeName() const
 
 std::vector <Action>* Humanoid::getActions()
 {
+    // BAD
+    current_decision = NONE;
     this -> age_steps--;
     this -> common_steps--;
     this -> danger_steps--;
@@ -140,6 +142,7 @@ std::vector <Action>* Humanoid::getActions()
     if (home != nullptr && home -> getCompleteness())
     {
         this -> need_in_house = 0;
+        attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
     }
 
     // Store the result of last action and clear actions
@@ -158,6 +161,9 @@ std::vector <Action>* Humanoid::getActions()
         // BAD
         this -> sociability += 10;
         current_action = brains.makeDecision(attrs);
+        // BAD
+        current_decision = current_action;
+        this ->
         direction_is_set = false;
         aim = nullptr;
         detailed_act = chooseAction(current_action);
@@ -172,10 +178,10 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == RELAX_AT_HOME)
     {
-        if ((aim != nullptr) && (!direction_is_set))
+        if (aim == nullptr)
         {
             aim = home;
-            direction_is_set = true;
+        // BAD    direction_is_set = true;
         }
 
         if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
@@ -747,7 +753,8 @@ std::string Humanoid::printObjectInfo() const
                                      std::endl <<
           "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
           "Required distance\t\t" << required_distance << std::endl <<
-          "Current distance\t\t"  << current_distance << std::endl;
+          "Current distance\t\t"  << current_distance << std::endl<<
+          "Something\t\t"         << current_decision;
 
     return output + ss.str();
 }

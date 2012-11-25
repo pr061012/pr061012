@@ -19,9 +19,8 @@
 #define CREAT_SPEED_SLOW_VALUE 5
 #endif
 
-PickupMaster::PickupMaster(World * world, ObjectHeap * buffer) :
-    Performer(world),
-    buffer(buffer)
+PickupMaster::PickupMaster(World * world) :
+    Performer(world)
 {
 }
 
@@ -67,7 +66,9 @@ void PickupMaster::perform(Action& action)
         else
         {
             // make object hidden
-            buffer -> push(*j);
+            world -> getVisibleObjects() -> remove(*j);
+            world -> getHiddenObjects() -> push(*j);
+            world -> getIndexator() -> removeObject(*j);
 
             // put it in inventory
             inventory -> push(*j);
