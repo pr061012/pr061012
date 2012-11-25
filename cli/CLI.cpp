@@ -418,76 +418,79 @@ std::string CLI::list(std::stringstream& ss, uint columns)
     std::string type = "";
     ss >> type;
 
-    // Listing visible objects.
-    ObjectHeap* objs = this -> world -> getVisibleObjects();
+    // Output.
+    std::string output;
 
-    // Preparing begin and end iterators.
-    ObjectHeap::const_iterator iter_begin, iter_end;
-    if (type == "")
+    for (uint k = 0; k < 2; k++)
     {
-        iter_begin = objs -> begin();
-        iter_end   = objs -> end();
-    }
-    else if (type == TN_BUILDING)
-    {
-        iter_begin = objs -> begin(BUILDING);
-        iter_end   = objs -> end(BUILDING);
-    }
-    else if (type == TN_CREATURE)
-    {
-        iter_begin = objs -> begin(CREATURE);
-        iter_end   = objs -> end(CREATURE);
-    }
-    else if (type == TN_RESOURCE)
-    {
-        iter_begin = objs -> begin(RESOURCE);
-        iter_end   = objs -> end(RESOURCE);
-    }
-    else if (type == TN_WEATHER)
-    {
-        iter_begin = objs -> begin(WEATHER);
-        iter_end   = objs -> end(WEATHER);
-    }
-    else
-    {
-        return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
-    }
+        ObjectHeap* objs = (k == 0 ? this -> world -> getVisibleObjects() :
+                                     this -> world -> getHiddenObjects());
 
-    // Output stream.
-    std::stringstream os;
-
-    ObjectHeap::const_iterator iter;
-    uint cur_column = 1;
-    for (iter = iter_begin; iter != iter_end; iter++)
-    {
-        Object* obj = *iter;
-
-        // Preparing flags.
-        std::string flags = "v";
-        flags += obj -> isDestroyed() ? "d" : " ";
-        flags += obj -> isImmortal() ? "i" : " ";
-        flags += obj -> isSolid() ? "s" : " ";
-
-        // Printing output.
-        os << obj -> getObjectID() << "\t│ " << flags << " │ " <<
-              this -> obj_types[obj -> getType()] << " │ " <<
-              obj -> getCoords().getX() << "\t" << obj -> getCoords().getY();
-
-        if (cur_column++ == columns)
+        // Preparing begin and end iterators.
+        ObjectHeap::const_iterator iter_begin, iter_end;
+        if (type == "")
         {
-            os << "\n";
-            cur_column = 1;
+            iter_begin = objs -> begin();
+            iter_end   = objs -> end();
+        }
+        else if (type == TN_BUILDING)
+        {
+            iter_begin = objs -> begin(BUILDING);
+            iter_end   = objs -> end(BUILDING);
+        }
+        else if (type == TN_CREATURE)
+        {
+            iter_begin = objs -> begin(CREATURE);
+            iter_end   = objs -> end(CREATURE);
+        }
+        else if (type == TN_RESOURCE)
+        {
+            iter_begin = objs -> begin(RESOURCE);
+            iter_end   = objs -> end(RESOURCE);
+        }
+        else if (type == TN_WEATHER)
+        {
+            iter_begin = objs -> begin(WEATHER);
+            iter_end   = objs -> end(WEATHER);
         }
         else
         {
-            os << "\t\t║\t";
+            return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
+        }
+
+        // Listing objects.
+        ObjectHeap::const_iterator iter;
+        uint cur_column = 1;
+        for (iter = iter_begin; iter != iter_end; iter++)
+        {
+            Object* obj = *iter;
+
+            // Preparing flags.
+            std::string flags = k == 0 ? "v" : "h";
+            flags += obj -> isDestroyed() ? "d" : " ";
+            flags += obj -> isImmortal() ? "i" : " ";
+            flags += obj -> isSolid() ? "s" : " ";
+
+            // Printing output.
+            output += sformat("%d\t│ %s │ %s │ %f\t%f", obj -> getObjectID(),
+                              flags.c_str(),
+                              this -> obj_types[obj -> getType()].c_str(),
+                              obj -> getCoords().getX(),
+                              obj -> getCoords().getY());
+
+            if (cur_column++ == columns)
+            {
+                output += "\n";
+                cur_column = 1;
+            }
+            else
+            {
+                output += "\t\t║\t";
+            }
         }
     }
 
-    return os.str() + "\n";
-
-    // TODO: Listing hidden objects.
-    //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
+    return output + "\n";
 }
 
 //******************************************************************************
