@@ -19,6 +19,9 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
     goal(0),
+    last_route_size(0),
+    prev_action(GO),
+    prev_action_state(SUCCEEDED),
     inventory(new ObjectHeap),
     current_action(NONE),
     attrs(arma::mat(DM_ATR_CONST, 1)),
@@ -51,7 +54,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     angle(0),
     direction_is_set(false),
     aim(0),
-    current_decision(NONE)
+    current_decision(NONE),
+    obstacles(new ObjectHeap())
 {
 }
 
@@ -86,6 +90,16 @@ void Creature::setViewArea(Shape view_area)
 Shape Creature::getViewArea()
 {
     return this -> view_area;
+}
+
+void Creature::setReachArea(Shape reach_area)
+{
+    this -> reach_area = reach_area;
+}
+
+Shape Creature::getReachArea()
+{
+    return this -> reach_area;
 }
 
 ObjectHeap * Creature::getInventory()
@@ -202,7 +216,7 @@ void Creature::setSleepiness(uint max_sleepiness)
 
 uint Creature::getSleepiness()
 {
-    return this -> max_sleepiness;
+    return this -> sleepiness;
 }
 
 void Creature::setMaxSleepiness(uint max_sleepiness)
@@ -350,7 +364,19 @@ void Creature::go(SpeedType speed)
 {
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)
+    {
         direction_is_set = false;
+        // If we have the same route to the same aim, try to go random
+        if (aim != nullptr && aim == goal && last_route_size == route.size())
+        {
+            angle = Random::double_num(M_PI * 2);
+            Action act(GO, this);
+            act.addParam<double>("angle", angle);
+            act.addParam<SpeedType>("speed", speed);
+            this -> actions.push_back(act);
+            return;
+        }
+    }
 
     // if we don't have any aim, go the way we went before
     if (!aim)
@@ -371,8 +397,8 @@ void Creature::go(SpeedType speed)
         {
             goal = aim;
             //generate route
+            last_route_size = route.size();
             route = generateRoute();
-
             angle = this -> getCoords().getAngle(route.top()); 
             direction_is_set = true;
         }
@@ -433,7 +459,26 @@ std::string Creature::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Print current action. Need to print steps?
+    ss << "Current action\t\t";
+    switch (current_action)
+    {
+        case NONE:          ss << "none";          break;
+        case SLEEP:         ss << "sleep";         break;
+        case EAT:           ss << "eat";           break;
+        case BUILD:         ss << "build";         break;
+        case GATHER:        ss << "gather";        break;
+        case RELAX:         ss << "relax";         break;
+        case EXPLORE:       ss << "explore";       break;
+        case COMMUNICATE:   ss << "communicate";   break;
+        case WORK:          ss << "work";          break;
+        case REALIZE_DREAM: ss << "realize dream"; break;
+        case ESCAPE:        ss << "escape";        break;
+        case REPRODUCE:     ss << "reproduce";     break;
+        case DO_NOTHING:    ss << "do nothing";    break;
+        default:            ss << "unknown";       break;
+    }
+    ss << "\n";
+
     ss << "Force\t\t\t"           << force << std::endl <<
           "Age\t\t\t"             << age << "/" << max_age << std::endl <<
           "Endurance\t\t"         << endurance << "/" << max_endurance <<

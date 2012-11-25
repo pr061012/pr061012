@@ -144,6 +144,11 @@ void Resource::increaseAmount(uint delta)
     }
 }
 
+void Resource::increaseMaxAmount(uint delta)
+{
+    this -> max_amount += delta;
+}
+
 uint Resource::getAmount() const
 {
     return this -> amount;
@@ -168,8 +173,9 @@ void Resource::heal(uint delta)
 // OBJECT'S LIFE.
 //******************************************************************************
 
-std::vector <Action> * Resource::getActions()
+std::vector<Action>* Resource::getActions()
 {
+    // TODO: Maybe it's better to use REGENERATE_OBJ action?
     if(this -> steps_to_reg-- == 0)
     {
         this -> increaseAmount(this -> reg_amount);
@@ -177,32 +183,6 @@ std::vector <Action> * Resource::getActions()
     }
 
     this -> actions.clear();
-
-    if(this -> progress >= this -> difficulty)
-    {
-        this -> progress = 0;
-
-        uint drop_amount;
-        if(this -> amount_per_drop > this -> amount)
-        {
-            drop_amount = this -> amount;
-        }
-        else
-        {
-            drop_amount = this -> amount_per_drop;
-        }
-
-        Action act(CREATE_OBJ, this);
-
-        act.addParam<ObjectType>("obj_type", RESOURCE);
-        // FIXME: Won't work. Subtype is IRON_ORE, we need drop IRON. How to do
-        // that?
-        act.addParam<ResourceType>("res_type", this -> subtype);
-        act.addParam<uint>("res_amount", drop_amount);
-
-        this -> actions.push_back(act);
-    }
-
     return &(this -> actions);
 }
 
@@ -260,6 +240,11 @@ uint Resource::getProgress() const
     return this -> progress;
 }
 
+void Resource::setProgress(uint progress)
+{
+    this -> progress = progress;
+}
+
 uint Resource::getDifficulty() const
 {
     return this -> difficulty;
@@ -293,4 +278,14 @@ void Resource::makeMineable()
 void Resource::makePickable()
 {
     this -> mineable = false;
+}
+
+void Resource::makeRestorable()
+{
+    this -> restorable = true;
+}
+
+void Resource::makeNonRestorable()
+{
+    this -> restorable = false;
 }

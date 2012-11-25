@@ -56,12 +56,15 @@
 #define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
 
 /// World size (vertical side).
-#define SZ_WORLD_VSIDE              30 * SZ_HUM_DIAM
+#define SZ_WORLD_VSIDE              100 * SZ_HUM_DIAM
 /// World size (horizontal size).
-#define SZ_WORLD_HSIDE              30 * SZ_HUM_DIAM
+#define SZ_WORLD_HSIDE              100 * SZ_HUM_DIAM
 
 /// Default size for everything.
 #define SZ_DEFAULT                  SZ_HUM_DIAM
+
+/// Coefficient for reach area size.
+#define SZ_REACH_AREA_COEF          1.5
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
@@ -250,6 +253,19 @@
 // Food values
 #define RES_GRASS_FOOD_VALUE        1
 #define RES_BERRIES_FOOD_VALUE      2
+
+//******************************************************************************
+// BUILDING DEFINES
+// Prefix: BLD.
+//******************************************************************************
+
+// Range for building max health.
+#define BLD_MAX_HEALTH_MIN          100
+#define BLD_MAX_HEALTH_MAX          150
+
+// Range for building max space.
+#define BLD_MAX_SPACE_MIN           100
+#define BLD_MAX_SPACE_MAX           150
 
 //******************************************************************************
 // DAMAGE DEFINES

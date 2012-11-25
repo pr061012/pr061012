@@ -57,6 +57,12 @@ public:
     void increaseAmount(uint delta);
 
     /**
+     * @brief Increases maximum possible amount of resource.
+     * @param delta to increase
+     */
+    void increaseMaxAmount(uint delta);
+
+    /**
      * @brief  Gets amount of resource.
      * @return amount of resource
      */
@@ -83,7 +89,7 @@ public:
     // RESOURCE'S LIFE.
     //**************************************************************************
 
-    std::vector <Action> * getActions();
+    std::vector<Action>* getActions();
     void receiveMessage(Message message);
 
     std::string printObjectInfo() const;
@@ -112,6 +118,12 @@ public:
      * @return the value of progress
      */
     uint getProgress() const;
+
+    /**
+     * @brief Sets the value of progress.
+     * @param progress  new value of progress
+     */
+    void setProgress(uint progress);
 
     /**
      * @brief  Get the value of difficulty.
@@ -152,6 +164,16 @@ public:
      * @brief Makes resource pickable.
      */
     void makePickable();
+
+    /**
+     * @brief Makes resource restorable.
+     */
+    void makeRestorable();
+
+    /**
+     * @brief Makes resource non-restorable.
+     */
+    void makeNonRestorable();
 
 private:
     /// Type of resource

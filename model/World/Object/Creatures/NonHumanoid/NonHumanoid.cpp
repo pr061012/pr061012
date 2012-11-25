@@ -10,7 +10,7 @@
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
-
+#include "../../../../../common/Math/DoubleComparison.h"
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -27,6 +27,8 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setShapeSize(SZ_NHUM_DIAM);
     this -> setShapeType(SHP_NON_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
+    this -> setReachArea(Shape(Vector(), SHP_NON_HUMANOID,
+                               SZ_NHUM_DIAM * SZ_REACH_AREA_COEF));
     this -> setDangerLevel(DNGR_NON_HUMANOID);
 
     // Initialize of matrix of attr
@@ -159,17 +161,17 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == EAT)
     {
         Log::NOTE("EAT");
-        // If aim isn't exist, then find grass.
+        // If aim doesn't exist, then find grass.
         if (aim == nullptr)
         {
             findGrass();
         }
 
-        // If aim is exist, then...
+        // If aim exists, then...
         if (aim != nullptr)
         {
             // Check distance to aim.
-            if (this -> getCoords().getDistance(aim -> getCoords()) < MATH_EPSILON)
+            if (this -> getShape().hitTest(aim -> getShape()))
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -206,9 +208,9 @@ std::vector <Action>* NonHumanoid::getActions()
                 this -> subsubtype == SHEEP
            )
         {
-            if (angle == -1)
+            if (!direction_is_set)
             {
-                angle = Random::double_num(2 * M_PI);
+                chooseDirectionToEscape();
             }
             go(SLOW_SPEED);
         }
@@ -291,7 +293,6 @@ void NonHumanoid::updateCommonAttrs()
         this -> hunger   += CREAT_DELTA_HUNGER;
     if (hunger == max_hunger)
     {
-
         this -> decreaseHealth(CREAT_DELTA_HEALTH);
     }
     if (current_decision != SLEEP)
@@ -323,7 +324,7 @@ void NonHumanoid::findGrass()
         {
             coords = res -> getCoords();
             // Check distance to grass.
-            if (coords.getDistance(this -> getCoords()) > distance)
+            if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;
                 direction_is_set = false;

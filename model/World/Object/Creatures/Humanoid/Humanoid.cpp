@@ -14,6 +14,7 @@
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../Resource/Resource.h"
+#include "../../../../../common/Math/DoubleComparison.h"
 
 // TODO:
 //  * Add comments.
@@ -22,7 +23,7 @@
 //
 // FIXME:
 //  * aim == 0?
-
+using namespace std;
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -41,6 +42,8 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     this -> setShapeSize(SZ_HUM_DIAM);
     this -> setShapeType(SHP_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
+    this -> setReachArea(Shape(Vector(), SHP_HUMANOID,
+                               SZ_HUM_DIAM * SZ_REACH_AREA_COEF));
 
     // Set danger level
     this -> setDangerLevel(DNGR_HUMANOID);
@@ -57,11 +60,11 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     bravery         = Random::int_range(HUM_BRAVERY_MIN,     HUM_BRAVERY_MAX);
 
     // Initialize other values.
-    sociability    = 100 - max_sociability;
-    need_in_points = 100;
+    sociability    = 0;  // BAD 100 - max_sociability;
+    need_in_points = 0;  //100;
     need_in_house  = 100;
 
-    //Initialize of matrix of attr
+    //Initialize of matrix of attr. bad
     attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
@@ -79,6 +82,8 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     decr_endur_step = 0;
 
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
+
+    //bad
 }
 
 Humanoid::~Humanoid()
@@ -114,7 +119,7 @@ std::vector <Action>* Humanoid::getActions()
     this -> common_steps--;
     this -> danger_steps--;
     this -> desc_steps--;
-    if (!this -> decr_sleep_step)
+    if (this -> decr_sleep_step)
     {
         this -> decr_sleep_step--;
     }
@@ -125,26 +130,37 @@ std::vector <Action>* Humanoid::getActions()
     if(desc_steps == 0)
         updateNeedInDesc();
     if(common_steps == 0)
+    {
+        // bad
         updateCommonAttrs();
+    }
     if(danger_steps == 0)
         updateDanger();
+    // BAD
+    if (home != nullptr && home -> getCompleteness())
+    {
+        this -> need_in_house = 0;
+    }
 
     // Store the result of last action and clear actions
     clearActions();
 
     // If decision is not actual humanoid makes new decision.
-    if (!brains.isDecisionActual(attrs, current_decision))
+    if (!brains.isDecisionActual(attrs, current_action))
     {
-        current_decision = NONE;
+        current_action = NONE;
+        detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
     // Make new decision and set aim and direction.
-    if (current_decision == NONE)
+    if (current_action == NONE)
     {
-        current_decision = brains.makeDecision(attrs);
+        // BAD
+        this -> sociability += 10;
+        current_action = brains.makeDecision(attrs);
         direction_is_set = false;
         aim = nullptr;
-        detailed_act = chooseAction(current_decision);
+        detailed_act = chooseAction(current_action);
     }
 
     //**************************************************************************
@@ -208,6 +224,11 @@ std::vector <Action>* Humanoid::getActions()
             iter != visual_memory -> end(RESOURCE); iter++
         )
         {
+            // skip all destroyed objects 
+            if ((*iter) -> isDestroyed())
+            {
+                continue;
+            }
             Resource* res_food = dynamic_cast<Resource*>(*iter);
             if (res_food -> getSubtype() == RES_FOOD)
             {
@@ -227,7 +248,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
 
-            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+            if (!this -> getShape().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
@@ -269,7 +290,7 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 else
                 {
-                    current_decision = NONE;
+                    current_action = NONE;
                 }
                 if (endurance < max_endurance)
                 {
@@ -277,16 +298,12 @@ std::vector <Action>* Humanoid::getActions()
                 }
                 decr_sleep_step = HUM_DECR_SLEEP_STEPS;
             }
-            else
-            {
-                this -> decr_endur_step--;
-            }
         }
 
     }
 
     //**************************************************************************
-    // DETAILED DECISION : SLEEP_ON_THE_GROUND
+    // DETAILED DECISION : SLEEP_ON_THE_GROUND | OK
     // Humanoid just increases endurance and decreases sleepiness
     //**************************************************************************
 
@@ -300,7 +317,7 @@ std::vector <Action>* Humanoid::getActions()
             }
             else
             {
-                current_decision = NONE;
+                current_action = NONE;
             }
             if (endurance < max_endurance)
             {
@@ -308,68 +325,6 @@ std::vector <Action>* Humanoid::getActions()
             }
 
             decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-        }
-        else
-        {
-            this -> decr_endur_step--;
-        }
-    }
-
-    //**************************************************************************
-    // DETAILED DECISION : MINE_RESOURSE
-    // If we don't choose which resource humanoid want to mine, we check
-    // his visual memory. After that humanoid come to this resource. If he
-    // did not find any resource in his memory, he will just shuffle on the
-    // street and memorize new object.
-    //**************************************************************************
-
-    if (detailed_act == MINE_RESOURSES)
-    {
-        if ((visual_memory != nullptr) && (aim == nullptr))
-        {
-            ObjectHeap::const_iterator iter;
-            Vector coords;
-
-            double distance = SZ_WORLD_HSIDE;
-            for
-            (
-                iter = visual_memory -> begin(RESOURCE);
-                iter != visual_memory -> end(RESOURCE); iter++
-            )
-            {
-                Resource* res = dynamic_cast<Resource*>(*iter);
-                if (res -> getSubtype()  == RES_BUILDING_MAT)
-                {
-                    coords = res -> getCoords();
-                    if (distance < coords.getDistance(this -> getCoords()))
-                    {
-                        this -> aim = res;
-                        distance = coords.getDistance(this -> getCoords());
-                    }
-                }
-            }
-        }
-
-        if (aim == nullptr)
-        {
-             go(SLOW_SPEED);
-             visualMemorize();
-        }
-        else
-        {
-            if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
-            {
-                go(SLOW_SPEED);
-                visualMemorize();
-            }
-            else
-            {
-                Action act(MINE_OBJ, this);
-                act.addParticipant(aim);
-                act.addParam("res_index", 0);
-                this -> actions.push_back(act);
-                //detailed_act = BUILD_HOUSE;
-            }
         }
     }
 
@@ -381,11 +336,98 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == BUILD_HOUSE)
     {
-        Action act(REGENERATE_OBJ, this);
-        act.addParticipant(home);
-        act.addParam("object_index", 0);
-        this -> need_in_house = 100 - 100 * home -> getHealthPoints()
-                                                / home -> getMaxHealthPoints();
+        if (aim == nullptr)
+        {
+            aim = home;
+        }
+        Shape reach_area = this -> getReachArea();
+        reach_area.setCenter(this -> getCoords());
+        if (!reach_area.hitTest(aim -> getShape()))
+        {
+            go(SLOW_SPEED);
+            visualMemorize();
+        }
+        else
+        {
+            Action act(REGENERATE_OBJ, this);
+            act.addParticipant(home);
+            act.addParam("object_index", 0);
+            this -> actions.push_back(act);
+            current_action = NONE;
+        }
+    }
+
+    //**************************************************************************
+    // DETAILED DECISION : MINE_RESOURSE | OK
+    // If we don't choose which resource humanoid want to mine, we check
+    // his visual memory. After that humanoid come to this resource. If he
+    // did not find any resource in his memory, he will just shuffle on the
+    // street and memorize new object.
+    //**************************************************************************
+
+    if (detailed_act == MINE_RESOURSES)
+    {
+        if ((visual_memory != nullptr) && (aim == nullptr))
+        {
+            ObjectHeap::const_iterator iter;
+            for
+            (
+                iter = visual_memory -> begin(RESOURCE);
+                iter != visual_memory -> end(RESOURCE); iter++
+            )
+            {
+                Resource* res = dynamic_cast<Resource*>(*iter);
+                if (res -> getSubtype()  == RES_BUILDING_MAT)
+                {
+                    Vector coords;
+                    double distance = SZ_WORLD_VSIDE;
+                    coords = res -> getCoords();
+                    if (distance > coords.getDistance(this -> getCoords()))
+                    {
+                        this -> aim = res;
+                        distance = coords.getDistance(this -> getCoords());
+                    }
+                    this -> aim = res;
+                }
+            }
+        }
+
+        if (aim == nullptr)
+        {
+             go(SLOW_SPEED);
+             visualMemorize();
+        }
+        else
+        {
+            Shape reach_area = this -> getReachArea();
+            reach_area.setCenter(this -> getCoords());
+            if (!reach_area.hitTest(aim -> getShape()))
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
+            else
+            {
+                Action act(MINE_OBJ, this);
+                act.addParticipant(aim);
+                act.addParam("res_index", 0);
+                this -> actions.push_back(act);
+
+                ObjectHeap::const_iterator iter;
+                for(
+                    iter = inventory -> begin(RESOURCE);
+                    iter != inventory -> end(RESOURCE); iter++
+                   )
+                {
+                    Resource* res = dynamic_cast<Resource*>(*iter);
+                    if (res -> getSubtype() == RES_BUILDING_MAT)
+                    {
+                          detailed_act = BUILD_HOUSE;
+                          aim = nullptr;
+                    }
+                }
+            }
+        }
     }
 
     //**************************************************************************
@@ -461,16 +503,27 @@ std::vector <Action>* Humanoid::getActions()
     {
         Action act(CREATE_OBJ, this);
         act.addParam<ObjectType>("obj_type", BUILDING);
-        act.addParam<uint>("building_max_space", 3);
-        act.addParam<uint>("building_max_health", 100);
-        current_decision = NONE;
+        // TODO: Ugly. Humanoid need to pick max_space and max_health values
+        //       more accuratly.
+        act.addParam<uint>("building_max_space",
+                           Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
+        act.addParam<uint>("building_max_health",
+                           Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
+        this -> actions.push_back(act);
+        current_action = NONE;
     }
+
     return &actions;
 }
 
 void Humanoid::receiveMessage(Message message)
 {
 }
+
+//**********************************************************
+// UPDATES
+// We change attrs of our hum
+//**********************************************************
 
 void Humanoid::updateAge()
 {
@@ -490,17 +543,31 @@ void Humanoid::updateNeedInDesc()
 
 void Humanoid::updateCommonAttrs()
 {
-    this -> hunger      += CREAT_DELTA_HUNGER;
-    this -> sleepiness  += CREAT_DELTA_SLEEP;
-    this -> sociability += HUM_DELTA_SOC;
+    if (this -> hunger < this -> max_hunger)
+    {
+        this -> hunger                 += CREAT_DELTA_HUNGER;
+        this -> attrs(ATTR_HUNGER,0)    = 100 * hunger / max_hunger;
+    }
 
-    this -> attrs(ATTR_HUNGER,0)        = 100 * hunger / max_hunger;
-    this -> attrs(ATTR_SLEEPINESS,0)    = 100 * sleepiness / max_sleepiness; // what about health?
-    this -> attrs(ATTR_COMMUNICATION,0) = 100 * sociability / max_sociability;
+    if (this -> sleepiness < this -> max_sleepiness)
+    {
+        this -> sleepiness += CREAT_DELTA_SLEEP;
+        if (current_action != SLEEP)
+        {
+            this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
+        }
+    }
+    // this -> sociability += HUM_DELTA_SOC;
+    // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
 
     this -> common_steps = CREAT_STEPS;
-    // TODO: func to calculate health, need in house and need in points
+    this -> attrs(ATTR_HEALTH,0) = 100 * (100 -health) / max_health;
 }
+
+//**********************************************************
+// CHOOSE ACTION
+// Bad
+//**********************************************************
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
@@ -651,16 +718,36 @@ std::string Humanoid::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Print visual memory and detailed action.
-    ss << "Sociability\t\t"    << sociability << "/" << max_sociability <<
-                                  std::endl <<
-          "Bravery\t\t\t"      << bravery << std::endl <<
-          "Laziness\t\t"       << laziness << std::endl <<
-          "Need in house\t\t"  << need_in_house << std::endl <<
-          "Need in points\t\t" << need_in_points << std::endl <<
-          "Home ID\t\t\t"      << (home == nullptr ? "none" :
-                                   std::to_string(home -> getObjectID())) <<
-                                  std::endl;
+    ss << "Detailed action\t\t";
+    switch (detailed_act)
+    {
+        case HUNT:                     ss << "hunt";                     break;
+        case TAKE_FOOD_FROM_INVENTORY: ss << "take food from inventory"; break;
+        case FIND_FOOD:                ss << "find food";                break;
+        case RELAX_AT_HOME:            ss << "relax at home";            break;
+        case SLEEP_AT_HOME:            ss << "sleep at home";            break;
+        case SLEEP_ON_THE_GROUND:      ss << "sleep on the ground";      break;
+        case MINE_RESOURSES:           ss << "mine resource";            break;
+        case BUILD_HOUSE:              ss << "build house";              break;
+        case CHOOSE_PLACE_FOR_HOME:    ss << "choose place for home";    break;
+        case FIGHT:                    ss << "fight";                    break;
+        case RUN_FROM_DANGER:          ss << "run from danger";          break;
+        default:                       ss << "unknown";                  break;
+    }
+    ss << "\n";
+
+    ss << "Sociability\t\t"       << sociability << "/" << max_sociability <<
+                                     std::endl <<
+          "Bravery\t\t\t"         << bravery << std::endl <<
+          "Laziness\t\t"          << laziness << std::endl <<
+          "Need in house\t\t"     << need_in_house << std::endl <<
+          "Need in points\t\t"    << need_in_points << std::endl <<
+          "Home ID\t\t\t"         << (home == nullptr ? "none" :
+                                      std::to_string(home -> getObjectID())) <<
+                                     std::endl <<
+          "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
+          "Required distance\t\t" << required_distance << std::endl <<
+          "Current distance\t\t"  << current_distance << std::endl;
 
     return output + ss.str();
 }
@@ -689,8 +776,21 @@ ObjectHeap* Humanoid::getVisMem() const
     return this -> visual_memory;
 }
 
+void Humanoid::setDetailedAction(DetailedHumAction det_action)
+{
+    this -> detailed_act = detailed_act;
+}
+
 // returns current decision of humanoid
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+//******************************************************************************
+// ADD TO INVENTORY
+//******************************************************************************
+void Humanoid::addToInventory(Object *obj)
+{
+    this -> inventory -> push(obj);
 }

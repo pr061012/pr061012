@@ -234,11 +234,14 @@ void Indexator::addObject(Object* object)
 void Indexator::removeObject(Object* object)
 {
     Index::iterator i = index.find(object);
-    for (uint x = i -> second[0]; x <= i -> second[2]; x++)
+    if (i != index.end())
     {
-        for (uint y = i -> second[1]; y <= i -> second[3]; y++)
+        for (uint x = i -> second[0]; x <= i -> second[2]; x++)
         {
-            cells[x % row_size][y % row_size].remove(object);
+            for (uint y = i -> second[1]; y <= i -> second[3]; y++)
+            {
+                cells[x % row_size][y % row_size].remove(object);
+            }
         }
     }
 }

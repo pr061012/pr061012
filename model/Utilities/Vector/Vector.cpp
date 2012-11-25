@@ -77,7 +77,7 @@ double Vector::scalarProduct(Vector vec1, Vector vec2)
 
 double Vector::getAngle(Vector vec) const
 {
-    return atan((vec.getY() - y) / (vec.getX() - x));
+    return atan2((vec.getY() - y), (vec.getX() - x));
 }
 
 //******************************************************************************

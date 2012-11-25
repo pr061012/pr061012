@@ -3,12 +3,15 @@
     See the LICENSE file for copying permission.
 */
 
-#include "MiningPerformer.h"
+#include <vector>
+
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../model/World/Object/Tool/Tool.h"
 #include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../common/BasicDefines.h"
 
-#include <vector>
+#include "MiningPerformer.h"
 
 MiningPerformer::MiningPerformer(World * world):
     Performer(world)
@@ -44,20 +47,86 @@ void MiningPerformer::perform(Action& action)
         return;
     }
 
-    ObjectHeap env = world -> getIndexator() -> getAreaContents(creature -> getViewArea());
     Object* res = participants[res_index];
-/*
-    Object* tool = participant[tool_index];
-*/
-    ObjectHeap::const_iterator iter = env.end();
+    // Object* tool = participant[tool_index];
 
+    // Getting object is reach area.
+    Shape reach_area = creature -> getReachArea();
+    reach_area.setCenter(creature -> getCoords());
+    ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
+
+    // Trying to find required object.
+    ObjectHeap::const_iterator iter = env.end();
     if (env.find(res, false) == iter)
     {
         action.markAsFailed();
+        action.setError(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
-    dynamic_cast<Resource*>(res) -> incrementProgress();
+    // Check whether resource is mineable.
+    Resource* resource = dynamic_cast<Resource*>(res);
+    if (!resource -> isMineable())
+    {
+        action.markAsFailed();
+        action.setError(OBJ_IS_NOT_MINEABLE);
+    }
+
+    // Incrementing progress.
+    resource -> incrementProgress();
+
+    // Creating new resource object (if needed) and adding it to inventory.
+    if (resource -> getProgress() == resource -> getDifficulty())
+    {
+        // Zeroing progress.
+        resource -> setProgress(0);
+
+        // Calculating drop amount.
+        uint drop_amount = resource -> getAmountPerDrop();
+        if (drop_amount > resource -> getAmount())
+        {
+            drop_amount = resource -> getAmount();
+        }
+
+        // Decreasing amount of resource.
+        resource -> decreaseAmount(drop_amount);
+
+        // Trying to find this resource in humanoid's inventory.
+        ObjectHeap* inv = creature -> getInventory();
+        ObjectHeap::const_iterator i;
+        bool success = false;
+        for (i = inv -> begin(RESOURCE); i != inv -> end(RESOURCE); i++)
+        {
+            Resource* inv_res = dynamic_cast<Resource*>(*i);
+
+            if (inv_res -> getSubtype() == resource -> getSubtype())
+            {
+                // Success.
+                inv_res -> increaseMaxAmount(drop_amount);
+                inv_res -> increaseAmount(drop_amount);
+                success = true;
+                break;
+            }
+        }
+
+        // Failure: creating new resource.
+        if (!success)
+        {
+            // Creating new resource.
+            ParamArray pa;
+            pa.addKey<ResourceType>("res_type", resource -> getSubtype());
+            pa.addKey<uint>("res_amount", drop_amount);
+            Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
+
+            // Making it pickable and non-restorable.
+            drop -> makePickable();
+            drop -> makeNonRestorable();
+
+            // Adding object to inventory and world's heap.
+            this -> world -> addObject(false, drop);
+            dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
+        }
+    }
 
     action.markAsSucceeded();
 }

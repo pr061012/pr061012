@@ -7,8 +7,9 @@
 #define DOUBLE_COMPARISON_H
 
 #include <cfloat>
+#include <cmath>
 
-#define EPSILON DBL_EPSILON * 16 * 1000
+#define EPSILON DBL_EPSILON * 16 * 100000
 
 /**
  * @brief Interface for double comparison.

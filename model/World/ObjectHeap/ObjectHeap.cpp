@@ -106,6 +106,14 @@ bool ObjectHeap::remove(Object* object)
     return del;
 }
 
+void ObjectHeap::clear()
+{
+    for (uint i = 0; i <= AMNT_OBJECT_TYPES; i++)
+    {
+        data[i].clear();
+    }
+}
+
 //******************************************************************************
 // PRINTING CONTENTS.
 //******************************************************************************
