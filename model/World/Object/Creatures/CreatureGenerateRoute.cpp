@@ -26,14 +26,23 @@ public:
     // The sum of distance_to_origin and heuristic_value
     double value;
 
+    Vertex(Vector point, Vector goal) :
+        point(point),
+        prev_vertex(point),
+        distance_to_origin(0),
+        heuristic_value(point.getDistance(goal)),
+        value(heuristic_value)
+    {
+    }
+
     Vertex(Vector point, const Vertex &origin, Vector goal) :
         point(point),
         prev_vertex(origin.point),
-        heuristic_value(point.getDistance(goal))
+        distance_to_origin(origin.point.getDistance(point) + 
+                           origin.distance_to_origin),
+        heuristic_value(point.getDistance(goal)),
+        value(distance_to_origin + heuristic_value)
     {
-        distance_to_origin = origin.point.getDistance(point) + 
-            origin.distance_to_origin;
-        value = distance_to_origin + heuristic_value;
     }
 };
 
@@ -82,10 +91,15 @@ const Vector Creature::neighbour_offsets[8] =
 // Make this virual and split it between humanoids and nonhumanoids.
 //
 // Check whether given point is passable or not, and check if it hits the goal.
-int Creature::checkPointIsPassable(Vector point)
+int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 {
     // Check if we can hit the goal.
-    if (goal -> getShape().hitTest(point))
+    if (goal_in_sight && goal -> getShape().hitTest(point))
+    {
+        return 1;
+    }
+    // Check if we came to the border of our view_area
+    else if (!goal_in_sight && !view_area.hitTest(point))
     {
         return 1;
     }
@@ -130,7 +144,11 @@ Creature::Path Creature::generateRoute()
     // Some creatures can fly
     if (__creature_generate_route_complete && this -> isSolid())
     {
+        // Check if our object lies inside view_area
+        view_area.setCenter(this -> getCoords());
         Vector goal_point = goal -> getCoords();
+        bool goal_in_sight = view_area.hitTest(goal -> getShape());
+
         // A closed list for vertices already processed.
         // Needed to find path back.
         std::set<Vertex, VectorComp> closed_set;
@@ -159,7 +177,7 @@ Creature::Path Creature::generateRoute()
         // Iterators
         std::set<Vertex, VertexComp>::iterator vertex_iter;
         std::set<Vertex, VectorComp>::iterator vector_iter;
-        Vertex current(this -> getCoords(), current, goal_point);
+        Vertex current(this -> getCoords(), goal_point);
 
         // Add starting vertex to the open_list.
         open_vertex_set.insert(current);
@@ -188,7 +206,7 @@ Creature::Path Creature::generateRoute()
                 Vector next_point =  current.point + 
                         Creature::neighbour_offsets[i] * getShape().getSize() 
                                                         / SCALE_FACTOR;
-                int passable = checkPointIsPassable(next_point);
+                int passable = checkPointIsPassable(next_point, goal_in_sight);
 
                 // If we already processed this vertex, skip it.
                 Vertex neighbour(next_point, current, goal_point);
