@@ -69,11 +69,13 @@ void Controller::destroy(Object * object)
 
 void Controller::step()
 {
+    
+    // clear buffers
+    hiddenToVisible.clear();
+    visibleToHidden.clear();
+
     for (int k = 0; k < 2; k++)
     {
-        // clear buffers
-        hiddenToVisible.clear();
-        visibleToHidden.clear();
 
         // first look for visible objects, then for hidden
         ObjectHeap* objects;

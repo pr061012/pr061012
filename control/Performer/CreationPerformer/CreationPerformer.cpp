@@ -76,7 +76,7 @@ void CreationPerformer::perform(Action& action)
             break;
 */
             case BUILDING:
-            {
+
                 if (cr -> getSubtype() != NON_HUMANOID)
                 {
                     // Create new resource.
@@ -97,13 +97,13 @@ void CreationPerformer::perform(Action& action)
                     action.markAsFailed();
                     return;
                 }
+
             break;
 
             default:
                 action.markAsFailed();
                 return;
             break;
-        }
 
         }
     }
