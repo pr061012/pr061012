@@ -91,19 +91,41 @@ void MiningPerformer::perform(Action& action)
         // Decreasing amount of resource.
         resource -> decreaseAmount(drop_amount);
 
-        // Creating new resource.
-        ParamArray pa;
-        pa.addKey<ResourceType>("res_type", resource -> getSubtype());
-        pa.addKey<uint>("res_amount", drop_amount);
-        Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
+        // Trying to find this resource in humanoid's inventory.
+        ObjectHeap* inv = creature -> getInventory();
+        ObjectHeap::const_iterator i;
+        bool success = false;
+        for (i = inv -> begin(RESOURCE); i != inv -> end(RESOURCE); i++)
+        {
+            Resource* inv_res = dynamic_cast<Resource*>(*i);
 
-        // Making it pickable and non-restorable.
-        drop -> makePickable();
-        drop -> makeNonRestorable();
+            if (inv_res -> getSubtype() == resource -> getSubtype())
+            {
+                // Success.
+                inv_res -> increaseMaxAmount(drop_amount);
+                inv_res -> increaseAmount(drop_amount);
+                success = true;
+                break;
+            }
+        }
 
-        // Adding object to inventory and world's heap.
-        this -> world -> addObject(false, drop);
-        dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
+        // Failure: creating new resource.
+        if (!success)
+        {
+            // Creating new resource.
+            ParamArray pa;
+            pa.addKey<ResourceType>("res_type", resource -> getSubtype());
+            pa.addKey<uint>("res_amount", drop_amount);
+            Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
+
+            // Making it pickable and non-restorable.
+            drop -> makePickable();
+            drop -> makeNonRestorable();
+
+            // Adding object to inventory and world's heap.
+            this -> world -> addObject(false, drop);
+            dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
+        }
     }
 
     action.markAsSucceeded();
