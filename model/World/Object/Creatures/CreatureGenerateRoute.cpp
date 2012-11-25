@@ -3,7 +3,9 @@
 #include "../../../../common/BasicDefines.h"
 #include "Creature.h"
 
-#define __creature_generate_route_complete 0
+#define __creature_generate_route_complete 1
+#define SCALE_FACTOR 2
+#define NODE_LIMIT 1000
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -14,7 +16,7 @@ public:
     Vector point;
 
     // The vertex that we came from.
-    Vertex * prev_vertex;
+    Vector prev_vertex;
 
     double distance_to_origin;
 
@@ -24,20 +26,13 @@ public:
     // The sum of distance_to_origin and heuristic_value
     double value;
 
-    Vertex(Vector point, Vertex * origin, Vector goal) :
+    Vertex(Vector point, const Vertex &origin, Vector goal) :
         point(point),
-        prev_vertex(origin),
+        prev_vertex(origin.point),
         heuristic_value(point.getDistance(goal))
     {
-        if (origin)
-        {
-            distance_to_origin = origin -> point.getDistance(point) + 
-                           origin -> distance_to_origin;
-        }
-        else
-        {
-            distance_to_origin = 0;
-        }
+        distance_to_origin = origin.point.getDistance(point) + 
+            origin.distance_to_origin;
         value = distance_to_origin + heuristic_value;
     }
 };
@@ -50,22 +45,24 @@ public:
 // Comparison class for set.
 struct VertexComp
 {
-    bool operator()(const Vertex * a, const Vertex * b) const
+    bool operator()(const Vertex& a, const Vertex& b) const
     {
-        return DoubleComparison::isLess(a -> value, b -> value);
+        return DoubleComparison::isLess(a.value, b.value);
     }
 };
 
 struct VectorComp
 {
-    bool operator()(const Vertex* a, const Vertex* b) const
+    bool operator()(const Vertex& a, const Vertex& b) const
     {
+        if (a.point == b.point)
+            return false;
         // left-bottom to right top
-        if (DoubleComparison::areEqual(a -> point.getX(), b -> point.getX()))
+        if (DoubleComparison::areEqual(a.point.getX(), b.point.getX()))
         {
-            return DoubleComparison::isLess(a -> point.getY(), b -> point.getY());
+            return DoubleComparison::isLess(a.point.getY(), b.point.getY());
         }
-        return DoubleComparison::isLess(a -> point.getX(), b -> point.getX());
+        return DoubleComparison::isLess(a.point.getX(), b.point.getX());
     }
 };
 
@@ -114,13 +111,12 @@ int Creature::checkPointIsPassable(Vector point)
         }
     }
     
-    // If nothing bad happened, we can stang on the point
+    // If nothing bad happened, we can stand on the point
     return 0;
 
 }
 
 // TODO
-// Try to get rid of giant memory allocations.
 // Limit the search by constant number of processed nodes.
 Creature::Path Creature::generateRoute()
 {
@@ -128,17 +124,20 @@ Creature::Path Creature::generateRoute()
     Path result;
     result.push(goal -> getCoords());
 
+    // Debug counter
+    uint debug_step = 0;
+
     // Some creatures can fly
     if (__creature_generate_route_complete && this -> isSolid())
     {
         Vector goal_point = goal -> getCoords();
         // A closed list for vertices already processed.
         // Needed to find path back.
-        std::set<Vertex*, VectorComp> closed_set;
+        std::set<Vertex, VectorComp> closed_set;
         // An open list for future vertices ordered by vertex value.
-        std::set<Vertex*, VertexComp> open_vertex_set;
+        std::set<Vertex, VertexComp> open_vertex_set;
         // Same list ordered by vertices
-        std::set<Vertex*, VectorComp> open_vector_set;
+        std::set<Vertex, VectorComp> open_vector_set;
 
         // Form obstacles heap.
         delete obstacles;
@@ -158,9 +157,9 @@ Creature::Path Creature::generateRoute()
         }
 
         // Iterators
-        std::set<Vertex*, VertexComp>::iterator vertex_iter;
-        std::set<Vertex*, VectorComp>::iterator vector_iter;
-        Vertex* current = new Vertex(this -> getCoords(), 0, goal_point);
+        std::set<Vertex, VertexComp>::iterator vertex_iter;
+        std::set<Vertex, VectorComp>::iterator vector_iter;
+        Vertex current(this -> getCoords(), current, goal_point);
 
         // Add starting vertex to the open_list.
         open_vertex_set.insert(current);
@@ -168,6 +167,11 @@ Creature::Path Creature::generateRoute()
 
         while (!open_vertex_set.empty())
         {
+            if (debug_step > NODE_LIMIT)
+            {
+                break;
+            }
+            debug_step++;
             // Get vertex with lowest value = the best one
             vertex_iter = open_vertex_set.begin();
             current = *vertex_iter;
@@ -180,55 +184,54 @@ Creature::Path Creature::generateRoute()
             // Look through neighbours
             for (uint i = 0; i < 8; i++)
             {
-                Vector next_point =  current -> point + 
-                        Creature::neighbour_offsets[i] * getShape().getSize() / 2;
+                Vector next_point =  current.point + 
+                        Creature::neighbour_offsets[i] * getShape().getSize() 
+                                                        / SCALE_FACTOR;
                 int passable = checkPointIsPassable(next_point);
-                Vertex * neighbour = 0;
+
+                // If we already processed this vertex, skip it.
+                Vertex neighbour(next_point, current, goal_point);
+                if (closed_set.find(neighbour) != closed_set.end())
+                {
+                    continue;
+                }
 
                 switch (passable)
                 {
                     // Can't pass through this point.
                     case -1:
-                        continue;
+                        // Remember that we can't stand here.
+                        closed_set.insert(neighbour);
                         break;
                     
                     // Reached the goal.
                     case 1:
                         // Get the result path
-                        while (current)
+                        while (current.point != this -> getCoords())
                         {
-                            result.push(current -> point);
-                            current = current -> prev_vertex;
+                            result.push(current.point);
+                            current.point = current.prev_vertex;
+                            current = *(closed_set.find(current));
                         }
 
-                        delete neighbour;
                         // Make the loops stop
                         open_vertex_set.clear();
                         i = 100;
                         continue;
 
                     case 0:
-                        neighbour = new Vertex(next_point, current,
-                                                        goal_point);
-                        // if we already processed this vertex, continue
-                        if (closed_set.find(neighbour) != closed_set.end())
-                        {
-                            delete neighbour;
-                            continue;
-                        }
                         // if we already seen this vertex, update it
-                        else if ((vector_iter = open_vector_set.find(neighbour)) !=
+                        if ((vector_iter = open_vector_set.find(neighbour)) !=
                                  open_vector_set.end())
                         {
                             // if the vertex we have has bigger value, then delete it
-                            if ((*vector_iter) -> value > neighbour -> value)
+                            if ((*vector_iter).value > neighbour.value)
                             {
                                 open_vertex_set.erase(*vector_iter);
                                 open_vector_set.erase(vector_iter);
                             }
                             else
                             {
-                                delete neighbour;
                                 continue;
                             }
                         }
@@ -243,20 +246,9 @@ Creature::Path Creature::generateRoute()
         // FIXME
         // Think how to process failures (path not found)
 
-        // Free memory
-        for (vector_iter = open_vector_set.begin();
-                vector_iter != open_vector_set.end();
-                vector_iter++)
-        {
-            delete *vector_iter;
-        }
-        for (vector_iter = closed_set.begin();
-                vector_iter != closed_set.end();
-                vector_iter++)
-        {
-            delete *vector_iter;
-        }
     }
+    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }
