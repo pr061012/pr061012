@@ -739,7 +739,6 @@ std::string Humanoid::printObjectInfo() const
 
     std::stringstream ss;
 
-    // TODO: Print visual memory and detailed action.
     ss << "Detailed action\t\t";
     switch (detailed_act)
     {
@@ -758,18 +757,19 @@ std::string Humanoid::printObjectInfo() const
     }
     ss << "\n";
 
-    ss << "Sociability\t\t"    << sociability << "/" << max_sociability <<
-                                  std::endl <<
-          "Bravery\t\t\t"      << bravery << std::endl <<
-          "Laziness\t\t"       << laziness << std::endl <<
-          "Need in house\t\t"  << need_in_house << std::endl <<
-          "Need in points\t\t" << need_in_points << std::endl <<
-          "Home ID\t\t\t"      << (home == nullptr ? "none" :
-                                   std::to_string(home -> getObjectID())) <<
-                                  std::endl <<
-          "Visual memory\t\t"  << visual_memory -> printIDs() << std::endl <<
+    ss << "Sociability\t\t"       << sociability << "/" << max_sociability <<
+                                     std::endl <<
+          "Bravery\t\t\t"         << bravery << std::endl <<
+          "Laziness\t\t"          << laziness << std::endl <<
+          "Need in house\t\t"     << need_in_house << std::endl <<
+          "Need in points\t\t"    << need_in_points << std::endl <<
+          "Home ID\t\t\t"         << (home == nullptr ? "none" :
+                                      std::to_string(home -> getObjectID())) <<
+                                     std::endl <<
+          "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
           "Required distance\t\t" << required_distance << std::endl <<
           "Current distance\t\t"  << current_distance << std::endl;
+
     return output + ss.str();
 }
 
