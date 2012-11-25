@@ -137,49 +137,17 @@ std::string CLI::runCommand(std::string command)
     ss >> cmd;
 
     // Running processors.
-    if (cmd == "init")
+    try
     {
-        return this -> init(ss, false);
-    }
-
-    if (cmd == "random-init")
-    {
-        return this -> init(ss, true);
-    }
-
-    if (cmd == "generate")
-    {
-        return this -> generate(ss);
-    }
-
-    if (cmd == "create")
-    {
-        return this -> create(ss);
-    }
-
-    if (cmd == "list")
-    {
-        return this -> list(ss);
-    }
-
-    if (cmd == "info")
-    {
-        return this -> info(ss);
-    }
-
-    if (cmd == "change")
-    {
-        return this -> change(ss);
-    }
-
-    if (cmd == "step")
-    {
-        return this -> step(ss);
-    }
-
-    if (cmd == "trace-step")
-    {
-        return this -> traceStep(ss);
+        if (cmd == "init")          return this -> init(ss, false);
+        if (cmd == "random-init")   return this -> init(ss, true);
+        if (cmd == "generate")      return this -> generate(ss);
+        if (cmd == "create")        return this -> create(ss);
+        if (cmd == "list")          return this -> list(ss);
+        if (cmd == "info")          return this -> info(ss);
+        if (cmd == "change")        return this -> change(ss);
+        if (cmd == "step")          return this -> step(ss);
+        if (cmd == "trace-step")    return this -> traceStep(ss);
     }
 
     return sformat("Unknown command `%s`.\n", cmd.c_str());
@@ -657,4 +625,21 @@ std::string CLI::change(std::stringstream& ss)
     }
 
     return "Successfully changed object.\n";
+}
+
+//******************************************************************************
+// HELPFULL FUNCTIONS.
+//******************************************************************************
+
+template<class T> T read(std::stringstream& ss)
+{
+    T t;
+
+    ss >> t;
+    if (!ss)
+    {
+        // throw
+    }
+
+    return t;
 }
