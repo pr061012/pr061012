@@ -100,7 +100,8 @@ void MiningPerformer::perform(Action& action)
         // Making it only pickable.
         drop -> makePickable();
 
-        // Adding object to inventory.
+        // Adding object to inventory and world's heap.
+        this -> world -> addObject(false, drop);
         dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
     }
 
