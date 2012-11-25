@@ -372,8 +372,8 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            double required_distance = //MINING_RADIUS +
-                    this -> getShape().getSize() / 1.9 + aim -> getShape().getSize() / 1.9;
+            double required_distance = (this -> getReachArea().getSize() +
+                    aim -> getShape().getSize()) / 2.0;
             double current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
@@ -384,7 +384,7 @@ std::vector <Action>* Humanoid::getActions()
             }
             else
             {
-                Log::note("success!","ee",6,"fe");
+                Log::NOTE("success!");
                 Action act(MINE_OBJ, this);
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
@@ -580,7 +580,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
     {
-        return CHOOSE_PLACE_FOR_HOME;// bad ;MINE_RESOURSES;
+        return MINE_RESOURSES;//    }/CHOOSE_PLACE_FOR_HOME;// bad ;
     }
     else
     {
@@ -750,8 +750,21 @@ ObjectHeap* Humanoid::getVisMem() const
     return this -> visual_memory;
 }
 
+void Humanoid::setDetailedAction(DetailedHumAction det_action)
+{
+    this -> detailed_act = detailed_act;
+}
+
 // returns current decision of humanoid
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+//******************************************************************************
+// ADD TO INVENTORY
+//******************************************************************************
+void Humanoid::addToInventory(Object *obj)
+{
+    this -> inventory -> push(obj);
 }
