@@ -88,6 +88,16 @@ Shape Creature::getViewArea()
     return this -> view_area;
 }
 
+void Creature::setReachArea(Shape reach_area)
+{
+    this -> reach_area = reach_area;
+}
+
+Shape Creature::getReachArea()
+{
+    return this -> reach_area;
+}
+
 ObjectHeap * Creature::getInventory()
 {
     return this -> inventory;
