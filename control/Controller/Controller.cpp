@@ -73,6 +73,7 @@ void Controller::step()
     // clear buffers
     hiddenToVisible.clear();
     visibleToHidden.clear();
+    actions.clear();
 
     for (int k = 0; k < 2; k++)
     {
@@ -102,7 +103,8 @@ void Controller::step()
                 continue;
             }
             
-            std::vector<Action> * actions = (*i) -> getActions();
+            // get actions to the buffer
+            std::vector<Action>* buf = (*i) -> getActions();
 
             // creatures are special
             if ((*i) -> getType() == CREATURE)
@@ -122,11 +124,10 @@ void Controller::step()
                     destroy(*i);
                     continue;
                 }
-
-                // execute a single action
-                if (actions -> size())
+                // creatures can't do more than one action
+                if (buf -> size())
                 {
-                    performers[actions -> at(0).getType()] -> perform(actions -> at(0));
+                    actions.push_back(&(buf -> at(0)));
                 }
             }
             else 
@@ -138,15 +139,12 @@ void Controller::step()
                             world -> getIndexator() -> getAreaContents(
                                 dynamic_cast<Weather*>(*i) -> getShape()));
                 }
-
-                // perform all actions
-                for (uint j = 0; j < actions -> size(); j++)
+                // collect all actions
+                for (uint j = 0; j < buf -> size(); j++)
                 {
-                    performers[(actions->at(j)).getType()] -> perform(actions->at(j));
+                    actions.push_back(&(buf -> at(j)));
                 }
-
             }
-
         }
     }
 
@@ -159,7 +157,6 @@ void Controller::step()
         world -> getIndexator() -> addObject(*i);
     }
 
-
     for (ObjectHeap::iterator i = visibleToHidden.begin();
          i != visibleToHidden.end(); i++)
     {
@@ -168,4 +165,9 @@ void Controller::step()
         world -> getIndexator() -> removeObject(*i);
     }
 
+    // Execute actions
+    for (uint i = 0; i < actions.size(); i++)
+    {
+        performers[actions[i] -> getType()] -> perform(*actions[i]);
+    }
 }
