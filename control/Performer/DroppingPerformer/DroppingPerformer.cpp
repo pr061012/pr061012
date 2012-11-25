@@ -22,9 +22,8 @@
 // TODO
 // Improve movement algo
 
-DroppingPerformer::DroppingPerformer(World * world, ObjectHeap * buffer) :
-    Performer(world),
-    buffer(buffer)
+DroppingPerformer::DroppingPerformer(World * world) :
+    Performer(world)
 {
 }
 

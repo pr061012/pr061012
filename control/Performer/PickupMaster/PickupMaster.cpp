@@ -19,9 +19,8 @@
 #define CREAT_SPEED_SLOW_VALUE 5
 #endif
 
-PickupMaster::PickupMaster(World * world, ObjectHeap * buffer) :
-    Performer(world),
-    buffer(buffer)
+PickupMaster::PickupMaster(World * world) :
+    Performer(world)
 {
 }
 

@@ -25,7 +25,7 @@ public:
      * @brief Constructor for a particular world
      * @param world controlled world
      */
-    DroppingPerformer(World* world, ObjectHeap * buffer);
+    DroppingPerformer(World* world);
 
     /**
      * @brief Destructor
@@ -41,11 +41,6 @@ public:
      * @param action a request for dropping item
      */
     void perform(Action& action);
-
-private:
-    
-    /// Buffer for dropping objects
-    ObjectHeap * buffer;
 
 };
 

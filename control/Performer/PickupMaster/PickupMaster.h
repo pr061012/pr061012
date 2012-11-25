@@ -25,7 +25,7 @@ public:
      * @brief Constructor for a particular world
      * @param world controlled world
      */
-    PickupMaster(World* world, ObjectHeap * buffer);
+    PickupMaster(World* world);
 
     /**
      * @brief Destructor
@@ -42,8 +42,6 @@ public:
      */
     void perform(Action& action);
 
-    /// Buffer for picking objects
-    ObjectHeap * buffer;
 };
 
 #endif
