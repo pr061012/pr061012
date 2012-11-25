@@ -349,19 +349,9 @@ std::vector <Action>* Humanoid::getActions()
         {
             aim = home;
         }
-//        Shape reach_area = this -> getReachArea();
-//        reach_area.setCenter(this -> getCoords());
-//        if (!reach_area.hitTest(this -> getShape()))
-//        {
-//            go(SLOW_SPEED);
-//            visualMemorize();
-//        }
-        required_distance = (this -> getReachArea().getSize() +
-                aim -> getShape().getSize()) / 2.0;
-        current_distance = this -> getCoords().getDistance
-                (aim -> getCoords());
-
-        if (current_distance > required_distance) // FIXME
+        Shape reach_area = this -> getReachArea();
+        reach_area.setCenter(this -> getCoords());
+        if (!reach_area.hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
             visualMemorize();
@@ -372,11 +362,7 @@ std::vector <Action>* Humanoid::getActions()
             act.addParticipant(home);
             act.addParam("object_index", 0);
             this -> actions.push_back(act);
-     //       aim = nullptr;
             current_decision = NONE;
-
-            // BAD
-      //      detailed_act = SLEEP_ON_THE_GROUND;
         }
 
 //   BAD     if (home -> completeness)
