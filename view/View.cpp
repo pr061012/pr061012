@@ -239,24 +239,10 @@ void View::redraw()
         {
 
             // Draw a circle at cursor position
-            double angle;
-            double radius = view_world -> worldToScreenDist(1.0);
 
             glColor4d(0.0, 0.0, 0.0, 0.6);
-            glEnable(GL_BLEND);
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-            glBegin(GL_TRIANGLE_FAN);
-                for(int i = 0; i < 100; i++) {
-                    angle = 2.0 * i * M_PI / 100;
-                    glVertex2d((sx + cos(angle) * radius),
-                               (sy + sin(angle) * radius));
-                }
-            glEnd();
-
-            glDisable(GL_BLEND);
-
-            glColor4d(1.0,1.0,1.0,1.0);
+            ViewUtilities::glCirclef_blend(sx, sy, view_world -> worldToScreenDist(1.0));
+            glColor3d(1.0, 1.0, 1.0);
         }
     }
 
@@ -283,17 +269,14 @@ void View::redraw()
 
     // Drawing debug message at the top of the screen.
 
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glRectf(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
+    glColor4f(0.0f, 0.0f, 0.0f, 0.4f);
+    ViewUtilites::glRectf_blend(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(-getMaxScrX(), getMaxScrY() - 0.5f);
 
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);
     if(this -> isPaused()) msg += " PAUSED";
 
-    glcScale(24.f, 24.f);
-    glcRenderString( msg.c_str() );
-    glcScale(1.0/24, 1.0/24);
+    ViewUtilities::renderText(-getMaxScrX(), getMaxScrY() - 0.5, 24.f, msg);
 #endif
 
     // Render interface objectsTextField* focus
@@ -324,8 +307,6 @@ void View::initWindow()
 
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
-
-    float aspect_ratio = ((float)height)/width;
 
     glFrustum(-getMaxScrX(),
                getMaxScrX(),

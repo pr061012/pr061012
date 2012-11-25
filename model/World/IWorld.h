@@ -4,7 +4,6 @@
 #include "Action/Action.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "Indexator/Indexator.h"
-//#include "../God/God.h"
 #include "../Utilities/Shape/Shape.h"
 #include "../World/ObjectFactory/ObjectFactory.h"
 #include "../../common/BasicTypes.h"

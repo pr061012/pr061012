@@ -10,7 +10,7 @@
 #include <GL/gl.h>
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 
 #include "ViewWorld/ViewWorld.h"
@@ -19,7 +19,7 @@
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
-#include "Utilities/ViewFuncs.h"
+#include "Utilities/ViewUtilities.h"
 
 #include <GL/glc.h>
 

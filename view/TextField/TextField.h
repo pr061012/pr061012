@@ -9,6 +9,7 @@
 #include <string>
 #include <GL/glc.h>
 #include "../dev_glfw.h"
+#include "../Utilities/ViewUtilities.h"
 
 class TextField
 {
