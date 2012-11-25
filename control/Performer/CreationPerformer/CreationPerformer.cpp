@@ -97,7 +97,6 @@ void CreationPerformer::perform(Action& action)
                     action.markAsFailed();
                     return;
                 }
-
             break;
 
             default:
