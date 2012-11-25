@@ -3,12 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#include "MiningPerformer.h"
+#include <vector>
+
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Tool/Tool.h"
 #include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../common/BasicDefines.h"
 
-#include <vector>
+#include "MiningPerformer.h"
 
 MiningPerformer::MiningPerformer(World * world):
     Performer(world)
@@ -44,7 +46,7 @@ void MiningPerformer::perform(Action& action)
         return;
     }
     Object* res = participants[res_index];
-    double size = creature -> getShape().getSize() * 1.5;
+    double size = creature -> getShape().getSize() * SZ_HUM_REACH_AREA_COEF;
     Shape shape(creature -> getCoords(), CIRCLE, size);
     ObjectHeap env = world -> getIndexator() -> getAreaContents(shape);
 /*

@@ -63,6 +63,9 @@
 /// Default size for everything.
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
+/// Coefficient for reach area size.
+#define SZ_HUM_REACH_AREA_COEF      1.5
+
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
 /// Building side (maximum size).
