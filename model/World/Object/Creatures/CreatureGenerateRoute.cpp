@@ -5,7 +5,7 @@
 
 #define __creature_generate_route_complete 1
 #define SCALE_FACTOR 2
-#define NODE_LIMIT 1000
+#define NODE_LIMIT 2000
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -68,14 +68,14 @@ struct VectorComp
 
 const Vector Creature::neighbour_offsets[8] = 
 {
-    Vector( 0,  1),
-    Vector( 1,  1),
-    Vector( 1,  0),
-    Vector( 1, -1),
-    Vector( 0, -1),
-    Vector(-1, -1),
-    Vector(-1,  0),
-    Vector(-1,  1)
+    Vector(   0,    1),
+    Vector(   1,    1),
+    Vector(   1,    0),
+    Vector(   1,   -1),
+    Vector(   0,   -1),
+    Vector(  -1,   -1),
+    Vector(  -1,    0),
+    Vector(  -1,    1)
 };
 
 // TODO
@@ -169,6 +169,7 @@ Creature::Path Creature::generateRoute()
         {
             if (debug_step > NODE_LIMIT)
             {
+                aim = nullptr;
                 break;
             }
             debug_step++;
