@@ -57,6 +57,12 @@ public:
     void increaseAmount(uint delta);
 
     /**
+     * @brief Increases maximum possible amount of resource.
+     * @param delta to increase
+     */
+    void increaseMaxAmount(uint delta);
+
+    /**
      * @brief  Gets amount of resource.
      * @return amount of resource
      */

@@ -144,6 +144,11 @@ void Resource::increaseAmount(uint delta)
     }
 }
 
+void Resource::increaseMaxAmount(uint delta)
+{
+    this -> max_amount += delta;
+}
+
 uint Resource::getAmount() const
 {
     return this -> amount;
