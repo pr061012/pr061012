@@ -136,6 +136,11 @@ std::vector <Action>* Humanoid::getActions()
     }
     if(danger_steps == 0)
         updateDanger();
+    // BAD
+    if (home != nullptr && home -> getCompleteness())
+    {
+        this -> need_in_house = 0;
+    }
 
     // Store the result of last action and clear actions
     clearActions();
@@ -150,6 +155,8 @@ std::vector <Action>* Humanoid::getActions()
     // Make new decision and set aim and direction.
     if (current_decision == NONE)
     {
+        // BAD
+        this -> sociability += 10;
         current_decision = brains.makeDecision(attrs);
         direction_is_set = false;
         aim = nullptr;
@@ -331,7 +338,56 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     //**************************************************************************
-    // DETAILED DECISION : MINE_RESOURSE
+    // DETAILED DECISION : BUILD_HOUSE
+    // Humanoid just asking controller for permission to increase health
+    // of building.
+    //**************************************************************************
+
+    if (detailed_act == BUILD_HOUSE)
+    {
+        if (aim == nullptr)
+        {
+            aim = home;
+        }
+//        Shape reach_area = this -> getReachArea();
+//        reach_area.setCenter(this -> getCoords());
+//        if (!reach_area.hitTest(this -> getShape()))
+//        {
+//            go(SLOW_SPEED);
+//            visualMemorize();
+//        }
+        required_distance = (this -> getReachArea().getSize() +
+                aim -> getShape().getSize()) / 2.0;
+        current_distance = this -> getCoords().getDistance
+                (aim -> getCoords());
+
+        if (current_distance > required_distance) // FIXME
+        {
+            go(SLOW_SPEED);
+            visualMemorize();
+        }
+        else
+        {
+            Action act(REGENERATE_OBJ, this);
+            act.addParticipant(home);
+            act.addParam("object_index", 0);
+            this -> actions.push_back(act);
+     //       aim = nullptr;
+            current_decision = NONE;
+
+            // BAD
+      //      detailed_act = SLEEP_ON_THE_GROUND;
+        }
+
+//   BAD     if (home -> completeness)
+//        {
+//            this -> need_in_house = 0;
+//        }
+
+    }
+
+    //**************************************************************************
+    // DETAILED DECISION : MINE_RESOURSE | OK
     // If we don't choose which resource humanoid want to mine, we check
     // his visual memory. After that humanoid come to this resource. If he
     // did not find any resource in his memory, he will just shuffle on the
@@ -384,7 +440,7 @@ std::vector <Action>* Humanoid::getActions()
             current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
-            if (current_distance > required_distance)
+            if (current_distance > required_distance) // FIXME
             {
                 go(SLOW_SPEED);
                 visualMemorize();
@@ -395,24 +451,22 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
+
+                ObjectHeap::const_iterator iter;
+                for(
+                    iter = inventory -> begin(RESOURCE);
+                    iter != inventory -> end(RESOURCE); iter++
+                   )
+                {
+                    Resource* res = dynamic_cast<Resource*>(*iter);
+                    if (res -> getSubtype() == RES_BUILDING_MAT)
+                    {
+                          detailed_act = BUILD_HOUSE;
+                          aim = nullptr;
+                    }
+                }
             }
         }
-    }
-
-    //**************************************************************************
-    // DETAILED DECISION : BUILD_HOUSE
-    // Humanoid just asking controller for permission to increase health
-    // of building.
-    //**************************************************************************
-
-    if (detailed_act == BUILD_HOUSE)
-    {
-        Action act(REGENERATE_OBJ, this);
-        act.addParticipant(home);
-        act.addParam("object_index", 0);
-        this -> need_in_house = 100 - 100 * home -> getHealthPoints()
-                                                / home -> getMaxHealthPoints();
-        this -> actions.push_back(act);
     }
 
     //**************************************************************************
@@ -586,7 +640,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
     {
-        return MINE_RESOURSES;//    }/CHOOSE_PLACE_FOR_HOME;// bad ;
+        return CHOOSE_PLACE_FOR_HOME;
     }
     else
     {
