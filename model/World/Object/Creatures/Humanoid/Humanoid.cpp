@@ -373,7 +373,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             double required_distance = (this -> getReachArea().getSize() +
-                    aim -> getShape.getSize())/ 2.0;
+                    aim -> getShape().getSize()) / 2.0;
             double current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
@@ -750,8 +750,21 @@ ObjectHeap* Humanoid::getVisMem() const
     return this -> visual_memory;
 }
 
+void Humanoid::setDetailedAction(DetailedHumAction det_action)
+{
+    this -> detailed_act = detailed_act;
+}
+
 // returns current decision of humanoid
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+//******************************************************************************
+// ADD TO INVENTORY
+//******************************************************************************
+void Humanoid::addToInventory(Object *obj)
+{
+    this -> inventory -> push(obj);
 }

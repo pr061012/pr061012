@@ -81,9 +81,28 @@ public:
     uint getBravery() const;
 
     //**************************************************************************
-    // SET HOME
+    // SETTERS
     //**************************************************************************
+
+    /**
+     * @brief  Sets home pointer
+     */
     void setHome(Building* home);
+
+     /**
+     * @brief  Sets detailed action
+     */
+    void setDetailedAction (DetailedHumAction det_action);
+
+    //**************************************************************************
+    // ADD TO INVENTORY
+    //**************************************************************************
+
+    /**
+     * @brief  Add object in inventory
+     */
+    void addToInventory(Object* obj);
+
 private:
     //**************************************************************************
     // IDS.
