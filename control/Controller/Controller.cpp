@@ -85,8 +85,8 @@ void Controller::step()
         {
             objects = world -> getHiddenObjects();
         }
-
-        for (ObjectHeap::iterator i = objects -> begin(); i != objects -> end(); i++)
+        ObjectHeap::iterator end = objects -> end();
+        for (ObjectHeap::iterator i = objects -> begin(); i != end; i++)
         {
             // check objects health
             if ((*i) -> getHealthPoints() <= 0 && !(*i) -> isDestroyed())

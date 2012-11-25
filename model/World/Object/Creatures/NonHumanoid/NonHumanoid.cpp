@@ -27,6 +27,8 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setShapeSize(SZ_NHUM_DIAM);
     this -> setShapeType(SHP_NON_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
+    this -> setReachArea(Shape(Vector(), SHP_NON_HUMANOID,
+                               SZ_NHUM_DIAM * SZ_REACH_AREA_COEF));
     this -> setDangerLevel(DNGR_NON_HUMANOID);
 
     // Initialize of matrix of attr
