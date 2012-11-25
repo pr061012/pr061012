@@ -255,6 +255,19 @@
 #define RES_BERRIES_FOOD_VALUE      2
 
 //******************************************************************************
+// BUILDING DEFINES
+// Prefix: BLD.
+//******************************************************************************
+
+// Range for building max health.
+#define BLD_MAX_HEALTH_MIN          100
+#define BLD_MAX_HEALTH_MAX          150
+
+// Range for building max space.
+#define BLD_MAX_SPACE_MIN           100
+#define BLD_MAX_SPACE_MAX           150
+
+//******************************************************************************
 // DAMAGE DEFINES
 // Prefix: DMG.
 //******************************************************************************
