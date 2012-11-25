@@ -31,9 +31,8 @@ void RegenerationPerformer::perform(Action& action)
     uint delta = Random::int_num(actor->getHealthPoints());
 
     uint object_index = action.getParam<uint>("object_index");
-/*
-    uint tool_index = action.getParam<uint>("tool_index");
-*/
+    // uint tool_index = action.getParam<uint>("tool_index");
+
     if (object_index > participants.size())
     {
         action.markAsFailed();
@@ -64,7 +63,10 @@ void RegenerationPerformer::perform(Action& action)
     if (type == CREATURE)
     {
         Creature* creature = dynamic_cast<Creature*>(actor);
-        ObjectHeap env = world -> getIndexator() -> getAreaContents(creature -> getViewArea());
+
+        Shape reach_area = creature -> getReachArea();
+        reach_area.setCenter(creature -> getCoords());
+        ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
         ObjectHeap::const_iterator iter = env.end();
 
         if (env.find(participants[object_index], false) == iter)
