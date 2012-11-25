@@ -53,7 +53,7 @@ void CreationPerformer::perform(Action& action)
                 if (checkCoord(actor -> getShape()))
                 {
                     // If all is OK, add new_object in world.
-                    visible-> push(new_object);
+                    world -> addObject(true, new_object);
 
                     action.markAsSucceeded();
                     return;
@@ -69,7 +69,7 @@ void CreationPerformer::perform(Action& action)
             case TOOL:
             {
                 new_object = createTool(action, param);
-                hidden -> push(new_object);
+                world -> addObject(false, new_object);
 
                 action.markAsSucceeded();
             }
@@ -84,7 +84,7 @@ void CreationPerformer::perform(Action& action)
 
                     // Set coord new_object and add its in world.
                     new_object -> setCoords(actor -> getCoords());
-                    visible -> push(new_object);
+                    world -> addObject(true, new_object);
 
                     Building* new_home = dynamic_cast<Building*>(new_object);
                     dynamic_cast<Humanoid* >(cr) -> setHome(new_home);
@@ -115,9 +115,7 @@ void CreationPerformer::perform(Action& action)
 
             dynamic_cast<Resource*>(new_object) -> makePickable();
             // If all is OK, add new_object in world.
-            //world -> addObject(false, new_object);
-            // FIXME What is this supposed to mean?
-            visible -> push(new_object);
+            world -> addObject(false, new_object);
 
             // Increase actor amount.
             static_cast<Resource*>(actor) -> increaseAmount(1);

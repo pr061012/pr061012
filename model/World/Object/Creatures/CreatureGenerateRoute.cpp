@@ -5,7 +5,7 @@
 
 #define __creature_generate_route_complete 1
 #define SCALE_FACTOR 2
-#define NODE_LIMIT 2000
+#define NODE_LIMIT 2500
 
 // Class for vertices with which we will build our graph.
 class Vertex

@@ -68,6 +68,9 @@ void PickupMaster::perform(Action& action)
         {
             // make object hidden
             buffer -> push(*j);
+            world -> getVisibleObjects() -> remove(*j);
+            world -> getHiddenObjects() -> push(*j);
+            world -> getIndexator() -> removeObject(*j);
 
             // put it in inventory
             inventory -> push(*j);
