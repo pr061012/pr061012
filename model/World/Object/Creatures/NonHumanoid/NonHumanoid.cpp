@@ -150,8 +150,6 @@ std::vector <Action>* NonHumanoid::getActions()
         {
             endurance++;
         }
-        direction_is_set = false;
-        aim = nullptr;
         go(SLOW_SPEED);
     }
 
@@ -161,18 +159,17 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == EAT)
     {
         Log::NOTE("EAT");
-        // If aim isn't exist, then find grass.
+        // If aim doesn't exist, then find grass.
         if (aim == nullptr)
         {
             findGrass();
         }
 
-        // If aim is exist, then...
+        // If aim exists, then...
         if (aim != nullptr)
         {
             // Check distance to aim.
-            double distance = (this -> getCoords()).getDistance(aim -> getCoords());
-            if (DoubleComparison::areEqual(distance, 0))
+            if (this -> getShape().hitTest(aim -> getShape()))
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -209,9 +206,9 @@ std::vector <Action>* NonHumanoid::getActions()
                 this -> subsubtype == SHEEP
            )
         {
-            if (angle == -1)
+            if (!direction_is_set)
             {
-                angle = Random::double_num(2 * M_PI);
+                chooseDirectionToEscape();
             }
             go(SLOW_SPEED);
         }
@@ -328,7 +325,7 @@ void NonHumanoid::findGrass()
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;
-                direction_is_set = true;
+                direction_is_set = false;
                 distance = coords.getDistance(this -> getCoords());
             }
         }

@@ -469,6 +469,9 @@ protected:
     /// Neighnour offsets for generating vertices for path graph
     static const Vector neighbour_offsets[8];
 
+    /// Heap of obstacles
+    ObjectHeap * obstacles;
+
     //**********************************************************
     // ACTIONS
     //**********************************************************

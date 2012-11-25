@@ -42,17 +42,17 @@ public:
     }
 };
 
+// NOTE
+// The std::set thinks that elements are equal if:
+// !(a < b) && !(b < a)
+// This check is needed to identify equal elements in set.
+
 // Comparison class for set.
 struct VertexComp
 {
     bool operator()(const Vertex * a, const Vertex * b) const
     {
-        if (a -> point == b -> point)
-        {
-            return false;
-        }
-
-        return a -> value < b -> value;
+        return DoubleComparison::isLess(a -> value, b -> value);
     }
 };
 
@@ -60,22 +60,12 @@ struct VectorComp
 {
     bool operator()(const Vertex* a, const Vertex* b) const
     {
-        // The std::set thinks that elements are equal if:
-        // !(a < b) && !(b < a)
-        // This check is needed to identify equal elements in set.
-        if (a -> point  == b -> point)
+        // left-bottom to right top
+        if (DoubleComparison::areEqual(a -> point.getX(), b -> point.getX()))
         {
-            return false;
+            return DoubleComparison::isLess(a -> point.getY(), b -> point.getY());
         }
-        else
-        {
-            // left-bottom to right top
-            if (DoubleComparison::areEqual(a -> point.getX(), b -> point.getX()))
-            {
-                return DoubleComparison::isLess(a -> point.getY(), b -> point.getY());
-            }
-            return DoubleComparison::isLess(a -> point.getX(), b -> point.getX());
-        }
+        return DoubleComparison::isLess(a -> point.getX(), b -> point.getX());
     }
 };
 
@@ -115,15 +105,12 @@ int Creature::checkPointIsPassable(Vector point)
     sample.setCenter(point);
 
     // Check if it collides with something that we see
-    for (ObjectHeap::iterator i = objects_around.begin();
-            i != objects_around.end(); i++)
+    for (ObjectHeap::iterator i = obstacles -> begin();
+            i != obstacles -> end(); i++)
     {
-        if ((*i) -> isSolid() && *i != this)
+        if ((*i) -> getShape().hitTest(sample))
         {
-            if ((*i) -> getShape().hitTest(sample))
-            {
-                return -1;
-            }
+            return -1;
         }
     }
     
@@ -133,7 +120,8 @@ int Creature::checkPointIsPassable(Vector point)
 }
 
 // TODO
-// Implement A*
+// Try to get rid of giant memory allocations.
+// Limit the search by constant number of processed nodes.
 Creature::Path Creature::generateRoute()
 {
     // Default behaviour
@@ -151,6 +139,23 @@ Creature::Path Creature::generateRoute()
         std::set<Vertex*, VertexComp> open_vertex_set;
         // Same list ordered by vertices
         std::set<Vertex*, VectorComp> open_vector_set;
+
+        // Form obstacles heap.
+        delete obstacles;
+        obstacles = new ObjectHeap();
+        for (ObjectHeap::iterator i = objects_around.begin();
+             i != objects_around.end(); i++)
+        {
+            if (!(*i) -> isDestroyed() && (*i) -> isSolid() && (*i) != this)
+            {
+                // Check if we are stuck inside something
+                if (this -> getShape().hitTest((*i) -> getShape()))
+                {
+                    return result;
+                }
+                obstacles -> push(*i);
+            }
+        }
 
         // Iterators
         std::set<Vertex*, VertexComp>::iterator vertex_iter;
