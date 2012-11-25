@@ -29,7 +29,7 @@ public:
      * @brief Constructor
      * @param world world
      */
-    CreationPerformer(World* world, ObjectHeap * visible, ObjectHeap * hidden);
+    CreationPerformer(World* world);
 
     /**
      * @brief Destructor
@@ -68,11 +68,6 @@ private:
 
     Object* createTool(Action& action, ParamArray &param);
 
-    /// Buffer for visible objects
-    ObjectHeap * visible;
-
-    /// Buffer for hidden objects
-    ObjectHeap * hidden;
 };
 
 #endif
