@@ -60,6 +60,7 @@ void CreationPerformer::perform(Action& action)
                 }
                 else
                 {
+                    delete new_object;
                     action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                     action.markAsFailed();
                     return;
@@ -96,6 +97,7 @@ void CreationPerformer::perform(Action& action)
                     }
                     else
                     {
+                        delete new_object;
                         action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                         action.markAsFailed();
                     }
@@ -138,6 +140,7 @@ void CreationPerformer::perform(Action& action)
             }
             else
             {
+                delete new_object;
                 action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                 action.markAsFailed();
             }
