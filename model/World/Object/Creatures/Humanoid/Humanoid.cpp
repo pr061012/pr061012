@@ -339,6 +339,13 @@ std::vector <Action>* Humanoid::getActions()
     //**************************************************************************
 
     if (detailed_act == MINE_RESOURSES)
+//        Shape reach_area = this -> getReachArea();
+//        reach_area.setCenter(this -> getCoords());
+//        if (!reach_area.hitTest(this -> getShape()))
+//        {
+//            go(SLOW_SPEED);
+//            visualMemorize();
+//        }
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
@@ -372,18 +379,20 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            double required_distance = (this -> getReachArea().getSize() +
+            required_distance = (this -> getReachArea().getSize() +
                     aim -> getShape().getSize()) / 2.0;
-            double current_distance = this -> getCoords().getDistance
+            if (current_distance != -10)
+            current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
-            if (DoubleComparison::areNotEqual(current_distance, required_distance))
+            if (current_decision > required_distance)//(DoubleComparison::isGreater(current_distance, required_distance))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
             }
             else
             {
+                current_distance = -10;
                 Log::NOTE("success!");
                 Action act(MINE_OBJ, this);
                 act.addParticipant(aim);
@@ -721,8 +730,9 @@ std::string Humanoid::printObjectInfo() const
           "Home ID\t\t\t"      << (home == nullptr ? "none" :
                                    std::to_string(home -> getObjectID())) <<
                                   std::endl <<
-          "Visual memory\t\t"  << visual_memory -> printIDs() << std::endl;
-
+          "Visual memory\t\t"  << visual_memory -> printIDs() << std::endl <<
+          "Required distance\t\t" << required_distance << std::endl <<
+          "Current distance\t\t"  << current_distance << std::endl;
     return output + ss.str();
 }
 

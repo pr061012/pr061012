@@ -61,6 +61,10 @@ public:
      */
     uint getHumanoidID() const;
 
+    // REALLY BAD
+    double required_distance;
+    double current_distance;
+
     //**********************************************************
     // GETTERS
     //**********************************************************
