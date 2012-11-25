@@ -39,6 +39,16 @@
 #define TN_FIELD_SIZE               "size"
 #define TN_FIELD_DANGER             "danger"
 
+#define TN_FIELD_AGE                "age"
+#define TN_FIELD_ENDURANCE          "endurance"
+#define TN_FIELD_HUNGER             "hunger"
+#define TN_FIELD_HEALTH             "health"
+#define TN_FIELD_MAX_AGE            "mage"
+#define TN_FIELD_MAX_DIRECTION      "mdirection"
+#define TN_FIELD_MAX_ENDURANCE      "mendurance"
+#define TN_FIELD_MAX_HUNGER         "mhunger"
+#define TN_FIELD_MAX_HEALTH         "mhealth"
+
 //******************************************************************************
 // STATIC FUNCTIONS.
 //******************************************************************************
@@ -494,6 +504,46 @@ std::string CLI::change(std::stringstream& ss)
     {
         uint danger_level = readFromSS<uint>(ss, "danger level");
         obj -> setDangerLevel(danger_level);
+    }
+    // Changing creature params.
+    else if (obj -> getType() == CREATURE)
+    {
+        Creature* creat = dynamic_cast<Creature*>(obj);
+
+        if (field == TN_FIELD_AGE)
+        {
+            uint age = readFromSS<uint>(ss, "age");
+            creat -> setAge(age);
+        }
+        else if (field == TN_FIELD_MAX_AGE)
+        {
+            uint max_age = readFromSS<uint>(ss, "max age");
+            creat -> setMaxAge(max_age);
+        }
+        else if (field == TN_FIELD_ENDURANCE)
+        {
+            uint endurance = readFromSS<uint>(ss, "endurance");
+            creat -> setEndurance(endurance);
+        }
+        else if (field == TN_FIELD_MAX_ENDURANCE)
+        {
+            uint max_endurance = readFromSS<uint>(ss, "max endurance");
+            creat -> setMaxEndurance(max_endurance);
+        }
+        else if (field == TN_FIELD_HUNGER)
+        {
+            uint hunger = readFromSS<uint>(ss, "hunger");
+            creat -> setHunger(hunger);
+        }
+        else if (field == TN_FIELD_MAX_HUNGER)
+        {
+            uint max_hunger = readFromSS<uint>(ss, "max hunger");
+            creat -> setMaxHunger(max_hunger);
+        }
+        else
+        {
+            throw ECLIInvalidInput("unknown field name for Creature");
+        }
     }
     // Unknown field name.
     else
