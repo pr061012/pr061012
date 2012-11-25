@@ -39,6 +39,10 @@ World::World(int rand_seed, uint size, bool generate_objs) :
     this -> createEverything(generate_objs);
 }
 
+//******************************************************************************
+// GENERATION METHODS.
+//******************************************************************************
+
 // Creating resources!
 void World::genResources()
 {
@@ -115,6 +119,76 @@ void World::genWeather()
     }
 
     indexator -> reindexate(visible_objs);
+}
+
+void World::genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params)
+{
+    const double interval = GEN_TREE_INTERVAL;
+    const double shift    = interval/3;
+
+    // x_trees and y_trees have to be odd values
+    if(x_trees%2 == 0)x_trees++;
+    if(y_trees%2 == 0)y_trees++;
+
+    // Probabilities of tree generation at certain coordinates
+    double probs[x_trees][y_trees];
+
+    int x_center = x_trees/2 + 1;
+    int y_center = y_trees/2 + 1;
+
+    // Calculating probabilities of tree generation based on distance
+    for(int i = 0; i < x_center; ++i)
+    {
+        for(int j = 0; j < y_center; ++j)
+        {
+            double distance = sqrt( pow(x_center - i, 2) + pow(y_center - j, 2) );
+            probs[i][j] = probs[x_trees - i - 1][y_trees - j - 1] = probs[i][y_trees - j - 1] = probs[x_trees - i - 1][j] = 1.0 - distance*GEN_TREE_PROB_DECAY;
+        }
+    }
+
+    // Generating trees.
+    for(int i = 0; i < x_trees; ++i)
+    {
+        for(int j = 0; j < y_trees; ++j)
+        {
+            genTreeAt(x + (i-x_center)*interval, y + (j-y_center)*interval, shift, probs[i][j], tree_params);
+        }
+    }
+
+}
+
+void World::genForestAt(double x, double y)
+{
+    ParamArray tree_params;
+    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    tree_params.addKey<uint>("res_amount", 10);
+
+    this -> genForestAt(x, y, 20, 20, tree_params);
+
+    indexator -> reindexate(visible_objs);
+}
+
+void World::genTreeAt(double x, double y, const ParamArray& tree_params)
+{
+    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
+
+    new_obj -> setCoords(Vector(x, y));
+
+    this -> visible_objs -> push(new_obj);
+}
+
+int World::genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray &tree_params)
+{
+    if( DoubleComparison::isGreater(prob, Random::double_num(1.0)) )
+    {
+        double x_rand = Random::double_num(2*rand_offset) - rand_offset;
+        double y_rand = Random::double_num(2*rand_offset) - rand_offset;
+
+        this -> genTreeAt(x + x_rand, y + y_rand, tree_params);
+
+        return 0;
+    }
+    return 1;
 }
 
 //******************************************************************************
@@ -247,60 +321,16 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     return RAIN;
 }
 
-void World::genForestAt(double x, double y, double prob, const ParamArray& tree_params, double fromAngle, double toAngle)
-{
-    if(prob >= MATH_EPSILON)
-    {
-        if(prob <= Random::double_range(0.0, 1.0))
-        {
-            genTreeAt(x, y, tree_params);
-        }
-
-
-        double interval = 2*M_PI/GEN_TREE_DENSITY;
-        double a = fromAngle + interval;
-
-        while(a <= toAngle)
-        {
-            double newx = x + GEN_TREE_INTERVAL*cos(a);
-            double newy = y + GEN_TREE_INTERVAL*sin(a);
-            this -> genForestAt(newx, newy,
-                                prob - GEN_TREE_PROB_DECAY, tree_params,
-                                a - interval, a + interval);
-
-            a += interval;
-        }
-    }
-}
-
-void World::genForestAt(double x, double y, double prob, double fromAngle, double toAngle)
-{
-    ParamArray tree_params;
-    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
-    tree_params.addKey<uint>("res_amount", 10);
-
-    this -> genForestAt(x, y, prob, tree_params, fromAngle, toAngle);
-}
-
-void World::genTreeAt(double x, double y, const ParamArray& tree_params)
-{
-    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
-
-    new_obj -> setCoords(Vector(x, y));
-
-    this -> addObject(true, new_obj);
-}
-
-Object *World::getObjectByID(int id)
+Object *World::getObjectByID(uint id)
 {
     ObjectHeap::const_iterator it;
 
-    for(it = visible_objs->begin(); it != visible_objs->end(); it++)
+    for (it = visible_objs -> begin(); it != visible_objs -> end(); it++)
     {
         if((*it) -> getObjectID() == id) return *it;
     }
 
-    for(it = hidden_objs->begin(); it != hidden_objs->end(); it++)
+    for (it = hidden_objs -> begin(); it != hidden_objs -> end(); it++)
     {
         if((*it) -> getObjectID() == id) return *it;
     }

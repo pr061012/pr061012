@@ -151,16 +151,12 @@
 // Prefix: GEN.
 //******************************************************************************
 
-/// How many trees may be (at max) generated around another tree
-/// during forest generation.
-#define GEN_TREE_DENSITY 10
-
 /// Linear decrease of tree gen probability as tree generation goes
 /// further from forest center (initial is 1.0 == 100%).
-#define GEN_TREE_PROB_DECAY 0.1
+#define GEN_TREE_PROB_DECAY         0.1
 
 /// Interval in distance of trees generation.
-#define GEN_TREE_INTERVAL SZ_RESOURCE_DIAM_MIN
+#define GEN_TREE_INTERVAL           1.1*SZ_RESOURCE_DIAM_MAX
 
 //******************************************************************************
 // WEATHER DEFINES.
