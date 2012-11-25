@@ -381,19 +381,16 @@ std::vector <Action>* Humanoid::getActions()
         {
             required_distance = (this -> getReachArea().getSize() +
                     aim -> getShape().getSize()) / 2.0;
-            if (current_distance != -10)
             current_distance = this -> getCoords().getDistance
                     (aim -> getCoords());
 
-            if (current_decision > required_distance)//(DoubleComparison::isGreater(current_distance, required_distance))
+            if (current_distance > required_distance)
             {
                 go(SLOW_SPEED);
                 visualMemorize();
             }
             else
             {
-                current_distance = -10;
-                Log::NOTE("success!");
                 Action act(MINE_OBJ, this);
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
