@@ -78,11 +78,11 @@ CLI::CLI(World* world, Controller* control) :
 {
     // Initialising array with object types names.
     this -> obj_types.resize(AMNT_OBJECT_TYPES);
-    this -> obj_types[RESOURCE] = "RESOURCE";
-    this -> obj_types[BUILDING] = "BUILDING";
-    this -> obj_types[TOOL]     = "TOOL    ";
-    this -> obj_types[WEATHER]  = "WEATHER ";
-    this -> obj_types[CREATURE] = "CREATURE";
+    this -> obj_types[RESOURCE] = "resource";
+    this -> obj_types[BUILDING] = "building";
+    this -> obj_types[TOOL]     = "tool    ";
+    this -> obj_types[WEATHER]  = "weather ";
+    this -> obj_types[CREATURE] = "creature";
 
     // Initialising array with creature actions names.
     this -> creat_acts.resize(AMNT_CREATURE_ACTS);
@@ -412,10 +412,8 @@ std::string CLI::create(std::stringstream& ss)
 // `LIST` PROCESSOR.
 //******************************************************************************
 
-std::string CLI::list(std::stringstream& ss)
+std::string CLI::list(std::stringstream& ss, uint columns)
 {
-    std::string output;
-
     // Reading type.
     std::string type = "";
     ss >> type;
@@ -455,7 +453,11 @@ std::string CLI::list(std::stringstream& ss)
         return sformat("Error: unknown ObjectType (%s).\n", type.c_str());
     }
 
+    // Output stream.
+    std::stringstream os;
+
     ObjectHeap::const_iterator iter;
+    uint cur_column = 1;
     for (iter = iter_begin; iter != iter_end; iter++)
     {
         Object* obj = *iter;
@@ -464,17 +466,25 @@ std::string CLI::list(std::stringstream& ss)
         std::string flags = "v";
         flags += obj -> isDestroyed() ? "d" : " ";
         flags += obj -> isImmortal() ? "i" : " ";
-        flags += obj -> isSolid() ? "s" : "";
+        flags += obj -> isSolid() ? "s" : " ";
 
         // Printing output.
-        output += sformat("%d\t%s\t%s\t(%f,\t%f)\n", obj -> getObjectID(),
-                          flags.c_str(),
-                          this -> obj_types[obj -> getType()].c_str(),
-                          obj -> getCoords().getX(),
-                          obj -> getCoords().getY());
+        os << obj -> getObjectID() << "\t│ " << flags << " │ " <<
+              this -> obj_types[obj -> getType()] << " │ " <<
+              obj -> getCoords().getX() << "\t" << obj -> getCoords().getY();
+
+        if (cur_column++ == columns)
+        {
+            os << "\n";
+            cur_column = 1;
+        }
+        else
+        {
+            os << "\t\t║\t";
+        }
     }
 
-    return output;
+    return os.str() + "\n";
 
     // TODO: Listing hidden objects.
     //ObjectHeap* hidden_objs = this -> world -> getHiddenObjects();
