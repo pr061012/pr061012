@@ -130,7 +130,9 @@ std::vector <Action>* Humanoid::getActions()
 
     // Updates parametr.
     if(age_steps == 0)
+    {
         updateAge();
+    }
 //    if(desc_steps == 0)
 //        updateNeedInDesc();
     if(common_steps == 0)
@@ -139,7 +141,9 @@ std::vector <Action>* Humanoid::getActions()
         updateCommonAttrs();
     }
     if(danger_steps == 0)
+    {
         updateDanger();
+    }
     // BAD
     if (home != nullptr && home -> getCompleteness())
     {

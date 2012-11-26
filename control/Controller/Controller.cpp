@@ -103,7 +103,7 @@ void Controller::step()
             }
             
             // get actions to the buffer
-            std::vector<Action>* buf = (*i) -> getActions();
+            std::vector<Action>* buf;
 
             // creatures are special
             if ((*i) -> getType() == CREATURE)
@@ -122,7 +122,8 @@ void Controller::step()
                 {
                     destroy(*i);
                     continue;
-                }
+                } 
+                buf = (*i) -> getActions();
                 // creatures can't do more than one action
                 if (buf -> size())
                 {
@@ -138,6 +139,7 @@ void Controller::step()
                             world -> getIndexator() -> getAreaContents(
                                 dynamic_cast<Weather*>(*i) -> getShape(), *i));
                 }
+                buf = (*i) -> getActions();
                 // collect all actions
                 for (uint j = 0; j < buf -> size(); j++)
                 {
