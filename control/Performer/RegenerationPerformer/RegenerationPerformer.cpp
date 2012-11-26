@@ -29,6 +29,7 @@ void RegenerationPerformer::perform(Action& action)
     ObjectType type = actor -> getType();
     std::vector<Object*> participants = action.getParticipants();
 
+    // TODO: LOLWUT?
     uint delta = Random::int_num(actor -> getHealthPoints());
 
     uint object_index = action.getParam<uint>("object_index");
@@ -69,11 +70,20 @@ void RegenerationPerformer::perform(Action& action)
             action.markAsFailed();
             return;
         }
+
+        // Check whether humanoid can heal this object.
         Shape reach_area = creature -> getReachArea();
         reach_area.setCenter(creature -> getCoords());
         ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
-        ObjectHeap::const_iterator iter;
+        if (env.find(participants[object_index], false) == env.end())
+        {
+            action.markAsFailed();
+            return;
+        }
+
+        // Searching for objects.
         ObjectHeap* inventory = creature -> getInventory();
+        ObjectHeap::const_iterator iter;
         uint count = 0;
         for
         (
@@ -84,22 +94,15 @@ void RegenerationPerformer::perform(Action& action)
             // TODO: Magic const.
             count += (*iter) -> damage(1);
         }
+
         if (count == 0)
         {
             action.markAsFailed();
             return;
         }
 
-        iter = env.end();
-        if (env.find(participants[object_index], false) == iter)
-        {
-            action.markAsFailed();
-            return;
-        }
-        else
-        {
-            participants[object_index] -> heal(delta * count);
-            action.markAsSucceeded();
-        }
+        // TODO: Some resource may be just wasted.
+        participants[object_index] -> heal(delta * count);
+        action.markAsSucceeded();
     }
 }
