@@ -9,6 +9,7 @@
 #include <cstdlib>
 
 #include "../BasicDefines.h"
+#include "DoubleComparison.h"
 
 /**
  * @brief Interface for getting pseudorandom numbers.
@@ -27,7 +28,7 @@ public:
      */
     static int int_num(int top_boundary)
     {
-        if(top_boundary == 0)
+        if (top_boundary == 0)
         {
             return 0;
         }
@@ -40,7 +41,7 @@ public:
      */
     static double double_num(double top_boundary)
     {
-        if(top_boundary < MATH_EPSILON)
+        if (DoubleComparison::areEqual(top_boundary, 0))
         {
             return 0;
         }
