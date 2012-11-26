@@ -114,7 +114,7 @@ void Controller::step()
 
                 // show creature objects around it
                 dynamic_cast<Creature*>(*i) -> setObjectsAround(
-                    world -> getIndexator() -> getAreaContents(view_area));
+                    world -> getIndexator() -> getAreaContents(view_area, *i));
 
                 // check age
                 if (dynamic_cast<Creature*>(*i) -> getAge() >=
@@ -136,7 +136,7 @@ void Controller::step()
                 {
                     dynamic_cast<Weather*>(*i) -> setCoveredObjects(
                             world -> getIndexator() -> getAreaContents(
-                                dynamic_cast<Weather*>(*i) -> getShape()));
+                                dynamic_cast<Weather*>(*i) -> getShape(), *i));
                 }
                 // collect all actions
                 for (uint j = 0; j < buf -> size(); j++)
