@@ -291,7 +291,7 @@ uint Creature::getMaxHealthPoints() const
 
 void Creature::feed(uint delta)
 {
-    if(this -> hunger - delta > 0)
+    if(this -> hunger > delta)
     {
         this -> hunger -= delta;
     }
