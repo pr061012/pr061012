@@ -167,6 +167,13 @@ std::vector <Action>* Humanoid::getActions()
         damage(1);
     }
 
+    // Force him to sleep if he really want it
+    if (sleepiness == max_sleepiness)
+    {
+        current_action = SLEEP;
+        detailed_act   = SLEEP_ON_THE_GROUND;
+    }
+
     // check: is humanoid's home ok?
     if (home != nullptr && home -> isDestroyed())
     {
