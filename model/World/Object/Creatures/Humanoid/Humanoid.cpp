@@ -207,7 +207,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (this -> health < 100 && common_steps == CREAT_STEPS)
+            if (this -> health < max_health && common_steps == CREAT_STEPS)
             {
                 this -> heal(CREAT_DELTA_HEALTH);
             }
@@ -578,12 +578,13 @@ void Humanoid::updateCommonAttrs()
     if (this -> hunger < this -> max_hunger)
     {
         this -> hunger                 += CREAT_DELTA_HUNGER;
+    }
         this -> attrs(ATTR_HUNGER,0)    = 100 * hunger / max_hunger;
         if (hunger >= max_hunger)
         {
             this -> health = 0;
         }
-    }
+
 
     if (this -> sleepiness < this -> max_sleepiness)
     {
