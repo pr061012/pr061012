@@ -301,7 +301,33 @@ void Creature::feed(uint delta)
     }
 }
 
-// look for objects around and count danger level
+// Hunger increasor
+void Creature::increaseHunger(uint delta)
+{
+    if (this -> hunger + delta <= this -> max_hunger)
+    {
+        this -> hunger += delta;
+    }
+    else
+    {
+        this -> hunger = max_hunger;
+    }
+}
+
+// Sleepiness increasor
+void Creature::increaseSleepiness(uint delta)
+{
+    if (this -> sleepiness + delta <= this -> max_sleepiness)
+    {
+        this -> sleepiness += delta;
+    }
+    else
+    {
+        this -> sleepiness = max_sleepiness;
+    }
+}
+
+// look for objects arounв and count danger level
 void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;

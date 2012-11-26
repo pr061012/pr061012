@@ -161,6 +161,12 @@ std::vector <Action>* Humanoid::getActions()
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
     }
 
+    // Decrease health if he is really hungry
+    if (hunger == max_hunger)
+    {
+        damage(1);
+    }
+
     // check: is humanoid's home ok?
     if (home != nullptr && home -> isDestroyed())
     {
@@ -579,37 +585,19 @@ void Humanoid::updateNeedInDesc()
 
 void Humanoid::updateCommonAttrs()
 {
-    if (this -> hunger < this -> max_hunger)
+    increaseHunger(CREAT_DELTA_HUNGER);
+
+    if (current_action != SLEEP)
     {
-        this -> hunger                 += CREAT_DELTA_HUNGER;
-    }
-        this -> attrs(ATTR_HUNGER,0)    = 100 * hunger / max_hunger;
-        if (hunger >= max_hunger)
-        {
-            this -> health = 0;
-        }
-
-
-    if (this -> sleepiness < this -> max_sleepiness)
-    {
-
-        if (current_action != SLEEP)
-        {
-            this -> sleepiness += CREAT_DELTA_SLEEP;
-            this -> attrs(ATTR_SLEEPINESS,0) =
-                    100 * sleepiness / max_sleepiness;
-
-            if (sleepiness >= max_sleepiness)
-            {
-                this -> detailed_act = SLEEP_ON_THE_GROUND;
-            }
-        }
+        increaseSleepiness(CREAT_DELTA_SLEEP);
     }
     // this -> sociability += HUM_DELTA_SOC;
     // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
 
     this -> common_steps = CREAT_STEPS;
-    this -> attrs(ATTR_HEALTH,0) = 100 * (100 -health) / max_health;
+    this -> attrs(ATTR_HEALTH,0)   = 100 * (100 -health) / max_health;
+    this -> attrs(ATTR_SLEEPINESS) = 100 * sleepiness    / max_sleepiness;
+    this -> attrs(ATTR_HUNGER)     = 100 * hunger        / max_hunger;
 }
 
 //******************************************************************************

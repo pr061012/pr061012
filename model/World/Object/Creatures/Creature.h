@@ -273,8 +273,10 @@ public:
     //**************************************************************************
     /**
      * @brief Increases satiety level
+     * @param delta parameter changes
      */
     void feed(uint delta);
+
 
     //**************************************************************************
     // INHERETED THINGS.
@@ -473,6 +475,21 @@ protected:
      */
     
     void clearActions();
+
+    //**********************************************************
+    // INCREASE
+    //**********************************************************
+    /**
+     * @brief Increases hunger level
+     * @param delta parameter changes
+     */
+    void increaseHunger(uint delta);
+
+    /**
+     * @brief Increases sleepiness level
+     * @param delta parameter changes
+     */
+    void increaseSleepiness(uint delta);
 };
 
 
