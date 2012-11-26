@@ -15,6 +15,8 @@
 #include "../../../../../common/Math/Random.h"
 #include "../../Resource/Resource.h"
 #include "../../../../../common/Math/DoubleComparison.h"
+// BAD
+#include "../../../DecisionMaker/DecisionMaker.h"
 
 // TODO:
 //  * Add comments.
@@ -129,8 +131,8 @@ std::vector <Action>* Humanoid::getActions()
     // Updates parametr.
     if(age_steps == 0)
         updateAge();
-    if(desc_steps == 0)
-        updateNeedInDesc();
+//    if(desc_steps == 0)
+//        updateNeedInDesc();
     if(common_steps == 0)
     {
         // bad
@@ -151,20 +153,19 @@ std::vector <Action>* Humanoid::getActions()
     // If decision is not actual humanoid makes new decision.
     if (!brains.isDecisionActual(attrs, current_action))
     {
+        current_decision = current_action;// BAD
         current_action = NONE;
+        this -> sociability += 10;
         detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
     // Make new decision and set aim and direction.
     if (current_action == NONE)
     {
-        // BAD
-        this -> sociability += 10;
         current_action = brains.makeDecision(attrs);
         // BAD
-        current_decision = current_action;
-        this ->
-        direction_is_set = false;
+
+        this -> direction_is_set = false;
         aim = nullptr;
         detailed_act = chooseAction(current_action);
     }
@@ -184,7 +185,9 @@ std::vector <Action>* Humanoid::getActions()
         // BAD    direction_is_set = true;
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+        Shape reach_area = this -> getReachArea();
+        reach_area.setCenter(this -> getCoords());
+        if (!reach_area.hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
             visualMemorize();
@@ -264,6 +267,7 @@ std::vector <Action>* Humanoid::getActions()
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
                 this -> actions.push_back(act);
+                current_action = NONE;
             }
         }
     }
@@ -281,7 +285,9 @@ std::vector <Action>* Humanoid::getActions()
             aim = home;
         }
 
-        if (this -> getCoords().getDistance(aim -> getCoords()) > MATH_EPSILON)
+        Shape reach_area = this -> getReachArea();
+        reach_area.setCenter(this -> getCoords());
+        if (!reach_area.hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
             visualMemorize();
@@ -553,14 +559,25 @@ void Humanoid::updateCommonAttrs()
     {
         this -> hunger                 += CREAT_DELTA_HUNGER;
         this -> attrs(ATTR_HUNGER,0)    = 100 * hunger / max_hunger;
+        if (hunger >= max_hunger)
+        {
+            this -> health = 0;
+        }
     }
 
     if (this -> sleepiness < this -> max_sleepiness)
     {
-        this -> sleepiness += CREAT_DELTA_SLEEP;
+
         if (current_action != SLEEP)
         {
-            this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
+            this -> sleepiness += CREAT_DELTA_SLEEP;
+            this -> attrs(ATTR_SLEEPINESS,0) =
+                    100 * sleepiness / max_sleepiness;
+
+            if (sleepiness >= max_sleepiness)
+            {
+                this -> detailed_act = SLEEP_ON_THE_GROUND;
+            }
         }
     }
     // this -> sociability += HUM_DELTA_SOC;
@@ -752,9 +769,9 @@ std::string Humanoid::printObjectInfo() const
                                       std::to_string(home -> getObjectID())) <<
                                      std::endl <<
           "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
-          "Required distance\t\t" << required_distance << std::endl <<
-          "Current distance\t\t"  << current_distance << std::endl<<
-          "Something\t\t"         << current_decision;
+          "Something\t\t"         << current_decision << std::endl <<
+          "Matrix of attrs\t\t"   << attrs            << std::endl <<
+          "Matrix of act\t\t"     << brains.getActMatrix(attrs) << endl;
 
     return output + ss.str();
 }
