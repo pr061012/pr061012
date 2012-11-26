@@ -141,7 +141,7 @@
 
 // TODO: Different values for different types of Weather.
 /// Weather's danger level.
-#define DNGR_WEATHER                15
+#define DNGR_WEATHER                25
 
 /// Building's danger level.
 #define DNGR_BUILDING               0
