@@ -40,7 +40,7 @@ Indexator::~Indexator()
 //******************************************************************************
 
 // gets objects within given area
-ObjectHeap Indexator::getAreaContents(Shape area)
+ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
 {
     // Get cells which our area covers
     uint * cells_area = getCellsArea(area);
@@ -107,7 +107,7 @@ ObjectHeap Indexator::getAreaContents(Shape area)
             */
             //*****************************************************************
 
-                if (area.hitTest((*i) -> getShape()))
+                if (area.hitTest((*i) -> getShape()) && (*i) != viewer)
                 {
                     result.push(*i);
                 }
