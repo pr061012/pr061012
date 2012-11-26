@@ -79,6 +79,25 @@ void Weather::receiveMessage(Message message)
 {
 }
 
+std::string Weather::getTypeName() const
+{
+    return "weather";
+}
+
+//******************************************************************************
+// HEALTH MANIPULATION.
+//******************************************************************************
+
+uint Weather::damage(uint delta)
+{
+    return 0;
+}
+
+uint Weather::heal(uint delta)
+{
+    return 0;
+}
+
 uint Weather::getHealthPoints() const
 {
     return this -> steps;
@@ -87,11 +106,6 @@ uint Weather::getHealthPoints() const
 uint Weather::getMaxHealthPoints() const
 {
     return this -> steps;
-}
-
-std::string Weather::getTypeName() const
-{
-    return "weather";
 }
 
 //******************************************************************************

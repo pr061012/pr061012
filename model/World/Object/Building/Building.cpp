@@ -59,16 +59,6 @@ std::string Building::printObjectInfo() const
     return output + ss.str();
 }
 
-uint Building::getHealthPoints() const
-{
-    return this -> health;
-}
-
-uint Building::getMaxHealthPoints() const
-{
-    return this -> max_health;
-}
-
 std::string Building::getTypeName() const
 {
     return "building";
@@ -78,44 +68,47 @@ std::string Building::getTypeName() const
 // HEALTH MANIPULATION.
 //******************************************************************************
 
-void Building::decreaseHealth(uint delta)
+uint Building::damage(uint delta)
 {
-    if (this -> health > delta)
+    uint d = delta;
+
+    if (this -> health < d)
     {
-        this -> health -= delta;
+        d = this -> health;
     }
-    else
-    {
-        this -> health = 0;
-    }
+
+    this -> health -= d;
+    return d;
 }
 
-void Building::increaseHealth(uint delta)
+uint Building::heal(uint delta)
 {
-    if (this -> health + delta < this -> max_health)
+    uint d = delta;
+
+    if (this -> health + d > this -> max_health)
     {
-        this -> health += delta;
+        d = this -> max_health - this -> health;
     }
-    else
-    {
-        this -> health = this -> max_health;
-    }
+
+    this -> health += d;
 
     if (this -> health == this -> max_health)
     {
         this -> completeness = true;
         this -> makeSolid();
     }
+
+    return d;
 }
 
-void Building::damage(uint delta)
+uint Building::getHealthPoints() const
 {
-    this -> decreaseHealth(delta);
+    return this -> health;
 }
 
-void Building::heal(uint delta)
+uint Building::getMaxHealthPoints() const
 {
-    this -> increaseHealth(delta);
+    return this -> max_health;
 }
 
 //******************************************************************************
@@ -130,15 +123,6 @@ bool Building::putInside(Object * object)
 bool Building::takeOut(Object * object)
 {
     return this -> contents -> remove(object);
-}
-
-//******************************************************************************
-// REPAIRING.
-//******************************************************************************
-
-void Building::repair(uint delta)
-{
-    this -> increaseHealth(delta);
 }
 
 //******************************************************************************

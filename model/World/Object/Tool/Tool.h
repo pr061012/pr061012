@@ -36,50 +36,17 @@ public:
     std::vector <Action> * getActions();
     void receiveMessage(Message message);
 
-    uint getHealthPoints() const;
-    uint getMaxHealthPoints() const;
-
     std::string getTypeName() const;
 
     //**************************************************************************
-    // STRENGTH.
+    // HEALTH MANIPULATION.
     //**************************************************************************
 
-    /**
-     * @brief  Gets current tool's strength.
-     * @return the value of current strength
-     */
-    uint getStrength() const;
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
-    /**
-     * @brief  Gets maximum possible tool's strength.
-     * @return the value of maximum strength
-     */
-    uint getMaxStrength() const;
-
-    /**
-     * @brief Decreases current tool's strength.
-     * @param delta the value to subtract
-     */
-    void decreaseStrength(uint delta);
-
-    /**
-     * @brief Increases current tool's strength.
-     * @param delta the value to add
-     */
-    void increaseStrength(uint delta);
-
-    /**
-     * @brief Damages tool.
-     * @param delta amount of damage
-     */
-    void damage(uint delta);
-
-    /**
-     * @brief ''Heals'' tool.
-     * @param delta amount of healing points
-     */
-    void heal(uint delta);
+    uint damage(uint delta);
+    uint heal(uint delta);
 
     //**************************************************************************
     // TYPE ACCESSORS.

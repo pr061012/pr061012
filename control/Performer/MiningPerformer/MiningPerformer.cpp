@@ -81,15 +81,8 @@ void MiningPerformer::perform(Action& action)
         // Zeroing progress.
         resource -> setProgress(0);
 
-        // Calculating drop amount.
-        uint drop_amount = resource -> getAmountPerDrop();
-        if (drop_amount > resource -> getAmount())
-        {
-            drop_amount = resource -> getAmount();
-        }
-
         // Decreasing amount of resource.
-        resource -> decreaseAmount(drop_amount);
+        uint drop_amount = resource -> damage(resource -> getAmountPerDrop());
 
         // Trying to find this resource in humanoid's inventory.
         ObjectHeap* inv = creature -> getInventory();
@@ -103,7 +96,7 @@ void MiningPerformer::perform(Action& action)
             {
                 // Success.
                 inv_res -> increaseMaxAmount(drop_amount);
-                inv_res -> increaseAmount(drop_amount);
+                inv_res -> heal(drop_amount);
                 success = true;
                 break;
             }

@@ -37,9 +37,6 @@ public:
     std::vector <Action> * getActions();
     void receiveMessage(Message message);
 
-    uint getHealthPoints() const;
-    uint getMaxHealthPoints() const;
-
     std::string getTypeName() const;
 
     //**************************************************************************
@@ -53,20 +50,14 @@ public:
     WeatherType getSubtype() const;
 
     //**************************************************************************
-    // DAMAGE/HEAL.
+    // HEALTH MANIPULATION.
     //**************************************************************************
 
-    /**
-     * @brief Damages weather (actually does nothing).
-     * @param delta amount of damage
-     */
-    void damage(uint delta){}
+    uint damage(uint delta);
+    uint heal(uint delta);
 
-    /**
-     * @brief ''Heals'' weather (actually does nothing).
-     * @param delta amount of healing points
-     */
-    void heal(uint delta){}
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // ACCESSORS.
@@ -77,7 +68,7 @@ public:
      *         modified (in fact, Controller modify it by using Weather shape).
      * @return reference to heap with covered objects
 	 */
-    ObjectHeap * getCoveredObjects();
+    ObjectHeap* getCoveredObjects();
 
     /**
      * @brief Set covere objects

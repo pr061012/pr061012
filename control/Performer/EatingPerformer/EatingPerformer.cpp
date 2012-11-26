@@ -92,7 +92,8 @@ void EatingPerformer::perform(Action& action)
         surroundings.find(food) != surroundings.end())
     {
         // EPIC MEAL TIME!!!
-        dynamic_cast<Resource*>(food) -> decreaseAmount(1);
+        // TODO: Magic const.
+        food -> damage(1);
         dynamic_cast<Creature*>(actor) -> feed(food_value);
         action.markAsSucceeded();
         return;

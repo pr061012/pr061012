@@ -145,7 +145,7 @@ std::vector <Action>* NonHumanoid::getActions()
         Log::NOTE("RELAX");
         if (this -> health < max_health && common_steps == CREAT_STEPS)
         {
-            this -> increaseHealth(CREAT_DELTA_HEALTH);
+            this -> heal(CREAT_DELTA_HEALTH);
         }
 
         if (endurance < max_endurance)
@@ -293,7 +293,7 @@ void NonHumanoid::updateCommonAttrs()
         this -> hunger   += CREAT_DELTA_HUNGER;
     if (hunger == max_hunger)
     {
-        this -> decreaseHealth(CREAT_DELTA_HEALTH);
+        this -> damage(CREAT_DELTA_HEALTH);
     }
     if (current_decision != SLEEP)
         this -> sleepiness += CREAT_DELTA_SLEEP;

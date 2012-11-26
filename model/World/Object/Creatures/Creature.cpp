@@ -253,28 +253,40 @@ const Object* Creature::getAim()
 // CHANGING HEALTH.
 //******************************************************************************
 
-void Creature::decreaseHealth(uint delta)
+uint Creature::damage(uint delta)
 {
-    if(this -> health > delta)
+    uint d = delta;
+
+    if (this -> health < d)
     {
-        this -> health -= delta;
+        d = this -> health;
     }
-    else
-    {
-        this -> health = 0;
-    }
+
+    this -> health -= d;
+    return d;
 }
 
-void Creature::increaseHealth(uint delta)
+uint Creature::heal(uint delta)
 {
-    if(this -> health + delta < this -> max_health)
+    uint d = delta;
+
+    if (this -> health + d > this -> max_health)
     {
-        this -> health += delta;
+        d = this -> max_health - this -> health;
     }
-    else
-    {
-        this -> health = this -> max_health;
-    }
+
+    this -> health += d;
+    return d;
+}
+
+uint Creature::getHealthPoints() const
+{
+    return this -> health;
+}
+
+uint Creature::getMaxHealthPoints() const
+{
+    return this -> max_health;
 }
 
 void Creature::feed(uint delta)
@@ -432,26 +444,6 @@ void Creature::go(SpeedType speed)
 //******************************************************************************
 // INHERETED THINGS.
 //******************************************************************************
-
-void Creature::damage(uint delta)
-{
-    this -> decreaseHealth(delta);
-}
-
-void Creature::heal(uint delta)
-{
-    this -> increaseHealth(delta);
-}
-
-uint Creature::getHealthPoints() const
-{
-    return this -> health;
-}
-
-uint Creature::getMaxHealthPoints() const
-{
-    return this -> max_health;
-}
 
 std::string Creature::printObjectInfo() const
 {

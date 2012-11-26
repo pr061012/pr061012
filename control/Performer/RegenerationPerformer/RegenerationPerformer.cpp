@@ -81,9 +81,8 @@ void RegenerationPerformer::perform(Action& action)
             iter != inventory -> end(RESOURCE); iter++
         )
         {
-            Resource* res = dynamic_cast<Resource*>(*iter);
-            res -> decreaseAmount(1);
-            count++;
+            // TODO: Magic const.
+            count += (*iter) -> damage(1);
         }
         if (count == 0)
         {
