@@ -66,7 +66,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     need_in_points = 0;  //100;
     need_in_house  = 70;
 
-    //Initialize of matrix of attr. bad
+    //Initialize of matrix of attr.
     attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
     attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
@@ -85,7 +85,6 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
 
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
 
-    //bad
 }
 
 Humanoid::~Humanoid()
@@ -117,8 +116,6 @@ std::string Humanoid::getTypeName() const
 
 std::vector <Action>* Humanoid::getActions()
 {
-    // BAD
-    current_decision = NONE;
     this -> age_steps--;
     this -> common_steps--;
     this -> danger_steps--;
@@ -139,6 +136,8 @@ std::vector <Action>* Humanoid::getActions()
     }
     if(danger_steps == 0)
         updateDanger();
+
+    // Update Need_in_house
     if (this -> home != nullptr)
     {
         if
@@ -180,8 +179,6 @@ std::vector <Action>* Humanoid::getActions()
     if (current_action == NONE)
     {
         current_action = brains.makeDecision(attrs);
-        // BAD
-
         this -> direction_is_set = false;
         aim = nullptr;
         detailed_act = chooseAction(current_action);
@@ -199,7 +196,6 @@ std::vector <Action>* Humanoid::getActions()
         if (aim == nullptr)
         {
             aim = home;
-        // BAD    direction_is_set = true;
         }
 
         Shape reach_area = this -> getReachArea();
@@ -556,10 +552,10 @@ void Humanoid::receiveMessage(Message message)
 {
 }
 
-//**********************************************************
+//******************************************************************************
 // UPDATES
 // We change attrs of our hum
-//**********************************************************
+//******************************************************************************
 
 void Humanoid::updateAge()
 {
@@ -611,10 +607,11 @@ void Humanoid::updateCommonAttrs()
     this -> attrs(ATTR_HEALTH,0) = 100 * (100 -health) / max_health;
 }
 
-//**********************************************************
+//******************************************************************************
 // CHOOSE ACTION
-// Bad
-//**********************************************************
+// Fuтction gets current action (decision) and called other function to make
+// detailed decision.
+//******************************************************************************
 
 DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 {
@@ -638,6 +635,11 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
     return result_act;
 }
 
+//******************************************************************************
+// CHOOSE_WAY_TO_RELAX
+// We just check: is his home exsist at all? If it doesn't exist... So, he is
+// going to sleep on the ground.
+//******************************************************************************
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
     if(home != 0)
@@ -648,6 +650,11 @@ DetailedHumAction Humanoid::chooseWayToRelax()
     return SLEEP_ON_THE_GROUND;
 }
 
+//******************************************************************************
+// CHOOSE_WAY_TO_BUILD
+// We just check: is his home exsist at all? If it doesn't exist he is going to
+// choose place for home. After that he will mine reciurse and build.
+//******************************************************************************
 DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
@@ -672,6 +679,11 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
 }
 
+//******************************************************************************
+// CHOOSE_WAY_TO_EAT
+// If he is bravery guy he will hunt. In other case, he will search food. But if
+// he already has foon in inventory - he just takes it.
+//******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
     ObjectHeap::const_iterator iter;
@@ -701,6 +713,11 @@ DetailedHumAction Humanoid::chooseWayToEat()
     }
 }
 
+//******************************************************************************
+// CHOOSE_WAY_TO_SLLEP
+// The best way to sleep is sleeping at home. But ih humanoid doesn't have home
+// or he is too far from it he will sleep in the ground.
+//******************************************************************************
 DetailedHumAction Humanoid::chooseWayToSleep()
 {
     if (this -> home != 0)
@@ -718,6 +735,10 @@ DetailedHumAction Humanoid::chooseWayToSleep()
 
 }
 
+//******************************************************************************
+// CHOOSE_WAY_TO_ESCAPE
+// If you are bravery and powerful you will fight. In other case - just run.
+//******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEscape()
 {
     if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
@@ -730,6 +751,7 @@ DetailedHumAction Humanoid::chooseWayToEscape()
     }
 }
 
+// Puts new object in humanoid's memory
 void Humanoid::visualMemorize()
 {
 
@@ -750,6 +772,7 @@ void Humanoid::visualMemorize()
     }
 }
 
+// Just setter
 void Humanoid::setHome(Building *home)
 {
     this -> home = home;
