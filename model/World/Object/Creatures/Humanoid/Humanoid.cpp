@@ -64,7 +64,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     // Initialize other values.
     sociability    = 0;  // BAD 100 - max_sociability;
     need_in_points = 0;  //100;
-    need_in_house  = 100;
+    need_in_house  = 70;
 
     //Initialize of matrix of attr. bad
     attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
@@ -135,16 +135,34 @@ std::vector <Action>* Humanoid::getActions()
 //        updateNeedInDesc();
     if(common_steps == 0)
     {
-        // bad
         updateCommonAttrs();
     }
     if(danger_steps == 0)
         updateDanger();
-    // BAD
-    if (home != nullptr && home -> getCompleteness())
+    if (this -> home != nullptr)
     {
-        this -> need_in_house = 0;
+        if
+        (
+            100 * home -> getHealthPoints() / home -> getMaxHealthPoints()
+            > 70
+        )
+        {
+            need_in_house = 100 * home -> getHealthPoints()
+            / home -> getMaxHealthPoints();
+        }
+        if (home -> getCompleteness())
+        {
+            this -> need_in_house = 0;
+
+        }
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
+    }
+
+    // check: is humanoid's home ok?
+    if (home != nullptr && home -> isDestroyed())
+    {
+        home = nullptr;
+        need_in_house = 70;
     }
 
     // Store the result of last action and clear actions
@@ -155,7 +173,6 @@ std::vector <Action>* Humanoid::getActions()
     {
         current_decision = current_action;// BAD
         current_action = NONE;
-        this -> sociability += 10;
         detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
@@ -236,6 +253,7 @@ std::vector <Action>* Humanoid::getActions()
             // skip all destroyed objects 
             if ((*iter) -> isDestroyed())
             {
+                visual_memory -> remove(*iter);
                 continue;
             }
             Resource* res_food = dynamic_cast<Resource*>(*iter);
@@ -388,6 +406,12 @@ std::vector <Action>* Humanoid::getActions()
                 iter != visual_memory -> end(RESOURCE); iter++
             )
             {
+                // skip all destroyed objects
+                if ((*iter) -> isDestroyed())
+                {
+                    visual_memory -> remove(*iter);
+                    continue;
+                }
                 Resource* res = dynamic_cast<Resource*>(*iter);
                 if (res -> getSubtype()  == RES_BUILDING_MAT)
                 {
