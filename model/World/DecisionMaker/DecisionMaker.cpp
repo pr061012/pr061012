@@ -68,7 +68,7 @@ bool DecisionMaker::isDecisionActual(arma::mat attrs, CreatureAction current_dec
         case COMMUNICATE:     index = 5;    break;
         case ESCAPE:          index = 6;    break;
         case REALIZE_DREAM:   index = 7;    break;
-        case REPRODUCE: index = 8;    break;
+        case REPRODUCE:       index = 8;    break;
         default:              return false; break;
     }
 
@@ -89,7 +89,7 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
     double max = -1000;
 
     arma::mat act = this -> theta * attrs;
-    act(7, 0) += 550;
+    act(7, 0) = -200;//+= 550;
 
     for(uint i = 0; i < act.size(); i++)
     {
@@ -132,4 +132,10 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
     }
 
     return decision;
+}
+
+// BAD
+arma::mat DecisionMaker::getActMatrix(arma::mat attrs) const
+{
+    return this -> theta * attrs;
 }

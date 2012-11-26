@@ -53,6 +53,15 @@ public:
      */
     bool isDecisionActual(arma::mat attrs, CreatureAction current_decision) const;
 
+    //**************************************************************************
+    // DEBUG
+    //**************************************************************************
+    /**
+     * @brief  Gets matrix of actions
+     * @return mat  matrix of actions
+     */
+    arma::mat getActMatrix(arma::mat attrs) const;
+
 private:
     /// @brief Matrix for decision making. In the nutshell, it's a SM or
     ///        no-hidden-layer NN matrix.
