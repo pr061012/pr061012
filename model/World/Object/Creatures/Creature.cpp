@@ -47,8 +47,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     common_steps(CREAT_STEPS),
     age_steps(CREAT_AGE_STEPS),
     desc_steps(CREAT_DESC_STEPS),
-    danger_steps(CREAT_DANGER_STEPS),
-    decr_sleep_step(0),
+    danger_steps(1),
+    decr_sleep_step(1),
     
     // direction
     angle(0),
@@ -291,9 +291,9 @@ uint Creature::getMaxHealthPoints() const
 
 void Creature::feed(uint delta)
 {
-    if(this -> hunger > delta)
+    if(delta < hunger)
     {
-        this -> hunger -= delta;
+        hunger -= delta;
     }
     else
     {
@@ -313,9 +313,8 @@ void Creature::updateDanger()
         iter != objects_around.end(CREATURE); iter++
        )
     {
-        Creature* creat = dynamic_cast<Creature*>(*iter);
-        if (this -> getDangerLevel() < creat -> getDangerLevel() + 10)
-            this -> danger += creat -> getDangerLevel();
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
+            this -> danger += (*iter) -> getDangerLevel();
     }
 
     for(
@@ -323,13 +322,13 @@ void Creature::updateDanger()
         iter != objects_around.end(WEATHER); iter++
        )
     {
-        Weather* weath = dynamic_cast<Weather*>(*iter);
-        if (this -> getDangerLevel() < weath -> getDangerLevel() + 10)
-            this -> danger += weath -> getDangerLevel();
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
+            this -> danger += (*iter) -> getDangerLevel();
     }
+    danger_steps = CREAT_DANGER_STEPS;
 }
 
-void Creature:: chooseDirectionToEscape()
+void Creature::chooseDirectionToEscape()
 {
     // Initialize vector of escaping.
     double global_x = 0;
@@ -344,7 +343,7 @@ void Creature:: chooseDirectionToEscape()
         iter != objects_around.end(CREATURE); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel() + 10)
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
         {
             angle = getCoords().getAngle((*iter) -> getCoords());
             global_x += (*iter) -> getDangerLevel() * cos(angle);
@@ -357,7 +356,7 @@ void Creature:: chooseDirectionToEscape()
         iter != objects_around.end(WEATHER); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel() + 10)
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
         {
             angle = getCoords().getAngle((*iter) -> getCoords());
             global_x += (*iter) -> getDangerLevel() * cos(this -> angle);

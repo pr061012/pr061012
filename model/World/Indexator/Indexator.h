@@ -43,9 +43,10 @@ public:
     /**
      *  @brief  Returns heap with objects from the certain area.
      *  @param  area where to look for objects
+     *  @param  viewer an object that mustn't be included in heap
      *  @return heap with objects in given area
      */
-    ObjectHeap getAreaContents(Shape area);
+    ObjectHeap getAreaContents(Shape area, Object * viewer = 0);
 
     //**************************************************************************
     // REINDEXATING

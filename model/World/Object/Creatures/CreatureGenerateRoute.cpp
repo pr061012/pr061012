@@ -163,7 +163,10 @@ Creature::Path Creature::generateRoute()
         for (ObjectHeap::iterator i = objects_around.begin();
              i != objects_around.end(); i++)
         {
-            if (!(*i) -> isDestroyed() && (*i) -> isSolid() && (*i) != this)
+            // FIXME Make better check for dangers.
+            if (!(*i) -> isDestroyed() && 
+                ((*i) -> isSolid() || (*i) -> getType() == WEATHER) &&
+                (*i) != this)
             {
                 // Check if we are stuck inside something
                 if (this -> getShape().hitTest((*i) -> getShape()))
@@ -266,8 +269,8 @@ Creature::Path Creature::generateRoute()
         // Think how to process failures (path not found)
 
     }
-    //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
-    //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
+    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }
