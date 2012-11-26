@@ -7,7 +7,6 @@
 #define BUILDING_H
 
 #include "../Object.h"
-#include "../Tool/Tool.h"
 #include "../../ObjectHeap/ObjectHeap.h"
 
 /**
@@ -40,39 +39,17 @@ public:
     void receiveMessage(Message message);
 
     std::string printObjectInfo() const;
-
-    uint getHealthPoints() const;
-    uint getMaxHealthPoints() const;
-
     std::string getTypeName() const;
 
     //**************************************************************************
     // HEALTH MANIPULATION.
     //**************************************************************************
 
-    /**
-     * @brief Decreases building's health.
-     * @param delta health to decrease
-     */
-    void decreaseHealth(uint delta);
+    uint damage(uint delta);
+    uint heal(uint delta);
 
-    /**
-     * @brief Increases building's health.
-     * @param delta health to increase
-     */
-    void increaseHealth(uint delta);
-
-    /**
-     * @brief Damages building.
-     * @param delta amount of damage
-     */
-    void damage(uint delta);
-
-    /**
-     * @brief Repairs buidling.
-     * @param delta amount of repairing points
-     */
-    void heal(uint delta);
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // CONTENTS MANIPULATION.
@@ -83,7 +60,7 @@ public:
      * @param  object   object to put inside
      * @return success of the operation
      */
-    bool putInside(Object * object);
+    bool putInside(Object* object);
 
     /**
      * @brief  Takes out object from building.
@@ -91,16 +68,6 @@ public:
      * @return success of the operation
      */
     bool takeOut(Object * object);
-
-    //**************************************************************************
-    // REPAIRING.
-    //**************************************************************************
-
-    /**
-     * @brief Repairs building (adds delta to building health).
-     * @param delta health to add
-     */
-    void repair(uint delta);
 
     //**************************************************************************
     // CONTENTS AND SPACE ACCESSORS.

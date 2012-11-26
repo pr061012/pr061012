@@ -57,6 +57,7 @@ void CreationPerformer::perform(Action& action)
                 }
                 else
                 {
+                    delete new_object;
                     action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                     action.markAsFailed();
                     return;
@@ -93,6 +94,7 @@ void CreationPerformer::perform(Action& action)
                     }
                     else
                     {
+                        delete new_object;
                         action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                         action.markAsFailed();
                     }
@@ -129,12 +131,14 @@ void CreationPerformer::perform(Action& action)
                 // If all is OK, add new_object in world.
                 world -> addObject(true, new_object);
                 // Increase actor amount.
-                static_cast<Resource*>(actor) -> increaseAmount(1);
+                // TODO: Magic const.
+                actor -> heal(1);
 
                 action.markAsSucceeded();
             }
             else
             {
+                delete new_object;
                 action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
                 action.markAsFailed();
             }

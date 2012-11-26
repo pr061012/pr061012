@@ -196,7 +196,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (this -> health < 100 && common_steps == CREAT_STEPS)
             {
-                this -> increaseHealth(CREAT_DELTA_HEALTH);
+                this -> heal(CREAT_DELTA_HEALTH);
             }
 
             if (endurance < max_endurance)

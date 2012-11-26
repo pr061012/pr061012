@@ -41,20 +41,8 @@ public:
     void incrementProgress();
 
     //**************************************************************************
-    // CHANGING AMOUNT.
+    // HEALTH MANIPULATION.
     //**************************************************************************
-
-    /**
-     * @brief Decreases amount of resource.
-     * @param delta amount of resource to decrease
-     */
-    void decreaseAmount(uint delta);
-
-    /**
-     * @brief Increases amount of resource.
-     * @param delta amount of resource to increase
-     */
-    void increaseAmount(uint delta);
 
     /**
      * @brief Increases maximum possible amount of resource.
@@ -62,28 +50,10 @@ public:
      */
     void increaseMaxAmount(uint delta);
 
-    /**
-     * @brief  Gets amount of resource.
-     * @return amount of resource
-     */
-    uint getAmount() const;
-
-    /**
-     * @brief Returns is resource restorable.
-     */
-    bool isRestorable() const;
-
-    /**
-     * @brief Damages resource.
-     * @param delta amount of damage
-     */
-    void damage(uint delta);
-
-    /**
-     * @brief ''Heals'' resource.
-     * @param delta amount of healing points
-     */
-    void heal(uint delta);
+    uint damage(uint delta);
+    uint heal(uint delta);
+    uint getHealthPoints() const;
+    uint getMaxHealthPoints() const;
 
     //**************************************************************************
     // RESOURCE'S LIFE.
@@ -93,10 +63,6 @@ public:
     void receiveMessage(Message message);
 
     std::string printObjectInfo() const;
-
-    uint getHealthPoints() const;
-    uint getMaxHealthPoints() const;
-
     std::string getTypeName() const;
 
     //**************************************************************************
@@ -164,6 +130,11 @@ public:
      * @brief Makes resource pickable.
      */
     void makePickable();
+
+    /**
+     * @brief Returns is resource restorable.
+     */
+    bool isRestorable() const;
 
     /**
      * @brief Makes resource restorable.

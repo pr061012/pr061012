@@ -66,16 +66,18 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Damages object.
-     * @param delta amount of damage
+     * @brief  Damages object.
+     * @param  delta amount of damage
+     * @return amount of done damage
      */
-    virtual void damage(uint delta) = 0;
+    virtual uint damage(uint delta) = 0;
 
     /**
-     * @brief Heals object.
-     * @param delta amount of healing
+     * @brief  Heals object.
+     * @param  delta amount of healing
+     * @return amount of done healing
      */
-    virtual void heal(uint delta) = 0;
+    virtual uint heal(uint delta) = 0;
 
     /**
      * @brief Gets current object's heatlh points.

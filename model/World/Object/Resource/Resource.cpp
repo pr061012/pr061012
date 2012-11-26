@@ -117,56 +117,48 @@ void Resource::incrementProgress()
 }
 
 //******************************************************************************
-// CHANGING AMOUNT.
+// HEALTH MANIPULATION.
 //******************************************************************************
-
-void Resource::decreaseAmount(uint delta)
-{
-    if (this -> amount >= delta)
-    {
-        this -> amount -= delta;
-    }
-    else
-    {
-        this -> amount = 0;
-    }
-}
-
-void Resource::increaseAmount(uint delta)
-{
-    if (this -> amount + delta <= this -> max_amount)
-    {
-        this -> amount += delta;
-    }
-    else
-    {
-        this -> amount = this -> max_amount;
-    }
-}
 
 void Resource::increaseMaxAmount(uint delta)
 {
     this -> max_amount += delta;
 }
 
-uint Resource::getAmount() const
+uint Resource::damage(uint delta)
+{
+    uint d = delta;
+
+    if (this -> amount < d)
+    {
+        d = this -> amount;
+    }
+
+    this -> amount -= d;
+    return d;
+}
+
+uint Resource::heal(uint delta)
+{
+    uint d = delta;
+
+    if (this -> amount + d > this -> max_amount)
+    {
+        d = this -> max_amount - this -> amount;
+    }
+
+    this -> amount += d;
+    return d;
+}
+
+uint Resource::getHealthPoints() const
 {
     return this -> amount;
 }
 
-bool Resource::isRestorable() const
+uint Resource::getMaxHealthPoints() const
 {
-    return this -> restorable;
-}
-
-void Resource::damage(uint delta)
-{
-    this -> decreaseAmount(delta);
-}
-
-void Resource::heal(uint delta)
-{
-    this -> increaseAmount(delta);
+    return this -> max_amount;
 }
 
 //******************************************************************************
@@ -178,7 +170,7 @@ std::vector<Action>* Resource::getActions()
     // TODO: Maybe it's better to use REGENERATE_OBJ action?
     if(this -> steps_to_reg-- == 0)
     {
-        this -> increaseAmount(this -> reg_amount);
+        this -> heal(this -> reg_amount);
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 
@@ -205,16 +197,6 @@ std::string Resource::printObjectInfo() const
           "Is restorable\t\t" << (restorable ? "yes" : "no") << std::endl;
 
     return output + ss.str();
-}
-
-uint Resource::getHealthPoints() const
-{
-    return this -> amount;
-}
-
-uint Resource::getMaxHealthPoints() const
-{
-    return this -> max_amount;
 }
 
 std::string Resource::getTypeName() const
@@ -278,6 +260,11 @@ void Resource::makeMineable()
 void Resource::makePickable()
 {
     this -> mineable = false;
+}
+
+bool Resource::isRestorable() const
+{
+    return this -> restorable;
 }
 
 void Resource::makeRestorable()

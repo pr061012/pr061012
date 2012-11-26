@@ -39,10 +39,7 @@ void TextField::render()
 {
     glColor4f(0.0f, 0.0f, 0.0f, 0.8f);
 
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glRectf(x, y, x+width, y+height);
-    glDisable(GL_BLEND);
+    ViewUtilities::glRectf_blend(x, y, x+width, y+height);
     glColor3f(1.0f, 1.0f, 1.0f);
     glRasterPos2f(x, y+height/4);
 

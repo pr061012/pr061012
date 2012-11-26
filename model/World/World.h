@@ -96,10 +96,10 @@ private:
 
 public:
     /**
-     * @brief Generate forest at specific location. That would
-     *        create tree and try to create trees in some range
-     *        around this point inside specified angle from
-     *        fromAngle to toAngle
+     * @brief Generate forest at specific location.
+     * @param x_trees maximum amount of trees in X dimension
+     * @param y_trees maximum amount of trees in Y dimension
+     * @param tree_params ParamArray indicating tree parameters
      * @param prob probability to create tree at this point
      */
     void genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params);
@@ -113,13 +113,19 @@ public:
 private:
 
     /**
-     * @brief Generate tree at specific location.
+     * @brief Generate tree at specific location with parameters
+     *        specified by tree_params.
      */
     void genTreeAt(double x, double y, const ParamArray& tree_params);
 
     /**
-     * @brief Generate tree at specific location with random offset <= rand_offset.
-     * @return if tree generation succeeded with current probability, 0 is returned. Otherwise, 1 is returned.
+     * @brief Generate tree at specific location using given position
+     *        variance and generation probability.
+     * @param rand_offset this is the range in which tree may be
+     *        generated
+     * @param prob probability of tree generation
+     * @return if tree generation succeeded with current probability,
+     *         0 is returned. Otherwise, 1 is returned.
      */
     int genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray& tree_params);
 

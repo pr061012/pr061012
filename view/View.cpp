@@ -89,6 +89,16 @@ void View::setY(double new_var)
     view_world -> setY(new_var);
 }
 
+double View::getMaxScrX()
+{
+    return VIEW_CAM_SIZE;
+}
+
+double View::getMaxScrY()
+{
+    return VIEW_CAM_SIZE * height/width;
+}
+
 void View::setPaused(bool new_state)
 {
     paused = new_state;
@@ -160,8 +170,8 @@ void View::redraw()
     mouse_y = this -> height - mouse_y;
 
     // Screen X and Y
-    double sx = ((double)mouse_x/width  - 0.5) * VIEW_CAM_SIZE * 2;
-    double sy = ((double)mouse_y/height - 0.5) * VIEW_CAM_SIZE * 2 * height/width;
+    double sx = ((double)mouse_x/width  - 0.5) * getMaxScrX() * 2;
+    double sy = ((double)mouse_y/height - 0.5) * getMaxScrY() * 2;
 
     // World  X and Y
     double wx = view_world -> screenToWorldX( sx );
@@ -229,24 +239,10 @@ void View::redraw()
         {
 
             // Draw a circle at cursor position
-            double angle;
-            double radius = view_world -> worldToScreenDist(1.0);
 
             glColor4d(0.0, 0.0, 0.0, 0.6);
-            glEnable(GL_BLEND);
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-            glBegin(GL_TRIANGLE_FAN);
-                for(int i = 0; i < 100; i++) {
-                    angle = 2.0 * i * M_PI / 100;
-                    glVertex2d((sx + cos(angle) * radius),
-                               (sy + sin(angle) * radius));
-                }
-            glEnd();
-
-            glDisable(GL_BLEND);
-
-            glColor4d(1.0,1.0,1.0,1.0);
+            ViewUtilities::glCirclef_blend(sx, sy, view_world -> worldToScreenDist(1.0));
+            glColor3d(1.0, 1.0, 1.0);
         }
     }
 
@@ -261,29 +257,26 @@ void View::redraw()
     yoff = yoff - (int)yoff;
 
     glBegin(GL_LINES);
-    for(int i = -VIEW_CAM_SIZE; i <= VIEW_CAM_SIZE; i++)
+    for(int i = -getMaxScrX(); i <= getMaxScrX(); i++)
     {
-        glVertex2d(-VIEW_CAM_SIZE,  i - yoff);
-        glVertex2d( VIEW_CAM_SIZE,  i - yoff);
+        glVertex2d(-getMaxScrX(),  i - yoff);
+        glVertex2d( getMaxScrX(),  i - yoff);
 
-        glVertex2d( i - xoff, -VIEW_CAM_SIZE);
-        glVertex2d( i - xoff,  VIEW_CAM_SIZE);
+        glVertex2d( i - xoff, -getMaxScrY());
+        glVertex2d( i - xoff,  getMaxScrY());
     }
     glEnd();
 
     // Drawing debug message at the top of the screen.
 
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glRectf(-VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE, VIEW_CAM_SIZE-2.6f);
+    glColor4f(0.0f, 0.0f, 0.0f, 0.4f);
+    ViewUtilities::glRectf_blend(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(-VIEW_CAM_SIZE, VIEW_CAM_SIZE - 2.5f);
 
     std::string msg = std::to_string(wx) + " " + std::to_string(wy);
     if(this -> isPaused()) msg += " PAUSED";
 
-    glcScale(24.f, 24.f);
-    glcRenderString( msg.c_str() );
-    glcScale(1.0/24, 1.0/24);
+    ViewUtilities::renderText(-getMaxScrX(), getMaxScrY() - 0.5, 24.f, msg);
 #endif
 
     // Render interface objectsTextField* focus
@@ -315,12 +308,10 @@ void View::initWindow()
     glMatrixMode(GL_PROJECTION); // editing projection params
     glLoadIdentity();
 
-    float aspect_ratio = ((float)height)/width;
-
-    glFrustum(-VIEW_CAM_SIZE,
-               VIEW_CAM_SIZE,
-              -VIEW_CAM_SIZE * aspect_ratio,
-               VIEW_CAM_SIZE * aspect_ratio, 1, 50);
+    glFrustum(-getMaxScrX(),
+               getMaxScrX(),
+              -getMaxScrY(),
+               getMaxScrY(), 1, 50);
     glMatrixMode(GL_MODELVIEW);
 
     glfwSetWindowTitle("Project 0612");

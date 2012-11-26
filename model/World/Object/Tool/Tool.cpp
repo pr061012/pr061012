@@ -80,6 +80,15 @@ void Tool::receiveMessage(Message message)
 {
 }
 
+std::string Tool::getTypeName() const
+{
+    return "tool";
+}
+
+//******************************************************************************
+// HEALTH MANIPULATION.
+//******************************************************************************
+
 uint Tool::getHealthPoints() const
 {
     return this -> current_strength;
@@ -90,57 +99,30 @@ uint Tool::getMaxHealthPoints() const
     return this -> max_strength;
 }
 
-std::string Tool::getTypeName() const
+uint Tool::damage(uint delta)
 {
-    return "tool";
-}
+    uint d = delta;
 
-//******************************************************************************
-// STRENGTH.
-//******************************************************************************
-
-uint Tool::getStrength() const
-{
-    return this -> current_strength;
-}
-
-uint Tool::getMaxStrength() const
-{
-    return this -> max_strength;
-}
-
-void Tool::decreaseStrength(uint delta)
-{
-    if(this -> current_strength >= delta)
+    if (this -> current_strength < d)
     {
-        this -> current_strength -= delta;
+        d = this -> current_strength;
     }
-    else
-    {
-        this -> current_strength = 0;
-    }
+
+    this -> current_strength -= d;
+    return d;
 }
 
-void Tool::increaseStrength(uint delta)
+uint Tool::heal(uint delta)
 {
-    if(this -> current_strength + delta <= this -> max_strength)
-    {
-        this -> current_strength += delta;
-    }
-    else
-    {
-        this -> current_strength = this -> max_strength;
-    }
-}
+    uint d = delta;
 
-void Tool::damage(uint delta)
-{
-    this -> decreaseStrength(delta);
-}
+    if (this -> current_strength + d > this -> max_strength)
+    {
+        d = this -> max_strength - this -> current_strength;
+    }
 
-void Tool::heal(uint delta)
-{
-    this -> increaseStrength(delta);
+    this -> current_strength += d;
+    return d;
 }
 
 //******************************************************************************
