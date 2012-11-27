@@ -87,6 +87,10 @@ std::vector <Action>* NonHumanoid::getActions()
     if (danger_steps == 0)
         updateDanger();
 
+    if (hunger == max_hunger)
+    {
+        this -> damage(CREAT_DELTA_HEALTH);
+    }
     // Store the result of last action and clear actions.
     clearActions();
 
@@ -289,12 +293,9 @@ void NonHumanoid::updateNeedInDesc()
 
 void NonHumanoid::updateCommonAttrs()
 {
-    if ((current_decision != EAT) && (hunger != max_hunger))
+    if ((current_decision != EAT) && (this -> hunger + CREAT_DELTA_HUNGER < this -> max_hunger))
         this -> hunger   += CREAT_DELTA_HUNGER;
-    if (hunger == max_hunger)
-    {
-        this -> damage(CREAT_DELTA_HEALTH);
-    }
+
     if (current_decision != SLEEP)
         this -> sleepiness += CREAT_DELTA_SLEEP;
 
@@ -303,6 +304,7 @@ void NonHumanoid::updateCommonAttrs()
 
     this -> common_steps = CREAT_STEPS;
 }
+
 
 //**************************************************************************
 // AUXILIARY FUNTIONS
