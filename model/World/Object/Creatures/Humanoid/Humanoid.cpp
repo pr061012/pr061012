@@ -116,10 +116,23 @@ std::string Humanoid::getTypeName() const
 
 std::vector <Action>* Humanoid::getActions()
 {
-    this -> age_steps--;
-    this -> common_steps--;
-    this -> danger_steps--;
-    this -> desc_steps--;
+    // Checking: is steps greater than 0? And decrease them.
+    if (this -> age_steps)
+    {
+        this -> age_steps--;
+    }
+    if (this -> common_steps)
+    {
+        this -> common_steps--;
+    }
+    if (this -> danger_steps)
+    {
+        this -> danger_steps--;
+    }
+    if (this -> desc_steps)
+    {
+        this -> desc_steps--;
+    }
     if (this -> decr_sleep_step)
     {
         this -> decr_sleep_step--;
