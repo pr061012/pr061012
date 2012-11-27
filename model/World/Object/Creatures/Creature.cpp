@@ -226,7 +226,6 @@ uint Creature::decreaseHunger(uint delta)
     return delta;
 }
 
-
 //**********************************************************
 // ENDURANCE
 //**********************************************************
@@ -390,32 +389,6 @@ void Creature::feed(uint delta)
     else
     {
         hunger = 0;
-    }
-}
-
-// Hunger increasor
-void Creature::increaseHunger(uint delta)
-{
-    if (this -> hunger + delta <= this -> max_hunger)
-    {
-        this -> hunger += delta;
-    }
-    else
-    {
-        this -> hunger = max_hunger;
-    }
-}
-
-// Sleepiness increasor
-void Creature::increaseSleepiness(uint delta)
-{
-    if (this -> sleepiness + delta <= this -> max_sleepiness)
-    {
-        this -> sleepiness += delta;
-    }
-    else
-    {
-        this -> sleepiness = max_sleepiness;
     }
 }
 
