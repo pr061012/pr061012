@@ -279,7 +279,6 @@ std::vector <Action>* Humanoid::getActions()
             // skip all destroyed objects 
             if ((*iter) -> isDestroyed())
             {
-                visual_memory -> remove(*iter);
                 continue;
             }
             Resource* res_food = dynamic_cast<Resource*>(*iter);
@@ -435,7 +434,6 @@ std::vector <Action>* Humanoid::getActions()
                 // skip all destroyed objects
                 if ((*iter) -> isDestroyed())
                 {
-                    visual_memory -> remove(*iter);
                     continue;
                 }
                 Resource* res = dynamic_cast<Resource*>(*iter);

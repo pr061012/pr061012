@@ -535,6 +535,21 @@ protected:
     ObjectHeap * obstacles;
 
     //**********************************************************
+    // FIGHTING
+    //**********************************************************
+    
+    /**
+     * @brief Damages object.
+     * @param object victim.
+     */
+    void fight();
+
+    /**
+     * @brief Chases and tries to kill the target.
+     */
+    void hunt();
+
+    //**********************************************************
     // ACTIONS
     //**********************************************************
 
@@ -544,20 +559,6 @@ protected:
     
     void clearActions();
 
-    //**********************************************************
-    // INCREASE
-    //**********************************************************
-    /**
-     * @brief Increases hunger level
-     * @param delta parameter changes
-     */
-    void increaseHunger(uint delta);
-
-    /**
-     * @brief Increases sleepiness level
-     * @param delta parameter changes
-     */
-    void increaseSleepiness(uint delta);
 };
 
 

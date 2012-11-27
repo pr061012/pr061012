@@ -393,32 +393,6 @@ void Creature::feed(uint delta)
     }
 }
 
-// Hunger increasor
-void Creature::increaseHunger(uint delta)
-{
-    if (this -> hunger + delta <= this -> max_hunger)
-    {
-        this -> hunger += delta;
-    }
-    else
-    {
-        this -> hunger = max_hunger;
-    }
-}
-
-// Sleepiness increasor
-void Creature::increaseSleepiness(uint delta)
-{
-    if (this -> sleepiness + delta <= this -> max_sleepiness)
-    {
-        this -> sleepiness += delta;
-    }
-    else
-    {
-        this -> sleepiness = max_sleepiness;
-    }
-}
-
 // look for objects arounв and count danger level
 void Creature::updateDanger()
 {
@@ -488,6 +462,10 @@ void Creature::chooseDirectionToEscape()
     direction_is_set = true;
 }
 
+//**********************************************************
+// ACTION GENERATION
+//**********************************************************
+
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
@@ -533,7 +511,17 @@ void Creature::go(SpeedType speed)
         }
 
         // if we reached the target, face to the next point
-        if (this -> getShape().hitTest(route.top()))
+        uint speed = 0;
+        if (speed == SLOW_SPEED)
+        {   
+            speed = CREAT_SPEED_SLOW_VALUE;
+        }
+        else
+        {
+            speed = CREAT_SPEED_FAST_VALUE;
+        }
+
+        while (getCoords().getDistance(route.top()) < speed)
         {
             route.pop();
 
@@ -557,6 +545,39 @@ void Creature::go(SpeedType speed)
     this -> actions.push_back(act);
 }
 
+// Fights the aim.
+void Creature::fight()
+{
+    if (aim)
+    {
+        Action act(HARM_OBJS, this);
+        act.addParticipant(aim);
+        this -> actions.push_back(act);
+    }
+}
+
+void Creature::hunt()
+{
+    if (aim)
+    {
+        if (reach_area.hitTest(aim -> getShape()))
+        {
+            fight();
+        }
+        else
+        {
+            // FIXME Magic constant
+            if (getCoords().getDistance(aim -> getCoords()) < 10)
+            {
+                go(FAST_SPEED);
+            }
+            else
+            {
+                go(SLOW_SPEED);
+            }
+        }
+    }
+}
 
 //******************************************************************************
 // INHERETED THINGS.

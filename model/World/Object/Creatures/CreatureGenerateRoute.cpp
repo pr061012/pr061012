@@ -99,9 +99,19 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
         return 1;
     }
     // Check if we came to the border of our view_area
-    else if (!goal_in_sight && !view_area.hitTest(point))
+    if (!view_area.hitTest(point))
     {
-        return 1;
+        // if goal outside our sight, then we better come out of our
+        // view_area to the nearest point to the aim
+        if (!goal_in_sight)
+        {
+            return 1;
+        }
+        // otherwise the way to the goal must be inside our view
+        else
+        {
+            return -1;
+        }
     }
 
     // Check if we are out of bounds.
