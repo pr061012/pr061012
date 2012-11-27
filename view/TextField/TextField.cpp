@@ -7,7 +7,8 @@ TextField::TextField(double x, double y, double width, double height,
 #ifdef __glfw3_h__
     GLFWwindow window,
 #endif
-      std::string content) : content(content),
+      std::string content) :
+          content(content),
           x(x), 
           y(y),
           height(height),
@@ -41,7 +42,6 @@ void TextField::render()
 
     ViewUtilities::glRectf_blend(x, y, x+width, y+height);
     glColor3f(1.0f, 1.0f, 1.0f);
-    glRasterPos2f(x, y+height/4);
 
     int scr_width, scr_height;
     glfwGetWindowSize(&scr_width,
@@ -49,9 +49,7 @@ void TextField::render()
 
     double scale = (double)scr_height / VIEW_CAM_SIZE * font_size;
 
-    glcScale(scale, scale);
-    glcRenderString( content.c_str() );
-    glcScale(1.0/scale, 1.0/scale);
+    ViewUtilities::renderText(x, y+height/4, scale, content);
 }
 
 bool TextField::hitTest(double x, double y)
