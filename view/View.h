@@ -14,7 +14,7 @@
 #include <vector>
 
 #include "ViewWorld/ViewWorld.h"
-#include "KeyHandler/KeyHandler.h"
+#include "InputHandler/InputHandler.h"
 #include "../common/BasicTypes.h"
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
@@ -41,7 +41,7 @@ class View
     ViewWorld* view_world;
 
     /// Key handler for GUI
-    KeyHandler* key_handler;
+    InputHandler* input_handler;
 
     /// Indixates, whether world should be reset
     bool reset;

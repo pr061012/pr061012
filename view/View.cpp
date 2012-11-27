@@ -23,7 +23,7 @@ View::View(const IWorld& w)
     console_input = "";
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height);
-    this -> key_handler = new KeyHandler(this);
+    this -> input_handler = new InputHandler(this);
 
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
@@ -49,7 +49,7 @@ View::View(const IWorld& w)
 View::~View()
 {
     delete view_world;
-    delete key_handler;
+    delete input_handler;
 
     for(uint i = rendered.size()-1; i > 0 ; --i)
     {
@@ -156,7 +156,7 @@ void View::redraw()
 
     // Handling screen presses
 
-    key_handler->handleKeys();
+    input_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0, 0, -1);
