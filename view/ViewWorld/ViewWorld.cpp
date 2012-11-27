@@ -32,6 +32,7 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 
     this -> width = width;
     this -> height = height;
+    this -> cam_radius = (double) VIEW_CAM_RADIUS;
 }
 
 ViewWorld::~ViewWorld()
@@ -75,7 +76,7 @@ void ViewWorld::redraw()
 {
      this -> renderBackground();
 
-    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, VIEW_CAM_RADIUS*2);
+    std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
 
     for(uint i=0; i < objects.size(); i++)
     {
@@ -95,28 +96,38 @@ const std::vector<const Object*> ViewWorld::getViewObjectAt(double x, double y)
 double ViewWorld::worldToScreenX(double world_x)
 {
     world_x -= this -> getX();
-    return world_x / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+    return world_x / getCamRad() * VIEW_CAM_SIZE;
 }
 
 double ViewWorld::worldToScreenY(double world_y)
 {
     world_y -= this -> getY();
-    return world_y / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+    return world_y / getCamRad() * VIEW_CAM_SIZE;
 }
 
 double ViewWorld::screenToWorldX(double screen_x)
 {
-    return screen_x * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getX();
+    return screen_x * getCamRad() / VIEW_CAM_SIZE + this -> getX();
 }
 
 double ViewWorld::screenToWorldY(double screen_y)
 {
-    return screen_y * VIEW_CAM_RADIUS / VIEW_CAM_SIZE + this -> getY();
+    return screen_y * getCamRad() / VIEW_CAM_SIZE + this -> getY();
 }
 
 double ViewWorld::worldToScreenDist(double distance)
 {
-    return distance / VIEW_CAM_RADIUS * VIEW_CAM_SIZE;
+    return distance / getCamRad() * VIEW_CAM_SIZE;
+}
+
+double ViewWorld::getCamRad()
+{
+    return this -> cam_radius;
+}
+
+void ViewWorld::setCamRad(double rad)
+{
+    this -> cam_radius = rad;
 }
 
 double ViewWorld::getX()
@@ -131,16 +142,16 @@ double ViewWorld::getY()
 
 void ViewWorld::setX(double new_var)
 {
-    new_var = new_var > VIEW_CAM_RADIUS ?
-              new_var : VIEW_CAM_RADIUS;
-    new_var = new_var < world.getSize() - VIEW_CAM_RADIUS ?
-              new_var : world.getSize() - VIEW_CAM_RADIUS;
+    new_var = new_var > getCamRad() ?
+              new_var : getCamRad();
+    new_var = new_var < world.getSize() - getCamRad() ?
+              new_var : world.getSize() - getCamRad();
     this -> x = new_var;
 }
 
 void ViewWorld::setY(double new_var)
 {
-    const double y_max_rad = (double)VIEW_CAM_RADIUS * height / width;
+    const double y_max_rad = (double)getCamRad() * height / width;
     new_var = new_var > y_max_rad ?
               new_var : y_max_rad;
     new_var = new_var < world.getSize() - y_max_rad ?

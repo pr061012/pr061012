@@ -110,6 +110,10 @@ public:
     double getMaxScrX();
     double getMaxScrY();
 
+    void setDistance(double newdist);
+
+    double getDistance();
+
     /**
      * @brief Sets game state to paused
      */

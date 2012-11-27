@@ -85,7 +85,6 @@ void View::setX(double new_var)
 
 void View::setY(double new_var)
 {
-    new_var = new_var > 0 ? new_var : 0;
     view_world -> setY(new_var);
 }
 
@@ -97,6 +96,18 @@ double View::getMaxScrX()
 double View::getMaxScrY()
 {
     return VIEW_CAM_SIZE * height/width;
+}
+
+void View::setDistance(double newdist)
+{
+    view_world -> setCamRad((double)VIEW_CAM_RADIUS*newdist);
+//    std::cout << getDistance() << std::endl;
+}
+
+
+double View::getDistance()
+{
+    return view_world -> getCamRad() / VIEW_CAM_RADIUS;
 }
 
 void View::setPaused(bool new_state)
@@ -237,7 +248,6 @@ void View::redraw()
 
         if(!focus_changed)
         {
-
             // Draw a circle at cursor position
 
             glColor4d(0.0, 0.0, 0.0, 0.6);
@@ -256,14 +266,21 @@ void View::redraw()
     xoff = xoff - (int)xoff;
     yoff = yoff - (int)yoff;
 
-    glBegin(GL_LINES);
-    for(int i = -getMaxScrX(); i <= getMaxScrX(); i++)
-    {
-        glVertex2d(-getMaxScrX(),  i - yoff);
-        glVertex2d( getMaxScrX(),  i - yoff);
+    int end = getMaxScrX() * getDistance();
 
-        glVertex2d( i - xoff, -getMaxScrY());
-        glVertex2d( i - xoff,  getMaxScrY());
+    glBegin(GL_LINES);
+    for(int i = -end; i <= end; i++)
+    {
+        double shift = (double)i / getDistance();
+
+        xoff /= getDistance();
+        yoff /= getDistance();
+
+        glVertex2d(-getMaxScrX(),  shift - yoff);
+        glVertex2d( getMaxScrX(),  shift - yoff);
+
+        glVertex2d( shift - xoff, -getMaxScrY());
+        glVertex2d( shift - xoff,  getMaxScrY());
     }
     glEnd();
 
