@@ -131,6 +131,29 @@ uint Creature::getMaxAge()
     return this -> max_age;
 }
 
+uint Creature::increaseAge(uint delta)
+{
+    if (max_age - this -> age < delta)
+    {
+        delta = max_age - this -> age;
+    }
+
+    this -> age += delta;
+    return delta;
+}
+
+uint Creature::decreaseAge(uint delta)
+{
+    if (this -> age < delta)
+    {
+        delta = this -> age;
+    }
+    
+    this -> age -= delta;
+    return delta;
+}
+
+
 //**********************************************************
 // HEALTH
 //**********************************************************
@@ -181,6 +204,29 @@ uint Creature::getMaxHunger()
     return this -> max_hunger;
 }
 
+uint Creature::increaseHunger(uint delta)
+{
+    if (max_hunger - this -> hunger < delta)
+    {
+        delta = max_hunger - this -> hunger;
+    }
+
+    this -> hunger += delta;
+    return delta;
+}
+
+uint Creature::decreaseHunger(uint delta)
+{
+    if (this -> hunger < delta)
+    {
+        delta = this -> hunger;
+    }
+    
+    this -> hunger -= delta;
+    return delta;
+}
+
+
 //**********************************************************
 // ENDURANCE
 //**********************************************************
@@ -205,6 +251,29 @@ uint Creature::getMaxEndurance()
     return this -> max_endurance;
 }
 
+uint Creature::increaseEndurance(uint delta)
+{
+    if (max_endurance - this -> endurance < delta)
+    {
+        delta = max_endurance - this -> endurance;
+    }
+
+    this -> endurance += delta;
+    return delta;
+}
+
+uint Creature::decreaseEndurance(uint delta)
+{
+    if (this -> endurance < delta)
+    {
+        delta = this -> endurance;
+    }
+    
+    this -> endurance -= delta;
+    return delta;
+}
+
+
 //**********************************************************
 // SLEEPINESS
 //**********************************************************
@@ -228,6 +297,29 @@ uint Creature::getMaxSleepiness()
 {
     return this -> max_sleepiness;
 }
+
+uint Creature::increaseSleepiness(uint delta)
+{
+    if (max_sleepiness - this -> sleepiness < delta)
+    {
+        delta = max_sleepiness - this -> sleepiness;
+    }
+
+    this -> sleepiness += delta;
+    return delta;
+}
+
+uint Creature::decreaseSleepiness(uint delta)
+{
+    if (this -> sleepiness < delta)
+    {
+        delta = this -> sleepiness;
+    }
+    
+    this -> sleepiness -= delta;
+    return delta;
+}
+
 
 //**********************************************************
 // FORCE

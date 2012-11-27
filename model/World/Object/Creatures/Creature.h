@@ -117,6 +117,23 @@ public:
      */
     uint getMaxAge();
 
+    /**
+     * @brief Increase age
+     * @param delta the increment value
+     * @return the added value
+     */
+    
+    uint increaseAge(uint delta);
+    
+    /**
+     * @brief Decrease age
+     * @param delta the decrement value
+     * @return subtracted value
+     */
+    
+    uint decreaseAge(uint delta);
+    
+
     //**************************************************************************
     // HEALTH
     //**************************************************************************
@@ -173,6 +190,23 @@ public:
      */
     uint getMaxHunger();
 
+    /**
+     * @brief Increase hunger
+     * @param delta the increment value
+     * @return the added value
+     */
+    
+    uint increaseHunger(uint delta);
+    
+    /**
+     * @brief Decrease hunger
+     * @param delta the decrement value
+     * @return subtracted value
+     */
+    
+    uint decreaseHunger(uint delta);
+    
+
     //**************************************************************************
     // ENDURANCE
     //**************************************************************************
@@ -200,6 +234,23 @@ public:
      * @return the value of max_endurance
      */
     uint getMaxEndurance();
+
+    /**
+     * @brief Increase endurance
+     * @param delta the increment value
+     * @return the added value
+     */
+    
+    uint increaseEndurance(uint delta);
+    
+    /**
+     * @brief Decrease endurance
+     * @param delta the decrement value
+     * @return subtracted value
+     */
+    
+    uint decreaseEndurance(uint delta);
+    
 
     //**************************************************************************
     // FORCE
@@ -244,6 +295,23 @@ public:
      * @return the value of max_sleepines
      */
     uint getMaxSleepiness();
+
+    /**
+     * @brief Increase sleepiness
+     * @param delta the increment value
+     * @return the added value
+     */
+    
+    uint increaseSleepiness(uint delta);
+    
+    /**
+     * @brief Decrease sleepiness
+     * @param delta the decrement value
+     * @return subtracted value
+     */
+    
+    uint decreaseSleepiness(uint delta);
+    
     
     /**
      * @brief get the id of aim
