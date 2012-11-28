@@ -27,6 +27,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
     max_endurance(Random::int_range(CREAT_ENDURANCE_MAX,  CREAT_ENDURANCE_MAX)),
     endurance(max_endurance),
+    max_age(0),
+    age(0),
     max_health(Random::int_range(CREAT_HEALTH_MIN, CREAT_HEALTH_MAX)),
     health(max_health),
     max_sleepiness(Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX)),
