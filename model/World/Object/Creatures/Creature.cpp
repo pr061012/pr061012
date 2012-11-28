@@ -586,6 +586,27 @@ void Creature::clearActions()
         prev_action_error = actions[0].getError();
     }
     actions.clear();
+
+    // FIXME
+    // maybe put this function outsitde?
+    // 
+    // Clear inventory from destroyed objects.
+    // First place them in buffer.
+    std::vector<Object*> buffer;
+    for (ObjectHeap::iterator i = inventory -> begin();
+         i != inventory -> end(); i++)
+    {
+        if ((*i) -> isDestroyed())
+        {
+            buffer.push_back(*i);
+        }
+    }
+
+    // Then remove.
+    for (uint i = 0; i < buffer.size(); i++)
+    {
+        inventory -> remove(buffer[i]);
+    }
 }
 
 //******************************************************************************
