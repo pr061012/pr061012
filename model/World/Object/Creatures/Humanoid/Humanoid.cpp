@@ -19,12 +19,11 @@
 #include "../../../DecisionMaker/DecisionMaker.h"
 
 // TODO:
-//  * Add comments.
-//  * Move (where it's needed) comparison between two doubles by comparison
-//    between their difference and MATH_EPSILON const.
-//
-// FIXME:
-//  * aim == 0?
+//  Messages
+//  Errors
+//  Searching for resourse
+//  Relax/FindFood
+
 using namespace std;
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -148,6 +147,16 @@ std::vector <Action>* Humanoid::getActions()
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
     }
 
+    // Update attrs
+    if (current_decision == EAT)
+    {
+        attrs(ATTR_HUNGER) = 100 * getHunger() / getMaxHunger();
+    }
+    if (current_decision == SLEEP)
+    {
+        attrs(ATTR_SLEEPINESS) = 100 * getSleepiness() / getMaxSleepiness();
+    }
+
     // Force him to sleep if he really want it
     if (getSleepiness() == getMaxSleepiness())
     {
@@ -212,20 +221,53 @@ std::vector <Action>* Humanoid::getActions()
 
             if (getEndurance() < getMaxEndurance())
             {
-                increaseEndurance(1);
+                increaseEndurance(CREAT_DELTA_ENDUR);
             }
         }
     }
 
     //**************************************************************************
     // DETAILED DECISION : HUNT
-    // FIXME
-    // Create this action
+    // FIXME. Nobody put food in inventory
+    // First of all, he searching for victim in objects around. If he has
+    // founded his sacrifice, he just hunts. If other case he goes in random
+    // way serching for sacrifice.
     //**************************************************************************
 
     if (detailed_act == HUNT)
     {
-        go(SLOW_SPEED);
+        double min_dist = SZ_WORLD_VSIDE;
+        ObjectHeap::const_iterator iter;
+        for
+        (
+            iter = objects_around.begin(CREATURE);
+            iter != objects_around.end(CREATURE); iter++
+        )
+        {
+            Creature* creat = dynamic_cast<Creature*>(*iter);
+            if
+            (
+                this -> getCoords().getDistance(creat -> getCoords()) < min_dist
+                && this -> getDangerLevel() > creat -> getDangerLevel()
+            )
+            {
+                aim = creat;
+                min_dist = this -> getCoords().getDistance(aim -> getCoords());
+            }
+        }
+        if (aim == nullptr)
+        {
+            go(SLOW_SPEED);
+            visualMemorize();
+        }
+        else
+        {
+            hunt();
+            if (aim -> isDestroyed())
+            {
+                detailed_act = TAKE_FOOD_FROM_INVENTORY;
+            }
+        }
     }
 
     //**************************************************************************
@@ -306,6 +348,10 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             sleep();
+            if (getSleepiness() == 0)
+            {
+                current_action = NONE;
+            }
         }
 
     }
@@ -318,6 +364,10 @@ std::vector <Action>* Humanoid::getActions()
     if (detailed_act == SLEEP_ON_THE_GROUND)
     {
         sleep();
+        if (getSleepiness() == 0)
+        {
+            current_action = NONE;
+        }
     }
 
     //**************************************************************************
@@ -448,9 +498,13 @@ std::vector <Action>* Humanoid::getActions()
                 break;
             }
         }
-        Action act(EAT_OBJ, this);
-        act.addParticipant(aim);
-        this -> actions.push_back(act);
+        if (aim != nullptr)
+        {
+            Action act(EAT_OBJ, this);
+            act.addParticipant(aim);
+            this -> actions.push_back(act);
+            current_action = NONE;
+        }
     }
 
     //**************************************************************************
@@ -461,6 +515,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIGHT)
     {
+        // fight();
         go(SLOW_SPEED);
     }
 
@@ -627,7 +682,11 @@ DetailedHumAction Humanoid::chooseWayToEat()
     }
 
     {
-        if ((getForce() > 50 && bravery > 50) || (getForce() > 80) || (bravery > 80))
+        if
+        (
+            ((getForce() > 50 && bravery > 50) || (getForce() > 80)
+            || (bravery > 80)) && 100 * getHunger() / getMaxHunger() < 60 // BAD - magic const
+        )
         {
             return HUNT;
         }
