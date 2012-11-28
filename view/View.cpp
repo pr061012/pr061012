@@ -205,26 +205,28 @@ void View::redraw()
             {
                 const Object* selected = selection.at(i);
 
-                std::cout << "=======Selected object=========="
-                          << std::endl;
-                std::cout << "type = " << selected -> getType()
-                          << std::endl;
-                std::cout << "x = " << selected -> getCoords().getX()
-                          << std::endl;
-                std::cout << "y = " << selected -> getCoords().getY()
-                          << std::endl;
-                std::cout << "id = " << selected -> getObjectID() 
-                          << std::endl;
-                if (selected -> getType() == CREATURE)
-                {
-                    std::cout << "decison = " << 
-                        dynamic_cast<const Creature*>(selected) -> getCurrentDecision() 
-                        << std::endl;
-                    if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
-                        std::cout << "detailed_act = " <<
-                            dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct()
-                            << std::endl;
-                }
+                selected -> printObjectInfo();
+
+//                std::cout << "=======Selected object=========="
+//                          << std::endl;
+//                std::cout << "type = " << selected -> getType()
+//                          << std::endl;
+//                std::cout << "x = " << selected -> getCoords().getX()
+//                          << std::endl;
+//                std::cout << "y = " << selected -> getCoords().getY()
+//                          << std::endl;
+//                std::cout << "id = " << selected -> getObjectID()
+//                          << std::endl;
+//                if (selected -> getType() == CREATURE)
+//                {
+//                    std::cout << "decison = " <<
+//                        dynamic_cast<const Creature*>(selected) -> getCurrentDecision()
+//                        << std::endl;
+//                    if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
+//                        std::cout << "detailed_act = " <<
+//                            dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct()
+//                            << std::endl;
+//                }
                         
             }
         }
