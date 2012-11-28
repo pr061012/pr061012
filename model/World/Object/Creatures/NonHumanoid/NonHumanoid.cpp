@@ -177,22 +177,12 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == ESCAPE)
     {
         Log::NOTE("ESCAPE");
-        if (
-                this -> subsubtype == COW ||
-                this -> subsubtype == GOOSE ||
-                this -> subsubtype == SHEEP
-           )
-        {
-            if (!direction_is_set)
-            {
-                chooseDirectionToEscape();
-            }
-            go(SLOW_SPEED);
-        }
-        else
-        {
 
+        if (!direction_is_set)
+        {
+            chooseDirectionToEscape();
         }
+        go(SLOW_SPEED);
 
     }
 
