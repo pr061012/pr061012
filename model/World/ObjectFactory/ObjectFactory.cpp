@@ -99,7 +99,16 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
 Object * ObjectFactory::createResource(const ParamArray & params)
 {
     ResourceType type = params.getValue<ResourceType>("res_type");
-    uint amount = params.getValue<uint>("res_amount");
+    uint amount;
+
+    try
+    {
+        amount = params.getValue<uint>("res_amount");
+    }
+    catch (EParamArrayInvalidKey& exc)
+    {
+        amount = 0;
+    }
 
     return new Resource(type, amount);
 }
@@ -108,7 +117,16 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 {
     ToolType type = params.getValue<ToolType>("tool_type");
     ResourceType mat_type = params.getValue<ResourceType>("mat_type");
-    uint max_strength = params.getValue<uint>("tool_str");
+    uint max_strength;
+
+    try
+    {
+        max_strength = params.getValue<uint>("tool_str");
+    }
+    catch (EParamArrayInvalidKey& exc)
+    {
+        max_strength = 0;
+    }
 
     return new Tool(type, mat_type, max_strength);
 }
@@ -116,7 +134,16 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 Object * ObjectFactory::createWeather(const ParamArray & params)
 {
     WeatherType type = params.getValue<WeatherType>("weat_type");
-    uint steps = params.getValue<uint>("weat_steps");
+    uint steps;
+
+    try
+    {
+        steps = params.getValue<uint>("weat_steps");
+    }
+    catch (EParamArrayInvalidKey& exc)
+    {
+        steps = 0;
+    }
 
     return new Weather(type, steps);
 }

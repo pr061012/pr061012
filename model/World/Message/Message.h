@@ -33,7 +33,7 @@ public:
     Message(const MessageType type, const Object* sender);
 
     /**
-     * @brief Destructor,
+     * @brief Destructor.
      */
     ~Message();
 
