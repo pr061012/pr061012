@@ -121,7 +121,14 @@ uint Creature::getCurrentDecision() const
 
 void Creature::setAge(uint age)
 {
-    this -> age = age;
+    if (age > max_age)
+    {
+        this -> age = max_age;
+    }
+    else
+    {
+        this -> age = age;
+    }
 }
 
 uint Creature::getAge()
@@ -132,6 +139,10 @@ uint Creature::getAge()
 void Creature::setMaxAge(uint max_age)
 {
     this -> max_age = max_age;
+    if (age > max_age)
+    {
+        age = max_age;
+    }
 }
 
 uint Creature::getMaxAge()
@@ -169,7 +180,14 @@ uint Creature::decreaseAge(uint delta)
 
 void Creature::setHealth(uint health)
 {
-    this -> health = health;
+    if (health > max_health)
+    {
+        this -> health = max_health;
+    }
+    else
+    {
+        this -> health = health;
+    }
 }
 
 uint Creature::getHealth()
@@ -180,6 +198,10 @@ uint Creature::getHealth()
 void Creature::setMaxHealth(uint max_health)
 {
     this -> max_health = max_health;
+    if (health > max_health)
+    {
+        health = max_health;
+    }
 }
 
 uint Creature::getMaxHealth()
@@ -234,7 +256,14 @@ uint Creature::getMaxHealthPoints() const
 
 void Creature::setHunger(uint hunger)
 {
-    this -> hunger = hunger;
+    if (hunger > max_hunger)
+    {
+        this -> hunger = max_hunger;
+    }
+    else
+    {
+        this -> hunger = hunger;
+    }
 }
 
 uint Creature::getHunger()
@@ -245,6 +274,10 @@ uint Creature::getHunger()
 void Creature::setMaxHunger(uint max_hunger)
 {
     this -> max_hunger = max_hunger;
+    if (hunger > max_hunger)
+    {
+        hunger = max_hunger;
+    }
 }
 
 uint Creature::getMaxHunger()
@@ -280,7 +313,14 @@ uint Creature::decreaseHunger(uint delta)
 
 void Creature::setEndurance(uint endurance)
 {
-    this -> endurance = endurance;
+    if (endurance > max_endurance)
+    {
+        this -> endurance = max_endurance;
+    }
+    else
+    {
+        this -> endurance = endurance;
+    }
 }
 
 uint Creature::getEndurance()
@@ -291,6 +331,10 @@ uint Creature::getEndurance()
 void Creature::setMaxEndurance(uint max_endurance)
 {
     this -> max_endurance = max_endurance;
+    if (endurance > max_endurance)
+    {
+        endurance = max_endurance;
+    }
 }
 
 uint Creature::getMaxEndurance()
@@ -325,9 +369,16 @@ uint Creature::decreaseEndurance(uint delta)
 // SLEEPINESS
 //**********************************************************
 
-void Creature::setSleepiness(uint max_sleepiness)
+void Creature::setSleepiness(uint sleepiness)
 {
-    this -> max_sleepiness = max_sleepiness;
+    if (sleepiness > max_sleepiness)
+    {
+        this -> sleepiness = max_sleepiness;
+    }
+    else
+    {
+        this -> sleepiness = sleepiness;
+    }
 }
 
 uint Creature::getSleepiness()
@@ -338,6 +389,10 @@ uint Creature::getSleepiness()
 void Creature::setMaxSleepiness(uint max_sleepiness)
 {
     this -> max_sleepiness = max_sleepiness;
+    if (sleepiness > max_sleepiness)
+    {
+        sleepiness = max_sleepiness;
+    }
 }
 
 uint Creature::getMaxSleepiness()
