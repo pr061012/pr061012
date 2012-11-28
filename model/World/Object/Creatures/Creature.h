@@ -35,7 +35,7 @@ public:
     /**
      * @brief Destructor.
      */
-    ~Creature();
+    virtual ~Creature();
 
     //**************************************************************************
     // ACCESSORS.
