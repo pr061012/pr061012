@@ -39,6 +39,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     int max_age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
     // Initialize some inhereted things.
+    max_decr_sleep_step = HUM_DECR_SLEEP_STEPS;
     this -> setMaxAge(max_age);
     this -> setAge(0);
     this -> setShapeSize(SZ_HUM_DIAM);
@@ -121,10 +122,6 @@ std::vector <Action>* Humanoid::getActions()
     {
         this -> desc_steps--;
     }
-    if (this -> decr_sleep_step)
-    {
-        this -> decr_sleep_step--;
-    }
 
     // Updates parametr.
 //    if(desc_steps == 0)
@@ -149,12 +146,6 @@ std::vector <Action>* Humanoid::getActions()
 
         }
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
-    }
-
-    // Decrease health if he is really hungry
-    if (getHunger() == getMaxHunger())
-    {
-        damage(1);
     }
 
     // Force him to sleep if he really want it
@@ -314,22 +305,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (decr_sleep_step == 0)
-            {
-                if (getSleepiness() > 0)
-                {
-                    decreaseSleepiness(1);
-                }
-                else
-                {
-                    current_action = NONE;
-                }
-                if (getEndurance() < getMaxEndurance())
-                {
-                    increaseEndurance(1);
-                }
-                decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-            }
+            sleep();
         }
 
     }
@@ -341,23 +317,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == SLEEP_ON_THE_GROUND)
     {
-        if (decr_sleep_step == 0)
-        {
-            if (getSleepiness() > 0)
-            {
-                decreaseSleepiness(1);
-            }
-            else
-            {
-                current_action = NONE;
-            }
-            if (getEndurance() < getMaxEndurance())
-            {
-                increaseEndurance(1);
-            }
-
-            decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-        }
+        sleep();
     }
 
     //**************************************************************************

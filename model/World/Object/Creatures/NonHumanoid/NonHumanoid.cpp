@@ -22,6 +22,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     int age = Random::int_range(NHUM_AGE_MIN, NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
+    max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setMaxAge(age);
     this -> setAge(0);
     this -> setShapeSize(SZ_NHUM_DIAM);
@@ -108,27 +109,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (current_decision == SLEEP)
     {
         Log::NOTE("SLEEP");
-        // Check timesteps before wake up.
-        if (decr_sleep_step == 0)
-        {
-            // Check sleepiness.
-            if (getSleepiness() > 0)
-            {
-                decreaseSleepiness(1);
-            } 
-            else
-            {
-                // If NH is awake, set NONE decision.
-                current_decision = NONE;
-            }
-
-            // Set timesteps, before increase sleepness.
-            decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
-        }
-        else
-        {
-            decr_sleep_step--;
-        }
+        sleep();
     }
 
     //*************************************************************************

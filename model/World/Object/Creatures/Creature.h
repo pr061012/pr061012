@@ -461,6 +461,8 @@ protected:
     uint danger_steps;
     /// Amount of steps before decreasion of sleepiness. When creature is sleeping
     uint decr_sleep_step;
+    /// Maximum value of decr_sleep_step
+    uint max_decr_sleep_step;
 
     //**************************************************************************
     // DIRECTION
@@ -552,6 +554,11 @@ protected:
     //**********************************************************
     // ACTIONS
     //**********************************************************
+
+    /**
+     * @brief Sleeping.
+     */
+    void sleep();
 
     /**
      * @brief Store results of previous action and clear actions
