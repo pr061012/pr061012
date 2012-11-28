@@ -66,13 +66,15 @@ void World::genResources()
         grass -> setCoords(Vector(Random::double_range(0, size),
                                   Random::double_range(0, size)));
 
+        indexator -> addObject(newobj);
+        indexator -> addObject(grass);
         if (checkCoord(newobj))
         {
             visible_objs -> push(newobj);
-
         }
         else
         {
+            indexator -> removeObject(newobj);
             delete newobj;
         }
 
@@ -82,10 +84,10 @@ void World::genResources()
         }
         else
         {
+            indexator -> removeObject(grass);
             delete grass;
         }
     }
-    indexator -> reindexate(visible_objs);
 }
 
 // Creating cows!
@@ -103,30 +105,33 @@ void World::genCreatures()
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
         new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
                                     Random::double_range(size / 3, 2 * size / 3)));
+
+        indexator -> addObject(new_obj);
         if (checkCoord(new_obj))
         {
             visible_objs -> push(new_obj);
         }
         else
         {
+            indexator -> removeObject(new_obj);
             delete new_obj;
         }
-
         new_obj = object_factory -> createObject(CREATURE, hum_params);
         new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
                                     Random::double_range(size / 3, 2 * size / 3)));
 
+
+        indexator -> addObject(new_obj);
         if (checkCoord(new_obj))
         {
             visible_objs -> push(new_obj);
         }
         else
         {
+            indexator -> removeObject(new_obj);
             delete new_obj;
         }
     }
-
-    indexator -> reindexate(visible_objs);
 }
 
 void World::genWeather()
@@ -142,14 +147,6 @@ void World::genWeather()
         new_obj -> setCoords(Vector(Random::double_range(0, size),
                                     Random::double_range(0, size)));
 
-        if (checkCoord(new_obj))
-        {
-            visible_objs -> push(new_obj);
-        }
-        else
-        {
-            delete new_obj;
-        }
     }
 
     indexator -> reindexate(visible_objs);
@@ -199,7 +196,6 @@ void World::genForestAt(double x, double y)
 
     this -> genForestAt(x, y, 20, 20, tree_params);
 
-    indexator -> reindexate(visible_objs);
 }
 
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
@@ -207,12 +203,14 @@ void World::genTreeAt(double x, double y, const ParamArray& tree_params)
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
 
     new_obj -> setCoords(Vector(x, y));
+    indexator -> addObject(new_obj);
     if (checkCoord(new_obj))
     {
         visible_objs -> push(new_obj);
     }
     else
     {
+        indexator -> removeObject(new_obj);
         delete new_obj;
     }
 }
@@ -383,7 +381,6 @@ bool World::checkCoord(Object *new_obj)
     bool ret = false;
 
     Shape shape = new_obj -> getShape();
-
     // Get obstacles
     ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
 
