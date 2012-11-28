@@ -32,8 +32,9 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> restorable      = false;
             this -> makeNonSolid();
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
-            this -> amount          = res_amount;
-            this -> max_amount      = res_amount;
+            // FIXME: Consts for wood.
+            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
+            this -> max_amount      = this -> amount;
             this -> amount_per_drop = 0;
             this -> reg_amount      = 0;
         break;
@@ -43,6 +44,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> restorable      = true;
             this -> makeSolid();
             this -> difficulty      = RES_WOOD_DIFFICULTY;
+            // FIXME: Consts for wood.
             this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
             this -> max_amount      = 1.5 * this -> amount;
             this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
