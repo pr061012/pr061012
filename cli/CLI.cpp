@@ -55,6 +55,20 @@
 #define TN_FIELD_MAX_SLEEPINESS     "msleepiness"
 #define TN_FIELD_FORCE              "force"
 
+#define TN_FIELD_DET_ACT            "da"
+
+#define TN_DA_HUNT                  "hunt"
+#define TN_DA_TAKE_FOOD_FROM_INV    "inv-food"
+#define TN_DA_FIND_FOOD             "find-food"
+#define TN_DA_RELAX_AT_HOME         "home-relax"
+#define TN_DA_SLEEP_AT_HOME         "home-sleep"
+#define TN_DA_SLEEP_ON_THE_GROUND   "ground-sleep"
+#define TN_DA_MINE_RESOURCES        "mine-res"
+#define TN_DA_BUILD_HOUSE           "build-house"
+#define TN_DA_CHOOSE_PLACE_FOR_HOME "choose-hplace"
+#define TN_DA_FIGHT                 "fight"
+#define TN_DA_RUN_FROM_DANGER       "run-from-danger"
+
 //******************************************************************************
 // STATIC FUNCTIONS.
 //******************************************************************************
@@ -581,6 +595,34 @@ std::string CLI::change(std::stringstream& ss)
         {
             uint force = readFromSS<uint>(ss, "force");
             creat -> setForce(force);
+        }
+        else if (creat -> getSubtype() == HUMANOID)
+        {
+            Humanoid* hum = dynamic_cast<Humanoid*>(creat);
+
+            if (field == TN_FIELD_DET_ACT)
+            {
+                std::string detailed_act = readFromSS<std::string>(ss, "humanoid detailed action");
+                if (detailed_act == TN_DA_BUILD_HOUSE)                hum -> setDetailedAction(BUILD_HOUSE);
+                else if (detailed_act == TN_DA_CHOOSE_PLACE_FOR_HOME) hum -> setDetailedAction(CHOOSE_PLACE_FOR_HOME);
+                else if (detailed_act == TN_DA_FIGHT)                 hum -> setDetailedAction(FIGHT);
+                else if (detailed_act == TN_DA_FIND_FOOD)             hum -> setDetailedAction(FIND_FOOD);
+                else if (detailed_act == TN_DA_HUNT)                  hum -> setDetailedAction(HUNT);
+                else if (detailed_act == TN_DA_MINE_RESOURCES)        hum -> setDetailedAction(MINE_RESOURSES);
+                else if (detailed_act == TN_DA_RELAX_AT_HOME)         hum -> setDetailedAction(RELAX_AT_HOME);
+                else if (detailed_act == TN_DA_RUN_FROM_DANGER)       hum -> setDetailedAction(RUN_FROM_DANGER);
+                else if (detailed_act == TN_DA_SLEEP_AT_HOME)         hum -> setDetailedAction(SLEEP_AT_HOME);
+                else if (detailed_act == TN_DA_SLEEP_ON_THE_GROUND)   hum -> setDetailedAction(SLEEP_ON_THE_GROUND);
+                else if (detailed_act == TN_DA_TAKE_FOOD_FROM_INV)    hum -> setDetailedAction(TAKE_FOOD_FROM_INVENTORY);
+                else
+                {
+                    throw ECLIInvalidInput("unknown detailed action for Humanoid");
+                }
+            }
+            else
+            {
+                throw ECLIInvalidInput("unknown field name for Humanoid");
+            }
         }
         else
         {
