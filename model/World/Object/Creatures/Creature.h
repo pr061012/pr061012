@@ -481,11 +481,7 @@ protected:
     //**************************************************************************
     // UPDATES
     //**************************************************************************
-    /**
-     * @brief Updates age
-     */
-    virtual void updateAge() = 0;
-
+    
     /**
      * @brief Updates need_in_descendants
      */
@@ -497,9 +493,9 @@ protected:
     void updateDanger();
 
     /**
-     * @brief Updates hunger, sleepiness, health
+     * @brief Updates hunger, sleepiness, health, age, danger.
      */
-    virtual void updateCommonAttrs() = 0;
+    void updateCommonAttrs();
 
     //**************************************************************************
     // GO ACTION

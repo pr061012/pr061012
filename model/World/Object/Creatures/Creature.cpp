@@ -383,18 +383,6 @@ uint Creature::getMaxHealthPoints() const
     return this -> max_health;
 }
 
-void Creature::feed(uint delta)
-{
-    if(delta < hunger)
-    {
-        hunger -= delta;
-    }
-    else
-    {
-        hunger = 0;
-    }
-}
-
 // look for objects arounв and count danger level
 void Creature::updateDanger()
 {
@@ -419,7 +407,10 @@ void Creature::updateDanger()
         if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
             this -> danger += (*iter) -> getDangerLevel();
     }
+
+    // Update stats
     danger_steps = CREAT_DANGER_STEPS;
+    attrs(ATTR_DANGER,0) = danger;
 }
 
 void Creature::chooseDirectionToEscape()
@@ -671,3 +662,59 @@ void Creature::clearActions()
     }
     actions.clear();
 }
+
+//**********************************************************
+// UPDATES
+//**********************************************************
+
+void Creature::updateCommonAttrs()
+{
+    // Age updating
+    if (!age_steps)
+    {
+        increaseAge(1);
+        age_steps = CREAT_AGE_STEPS;
+    }
+    else
+    {
+        age_steps--;
+    }
+    
+    // Sleepiness and hunger updating
+    if (!common_steps)
+    {
+        increaseHunger(CREAT_DELTA_HUNGER);
+
+        if (current_action != SLEEP)
+        {
+            increaseSleepiness(CREAT_DELTA_SLEEP);
+        }
+        common_steps = CREAT_STEPS;
+    }
+    else
+    {
+        common_steps--;
+    }
+
+    // Starving
+    if (hunger == max_hunger)
+    {
+        damage(CREAT_DELTA_HEALTH);
+    }
+
+    // Danger updating
+    if (danger_steps)
+    {
+        updateDanger();
+    }
+    else
+    {
+        danger_steps--;
+    }
+
+    // Update attributes
+    this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
+    this -> attrs(ATTR_HUNGER, 0) = 100 * hunger / max_hunger;
+    this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
+}
+

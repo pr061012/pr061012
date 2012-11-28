@@ -117,18 +117,6 @@ std::string Humanoid::getTypeName() const
 std::vector <Action>* Humanoid::getActions()
 {
     // Checking: is steps greater than 0? And decrease them.
-    if (this -> age_steps)
-    {
-        this -> age_steps--;
-    }
-    if (this -> common_steps)
-    {
-        this -> common_steps--;
-    }
-    if (this -> danger_steps)
-    {
-        this -> danger_steps--;
-    }
     if (this -> desc_steps)
     {
         this -> desc_steps--;
@@ -139,20 +127,9 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     // Updates parametr.
-    if(age_steps == 0)
-    {
-        updateAge();
-    }
 //    if(desc_steps == 0)
 //        updateNeedInDesc();
-    if(common_steps == 0)
-    {
-        updateCommonAttrs();
-    }
-    if(danger_steps == 0)
-    {
-        updateDanger();
-    }
+    updateCommonAttrs();
 
     // Update Need_in_house
     if (this -> home != nullptr)
@@ -586,12 +563,6 @@ void Humanoid::receiveMessage(Message message)
 // We change attrs of our hum
 //******************************************************************************
 
-void Humanoid::updateAge()
-{
-    increaseAge(1);
-    this -> age_steps = CREAT_AGE_STEPS;
-}
-
 void Humanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += HUM_DELTA_NEED_IN_DESC; // need 0 NHum dont need in descendant
@@ -599,23 +570,9 @@ void Humanoid::updateNeedInDesc()
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
-void Humanoid::updateCommonAttrs()
-{
-    increaseHunger(CREAT_DELTA_HUNGER);
-
-    if (current_action != SLEEP)
-    {
-        increaseSleepiness(CREAT_DELTA_SLEEP);
-    }
+//TODO Make separate update for sciability
     // this -> sociability += HUM_DELTA_SOC;
     // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
-
-    this -> common_steps = CREAT_STEPS;
-    this -> attrs(ATTR_HEALTH,0)   = 100 * (100 -getHealth()) / getMaxHealth();
-    this -> attrs(ATTR_SLEEPINESS) = 100 * getSleepiness()    / getMaxSleepiness();
-    this -> attrs(ATTR_HUNGER)     = 100 * getHunger()     / getMaxHunger();
-}
-
 //******************************************************************************
 // CHOOSE ACTION
 // Fuтction gets current action (decision) and called other function to make

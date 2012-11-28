@@ -73,24 +73,14 @@ std::string NonHumanoid::printObjectInfo() const
 std::vector <Action>* NonHumanoid::getActions()
 {
 // FIXME: Delete Log::NOTE();
-    this -> age_steps--;
-    this -> common_steps--;
-    this -> danger_steps--;
     this -> desc_steps--;
 
-    if (age_steps == 0)
-        updateAge();
     if (desc_steps == 0)
         updateNeedInDesc();
-    if (common_steps == 0)
-        updateCommonAttrs();
-    if (danger_steps == 0)
-        updateDanger();
 
-    if (getHunger() == getMaxHunger())
-    {
-        this -> damage(CREAT_DELTA_HEALTH);
-    }
+    // Update current state
+    updateCommonAttrs();
+
     // Store the result of last action and clear actions.
     clearActions();
 
@@ -278,29 +268,11 @@ void NonHumanoid::receiveMessage(Message message)
 //**************************************************************************
 // UPDATES
 //**************************************************************************
-void NonHumanoid::updateAge()
-{
-    increaseAge(1);
-    this -> age_steps = CREAT_AGE_STEPS;
-}
-
 void NonHumanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
     this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
-}
-
-void NonHumanoid::updateCommonAttrs()
-{
-    increaseHunger(CREAT_DELTA_HUNGER);
-    if (current_decision != SLEEP)
-        increaseSleepiness(CREAT_DELTA_SLEEP);
-
-    this -> attrs(ATTR_HUNGER,0)     = 100 * getHunger() / getMaxHunger();
-    this -> attrs(ATTR_SLEEPINESS,0) = 100 * getSleepiness() / getMaxSleepiness();
-
-    this -> common_steps = CREAT_STEPS;
 }
 
 
