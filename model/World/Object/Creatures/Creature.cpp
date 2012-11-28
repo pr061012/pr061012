@@ -18,14 +18,10 @@
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
+
+    // route computing variables
     goal(0),
     last_route_size(0),
-    prev_action(GO),
-    prev_action_state(SUCCEEDED),
-    inventory(new ObjectHeap),
-    current_action(NONE),
-    attrs(arma::mat(DM_ATR_CONST, 1)),
-    brains(dmaker),
 
     // some general attributes
     force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
@@ -38,6 +34,13 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
     
+    prev_action(GO),
+    prev_action_state(SUCCEEDED),
+    inventory(new ObjectHeap),
+    current_action(NONE),
+    attrs(arma::mat(DM_ATR_CONST, 1)),
+    brains(dmaker),
+
     // needs
     need_in_descendants(0),
     danger(0),               // we need in function to calculate it
@@ -510,17 +513,17 @@ void Creature::go(SpeedType speed)
         }
 
         // if we reached the target, face to the next point
-        uint speed = 0;
+        double my_speed = 0;
         if (speed == SLOW_SPEED)
         {   
-            speed = CREAT_SPEED_SLOW_VALUE;
+            my_speed = CREAT_SPEED_SLOW_VALUE;
         }
         else
         {
-            speed = CREAT_SPEED_FAST_VALUE;
+            my_speed = CREAT_SPEED_FAST_VALUE;
         }
 
-        while (getCoords().getDistance(route.top()) < speed)
+        while (getCoords().getDistance(route.top()) < my_speed)
         {
             route.pop();
 
@@ -542,6 +545,10 @@ void Creature::go(SpeedType speed)
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
     this -> actions.push_back(act);
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
 }
 
 // Fights the aim.
@@ -555,10 +562,12 @@ void Creature::fight()
     }
 }
 
+// Huunting algorithm.
 void Creature::hunt()
 {
     if (aim)
     {
+        // Hit the aim if it is within our reach
         if (reach_area.hitTest(aim -> getShape()))
         {
             fight();
@@ -566,7 +575,7 @@ void Creature::hunt()
         else
         {
             // FIXME Magic constant
-            if (getCoords().getDistance(aim -> getCoords()) < 10)
+            if (getCoords().getDistance(aim -> getCoords()) < 7)
             {
                 go(FAST_SPEED);
             }

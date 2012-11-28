@@ -32,13 +32,13 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setDangerLevel(DNGR_NON_HUMANOID);
 
     // Initialize of matrix of attr
-    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
-    attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
+    attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();
+    attrs(ATTR_SLEEPINESS,0)     = 100 * getSleepiness() / getMaxSleepiness();
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
     attrs(ATTR_LAZINESS,0)       = 50; // our animal is very lazy,
                                         // so it always wants to relax
-    attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
+    attrs(ATTR_HEALTH,0)         = 100 * (100 - getHealth()) / getMaxHealth();
     attrs(ATTR_COMMUNICATION,0)  = 0;
     attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
@@ -87,7 +87,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (danger_steps == 0)
         updateDanger();
 
-    if (hunger == max_hunger)
+    if (getHunger() == getMaxHunger())
     {
         this -> damage(CREAT_DELTA_HEALTH);
     }
@@ -122,9 +122,9 @@ std::vector <Action>* NonHumanoid::getActions()
         if (decr_sleep_step == 0)
         {
             // Check sleepiness.
-            if (sleepiness > 0)
+            if (getSleepiness() > 0)
             {
-                sleepiness--;
+                decreaseSleepiness(1);
             } 
             else
             {
@@ -147,14 +147,14 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == RELAX)
     {
         Log::NOTE("RELAX");
-        if (this -> health < max_health && common_steps == CREAT_STEPS)
+        if (common_steps == CREAT_STEPS)
         {
-            this -> heal(CREAT_DELTA_HEALTH);
+            heal(CREAT_DELTA_HEALTH);
         }
 
-        if (endurance < max_endurance)
+        if (getEndurance() < getMaxEndurance())
         {
-            endurance++;
+            increaseEndurance(1);
         }
         go(SLOW_SPEED);
     }
@@ -192,7 +192,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
 
         // Check hunger state.
-        if (hunger == 0)
+        if (getHunger() == 0)
         {
             this -> current_action = NONE;
             direction_is_set = false;
@@ -280,7 +280,7 @@ void NonHumanoid::receiveMessage(Message message)
 //**************************************************************************
 void NonHumanoid::updateAge()
 {
-    this -> age++;
+    increaseAge(1);
     this -> age_steps = CREAT_AGE_STEPS;
 }
 
@@ -293,14 +293,12 @@ void NonHumanoid::updateNeedInDesc()
 
 void NonHumanoid::updateCommonAttrs()
 {
-    if ((current_decision != EAT) && (this -> hunger + CREAT_DELTA_HUNGER < this -> max_hunger))
-        this -> hunger   += CREAT_DELTA_HUNGER;
-
+    increaseHunger(CREAT_DELTA_HUNGER);
     if (current_decision != SLEEP)
-        this -> sleepiness += CREAT_DELTA_SLEEP;
+        increaseSleepiness(CREAT_DELTA_SLEEP);
 
-    this -> attrs(ATTR_HUNGER,0)     = 100 * hunger / max_hunger;
-    this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
+    this -> attrs(ATTR_HUNGER,0)     = 100 * getHunger() / getMaxHunger();
+    this -> attrs(ATTR_SLEEPINESS,0) = 100 * getSleepiness() / getMaxSleepiness();
 
     this -> common_steps = CREAT_STEPS;
 }

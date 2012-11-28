@@ -49,7 +49,7 @@ void HarmPerformer::perform(Action& action)
     if (type == CREATURE)
     {
         Creature* cr = dynamic_cast<Creature*>(actor);
-        env_shape = cr -> getViewArea();
+        env_shape = cr -> getReachArea();
     }
 
     if (type == WEATHER)

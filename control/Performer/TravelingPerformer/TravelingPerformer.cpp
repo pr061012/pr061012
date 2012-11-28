@@ -50,8 +50,6 @@ void TravelingPerformer::perform(Action& action)
             {
                 if (dynamic_cast<Creature*>(actor) -> getEndurance() > 0)
                 {
-                    dynamic_cast<Creature*>(actor) -> setEndurance( 
-                    dynamic_cast<Creature*>(actor) -> getEndurance() - 1);
                     speed = CREAT_SPEED_FAST_VALUE;
                 }
                 else
