@@ -1,16 +1,19 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #include <cstdlib>
 
 #include "NonHumanoid.h"
-#include "../../Resource/Resource.h"
+
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
 #include "../../../../../common/Math/DoubleComparison.h"
+
+#include "../../Resource/Resource.h"
+
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -23,8 +26,8 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
 
     // Initialize some inhereted things.
     max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
-    this -> setMaxAge(age);
     this -> setAge(0);
+    this -> setMaxAge(age);
     this -> setShapeSize(SZ_NHUM_DIAM);
     this -> setShapeType(SHP_NON_HUMANOID);
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
@@ -159,6 +162,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
+            direction_is_set = false;
             go(SLOW_SPEED);
         }
 
@@ -177,23 +181,12 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == ESCAPE)
     {
         Log::NOTE("ESCAPE");
-        if (
-                this -> subsubtype == COW ||
-                this -> subsubtype == GOOSE ||
-                this -> subsubtype == SHEEP
-           )
-        {
-            if (!direction_is_set)
-            {
-                chooseDirectionToEscape();
-            }
-            go(SLOW_SPEED);
-        }
-        else
-        {
 
+        if (!direction_is_set)
+        {
+            chooseDirectionToEscape();
         }
-
+        go(SLOW_SPEED);
     }
 
     //**************************************************************************
@@ -224,7 +217,6 @@ std::vector <Action>* NonHumanoid::getActions()
         Log::NOTE("EXPLORE");
     }
 
-
     else if (current_decision == REALIZE_DREAM)
     {
         Log::NOTE("REALIZE_DREAM");
@@ -240,6 +232,13 @@ std::vector <Action>* NonHumanoid::getActions()
 
 void NonHumanoid::receiveMessage(Message message)
 {
+    MessageType msg_type = message.getType();
+
+    if (msg_type == UNDER_ATTACK)
+    {
+        chooseDirectionToEscape();
+        go(SLOW_SPEED);
+    }
 }
 
 //**************************************************************************

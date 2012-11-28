@@ -237,6 +237,8 @@ private:
     const DecisionMaker hum_dmaker;
     /// NonHumanoid decision maker.
     const DecisionMaker nhum_dmaker;
+
+    bool checkCoord(Object* new_obj);
 };
 
 #endif // WORLD_H
