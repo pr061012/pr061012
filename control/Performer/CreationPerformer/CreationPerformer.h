@@ -1,17 +1,17 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #ifndef CREATION_PERFORMER_H
 #define CREATION_PERFORMER_H
 
-#include "../../../model/World/World.h"
 #include "../Performer.h"
-#include "../../../model/World/ObjectFactory/ObjectFactory.h"
-#include "../../../model/World/Indexator/Indexator.h"
-#include "../../../model/World/Object/Object.h"
+
 #include "../../../common/ParamArray/ParamArray.h"
+
+#include "../../../model/World/World.h"
+#include "../../../model/World/Object/Object.h"
 
 /**
  * @class CreationPerformer
@@ -34,7 +34,7 @@ public:
     /**
      * @brief Destructor
      */
-    virtual ~CreationPerformer();
+    ~CreationPerformer();
 
     //**************************************************************************
     //  PERFORM
@@ -48,9 +48,8 @@ public:
 
 private:
 
-
     //**************************************************************************
-    // HELPER FUNCTIONS
+    // AUXILIARY FUNCTIONS
     //**************************************************************************
 
     /**
@@ -60,12 +59,28 @@ private:
      */
     bool checkCoord(Object *new_obj);
 
+    /**
+     * @brief Auxiliary function for create building
+     * @param action
+     * @param param
+     * @return object was created
+     */
     Object* createBuilding(Action& action, ParamArray& param);
 
+    /**
+     * @brief Auxiliary function for create creature
+     * @param action
+     * @param param
+     * @return object was created
+     */
     Object* createCreature(Action& action, ParamArray& param);
 
-    Object* createResource(Action& action, ParamArray& param);
-
+    /**
+     * @brief Auxiliary function for create tool
+     * @param action
+     * @param param
+     * @return object was created
+     */
     Object* createTool(Action& action, ParamArray &param);
 
 };
