@@ -65,6 +65,12 @@ class View
     int width;
     int height;
 
+#ifdef VIEW_DEBUG
+public:
+    /// Flag, indicating whether the grid should be displayed
+    bool display_grid = false;
+#endif
+
 public:
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.

@@ -100,8 +100,9 @@ double View::getMaxScrY()
 
 void View::setDistance(double newdist)
 {
-    view_world -> setCamRad((double)VIEW_CAM_RADIUS*newdist);
-//    std::cout << getDistance() << std::endl;
+    view_world -> setCamRad( ((double)VIEW_CAM_RADIUS) * newdist );
+    std::cout << "[View] Set distance to " << getDistance()
+              << " of original" << std::endl;
 }
 
 
@@ -152,7 +153,7 @@ std::string View::getUserInput()
     return temp;
 }
 
-bool mouse_clicked = 0;
+bool mouse_clicked = false;
 
 void View::redraw()
 {
@@ -190,7 +191,7 @@ void View::redraw()
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
-        mouse_clicked = 1;
+        mouse_clicked = true;
     }
     else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
     {
@@ -228,7 +229,7 @@ void View::redraw()
             }
         }
 
-        mouse_clicked = 0;
+        mouse_clicked = false;
     }
 
     if(mouse_clicked)
@@ -258,31 +259,34 @@ void View::redraw()
 
 
 #ifdef VIEW_DEBUG
-    // In debug mode, draw a grid over the screen.
-
-    double xoff = -view_world -> worldToScreenX(0.0);
-    double yoff = -view_world -> worldToScreenY(0.0);
-
-    xoff = xoff - (int)xoff;
-    yoff = yoff - (int)yoff;
-
-    int end = getMaxScrX() * getDistance();
-
-    glBegin(GL_LINES);
-    for(int i = -end; i <= end; i++)
+    if(display_grid)
     {
-        double shift = (double)i / getDistance();
+        // In debug mode, draw a grid over the screen.
 
-        xoff /= getDistance();
-        yoff /= getDistance();
+        double xoff = -view_world -> worldToScreenX(0.0);
+        double yoff = -view_world -> worldToScreenY(0.0);
 
-        glVertex2d(-getMaxScrX(),  shift - yoff);
-        glVertex2d( getMaxScrX(),  shift - yoff);
+        xoff *= getDistance();
+        yoff *= getDistance();
 
-        glVertex2d( shift - xoff, -getMaxScrY());
-        glVertex2d( shift - xoff,  getMaxScrY());
+        xoff = xoff - (int)xoff;
+        yoff = yoff - (int)yoff;
+
+        int end = getMaxScrX() * getDistance();
+
+        glBegin(GL_LINES);
+        for(int i = -end; i <= end; i++)
+        {
+            double shift = (double)i / getDistance() * 2.0;
+
+            glVertex2d(-getMaxScrX(),  shift - yoff);
+            glVertex2d( getMaxScrX(),  shift - yoff);
+
+            glVertex2d( shift - xoff, -getMaxScrY());
+            glVertex2d( shift - xoff,  getMaxScrY());
+        }
+        glEnd();
     }
-    glEnd();
 
     // Drawing debug message at the top of the screen.
 
