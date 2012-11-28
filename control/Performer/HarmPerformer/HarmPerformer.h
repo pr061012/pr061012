@@ -7,7 +7,8 @@
 #define HARM_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/Indexator/Indexator.h"
+
+#include "../../../model/World/World.h"
 
 /**
  * @class HarmPerformer

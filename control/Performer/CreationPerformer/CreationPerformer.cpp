@@ -1,15 +1,17 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 #include "CreationPerformer.h"
+
+#include "../../../common/Math/Random.h"
 #include "../../../common/BasicTypes.h"
 #include "../../../common/BasicDefines.h"
+
 #include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Resource/Resource.h"
-#include "../../../common/Math/Random.h"
 #include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/World/Object/Resource/Resource.h"
 
 CreationPerformer::CreationPerformer(World* world):
     Performer(world) 
@@ -22,9 +24,11 @@ CreationPerformer::~CreationPerformer()
 
 }
 
+//TODO: Add comments.
+
 void CreationPerformer::perform(Action& action)
 {
-    // Get initial value.
+    // Get initial values.
     Object* actor = action.getActor();
     Object* new_object;
     ObjectType type = actor -> getType();
@@ -102,8 +106,7 @@ void CreationPerformer::perform(Action& action)
                 }
                 else
                 {
-                    action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
-
+                    action.setError(OBJ_CANT_CREATE);
                     action.markAsFailed();
                     return;
                 }
@@ -117,41 +120,9 @@ void CreationPerformer::perform(Action& action)
 
         }
     }
-    else if (type == RESOURCE)
-    {
-        if (obj_type == RESOURCE)
-        {
-            // Create new resource.
-            new_object = createResource(action, param);
-
-            dynamic_cast<Resource*>(new_object) -> makePickable();
-
-            if (checkCoord(new_object))
-            {
-                // If all is OK, add new_object in world.
-                world -> addObject(true, new_object);
-                // Increase actor amount.
-                // TODO: Magic const.
-                actor -> heal(1);
-
-                action.markAsSucceeded();
-            }
-            else
-            {
-                delete new_object;
-                action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
-                action.markAsFailed();
-            }
-            return;
-        }
-        else
-        {
-            action.markAsFailed();
-            return;
-        }
-    }
     else
     {
+        action.setError(OBJ_CANT_CREATE);
         action.markAsFailed();
         return;
     }
@@ -160,15 +131,19 @@ void CreationPerformer::perform(Action& action)
 bool CreationPerformer::checkCoord(Object* new_obj)
 {
     bool ret = false;
+
     Shape shape = new_obj -> getShape();
+    Vector center = new_obj -> getCoords();
+    double size =  shape.getSize();
+
     // Get obstacles
     ObjectType type = new_obj -> getType();
     ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(shape);
+
     uint count_building = obstacles.getTypeAmount(BUILDING);
     uint count_creature = obstacles.getTypeAmount(CREATURE);
     uint count_resource = obstacles.getTypeAmount(RESOURCE);
-    Vector center = new_obj -> getCoords();
-    double size =  shape.getSize();
+
     if
     (
         center.getX() - size / 2 < 0 ||
@@ -224,17 +199,6 @@ Object* CreationPerformer::createCreature(Action& action, ParamArray& param)
     param.addKey<CreatureType>("creat_type", creat_type);
 
     return world -> getObjectFactory() -> createObject(CREATURE, param);
-}
-
-Object* CreationPerformer::createResource(Action& action, ParamArray& param)
-{
-    ResourceType res_type = action.getParam<ResourceType>("res_type");
-    uint res_amount = action.getParam<uint>("res_amount");
-
-    param.addKey<ResourceType>("res_type", res_type);
-    param.addKey<uint>("res_amount", res_amount);
-
-    return world -> getObjectFactory() -> createObject(RESOURCE, param);
 }
 
 Object* CreationPerformer::createTool(Action& action, ParamArray& param)
