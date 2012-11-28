@@ -4,10 +4,13 @@
 */
 
 #include "HarmPerformer.h"
-#include "../../../model/World/Object/Object.h"
+
 #include "../../../common/Math/Random.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../common/BasicTypes.h"
+
+#include "../../../model/World/Message/Message.h"
+#include "../../../model/World/Object/Object.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Weather/Weather.h"
 
@@ -37,6 +40,7 @@ void HarmPerformer::perform(Action& action)
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
     {
+        action.setError(OBJ_CANT_HARM);
         action.markAsFailed();
         return;
     }
@@ -69,26 +73,35 @@ void HarmPerformer::perform(Action& action)
         if (obstacles.find(participants[i], false) != iter)
         {
             participants[i] -> damage(harm);
+
+            // Send message about attack.
+            Message msg(UNDER_ATTACK, actor);
+            participants[i] -> receiveMessage(msg);
         }
         else
         {
-            ActionError error = OBJ_IS_OUT_OF_VIEW;
-            action.setError(error);
+            // Count the amount of error.
             count_error += 1;
         }
     }
+
+    // If all objects receive attack, then...
     if (!count_error)
     {
         action.markAsSucceeded();
         return;
     }
-    if (count_error == participants.size())
+    // If all objects are out of reach, then...
+    else if (count_error == participants.size())
     {
+        action.setError(ALL_OBJS_ARE_OUT_OF_REACH);
         action.markAsFailed();
         return;
     }
+    // If some objects are out of reach, then...
     else
     {
+        action.setError(SOME_OBJS_ARE_OUT_OF_REACH);
         action.markAsSucceededWithErrors();
     }
 }
