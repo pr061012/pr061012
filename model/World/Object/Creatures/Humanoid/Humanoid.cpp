@@ -147,6 +147,16 @@ std::vector <Action>* Humanoid::getActions()
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
     }
 
+    // Update attrs
+    if (current_decision == EAT)
+    {
+        attrs(ATTR_HUNGER) = 100 * getHunger() / getMaxHunger();
+    }
+    if (current_decision == SLEEP)
+    {
+        attrs(ATTR_SLEEPINESS) = 100 * getSleepiness() / getMaxSleepiness();
+    }
+
     // Force him to sleep if he really want it
     if (getSleepiness() == getMaxSleepiness())
     {
@@ -488,10 +498,13 @@ std::vector <Action>* Humanoid::getActions()
                 break;
             }
         }
-        Action act(EAT_OBJ, this);
-        act.addParticipant(aim);
-        this -> actions.push_back(act);
-        current_action = NONE;
+        if (aim != nullptr)
+        {
+            Action act(EAT_OBJ, this);
+            act.addParticipant(aim);
+            this -> actions.push_back(act);
+            current_action = NONE;
+        }
     }
 
     //**************************************************************************
@@ -502,7 +515,8 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIGHT)
     {
-        fight();
+        // fight();
+        go(SLOW_SPEED);
     }
 
     //**************************************************************************
