@@ -7,14 +7,15 @@
 #define KEY_HANDLER_H
 
 class View;
-class KeyHandler;
+class InputHandler;
 
 #include "../View.h"
 #include "../../common/BasicTypes.h"
 
-class KeyHandler
+class InputHandler
 {
     bool key_was_pressed[GLFW_KEY_LAST+1];
+    int mouse_wheel;
     View* view;
 
 public:
@@ -25,12 +26,12 @@ public:
     /**
      * @brief Constructor
      */
-    KeyHandler(View* v);
+    InputHandler(View* v);
 
     /**
      * @brief Destructor
      */
-    ~KeyHandler();
+    ~InputHandler();
 
     bool isCharPressed(int c);
 

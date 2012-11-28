@@ -14,7 +14,7 @@
 #include <vector>
 
 #include "ViewWorld/ViewWorld.h"
-#include "KeyHandler/KeyHandler.h"
+#include "InputHandler/InputHandler.h"
 #include "../common/BasicTypes.h"
 #include "../common/BasicDefines.h"
 #include "../model/World/IWorld.h"
@@ -41,7 +41,7 @@ class View
     ViewWorld* view_world;
 
     /// Key handler for GUI
-    KeyHandler* key_handler;
+    InputHandler* input_handler;
 
     /// Indixates, whether world should be reset
     bool reset;
@@ -64,6 +64,12 @@ class View
     /// Dimensions of program window, in pixels
     int width;
     int height;
+
+#ifdef VIEW_DEBUG
+public:
+    /// Flag, indicating whether the grid should be displayed
+    bool display_grid = false;
+#endif
 
 public:
     //**************************************************************************
@@ -109,6 +115,10 @@ public:
      */
     double getMaxScrX();
     double getMaxScrY();
+
+    void setDistance(double newdist);
+
+    double getDistance();
 
     /**
      * @brief Sets game state to paused

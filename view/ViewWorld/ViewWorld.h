@@ -26,6 +26,8 @@ class ViewWorld
     int width;
     int height;
 
+    double cam_radius;
+
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
     /// required to get information about units that are not
@@ -118,6 +120,10 @@ public:
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
+
+    double getCamRad();
+
+    void setCamRad(double rad);
 
     double getX();
     double getY();

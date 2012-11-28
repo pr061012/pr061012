@@ -23,7 +23,7 @@ View::View(const IWorld& w)
     console_input = "";
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height);
-    this -> key_handler = new KeyHandler(this);
+    this -> input_handler = new InputHandler(this);
 
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
@@ -34,7 +34,7 @@ View::View(const IWorld& w)
 
     glcFont(this -> font);
 
-    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, 0.01 - VIEW_CAM_SIZE/2, 10.0, 0.5
+    this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, -getMaxScrY(), 10.0, 0.5
 #ifdef __glfw3_h__
     ,window
 #endif
@@ -49,7 +49,7 @@ View::View(const IWorld& w)
 View::~View()
 {
     delete view_world;
-    delete key_handler;
+    delete input_handler;
 
     for(uint i = rendered.size()-1; i > 0 ; --i)
     {
@@ -85,7 +85,6 @@ void View::setX(double new_var)
 
 void View::setY(double new_var)
 {
-    new_var = new_var > 0 ? new_var : 0;
     view_world -> setY(new_var);
 }
 
@@ -97,6 +96,19 @@ double View::getMaxScrX()
 double View::getMaxScrY()
 {
     return VIEW_CAM_SIZE * height/width;
+}
+
+void View::setDistance(double newdist)
+{
+    view_world -> setCamRad( ((double)VIEW_CAM_RADIUS) * newdist );
+    std::cout << "[View] Set distance to " << getDistance()
+              << " of original" << std::endl;
+}
+
+
+double View::getDistance()
+{
+    return view_world -> getCamRad() / VIEW_CAM_RADIUS;
 }
 
 void View::setPaused(bool new_state)
@@ -141,7 +153,7 @@ std::string View::getUserInput()
     return temp;
 }
 
-bool mouse_clicked = 0;
+bool mouse_clicked = false;
 
 void View::redraw()
 {
@@ -156,7 +168,7 @@ void View::redraw()
 
     // Handling screen presses
 
-    key_handler->handleKeys();
+    input_handler->handleKeys();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTranslatef(0, 0, -1);
@@ -179,7 +191,7 @@ void View::redraw()
 
     if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
-        mouse_clicked = 1;
+        mouse_clicked = true;
     }
     else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
     {
@@ -217,7 +229,7 @@ void View::redraw()
             }
         }
 
-        mouse_clicked = 0;
+        mouse_clicked = false;
     }
 
     if(mouse_clicked)
@@ -237,7 +249,6 @@ void View::redraw()
 
         if(!focus_changed)
         {
-
             // Draw a circle at cursor position
 
             glColor4d(0.0, 0.0, 0.0, 0.6);
@@ -248,24 +259,34 @@ void View::redraw()
 
 
 #ifdef VIEW_DEBUG
-    // In debug mode, draw a grid over the screen.
-
-    double xoff = -view_world -> worldToScreenX(0.0);
-    double yoff = -view_world -> worldToScreenY(0.0);
-
-    xoff = xoff - (int)xoff;
-    yoff = yoff - (int)yoff;
-
-    glBegin(GL_LINES);
-    for(int i = -getMaxScrX(); i <= getMaxScrX(); i++)
+    if(display_grid)
     {
-        glVertex2d(-getMaxScrX(),  i - yoff);
-        glVertex2d( getMaxScrX(),  i - yoff);
+        // In debug mode, draw a grid over the screen.
 
-        glVertex2d( i - xoff, -getMaxScrY());
-        glVertex2d( i - xoff,  getMaxScrY());
+        double xoff = -view_world -> worldToScreenX(0.0);
+        double yoff = -view_world -> worldToScreenY(0.0);
+
+        xoff *= getDistance();
+        yoff *= getDistance();
+
+        xoff = xoff - (int)xoff;
+        yoff = yoff - (int)yoff;
+
+        int end = getMaxScrX() * getDistance();
+
+        glBegin(GL_LINES);
+        for(int i = -end; i <= end; i++)
+        {
+            double shift = (double)i / getDistance() * 2.0;
+
+            glVertex2d(-getMaxScrX(),  shift - yoff);
+            glVertex2d( getMaxScrX(),  shift - yoff);
+
+            glVertex2d( shift - xoff, -getMaxScrY());
+            glVertex2d( shift - xoff,  getMaxScrY());
+        }
+        glEnd();
     }
-    glEnd();
 
     // Drawing debug message at the top of the screen.
 

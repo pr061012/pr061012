@@ -50,10 +50,10 @@ void World::genResources()
     ParamArray building_mat_params;
 
     food_params.addKey<ResourceType>("res_type", RES_FOOD);
-    food_params.addKey<uint>("res_amount", 10);
+    food_params.addKey<uint>("res_amount", 0);
 
     building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
-    building_mat_params.addKey<uint>("res_amount", 10);
+    building_mat_params.addKey<uint>("res_amount", 0);
 
     uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
@@ -105,7 +105,7 @@ void World::genWeather()
 {
     ParamArray weat_params;
     weat_params.addKey<WeatherType>("weat_type", METEOR_SHOWER);
-    weat_params.addKey<uint>("weat_steps", 10);
+    weat_params.addKey<uint>("weat_steps", 0);
 
     uint amount = Random::int_range(5, 10);
     for (uint i = 0; i < amount; i++)

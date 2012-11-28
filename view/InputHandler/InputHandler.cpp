@@ -1,7 +1,8 @@
-#include "KeyHandler.h"
+#include "InputHandler.h"
 
 // TODO: Change name this define
 #define SPEED 1
+#define VIEW_Z_SPEED 0.05
 
 #ifdef __glfw3_h__
     #define glfwGetKey(key) glfwGetKey(view -> getWindow(), key)    
@@ -11,17 +12,18 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-KeyHandler::KeyHandler(View* v):
+InputHandler::InputHandler(View* v):
     view(v)
 {
+    mouse_wheel = glfwGetMouseWheel();
 }
 
-KeyHandler::~KeyHandler()
+InputHandler::~InputHandler()
 {
 
 }
 
-bool KeyHandler::isCharPressed(int c)
+bool InputHandler::isCharPressed(int c)
 {
     if(c >= 'A' && c <= 'Z')
     {
@@ -50,7 +52,7 @@ bool KeyHandler::isCharPressed(int c)
     return glfwGetKey(c) && !key_was_pressed[c];
 }
 
-void KeyHandler::handleKeys()
+void InputHandler::handleKeys()
 {
 
     if(!view -> getFocus())
@@ -78,6 +80,20 @@ void KeyHandler::handleKeys()
         if(glfwGetKey('R') && !key_was_pressed['R'])
         {
             view -> setReset(true);
+        }
+
+#ifdef VIEW_DEBUG
+        if(glfwGetKey('G') && !key_was_pressed['G'])
+        {
+            view -> display_grid = !view -> display_grid;
+        }
+#endif
+
+        int tmp = glfwGetMouseWheel();
+        if(mouse_wheel != tmp)
+        {
+            view -> setDistance(view -> getDistance() - VIEW_Z_SPEED * (tmp-mouse_wheel));
+            mouse_wheel = tmp;
         }
     }
     else
