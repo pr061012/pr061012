@@ -43,7 +43,7 @@
  *          * *weat_type* -- WeatherType.
  *          * *weat_steps* -- amount of steps that Weather will live (uint) (*).
  *
- *        **Note**: * -- leave 0 to pick random value.
+ *        **Note**: * -- optional fields, don't add them to pick random value.
  */
 class ObjectFactory
 {
