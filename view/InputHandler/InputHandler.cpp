@@ -15,7 +15,11 @@
 InputHandler::InputHandler(View* v):
     view(v)
 {
+#ifndef __glfw3_h__
     mouse_wheel = glfwGetMouseWheel();
+#else
+    mouse_wheel = 0;
+#endif
 }
 
 InputHandler::~InputHandler()
@@ -88,13 +92,21 @@ void InputHandler::handleKeys()
             view -> display_grid = !view -> display_grid;
         }
 #endif
-
+#ifndef __glfw3_h__
         int tmp = glfwGetMouseWheel();
         if(mouse_wheel != tmp)
         {
             view -> setDistance(view -> getDistance() - VIEW_Z_SPEED * (tmp-mouse_wheel));
             mouse_wheel = tmp;
         }
+#else
+        double tmpx, tmpy;
+        glfwGetScrollOffset(view -> getWindow(), &tmpx, &tmpy);
+        if (tmpy)
+        { 
+            view -> setDistance(view -> getDistance() - VIEW_Z_SPEED * tmpy);
+        }
+#endif
     }
     else
     {
