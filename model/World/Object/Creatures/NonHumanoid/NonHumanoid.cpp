@@ -22,6 +22,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     int age = Random::int_range(NHUM_AGE_MIN, NHUM_AGE_MAX);
 
     // Initialize some inhereted things.
+    max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setMaxAge(age);
     this -> setAge(0);
     this -> setShapeSize(SZ_NHUM_DIAM);
@@ -32,13 +33,13 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setDangerLevel(DNGR_NON_HUMANOID);
 
     // Initialize of matrix of attr
-    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
-    attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
+    attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();
+    attrs(ATTR_SLEEPINESS,0)     = 100 * getSleepiness() / getMaxSleepiness();
     attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
     attrs(ATTR_NEED_IN_POINTS,0) = 0;
     attrs(ATTR_LAZINESS,0)       = 50; // our animal is very lazy,
                                         // so it always wants to relax
-    attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
+    attrs(ATTR_HEALTH,0)         = 100 * (100 - getHealth()) / getMaxHealth();
     attrs(ATTR_COMMUNICATION,0)  = 0;
     attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
@@ -73,24 +74,14 @@ std::string NonHumanoid::printObjectInfo() const
 std::vector <Action>* NonHumanoid::getActions()
 {
 // FIXME: Delete Log::NOTE();
-    this -> age_steps--;
-    this -> common_steps--;
-    this -> danger_steps--;
     this -> desc_steps--;
 
-    if (age_steps == 0)
-        updateAge();
     if (desc_steps == 0)
         updateNeedInDesc();
-    if (common_steps == 0)
-        updateCommonAttrs();
-    if (danger_steps == 0)
-        updateDanger();
 
-    if (hunger == max_hunger)
-    {
-        this -> damage(CREAT_DELTA_HEALTH);
-    }
+    // Update current state
+    updateCommonAttrs();
+
     // Store the result of last action and clear actions.
     clearActions();
 
@@ -118,27 +109,7 @@ std::vector <Action>* NonHumanoid::getActions()
     if (current_decision == SLEEP)
     {
         Log::NOTE("SLEEP");
-        // Check timesteps before wake up.
-        if (decr_sleep_step == 0)
-        {
-            // Check sleepiness.
-            if (sleepiness > 0)
-            {
-                sleepiness--;
-            } 
-            else
-            {
-                // If NH is awake, set NONE decision.
-                current_decision = NONE;
-            }
-
-            // Set timesteps, before increase sleepness.
-            decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
-        }
-        else
-        {
-            decr_sleep_step--;
-        }
+        sleep();
     }
 
     //*************************************************************************
@@ -147,14 +118,14 @@ std::vector <Action>* NonHumanoid::getActions()
     else if (current_decision == RELAX)
     {
         Log::NOTE("RELAX");
-        if (this -> health < max_health && common_steps == CREAT_STEPS)
+        if (common_steps == CREAT_STEPS)
         {
-            this -> heal(CREAT_DELTA_HEALTH);
+            heal(CREAT_DELTA_HEALTH);
         }
 
-        if (endurance < max_endurance)
+        if (getEndurance() < getMaxEndurance())
         {
-            endurance++;
+            increaseEndurance(1);
         }
         go(SLOW_SPEED);
     }
@@ -192,7 +163,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
 
         // Check hunger state.
-        if (hunger == 0)
+        if (getHunger() == 0)
         {
             this -> current_action = NONE;
             direction_is_set = false;
@@ -278,31 +249,11 @@ void NonHumanoid::receiveMessage(Message message)
 //**************************************************************************
 // UPDATES
 //**************************************************************************
-void NonHumanoid::updateAge()
-{
-    this -> age++;
-    this -> age_steps = CREAT_AGE_STEPS;
-}
-
 void NonHumanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
     this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
-}
-
-void NonHumanoid::updateCommonAttrs()
-{
-    if ((current_decision != EAT) && (this -> hunger + CREAT_DELTA_HUNGER < this -> max_hunger))
-        this -> hunger   += CREAT_DELTA_HUNGER;
-
-    if (current_decision != SLEEP)
-        this -> sleepiness += CREAT_DELTA_SLEEP;
-
-    this -> attrs(ATTR_HUNGER,0)     = 100 * hunger / max_hunger;
-    this -> attrs(ATTR_SLEEPINESS,0) = 100 * sleepiness / max_sleepiness;
-
-    this -> common_steps = CREAT_STEPS;
 }
 
 

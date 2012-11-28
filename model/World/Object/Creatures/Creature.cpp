@@ -18,14 +18,10 @@
 Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     Object(CREATURE),
     subtype(type),
+
+    // route computing variables
     goal(0),
     last_route_size(0),
-    prev_action(GO),
-    prev_action_state(SUCCEEDED),
-    inventory(new ObjectHeap),
-    current_action(NONE),
-    attrs(arma::mat(DM_ATR_CONST, 1)),
-    brains(dmaker),
 
     // some general attributes
     force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
@@ -38,6 +34,13 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
     
+    prev_action(GO),
+    prev_action_state(SUCCEEDED),
+    inventory(new ObjectHeap),
+    current_action(NONE),
+    attrs(arma::mat(DM_ATR_CONST, 1)),
+    brains(dmaker),
+
     // needs
     need_in_descendants(0),
     danger(0),               // we need in function to calculate it
@@ -105,6 +108,11 @@ Shape Creature::getReachArea()
 ObjectHeap * Creature::getInventory()
 {
     return this -> inventory;
+}
+
+uint Creature::getCurrentDecision() const
+{
+    return current_decision;
 }
 
 //**********************************************************
@@ -175,6 +183,46 @@ void Creature::setMaxHealth(uint max_health)
 }
 
 uint Creature::getMaxHealth()
+{
+    return this -> max_health;
+}
+
+//******************************************************************************
+// CHANGING HEALTH.
+//******************************************************************************
+
+uint Creature::damage(uint delta)
+{
+    uint d = delta;
+
+    if (this -> health < d)
+    {
+        d = this -> health;
+    }
+
+    this -> health -= d;
+    return d;
+}
+
+uint Creature::heal(uint delta)
+{
+    uint d = delta;
+
+    if (this -> health + d > this -> max_health)
+    {
+        d = this -> max_health - this -> health;
+    }
+
+    this -> health += d;
+    return d;
+}
+
+uint Creature::getHealthPoints() const
+{
+    return this -> health;
+}
+
+uint Creature::getMaxHealthPoints() const
 {
     return this -> max_health;
 }
@@ -340,85 +388,6 @@ const Object* Creature::getAim()
     return this -> aim;
 }
 
-//******************************************************************************
-// CHANGING HEALTH.
-//******************************************************************************
-
-uint Creature::damage(uint delta)
-{
-    uint d = delta;
-
-    if (this -> health < d)
-    {
-        d = this -> health;
-    }
-
-    this -> health -= d;
-    return d;
-}
-
-uint Creature::heal(uint delta)
-{
-    uint d = delta;
-
-    if (this -> health + d > this -> max_health)
-    {
-        d = this -> max_health - this -> health;
-    }
-
-    this -> health += d;
-    return d;
-}
-
-uint Creature::getHealthPoints() const
-{
-    return this -> health;
-}
-
-uint Creature::getMaxHealthPoints() const
-{
-    return this -> max_health;
-}
-
-void Creature::feed(uint delta)
-{
-    if(delta < hunger)
-    {
-        hunger -= delta;
-    }
-    else
-    {
-        hunger = 0;
-    }
-}
-
-// look for objects arounв and count danger level
-void Creature::updateDanger()
-{
-    ObjectHeap::const_iterator iter;
-    this -> danger = 0;
-
-    // Only creatures and weather can be dangerous
-    for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
-    }
-
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
-    }
-    danger_steps = CREAT_DANGER_STEPS;
-}
-
 void Creature::chooseDirectionToEscape()
 {
     // Initialize vector of escaping.
@@ -462,7 +431,7 @@ void Creature::chooseDirectionToEscape()
 }
 
 //**********************************************************
-// ACTION GENERATION
+// ACTIONS
 //**********************************************************
 
 // Go with the given speed
@@ -510,17 +479,17 @@ void Creature::go(SpeedType speed)
         }
 
         // if we reached the target, face to the next point
-        uint speed = 0;
+        double my_speed = 0;
         if (speed == SLOW_SPEED)
         {   
-            speed = CREAT_SPEED_SLOW_VALUE;
+            my_speed = CREAT_SPEED_SLOW_VALUE;
         }
         else
         {
-            speed = CREAT_SPEED_FAST_VALUE;
+            my_speed = CREAT_SPEED_FAST_VALUE;
         }
 
-        while (getCoords().getDistance(route.top()) < speed)
+        while (getCoords().getDistance(route.top()) < my_speed)
         {
             route.pop();
 
@@ -542,6 +511,10 @@ void Creature::go(SpeedType speed)
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
     this -> actions.push_back(act);
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
 }
 
 // Fights the aim.
@@ -555,10 +528,12 @@ void Creature::fight()
     }
 }
 
+// Huunting algorithm.
 void Creature::hunt()
 {
     if (aim)
     {
+        // Hit the aim if it is within our reach
         if (reach_area.hitTest(aim -> getShape()))
         {
             fight();
@@ -566,7 +541,7 @@ void Creature::hunt()
         else
         {
             // FIXME Magic constant
-            if (getCoords().getDistance(aim -> getCoords()) < 10)
+            if (getCoords().getDistance(aim -> getCoords()) < 7)
             {
                 go(FAST_SPEED);
             }
@@ -576,6 +551,41 @@ void Creature::hunt()
             }
         }
     }
+}
+
+// Sleeping
+void Creature::sleep()
+{
+    // if the time has come, then sleep, heal, and rest.
+    if (!decr_sleep_step)
+    {
+        decreaseSleepiness(1);
+        if (!sleepiness)
+        {
+            this -> attrs(ATTR_SLEEPINESS, 0) = 0;
+        }
+        increaseEndurance(1);
+        heal(CREAT_DELTA_HEALTH);
+        decr_sleep_step = max_decr_sleep_step;
+    }
+    else
+    {
+        decr_sleep_step--;
+    }
+}
+
+// Clears actions and saves the result of previous one.
+void Creature::clearActions()
+{
+    // TODO
+    // Make it better (more info, history)
+    if (actions.size())
+    {
+        prev_action = actions[0].getType();
+        prev_action_state = actions[0].getState();
+        prev_action_error = actions[0].getError();
+    }
+    actions.clear();
 }
 
 //******************************************************************************
@@ -637,28 +647,90 @@ double Creature::setDirection()
         return Random::double_num(M_PI * 2);
 }
 
+
 //**********************************************************
-// DEBUG
+// UPDATES
 //**********************************************************
 
-uint Creature::getCurrentDecision() const
+// look for objects arounв and count danger level
+void Creature::updateDanger()
 {
-    return current_decision;
-}
+    ObjectHeap::const_iterator iter;
+    this -> danger = 0;
 
-//**********************************************************
-// ACTIONS
-//**********************************************************
-
-void Creature::clearActions()
-{
-    // TODO
-    // Make it better (more info, history)
-    if (actions.size())
+    // Only creatures and weather can be dangerous
+    for(
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+       )
     {
-        prev_action = actions[0].getType();
-        prev_action_state = actions[0].getState();
-        prev_action_error = actions[0].getError();
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
+            this -> danger += (*iter) -> getDangerLevel();
     }
-    actions.clear();
+
+    for(
+        iter = objects_around.begin(WEATHER);
+        iter != objects_around.end(WEATHER); iter++
+       )
+    {
+        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
+            this -> danger += (*iter) -> getDangerLevel();
+    }
+
+    // Update stats
+    danger_steps = CREAT_DANGER_STEPS;
+    attrs(ATTR_DANGER,0) = danger;
 }
+
+// Update age, hunger, sleepiness, health, danger.
+void Creature::updateCommonAttrs()
+{
+    // Age updating
+    if (!age_steps)
+    {
+        increaseAge(1);
+        age_steps = CREAT_AGE_STEPS;
+    }
+    else
+    {
+        age_steps--;
+    }
+    
+    // Sleepiness and hunger updating
+    if (!common_steps)
+    {
+        increaseHunger(CREAT_DELTA_HUNGER);
+
+        if (current_action != SLEEP)
+        {
+            increaseSleepiness(CREAT_DELTA_SLEEP);
+        }
+        common_steps = CREAT_STEPS;
+        // Update attributes
+        this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
+        this -> attrs(ATTR_HUNGER, 0) = 100 * hunger / max_hunger;
+        this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
+    }
+    else
+    {
+        common_steps--;
+    }
+
+    // Starving
+    if (hunger == max_hunger)
+    {
+        damage(CREAT_DELTA_HEALTH);
+    }
+
+    // Danger updating
+    if (danger_steps)
+    {
+        updateDanger();
+    }
+    else
+    {
+        danger_steps--;
+    }
+
+}
+

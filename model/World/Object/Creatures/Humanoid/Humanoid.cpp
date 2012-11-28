@@ -39,6 +39,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     int max_age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
     // Initialize some inhereted things.
+    max_decr_sleep_step = HUM_DECR_SLEEP_STEPS;
     this -> setMaxAge(max_age);
     this -> setAge(0);
     this -> setShapeSize(SZ_HUM_DIAM);
@@ -67,12 +68,12 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     need_in_house  = 70;
 
     //Initialize of matrix of attr.
-    attrs(ATTR_HUNGER,0)         = 100 * hunger / max_hunger;
-    attrs(ATTR_SLEEPINESS,0)     = 100 * sleepiness / max_sleepiness;
+    attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();
+    attrs(ATTR_SLEEPINESS,0)     = 100 * getSleepiness() / getMaxSleepiness();
     attrs(ATTR_NEED_IN_HOUSE,0)  = need_in_house;
     attrs(ATTR_NEED_IN_POINTS,0) = 0; // need_in_points;
     attrs(ATTR_LAZINESS,0)       = laziness;
-    attrs(ATTR_HEALTH,0)         = 100 * (100 - health) / max_health;
+    attrs(ATTR_HEALTH,0)         = 100 * (100 - getHealth()) / getMaxHealth();
     attrs(ATTR_COMMUNICATION,0)  = 0; // 100 * sociability / max_sociability;
     attrs(ATTR_DANGER,0)         = danger;
     attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
@@ -117,42 +118,15 @@ std::string Humanoid::getTypeName() const
 std::vector <Action>* Humanoid::getActions()
 {
     // Checking: is steps greater than 0? And decrease them.
-    if (this -> age_steps)
-    {
-        this -> age_steps--;
-    }
-    if (this -> common_steps)
-    {
-        this -> common_steps--;
-    }
-    if (this -> danger_steps)
-    {
-        this -> danger_steps--;
-    }
     if (this -> desc_steps)
     {
         this -> desc_steps--;
     }
-    if (this -> decr_sleep_step)
-    {
-        this -> decr_sleep_step--;
-    }
 
     // Updates parametr.
-    if(age_steps == 0)
-    {
-        updateAge();
-    }
 //    if(desc_steps == 0)
 //        updateNeedInDesc();
-    if(common_steps == 0)
-    {
-        updateCommonAttrs();
-    }
-    if(danger_steps == 0)
-    {
-        updateDanger();
-    }
+    updateCommonAttrs();
 
     // Update Need_in_house
     if (this -> home != nullptr)
@@ -174,14 +148,8 @@ std::vector <Action>* Humanoid::getActions()
         attrs(ATTR_NEED_IN_HOUSE,0) = need_in_house;
     }
 
-    // Decrease health if he is really hungry
-    if (hunger == max_hunger)
-    {
-        damage(1);
-    }
-
     // Force him to sleep if he really want it
-    if (sleepiness == max_sleepiness)
+    if (getSleepiness() == getMaxSleepiness())
     {
         current_action = SLEEP;
         detailed_act   = SLEEP_ON_THE_GROUND;
@@ -237,14 +205,14 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (this -> health < max_health && common_steps == CREAT_STEPS)
+            if (getHealth() < getMaxHealth() && common_steps == CREAT_STEPS)
             {
                 this -> heal(CREAT_DELTA_HEALTH);
             }
 
-            if (endurance < max_endurance)
+            if (getEndurance() < getMaxEndurance())
             {
-                endurance++;
+                increaseEndurance(1);
             }
         }
     }
@@ -337,22 +305,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (decr_sleep_step == 0)
-            {
-                if (sleepiness > 0)
-                {
-                    sleepiness--;
-                }
-                else
-                {
-                    current_action = NONE;
-                }
-                if (endurance < max_endurance)
-                {
-                    endurance++;
-                }
-                decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-            }
+            sleep();
         }
 
     }
@@ -364,23 +317,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == SLEEP_ON_THE_GROUND)
     {
-        if (decr_sleep_step == 0)
-        {
-            if (sleepiness > 0)
-            {
-                sleepiness--;
-            }
-            else
-            {
-                current_action = NONE;
-            }
-            if (endurance < max_endurance)
-            {
-                endurance++;
-            }
-
-            decr_sleep_step = HUM_DECR_SLEEP_STEPS;
-        }
+        sleep();
     }
 
     //**************************************************************************
@@ -536,8 +473,9 @@ std::vector <Action>* Humanoid::getActions()
     if (detailed_act == RUN_FROM_DANGER)
     {
         chooseDirectionToEscape();
-        if (this -> endurance > this -> max_endurance / 2)
+        if (getEndurance() > getMaxEndurance() / 2)
         {
+            // FIXME What is this?
             if (decr_endur_step == 0)
             {
                  decr_sleep_step = HUM_DECR_ENDUR_STEPS;
@@ -585,15 +523,6 @@ void Humanoid::receiveMessage(Message message)
 // We change attrs of our hum
 //******************************************************************************
 
-void Humanoid::updateAge()
-{
-    this -> age++;
-    this -> age_steps = CREAT_AGE_STEPS;
-
-    if (this -> age == max_age)
-        this -> health = 0;
-}
-
 void Humanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += HUM_DELTA_NEED_IN_DESC; // need 0 NHum dont need in descendant
@@ -601,23 +530,9 @@ void Humanoid::updateNeedInDesc()
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
-void Humanoid::updateCommonAttrs()
-{
-    increaseHunger(CREAT_DELTA_HUNGER);
-
-    if (current_action != SLEEP)
-    {
-        increaseSleepiness(CREAT_DELTA_SLEEP);
-    }
+//TODO Make separate update for sciability
     // this -> sociability += HUM_DELTA_SOC;
     // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
-
-    this -> common_steps = CREAT_STEPS;
-    this -> attrs(ATTR_HEALTH,0)   = 100 * (100 -health) / max_health;
-    this -> attrs(ATTR_SLEEPINESS) = 100 * sleepiness    / max_sleepiness;
-    this -> attrs(ATTR_HUNGER)     = 100 * hunger        / max_hunger;
-}
-
 //******************************************************************************
 // CHOOSE ACTION
 // Fuтction gets current action (decision) and called other function to make
@@ -712,7 +627,7 @@ DetailedHumAction Humanoid::chooseWayToEat()
     }
 
     {
-        if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
+        if ((getForce() > 50 && bravery > 50) || (getForce() > 80) || (bravery > 80))
         {
             return HUNT;
         }
@@ -736,7 +651,7 @@ DetailedHumAction Humanoid::chooseWayToSleep()
         if
         (
         this -> getCoords().getDistance(this -> home -> getCoords()) <
-        SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - sleepiness)
+        SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - getSleepiness())
         )
         {
             return SLEEP_AT_HOME;
@@ -752,7 +667,7 @@ DetailedHumAction Humanoid::chooseWayToSleep()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEscape()
 {
-    if ((force > 50 && bravery > 50) || (force > 80) || (bravery > 80))
+    if ((getForce() > 50 && bravery > 50) || (getForce() > 80) || (bravery > 80))
     {
         return FIGHT;
     }
