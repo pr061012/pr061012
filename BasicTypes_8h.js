@@ -9,6 +9,7 @@ var BasicTypes_8h =
     [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
     [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
       [ "NO_ERROR", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abf350750d0d4fabd8954c0f1e9bbae94", null ],
+      [ "NO_PLACE_TO_PLACE_OBJ_ON", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a40a4e5e02ce5a199f79c87cec69c2e4b", null ],
       [ "OBJ_IS_OUT_OF_RANGE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32", null ],
       [ "OBJ_IS_OUT_OF_VIEW", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a7df0f4d3180b0e502cd989b1712893fb", null ],
       [ "OBJ_IS_IMMORTAL", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a377109c095e9b4290095cfa1b4865bf8", null ],
@@ -22,8 +23,12 @@ var BasicTypes_8h =
       [ "OBJ_CANT_DROP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a68af6b0a67aeb3e44a232a4ac717e74d", null ],
       [ "OBJ_IS_NOT_IN_HEAP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a48de155833d9c3eb81bf4d611ac56d7b", null ],
       [ "OBJ_CANT_EAT", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a778230853f028eb35816d2f13af0e477", null ],
+      [ "OBJ_CANT_HARM", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a162a63e61e4c9ccebe466f50bc6041d4", null ],
+      [ "OBJ_CANT_CREATE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7af5807eaef670512d92af8b5db39c5054", null ],
       [ "TOO_MANY_PARTICIPANTS", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a64c517d0b3e51db2d35fbb919d25280c", null ],
-      [ "OBJ_IS_NOT_EATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c", null ]
+      [ "OBJ_IS_NOT_EATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c", null ],
+      [ "ALL_OBJS_ARE_OUT_OF_REACH", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae11568d7462098ecf0529d291f3aa140", null ],
+      [ "SOME_OBJS_ARE_OUT_OF_REACH", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ab7b876badf23f59c94033e580a28964b", null ]
     ] ],
     [ "ActionState", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3e", [
       [ "PENDING", "BasicTypes_8h.html#adc11d0d0b524594e66cd33dcc6513a3ea1869818fd53ff519eb8e429301bdff73", null ],

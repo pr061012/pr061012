@@ -1,14 +1,13 @@
 var searchData=
 [
   ['hail',['HAIL',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a22c225df59b2950b47f8ced249c5b7cd',1,'BasicTypes.h']]],
-  ['handlekeys',['handleKeys',['../classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405',1,'KeyHandler']]],
+  ['handlekeys',['handleKeys',['../classInputHandler.html#a7fdd58827456dfe5605bec9474f5aa32',1,'InputHandler']]],
   ['harm_5fobjs',['HARM_OBJS',['../BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba4c02ff852e43f7bbd9a3cf928798492b',1,'BasicTypes.h']]],
   ['harmperformer',['HarmPerformer',['../classHarmPerformer.html',1,'HarmPerformer'],['../classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701',1,'HarmPerformer::HarmPerformer()']]],
   ['harmperformer_2ecpp',['HarmPerformer.cpp',['../HarmPerformer_8cpp.html',1,'']]],
   ['harmperformer_2eh',['HarmPerformer.h',['../HarmPerformer_8h.html',1,'']]],
-  ['heal',['heal',['../classBuilding.html#a4266475915167761e483886535382f90',1,'Building::heal()'],['../classCreature.html#ab168ec8b1230205eb0dda7edbef60469',1,'Creature::heal()'],['../classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc',1,'Object::heal()'],['../classResource.html#a88928f89a1a538768dade43b0493ec6c',1,'Resource::heal()'],['../classTool.html#ac7103fa90707cbc29ceb31bc7f941571',1,'Tool::heal()'],['../classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c',1,'Weather::heal()']]],
-  ['health',['health',['../classCreature.html#ab59bc1917022e01b46b23f947bb8d688',1,'Creature']]],
-  ['heuristic_5fvalue',['heuristic_value',['../structVertex.html#ab34fc343eb592c5ce1636eba121575d9',1,'Vertex']]],
+  ['heal',['heal',['../classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b',1,'Building::heal()'],['../classCreature.html#a79f88cfa5524a47b05575d31758126a3',1,'Creature::heal()'],['../classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333',1,'Object::heal()'],['../classResource.html#a05615895932c33aeba67d7f06847ed75',1,'Resource::heal()'],['../classTool.html#ac06c987f3518f873f08a33f6a032a96d',1,'Tool::heal()'],['../classWeather.html#a5047894ac189777ce9e855d5f37dc96d',1,'Weather::heal()']]],
+  ['heuristic_5fvalue',['heuristic_value',['../classVertex.html#ab34fc343eb592c5ce1636eba121575d9',1,'Vertex']]],
   ['hittest',['hitTest',['../classShape.html#af0b525cc5e56b0b11d717ae83e27f248',1,'Shape::hitTest(const Vector &amp;vector) const '],['../classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8',1,'Shape::hitTest(const Shape &amp;shape) const '],['../classTextField.html#a230be7722e7784d7f2e70c5c362a87ad',1,'TextField::hitTest()']]],
   ['hoe',['HOE',['../BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a067001b7a28d81d13ae33b430e76cf3d',1,'BasicTypes.h']]],
   ['hum_5fage_5fmax',['HUM_AGE_MAX',['../BasicDefines_8h.html#ad359afc245a54a12c3bd5f6e21fb02ff',1,'BasicDefines.h']]],
@@ -26,7 +25,6 @@ var searchData=
   ['humanoid',['Humanoid',['../classHumanoid.html',1,'Humanoid'],['../classHumanoid.html#af3565e2c74410d3c411bc94224e5de29',1,'Humanoid::Humanoid()'],['../BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b',1,'HUMANOID():&#160;BasicTypes.h']]],
   ['humanoid_2ecpp',['Humanoid.cpp',['../Humanoid_8cpp.html',1,'']]],
   ['humanoid_2eh',['Humanoid.h',['../Humanoid_8h.html',1,'']]],
-  ['hunger',['hunger',['../classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a',1,'Creature']]],
-  ['hunt',['HUNT',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa901c4adf422bb3fb42f7aaa88bc9561a',1,'BasicTypes.h']]],
+  ['hunt',['hunt',['../classCreature.html#a079ffd60d5e11ebfe1b349f95e9e75a2',1,'Creature::hunt()'],['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa901c4adf422bb3fb42f7aaa88bc9561a',1,'HUNT():&#160;BasicTypes.h']]],
   ['hurricane',['HURRICANE',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a36abd3d0e25831fb6a51172f650de239',1,'BasicTypes.h']]]
 ];

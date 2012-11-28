@@ -10,6 +10,7 @@ var searchData=
   ['sleep_5fon_5fthe_5fground',['SLEEP_ON_THE_GROUND',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa156ab19e2b28c26e7f4612fb7361a366',1,'BasicTypes.h']]],
   ['slow_5fspeed',['SLOW_SPEED',['../BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa',1,'BasicTypes.h']]],
   ['snow',['SNOW',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a9e6e4a865dcb327f484752cf5af49846',1,'BasicTypes.h']]],
+  ['some_5fobjs_5fare_5fout_5fof_5freach',['SOME_OBJS_ARE_OUT_OF_REACH',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ab7b876badf23f59c94033e580a28964b',1,'BasicTypes.h']]],
   ['square',['SQUARE',['../BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59',1,'BasicTypes.h']]],
   ['stone',['STONE',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d',1,'BasicTypes.h']]],
   ['storm',['STORM',['../BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a018159d526e860dc987901467c8660cb',1,'BasicTypes.h']]],

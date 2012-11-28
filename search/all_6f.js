@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['obj_5fcant_5fcreate',['OBJ_CANT_CREATE',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7af5807eaef670512d92af8b5db39c5054',1,'BasicTypes.h']]],
   ['obj_5fcant_5fdrop',['OBJ_CANT_DROP',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a68af6b0a67aeb3e44a232a4ac717e74d',1,'BasicTypes.h']]],
   ['obj_5fcant_5feat',['OBJ_CANT_EAT',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a778230853f028eb35816d2f13af0e477',1,'BasicTypes.h']]],
+  ['obj_5fcant_5fharm',['OBJ_CANT_HARM',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a162a63e61e4c9ccebe466f50bc6041d4',1,'BasicTypes.h']]],
   ['obj_5fcant_5fpickup',['OBJ_CANT_PICKUP',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a66b874d1b01b66d7d474a9ddbab2d351',1,'BasicTypes.h']]],
   ['obj_5fis_5fimmortal',['OBJ_IS_IMMORTAL',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a377109c095e9b4290095cfa1b4865bf8',1,'BasicTypes.h']]],
   ['obj_5fis_5fnot_5fcreatable',['OBJ_IS_NOT_CREATABLE',['../BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a771384e51d7308ede9febd5c755825b2',1,'BasicTypes.h']]],
@@ -25,12 +27,17 @@ var searchData=
   ['objectheap_2eh',['ObjectHeap.h',['../ObjectHeap_8h.html',1,'']]],
   ['objects_5faround',['objects_around',['../classCreature.html#aed0603ebcea67d0f024adbe5b4ab8a91',1,'Creature']]],
   ['objecttype',['ObjectType',['../BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980',1,'BasicTypes.h']]],
-  ['operator_20const_20viewobject_20_2a',['operator const ViewObject *',['../classObject.html#a9742064d6a68018715a51cc00131fb46',1,'Object']]],
+  ['obstacles',['obstacles',['../classCreature.html#acf654a04eea4c55382b4cd13adb32c9f',1,'Creature']]],
+  ['operator_20const_20viewobject',['operator const ViewObject',['../classObject.html#a4c028fe019516a89086c8750f65f3e6a',1,'Object']]],
   ['operator_21_3d',['operator!=',['../classVector.html#a429b2c1eb8d603664190cff9d0b3fb48',1,'Vector']]],
-  ['operator_28_29',['operator()',['../structVertexComp.html#afe90e8a130f58915d6447dc7f73b4db1',1,'VertexComp']]],
+  ['operator_28_29',['operator()',['../structVertexComp.html#a8651b4f02552c69a75de81e807790312',1,'VertexComp::operator()()'],['../structVectorComp.html#a22188536ccbfca3eed19b71ee676cb20',1,'VectorComp::operator()()']]],
+  ['operator_2a',['operator*',['../classVector.html#a78cf78426d2aec177269f8dffcd58069',1,'Vector']]],
+  ['operator_2a_3d',['operator*=',['../classVector.html#a5e9a64ca63bfbbd1a49c34fd10507459',1,'Vector']]],
   ['operator_2b',['operator+',['../classVector.html#a8d997a5c015c15a4ff2025c480cec76a',1,'Vector']]],
   ['operator_2b_3d',['operator+=',['../classVector.html#a7ebb6a5509550965be894c249f13daf1',1,'Vector']]],
   ['operator_2d',['operator-',['../classVector.html#a39e9c2112c62af61a49b46ccc470ae9c',1,'Vector::operator-(Vector) const '],['../classVector.html#a1c38f8a4f5f6f9438e3ec8233cfaa6b0',1,'Vector::operator-() const ']]],
   ['operator_2d_3d',['operator-=',['../classVector.html#aa1b0441d6fbac6e8061d30e19200f685',1,'Vector']]],
+  ['operator_2f',['operator/',['../classVector.html#a2057c8f6301aedb22a461aae92f6e6bd',1,'Vector']]],
+  ['operator_2f_3d',['operator/=',['../classVector.html#a44879c9208fb830aa748fcf654776ebd',1,'Vector']]],
   ['operator_3d_3d',['operator==',['../classVector.html#a37adcbc9c0a77743c5c9447b3c5080c7',1,'Vector']]]
 ];

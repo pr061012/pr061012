@@ -2,8 +2,7 @@ var classBuilding =
 [
     [ "Building", "classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5", null ],
     [ "~Building", "classBuilding.html#ab675c6a382e110b84031956cda708439", null ],
-    [ "damage", "classBuilding.html#a6bb55b63a07e77ffea29316e8af400af", null ],
-    [ "decreaseHealth", "classBuilding.html#a5b97de4c4a379bcd8624aa2e6bfb1a3c", null ],
+    [ "damage", "classBuilding.html#a26691bcff80498c35d1e77e530998938", null ],
     [ "getActions", "classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf", null ],
     [ "getCompleteness", "classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88", null ],
     [ "getContents", "classBuilding.html#aa2b2d6a6e7c8d55643613778fcabdd97", null ],
@@ -11,10 +10,10 @@ var classBuilding =
     [ "getHealthPoints", "classBuilding.html#aebc5432120fc676a62817e9db746172d", null ],
     [ "getMaxHealthPoints", "classBuilding.html#a83e15fec5da00f24850d59793c9b5be6", null ],
     [ "getMaxSpace", "classBuilding.html#ac37f23792d59ba27ba82dabe988752f6", null ],
-    [ "heal", "classBuilding.html#a4266475915167761e483886535382f90", null ],
-    [ "increaseHealth", "classBuilding.html#a3b373e84180fba24ba0afe981e550984", null ],
+    [ "getTypeName", "classBuilding.html#aa2f7d9050b8fa9429c6f4c03a95b09c5", null ],
+    [ "heal", "classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b", null ],
+    [ "printObjectInfo", "classBuilding.html#afde77e0b750a98f6c9056ff380221814", null ],
     [ "putInside", "classBuilding.html#a4c019de587cb657f2566cbb27623fc6f", null ],
     [ "receiveMessage", "classBuilding.html#a14d3e43a10e522356ea0022663a63d01", null ],
-    [ "repair", "classBuilding.html#af5beff6811010a84af940243fab63041", null ],
     [ "takeOut", "classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2", null ]
 ];

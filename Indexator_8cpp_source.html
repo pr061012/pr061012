@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('Indexator_8cpp_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// gets objects within given area</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classIndexator.html#ab8e97831ecf900209c7df1f4c00fcfc3">   43</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> <a class="code" href="classIndexator.html#ab8e97831ecf900209c7df1f4c00fcfc3" title="Returns heap with objects from the certain area.">Indexator::getAreaContents</a>(<a class="code" href="classShape.html">Shape</a> area)</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d">   43</a></span>&#160;<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> <a class="code" href="classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d" title="Returns heap with objects from the certain area.">Indexator::getAreaContents</a>(<a class="code" href="classShape.html">Shape</a> area, <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * viewer)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Get cells which our area covers</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * cells_area = getCellsArea(area);</div>
@@ -173,7 +173,7 @@ $(document).ready(function(){initNavTree('Indexator_8cpp_source.html','');});
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">            */</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="comment">//*****************************************************************</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">if</span> (area.<a class="code" href="classShape.html#af0b525cc5e56b0b11d717ae83e27f248" title="Tests if a Shape includes a vector.">hitTest</a>((*i) -&gt; getShape()))</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">if</span> (area.<a class="code" href="classShape.html#af0b525cc5e56b0b11d717ae83e27f248" title="Tests if a Shape includes a vector.">hitTest</a>((*i) -&gt; getShape()) &amp;&amp; (*i) != viewer)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    result.<a class="code" href="classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6" title="Pushes object to heap.">push</a>(*i);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
@@ -238,7 +238,7 @@ $(document).ready(function(){initNavTree('Indexator_8cpp_source.html','');});
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="comment">// If object did not move, don&#39;t do anything.</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (!same_area)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (same_area)</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keyword">delete</span>[] area;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span>;</div>
@@ -300,105 +300,108 @@ $(document).ready(function(){initNavTree('Indexator_8cpp_source.html','');});
 <div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420">  234</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420" title="Removes object from index.">Indexator::removeObject</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;{</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    Index::iterator i = index.find(<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> x = i -&gt; second[0]; x &lt;= i -&gt; second[2]; x++)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">if</span> (i != index.end())</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> y = i -&gt; second[1]; y &lt;= i -&gt; second[3]; y++)</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> x = i -&gt; second[0]; x &lt;= i -&gt; second[2]; x++)</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            cells[x % row_size][y % row_size].<a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028" title="Removes object from heap.">remove</a>(<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">// UTILITIES</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> Indexator::min(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">if</span> (a &lt; b)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">return</span> a;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> Indexator::max(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">if</span> (a &gt; b)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">return</span> a;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">// Get cells wich given object hits</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * Indexator::getCellsArea(<a class="code" href="classShape.html">Shape</a>&amp; shape)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">// Get object boundaries</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rt = shape.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top vector of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lb = shape.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom vector of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// Compute the cells it intersects</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * area = <span class="keyword">new</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>[4];</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    area[0] = getRow(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    area[1] = getRow(lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    area[2] = getRow(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    area[3] = getRow(rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="comment">//*************************************************************************</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"></span>    <span class="comment">//*************************************************************************</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> area;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> y = i -&gt; second[1]; y &lt;= i -&gt; second[3]; y++)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                cells[x % row_size][y % row_size].<a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028" title="Removes object from heap.">remove</a>(<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">// UTILITIES</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> Indexator::min(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;{</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span> (a &lt; b)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">return</span> a;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;}</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> Indexator::max(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span> (a &gt; b)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> a;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">// Get cells wich given object hits</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * Indexator::getCellsArea(<a class="code" href="classShape.html">Shape</a>&amp; shape)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;{</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// Get object boundaries</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rt = shape.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top vector of the shape.">getRightTop</a>();</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lb = shape.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom vector of the shape.">getLeftBottom</a>();</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">// Compute the cells it intersects</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * area = <span class="keyword">new</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>[4];</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    area[0] = getRow(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    area[1] = getRow(lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    area[2] = getRow(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    area[3] = getRow(rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">//*************************************************************************</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment"></span>    <span class="comment">//*************************************************************************</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">// Gets the row index for given coordinate.</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">// It is assumed that world controls that 0 &lt;= coordinate &lt; world_size</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">// and size &lt; world_size for any shape.</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">// Row&#39;s index &gt;= 0</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keywordtype">int</span> Indexator::getRow(<span class="keywordtype">double</span> coordinate)</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;{</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordflow">return</span> max(0, min(coordinate / cell_size, row_size - 1));</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">// Destroys index and cells</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keywordtype">void</span> Indexator::destroy()</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">// destroy if cells are inited</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">if</span> (cells)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="comment">// Delete all object heaps</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt; row_size; i++)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keyword">delete</span>[] cells[i];</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        }</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keyword">delete</span>[] cells;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">// Delete all cell areas.</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">for</span> (Index::iterator i = index.begin(); i != index.end(); i++)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keyword">delete</span>[] i -&gt; second;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    index.clear();</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;}</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">// Index initializer</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keywordtype">void</span> Indexator::init()</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;{</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">// create cells</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    cells = <span class="keyword">new</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>*[row_size];</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i&lt; row_size; i++)</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    {</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        cells[i] = <span class="keyword">new</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>[row_size];</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    }</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> area;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;}</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">// Gets the row index for given coordinate.</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">// It is assumed that world controls that 0 &lt;= coordinate &lt; world_size</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">// and size &lt; world_size for any shape.</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">// Row&#39;s index &gt;= 0</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keywordtype">int</span> Indexator::getRow(<span class="keywordtype">double</span> coordinate)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;{</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">return</span> max(0, min(coordinate / cell_size, row_size - 1));</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">// Destroys index and cells</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="keywordtype">void</span> Indexator::destroy()</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;{</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">// destroy if cells are inited</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">if</span> (cells)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    {</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="comment">// Delete all object heaps</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt; row_size; i++)</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        {</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keyword">delete</span>[] cells[i];</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keyword">delete</span>[] cells;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">// Delete all cell areas.</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">for</span> (Index::iterator i = index.begin(); i != index.end(); i++)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keyword">delete</span>[] i -&gt; second;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    index.clear();</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;}</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">// Index initializer</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keywordtype">void</span> Indexator::init()</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;{</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="comment">// create cells</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    cells = <span class="keyword">new</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>*[row_size];</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i&lt; row_size; i++)</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        cells[i] = <span class="keyword">new</span> <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>[row_size];</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_fbd119b69a7ed1122061576f68632c00.html">Indexator</a></li><li class="navelem"><a class="el" href="Indexator_8cpp.html">Indexator.cpp</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

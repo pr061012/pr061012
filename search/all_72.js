@@ -17,7 +17,7 @@ var searchData=
   ['removekey',['removeKey',['../classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748',1,'ParamArray']]],
   ['removeobject',['removeObject',['../classIndexator.html#a494d579d9b7444788099ee9f57ba6420',1,'Indexator']]],
   ['render',['render',['../classTextField.html#ace88bf37338a8c28479158adf26ab6e5',1,'TextField']]],
-  ['repair',['repair',['../classBuilding.html#af5beff6811010a84af940243fab63041',1,'Building']]],
+  ['rendertext',['renderText',['../classViewUtilities.html#a3b9176864d9d6a45f8f7d335a925d45f',1,'ViewUtilities']]],
   ['reproduce',['REPRODUCE',['../BasicTypes_8h.html#a5303344c79577371e13252b373606706af14cbd3b28e14ae7ed23756bfe852b6c',1,'BasicTypes.h']]],
   ['res_5fberries_5ffood_5fvalue',['RES_BERRIES_FOOD_VALUE',['../BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67',1,'BasicDefines.h']]],
   ['res_5fbronze_5fore_5famount_5fmax',['RES_BRONZE_ORE_AMOUNT_MAX',['../BasicDefines_8h.html#a56d35f6feefa0535f680715f77cc76ae',1,'BasicDefines.h']]],

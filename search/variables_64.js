@@ -5,5 +5,5 @@ var searchData=
   ['decr_5fsleep_5fstep',['decr_sleep_step',['../classCreature.html#af9f4ec99542d75600f9aa61218c7b113',1,'Creature']]],
   ['desc_5fsteps',['desc_steps',['../classCreature.html#ad80371401e4349fd4c5b05367964b530',1,'Creature']]],
   ['direction_5fis_5fset',['direction_is_set',['../classCreature.html#a7d2a48a8b2e369b5d39e6b034ecf2356',1,'Creature']]],
-  ['distance_5fto_5forigin',['distance_to_origin',['../structVertex.html#a6f7e884dbdce3f1d16dad7b62dce9a94',1,'Vertex']]]
+  ['distance_5fto_5forigin',['distance_to_origin',['../classVertex.html#a6f7e884dbdce3f1d16dad7b62dce9a94',1,'Vertex']]]
 ];

@@ -4,14 +4,16 @@ var hierarchy =
     [ "CLI", "classCLI.html", null ],
     [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
+    [ "DoubleComparison", "classDoubleComparison.html", null ],
+    [ "ECLIInvalidInput", "classECLIInvalidInput.html", null ],
     [ "EInvalidResPath", "classEInvalidResPath.html", null ],
     [ "EParamArrayInvalidKey", "classEParamArrayInvalidKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
+    [ "InputHandler", "classInputHandler.html", null ],
     [ "IWorld", "classIWorld.html", [
       [ "World", "classWorld.html", null ]
     ] ],
-    [ "KeyHandler", "classKeyHandler.html", null ],
     [ "Log", "classLog.html", null ],
     [ "Message", "classMessage.html", null ],
     [ "Object", "classObject.html", [
@@ -42,9 +44,11 @@ var hierarchy =
     [ "Shape", "classShape.html", null ],
     [ "TextField", "classTextField.html", null ],
     [ "Vector", "classVector.html", null ],
-    [ "Vertex", "structVertex.html", null ],
+    [ "VectorComp", "structVectorComp.html", null ],
+    [ "Vertex", "classVertex.html", null ],
     [ "VertexComp", "structVertexComp.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
+    [ "ViewUtilities", "classViewUtilities.html", null ],
     [ "ViewWorld", "classViewWorld.html", null ]
 ];

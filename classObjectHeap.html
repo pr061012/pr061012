@@ -135,6 +135,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a31aed12bfcff1455f1682cdb816184a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes object to heap.  <a href="#a31aed12bfcff1455f1682cdb816184a6"></a><br/></td></tr>
 <tr class="memitem:a7092926b107145c62f0a6c8bd8ff1028"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">remove</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
 <tr class="memdesc:a7092926b107145c62f0a6c8bd8ff1028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes object from heap.  <a href="#a7092926b107145c62f0a6c8bd8ff1028"></a><br/></td></tr>
+<tr class="memitem:a1ac8d0ee71d6100e7253af23f1d9bb5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a">clear</a> ()</td></tr>
+<tr class="memdesc:a1ac8d0ee71d6100e7253af23f1d9bb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the heap.  <a href="#a1ac8d0ee71d6100e7253af23f1d9bb5a"></a><br/></td></tr>
+<tr class="memitem:adbd55eac306327b7de3b2826551716d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9">printIDs</a> (std::string indent=&quot;\t&quot;, uint columns=5) const </td></tr>
+<tr class="memdesc:adbd55eac306327b7de3b2826551716d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print IDs of contained objects.  <a href="#adbd55eac306327b7de3b2826551716d9"></a><br/></td></tr>
 <tr class="memitem:a3fa3502f08c4016bbcfcf8578e245d15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
 <tr class="memitem:ac0c481b7e2d2d1901f73073d453b9b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type) const </td></tr>
 <tr class="memitem:a6b530e67b5383a29be3699f891c7482b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
@@ -160,7 +164,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00081">81</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00096">96</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -174,7 +178,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00080">80</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00095">95</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +198,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00014">14</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00016">16</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -213,7 +217,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00019">19</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00021">21</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,7 +244,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00083">83</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00098">98</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +270,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00088">88</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00103">103</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -291,7 +295,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00103">103</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00118">118</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +320,26 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00108">108</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00123">123</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ac8d0ee71d6100e7253af23f1d9bb5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ObjectHeap::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the heap. </p>
+
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00109">109</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -342,7 +365,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00093">93</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00108">108</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -368,7 +391,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00098">98</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00113">113</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +416,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00113">113</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00128">128</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -418,7 +441,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00118">118</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00133">133</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -454,7 +477,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00123">123</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00138">138</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +497,7 @@ Public Member Functions</h2></td></tr>
 <p>get amount of element </p>
 <dl class="section return"><dt>Returns</dt><dd>amount of element </dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00027">27</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00029">29</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +524,38 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>amount of element </dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00032">32</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00034">34</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adbd55eac306327b7de3b2826551716d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ObjectHeap::printIDs </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>indent</em> = <code>&quot;\t&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>columns</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print IDs of contained objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with ids. </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00121">121</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -528,7 +582,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00044">44</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00046">46</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -555,7 +609,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00071">71</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00073">73</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +623,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObjectHeap.html">ObjectHeap</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:09 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

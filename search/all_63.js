@@ -1,9 +1,10 @@
 var searchData=
 [
+  ['checkpointispassable',['checkPointIsPassable',['../classCreature.html#a861d0d434ea480780f539f8b7456db17',1,'Creature']]],
   ['choose_5fplace_5ffor_5fhome',['CHOOSE_PLACE_FOR_HOME',['../BasicTypes_8h.html#a951fdd0898192aca87aec12165cce6caa0e3342ffd140d38f0b46b715aee15572',1,'BasicTypes.h']]],
   ['choosedirectiontoescape',['chooseDirectionToEscape',['../classCreature.html#ac8ba51bbe062c6924bd202d36f3a6af4',1,'Creature']]],
   ['circle',['CIRCLE',['../BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911',1,'BasicTypes.h']]],
-  ['clear',['clear',['../classParamArray.html#a3a6f77df7533ee30728f104c233abd81',1,'ParamArray']]],
+  ['clear',['clear',['../classParamArray.html#a3a6f77df7533ee30728f104c233abd81',1,'ParamArray::clear()'],['../classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a',1,'ObjectHeap::clear()']]],
   ['clearactions',['clearActions',['../classCreature.html#a3426a803526afc49d10f21836c393ea3',1,'Creature']]],
   ['cli',['CLI',['../classCLI.html',1,'CLI'],['../classCLI.html#afe714763a78641628a718b11db90dc35',1,'CLI::CLI()']]],
   ['cli_2ecpp',['CLI.cpp',['../CLI_8cpp.html',1,'']]],
@@ -22,6 +23,7 @@ var searchData=
   ['creat_5fage_5fsteps',['CREAT_AGE_STEPS',['../BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d',1,'BasicDefines.h']]],
   ['creat_5fcrit_5fconst',['CREAT_CRIT_CONST',['../BasicDefines_8h.html#a8290214020f59371b797b23f06e03769',1,'BasicDefines.h']]],
   ['creat_5fdanger_5fsteps',['CREAT_DANGER_STEPS',['../BasicDefines_8h.html#a09085d90f379cafadaaa479336273d9b',1,'BasicDefines.h']]],
+  ['creat_5fdelta_5fendur',['CREAT_DELTA_ENDUR',['../BasicDefines_8h.html#ac6dbd9f9e8cf0073a4b028ff5721a981',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fhealth',['CREAT_DELTA_HEALTH',['../BasicDefines_8h.html#a3c19f06dc3277124c2e4113704c79bef',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fhunger',['CREAT_DELTA_HUNGER',['../BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc',1,'BasicDefines.h']]],
   ['creat_5fdelta_5fsleep',['CREAT_DELTA_SLEEP',['../BasicDefines_8h.html#aa5c6b911a547b09ed02c49469b907dad',1,'BasicDefines.h']]],

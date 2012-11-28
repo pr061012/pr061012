@@ -123,6 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2ff03b6b1b4efe9e559dd5078e96054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a creature's decision about next action.  <a href="#a2ff03b6b1b4efe9e559dd5078e96054c"></a><br/></td></tr>
 <tr class="memitem:ad2b20e2847961ff6d1193d15178dd14c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#ad2b20e2847961ff6d1193d15178dd14c">isDecisionActual</a> (arma::mat attrs, <a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> current_decision) const </td></tr>
 <tr class="memdesc:ad2b20e2847961ff6d1193d15178dd14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the difference between current decision and other actions.  <a href="#ad2b20e2847961ff6d1193d15178dd14c"></a><br/></td></tr>
+<tr class="memitem:a349376ea9a0ba28d25bcbece82da1f57"><td class="memItemLeft" align="right" valign="top">arma::mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#a349376ea9a0ba28d25bcbece82da1f57">getActMatrix</a> (arma::mat attrs) const </td></tr>
+<tr class="memdesc:a349376ea9a0ba28d25bcbece82da1f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets matrix of actions.  <a href="#a349376ea9a0ba28d25bcbece82da1f57"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Makes a prediction about next creature's action. </p>
@@ -169,6 +171,27 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a349376ea9a0ba28d25bcbece82da1f57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">arma::mat DecisionMaker::getActMatrix </td>
+          <td>(</td>
+          <td class="paramtype">arma::mat&#160;</td>
+          <td class="paramname"><em>attrs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets matrix of actions. </p>
+<dl class="section return"><dt>Returns</dt><dd>mat matrix of actions </dd></dl>
+
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00138">138</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad2b20e2847961ff6d1193d15178dd14c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -244,7 +267,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classDecisionMaker.html">DecisionMaker</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:07 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

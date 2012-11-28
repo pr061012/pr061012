@@ -1,10 +1,6 @@
-control/*
-model/*
-test/*
-view/*
-log/*
-doxygen/*
 cli/*
-common/*
-LOG
-
+doxygen/*
+model/*
+view/*
+test/*
+control/*

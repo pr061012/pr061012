@@ -9,6 +9,7 @@ var classShape =
     [ "getRightTop", "classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1", null ],
     [ "getSize", "classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c", null ],
     [ "getType", "classShape.html#a289caa5e54e3eed1c226fb3e5c1a0972", null ],
+    [ "getTypeName", "classShape.html#ab31c914c32eeb197065d511040bc505e", null ],
     [ "hitTest", "classShape.html#af0b525cc5e56b0b11d717ae83e27f248", null ],
     [ "hitTest", "classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8", null ],
     [ "intersect", "classShape.html#ad4e614404ea0276a9eee3d8299b24e98", null ],

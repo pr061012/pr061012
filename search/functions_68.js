@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['handlekeys',['handleKeys',['../classKeyHandler.html#a0a7757754a8c5e679cddda71d06ea405',1,'KeyHandler']]],
+  ['handlekeys',['handleKeys',['../classInputHandler.html#a7fdd58827456dfe5605bec9474f5aa32',1,'InputHandler']]],
   ['harmperformer',['HarmPerformer',['../classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701',1,'HarmPerformer']]],
-  ['heal',['heal',['../classBuilding.html#a4266475915167761e483886535382f90',1,'Building::heal()'],['../classCreature.html#ab168ec8b1230205eb0dda7edbef60469',1,'Creature::heal()'],['../classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc',1,'Object::heal()'],['../classResource.html#a88928f89a1a538768dade43b0493ec6c',1,'Resource::heal()'],['../classTool.html#ac7103fa90707cbc29ceb31bc7f941571',1,'Tool::heal()'],['../classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c',1,'Weather::heal()']]],
+  ['heal',['heal',['../classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b',1,'Building::heal()'],['../classCreature.html#a79f88cfa5524a47b05575d31758126a3',1,'Creature::heal()'],['../classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333',1,'Object::heal()'],['../classResource.html#a05615895932c33aeba67d7f06847ed75',1,'Resource::heal()'],['../classTool.html#ac06c987f3518f873f08a33f6a032a96d',1,'Tool::heal()'],['../classWeather.html#a5047894ac189777ce9e855d5f37dc96d',1,'Weather::heal()']]],
   ['hittest',['hitTest',['../classShape.html#af0b525cc5e56b0b11d717ae83e27f248',1,'Shape::hitTest(const Vector &amp;vector) const '],['../classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8',1,'Shape::hitTest(const Shape &amp;shape) const '],['../classTextField.html#a230be7722e7784d7f2e70c5c362a87ad',1,'TextField::hitTest()']]],
-  ['humanoid',['Humanoid',['../classHumanoid.html#af3565e2c74410d3c411bc94224e5de29',1,'Humanoid']]]
+  ['humanoid',['Humanoid',['../classHumanoid.html#af3565e2c74410d3c411bc94224e5de29',1,'Humanoid']]],
+  ['hunt',['hunt',['../classCreature.html#a079ffd60d5e11ebfe1b349f95e9e75a2',1,'Creature']]]
 ];

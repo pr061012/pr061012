@@ -1,9 +1,11 @@
 var searchData=
 [
+  ['value',['value',['../classVertex.html#ac13bf22e56aa0e9859764ec77a4414a2',1,'Vertex']]],
   ['vector',['Vector',['../classVector.html',1,'Vector'],['../classVector.html#abee913690a337b49756f5743f662cd5d',1,'Vector::Vector(double x, double y)'],['../classVector.html#a6f80c73b5f18dcf3f8e36065bdc8b9e5',1,'Vector::Vector()']]],
   ['vector_2ecpp',['Vector.cpp',['../Vector_8cpp.html',1,'']]],
   ['vector_2eh',['Vector.h',['../Vector_8h.html',1,'']]],
-  ['vertex',['Vertex',['../structVertex.html',1,'']]],
+  ['vectorcomp',['VectorComp',['../structVectorComp.html',1,'']]],
+  ['vertex',['Vertex',['../classVertex.html',1,'Vertex'],['../classVertex.html#a151399eafaafba4061709e6d50b3b946',1,'Vertex::Vertex(Vector point, Vector goal)'],['../classVertex.html#aa2292c7dff60300bd3950d45281d484e',1,'Vertex::Vertex(Vector point, const Vertex &amp;origin, Vector goal)']]],
   ['vertexcomp',['VertexComp',['../structVertexComp.html',1,'']]],
   ['view',['View',['../classView.html',1,'View'],['../classView.html#af45658447d3a86487b55b599ecf96674',1,'View::View()']]],
   ['view_2ecpp',['View.cpp',['../View_8cpp.html',1,'']]],
@@ -14,9 +16,12 @@ var searchData=
   ['view_5fcursor_5frad',['VIEW_CURSOR_RAD',['../BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9',1,'BasicDefines.h']]],
   ['view_5fscreen_5fheight',['VIEW_SCREEN_HEIGHT',['../BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865',1,'BasicDefines.h']]],
   ['view_5fscreen_5fwidth',['VIEW_SCREEN_WIDTH',['../BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b',1,'BasicDefines.h']]],
+  ['view_5fz_5fspeed',['VIEW_Z_SPEED',['../InputHandler_8cpp.html#af7b365029a307019d06a91447fab04b2',1,'InputHandler.cpp']]],
   ['viewobject',['ViewObject',['../classViewObject.html',1,'ViewObject'],['../classViewObject.html#af0967b283bea1626055db213a2fd8ff7',1,'ViewObject::ViewObject()']]],
   ['viewobject_2ecpp',['ViewObject.cpp',['../ViewObject_8cpp.html',1,'']]],
   ['viewobject_2eh',['ViewObject.h',['../ViewObject_8h.html',1,'']]],
+  ['viewutilities',['ViewUtilities',['../classViewUtilities.html',1,'']]],
+  ['viewutilities_2eh',['ViewUtilities.h',['../ViewUtilities_8h.html',1,'']]],
   ['viewworld',['ViewWorld',['../classViewWorld.html',1,'ViewWorld'],['../classViewWorld.html#a5100ab32e80e97a26b5d3ab2d3e09c01',1,'ViewWorld::ViewWorld()']]],
   ['viewworld_2ecpp',['ViewWorld.cpp',['../ViewWorld_8cpp.html',1,'']]],
   ['viewworld_2eh',['ViewWorld.h',['../ViewWorld_8h.html',1,'']]]

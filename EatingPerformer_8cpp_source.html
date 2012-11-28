@@ -196,22 +196,23 @@ $(document).ready(function(){initNavTree('EatingPerformer_8cpp_source.html','');
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        surroundings.<a class="code" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a>(food) != surroundings.<a class="code" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a>())</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">// EPIC MEAL TIME!!!</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(food) -&gt; decreaseAmount(1);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; feed(food_value);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// TODO: Magic const.</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        food -&gt; damage(1);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor) -&gt; decreaseHunger(food_value);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_718f186d661df1cca80d72794ef9f535.html">EatingPerformer</a></li><li class="navelem"><a class="el" href="EatingPerformer_8cpp.html">EatingPerformer.cpp</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

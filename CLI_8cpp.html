@@ -99,13 +99,13 @@ $(document).ready(function(){initNavTree('CLI_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">CLI.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="CLI_8h_source.html">CLI.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="ECLIInvalidInput_8h_source.html">ECLIInvalidInput.h</a>&quot;</code><br/>
 <code>#include &lt;cstdarg&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
 <code>#include &quot;<a class="el" href="Vector_8h_source.html">../model/Utilities/Vector/Vector.h</a>&quot;</code><br/>
@@ -126,10 +126,40 @@ Macros</h2></td></tr>
 <tr class="memitem:a51d875a51bf7f377eb62da2d4ceab713"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a51d875a51bf7f377eb62da2d4ceab713">TN_RESOURCE_FOOD</a>&#160;&#160;&#160;&quot;f&quot;</td></tr>
 <tr class="memitem:aa30bed640c7e784484d27a35b741d84e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aa30bed640c7e784484d27a35b741d84e">TN_RESOURCE_BUILDING_MAT</a>&#160;&#160;&#160;&quot;bm&quot;</td></tr>
 <tr class="memitem:ac9a1eb1f1020d44eb7ec327e97362aaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ac9a1eb1f1020d44eb7ec327e97362aaf">TN_WEATHER</a>&#160;&#160;&#160;&quot;w&quot;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aaf8f45ca14f9796d3881cece9d767631"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aaf8f45ca14f9796d3881cece9d767631">sformat</a> (const std::string &amp;format,...)</td></tr>
+<tr class="memitem:afb22ecbf3d81cff1283cb1091ef291de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#afb22ecbf3d81cff1283cb1091ef291de">TN_CLUSTER_BUILDING_MAT</a>&#160;&#160;&#160;&quot;fr&quot;</td></tr>
+<tr class="memitem:a3800740736595d04c52a0f3667c89c53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a3800740736595d04c52a0f3667c89c53">TN_SHAPE_CIRCLE</a>&#160;&#160;&#160;&quot;cr&quot;</td></tr>
+<tr class="memitem:a759eace19c0ca6a5263aed2e28240d42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a759eace19c0ca6a5263aed2e28240d42">TN_SHAPE_SQUARE</a>&#160;&#160;&#160;&quot;s&quot;</td></tr>
+<tr class="memitem:aa3f70ad7f9515a5cc4c0c8a89c05e6c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aa3f70ad7f9515a5cc4c0c8a89c05e6c1">TN_FIELD_CENTER</a>&#160;&#160;&#160;&quot;center&quot;</td></tr>
+<tr class="memitem:a6ab0a67d4cf8eb685ab02ff24456623b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a6ab0a67d4cf8eb685ab02ff24456623b">TN_FIELD_SHAPE</a>&#160;&#160;&#160;&quot;shape&quot;</td></tr>
+<tr class="memitem:a688a9b64dc04813c66ce99ed7331abf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a688a9b64dc04813c66ce99ed7331abf9">TN_FIELD_SIZE</a>&#160;&#160;&#160;&quot;size&quot;</td></tr>
+<tr class="memitem:a99e737896ee7bb87add5113a520e149a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a99e737896ee7bb87add5113a520e149a">TN_FIELD_DANGER</a>&#160;&#160;&#160;&quot;danger&quot;</td></tr>
+<tr class="memitem:a722b633918bbd072fd81a4f09f7fd2bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a722b633918bbd072fd81a4f09f7fd2bf">TN_FIELD_IMMORTALITY</a>&#160;&#160;&#160;&quot;immortality&quot;</td></tr>
+<tr class="memitem:adba5e02df2cfa8f022d3e68495db5bf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#adba5e02df2cfa8f022d3e68495db5bf2">TN_FIELD_SOLIDITY</a>&#160;&#160;&#160;&quot;solidity&quot;</td></tr>
+<tr class="memitem:a9d53705ad4daf8436b0188b3c2a8f89f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a9d53705ad4daf8436b0188b3c2a8f89f">TN_FIELD_DESTROYED</a>&#160;&#160;&#160;&quot;destroyed&quot;</td></tr>
+<tr class="memitem:a4857140f40132174a9033be133fbc5fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a4857140f40132174a9033be133fbc5fb">TN_FIELD_AGE</a>&#160;&#160;&#160;&quot;age&quot;</td></tr>
+<tr class="memitem:a0b93a00997e98ec8373a95ed35362462"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a0b93a00997e98ec8373a95ed35362462">TN_FIELD_ENDURANCE</a>&#160;&#160;&#160;&quot;endurance&quot;</td></tr>
+<tr class="memitem:acc99e2ab4d6ed8343b2e964e68f3a154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#acc99e2ab4d6ed8343b2e964e68f3a154">TN_FIELD_HUNGER</a>&#160;&#160;&#160;&quot;hunger&quot;</td></tr>
+<tr class="memitem:a2c0560f5a166f51ef542354e99e7fbe1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a2c0560f5a166f51ef542354e99e7fbe1">TN_FIELD_HEALTH</a>&#160;&#160;&#160;&quot;health&quot;</td></tr>
+<tr class="memitem:a48185c04f99497adf7f006824a57b6d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a48185c04f99497adf7f006824a57b6d5">TN_FIELD_SLEEPINESS</a>&#160;&#160;&#160;&quot;sleepiness&quot;</td></tr>
+<tr class="memitem:ade3e3a821172cf6a7ef222e34db26c0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ade3e3a821172cf6a7ef222e34db26c0f">TN_FIELD_MAX_AGE</a>&#160;&#160;&#160;&quot;mage&quot;</td></tr>
+<tr class="memitem:aec8c4dc2c8e29c5a789d467d9cfff315"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aec8c4dc2c8e29c5a789d467d9cfff315">TN_FIELD_MAX_DIRECTION</a>&#160;&#160;&#160;&quot;mdirection&quot;</td></tr>
+<tr class="memitem:a215389018457afc6148e7dfe54303f54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a215389018457afc6148e7dfe54303f54">TN_FIELD_MAX_ENDURANCE</a>&#160;&#160;&#160;&quot;mendurance&quot;</td></tr>
+<tr class="memitem:adb1d0e246305bc89c302eae2849a99bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#adb1d0e246305bc89c302eae2849a99bd">TN_FIELD_MAX_HUNGER</a>&#160;&#160;&#160;&quot;mhunger&quot;</td></tr>
+<tr class="memitem:a74a5f5ab1eaf0e9164a2c61f04db34b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a74a5f5ab1eaf0e9164a2c61f04db34b8">TN_FIELD_MAX_HEALTH</a>&#160;&#160;&#160;&quot;mhealth&quot;</td></tr>
+<tr class="memitem:a6114dfbcb8f74e5993717d485f74e5a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a6114dfbcb8f74e5993717d485f74e5a6">TN_FIELD_MAX_SLEEPINESS</a>&#160;&#160;&#160;&quot;msleepiness&quot;</td></tr>
+<tr class="memitem:ad002107e567da7ddfc6fe1383b7f895e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ad002107e567da7ddfc6fe1383b7f895e">TN_FIELD_FORCE</a>&#160;&#160;&#160;&quot;force&quot;</td></tr>
+<tr class="memitem:a7676a34a86fdef7f614171a1f08a1bb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a7676a34a86fdef7f614171a1f08a1bb8">TN_FIELD_DET_ACT</a>&#160;&#160;&#160;&quot;da&quot;</td></tr>
+<tr class="memitem:a49e33e991f881b4f037f042f86ddb643"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a49e33e991f881b4f037f042f86ddb643">TN_DA_HUNT</a>&#160;&#160;&#160;&quot;hunt&quot;</td></tr>
+<tr class="memitem:a9d220063d33328fb1a91f3e7f0455f37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a9d220063d33328fb1a91f3e7f0455f37">TN_DA_TAKE_FOOD_FROM_INV</a>&#160;&#160;&#160;&quot;inv-food&quot;</td></tr>
+<tr class="memitem:a8903fa545cd018e66abcc630c0c3a096"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a8903fa545cd018e66abcc630c0c3a096">TN_DA_FIND_FOOD</a>&#160;&#160;&#160;&quot;find-food&quot;</td></tr>
+<tr class="memitem:a2a079cfd686ad1650609186da6e4d7e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a2a079cfd686ad1650609186da6e4d7e1">TN_DA_RELAX_AT_HOME</a>&#160;&#160;&#160;&quot;home-relax&quot;</td></tr>
+<tr class="memitem:ab553e045d2c1bb3fd11dec9db32f4f30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ab553e045d2c1bb3fd11dec9db32f4f30">TN_DA_SLEEP_AT_HOME</a>&#160;&#160;&#160;&quot;home-sleep&quot;</td></tr>
+<tr class="memitem:a6ddc371f6607b9df05ab65a7391ebaec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a6ddc371f6607b9df05ab65a7391ebaec">TN_DA_SLEEP_ON_THE_GROUND</a>&#160;&#160;&#160;&quot;ground-sleep&quot;</td></tr>
+<tr class="memitem:afea513a93b26c8b007c92d6e96421bc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#afea513a93b26c8b007c92d6e96421bc6">TN_DA_MINE_RESOURCES</a>&#160;&#160;&#160;&quot;mine-res&quot;</td></tr>
+<tr class="memitem:a1eed805f57d35303fe8bb99f8e9fc580"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a1eed805f57d35303fe8bb99f8e9fc580">TN_DA_BUILD_HOUSE</a>&#160;&#160;&#160;&quot;build-house&quot;</td></tr>
+<tr class="memitem:a12feef234ad7de3332ea690039b9c7dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a12feef234ad7de3332ea690039b9c7dd">TN_DA_CHOOSE_PLACE_FOR_HOME</a>&#160;&#160;&#160;&quot;choose-hplace&quot;</td></tr>
+<tr class="memitem:ada79eb919c038db162958a5e11cd5217"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ada79eb919c038db162958a5e11cd5217">TN_DA_FIGHT</a>&#160;&#160;&#160;&quot;fight&quot;</td></tr>
+<tr class="memitem:a46c67a03b1e973892fd69d2cc4e94734"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a46c67a03b1e973892fd69d2cc4e94734">TN_DA_RUN_FROM_DANGER</a>&#160;&#160;&#160;&quot;run-from-danger&quot;</td></tr>
 </table>
 <h2>Macro Definition Documentation</h2>
 <a class="anchor" id="abb8894b7d735bdc14ec0b0fa77db5b62"></a>
@@ -142,7 +172,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00027">27</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00026">26</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb22ecbf3d81cff1283cb1091ef291de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_CLUSTER_BUILDING_MAT&#160;&#160;&#160;&quot;fr&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00032">32</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -156,7 +200,441 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00024">24</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00023">23</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1eed805f57d35303fe8bb99f8e9fc580"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_BUILD_HOUSE&#160;&#160;&#160;&quot;build-house&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00067">67</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12feef234ad7de3332ea690039b9c7dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_CHOOSE_PLACE_FOR_HOME&#160;&#160;&#160;&quot;choose-hplace&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00068">68</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada79eb919c038db162958a5e11cd5217"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_FIGHT&#160;&#160;&#160;&quot;fight&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00069">69</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8903fa545cd018e66abcc630c0c3a096"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_FIND_FOOD&#160;&#160;&#160;&quot;find-food&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00062">62</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49e33e991f881b4f037f042f86ddb643"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_HUNT&#160;&#160;&#160;&quot;hunt&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00060">60</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afea513a93b26c8b007c92d6e96421bc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_MINE_RESOURCES&#160;&#160;&#160;&quot;mine-res&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00066">66</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a079cfd686ad1650609186da6e4d7e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_RELAX_AT_HOME&#160;&#160;&#160;&quot;home-relax&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00063">63</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a46c67a03b1e973892fd69d2cc4e94734"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_RUN_FROM_DANGER&#160;&#160;&#160;&quot;run-from-danger&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00070">70</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab553e045d2c1bb3fd11dec9db32f4f30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_SLEEP_AT_HOME&#160;&#160;&#160;&quot;home-sleep&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00064">64</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ddc371f6607b9df05ab65a7391ebaec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_SLEEP_ON_THE_GROUND&#160;&#160;&#160;&quot;ground-sleep&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00065">65</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d220063d33328fb1a91f3e7f0455f37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_DA_TAKE_FOOD_FROM_INV&#160;&#160;&#160;&quot;inv-food&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00061">61</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4857140f40132174a9033be133fbc5fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_AGE&#160;&#160;&#160;&quot;age&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00045">45</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3f70ad7f9515a5cc4c0c8a89c05e6c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_CENTER&#160;&#160;&#160;&quot;center&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00037">37</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99e737896ee7bb87add5113a520e149a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_DANGER&#160;&#160;&#160;&quot;danger&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00040">40</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d53705ad4daf8436b0188b3c2a8f89f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_DESTROYED&#160;&#160;&#160;&quot;destroyed&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00043">43</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7676a34a86fdef7f614171a1f08a1bb8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_DET_ACT&#160;&#160;&#160;&quot;da&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00058">58</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b93a00997e98ec8373a95ed35362462"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_ENDURANCE&#160;&#160;&#160;&quot;endurance&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00046">46</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad002107e567da7ddfc6fe1383b7f895e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_FORCE&#160;&#160;&#160;&quot;force&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00056">56</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c0560f5a166f51ef542354e99e7fbe1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_HEALTH&#160;&#160;&#160;&quot;health&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00048">48</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc99e2ab4d6ed8343b2e964e68f3a154"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_HUNGER&#160;&#160;&#160;&quot;hunger&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00047">47</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a722b633918bbd072fd81a4f09f7fd2bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_IMMORTALITY&#160;&#160;&#160;&quot;immortality&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00041">41</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade3e3a821172cf6a7ef222e34db26c0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_AGE&#160;&#160;&#160;&quot;mage&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00050">50</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec8c4dc2c8e29c5a789d467d9cfff315"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_DIRECTION&#160;&#160;&#160;&quot;mdirection&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00051">51</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a215389018457afc6148e7dfe54303f54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_ENDURANCE&#160;&#160;&#160;&quot;mendurance&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00052">52</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74a5f5ab1eaf0e9164a2c61f04db34b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_HEALTH&#160;&#160;&#160;&quot;mhealth&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00054">54</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb1d0e246305bc89c302eae2849a99bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_HUNGER&#160;&#160;&#160;&quot;mhunger&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00053">53</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6114dfbcb8f74e5993717d485f74e5a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_MAX_SLEEPINESS&#160;&#160;&#160;&quot;msleepiness&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00055">55</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ab0a67d4cf8eb685ab02ff24456623b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_SHAPE&#160;&#160;&#160;&quot;shape&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00038">38</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a688a9b64dc04813c66ce99ed7331abf9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_SIZE&#160;&#160;&#160;&quot;size&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00039">39</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48185c04f99497adf7f006824a57b6d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_SLEEPINESS&#160;&#160;&#160;&quot;sleepiness&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00049">49</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adba5e02df2cfa8f022d3e68495db5bf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_FIELD_SOLIDITY&#160;&#160;&#160;&quot;solidity&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00042">42</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -170,7 +648,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00025">25</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00024">24</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -184,7 +662,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00026">26</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00025">25</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -198,7 +676,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00028">28</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00027">27</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,7 +690,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00030">30</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00029">29</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -226,7 +704,35 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00029">29</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00028">28</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3800740736595d04c52a0f3667c89c53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_SHAPE_CIRCLE&#160;&#160;&#160;&quot;cr&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00034">34</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a759eace19c0ca6a5263aed2e28240d42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TN_SHAPE_SQUARE&#160;&#160;&#160;&quot;s&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00035">35</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,36 +746,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00031">31</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
-
-</div>
-</div>
-<h2>Function Documentation</h2>
-<a class="anchor" id="aaf8f45ca14f9796d3881cece9d767631"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string sformat </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00039">39</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00030">30</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,7 +756,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_2663b12ed719ba69be18e0dee24290b5.html">cli</a></li><li class="navelem"><a class="el" href="CLI_8cpp.html">CLI.cpp</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

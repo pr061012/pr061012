@@ -124,11 +124,12 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Command-Line-Interface class. </p>
-<p><b>TODO</b>: Write full <code>create</code> and <code>list</code> description.</p>
+<p><b>TODO</b>: Write full <code>create</code> description.</p>
 <p><b>init</b></p>
 <p><em>init &lt;size&gt;</em> &ndash; initialises clear world with specified size.</p>
 <p><b>random-init</b></p>
 <p><em>random-init &lt;size&gt;</em> &ndash; initialises world with specified size and randomly generated units.</p>
+<p><b>generate</b> <em>generate &lt;x&gt; &lt;y&gt; &lt;density&gt; &lt;cluster_type&gt;</em> &ndash; generates a bundle of objects around (x, y) point.</p>
 <p><b>create</b></p>
 <p><em>create &lt;x&gt; &lt;y&gt; &lt;type&gt; [additional args]</em> &ndash; creates new object.</p>
 <p><b>list</b></p>
@@ -139,9 +140,9 @@ Public Member Functions</h2></td></tr>
 <p><em>change &lt;id&gt; &lt;field&gt; &lt;new_value&gt;</em> &ndash; changes object's field.</p>
 <p><b>step</b></p>
 <p><em>step [amount]</em> &ndash; does <a class="el" href="classController.html" title="Class controls the world!">Controller</a>'s steps (suppose amount = 1, if isn't specified).</p>
-<p><b>trace-step</b> <em>trace-step [list of ids]</em> &ndash; does on <a class="el" href="classController.html" title="Class controls the world!">Controller</a>'s step and prints out changes for specified objects. </p>
+<p><b>trace-step</b> <em>trace-step [list of ids]</em> &ndash; does <a class="el" href="classController.html" title="Class controls the world!">Controller</a>'s step and prints out changes for specified objects. </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00052">52</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00056">56</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="afe714763a78641628a718b11db90dc35"></a>
 <div class="memitem">
@@ -176,7 +177,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00076">76</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00128">128</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,7 +204,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00069">69</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00073">73</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 
 </div>
 </div>
@@ -231,7 +232,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00132">132</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00174">174</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCLI.html">CLI</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:06 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

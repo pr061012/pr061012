@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5adafc65a3b10399adb6f2158bc5417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates grid and indexates object from heap.  <a href="#aa5adafc65a3b10399adb6f2158bc5417"></a><br/></td></tr>
 <tr class="memitem:a1d84445c20808fddf2f8877cfd968a5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b">~Indexator</a> ()</td></tr>
 <tr class="memdesc:a1d84445c20808fddf2f8877cfd968a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a1d84445c20808fddf2f8877cfd968a5b"></a><br/></td></tr>
-<tr class="memitem:ab8e97831ecf900209c7df1f4c00fcfc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ab8e97831ecf900209c7df1f4c00fcfc3">getAreaContents</a> (<a class="el" href="classShape.html">Shape</a> area)</td></tr>
-<tr class="memdesc:ab8e97831ecf900209c7df1f4c00fcfc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns heap with objects from the certain area.  <a href="#ab8e97831ecf900209c7df1f4c00fcfc3"></a><br/></td></tr>
+<tr class="memitem:a4565b646f1765747e5fe4fc7b436f42d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d">getAreaContents</a> (<a class="el" href="classShape.html">Shape</a> area, <a class="el" href="classObject.html">Object</a> *viewer=0)</td></tr>
+<tr class="memdesc:a4565b646f1765747e5fe4fc7b436f42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns heap with objects from the certain area.  <a href="#a4565b646f1765747e5fe4fc7b436f42d"></a><br/></td></tr>
 <tr class="memitem:ad3ee911b9f5cd04c2c6426dd90bce127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127">reindexate</a> (<a class="el" href="classObjectHeap.html">ObjectHeap</a> *objects)</td></tr>
 <tr class="memdesc:ad3ee911b9f5cd04c2c6426dd90bce127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an index for all given objects, and removes the previous one.  <a href="#ad3ee911b9f5cd04c2c6426dd90bce127"></a><br/></td></tr>
 <tr class="memitem:a3c496109b375bc095e15a38d2e8f18d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8">reindexate</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
@@ -214,7 +214,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab8e97831ecf900209c7df1f4c00fcfc3"></a>
+<a class="anchor" id="a4565b646f1765747e5fe4fc7b436f42d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -222,8 +222,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> Indexator::getAreaContents </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classShape.html">Shape</a>&#160;</td>
-          <td class="paramname"><em>area</em></td><td>)</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>viewer</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -232,6 +242,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">area</td><td>where to look for objects </td></tr>
+    <tr><td class="paramname">viewer</td><td>an object that mustn't be included in heap </td></tr>
   </table>
   </dd>
 </dl>
@@ -333,7 +344,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIndexator.html">Indexator</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:08 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

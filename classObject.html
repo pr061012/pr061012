@@ -139,10 +139,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
 <tr class="memitem:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">receiveMessage</a> (<a class="el" href="classMessage.html">Message</a> message)=0</td></tr>
 <tr class="memdesc:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#ae2ef7889b3a38edfaa63ea243e154ef5"></a><br/></td></tr>
-<tr class="memitem:a816838bab5c67fce2cead6cb9122ad47"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a816838bab5c67fce2cead6cb9122ad47">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
-<tr class="memdesc:a816838bab5c67fce2cead6cb9122ad47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a816838bab5c67fce2cead6cb9122ad47"></a><br/></td></tr>
-<tr class="memitem:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af7f49cb3f3c3bd9cfdbc42beecbbe5bc">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
-<tr class="memdesc:af7f49cb3f3c3bd9cfdbc42beecbbe5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#af7f49cb3f3c3bd9cfdbc42beecbbe5bc"></a><br/></td></tr>
+<tr class="memitem:afda9c1bda1dd939d6d402686f58d4069"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">printObjectInfo</a> () const </td></tr>
+<tr class="memdesc:afda9c1bda1dd939d6d402686f58d4069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#afda9c1bda1dd939d6d402686f58d4069"></a><br/></td></tr>
+<tr class="memitem:a46cd2e05a4f556afa59a2a61b1096fc8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a46cd2e05a4f556afa59a2a61b1096fc8">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
+<tr class="memdesc:a46cd2e05a4f556afa59a2a61b1096fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a46cd2e05a4f556afa59a2a61b1096fc8"></a><br/></td></tr>
+<tr class="memitem:af1f6f43c394fb3ee08b8a078dc0f1333"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
+<tr class="memdesc:af1f6f43c394fb3ee08b8a078dc0f1333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#af1f6f43c394fb3ee08b8a078dc0f1333"></a><br/></td></tr>
 <tr class="memitem:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">getHealthPoints</a> () const =0</td></tr>
 <tr class="memdesc:a1d3b6e7106f7e73ed8e5c2ea807047a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#a1d3b6e7106f7e73ed8e5c2ea807047a7"></a><br/></td></tr>
 <tr class="memitem:aaf54c4ebc3fddf706d0c3ea4787cf34d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">getMaxHealthPoints</a> () const =0</td></tr>
@@ -169,6 +171,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8f057c451361240ebc424622db893e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's danger level.  <a href="#a8f057c451361240ebc424622db893e63"></a><br/></td></tr>
 <tr class="memitem:a7660dc25529325326bc280e5f5fb0194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
+<tr class="memitem:a8c0e06723d36e89cf5f6f9b117782cba"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8c0e06723d36e89cf5f6f9b117782cba">getTypeName</a> () const =0</td></tr>
+<tr class="memdesc:a8c0e06723d36e89cf5f6f9b117782cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets type's name.  <a href="#a8c0e06723d36e89cf5f6f9b117782cba"></a><br/></td></tr>
 <tr class="memitem:a3a1956dcb8025283e34d497abbff3a32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a3a1956dcb8025283e34d497abbff3a32">getObjectID</a> () const </td></tr>
 <tr class="memdesc:a3a1956dcb8025283e34d497abbff3a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns object's ID.  <a href="#a3a1956dcb8025283e34d497abbff3a32"></a><br/></td></tr>
 <tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> type)</td></tr>
@@ -185,8 +189,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a64299bd3d9948e455dd4751c465ef750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set object's coordinates.  <a href="#a64299bd3d9948e455dd4751c465ef750"></a><br/></td></tr>
 <tr class="memitem:a98ae671267306c09d28a0a4afa1a8a55"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a98ae671267306c09d28a0a4afa1a8a55">getCoords</a> () const </td></tr>
 <tr class="memdesc:a98ae671267306c09d28a0a4afa1a8a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a98ae671267306c09d28a0a4afa1a8a55"></a><br/></td></tr>
-<tr class="memitem:a9742064d6a68018715a51cc00131fb46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9742064d6a68018715a51cc00131fb46">operator const ViewObject *</a> ()</td></tr>
-<tr class="memdesc:a9742064d6a68018715a51cc00131fb46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const ViewObject*.  <a href="#a9742064d6a68018715a51cc00131fb46"></a><br/></td></tr>
+<tr class="memitem:a4c028fe019516a89086c8750f65f3e6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4c028fe019516a89086c8750f65f3e6a">operator const ViewObject</a> ()</td></tr>
+<tr class="memdesc:a4c028fe019516a89086c8750f65f3e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>.  <a href="#a4c028fe019516a89086c8750f65f3e6a"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -236,7 +240,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00016">16</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00018">18</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,12 +267,12 @@ Protected Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00027">27</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00029">29</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a816838bab5c67fce2cead6cb9122ad47"></a>
+<a class="anchor" id="a46cd2e05a4f556afa59a2a61b1096fc8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -276,7 +280,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Object::damage </td>
+          <td class="memname">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Object::damage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>delta</em></td><td>)</td>
@@ -297,8 +301,9 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>amount of done damage </dd></dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#a6d216fa9fc5e1a70743ebc9a62dbcc01">Creature</a>, <a class="el" href="classResource.html#aaba80262d4086bfce08ea4d4c0d63f75">Resource</a>, <a class="el" href="classTool.html#aff5fb696dc98cf8892b4db6350495ca5">Tool</a>, <a class="el" href="classBuilding.html#a6bb55b63a07e77ffea29316e8af400af">Building</a>, and <a class="el" href="classWeather.html#a2d2c127d06a55f388a80aedd07b6c2fb">Weather</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a3c8713e642f1c33fd3559fd332a128c0">Creature</a>, <a class="el" href="classWeather.html#a83a65c72b1aabc8eb99e63819f240bc2">Weather</a>, <a class="el" href="classResource.html#a482366ebe93586628b47100adce81421">Resource</a>, <a class="el" href="classBuilding.html#a26691bcff80498c35d1e77e530998938">Building</a>, and <a class="el" href="classTool.html#a7b34a841f981e63606a3626fb4889986">Tool</a>.</p>
 
 </div>
 </div>
@@ -326,7 +331,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets objects pending actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, <a class="el" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">Building</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
 
 </div>
 </div>
@@ -346,7 +351,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of angle </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00135">135</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00163">163</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +371,7 @@ Protected Attributes</h2></td></tr>
 <p>Get object's coordinates. </p>
 <dl class="section return"><dt>Returns</dt><dd>object's coordinates </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00145">145</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00173">173</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,7 +391,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets object's danger level. </p>
 <dl class="section return"><dt>Returns</dt><dd>danger level </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00087">87</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00115">115</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +418,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Gets current object's heatlh points. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
 
 </div>
 </div>
@@ -440,7 +445,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Gets maximum possible object's health points. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
 
 </div>
 </div>
@@ -460,7 +465,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns object's ID. </p>
 <dl class="section return"><dt>Returns</dt><dd>object's ID. </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00106">106</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00134">134</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -480,7 +485,7 @@ Protected Attributes</h2></td></tr>
 <p>Get the value of shape. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of shape </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00125">125</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00153">153</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -500,11 +505,11 @@ Protected Attributes</h2></td></tr>
 <p>Gets the value of type. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of type </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00101">101</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00129">129</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af7f49cb3f3c3bd9cfdbc42beecbbe5bc"></a>
+<a class="anchor" id="a8c0e06723d36e89cf5f6f9b117782cba"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -512,7 +517,35 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Object::heal </td>
+          <td class="memname">virtual std::string Object::getTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets type's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>the name of the type </dd></dl>
+
+<p>Implemented in <a class="el" href="classResource.html#a5c410a5a52a56918b8bb9ed2f2fcacdc">Resource</a>, <a class="el" href="classHumanoid.html#a0acdee327571e234563e4bb0d74ddf86">Humanoid</a>, <a class="el" href="classBuilding.html#aa2f7d9050b8fa9429c6f4c03a95b09c5">Building</a>, <a class="el" href="classWeather.html#a792e245916fe756314f87cb995533a7b">Weather</a>, <a class="el" href="classNonHumanoid.html#a4b5c72f2e39ec3507a41e6a9c23f808b">NonHumanoid</a>, and <a class="el" href="classTool.html#a8f953ba8b4f921dd03dd74eb07fc41ea">Tool</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1f6f43c394fb3ee08b8a078dc0f1333"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Object::heal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>delta</em></td><td>)</td>
@@ -533,8 +566,9 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>amount of done healing </dd></dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#ab168ec8b1230205eb0dda7edbef60469">Creature</a>, <a class="el" href="classResource.html#a88928f89a1a538768dade43b0493ec6c">Resource</a>, <a class="el" href="classTool.html#ac7103fa90707cbc29ceb31bc7f941571">Tool</a>, <a class="el" href="classBuilding.html#a4266475915167761e483886535382f90">Building</a>, and <a class="el" href="classWeather.html#abe32b96dd46b0ce43b3b663a7b1de56c">Weather</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a79f88cfa5524a47b05575d31758126a3">Creature</a>, <a class="el" href="classWeather.html#a5047894ac189777ce9e855d5f37dc96d">Weather</a>, <a class="el" href="classResource.html#a05615895932c33aeba67d7f06847ed75">Resource</a>, <a class="el" href="classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b">Building</a>, and <a class="el" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d">Tool</a>.</p>
 
 </div>
 </div>
@@ -554,7 +588,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns true if object is destroyed. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object destroyed or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00040">40</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00068">68</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -574,7 +608,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns true if object is immortal. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object immortal or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00059">59</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00087">87</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -594,7 +628,7 @@ Protected Attributes</h2></td></tr>
 <p>Returns true if object is solid. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object solid or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00078">78</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00106">106</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -613,7 +647,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object immortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00054">54</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00082">82</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +666,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object mortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00049">49</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00077">77</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -651,7 +685,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object non-solid. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00073">73</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00101">101</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -670,7 +704,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Makes object solid. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00068">68</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00096">96</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -689,16 +723,16 @@ Protected Attributes</h2></td></tr>
 
 <p>Marks this object as destroyed. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00035">35</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00063">63</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9742064d6a68018715a51cc00131fb46"></a>
+<a class="anchor" id="a4c028fe019516a89086c8750f65f3e6a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Object::operator const <a class="el" href="classViewObject.html">ViewObject</a> * </td>
+          <td class="memname">Object::operator const <a class="el" href="classViewObject.html">ViewObject</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -706,9 +740,39 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const ViewObject*. </p>
+<p>Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00150">150</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00182">182</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afda9c1bda1dd939d6d402686f58d4069"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Object::printObjectInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints out object's information. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with information </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCreature.html#aa0a679da2807e45b7ab652967e01d0a1">Creature</a>, <a class="el" href="classResource.html#ab1996b2c5b394a0d2fc9de58c9bf7806">Resource</a>, <a class="el" href="classHumanoid.html#ad80bc06c8d9784aa462dbaefa167934d">Humanoid</a>, <a class="el" href="classBuilding.html#afde77e0b750a98f6c9056ff380221814">Building</a>, and <a class="el" href="classNonHumanoid.html#ac0e4fdae5bc8ad66be3f82d03f972eb2">NonHumanoid</a>.</p>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00038">38</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -736,7 +800,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Receives message. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>, <a class="el" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3">Resource</a>, <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>, <a class="el" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">Building</a>, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>, <a class="el" href="classWeather.html#ac8c475e135a64a6893141f1f3cee5519">Weather</a>, and <a class="el" href="classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>, <a class="el" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3">Resource</a>, <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>, <a class="el" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">Building</a>, <a class="el" href="classWeather.html#ac8c475e135a64a6893141f1f3cee5519">Weather</a>, and <a class="el" href="classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f">Tool</a>.</p>
 
 </div>
 </div>
@@ -762,7 +826,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00130">130</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00158">158</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -788,7 +852,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00140">140</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00168">168</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -814,7 +878,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00092">92</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00120">120</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -840,7 +904,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00120">120</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00148">148</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +930,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00115">115</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00143">143</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -891,7 +955,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Array with actions. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00254">254</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00276">276</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -905,7 +969,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:09 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -170,14 +170,14 @@ $(document).ready(function(){initNavTree('PickupMaster_8cpp_source.html','');});
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment">// make object hidden</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getHiddenObjects() -&gt; push(*j);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getVisibleObjects() -&gt; <span class="keyword">remove</span>(*j);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="comment">// put it in inventory</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            inventory -&gt; push(*j);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">// remove from index</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; removeObject(*j);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getVisibleObjects() -&gt; <span class="keyword">remove</span>(*j);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getHiddenObjects() -&gt; push(*j);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; removeObject(*j);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// put it in inventory</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            inventory -&gt; push(*j);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="comment">// remove from index</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            success = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('PickupMaster_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_7b82db1a6394ff5e1d875d56722f8d60.html">PickupMaster</a></li><li class="navelem"><a class="el" href="PickupMaster_8cpp.html">PickupMaster.cpp</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

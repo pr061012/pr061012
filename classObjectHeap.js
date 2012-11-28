@@ -8,6 +8,7 @@ var classObjectHeap =
     [ "begin", "classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35", null ],
     [ "begin", "classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b", null ],
     [ "begin", "classObjectHeap.html#aa27cac54482c7bf5aab561eddbcaa97a", null ],
+    [ "clear", "classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a", null ],
     [ "end", "classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b", null ],
     [ "end", "classObjectHeap.html#a9e0ace11a93deb7163989cf6e3f4e88f", null ],
     [ "end", "classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe", null ],
@@ -15,6 +16,7 @@ var classObjectHeap =
     [ "find", "classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704", null ],
     [ "getAmount", "classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd", null ],
     [ "getTypeAmount", "classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a", null ],
+    [ "printIDs", "classObjectHeap.html#adbd55eac306327b7de3b2826551716d9", null ],
     [ "push", "classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6", null ],
     [ "remove", "classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028", null ]
 ];

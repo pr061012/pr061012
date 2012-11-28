@@ -134,6 +134,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af56d4516a5cf72c93f3e5bb34cd7d5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save world to file.  <a href="#af56d4516a5cf72c93f3e5bb34cd7d5cd"></a><br/></td></tr>
 <tr class="memitem:a8e8dbb884b0d3169981f6c7f24fcbdfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a8e8dbb884b0d3169981f6c7f24fcbdfa">reset</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> size=<a class="el" href="World_8h.html#a9771cabfd673a8e350f1f8ce0b8f458f">DEFAULT_SIZE</a>, bool generate_objs=true)</td></tr>
 <tr class="memdesc:a8e8dbb884b0d3169981f6c7f24fcbdfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all objects and generates world one more time.  <a href="#a8e8dbb884b0d3169981f6c7f24fcbdfa"></a><br/></td></tr>
+<tr class="memitem:a0f3344032c8cbe49fd70457cfa44d7eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a0f3344032c8cbe49fd70457cfa44d7eb">genForestAt</a> (double x, double y, int x_trees, int y_trees, const <a class="el" href="classParamArray.html">ParamArray</a> &amp;tree_params)</td></tr>
+<tr class="memdesc:a0f3344032c8cbe49fd70457cfa44d7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate forest at specific location.  <a href="#a0f3344032c8cbe49fd70457cfa44d7eb"></a><br/></td></tr>
+<tr class="memitem:a376b5d00bc4c319e401d7a7840c586aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a376b5d00bc4c319e401d7a7840c586aa">genForestAt</a> (double x, double y)</td></tr>
+<tr class="memdesc:a376b5d00bc4c319e401d7a7840c586aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloading of forementioned function. Generates trees with default parameters.  <a href="#a376b5d00bc4c319e401d7a7840c586aa"></a><br/></td></tr>
 <tr class="memitem:a75e7d1877074f95c25c4696b9932d21f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a75e7d1877074f95c25c4696b9932d21f">setObjectVisibility</a> (<a class="el" href="classObject.html">Object</a> *obj, bool visibility)</td></tr>
 <tr class="memitem:a5958579b1313daec5993026df26c7f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a5958579b1313daec5993026df26c7f63">addObject</a> (bool visibility, <a class="el" href="classObject.html">Object</a> *obj)</td></tr>
 <tr class="memdesc:a5958579b1313daec5993026df26c7f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of visible_objs.  <a href="#a5958579b1313daec5993026df26c7f63"></a><br/></td></tr>
@@ -147,8 +151,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae7d9c8d7590bfa0ed18ed42c05106664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of visible_objs.  <a href="#ae7d9c8d7590bfa0ed18ed42c05106664"></a><br/></td></tr>
 <tr class="memitem:acdde856cd58e64641405806d08650004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#acdde856cd58e64641405806d08650004">getHiddenObjects</a> ()</td></tr>
 <tr class="memdesc:acdde856cd58e64641405806d08650004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of hidden_objs.  <a href="#acdde856cd58e64641405806d08650004"></a><br/></td></tr>
+<tr class="memitem:a255ca465937e92cc80c3fc250a031f9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a255ca465937e92cc80c3fc250a031f9f">getObjectByID</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> id)</td></tr>
+<tr class="memdesc:a255ca465937e92cc80c3fc250a031f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get objects in certain radius around (x,y)  <a href="#a255ca465937e92cc80c3fc250a031f9f"></a><br/></td></tr>
 <tr class="memitem:a18725db8fe88482c638464884f9661ba"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classObject.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a18725db8fe88482c638464884f9661ba">getViewObjectsInArea</a> (double x, double y, double size) const </td></tr>
-<tr class="memdesc:a18725db8fe88482c638464884f9661ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get objects in certain radius around (x,y)  <a href="#a18725db8fe88482c638464884f9661ba"></a><br/></td></tr>
+<tr class="memdesc:a18725db8fe88482c638464884f9661ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get objects visible in square region of certain size at certain vector.  <a href="#a18725db8fe88482c638464884f9661ba"></a><br/></td></tr>
 <tr class="memitem:a302c8d4f515768e247db3b4f2a0f5ba1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a302c8d4f515768e247db3b4f2a0f5ba1">getWeatherAtPoint</a> (double x, double y) const </td></tr>
 <tr class="memdesc:a302c8d4f515768e247db3b4f2a0f5ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get weather state at certain coordinates.  <a href="#a302c8d4f515768e247db3b4f2a0f5ba1"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classIWorld"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIWorld')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classIWorld.html">IWorld</a></td></tr>
@@ -157,7 +163,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class containing methods for primary model interaction. </p>
 
-<p>Definition at line <a class="el" href="World_8h_source.html#l00028">28</a> of file <a class="el" href="World_8h_source.html">World.h</a>.</p>
+<p>Definition at line <a class="el" href="World_8h_source.html#l00029">29</a> of file <a class="el" href="World_8h_source.html">World.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8c73fba541a5817fff65147ba47cd827"></a>
 <div class="memitem">
@@ -291,7 +297,94 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00184">184</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00296">296</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f3344032c8cbe49fd70457cfa44d7eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::genForestAt </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_trees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y_trees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>tree_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate forest at specific location. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_trees</td><td>maximum amount of trees in X dimension </td></tr>
+    <tr><td class="paramname">y_trees</td><td>maximum amount of trees in Y dimension </td></tr>
+    <tr><td class="paramname">tree_params</td><td><a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> indicating tree parameters </td></tr>
+    <tr><td class="paramname">prob</td><td>probability to create tree at this point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00155">155</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a376b5d00bc4c319e401d7a7840c586aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::genForestAt </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloading of forementioned function. Generates trees with default parameters. </p>
+
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00191">191</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -321,7 +414,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#a1adf8090134ff1742c99b0dacd46b276">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00217">217</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00329">329</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +444,36 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#a75233893bfd7288b9e7306e08eb2a39d">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00207">207</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00319">319</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a255ca465937e92cc80c3fc250a031f9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * World::getObjectByID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get objects in certain radius around (x,y) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate of the range center </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate of the range center </td></tr>
+    <tr><td class="paramname">radius</td><td>range from which objects are returned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> of objects in radius around (x,y) </dd></dl>
+
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00362">362</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +503,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#a8deb54efc20b8b1d4b966fe5128c9c2b">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00197">197</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00309">309</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +533,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00202">202</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00314">314</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,16 +575,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get objects in certain radius around (x,y) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>x coordinate of the range center </td></tr>
-    <tr><td class="paramname">y</td><td>y coordinate of the range center </td></tr>
-    <tr><td class="paramname">radius</td><td>range from which objects are returned </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> of objects in radius around (x,y) Get objects visible in square region of certain size at certain vector. </dd></dl>
+<p>Get objects visible in square region of certain size at certain vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x coordinate of screen center </td></tr>
@@ -475,7 +588,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#acf4246b8d67b045fb317f065bcadfe05">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00226">226</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00338">338</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -505,7 +618,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#aae71f283d70ad9f267d6731683e6ab7e">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00212">212</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00324">324</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -553,7 +666,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classIWorld.html#a3396efa8c99dc506660026ee4553b904">IWorld</a>.</p>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00243">243</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00355">355</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -589,7 +702,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00134">134</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00246">246</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -615,7 +728,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00129">129</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00241">241</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -643,7 +756,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="World_8cpp_source.html#l00124">124</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
+<p>Definition at line <a class="el" href="World_8cpp_source.html#l00236">236</a> of file <a class="el" href="World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
@@ -657,7 +770,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classWorld.html">World</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:12 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:43 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -8,7 +8,7 @@ var searchData=
   ['removekey',['removeKey',['../classParamArray.html#a798aa6b9f71dde5cf7f8182695a5d748',1,'ParamArray']]],
   ['removeobject',['removeObject',['../classIndexator.html#a494d579d9b7444788099ee9f57ba6420',1,'Indexator']]],
   ['render',['render',['../classTextField.html#ace88bf37338a8c28479158adf26ab6e5',1,'TextField']]],
-  ['repair',['repair',['../classBuilding.html#af5beff6811010a84af940243fab63041',1,'Building']]],
+  ['rendertext',['renderText',['../classViewUtilities.html#a3b9176864d9d6a45f8f7d335a925d45f',1,'ViewUtilities']]],
   ['reset',['reset',['../classWorld.html#a8e8dbb884b0d3169981f6c7f24fcbdfa',1,'World']]],
   ['resource',['Resource',['../classResource.html#a5740e20b90ce4cc9dd8cdb96947bd298',1,'Resource']]],
   ['runcommand',['runCommand',['../classCLI.html#a5aa72bf48995ece3ad760e80010be374',1,'CLI']]]

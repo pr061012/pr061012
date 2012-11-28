@@ -132,82 +132,86 @@ $(document).ready(function(){initNavTree('Resource_8h_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a6eb73f19cd1f3cf7485dc659256fe239" title="Increment progress of mining by one.">incrementProgress</a>();</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// CHANGING AMOUNT.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// HEALTH MANIPULATION.</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#acb41587e4354c39a81c4f7d2674f4f88" title="Decreases amount of resource.">decreaseAmount</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a7d8b464a4f8a1f824b4b83019c8928dc" title="Increases maximum possible amount of resource.">increaseMaxAmount</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a55b2623e12687bedc2efced0bc781fc6" title="Increases amount of resource.">increaseAmount</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a0a83fccc63c105f0f3dd706daebb1270" title="Gets amount of resource.">getAmount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a482366ebe93586628b47100adce81421" title="Damages object.">damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a05615895932c33aeba67d7f06847ed75" title="Heals object.">heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#afff85a837f53fad98bd43a1851094cf7" title="Gets current object&#39;s heatlh points.">getHealthPoints</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#aeaac763cd594d925374f5ea0240e7161" title="Gets maximum possible object&#39;s health points.">getMaxHealthPoints</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// RESOURCE&#39;S LIFE.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;Action&gt;* <a class="code" href="classResource.html#a4c4cc169461d76de8787c97276665168" title="Gets objects pending actions.">getActions</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3" title="Receives message.">receiveMessage</a>(<a class="code" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> message);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classResource.html#ad678ef5ea1d846b342a2083503afe559" title="Returns is resource restorable.">isRestorable</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#aaba80262d4086bfce08ea4d4c0d63f75" title="Damages resource.">damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a88928f89a1a538768dade43b0493ec6c" title="&#39;&#39;Heals&#39;&#39; resource.">heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::string <a class="code" href="classResource.html#ab1996b2c5b394a0d2fc9de58c9bf7806" title="Prints out object&#39;s information.">printObjectInfo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::string <a class="code" href="classResource.html#a5c410a5a52a56918b8bb9ed2f2fcacdc" title="Gets type&#39;s name.">getTypeName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// RESOURCE TYPE.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797" title="Gets the value of subtype.">getSubtype</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// MINING.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// RESOURCE&#39;S LIFE.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    std::vector &lt;Action&gt; * <a class="code" href="classResource.html#a4c4cc169461d76de8787c97276665168" title="Gets objects pending actions.">getActions</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3" title="Receives message.">receiveMessage</a>(<a class="code" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> message);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#afff85a837f53fad98bd43a1851094cf7" title="Gets current object&#39;s heatlh points.">getHealthPoints</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#aeaac763cd594d925374f5ea0240e7161" title="Gets maximum possible object&#39;s health points.">getMaxHealthPoints</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// RESOURCE TYPE.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797" title="Gets the value of subtype.">getSubtype</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// MINING.</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a512a227f9ddfaf59d40cf878dbf6c937" title="Get the value of progress.">getProgress</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#aa93c9044f64f0521eceab41aadcd1188" title="Sets the value of progress.">setProgress</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> progress);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a0b6ea6582c309b2db3c57274b687e7d2" title="Get the value of difficulty.">getDifficulty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#aa5edfbdfef006f4aab8e86acaaf94120" title="Gets amount of steps to next resource regeneration.">getStepsToReg</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a512a227f9ddfaf59d40cf878dbf6c937" title="Get the value of progress.">getProgress</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a53a0205cfdb995964f0202047965eeb9" title="Gets resource&#39;s regeneration rate.">getRegAmount</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a0b6ea6582c309b2db3c57274b687e7d2" title="Get the value of difficulty.">getDifficulty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#ab4461d823ce807fd5013c287930ca1d9" title="Gets amount of resource, which will drop at each mining.">getAmountPerDrop</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#aa5edfbdfef006f4aab8e86acaaf94120" title="Gets amount of steps to next resource regeneration.">getStepsToReg</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classResource.html#ad87877637e96514ddefed5cae8adaa99" title="Returns true if resource is mineable.">isMineable</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#a53a0205cfdb995964f0202047965eeb9" title="Gets resource&#39;s regeneration rate.">getRegAmount</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classResource.html#ab4461d823ce807fd5013c287930ca1d9" title="Gets amount of resource, which will drop at each mining.">getAmountPerDrop</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classResource.html#ad87877637e96514ddefed5cae8adaa99" title="Returns true if resource is mineable.">isMineable</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a4b6b0ec18709861808eea76f3c1b6b74" title="Makes resource mineable.">makeMineable</a>();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a53e72592bdfd4bc765e22506bdeda6a8" title="Makes resource pickable.">makePickable</a>();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> subtype;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> progress;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> difficulty;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> amount;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> amount_per_drop;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> reg_amount;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> steps_to_reg;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">bool</span> mineable;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">bool</span> restorable;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;};</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#endif // RESOURCE_H</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a4b6b0ec18709861808eea76f3c1b6b74" title="Makes resource mineable.">makeMineable</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a53e72592bdfd4bc765e22506bdeda6a8" title="Makes resource pickable.">makePickable</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classResource.html#ad678ef5ea1d846b342a2083503afe559" title="Returns is resource restorable.">isRestorable</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#aec065da0fac8decc9a00be7c3bfe4f32" title="Makes resource restorable.">makeRestorable</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classResource.html#a171f1ef1a639e22fafb00a4f1c76ea66" title="Makes resource non-restorable.">makeNonRestorable</a>();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> subtype;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> progress;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> difficulty;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> amount;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_amount;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> amount_per_drop;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> reg_amount;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> steps_to_reg;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">bool</span> mineable;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">bool</span> restorable;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;};</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif // RESOURCE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_fc4bb19f4b1c69be7e31a1481bcf180f.html">Resource</a></li><li class="navelem"><a class="el" href="Resource_8h.html">Resource.h</a></li>
-    <li class="footer">Generated on Sat Nov 24 2012 08:03:03 for pr061012 by
+    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

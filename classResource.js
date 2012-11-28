@@ -2,10 +2,8 @@ var classResource =
 [
     [ "Resource", "classResource.html#a5740e20b90ce4cc9dd8cdb96947bd298", null ],
     [ "~Resource", "classResource.html#a0e5ec475e2601bdb33644468e86f6f10", null ],
-    [ "damage", "classResource.html#aaba80262d4086bfce08ea4d4c0d63f75", null ],
-    [ "decreaseAmount", "classResource.html#acb41587e4354c39a81c4f7d2674f4f88", null ],
+    [ "damage", "classResource.html#a482366ebe93586628b47100adce81421", null ],
     [ "getActions", "classResource.html#a4c4cc169461d76de8787c97276665168", null ],
-    [ "getAmount", "classResource.html#a0a83fccc63c105f0f3dd706daebb1270", null ],
     [ "getAmountPerDrop", "classResource.html#ab4461d823ce807fd5013c287930ca1d9", null ],
     [ "getDifficulty", "classResource.html#a0b6ea6582c309b2db3c57274b687e7d2", null ],
     [ "getHealthPoints", "classResource.html#afff85a837f53fad98bd43a1851094cf7", null ],
@@ -14,12 +12,17 @@ var classResource =
     [ "getRegAmount", "classResource.html#a53a0205cfdb995964f0202047965eeb9", null ],
     [ "getStepsToReg", "classResource.html#aa5edfbdfef006f4aab8e86acaaf94120", null ],
     [ "getSubtype", "classResource.html#ae3b7847e943a7b82f90bcf32ecd1e797", null ],
-    [ "heal", "classResource.html#a88928f89a1a538768dade43b0493ec6c", null ],
-    [ "increaseAmount", "classResource.html#a55b2623e12687bedc2efced0bc781fc6", null ],
+    [ "getTypeName", "classResource.html#a5c410a5a52a56918b8bb9ed2f2fcacdc", null ],
+    [ "heal", "classResource.html#a05615895932c33aeba67d7f06847ed75", null ],
+    [ "increaseMaxAmount", "classResource.html#a7d8b464a4f8a1f824b4b83019c8928dc", null ],
     [ "incrementProgress", "classResource.html#a6eb73f19cd1f3cf7485dc659256fe239", null ],
     [ "isMineable", "classResource.html#ad87877637e96514ddefed5cae8adaa99", null ],
     [ "isRestorable", "classResource.html#ad678ef5ea1d846b342a2083503afe559", null ],
     [ "makeMineable", "classResource.html#a4b6b0ec18709861808eea76f3c1b6b74", null ],
+    [ "makeNonRestorable", "classResource.html#a171f1ef1a639e22fafb00a4f1c76ea66", null ],
     [ "makePickable", "classResource.html#a53e72592bdfd4bc765e22506bdeda6a8", null ],
-    [ "receiveMessage", "classResource.html#a57195a6cea3aa37c11cf038119e88de3", null ]
+    [ "makeRestorable", "classResource.html#aec065da0fac8decc9a00be7c3bfe4f32", null ],
+    [ "printObjectInfo", "classResource.html#ab1996b2c5b394a0d2fc9de58c9bf7806", null ],
+    [ "receiveMessage", "classResource.html#a57195a6cea3aa37c11cf038119e88de3", null ],
+    [ "setProgress", "classResource.html#aa93c9044f64f0521eceab41aadcd1188", null ]
 ];
