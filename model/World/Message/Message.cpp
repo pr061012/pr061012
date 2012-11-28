@@ -15,6 +15,11 @@ Message::Message(const MessageType type, const Object* sender) :
 {
 }
 
+Message::~Message()
+{
+
+}
+
 //******************************************************************************
 // ACCESSING MESSAGE TYPE AND SENDER.
 //******************************************************************************
