@@ -43,6 +43,10 @@
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
 
+/// Size of grid cells relative to the default value.
+/// Default is VIEW_CAM_RADIUS/8 game units of length
+#define VIEW_GRID_SIZE              (double) 4
+
 //******************************************************************************
 // SIZE DEFINES.
 // Prefix: SZ.

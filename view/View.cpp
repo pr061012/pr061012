@@ -247,21 +247,23 @@ void View::redraw()
         double xoff = -view_world -> worldToScreenX(0.0);
         double yoff = -view_world -> worldToScreenY(0.0);
 
-        xoff *= getDistance()/2;
-        yoff *= getDistance()/2;
+        const double grid_size = getDistance() / VIEW_GRID_SIZE;
+
+        xoff *= grid_size;
+        yoff *= grid_size;
 
         xoff = xoff - (int)xoff;
         yoff = yoff - (int)yoff;
 
-        xoff /= getDistance()/2;
-        yoff /= getDistance()/2;
+        xoff /= grid_size;
+        yoff /= grid_size;
 
         int end = getMaxScrX() * getDistance();
 
         glBegin(GL_LINES);
         for(int i = -end; i <= end; i++)
         {
-                double shift = (double)i / getDistance()*2.;
+                double shift = (double)i / grid_size;
 
                 glVertex2d(-getMaxScrX(),  shift - yoff);
                 glVertex2d( getMaxScrX(),  shift - yoff);
