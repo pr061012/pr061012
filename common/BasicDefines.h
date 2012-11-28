@@ -38,7 +38,7 @@
 #define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
 
 /// Radius of field of view of game camera
-#define VIEW_CAM_RADIUS             10
+#define VIEW_CAM_RADIUS             20
 
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
