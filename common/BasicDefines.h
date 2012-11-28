@@ -330,6 +330,9 @@
 /// Changes of health
 #define CREAT_DELTA_HEALTH          1
 
+/// Changes of endurance
+#define CREAT_DELTA_ENDUR          1
+
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            20
 
