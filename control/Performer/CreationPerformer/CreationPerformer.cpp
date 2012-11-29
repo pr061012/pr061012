@@ -137,7 +137,8 @@ bool CreationPerformer::checkCoord(Object* new_obj)
     double size =  shape.getSize();
 
     // Get obstacles
-    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(shape, new_obj);
+    ObjectType type = new_obj -> getType();
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(shape);
 
     uint count_building = obstacles.getTypeAmount(BUILDING);
     uint count_creature = obstacles.getTypeAmount(CREATURE);
@@ -153,14 +154,28 @@ bool CreationPerformer::checkCoord(Object* new_obj)
     {
         ret = false;
     }
-    else if
-    (
-        !count_building &&
-        !count_resource &&
-        !count_creature
-    )
+    else if (type == BUILDING)
     {
-        ret = true;
+        if
+        (
+            !count_building &&
+            !count_resource &&
+            count_creature == 1
+        )
+        {
+            ret = true;
+        }
+    }
+    else if (type == CREATURE)
+    {
+        if
+        (
+            !count_creature &&
+            !count_resource
+        )
+        {
+            ret = true;
+        }
     }
 
     return ret;
