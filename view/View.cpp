@@ -192,6 +192,7 @@ void View::redraw()
 
     const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
 
+#ifdef VIEW_DEBUG
     if (selection.size() > 0)
     {
         for (uint i = 0; i < selection.size(); ++i)
@@ -205,7 +206,7 @@ void View::redraw()
                 double sz = view_world -> worldToScreenDist(selected->getShape().getSize());
 
                 std::string msg;
-                if(dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
+                if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
                 {
                     CreatureAction action = (CreatureAction)dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct();
                     msg = hum_act_repr[action];
@@ -220,6 +221,7 @@ void View::redraw()
 
         }
     }
+#endif
 
     if (glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
