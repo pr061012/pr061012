@@ -94,7 +94,7 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 
     for(uint i = 0; i < act.size(); i++)
     {
-        if (DoubleComparison::areEqual(act(i, 0), max)
+        if (DoubleComparison::areEqual(act(i, 0), max))
         {
             vect_of_actions.push_back(i);
         }
