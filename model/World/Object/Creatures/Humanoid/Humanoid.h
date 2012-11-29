@@ -90,9 +90,10 @@ public:
     void setHome(Building* home);
 
      /**
-     * @brief  Sets detailed action
+     * @brief Sets detailed action
+     * @param detailed_act  new detailed humanoid action.
      */
-    void setDetailedAction (DetailedHumAction det_action);
+    void setDetailedAction(DetailedHumAction detailed_act);
 
     //**************************************************************************
     // ADD TO INVENTORY

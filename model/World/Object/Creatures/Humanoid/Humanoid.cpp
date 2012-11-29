@@ -841,7 +841,7 @@ ObjectHeap* Humanoid::getVisMem() const
     return this -> visual_memory;
 }
 
-void Humanoid::setDetailedAction(DetailedHumAction det_action)
+void Humanoid::setDetailedAction(DetailedHumAction detailed_act)
 {
     this -> detailed_act = detailed_act;
 }
