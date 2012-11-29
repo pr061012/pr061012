@@ -159,6 +159,11 @@ void ViewWorld::setY(double new_var)
     this -> y = new_var;
 }
 
+#ifdef VIEW_DEBUG
+std::string act_repr[] = {"N", "S", "E", "B", "G", "R", "E", "C", "W", "RD", "ES", "REP", "DN"};
+std::string hum_act_repr[] = {"H", "I_F", "F_F", "REL", "SL_H", "SL_G", "MINE", "B", "CH", "FI", "RUN"};
+#endif
+
 void ViewWorld::renderObject(const Object* object)
 {
     const Vector &p = object -> getCoords();
@@ -171,7 +176,7 @@ void ViewWorld::renderObject(const Object* object)
     {
         case RESOURCE:
         {
-            Resource* res = (Resource*)object;
+            const Resource* res = dynamic_cast<const Resource*>(object);
             if(res -> getSubtype() == RES_BUILDING_MAT)
             {
                 glColor4d(0.0, 1.0, 0.0, 0.4);
@@ -192,6 +197,22 @@ void ViewWorld::renderObject(const Object* object)
             glColor4d(0.0, 0.0, 0.0, 0.4);
             break;
         case CREATURE:
+            double cx = worldToScreenX(object -> getCoords().getX());
+            double cy = worldToScreenY(object -> getCoords().getY());
+            double sz = worldToScreenDist(object -> getShape().getSize());
+
+            std::string msg;
+            if (dynamic_cast<const Creature*>(object) -> getSubtype() == HUMANOID)
+            {
+                CreatureAction action = (CreatureAction)dynamic_cast<const Humanoid*>(object) -> getCurrentDetailedAct();
+                msg = hum_act_repr[action];
+            }
+            else
+            {
+                CreatureAction action = (CreatureAction)dynamic_cast<const Creature*>(object) -> getCurrentDecision();
+                msg = act_repr[action];
+            }
+            ViewUtilities::renderText(cx-sz/2, cy-sz/2, sz*70.0, msg);
             glColor4d(1.0, 1.0, 1.0, 0.4);
             break;
     }

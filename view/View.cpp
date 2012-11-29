@@ -153,9 +153,6 @@ std::string View::getUserInput()
 
 bool mouse_clicked = false;
 
-std::string act_repr[] = {"N", "S", "E", "B", "G", "R", "E", "C", "W", "RD", "ES", "REP", "DN"};
-std::string hum_act_repr[] = {"H", "I_F", "F_F", "REL", "SL_H", "SL_G", "MINE", "B", "CH", "FI", "RUN"};
-
 void View::redraw()
 {
     // Check for an update of window dimensions
@@ -191,37 +188,6 @@ void View::redraw()
     double wy = view_world -> screenToWorldY( sy );
 
     const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
-
-#ifdef VIEW_DEBUG
-    if (selection.size() > 0)
-    {
-        for (uint i = 0; i < selection.size(); ++i)
-        {
-            const Object* selected = selection.at(i);
-
-            if (selected -> getType() == CREATURE)
-            {
-                double cx = view_world -> worldToScreenX(selected -> getCoords().getX());
-                double cy = view_world -> worldToScreenY(selected -> getCoords().getY());
-                double sz = view_world -> worldToScreenDist(selected->getShape().getSize());
-
-                std::string msg;
-                if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
-                {
-                    CreatureAction action = (CreatureAction)dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct();
-                    msg = hum_act_repr[action];
-                }
-                else
-                {
-                    CreatureAction action = (CreatureAction)dynamic_cast<const Creature*>(selected) -> getCurrentDecision();
-                    msg = act_repr[action];
-                }
-                ViewUtilities::renderText(cx-sz/2, cy-sz/2, sz*70.0, msg);
-            }
-
-        }
-    }
-#endif
 
     if (glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
