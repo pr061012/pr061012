@@ -21,6 +21,7 @@ Weather::Weather(WeatherType type, uint living_steps) :
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
     this -> setDangerLevel(DNGR_WEATHER);
+    this -> setWeight(WGHT_WEATHER);
 
     if(living_steps == 0)
     {

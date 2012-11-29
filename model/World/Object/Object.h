@@ -161,6 +161,22 @@ public:
     void setDangerLevel(uint danger_level);
 
     //**************************************************************************
+    // WEIGHT.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets object's weight.
+     * @return weight
+     */
+    uint getWeight() const;
+
+    /**
+     * @brief Sets object's weight.
+     * @param weight    new weight
+     */
+    void setWeight(uint weight);
+
+    //**************************************************************************
     // OBJECT TYPE AND ID.
     //**************************************************************************
 
@@ -270,6 +286,9 @@ private:
 
     /// Object's danger level.
     uint danger_level;
+
+    /// Object's weight.
+    uint weight;
 
 protected:
     /// Array with actions.

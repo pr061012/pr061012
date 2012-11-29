@@ -34,6 +34,7 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setReachArea(Shape(Vector(), SHP_NON_HUMANOID,
                                SZ_NHUM_DIAM * SZ_REACH_AREA_COEF));
     this -> setDangerLevel(DNGR_NON_HUMANOID);
+    this -> setWeight(WGHT_NON_HUMANOID);
 
     // Initialize of matrix of attr
     attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();

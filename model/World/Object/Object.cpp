@@ -22,7 +22,9 @@ Object::Object(ObjectType type, bool solidity, bool immortality) :
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
-    angle(0)
+    angle(0),
+    danger_level(0),
+    weight(0)
 {
 }
 
@@ -50,6 +52,7 @@ std::string Object::printObjectInfo() const
           "HP\t\t\t"             << getHealthPoints() << "/" <<
                                     getMaxHealthPoints() << std::endl <<
           "Danger level\t\t"     << danger_level << std::endl <<
+          "Weight\t\t\t"         << weight << std::endl <<
           "Shape\t\t\t"          << shape.getTypeName() << " (" <<
                                     shape.getSize() << ")" << std::endl;
 
@@ -120,6 +123,20 @@ uint Object::getDangerLevel() const
 void Object::setDangerLevel(uint danger_level)
 {
     this -> danger_level = danger_level;
+}
+
+//******************************************************************************
+// WEIGHT.
+//******************************************************************************
+
+uint Object::getWeight() const
+{
+    return this -> weight;
+}
+
+void Object::setWeight(uint weight)
+{
+    this -> weight = weight;
 }
 
 //******************************************************************************

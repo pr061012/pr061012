@@ -23,6 +23,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
     this -> setShapeType(SHP_RESOURCE);
     this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
+    this -> setWeight(WGHT_RESOURCE);
 
     // FIXME: Foolish code.
     switch(this -> subtype)
