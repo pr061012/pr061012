@@ -150,17 +150,17 @@ std::vector <Action>* Humanoid::getActions()
     // Update attrs
     if (current_action == EAT)
     {
-        attrs(ATTR_HUNGER,0) = 100 * getHunger() / getMaxHunger();
-        if (attrs(ATTR_HUNGER,0) == 0)
+        if (getHunger() < 10) // FIXME magic const
         {
+            attrs(ATTR_HUNGER, 0) = getHunger();
             current_action = NONE;
         }
     }
     if (current_action== SLEEP)
     {
-        attrs(ATTR_SLEEPINESS,0) = 100 * getSleepiness() / getMaxSleepiness();
-        if (attrs(ATTR_SLEEPINESS,0) == 0)
+        if (getSleepiness() == 0)
         {
+            attrs(ATTR_SLEEPINESS, 0) = 0;
             current_action = NONE;
         }
     }
@@ -178,6 +178,7 @@ std::vector <Action>* Humanoid::getActions()
         home = nullptr;
         need_in_house = 70;
     }
+
 
     // Store the result of last action and clear actions
     clearActions();
@@ -271,7 +272,10 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             hunt();
-            assert(aim != nullptr);
+            if (100* getHunger() / getMaxHunger() > 60)
+            {
+                detailed_act = FIND_FOOD;
+            }
             if (aim -> isDestroyed())
             {
                 detailed_act = TAKE_FOOD_FROM_INVENTORY;
@@ -281,10 +285,11 @@ std::vector <Action>* Humanoid::getActions()
 
     //**************************************************************************
     // DETAILED DECISION : FIND_FOOD
-    //**************************************************************************
     // Searching for food inside humanoid visual memory. If it is founded he
     // eat it. In other case he just shuffles on the street and explores enviro-
     // ment.
+    //**************************************************************************
+
     if (detailed_act == FIND_FOOD)
     {
         double min_dist = SZ_WORLD_VSIDE;
@@ -329,7 +334,6 @@ std::vector <Action>* Humanoid::getActions()
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
                 this -> actions.push_back(act);
-                current_action = NONE;
             }
         }
     }
@@ -512,7 +516,6 @@ std::vector <Action>* Humanoid::getActions()
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
             this -> actions.push_back(act);
-            current_action = NONE;
         }
     }
 
@@ -578,8 +581,23 @@ std::vector <Action>* Humanoid::getActions()
     return &actions;
 }
 
+//******************************************************************************
+// MESSAGES
+// Receiving of messages
+// If message_type is UNDER_ATTACK // PROBLEM
+//******************************************************************************
 void Humanoid::receiveMessage(Message message)
 {
+
+}
+
+//******************************************************************************
+// ACTION'S ERRORS
+// Processing of action's errors.
+//******************************************************************************
+void Humanoid::errorProcess()
+{
+
 }
 
 //******************************************************************************
@@ -632,7 +650,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    if(home != 0)
+    if(home != nullptr)
     {
         return RELAX_AT_HOME;
     }
