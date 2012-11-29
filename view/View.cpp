@@ -290,7 +290,7 @@ void View::redraw()
 
     for(uint i = 0; i < rendered.size(); ++i)
     {
-        rendered.at(i)->render();
+        rendered.at(i) -> render( rendered.at(i) == focus );
     }
 
     glLoadIdentity();
