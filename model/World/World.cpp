@@ -50,10 +50,8 @@ void World::genResources()
     ParamArray building_mat_params;
 
     food_params.addKey<ResourceType>("res_type", RES_FOOD);
-    food_params.addKey<uint>("res_amount", 0);
 
     building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
-    building_mat_params.addKey<uint>("res_amount", 0);
 
     uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
@@ -68,11 +66,26 @@ void World::genResources()
         grass -> setCoords(Vector(Random::double_range(0, size),
                                   Random::double_range(0, size)));
 
-        visible_objs -> push(newobj);
-        visible_objs -> push(grass);
-    }
+        if (checkCoord(newobj))
+        {
+            indexator -> addObject(newobj);
+            visible_objs -> push(newobj);
+        }
+        else
+        {
+            delete newobj;
+        }
 
-    indexator -> reindexate(visible_objs);
+        if (checkCoord(grass))
+        {
+            indexator -> addObject(grass);
+            visible_objs -> push(grass);
+        }
+        else
+        {
+            delete grass;
+        }
+    }
 }
 
 // Creating cows!
@@ -88,24 +101,38 @@ void World::genCreatures()
     for (uint i = 0; i < amount; i++)
     {
         Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-        new_obj -> setCoords(Vector(Random::double_range(0, size / 3),
-                                    Random::double_range(0, size / 3)));
-        visible_objs -> push(new_obj);
+        new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
+                                    Random::double_range(size / 3, 2 * size / 3)));
 
+        if (checkCoord(new_obj))
+        {
+            indexator -> addObject(new_obj);
+            visible_objs -> push(new_obj);
+        }
+        else
+        {
+            delete new_obj;
+        }
         new_obj = object_factory -> createObject(CREATURE, hum_params);
-        new_obj -> setCoords(Vector(Random::double_range(0, size / 3),
-                                    Random::double_range(0, size / 3)));
-        visible_objs -> push(new_obj);
-    }
+        new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
+                                    Random::double_range(size / 3, 2 * size / 3)));
 
-    indexator -> reindexate(visible_objs);
+        if (checkCoord(new_obj))
+        {
+            indexator -> addObject(new_obj);
+            visible_objs -> push(new_obj);
+        }
+        else
+        {
+            delete new_obj;
+        }
+    }
 }
 
 void World::genWeather()
 {
     ParamArray weat_params;
     weat_params.addKey<WeatherType>("weat_type", METEOR_SHOWER);
-    weat_params.addKey<uint>("weat_steps", 0);
 
     uint amount = Random::int_range(5, 10);
     for (uint i = 0; i < amount; i++)
@@ -115,7 +142,6 @@ void World::genWeather()
         new_obj -> setCoords(Vector(Random::double_range(0, size),
                                     Random::double_range(0, size)));
 
-        visible_objs -> push(new_obj);
     }
 
     indexator -> reindexate(visible_objs);
@@ -165,7 +191,6 @@ void World::genForestAt(double x, double y)
 
     this -> genForestAt(x, y, 20, 20, tree_params);
 
-    indexator -> reindexate(visible_objs);
 }
 
 void World::genTreeAt(double x, double y, const ParamArray& tree_params)
@@ -173,8 +198,15 @@ void World::genTreeAt(double x, double y, const ParamArray& tree_params)
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
 
     new_obj -> setCoords(Vector(x, y));
-
-    this -> visible_objs -> push(new_obj);
+    if (checkCoord(new_obj))
+    {
+        indexator -> addObject(new_obj);
+        visible_objs -> push(new_obj);
+    }
+    else
+    {
+        delete new_obj;
+    }
 }
 
 int World::genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray &tree_params)
@@ -336,4 +368,28 @@ Object *World::getObjectByID(uint id)
     }
 
     return NULL;
+}
+
+bool World::checkCoord(Object *new_obj)
+{
+    bool ret = false;
+
+    Shape shape = new_obj -> getShape();
+    // Get obstacles
+    ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
+
+    uint count_creature = obstacles.getTypeAmount(CREATURE);
+    uint count_resource = obstacles.getTypeAmount(RESOURCE);
+
+    if
+    (
+        !count_creature &&
+        !count_resource
+    )
+    {
+        ret = true;
+    }
+
+
+    return ret;
 }

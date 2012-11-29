@@ -1,6 +1,6 @@
 /*
     Copyright (c) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    See the COPYING file for copying permission.
 */
 
 /**
@@ -42,6 +42,10 @@
 
 /// Radius in which objects are checked for cursor click (in-game coordinates)
 #define VIEW_CURSOR_RAD             (double) 1
+
+/// Size of grid cells relative to the default value.
+/// Default is VIEW_CAM_RADIUS/8 game units of length
+#define VIEW_GRID_SIZE              (double) 4
 
 //******************************************************************************
 // SIZE DEFINES.
@@ -329,6 +333,9 @@
 
 /// Changes of health
 #define CREAT_DELTA_HEALTH          1
+
+/// Changes of endurance
+#define CREAT_DELTA_ENDUR          1
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            20

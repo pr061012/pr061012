@@ -295,8 +295,12 @@ enum ActionError
     OBJ_CANT_DROP,
     OBJ_IS_NOT_IN_HEAP,
     OBJ_CANT_EAT,
+    OBJ_CANT_HARM,
+    OBJ_CANT_CREATE,
     TOO_MANY_PARTICIPANTS,
-    OBJ_IS_NOT_EATABLE
+    OBJ_IS_NOT_EATABLE,
+    ALL_OBJS_ARE_OUT_OF_REACH,
+    SOME_OBJS_ARE_OUT_OF_REACH
 };
 
 //******************************************************************************

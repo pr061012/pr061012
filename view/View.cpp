@@ -101,8 +101,6 @@ double View::getMaxScrY()
 void View::setDistance(double newdist)
 {
     view_world -> setCamRad( ((double)VIEW_CAM_RADIUS) * newdist );
-    std::cout << "[View] Set distance to " << getDistance()
-              << " of original" << std::endl;
 }
 
 
@@ -207,24 +205,7 @@ void View::redraw()
 
                 std::cout << "=======Selected object=========="
                           << std::endl;
-                std::cout << "type = " << selected -> getType()
-                          << std::endl;
-                std::cout << "x = " << selected -> getCoords().getX()
-                          << std::endl;
-                std::cout << "y = " << selected -> getCoords().getY()
-                          << std::endl;
-                std::cout << "id = " << selected -> getObjectID() 
-                          << std::endl;
-                if (selected -> getType() == CREATURE)
-                {
-                    std::cout << "decison = " << 
-                        dynamic_cast<const Creature*>(selected) -> getCurrentDecision() 
-                        << std::endl;
-                    if (dynamic_cast<const Creature*>(selected) -> getSubtype() == HUMANOID)
-                        std::cout << "detailed_act = " <<
-                            dynamic_cast<const Humanoid*>(selected) -> getCurrentDetailedAct()
-                            << std::endl;
-                }
+                std::cout << selected -> printObjectInfo();
                         
             }
         }
@@ -266,24 +247,29 @@ void View::redraw()
         double xoff = -view_world -> worldToScreenX(0.0);
         double yoff = -view_world -> worldToScreenY(0.0);
 
-        xoff *= getDistance();
-        yoff *= getDistance();
+        const double grid_size = getDistance() / VIEW_GRID_SIZE;
+
+        xoff *= grid_size;
+        yoff *= grid_size;
 
         xoff = xoff - (int)xoff;
         yoff = yoff - (int)yoff;
+
+        xoff /= grid_size;
+        yoff /= grid_size;
 
         int end = getMaxScrX() * getDistance();
 
         glBegin(GL_LINES);
         for(int i = -end; i <= end; i++)
         {
-            double shift = (double)i / getDistance() * 2.0;
+                double shift = (double)i / grid_size;
 
-            glVertex2d(-getMaxScrX(),  shift - yoff);
-            glVertex2d( getMaxScrX(),  shift - yoff);
+                glVertex2d(-getMaxScrX(),  shift - yoff);
+                glVertex2d( getMaxScrX(),  shift - yoff);
 
-            glVertex2d( shift - xoff, -getMaxScrY());
-            glVertex2d( shift - xoff,  getMaxScrY());
+                glVertex2d( shift - xoff, -getMaxScrY());
+                glVertex2d( shift - xoff,  getMaxScrY());
         }
         glEnd();
     }
@@ -294,7 +280,7 @@ void View::redraw()
     ViewUtilities::glRectf_blend(-getMaxScrX(), getMaxScrY(), getMaxScrX(), getMaxScrY()-0.6f);
     glColor3f(1.0f, 1.0f, 1.0f);
 
-    std::string msg = std::to_string(wx) + " " + std::to_string(wy);
+    std::string msg = std::to_string(wx) + " " + std::to_string(wy) + " " + std::to_string(getDistance());
     if(this -> isPaused()) msg += " PAUSED";
 
     ViewUtilities::renderText(-getMaxScrX(), getMaxScrY() - 0.5, 24.f, msg);
