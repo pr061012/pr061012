@@ -818,6 +818,8 @@ void Creature::updateCommonAttrs()
 //******************************************************************************
 // INVENTORY
 //******************************************************************************
+
+// Adds object to inventory.
 void Creature::addToInventory(Object *obj)
 {
     // Resources should be stacked together
@@ -840,3 +842,8 @@ void Creature::addToInventory(Object *obj)
     this -> inventory -> push(obj);
 }
 
+// Remove object from inventory.
+void Creature::removeFromInventory(Object * obj)
+{
+    inventory -> remove(obj);
+}
