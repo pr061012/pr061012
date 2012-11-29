@@ -531,8 +531,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIGHT)
     {
-        // fight();
-        go(SLOW_SPEED);
+        fight();
     }
 
     //**************************************************************************
