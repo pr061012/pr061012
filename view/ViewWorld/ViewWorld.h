@@ -30,6 +30,9 @@ class ViewWorld
 
     double cam_radius;
 
+    /// Id of currently selected unit.
+    uint selected_id;
+
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
     /// required to get information about units that are not
@@ -123,13 +126,23 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
+    /**
+     * @brief Returns current radius of game cam, in game length units.
+     */
     double getCamRad();
 
+    /**
+     * @brief Changes current camera radius.
+     * @param rad new radius
+     */
     void setCamRad(double rad);
 
+    /**
+     * @brief Returns current coordinates of game camera center.
+     */
     double getX();
     double getY();
-    double getSize();
+
 
     /**
      * @brief changes current width and height attributes

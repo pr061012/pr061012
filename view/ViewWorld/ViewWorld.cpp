@@ -296,9 +296,9 @@ void ViewWorld::renderBackground()
         glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
         glTexCoord2f(px + 16.0, py);
         glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(px + 16.0, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(px + 16.0, 16.0 + py);
         glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-        glTexCoord2f(0.0  + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(0.0  + px, 16.0 + py);
         glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
     glEnd();
 

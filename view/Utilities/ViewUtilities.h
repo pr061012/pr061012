@@ -28,14 +28,19 @@ public:
         glDisable(GL_BLEND);
     }
 
-    static void glCirclef_blend(float x, float y, float rad)
+    /**
+     * @brief Draw a circle at specified screen coordinates.
+     */
+    static void glCirclef_blend(float x, float y, float rad, bool filled = true)
     {
         double angle;
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        glBegin(GL_TRIANGLE_FAN);
+        if(filled) glBegin(GL_TRIANGLE_FAN);
+        else       glBegin(GL_LINES);
+
             for(int i = 0; i < 100; i++) {
                 angle = 2.0 * i * M_PI / 100;
                 glVertex2d((x + cos(angle) * rad),
