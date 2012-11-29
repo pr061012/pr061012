@@ -19,9 +19,6 @@
 
 int main()
 {
-    // Error flag.
-    bool error = false;
-
     // Initializing random.
     srand(time(0));
 
@@ -93,22 +90,10 @@ int main()
             }
         }
     }
-    // Invalid game resource path exception.
-    catch (EInvalidResPath& exc)
+    // Catching exceptions.
+    catch (std::exception& exc)
     {
-        error = true;
-        Log::ERROR("Failed to load game resource '" + exc.getResPath() +
-                   "'. Terminating.");
-    }
-    // Bad alloc exception.
-    catch (std::bad_alloc& exc)
-    {
-        error = true;
-        Log::ERROR("Failed to allocate memory. Terminating.");
-    }
-
-    if (error)
-    {
+        Log::ERROR(exc.what());
         std::cout << "An error occurred during game execution. Look for LOG " <<
                      "file for details." << std::endl;
         return 1;

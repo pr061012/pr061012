@@ -28,7 +28,7 @@ public:
      */
     std::string getResPath();
 
-    virtual const char * what() const throw();
+    virtual const char* what() const throw();
 
 private:
     /// Resource path.
