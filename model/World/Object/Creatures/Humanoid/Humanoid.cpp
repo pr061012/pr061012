@@ -148,13 +148,21 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     // Update attrs
-    if (current_decision == EAT)
+    if (current_action == EAT)
     {
-        attrs(ATTR_HUNGER) = 100 * getHunger() / getMaxHunger();
+        attrs(ATTR_HUNGER,0) = 100 * getHunger() / getMaxHunger();
+        if (attrs(ATTR_HUNGER,0) == 0)
+        {
+            current_action = NONE;
+        }
     }
-    if (current_decision == SLEEP)
+    if (current_action== SLEEP)
     {
-        attrs(ATTR_SLEEPINESS) = 100 * getSleepiness() / getMaxSleepiness();
+        attrs(ATTR_SLEEPINESS,0) = 100 * getSleepiness() / getMaxSleepiness();
+        if (attrs(ATTR_SLEEPINESS,0) == 0)
+        {
+            current_action = NONE;
+        }
     }
 
     // Force him to sleep if he really want it
@@ -263,6 +271,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             hunt();
+            assert(aim != nullptr);
             if (aim -> isDestroyed())
             {
                 detailed_act = TAKE_FOOD_FROM_INVENTORY;
