@@ -66,25 +66,23 @@ void World::genResources()
         grass -> setCoords(Vector(Random::double_range(0, size),
                                   Random::double_range(0, size)));
 
-        indexator -> addObject(newobj);
-        indexator -> addObject(grass);
         if (checkCoord(newobj))
         {
+            indexator -> addObject(newobj);
             visible_objs -> push(newobj);
         }
         else
         {
-            indexator -> removeObject(newobj);
             delete newobj;
         }
 
         if (checkCoord(grass))
         {
+            indexator -> addObject(grass);
             visible_objs -> push(grass);
         }
         else
         {
-            indexator -> removeObject(grass);
             delete grass;
         }
     }
@@ -106,29 +104,26 @@ void World::genCreatures()
         new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
                                     Random::double_range(size / 3, 2 * size / 3)));
 
-        indexator -> addObject(new_obj);
         if (checkCoord(new_obj))
         {
+            indexator -> addObject(new_obj);
             visible_objs -> push(new_obj);
         }
         else
         {
-            indexator -> removeObject(new_obj);
             delete new_obj;
         }
         new_obj = object_factory -> createObject(CREATURE, hum_params);
         new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
                                     Random::double_range(size / 3, 2 * size / 3)));
 
-
-        indexator -> addObject(new_obj);
         if (checkCoord(new_obj))
         {
+            indexator -> addObject(new_obj);
             visible_objs -> push(new_obj);
         }
         else
         {
-            indexator -> removeObject(new_obj);
             delete new_obj;
         }
     }
@@ -203,14 +198,13 @@ void World::genTreeAt(double x, double y, const ParamArray& tree_params)
     Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
 
     new_obj -> setCoords(Vector(x, y));
-    indexator -> addObject(new_obj);
     if (checkCoord(new_obj))
     {
+        indexator -> addObject(new_obj);
         visible_objs -> push(new_obj);
     }
     else
     {
-        indexator -> removeObject(new_obj);
         delete new_obj;
     }
 }
