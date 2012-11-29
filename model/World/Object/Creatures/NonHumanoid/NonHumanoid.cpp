@@ -5,14 +5,15 @@
 
 #include <cstdlib>
 
-#include "NonHumanoid.h"
 
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
 #include "../../../../../common/Math/DoubleComparison.h"
-
 #include "../../Resource/Resource.h"
+#include "../EDeprecatedAction.h"
+
+#include "NonHumanoid.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -192,42 +193,13 @@ std::vector <Action>* NonHumanoid::getActions()
     }
 
     //**************************************************************************
-    // DECISION : REPRODUCE
+    // DECISION : DEPRECATED DECISIONS
     //**************************************************************************
-    else if (current_decision == REPRODUCE)
+    else
     {
-        Log::NOTE("REPRODUCE");
+        throw EDeprecatedAction(NON_HUMANOID, current_decision);
     }
 
-    else if (current_decision == COMMUNICATE)
-    {
-        Log::NOTE("COMMUNICATE");
-    }
-
-    else if (current_decision == WORK)
-    {
-        Log::NOTE("WORK");
-    }
-
-    else if (current_decision == GATHER)
-    {
-        Log::NOTE("GATHER");
-    }
-
-    else if (current_decision == EXPLORE)
-    {
-        Log::NOTE("EXPLORE");
-    }
-
-    else if (current_decision == REALIZE_DREAM)
-    {
-        Log::NOTE("REALIZE_DREAM");
-    }
-
-    else if (current_decision == BUILD)
-    {
-        Log::NOTE("BUILD");
-    }
     return &actions;
 
 }
@@ -244,8 +216,9 @@ void NonHumanoid::receiveMessage(Message message)
 }
 
 //******************************************************************************
-// UPDATES
+// UPDATES.
 //******************************************************************************
+
 void NonHumanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
@@ -254,8 +227,9 @@ void NonHumanoid::updateNeedInDesc()
 }
 
 //******************************************************************************
-// AUXILIARY FUNTIONS
+// AUXILIARY FUNCTIONS.
 //******************************************************************************
+
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
