@@ -51,7 +51,7 @@ View::~View()
     delete view_world;
     delete input_handler;
 
-    for(uint i = rendered.size()-1; i > 0 ; --i)
+    for(uint i = 0; i < rendered.size(); i++)
     {
         delete rendered.at(i);
     }

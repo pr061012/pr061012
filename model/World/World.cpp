@@ -142,6 +142,8 @@ void World::genWeather()
         new_obj -> setCoords(Vector(Random::double_range(0, size),
                                     Random::double_range(0, size)));
 
+        visible_objs -> push(new_obj);
+
     }
 
     indexator -> reindexate(visible_objs);
