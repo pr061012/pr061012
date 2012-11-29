@@ -1,4 +1,6 @@
-/*
+
+
+48/*
     Copyright (c) 2012, pr061012 Team.
     See the LICENSE file for copying permission.
 */
@@ -103,7 +105,7 @@ Object * ObjectFactory::createResource(const ParamArray & params)
 
     try
     {
-        amount = params.getValue<uint>("res_amount");
+        amount = params.getValue<uint>("res_amount", true);
     }
     catch (EParamArrayInvalidKey& exc)
     {
@@ -121,7 +123,7 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 
     try
     {
-        max_strength = params.getValue<uint>("tool_str");
+        max_strength = params.getValue<uint>("tool_str", true);
     }
     catch (EParamArrayInvalidKey& exc)
     {
@@ -138,7 +140,7 @@ Object * ObjectFactory::createWeather(const ParamArray & params)
 
     try
     {
-        steps = params.getValue<uint>("weat_steps");
+        steps = params.getValue<uint>("weat_steps", true);
     }
     catch (EParamArrayInvalidKey& exc)
     {
