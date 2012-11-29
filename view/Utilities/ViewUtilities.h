@@ -38,10 +38,10 @@ public:
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        if(filled) glBegin(GL_TRIANGLE_FAN);
-        else       glBegin(GL_LINES);
+        if (filled) glBegin(GL_TRIANGLE_FAN);
+        else        glBegin(GL_LINE_LOOP);
 
-            for(int i = 0; i < 100; i++) {
+            for (int i = 0; i < 100; i++) {
                 angle = 2.0 * i * M_PI / 100;
                 glVertex2d((x + cos(angle) * rad),
                            (y + sin(angle) * rad));

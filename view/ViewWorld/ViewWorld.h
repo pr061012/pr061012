@@ -143,6 +143,9 @@ public:
     double getX();
     double getY();
 
+    void setSelection(uint id);
+
+    const Object* getSelection();
 
     /**
      * @brief changes current width and height attributes

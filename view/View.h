@@ -167,6 +167,8 @@ public:
      */
     void redraw();
 
+    void displaySelectionInfo();
+
     /**
      * @brief checks conditions to exit the program.
      * @return result of exit conditions

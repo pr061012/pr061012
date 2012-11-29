@@ -33,6 +33,8 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
     this -> width = width;
     this -> height = height;
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
+
+    this -> selected_id = -1;
 }
 
 ViewWorld::~ViewWorld()
@@ -138,6 +140,17 @@ double ViewWorld::getX()
 double ViewWorld::getY()
 {
     return this -> y;
+}
+
+void ViewWorld::setSelection(uint id)
+{
+    this -> selected_id = id;
+}
+
+const Object* ViewWorld::getSelection()
+{
+    return NULL; // TODO: Move getObjectByID to IWorld.
+    //return this -> world.ge
 }
 
 void ViewWorld::setX(double new_var)

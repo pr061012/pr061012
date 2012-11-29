@@ -209,6 +209,12 @@ void View::redraw()
                 std::cout << selected -> printObjectInfo();
                         
             }
+
+            this -> view_world -> setSelection(selection.at(0) -> getObjectID());
+        }
+        else
+        {
+            this -> view_world -> setSelection(-1);
         }
 
         mouse_clicked = false;
@@ -296,6 +302,14 @@ void View::redraw()
 
     glLoadIdentity();
     glfwSwapBuffers();
+}
+
+void View::displaySelectionInfo()
+{
+    if(this -> view_world -> getSelection())
+    {
+
+    }
 }
 
 void View::initWindow()
