@@ -7,6 +7,7 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 #include "../../../common/Exceptions/EInvalidResPath.h"
+#include "../../../common/Math/DoubleComparison.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -93,12 +94,12 @@ CreatureAction DecisionMaker::makeDecision(arma::mat attrs) const
 
     for(uint i = 0; i < act.size(); i++)
     {
-        if (act(i, 0) - max == 0)
+        if (DoubleComparison::areEqual(act(i, 0), max)
         {
             vect_of_actions.push_back(i);
         }
 
-        if (act(i, 0) - max > MATH_EPSILON)
+        if (DoubleComparison::isGreater(act(i, 0), max))
         {
             max = act(i, 0);
             vect_of_actions.clear();

@@ -177,7 +177,7 @@ std::vector <Action>* Humanoid::getActions()
     if (home != nullptr && home -> isDestroyed())
     {
         home = nullptr;
-        need_in_house = 70;
+        need_in_house = 70;// FIXME
     }
 
 
@@ -200,6 +200,9 @@ std::vector <Action>* Humanoid::getActions()
         aim = nullptr;
         detailed_act = chooseAction(current_action);
     }
+
+    // Get messages
+    messageProcess();
 
     //**************************************************************************
     // DETAILED DECISION : RELAX_AT_HOME
@@ -528,8 +531,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIGHT)
     {
-        // fight();
-        go(SLOW_SPEED);
+        fight();
     }
 
     //**************************************************************************
@@ -584,12 +586,26 @@ std::vector <Action>* Humanoid::getActions()
 
 //******************************************************************************
 // MESSAGES
-// Receiving of messages
-// If message_type is UNDER_ATTACK // PROBLEM
 //******************************************************************************
+
+// Receiving of messages. Used in controller.
 void Humanoid::receiveMessage(Message message)
 {
+    this -> msgs.push_back(message);
+}
 
+// Processing of messages
+void Humanoid::messageProcess()
+{
+    for (uint i=0; i < msgs.size(); i++)
+    {
+        if (msgs[i].getType() == UNDER_ATTACK)
+        {
+            this -> current_action = ESCAPE;
+            aim = msgs[i].getSender();
+            detailed_act = chooseWayToEscape();
+        }
+    }
 }
 
 //******************************************************************************

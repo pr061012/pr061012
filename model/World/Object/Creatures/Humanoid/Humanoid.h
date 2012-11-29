@@ -238,6 +238,10 @@ private:
      * @brief Processing os actions errors.
      */
     void errorProcess();
+    //**************************************************************************
+    // MESSAGES
+    //**************************************************************************
+    void messageProcess();
 };
 
 #endif // HUMANOID_H
