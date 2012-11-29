@@ -187,13 +187,14 @@ void View::redraw()
     double wx = view_world -> screenToWorldX( sx );
     double wy = view_world -> screenToWorldY( sy );
 
-    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
+    const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
+
+    if (glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !mouse_clicked)
     {
         mouse_clicked = true;
     }
-    else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
+    else if (glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
     {
-        const std::vector<const Object*> selection = view_world -> getViewObjectAt(wx, wy);
         if(selection.size() > 0)
         {
             std::cout << "=======Selection stats=========="
@@ -290,7 +291,7 @@ void View::redraw()
 
     for(uint i = 0; i < rendered.size(); ++i)
     {
-        rendered.at(i)->render();
+        rendered.at(i) -> render( rendered.at(i) == focus );
     }
 
     glLoadIdentity();

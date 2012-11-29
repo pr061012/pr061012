@@ -13,6 +13,7 @@
 
 class TextField
 {
+    int render_steps;
     std::string content;
     double x;
     double y;
@@ -39,7 +40,7 @@ public:
 
     void setText(std::string content);
 
-    void render();
+    void render(bool in_focus = false);
 
     bool hitTest(double x, double y);
 
