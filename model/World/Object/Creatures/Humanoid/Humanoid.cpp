@@ -257,6 +257,7 @@ std::vector <Action>* Humanoid::getActions()
             iter != objects_around.end(CREATURE); iter++
         )
         {
+            // FIXME You don't use any of Creature's feature, why you make dynamic_cast?
             Creature* creat = dynamic_cast<Creature*>(*iter);
             if
             (

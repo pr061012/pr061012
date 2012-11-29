@@ -239,7 +239,7 @@ void NonHumanoid::receiveMessage(Message message)
     if (msg_type == UNDER_ATTACK)
     {
         chooseDirectionToEscape();
-        go(SLOW_SPEED);
+        //go(SLOW_SPEED);
     }
 }
 
