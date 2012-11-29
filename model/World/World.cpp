@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 
+#include "../../common/BasicDefines.h"
 #include "../../common/Math/Random.h"
 
 //******************************************************************************
