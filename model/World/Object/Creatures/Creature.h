@@ -83,6 +83,16 @@ public:
      */
     Shape getReachArea();
 
+    //**********************************************************
+    // INVENTORY
+    //**********************************************************
+    
+    /**
+     * @brief  Add object to inventory.
+     * @param  obj object to add.
+     */
+    void addToInventory(Object * obj);
+
     /**
      * @brief  Get inventory
      * @return inventory
