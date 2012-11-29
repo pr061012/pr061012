@@ -68,6 +68,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 Creature::~Creature()
 {
     delete inventory;
+    delete obstacles;
 }
 
 //******************************************************************************
@@ -732,7 +733,7 @@ double Creature::setDirection()
 // UPDATES
 //**********************************************************
 
-// look for objects arounв and count danger level
+// look for objects around and count danger level
 void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
