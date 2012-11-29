@@ -6,6 +6,7 @@
 #include <cmath>
 
 #include "Creature.h"
+#include "../Resource/Resource.h"
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Math/Random.h"
 #include "../Weather/Weather.h"
@@ -482,7 +483,7 @@ void Creature::chooseDirectionToEscape()
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = atan(global_y / global_x) + M_PI;
+    this -> angle = atan2(global_y, global_x) + M_PI;
     aim = 0;
     direction_is_set = true;
 }
@@ -659,7 +660,7 @@ void Creature::clearActions()
         }
     }
 
-    // Then remove.
+    // Then remove them from inventory.
     for (uint i = 0; i < buffer.size(); i++)
     {
         inventory -> remove(buffer[i]);
@@ -810,5 +811,30 @@ void Creature::updateCommonAttrs()
         danger_steps--;
     }
 
+}
+
+//******************************************************************************
+// INVENTORY
+//******************************************************************************
+void Creature::addToInventory(Object *obj)
+{
+    // Resources should be stacked together
+    if (obj -> getType() == RESOURCE)
+    {
+        ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
+        for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
+             i != inventory -> end(RESOURCE); i++)
+        {
+            if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
+            {
+                (*i) -> heal(obj -> getHealthPoints());
+                obj -> markAsDestroyed();
+                return;
+            }
+        }
+    }
+
+    // If there are no resources of this type, or it's something else, just push it.
+    this -> inventory -> push(obj);
 }
 

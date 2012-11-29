@@ -784,10 +784,3 @@ uint Humanoid::getCurrentDetailedAct() const
     return detailed_act;
 }
 
-//******************************************************************************
-// ADD TO INVENTORY
-//******************************************************************************
-void Humanoid::addToInventory(Object *obj)
-{
-    this -> inventory -> push(obj);
-}

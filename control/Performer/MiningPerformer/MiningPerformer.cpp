@@ -117,7 +117,7 @@ void MiningPerformer::perform(Action& action)
 
             // Adding object to inventory and world's heap.
             this -> world -> addObject(false, drop);
-            dynamic_cast<Humanoid*>(creature) -> addToInventory(drop);
+            dynamic_cast<Creature*>(creature) -> addToInventory(drop);
         }
     }
 
