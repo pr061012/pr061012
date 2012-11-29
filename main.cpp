@@ -80,11 +80,13 @@ int main()
                 view.redraw();
 
                 // Check if user wants to reset world.
+                /*
                 if (view.isReset())
                 {
                     view.setReset(false);
                     world.reset();
                 }
+                */
 
                 // Sleeping.
                 std::this_thread::sleep_for(std::chrono::milliseconds(PERIOD));
