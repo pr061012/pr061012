@@ -149,8 +149,12 @@ void ViewWorld::setSelection(uint id)
 
 const Object* ViewWorld::getSelection()
 {
-    return NULL; // TODO: Move getObjectByID to IWorld.
-    //return this -> world.ge
+    if (this -> selected_id == -1)
+    {
+        return NULL;
+    }
+
+    return this -> world.getObjectByID(this -> selected_id);
 }
 
 void ViewWorld::setX(double new_var)
