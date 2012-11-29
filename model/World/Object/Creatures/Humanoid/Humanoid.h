@@ -228,6 +228,15 @@ private:
 
     /// Amount of steps before decreasion of endurance. When HUM is escaping
     uint decr_endur_step;
+
+    //**************************************************************************
+    // ACTION ERROR
+    //**************************************************************************
+
+    /**
+     * @brief Processing os actions errors.
+     */
+    void errorProcess();
 };
 
 #endif // HUMANOID_H
