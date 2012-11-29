@@ -62,15 +62,11 @@ void HarmPerformer::perform(Action& action)
         env_shape = weather -> getShape();
     }
 
-    // Get area contents of actor.
-    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(env_shape);
-    ObjectHeap::const_iterator iter = obstacles.end();
-
     // Harm object in view area.
     uint count_error = 0;
     for (uint i = 0; i < participants.size(); i++)
     {
-        if (obstacles.find(participants[i], false) != iter)
+        if (env_shape.hitTest(participants[i] -> getShape()))
         {
             participants[i] -> damage(harm);
 

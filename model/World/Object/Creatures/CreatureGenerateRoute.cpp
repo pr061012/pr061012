@@ -93,8 +93,10 @@ const Vector Creature::neighbour_offsets[8] =
 // Check whether given point is passable or not, and check if it hits the goal.
 int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 {
+    Shape ghost = getShape();
+    ghost.setCenter(point);
     // Check if we can hit the goal.
-    if (goal_in_sight && goal -> getShape().hitTest(point))
+    if (goal_in_sight && ghost.hitTest(aim -> getShape()))
     {
         return 1;
     }

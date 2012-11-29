@@ -591,6 +591,7 @@ void Creature::hunt()
 {
     if (aim)
     {
+        reach_area.setCenter(getCoords());
         // Hit the aim if it is within our reach
         if (reach_area.hitTest(aim -> getShape()))
         {
