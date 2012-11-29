@@ -46,6 +46,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     this -> setViewArea(Shape(Vector(), SHP_HUM_VIEW_TYPE, SZ_HUM_VIEW_DIAM));
     this -> setReachArea(Shape(Vector(), SHP_HUMANOID,
                                SZ_HUM_DIAM * SZ_REACH_AREA_COEF));
+    this -> setWeight(WGHT_HUMANOID);
 
     // Set danger level
     this -> setDangerLevel(DNGR_HUMANOID);
@@ -876,7 +877,7 @@ ObjectHeap* Humanoid::getVisMem() const
     return this -> visual_memory;
 }
 
-void Humanoid::setDetailedAction(DetailedHumAction det_action)
+void Humanoid::setDetailedAction(DetailedHumAction detailed_act)
 {
     this -> detailed_act = detailed_act;
 }

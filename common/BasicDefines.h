@@ -151,6 +151,29 @@
 #define DNGR_BUILDING               0
 
 //******************************************************************************
+// WEIGHT DEFINES.
+// Prefix: WGHT.
+//******************************************************************************
+
+/// Humanoid's weight.
+#define WGHT_HUMANOID               50
+
+// TODO: Different values for different types of NonHumanoid.
+/// Humanoid's weight.
+#define WGHT_NON_HUMANOID           30
+
+// TODO: Different values for different types of Resource.
+/// Resource's weight.
+#define WGHT_RESOURCE               1
+
+// TODO: Different values for different types of Weather.
+/// Weather's weight.
+#define WGHT_WEATHER                1000
+
+/// Building's weight.
+#define WGHT_BUILDING               1000
+
+//******************************************************************************
 // GENERATION DEFINES.
 // Prefix: GEN.
 //******************************************************************************
@@ -160,7 +183,7 @@
 #define GEN_TREE_PROB_DECAY         0.1
 
 /// Interval in distance of trees generation.
-#define GEN_TREE_INTERVAL           1.1*SZ_RESOURCE_DIAM_MAX
+#define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX
 
 //******************************************************************************
 // WEATHER DEFINES.

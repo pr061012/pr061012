@@ -30,7 +30,7 @@ public:
      * @brief Constructor.
      * @param type  message's type
      */
-    Message(const MessageType type, const Object* sender);
+    Message(const MessageType type, Object* sender);
 
     /**
      * @brief Destructor.
@@ -51,14 +51,14 @@ public:
      * @brief  Gets message's sender.
      * @return message's sender
      */
-    const Object* getSender() const;
+    Object* getSender() const;
 
 private:
     /// Message type.
     const MessageType type;
 
     /// Message's sender.
-    const Object* sender;
+    Object* sender;
 };
 
 #endif // MESSAGE_H

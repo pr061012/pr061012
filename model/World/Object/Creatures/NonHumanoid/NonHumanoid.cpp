@@ -21,11 +21,11 @@
 NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     Creature(NON_HUMANOID, dmaker)
 {
-    // Randomly initialize some values.
+    // Randomly initialise some values.
     int age = Random::int_range(NHUM_AGE_MIN, NHUM_AGE_MAX);
 
-    // Initialize some inhereted things.
-    max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
+    // Initialise some inhereted things.
+    this -> max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setAge(0);
     this -> setMaxAge(age);
     this -> setShapeSize(SZ_NHUM_DIAM);
@@ -34,26 +34,26 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> setReachArea(Shape(Vector(), SHP_NON_HUMANOID,
                                SZ_NHUM_DIAM * SZ_REACH_AREA_COEF));
     this -> setDangerLevel(DNGR_NON_HUMANOID);
+    this -> setWeight(WGHT_NON_HUMANOID);
 
-    // Initialize of matrix of attr
-    attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();
-    attrs(ATTR_SLEEPINESS,0)     = 100 * getSleepiness() / getMaxSleepiness();
-    attrs(ATTR_NEED_IN_HOUSE,0)  = 0;
-    attrs(ATTR_NEED_IN_POINTS,0) = 0;
-    attrs(ATTR_LAZINESS,0)       = 50; // our animal is very lazy,
+    // Initialise of matrix of attributes.
+    attrs(ATTR_HUNGER, 0)         = 100 * getHunger() / getMaxHunger();
+    attrs(ATTR_SLEEPINESS, 0)     = 100 * getSleepiness() / getMaxSleepiness();
+    attrs(ATTR_NEED_IN_HOUSE, 0)  = 0;
+    attrs(ATTR_NEED_IN_POINTS, 0) = 0;
+    attrs(ATTR_LAZINESS, 0)       = 50; // our animal is very lazy,
                                         // so it always wants to relax
-    attrs(ATTR_HEALTH,0)         = 100 * (100 - getHealth()) / getMaxHealth();
-    attrs(ATTR_COMMUNICATION,0)  = 0;
-    attrs(ATTR_DANGER,0)         = danger;
-    attrs(ATTR_NEED_IN_DESC,0)   = 0; // need_in_descendants;
+    attrs(ATTR_HEALTH, 0)         = 100 * (100 - getHealth()) / getMaxHealth();
+    attrs(ATTR_COMMUNICATION, 0)  = 0;
+    attrs(ATTR_DANGER, 0)         = danger;
+    attrs(ATTR_NEED_IN_DESC, 0)   = 0; // need_in_descendants;
 
-    //Initialize type
+    // Initialise type.
     subsubtype = COW;
 }
 
 NonHumanoid::~NonHumanoid()
 {
-
 }
 
 //******************************************************************************
@@ -76,11 +76,13 @@ std::string NonHumanoid::printObjectInfo() const
 
 std::vector <Action>* NonHumanoid::getActions()
 {
-// FIXME: Delete Log::NOTE();
+    // FIXME: Delete Log::NOTE();
     this -> desc_steps--;
 
     if (desc_steps == 0)
+    {
         updateNeedInDesc();
+    }
 
     // Update current state
     updateCommonAttrs();
@@ -241,13 +243,9 @@ void NonHumanoid::receiveMessage(Message message)
     }
 }
 
-//**************************************************************************
-// NON-HUMANOID'S LOGICS.
-//**************************************************************************
-
-//**************************************************************************
+//******************************************************************************
 // UPDATES
-//**************************************************************************
+//******************************************************************************
 void NonHumanoid::updateNeedInDesc()
 {
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
@@ -255,21 +253,21 @@ void NonHumanoid::updateNeedInDesc()
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
-
-//**************************************************************************
+//******************************************************************************
 // AUXILIARY FUNTIONS
-//**************************************************************************
+//******************************************************************************
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
     double distance = SZ_NHUM_VIEW_DIAM;
 
-    // Find grass in around objects.
-    for(
+    // Find grass in around objects heap.
+    for
+    (
         iter = objects_around.begin(RESOURCE);
         iter != objects_around.end(RESOURCE); iter++
-       )
+    )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
         if (res -> getSubtype() == RES_FOOD)
@@ -285,4 +283,3 @@ void NonHumanoid::findGrass()
         }
     }
 }
-

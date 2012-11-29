@@ -9,7 +9,7 @@
 // CONSTRUCTOR/DESTRUCTOR
 //******************************************************************************
 
-Message::Message(const MessageType type, const Object* sender) :
+Message::Message(const MessageType type, Object* sender) :
     type(type),
     sender(sender)
 {
@@ -29,7 +29,7 @@ MessageType Message::getType() const
     return this -> type;
 }
 
-const Object* Message::getSender() const
+Object* Message::getSender() const
 {
     return this -> sender;
 }
