@@ -92,6 +92,12 @@ public:
      * @param  obj object to add.
      */
     void addToInventory(Object * obj);
+    
+    /**
+     * @brief  Removes object from inventory.
+     * @param  obj object to remove.
+     */
+    void removeFromInventory(Object * obj);
 
     /**
      * @brief  Get inventory
@@ -459,7 +465,7 @@ protected:
 
     // If = 100, creature is in danger.
     /// Current danger.
-    uint danger;
+    double danger;
 
     /// Amount for steps to common update.
     uint common_steps;
@@ -501,6 +507,12 @@ protected:
     //**************************************************************************
     
     /**
+     * @brief Evalutates danger of given object.
+     * @param obj object to evaluate danger.
+     */
+    double evaluateDanger(const Object * obj);
+
+    /**
      * @brief Updates need_in_descendants
      */
     virtual void updateNeedInDesc() = 0;
@@ -518,11 +530,12 @@ protected:
     //**************************************************************************
     // GO ACTION
     //**************************************************************************
-    /**
-     * @brief Updates hunger, sleepiness, health
-     */
 
+    /**
+     * @brief Calculates the direction for escaping.
+     */
     void chooseDirectionToEscape();
+
     /**
      * @brief Generate action GO for creature (slow speed)
      * @param speed type of speed

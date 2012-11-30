@@ -447,44 +447,53 @@ const Object* Creature::getAim()
     return this -> aim;
 }
 
+//**********************************************************
+// DANGER EVALUATION
+//**********************************************************
+
+// Evaluates object's danger depending on the distance to it.
+double Creature::evaluateDanger(const Object * obj)
+{
+    double view_radius = view_area.getSize() / 2;
+    double distance = getCoords().getDistance(obj -> getCoords());
+    double my_radius = getShape().getSize() / 2;
+    double obj_radius = getShape().getSize() / 2;
+    // Dependent on:
+    // - the ratio of object's danger to ours (== 1 if same)
+    double danger_ratio = double(obj -> getDangerLevel()) / getDangerLevel();
+
+    // - distance to object (== 1 if we stand right next to the object)
+    double distance_ratio = (my_radius + obj_radius) / distance;
+
+    // - size of view_area  (== 0 if we can't see object,
+    //                       == 1 if we stand right next to the object)
+    double view_ratio = fmax(0, (view_radius + obj_radius - distance) / 
+                                (view_radius - my_radius));
+
+    // - constant factor
+    return pow(danger_ratio * distance_ratio, 2) * view_ratio * CREAT_DANGER_FACTOR;
+}
+
 void Creature::chooseDirectionToEscape()
 {
     // Initialize vector of escaping.
-    double global_x = 0;
-    double global_y = 0;
+    Vector escape_vector(0, 0);
 
     // Add all dangerous objects danger levels as vectors
     // with length equal to object's danger level and
     // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
     for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
+        iter = objects_around.begin();
+        iter != objects_around.end(); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-        {
-            angle = getCoords().getAngle((*iter) -> getCoords());
-            global_x += (*iter) -> getDangerLevel() * cos(angle);
-            global_y += (*iter) -> getDangerLevel() * sin(angle);
-        }
-    }
-
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-        {
-            angle = getCoords().getAngle((*iter) -> getCoords());
-            global_x += (*iter) -> getDangerLevel() * cos(this -> angle);
-            global_y += (*iter) -> getDangerLevel() * sin(this -> angle);
-        }
+        angle = getCoords().getAngle((*iter) -> getCoords());
+        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter);
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = atan2(global_y, global_x) + M_PI;
+    this -> angle = Vector(0,0).getAngle(escape_vector) + M_PI;
     aim = 0;
     direction_is_set = true;
 }
@@ -739,23 +748,12 @@ void Creature::updateDanger()
     ObjectHeap::const_iterator iter;
     this -> danger = 0;
 
-    // Only creatures and weather can be dangerous
     for(
         iter = objects_around.begin(CREATURE);
         iter != objects_around.end(CREATURE); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
-    }
-
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
+        this -> danger += (*iter) -> getDangerLevel();
     }
 
     // Update stats

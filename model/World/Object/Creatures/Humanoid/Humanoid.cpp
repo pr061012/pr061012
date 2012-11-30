@@ -396,24 +396,27 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == BUILD_HOUSE)
     {
-        if (aim == nullptr)
-        {
-            aim = home;
-        }
-        Shape reach_area = this -> getReachArea();
-        reach_area.setCenter(this -> getCoords());
-        if (!reach_area.hitTest(aim -> getShape()))
-        {
-            go(SLOW_SPEED);
-            visualMemorize();
-        }
-        else
-        {
-            Action act(REGENERATE_OBJ, this);
-            act.addParticipant(home);
-            act.addParam("object_index", 0);
-            this -> actions.push_back(act);
-            current_action = NONE;
+        // FIXME Program can enter here with home == nullptr
+        if (home) {
+            if (aim == nullptr)
+            {
+                aim = home;
+            }
+            Shape reach_area = this -> getReachArea();
+            reach_area.setCenter(this -> getCoords());
+            if (!reach_area.hitTest(aim -> getShape()))
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
+            else
+            {
+                Action act(REGENERATE_OBJ, this);
+                act.addParticipant(home);
+                act.addParam("object_index", 0);
+                this -> actions.push_back(act);
+                current_action = NONE;
+            }
         }
     }
 

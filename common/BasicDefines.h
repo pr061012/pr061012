@@ -369,6 +369,9 @@
 /// Creature's slow speed.
 #define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
 
+/// Constant for evaluating danger for creatures.
+#define CREAT_DANGER_FACTOR         1
+
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
 // Prefix: ATTR.
