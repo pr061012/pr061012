@@ -6,11 +6,6 @@
 #ifndef DOUBLE_COMPARISON_H
 #define DOUBLE_COMPARISON_H
 
-#include <cfloat>
-#include <cmath>
-
-#define EPSILON DBL_EPSILON * 16 * 100000
-
 /**
  * @brief Interface for double comparison.
  *        The following definitions of functions are from Knuth's ''The art of
@@ -25,10 +20,7 @@ public:
      * @param  b    second double number
      * @return a == b
      */
-    static bool areEqual(double a, double b)
-    {
-        return fabs(a - b) <= EPSILON * fmax(fabs(a), fabs(b));
-    }
+    static bool areEqual(double a, double b);
 
     /**
      * @brief  Comparison !=.
@@ -36,10 +28,7 @@ public:
      * @param  b    second double number
      * @return a != b
      */
-    static bool areNotEqual(double a, double b)
-    {
-        return !areEqual(a, b);
-    }
+    static bool areNotEqual(double a, double b);
 
     /**
      * @brief  Comparison >.
@@ -47,10 +36,7 @@ public:
      * @param  b    second double number
      * @return a > b
      */
-    static bool isGreater(double a, double b)
-    {
-        return (a - b) > EPSILON * fmax(fabs(a), fabs(b));
-    }
+    static bool isGreater(double a, double b);
 
     /**
      * @brief  Comparison <.
@@ -58,10 +44,7 @@ public:
      * @param  b    second double number
      * @return a < b
      */
-    static bool isLess(double a, double b)
-    {
-        return (b - a) > EPSILON * fmax(fabs(a), fabs(b));
-    }
+    static bool isLess(double a, double b);
 };
 
 #endif // DOUBLE_COMPARISON_H
