@@ -38,7 +38,7 @@ public:
     void receiveMessage(Message message);
 
     std::string getTypeName() const;
-
+    std::string printObjectInfo() const;
     //**************************************************************************
     // WEATHER TYPE.
     //**************************************************************************
@@ -58,6 +58,7 @@ public:
 
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
+
 
     //**************************************************************************
     // ACCESSORS.

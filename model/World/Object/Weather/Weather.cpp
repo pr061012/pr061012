@@ -84,6 +84,10 @@ std::string Weather::getTypeName() const
 {
     return "weather";
 }
+std::string Weather::printObjectInfo() const
+{
+
+}
 
 //******************************************************************************
 // HEALTH MANIPULATION.

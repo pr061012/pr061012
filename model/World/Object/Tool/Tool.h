@@ -37,7 +37,7 @@ public:
     void receiveMessage(Message message);
 
     std::string getTypeName() const;
-
+    std::string printObjectInfo() const;
     //**************************************************************************
     // HEALTH MANIPULATION.
     //**************************************************************************
