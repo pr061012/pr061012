@@ -89,3 +89,13 @@ bool TextField::isHidden()
     return this -> hidden;
 }
 
+void TextField::setFontSize(double font_size)
+{
+    this -> font_size = font_size;
+}
+
+double TextField::getFontSize()
+{
+    return this -> font_size;
+}
+

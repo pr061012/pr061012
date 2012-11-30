@@ -40,6 +40,16 @@ View::View(const IWorld& w)
 #endif
     ));
 
+    sel_info = new TextField(VIEW_CAM_SIZE/2, getMaxScrY()-4.0, 4.0, 4.0
+#ifdef __glfw3_h__
+    ,window
+#endif
+    );
+
+    sel_info -> setFontSize(0.4);
+
+    this -> addInterfaceObject(this -> sel_info);
+
     //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
     //this -> addInterfaceObject(console);
 
@@ -306,8 +316,11 @@ void View::redraw()
 
 void View::displaySelectionInfo()
 {
-    if(this -> view_world -> getSelection())
+    const Object* obj = this -> view_world -> getSelection();
+    if(obj)
     {
+        this -> sel_info -> setText(obj -> printObjectInfo());
+
 
     }
 }
@@ -356,8 +369,8 @@ void View::addInterfaceObject(TextField *new_obj)
     rendered.push_back(new_obj);
 }
 
-void View::addConsoleOutput(std::string app)
-{
-    std::string text = console -> getText();
-    console -> setText(text + "\n" + app);
-}
+//void View::addConsoleOutput(std::string app)
+//{
+//    std::string text = console -> getText();
+//    console -> setText(text + "\n" + app);
+//}

@@ -53,8 +53,9 @@ class View
     /// Object that is currently in focus. NULL if main window is in focus.
     TextField* focus;
 
-    /// TextField that is used as a debug console
-    TextField* console;
+    /// TextField that is displaying selection information
+    TextField* sel_info;
+
     /// Console input send by user
     std::string console_input;
 
@@ -152,7 +153,7 @@ public:
      */
     std::string getUserInput();
 
-    void addConsoleOutput(std::string app);
+//    void addConsoleOutput(std::string app);
 #ifdef __glfw3_h__
     GLFWwindow getWindow();
 #endif

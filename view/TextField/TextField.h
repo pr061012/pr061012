@@ -46,6 +46,10 @@ public:
 
     void setHidden(bool hidden);
     bool isHidden();
+
+    void setFontSize(double font_size);
+
+    double getFontSize();
 };
 
 #endif // TEXT_FIELD_H

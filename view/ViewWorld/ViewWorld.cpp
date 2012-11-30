@@ -236,9 +236,15 @@ void ViewWorld::renderObject(const Object* object)
 
     double radius = this -> worldToScreenDist(object->getShape().getSize()/2);
 
-    if( object -> getShape().getType() == CIRCLE )
+    if (object -> getShape().getType() == CIRCLE)
     {
         ViewUtilities::glCirclef_blend(px, py, radius);
+
+        if (object -> getObjectID() == selected_id)
+        {
+            glColor4d(1.0, 0.0, 1.0, 0.4);
+            ViewUtilities::glCirclef_blend(px, py, radius, false);
+        }
     }
     else
     {
@@ -256,7 +262,7 @@ void ViewWorld::renderObject(const Object* object)
     float x_sz;
     float y_sz;
 
-    if(object -> getType() == RESOURCE)
+    if (object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
         y0 = 1.0 - 110.0/480;
