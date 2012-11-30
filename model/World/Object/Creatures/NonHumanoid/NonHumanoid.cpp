@@ -77,13 +77,12 @@ std::string NonHumanoid::printObjectInfo() const
 
 std::vector <Action>* NonHumanoid::getActions()
 {
-    // FIXME: Delete Log::NOTE();
-    this -> desc_steps--;
-
-    if (desc_steps == 0)
-    {
-        updateNeedInDesc();
-    }
+    // FIXME: Implement it.
+//    this -> desc_steps--;
+//    if (desc_steps == 0)
+//    {
+//        updateNeedInDesc();
+//    }
 
     // Update current state
     updateCommonAttrs();
@@ -91,6 +90,13 @@ std::vector <Action>* NonHumanoid::getActions()
     // Store the result of last action and clear actions.
     clearActions();
 
+    // Checking non-humanoid's sleepiness.
+    if (getSleepiness() == getMaxSleepiness())
+    {
+        current_action = SLEEP;
+    }
+
+    // Checking whether current action is actual.
     if (!brains.isDecisionActual(attrs, current_action))
     {
         current_action = NONE;
