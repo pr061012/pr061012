@@ -46,7 +46,7 @@ View::View(const IWorld& w)
 #endif
     );
 
-    sel_info -> setFontSize(0.4);
+    sel_info -> setFontSize(0.2);
 
     this -> addInterfaceObject(this -> sel_info);
 
@@ -182,6 +182,7 @@ void View::redraw()
     glTranslatef(0, 0, -1);
 
     view_world -> redraw();
+    this -> displaySelectionInfo();
 
     int mouse_x, mouse_y;
     glfwGetMousePos(&mouse_x, &mouse_y);
@@ -320,8 +321,7 @@ void View::displaySelectionInfo()
     if(obj)
     {
         this -> sel_info -> setText(obj -> printObjectInfo());
-
-
+//        this -> sel_info -> setText("obj -> printObjectInfo()");
     }
 }
 

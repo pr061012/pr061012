@@ -353,7 +353,7 @@ WeatherType World::getWeatherAtPoint(double x, double y) const
     return RAIN;
 }
 
-Object *World::getObjectByID(uint id)
+Object *World::getObjectByID(uint id) const
 {
     ObjectHeap::const_iterator it;
 

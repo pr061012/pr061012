@@ -7,16 +7,44 @@
 #include <string>
 #include <cmath>
 #include <vector>
+#include "../../common/BasicDefines.h"
+
 
 class ViewUtilities
 {
+
 public:
-    static void renderText(double x, double y, float size, std::string msg)
+    static void renderText(double x, double y, double size, std::string msg, double line_size = 0.0)
     {
-        glRasterPos2d(x, y);
+        const char* txt = msg.c_str();
+
+        int scr_width, scr_height;
+        glfwGetWindowSize(&scr_width,
+                          &scr_height);
 
         glcScale(size, size);
-        glcRenderString( msg.c_str() );
+
+        int i = 0;
+        int begin = i;
+
+        while (txt[i] != '\0')
+        {
+            if(txt[i] == '\n')
+            {
+                glcRenderCountedString(i - begin, txt + begin);
+
+                begin = i;
+                y -= line_size;
+            }
+
+            glRasterPos2d(x, y);
+
+
+            i++;
+        }
+
+        glcRenderCountedString(i - begin, txt + begin);
+
         glcScale(1.f/size, 1.f/size);
     }
 
@@ -24,7 +52,7 @@ public:
     {
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-            if(filled) glRectf(x1, y1, x2, y2);
+            if (filled) glRectf(x1, y1, x2, y2);
             else
             {
                 glBegin(GL_LINES);

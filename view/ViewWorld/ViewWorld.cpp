@@ -149,6 +149,8 @@ void ViewWorld::setSelection(uint id)
 
 const Object* ViewWorld::getSelection()
 {
+    // TODO: I have to do it in more elegant way.
+
     if (this -> selected_id == -1)
     {
         return NULL;

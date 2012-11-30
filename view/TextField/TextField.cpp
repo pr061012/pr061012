@@ -2,6 +2,8 @@
 
 #define VIEW_CAM_SIZE               8
 
+const double line_size = VIEW_TXT_TOP_MARGIN + 1.0;
+
 
 TextField::TextField(double x, double y, double width, double height, 
 #ifdef __glfw3_h__
@@ -48,7 +50,7 @@ void TextField::render(bool in_focus)
     glfwGetWindowSize(&scr_width,
                       &scr_height);
 
-    double scale = (double)scr_height / VIEW_CAM_SIZE * font_size;
+    double scaled_size = (double)scr_height / VIEW_CAM_SIZE * font_size;
 
     if(in_focus)
     {
@@ -61,13 +63,13 @@ void TextField::render(bool in_focus)
         {
             render_steps = 60;
         }
-        ViewUtilities::renderText(x, y + height / 4,
-                                  scale, str);
+        ViewUtilities::renderText(x, y + height - font_size * line_size,
+                                  scaled_size, str, font_size * line_size);
     }
     else
     {
-        ViewUtilities::renderText(x, y + height / 4,
-                                  scale, content);
+        ViewUtilities::renderText(x, y + height - font_size * line_size,
+                                  scaled_size, content, font_size * line_size);
     }
 }
 
