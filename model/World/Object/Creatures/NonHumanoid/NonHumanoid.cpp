@@ -211,13 +211,13 @@ std::vector <Action>* NonHumanoid::getActions()
 
 void NonHumanoid::receiveMessage(Message message)
 {
-    MessageType msg_type = message.getType();
-
-    if (msg_type == UNDER_ATTACK)
-    {
-        chooseDirectionToEscape();
-        //go(SLOW_SPEED);
-    }
+//    MessageType msg_type = message.getType();
+//
+//    if (msg_type == UNDER_ATTACK)
+//    {
+//        chooseDirectionToEscape();
+//        go(SLOW_SPEED);
+//    }
 }
 
 //******************************************************************************
