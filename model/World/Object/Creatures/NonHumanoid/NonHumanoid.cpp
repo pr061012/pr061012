@@ -91,20 +91,21 @@ std::vector <Action>* NonHumanoid::getActions()
     // Store the result of last action and clear actions.
     clearActions();
 
-    if (!brains.isDecisionActual(attrs, current_decision))
+    if (!brains.isDecisionActual(attrs, current_action))
     {
-        current_decision = NONE;
+        current_action = NONE;
     }
 
     //**************************************************************************
     // DECISION : NONE | OK
     //**************************************************************************
-    if (current_decision == NONE)
-    {
-        Log::NOTE("NONE");
-        // Make decision.
-        current_decision = brains.makeDecision(attrs);
 
+    if (current_action == NONE)
+    {
+        // Make decision.
+        current_action = brains.makeDecision(attrs);
+
+        // Zeroing everything else.
         direction_is_set = false;
         aim = nullptr;
     }
@@ -112,18 +113,18 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : SLEEP | OK
     //**************************************************************************
-    if (current_decision == SLEEP)
+
+    if (current_action == SLEEP)
     {
-        Log::NOTE("SLEEP");
         sleep();
     }
 
     //*************************************************************************
     // DECISION : RELAX | OK
     //**************************************************************************
-    else if (current_decision == RELAX)
+
+    else if (current_action == RELAX)
     {
-        Log::NOTE("RELAX");
         if (common_steps == CREAT_STEPS)
         {
             heal(CREAT_DELTA_HEALTH);
@@ -131,27 +132,29 @@ std::vector <Action>* NonHumanoid::getActions()
 
         if (getEndurance() < getMaxEndurance())
         {
+            // TODO: Magic const.
             increaseEndurance(1);
         }
+
         go(SLOW_SPEED);
     }
 
     //**************************************************************************
     // DECISION : EAT | OK
     //**************************************************************************
-    else if (current_decision == EAT)
+
+    else if (current_action == EAT)
     {
-        Log::NOTE("EAT");
-        // If aim doesn't exist, then find grass.
+        // If aim doesn't exist trying find grass.
         if (aim == nullptr)
         {
             findGrass();
         }
 
-        // If aim exists, then...
+        // If aim was found, then...
         if (aim != nullptr)
         {
-            // Check distance to aim.
+            // ... check distance to aim.
             if (this -> getShape().hitTest(aim -> getShape()))
             {
                 Action act(EAT_OBJ, this);
@@ -165,6 +168,7 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
+            // Going in random direction.
             direction_is_set = false;
             go(SLOW_SPEED);
         }
@@ -172,8 +176,8 @@ std::vector <Action>* NonHumanoid::getActions()
         // Check hunger state.
         if (getHunger() == 0)
         {
-            this -> current_action = NONE;
-            direction_is_set = false;
+            current_action = NONE;
+            direction_is_set = true;
             aim = nullptr;
         }
     }
@@ -182,14 +186,13 @@ std::vector <Action>* NonHumanoid::getActions()
     // DECISION : ESCAPE
     //**************************************************************************
 
-    else if (current_decision == ESCAPE)
+    else if (current_action == ESCAPE)
     {
-        Log::NOTE("ESCAPE");
-
         if (!direction_is_set)
         {
             chooseDirectionToEscape();
         }
+
         go(SLOW_SPEED);
     }
 
@@ -223,6 +226,7 @@ void NonHumanoid::receiveMessage(Message message)
 
 void NonHumanoid::updateNeedInDesc()
 {
+    // FIXME: Silly update.
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
     this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
@@ -236,7 +240,7 @@ void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-    double distance = this -> getViewArea().setSize() / 2;
+    double distance = this -> getViewArea().getSize() / 2;
 
     // Find grass in objects around.
     for
