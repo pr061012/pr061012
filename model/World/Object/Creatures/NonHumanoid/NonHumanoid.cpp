@@ -181,6 +181,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : ESCAPE
     //**************************************************************************
+
     else if (current_decision == ESCAPE)
     {
         Log::NOTE("ESCAPE");
@@ -195,6 +196,7 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : DEPRECATED DECISIONS
     //**************************************************************************
+
     else
     {
         throw EDeprecatedAction(NON_HUMANOID, current_decision);
@@ -234,9 +236,9 @@ void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-    double distance = SZ_NHUM_VIEW_DIAM;
+    double distance = this -> getViewArea().setSize() / 2;
 
-    // Find grass in around objects heap.
+    // Find grass in objects around.
     for
     (
         iter = objects_around.begin(RESOURCE);
@@ -251,7 +253,7 @@ void NonHumanoid::findGrass()
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;
-                direction_is_set = false;
+                direction_is_set = true;
                 distance = coords.getDistance(this -> getCoords());
             }
         }
