@@ -20,11 +20,20 @@ public:
         glcScale(1.f/size, 1.f/size);
     }
 
-    static void glRectf_blend(float x1, float y1, float x2, float y2)
+    static void glRectf_blend(float x1, float y1, float x2, float y2, bool filled = true)
     {
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-            glRectf(x1, y1, x2, y2);
+            if(filled) glRectf(x1, y1, x2, y2);
+            else
+            {
+                glBegin(GL_LINES);
+                    glVertex2d(x1, y1);
+                    glVertex2d(x1, y2);
+                    glVertex2d(x2, y2);
+                    glVertex2d(x2, y1);
+                glEnd();
+            }
         glDisable(GL_BLEND);
     }
 

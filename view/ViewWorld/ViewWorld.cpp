@@ -249,6 +249,12 @@ void ViewWorld::renderObject(const Object* object)
     else
     {
         ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius);
+
+        if (object -> getObjectID() == selected_id)
+        {
+            glColor4d(1.0, 0.0, 1.0, 0.4);
+            ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius, false);
+        }
     }
 
     glColor3d(1.0, 1.0, 1.0);
