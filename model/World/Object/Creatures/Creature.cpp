@@ -25,6 +25,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     goal(0),
     last_goal_pos(0, 0),
     last_route_size(0),
+    obstacles_index(0),
 
     // some general attributes
     force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
@@ -62,15 +63,14 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     angle(0),
     direction_is_set(false),
     aim(0),
-    current_decision(NONE),
-    obstacles(new ObjectHeap())
+    current_decision(NONE)
 {
 }
 
 Creature::~Creature()
 {
     delete inventory;
-    delete obstacles;
+    delete obstacles_index;
 }
 
 //******************************************************************************

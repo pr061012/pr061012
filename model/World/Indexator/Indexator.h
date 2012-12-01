@@ -29,7 +29,8 @@ public:
      *  @param  list heap with objects
      *  @param  size size of the world
      */
-    Indexator(double size, ObjectHeap * list = 0, Vector left_bottom = Vector(0, 0));
+    Indexator(double size, ObjectHeap * list = 0, Vector left_bottom = Vector(0, 0),
+                double cell_size = MAX_CELL_SIZE);
 
     /**
      * @brief Destructor.
@@ -77,6 +78,16 @@ public:
      */
     void removeObject(Object * object);
 
+    //**********************************************************
+    // CONSTANTS
+    //**********************************************************
+    
+    /// Maximimum size of the cell
+    static const double MAX_CELL_SIZE;
+
+    /// Minimum size of the cell
+    static const double MIN_CELL_SIZE;
+
 
 private:
 
@@ -88,12 +99,6 @@ private:
     //**************************************************************************
     // ATTRIBUTES
     //**************************************************************************
-
-    /// Maximimum size of the cell
-    static const double MAX_CELL_SIZE;
-
-    /// Minimum size of the cell
-    static const double MIN_CELL_SIZE;
 
     /// Size of world
     const double world_size;

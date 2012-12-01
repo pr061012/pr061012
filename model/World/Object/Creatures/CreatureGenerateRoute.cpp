@@ -5,7 +5,7 @@
 
 #define __creature_generate_route_complete 1
 #define SCALE_FACTOR 2
-#define NODE_LIMIT 2500
+#define NODE_LIMIT 100000
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -144,22 +144,17 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
     sample.setCenter(point);
 
     // Check if it collides with something that we see
-    for (ObjectHeap::iterator i = obstacles -> begin();
-            i != obstacles -> end(); i++)
+    if ((obstacles_index -> getAreaContents(sample)).getAmount())
     {
-        if ((*i) -> getShape().hitTest(sample))
-        {
-            return -1;
-        }
+        return -1;
     }
-    
+
     // If nothing bad happened, we can stand on the point
     return 0;
 
 }
 
 // TODO
-// Make indexating of obstacles.
 // Make straightening of the route.
 Creature::Path Creature::generateRoute()
 {
@@ -177,6 +172,10 @@ Creature::Path Creature::generateRoute()
         view_area.setCenter(this -> getCoords());
         Vector goal_point = goal -> getCoords();
         bool goal_in_sight = view_area.hitTest(goal -> getShape());
+        if (!goal_in_sight)
+        {
+            route.pop();
+        }
 
         // A closed list for vertices already processed.
         // Needed to find path back.
@@ -186,9 +185,12 @@ Creature::Path Creature::generateRoute()
         // Same list ordered by vertices
         std::set<Vertex, VectorComp> open_vector_set;
 
-        // Form obstacles heap.
-        delete obstacles;
-        obstacles = new ObjectHeap();
+        // Form index.
+        delete obstacles_index;
+        obstacles_index = new Indexator(view_area.getSize(), 0,
+                this -> getCoords() - Vector(1, 1) * (view_area.getSize() / 2),
+                Indexator::MIN_CELL_SIZE);
+
         for (ObjectHeap::iterator i = objects_around.begin();
              i != objects_around.end(); i++)
         {
@@ -202,7 +204,7 @@ Creature::Path Creature::generateRoute()
                 {
                     return result;
                 }
-                obstacles -> push(*i);
+                obstacles_index -> addObject(*i);
             }
         }
 
@@ -306,8 +308,8 @@ Creature::Path Creature::generateRoute()
         // Think how to process failures (path not found)
 
     }
-    //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
-    //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
+    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }

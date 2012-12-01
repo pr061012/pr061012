@@ -12,6 +12,7 @@
 #include "../../DecisionMaker/DecisionMaker.h"
 #include "../../ObjectHeap/ObjectHeap.h"
 #include "../../../../common/BasicTypes.h"
+#include "../../Indexator/Indexator.h"
 
 /**
  * @class Creature
@@ -380,21 +381,25 @@ private:
     /// Reach area.
     Shape reach_area;
 
-    /// Typedef for path
+    /// Typedef for path.
     typedef std::stack<Vector> Path;
 
-    /// Route to the goal
+    /// Route to the goal.
     Path route;
 
-    /// Current goal towards which creature is moving
+    /// Current goal towards which creature is moving.
     Object* goal;
 
-    /// Last goal position
+    /// Last goal position.
     Vector last_goal_pos;
 
-    /// Length of the last route
+    /// Length of the last route.
     uint last_route_size;
 
+    /// Index for objects.
+    Indexator * obstacles_index;
+
+    /// Offset at which route to the goal is recomputed.
     static const double MAX_OFFSET;
 
     //**********************************************************
@@ -566,9 +571,6 @@ protected:
 
     /// Neighnour offsets for generating vertices for path graph
     static const Vector neighbour_offsets[8];
-
-    /// Heap of obstacles
-    ObjectHeap * obstacles;
 
     //**********************************************************
     // FIGHTING

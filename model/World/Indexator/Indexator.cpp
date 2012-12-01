@@ -2,7 +2,7 @@
 #include <cmath>
 
 const double Indexator::MAX_CELL_SIZE = 25;
-const double Indexator::MIN_CELL_SIZE = 5;
+const double Indexator::MIN_CELL_SIZE = 10;
 
 //******************************************************************************
 // CONSTRUCTORS/DESTRUCTOR.
@@ -18,10 +18,11 @@ Indexator::Indexator():
 {
 }
 
-Indexator::Indexator(double size, ObjectHeap* list, Vector left_bottom) :
+Indexator::Indexator(double size, ObjectHeap* list, Vector left_bottom, 
+                        double cell_size) :
     world_size(size), 
-    row_size(ceil(size/MAX_CELL_SIZE)),
-    cell_size(size / row_size), 
+    row_size(ceil(size / cell_size)),
+    cell_size(size / row_size),
     dx(left_bottom.getX()),
     dy(left_bottom.getY()),
     world_shape(Shape(Vector(size/2, size/2), SQUARE, size)),
@@ -29,14 +30,14 @@ Indexator::Indexator(double size, ObjectHeap* list, Vector left_bottom) :
     // say that our cells are not initizlized
     cells(0)
 {
-
+    // If we have objects, then indexate them. 
     if (list)
     {
         reindexate(list);
     }
+    // Just initialize cells for further operations.
     else
     {
-        // just initialize cells for further operations
         init();
     }
 }
