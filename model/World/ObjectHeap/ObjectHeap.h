@@ -71,9 +71,8 @@ public:
     public:
         Object* operator *()
         {
-            return static_cast<std::_Rb_tree_node<std::pair<int,Object*> >*>(_M_node)->_M_value_field.second;
+            return static_cast<std::_Rb_tree_node<Object*>*>(_M_node)->_M_value_field;
         }
-
         iterator(std::map<int, Object*>::iterator it)
         {
             this->_M_node = it._M_node;
