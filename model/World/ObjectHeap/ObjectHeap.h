@@ -56,7 +56,7 @@ public:
 
 private:
     /// Vector with all objects.
-    std::map<int,Object*> data[AMNT_OBJECT_TYPES + 1];
+    std::map<uint,Object*> data[AMNT_OBJECT_TYPES + 1];
 
     //**************************************************************************
     // ITERATOR
@@ -66,14 +66,14 @@ public:
     /**
      * @brief The iterator class
      */
-    class iterator: public std::map <int, Object*>::iterator
+    class iterator: public std::map <uint, Object*>::iterator
     {
     public:
         Object* operator *()
         {
             return static_cast<std::_Rb_tree_node< std::pair< uint,Object* > >*>(_M_node)->_M_value_field.second;
         }
-        iterator(std::map<int, Object*>::iterator it)
+        iterator(std::map<uint, Object*>::iterator it)
         {
             this->_M_node = it._M_node;
         }
@@ -88,7 +88,7 @@ public:
     /**
      * @brief The iterator_const class
      */
-    class const_iterator: public std::map<int, Object*>::const_iterator
+    class const_iterator: public std::map<uint, Object*>::const_iterator
     {
     public:
         Object* operator *() const
@@ -96,7 +96,7 @@ public:
             return static_cast<const std::_Rb_tree_node< std::pair< uint,Object* > >*>(_M_node)->_M_value_field.second;
         }
 
-        const_iterator(std::map<int, Object*>::const_iterator it)
+        const_iterator(std::map<uint, Object*>::const_iterator it)
         {
             this -> _M_node = it._M_node;
         }

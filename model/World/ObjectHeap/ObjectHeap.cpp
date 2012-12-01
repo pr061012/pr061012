@@ -4,7 +4,7 @@
 */
 
 #include <sstream>
-
+#include <map>
 #include "ObjectHeap.h"
 
 #include "../../../common/BasicDefines.h"
@@ -45,15 +45,25 @@ uint ObjectHeap::getTypeAmount(ObjectType type)
 
 bool ObjectHeap::push(Object* obj)
 {
-    data[obj -> getType() + 1].insert(std::pair<uint, Object*>(obj -> getObjectID(), obj) );
-    data[0].insert(std::pair<uint,Object*>(obj -> getObjectID(), obj) );
+    std::pair< std::map<uint, Object*>::iterator, bool> ret;
+    ret = data[obj -> getType() + 1].insert(std::pair<uint, Object*>(obj -> getObjectID(), obj) );
+    if (ret.second)
+    {
+        data[0].insert(std::pair<uint,Object*>(obj -> getObjectID(), obj));
+    }
+    return ret.second;
 }
 
 
 bool ObjectHeap::remove(Object* object)
 {
-    data[object -> getType() + 1].erase(object -> getObjectID());
-    data[0].erase(object -> getObjectID());
+    uint ret;
+    ret = data[object -> getType() + 1].erase(object -> getObjectID());
+    if (ret)
+    {
+        data[0].erase(object -> getObjectID());
+    }
+    return ret != 0 ? true : false;
 }
 
 void ObjectHeap::clear()
