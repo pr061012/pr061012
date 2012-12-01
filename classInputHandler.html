@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classInputHandler.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classInputHandler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">InputHandler Class Reference</div>  </div>
@@ -119,6 +120,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a47b0678a67f8b6b2d39949666b736042"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputHandler.html#a47b0678a67f8b6b2d39949666b736042">isCharPressed</a> (int c)</td></tr>
 <tr class="memitem:a7fdd58827456dfe5605bec9474f5aa32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputHandler.html#a7fdd58827456dfe5605bec9474f5aa32">handleKeys</a> ()</td></tr>
 <tr class="memdesc:a7fdd58827456dfe5605bec9474f5aa32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns some enum indicating what action should be performed by <a class="el" href="classView.html">View</a>.  <a href="#a7fdd58827456dfe5605bec9474f5aa32"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac432058d806d220d51dc8cac494e59c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a> [GLFW_KEY_LAST+1]</td></tr>
+<tr class="memitem:aef93e5c2849fb1da6778d8b08c5a3ee9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputHandler.html#aef93e5c2849fb1da6778d8b08c5a3ee9">mouse_wheel</a></td></tr>
+<tr class="memitem:a6bd03fe56dadd972e7c0518afb28a845"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classView.html">View</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -201,6 +208,73 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="ac432058d806d220d51dc8cac494e59c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputHandler::key_was_pressed[GLFW_KEY_LAST+1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="InputHandler_8h_source.html#l00017">17</a> of file <a class="el" href="InputHandler_8h_source.html">InputHandler.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef93e5c2849fb1da6778d8b08c5a3ee9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int InputHandler::mouse_wheel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="InputHandler_8h_source.html#l00018">18</a> of file <a class="el" href="InputHandler_8h_source.html">InputHandler.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6bd03fe56dadd972e7c0518afb28a845"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classView.html">View</a>* InputHandler::view</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="InputHandler_8h_source.html#l00019">19</a> of file <a class="el" href="InputHandler_8h_source.html">InputHandler.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>view/InputHandler/<a class="el" href="InputHandler_8h_source.html">InputHandler.h</a></li>
 <li>view/InputHandler/<a class="el" href="InputHandler_8cpp_source.html">InputHandler.cpp</a></li>
@@ -211,7 +285,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classInputHandler.html">InputHandler</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:40 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:43 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classDecisionMaker.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDecisionMaker-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DecisionMaker Class Reference</div>  </div>
@@ -125,6 +126,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad2b20e2847961ff6d1193d15178dd14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the difference between current decision and other actions.  <a href="#ad2b20e2847961ff6d1193d15178dd14c"></a><br/></td></tr>
 <tr class="memitem:a349376ea9a0ba28d25bcbece82da1f57"><td class="memItemLeft" align="right" valign="top">arma::mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#a349376ea9a0ba28d25bcbece82da1f57">getActMatrix</a> (arma::mat attrs) const </td></tr>
 <tr class="memdesc:a349376ea9a0ba28d25bcbece82da1f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets matrix of actions.  <a href="#a349376ea9a0ba28d25bcbece82da1f57"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aba5e26795fb06bf8621d36ccd499f8ee"><td class="memItemLeft" align="right" valign="top">arma::mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDecisionMaker.html#aba5e26795fb06bf8621d36ccd499f8ee">theta</a></td></tr>
+<tr class="memdesc:aba5e26795fb06bf8621d36ccd499f8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix for decision making. In the nutshell, it's a SM or no-hidden-layer NN matrix.  <a href="#aba5e26795fb06bf8621d36ccd499f8ee"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Makes a prediction about next creature's action. </p>
@@ -147,7 +153,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00015">15</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00016">16</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +172,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00048">48</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00049">49</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
 
 </div>
 </div>
@@ -188,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <p>Gets matrix of actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>mat matrix of actions </dd></dl>
 
-<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00138">138</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00139">139</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
 
 </div>
 </div>
@@ -226,7 +232,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool true if we need to change our decision </dd></dl>
 
-<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00056">56</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00057">57</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +259,32 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int next action </dd></dl>
 
-<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00086">86</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DecisionMaker_8cpp_source.html#l00087">87</a> of file <a class="el" href="DecisionMaker_8cpp_source.html">DecisionMaker.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="aba5e26795fb06bf8621d36ccd499f8ee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">arma:: mat DecisionMaker::theta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Matrix for decision making. In the nutshell, it's a SM or no-hidden-layer NN matrix. </p>
+
+<p>Definition at line <a class="el" href="DecisionMaker_8h_source.html#l00068">68</a> of file <a class="el" href="DecisionMaker_8h_source.html">DecisionMaker.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +298,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classDecisionMaker.html">DecisionMaker</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:42 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

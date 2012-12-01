@@ -102,6 +102,10 @@ $(document).ready(function(){initNavTree('classIndexator.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classIndexator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Indexator Class Reference</div>  </div>
@@ -126,11 +130,78 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aebbad325d23422a61443742e2d315f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds object to index.  <a href="#aebbad325d23422a61443742e2d315f2c"></a><br/></td></tr>
 <tr class="memitem:a494d579d9b7444788099ee9f57ba6420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420">removeObject</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
 <tr class="memdesc:a494d579d9b7444788099ee9f57ba6420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes object from index.  <a href="#a494d579d9b7444788099ee9f57ba6420"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:afed38b1829d33e2c76231d34ed7cdf57"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classObject.html">Object</a> <br class="typebreak"/>
+*, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">Index</a></td></tr>
+<tr class="memdesc:afed38b1829d33e2c76231d34ed7cdf57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of an index structure.  <a href="#afed38b1829d33e2c76231d34ed7cdf57"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9dcdada0f0fb6890b0fd10f589b442cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc">Indexator</a> ()</td></tr>
+<tr class="memdesc:a9dcdada0f0fb6890b0fd10f589b442cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hidden empty constructor.  <a href="#a9dcdada0f0fb6890b0fd10f589b442cc"></a><br/></td></tr>
+<tr class="memitem:aa42d674aa86a0f4002f1f119d793d995"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#aa42d674aa86a0f4002f1f119d793d995">min</a> (int a, int b)</td></tr>
+<tr class="memdesc:aa42d674aa86a0f4002f1f119d793d995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum of two uints.  <a href="#aa42d674aa86a0f4002f1f119d793d995"></a><br/></td></tr>
+<tr class="memitem:a1c595ae92d8a759e20040d1cf051870b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a1c595ae92d8a759e20040d1cf051870b">max</a> (int a, int b)</td></tr>
+<tr class="memdesc:a1c595ae92d8a759e20040d1cf051870b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns maximum of two uints.  <a href="#a1c595ae92d8a759e20040d1cf051870b"></a><br/></td></tr>
+<tr class="memitem:a7f396d84a95cc10edfa560ea820deaa5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a7f396d84a95cc10edfa560ea820deaa5">getCellsArea</a> (<a class="el" href="classShape.html">Shape</a> &amp;shape)</td></tr>
+<tr class="memdesc:a7f396d84a95cc10edfa560ea820deaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns cells within which the shape lies.  <a href="#a7f396d84a95cc10edfa560ea820deaa5"></a><br/></td></tr>
+<tr class="memitem:aa4b3b388b07b2265b0c9bd87682e9774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#aa4b3b388b07b2265b0c9bd87682e9774">getRow</a> (double coordinate)</td></tr>
+<tr class="memdesc:aa4b3b388b07b2265b0c9bd87682e9774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns row index for coodinate.  <a href="#aa4b3b388b07b2265b0c9bd87682e9774"></a><br/></td></tr>
+<tr class="memitem:ac530016e5394f663eb05f6d838ea4068"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ac530016e5394f663eb05f6d838ea4068">init</a> ()</td></tr>
+<tr class="memdesc:ac530016e5394f663eb05f6d838ea4068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize index.  <a href="#ac530016e5394f663eb05f6d838ea4068"></a><br/></td></tr>
+<tr class="memitem:a07a8a821d38a9a802d620e7efa3a8370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370">destroy</a> ()</td></tr>
+<tr class="memdesc:a07a8a821d38a9a802d620e7efa3a8370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys index.  <a href="#a07a8a821d38a9a802d620e7efa3a8370"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac95af5a3fda4e94aa22cfa3987731df0"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0">world_size</a></td></tr>
+<tr class="memdesc:ac95af5a3fda4e94aa22cfa3987731df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of world.  <a href="#ac95af5a3fda4e94aa22cfa3987731df0"></a><br/></td></tr>
+<tr class="memitem:a6f558a917ecaf9b06d9d40294f99783c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c">row_size</a></td></tr>
+<tr class="memdesc:a6f558a917ecaf9b06d9d40294f99783c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ammount of cells on a row.  <a href="#a6f558a917ecaf9b06d9d40294f99783c"></a><br/></td></tr>
+<tr class="memitem:a74263652951b0c9e60c196f51f9dee9e"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e">cell_size</a></td></tr>
+<tr class="memdesc:a74263652951b0c9e60c196f51f9dee9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell size.  <a href="#a74263652951b0c9e60c196f51f9dee9e"></a><br/></td></tr>
+<tr class="memitem:a826428a53a5f3d3968565ddfe66c0cb4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classShape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4">world_shape</a></td></tr>
+<tr class="memdesc:a826428a53a5f3d3968565ddfe66c0cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classShape.html">Shape</a> of the world.  <a href="#a826428a53a5f3d3968565ddfe66c0cb4"></a><br/></td></tr>
+<tr class="memitem:a64e2b29366719f4818c48cadd8efaacb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a64e2b29366719f4818c48cadd8efaacb">index</a></td></tr>
+<tr class="memdesc:a64e2b29366719f4818c48cadd8efaacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index structure.  <a href="#a64e2b29366719f4818c48cadd8efaacb"></a><br/></td></tr>
+<tr class="memitem:a99ec2031c8ed4fc6d9abb4f3d64b923e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e">cells</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:ac5495faf16b37e53ca6aaf3d05ac6f7f"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f">MAX_CELL_SIZE</a> = 100</td></tr>
+<tr class="memdesc:ac5495faf16b37e53ca6aaf3d05ac6f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximimum size of the cell.  <a href="#ac5495faf16b37e53ca6aaf3d05ac6f7f"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="Indexator_8h_source.html#l00020">20</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
-</div><h2>Constructor &amp; Destructor Documentation</h2>
+</div><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="afed38b1829d33e2c76231d34ed7cdf57"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="classObject.html">Object</a> *, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> *&gt; <a class="el" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">Indexator::Index</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Type of an index structure. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00108">108</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa5adafc65a3b10399adb6f2158bc5417"></a>
 <div class="memitem">
 <div class="memproto">
@@ -187,6 +258,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9dcdada0f0fb6890b0fd10f589b442cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Indexator::Indexator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Hidden empty constructor. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00010">10</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
 <h2>Member Function Documentation</h2>
 <a class="anchor" id="aebbad325d23422a61443742e2d315f2c"></a>
 <div class="memitem">
@@ -211,6 +309,33 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00216">216</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07a8a821d38a9a802d620e7efa3a8370"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Indexator::destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys index. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00323">323</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,6 +378,182 @@ Public Member Functions</h2></td></tr>
 <p>Creat all other shapes areas[1] = areas[0]; areas[1].setCenter(areas[0].getCenter() + Vector(0, world_size)); areas[2] = areas[1]; areas[2].setCenter(areas[1].getCenter() + Vector(world_size, 0)); areas[3] = areas[2]; areas[3].setCenter(areas[2].getCenter() + <a class="el" href="classVector.html" title="Vector class.">Vector</a>(0, -world_size));</p>
 
 <p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00043">43</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f396d84a95cc10edfa560ea820deaa5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> * Indexator::getCellsArea </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classShape.html">Shape</a> &amp;&#160;</td>
+          <td class="paramname"><em>shape</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns cells within which the shape lies. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shape</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an array of coordinates of left bottom and right top coordinates (must be freed) </dd></dl>
+<pre class="fragment">    Toroidal feature
+</pre><p>Move the shape to the corresponding cells if (lb.getX() &lt; 0) { area[2] += row_size; shape.setCenter(shape.getCenter() + Vector(row_size, 0)); } else if (rt.getX() &gt;= world_size) { area[2] += row_size; }</p>
+<p>if (lb.getY() &lt; 0) { area[3] += row_size; shape.setCenter(shape.getCenter() + Vector(0, row_size)); } else if (rt.getY() &gt;= world_size) { area[3] += row_size; }</p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00271">271</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4b3b388b07b2265b0c9bd87682e9774"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Indexator::getRow </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>coordinate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns row index for coodinate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coordinate</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>index of coordinate </dd></dl>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00317">317</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac530016e5394f663eb05f6d838ea4068"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Indexator::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize index. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00345">345</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c595ae92d8a759e20040d1cf051870b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Indexator::max </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns maximum of two uints. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00261">261</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa42d674aa86a0f4002f1f119d793d995"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Indexator::min </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the minimum of two uints. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8cpp_source.html#l00253">253</a> of file <a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a>.</p>
 
 </div>
 </div>
@@ -334,6 +635,173 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a74263652951b0c9e60c196f51f9dee9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Indexator::cell_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cell size. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00102">102</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99ec2031c8ed4fc6d9abb4f3d64b923e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a>** Indexator::cells</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00112">112</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64e2b29366719f4818c48cadd8efaacb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">Index</a> Indexator::index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Index structure. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00111">111</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5495faf16b37e53ca6aaf3d05ac6f7f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Indexator::MAX_CELL_SIZE = 100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximimum size of the cell. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00093">93</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f558a917ecaf9b06d9d40294f99783c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Indexator::row_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ammount of cells on a row. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00099">99</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a826428a53a5f3d3968565ddfe66c0cb4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classShape.html">Shape</a> Indexator::world_shape</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classShape.html">Shape</a> of the world. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00105">105</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac95af5a3fda4e94aa22cfa3987731df0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Indexator::world_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of world. </p>
+
+<p>Definition at line <a class="el" href="Indexator_8h_source.html#l00096">96</a> of file <a class="el" href="Indexator_8h_source.html">Indexator.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>model/World/Indexator/<a class="el" href="Indexator_8h_source.html">Indexator.h</a></li>
 <li>model/World/Indexator/<a class="el" href="Indexator_8cpp_source.html">Indexator.cpp</a></li>
@@ -344,7 +812,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIndexator.html">Indexator</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:40 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:43 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

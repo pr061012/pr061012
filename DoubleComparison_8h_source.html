@@ -110,43 +110,26 @@ $(document).ready(function(){initNavTree('DoubleComparison_8h_source.html','');}
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef DOUBLE_COMPARISON_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DOUBLE_COMPARISON_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cfloat&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="DoubleComparison_8h.html#a002b2f4894492820fe708b1b7e7c5e70">   12</a></span>&#160;<span class="preprocessor">#define EPSILON DBL_EPSILON * 16 * 100000</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classDoubleComparison.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDoubleComparison.html" title="Interface for double comparison. The following definitions of functions are from Knuth&#39;s &#39;&#39;The art of...">DoubleComparison</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classDoubleComparison.html#a6cd5879b79ca5a51d0e43fc12f3b653f">   28</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a6cd5879b79ca5a51d0e43fc12f3b653f" title="Comparison ==.">areEqual</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> fabs(a - b) &lt;= <a class="code" href="DoubleComparison_8h.html#a002b2f4894492820fe708b1b7e7c5e70">EPSILON</a> * fmax(fabs(a), fabs(b));</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classDoubleComparison.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDoubleComparison.html" title="Interface for double comparison. The following definitions of functions are from Knuth&#39;s &#39;&#39;The art of...">DoubleComparison</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a2c3e3c07b6526ac592a47200b87d836f" title="Comparison ==.">areEqual</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a8f1684fc79e95e9cfb09f660cc3e706c" title="Comparison !=.">areNotEqual</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classDoubleComparison.html#ab2a000a490eabec358067aa0a38b5fac">   39</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#ab2a000a490eabec358067aa0a38b5fac" title="Comparison !=.">areNotEqual</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> !<a class="code" href="classDoubleComparison.html#a6cd5879b79ca5a51d0e43fc12f3b653f" title="Comparison ==.">areEqual</a>(a, b);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classDoubleComparison.html#a29f37b63c5d72af6cca58d94d9cce2d9">   50</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a29f37b63c5d72af6cca58d94d9cce2d9" title="Comparison &gt;.">isGreater</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> (a - b) &gt; <a class="code" href="DoubleComparison_8h.html#a002b2f4894492820fe708b1b7e7c5e70">EPSILON</a> * fmax(fabs(a), fabs(b));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classDoubleComparison.html#a71da8b543ba40a9ff8bcf6d3384e15db">   61</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a71da8b543ba40a9ff8bcf6d3384e15db" title="Comparison &lt;.">isLess</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> (b - a) &gt; <a class="code" href="DoubleComparison_8h.html#a002b2f4894492820fe708b1b7e7c5e70">EPSILON</a> * fmax(fabs(a), fabs(b));</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // DOUBLE_COMPARISON_H</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a3b66e810a6a45a70478baa4147acfc19" title="Comparison &gt;.">isGreater</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classDoubleComparison.html#a833e33d2fa0f4f8cf2b3067fa726c7c2" title="Comparison &lt;.">isLess</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // DOUBLE_COMPARISON_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="dir_91bf184bd5c02d0cfdf30176966a865f.html">Math</a></li><li class="navelem"><a class="el" href="DoubleComparison_8h.html">DoubleComparison.h</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:34 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

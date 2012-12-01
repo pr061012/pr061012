@@ -102,6 +102,8 @@ $(document).ready(function(){initNavTree('classController.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classController-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Controller Class Reference</div>  </div>
@@ -115,12 +117,30 @@ $(document).ready(function(){initNavTree('classController.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9cc164fbf96bbbd6bc44105824325f8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a9cc164fbf96bbbd6bc44105824325f8e">Controller</a> (<a class="el" href="classWorld.html">World</a> *world)</td></tr>
+<tr class="memitem:a9cc164fbf96bbbd6bc44105824325f8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a9cc164fbf96bbbd6bc44105824325f8e">Controller</a> (<a class="el" href="classWorld.html">World</a> *<a class="el" href="classController.html#ab67b8415bc44027ec8bbc939d560ad03">world</a>)</td></tr>
 <tr class="memdesc:a9cc164fbf96bbbd6bc44105824325f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a9cc164fbf96bbbd6bc44105824325f8e"></a><br/></td></tr>
 <tr class="memitem:a0ab87934c4f7a266cfdb86e0f36bc1b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a0ab87934c4f7a266cfdb86e0f36bc1b5">~Controller</a> ()</td></tr>
 <tr class="memdesc:a0ab87934c4f7a266cfdb86e0f36bc1b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a0ab87934c4f7a266cfdb86e0f36bc1b5"></a><br/></td></tr>
 <tr class="memitem:a6fe5f85677914b59f05705bf9181d948"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a6fe5f85677914b59f05705bf9181d948">step</a> ()</td></tr>
 <tr class="memdesc:a6fe5f85677914b59f05705bf9181d948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to make all requested actions in the world.  <a href="#a6fe5f85677914b59f05705bf9181d948"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a38a3e573e8b476be5361bf705a38bdc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a38a3e573e8b476be5361bf705a38bdc0">destroy</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
+<tr class="memdesc:a38a3e573e8b476be5361bf705a38bdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys an object.  <a href="#a38a3e573e8b476be5361bf705a38bdc0"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab67b8415bc44027ec8bbc939d560ad03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#ab67b8415bc44027ec8bbc939d560ad03">world</a></td></tr>
+<tr class="memdesc:ab67b8415bc44027ec8bbc939d560ad03"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>.  <a href="#ab67b8415bc44027ec8bbc939d560ad03"></a><br/></td></tr>
+<tr class="memitem:af3e9aef7b80f96c9538dfd6be6a10345"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPerformer.html">Performer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#af3e9aef7b80f96c9538dfd6be6a10345">performers</a></td></tr>
+<tr class="memdesc:af3e9aef7b80f96c9538dfd6be6a10345"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of performers.  <a href="#af3e9aef7b80f96c9538dfd6be6a10345"></a><br/></td></tr>
+<tr class="memitem:abb137bfe4e79d82e2282a5e3070647b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#abb137bfe4e79d82e2282a5e3070647b1">hiddenToVisible</a></td></tr>
+<tr class="memdesc:abb137bfe4e79d82e2282a5e3070647b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap buffer from hidden to visible objects.  <a href="#abb137bfe4e79d82e2282a5e3070647b1"></a><br/></td></tr>
+<tr class="memitem:a19065056433edaad5348639f64f92552"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a19065056433edaad5348639f64f92552">visibleToHidden</a></td></tr>
+<tr class="memdesc:a19065056433edaad5348639f64f92552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap buffer from visible to hidden objects.  <a href="#a19065056433edaad5348639f64f92552"></a><br/></td></tr>
+<tr class="memitem:a0fce31b34a7fd6d08975302211982aab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a0fce31b34a7fd6d08975302211982aab">actions</a></td></tr>
+<tr class="memdesc:a0fce31b34a7fd6d08975302211982aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions accumulator.  <a href="#a0fce31b34a7fd6d08975302211982aab"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class controls the world! </p>
@@ -173,6 +193,40 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a38a3e573e8b476be5361bf705a38bdc0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys an object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>object to be destroyed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00048">48</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6fe5f85677914b59f05705bf9181d948"></a>
 <div class="memitem">
 <div class="memproto">
@@ -192,6 +246,127 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a0fce31b34a7fd6d08975302211982aab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classAction.html">Action</a>*&gt; Controller::actions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actions accumulator. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00070">70</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb137bfe4e79d82e2282a5e3070647b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> Controller::hiddenToVisible</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swap buffer from hidden to visible objects. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00064">64</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3e9aef7b80f96c9538dfd6be6a10345"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classPerformer.html">Performer</a> *&gt; Controller::performers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of performers. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00061">61</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19065056433edaad5348639f64f92552"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> Controller::visibleToHidden</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swap buffer from visible to hidden objects. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00067">67</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab67b8415bc44027ec8bbc939d560ad03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorld.html">World</a>* Controller::world</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00058">58</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>control/Controller/<a class="el" href="Controller_8h_source.html">Controller.h</a></li>
 <li>control/Controller/<a class="el" href="Controller_8cpp_source.html">Controller.cpp</a></li>
@@ -202,7 +377,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classController.html">Controller</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

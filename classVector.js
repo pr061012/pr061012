@@ -23,5 +23,7 @@ var classVector =
     [ "project", "classVector.html#a81ed617761de2cb4aaca1f97963d090d", null ],
     [ "scalarProduct", "classVector.html#a6dab59876d0d7c2ed69ac52860ff039e", null ],
     [ "setX", "classVector.html#af979b4e93ca3b4f0e0c5f92e4698e776", null ],
-    [ "setY", "classVector.html#a48ae8b759a04ca3a7ea696fbf0375bd6", null ]
+    [ "setY", "classVector.html#a48ae8b759a04ca3a7ea696fbf0375bd6", null ],
+    [ "x", "classVector.html#a133722e00601091cb2075219da5da6e4", null ],
+    [ "y", "classVector.html#a09a21a140718f234eea348d5058cee0b", null ]
 ];

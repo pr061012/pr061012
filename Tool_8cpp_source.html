@@ -139,15 +139,15 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="Log_8h.html#aac9d06502938110618f0326b5fec8a80">Log::ERROR</a>(<span class="stringliteral">&quot;Tried to create tool with material different from mine resource. Maybe it&#39;s  Controller error.&quot;</span>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">this</span> -&gt; max_strength     = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">this</span> -&gt; current_strength = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> = 0;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Param max_strength is given, ignoring pre-defined values.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(max_strength != 0)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">this</span> -&gt; max_strength     = max_strength;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">this</span> -&gt; current_strength = max_strength;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">this</span> -&gt; max_strength     = <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> = <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1aa7790837e9c1f7cb78b55743b9a67623">GOLD</a>:   <span class="keyword">this</span> -&gt; max_strength = <a class="code" href="BasicDefines_8h.html#aac7265b3c052ad36d06e5c96b3692ab3" title="Gold tool strength.">TOOL_GOLD_STRENGTH</a>;   <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">this</span> -&gt; current_strength = <span class="keyword">this</span> -&gt; max_strength;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> = <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classTool.html#a44634ea099b7a49acf87f50e072ce660">   63</a></span>&#160;<a class="code" href="classTool.html#a44634ea099b7a49acf87f50e072ce660" title="Destructor.">Tool::~Tool</a>()</div>
@@ -188,67 +188,68 @@ $(document).ready(function(){initNavTree('Tool_8cpp_source.html','');});
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&quot;tool&quot;</span>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// HEALTH MANIPULATION.</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">   92</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#ae75625ea225855b11bd93967c5665eb4" title="Gets current object&#39;s heatlh points.">Tool::getHealthPoints</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; current_strength;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">   97</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9" title="Gets maximum possible object&#39;s health points.">Tool::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; max_strength;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classTool.html#a7b34a841f981e63606a3626fb4889986">  102</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#a7b34a841f981e63606a3626fb4889986" title="Damages object.">Tool::damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> d = delta;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; current_strength &lt; d)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        d = <span class="keyword">this</span> -&gt; current_strength;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">this</span> -&gt; current_strength -= d;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> d;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d">  115</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d" title="Heals object.">Tool::heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> d = delta;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; current_strength + d &gt; <span class="keyword">this</span> -&gt; max_strength)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        d = <span class="keyword">this</span> -&gt; max_strength - <span class="keyword">this</span> -&gt; current_strength;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">this</span> -&gt; current_strength += d;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> d;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">// TYPE ACCESSORS.</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732">  132</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> <a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732" title="Gets tool&#39;s type.">Tool::getSubtype</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; subtype;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944">  137</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944" title="Gets tool&#39;s material.">Tool::getMaterial</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; material;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classTool.html#a2f2d3c70ecbff31fe17c29b917bc8f49">   87</a></span>&#160;std::string <a class="code" href="classTool.html#a2f2d3c70ecbff31fe17c29b917bc8f49" title="Prints out object&#39;s information.">Tool::printObjectInfo</a>()<span class="keyword"> const</span>{};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">// HEALTH MANIPULATION.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">   93</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#ae75625ea225855b11bd93967c5665eb4" title="Gets current object&#39;s heatlh points.">Tool::getHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">   98</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9" title="Gets maximum possible object&#39;s health points.">Tool::getMaxHealthPoints</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classTool.html#a7b34a841f981e63606a3626fb4889986">  103</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#a7b34a841f981e63606a3626fb4889986" title="Damages object.">Tool::damage</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> d = delta;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> &lt; d)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        d = <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> -= d;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d">  116</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d" title="Heals object.">Tool::heal</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> delta)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> d = delta;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> + d &gt; <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a>)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        d = <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c" title="Tool&#39;s maximum possible strength.">max_strength</a> - <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600" title="Tool&#39;s current strength.">current_strength</a> += d;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">// TYPE ACCESSORS.</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732">  133</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160" title="The ToolType enum.">ToolType</a> <a class="code" href="classTool.html#a29cba502e96018d9db4c2ad9bf364732" title="Gets tool&#39;s type.">Tool::getSubtype</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a820afbc0946e01f1351671ad46937bc1" title="Tool type.">subtype</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944">  138</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944" title="Gets tool&#39;s material.">Tool::getMaterial</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classTool.html#a3faaf3c3c4d5e17840763c5941243d22" title="Material of which tool is made.">material</a>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_378d5686cc46f1f198e0e8473bdc8d67.html">Tool</a></li><li class="navelem"><a class="el" href="Tool_8cpp.html">Tool.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

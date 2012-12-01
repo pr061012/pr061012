@@ -15,6 +15,7 @@ var BasicDefines_8h =
     [ "BLD_MAX_SPACE_MIN", "BasicDefines_8h.html#a65ff048cfd19ec70a287f434acbcd0e5", null ],
     [ "CREAT_AGE_STEPS", "BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d", null ],
     [ "CREAT_CRIT_CONST", "BasicDefines_8h.html#a8290214020f59371b797b23f06e03769", null ],
+    [ "CREAT_DANGER_FACTOR", "BasicDefines_8h.html#a713d02e8ffe317722267fc070425de0f", null ],
     [ "CREAT_DANGER_STEPS", "BasicDefines_8h.html#a09085d90f379cafadaaa479336273d9b", null ],
     [ "CREAT_DELTA_ENDUR", "BasicDefines_8h.html#ac6dbd9f9e8cf0073a4b028ff5721a981", null ],
     [ "CREAT_DELTA_HEALTH", "BasicDefines_8h.html#a3c19f06dc3277124c2e4113704c79bef", null ],
@@ -131,8 +132,14 @@ var BasicDefines_8h =
     [ "VIEW_ASPECT_RATIO", "BasicDefines_8h.html#a3e75a27e368673e6d288fd24b9e8cd3b", null ],
     [ "VIEW_CAM_RADIUS", "BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f", null ],
     [ "VIEW_CURSOR_RAD", "BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9", null ],
+    [ "VIEW_GRID_SIZE", "BasicDefines_8h.html#aaf0cf5657e83af00fc7f4784fadde819", null ],
     [ "VIEW_SCREEN_HEIGHT", "BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865", null ],
     [ "VIEW_SCREEN_WIDTH", "BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b", null ],
     [ "WEAT_STEPS_MAX", "BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c", null ],
-    [ "WEAT_STEPS_MIN", "BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f", null ]
+    [ "WEAT_STEPS_MIN", "BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f", null ],
+    [ "WGHT_BUILDING", "BasicDefines_8h.html#a4c28533352078a7a681cf40d741b28d9", null ],
+    [ "WGHT_HUMANOID", "BasicDefines_8h.html#a30fc0cae2a72800432bef5f5a0d7d1bc", null ],
+    [ "WGHT_NON_HUMANOID", "BasicDefines_8h.html#a6aa24dc2e0f76c3f11caec73ee916315", null ],
+    [ "WGHT_RESOURCE", "BasicDefines_8h.html#a57fceefa4df45f9704a92e183ab60a54", null ],
+    [ "WGHT_WEATHER", "BasicDefines_8h.html#ac9fdb4886a3b8baf5704df29229f237e", null ]
 ];

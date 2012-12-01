@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('Building_8h_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5" title="Constructor.">Building</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classBuilding.html#a3db0a7481a8d811c00cc4b7f23cbc0e5" title="Constructor.">Building</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a43dc0fcd3a10932b9e0d7eed5e2e3ccb" title="Maximum available space.">max_space</a>, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a5125defa97304f124fae5d0f1edf9b53" title="Building&#39;s maximum health.">max_health</a>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classBuilding.html#ab675c6a382e110b84031956cda708439" title="Destructor.">~Building</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
@@ -165,15 +165,15 @@ $(document).ready(function(){initNavTree('Building_8h_source.html','');});
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#a79aac1962bbd77d80fd6e1fe80abec88" title="Get the value of isFinished.">getCompleteness</a>();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* contents;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classBuilding.html#a6f0a7a63f682be260c71f778fd8ed534">  102</a></span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* <a class="code" href="classBuilding.html#a6f0a7a63f682be260c71f778fd8ed534" title="Building contents.">contents</a>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> health;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_health;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classBuilding.html#a7e93a04c83479141c665339f094a47b7">  105</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a7e93a04c83479141c665339f094a47b7" title="Building&#39;s health.">health</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classBuilding.html#a5125defa97304f124fae5d0f1edf9b53">  107</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a5125defa97304f124fae5d0f1edf9b53" title="Building&#39;s maximum health.">max_health</a>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> free_space;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> max_space;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classBuilding.html#a864a10e1c903dd90bcd100e3ca22315a">  110</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a864a10e1c903dd90bcd100e3ca22315a" title="Free space.">free_space</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classBuilding.html#a43dc0fcd3a10932b9e0d7eed5e2e3ccb">  112</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classBuilding.html#a43dc0fcd3a10932b9e0d7eed5e2e3ccb" title="Maximum available space.">max_space</a>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">bool</span> completeness;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classBuilding.html#aa45996a3754ed9a9b57987985902e396">  118</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classBuilding.html#aa45996a3754ed9a9b57987985902e396" title="Completeness of the building. As building is founded, it gets 0 health. Building proccess is equivale...">completeness</a>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif // BUILDING_H</span></div>
@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('Building_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_6e1c2001ff250873cab74c79ba8b43d2.html">Building</a></li><li class="navelem"><a class="el" href="Building_8h.html">Building.h</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

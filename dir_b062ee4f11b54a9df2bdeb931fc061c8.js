@@ -6,5 +6,9 @@ var dir_b062ee4f11b54a9df2bdeb931fc061c8 =
     [ "Creature.h", "Creature_8h.html", [
       [ "Creature", "classCreature.html", "classCreature" ]
     ] ],
-    [ "CreatureGenerateRoute.cpp", "CreatureGenerateRoute_8cpp.html", "CreatureGenerateRoute_8cpp" ]
+    [ "CreatureGenerateRoute.cpp", "CreatureGenerateRoute_8cpp.html", "CreatureGenerateRoute_8cpp" ],
+    [ "EDeprecatedAction.cpp", "EDeprecatedAction_8cpp.html", null ],
+    [ "EDeprecatedAction.h", "EDeprecatedAction_8h.html", [
+      [ "EDeprecatedAction", "classEDeprecatedAction.html", "classEDeprecatedAction" ]
+    ] ]
 ];

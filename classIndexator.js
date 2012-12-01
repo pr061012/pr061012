@@ -1,10 +1,25 @@
 var classIndexator =
 [
+    [ "Index", "classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57", null ],
     [ "Indexator", "classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417", null ],
     [ "~Indexator", "classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b", null ],
+    [ "Indexator", "classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc", null ],
     [ "addObject", "classIndexator.html#aebbad325d23422a61443742e2d315f2c", null ],
+    [ "destroy", "classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370", null ],
     [ "getAreaContents", "classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d", null ],
+    [ "getCellsArea", "classIndexator.html#a7f396d84a95cc10edfa560ea820deaa5", null ],
+    [ "getRow", "classIndexator.html#aa4b3b388b07b2265b0c9bd87682e9774", null ],
+    [ "init", "classIndexator.html#ac530016e5394f663eb05f6d838ea4068", null ],
+    [ "max", "classIndexator.html#a1c595ae92d8a759e20040d1cf051870b", null ],
+    [ "min", "classIndexator.html#aa42d674aa86a0f4002f1f119d793d995", null ],
     [ "reindexate", "classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127", null ],
     [ "reindexate", "classIndexator.html#a3c496109b375bc095e15a38d2e8f18d8", null ],
-    [ "removeObject", "classIndexator.html#a494d579d9b7444788099ee9f57ba6420", null ]
+    [ "removeObject", "classIndexator.html#a494d579d9b7444788099ee9f57ba6420", null ],
+    [ "cell_size", "classIndexator.html#a74263652951b0c9e60c196f51f9dee9e", null ],
+    [ "cells", "classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e", null ],
+    [ "index", "classIndexator.html#a64e2b29366719f4818c48cadd8efaacb", null ],
+    [ "MAX_CELL_SIZE", "classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f", null ],
+    [ "row_size", "classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c", null ],
+    [ "world_shape", "classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4", null ],
+    [ "world_size", "classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0", null ]
 ];

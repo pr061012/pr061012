@@ -6,7 +6,7 @@ var searchData=
   ['operator_20const_20viewobject',['operator const ViewObject',['../classObject.html#a4c028fe019516a89086c8750f65f3e6a',1,'Object']]],
   ['operator_21_3d',['operator!=',['../classVector.html#a429b2c1eb8d603664190cff9d0b3fb48',1,'Vector']]],
   ['operator_28_29',['operator()',['../structVertexComp.html#a8651b4f02552c69a75de81e807790312',1,'VertexComp::operator()()'],['../structVectorComp.html#a22188536ccbfca3eed19b71ee676cb20',1,'VectorComp::operator()()']]],
-  ['operator_2a',['operator*',['../classVector.html#a78cf78426d2aec177269f8dffcd58069',1,'Vector']]],
+  ['operator_2a',['operator*',['../classVector.html#a78cf78426d2aec177269f8dffcd58069',1,'Vector::operator*()'],['../classObjectHeap_1_1iterator.html#ac99b9150ea17da51d770f6600a430c6b',1,'ObjectHeap::iterator::operator*()'],['../classObjectHeap_1_1const__iterator.html#a5cd7852d42397ba35a72082aa5e3bcb1',1,'ObjectHeap::const_iterator::operator*()']]],
   ['operator_2a_3d',['operator*=',['../classVector.html#a5e9a64ca63bfbbd1a49c34fd10507459',1,'Vector']]],
   ['operator_2b',['operator+',['../classVector.html#a8d997a5c015c15a4ff2025c480cec76a',1,'Vector']]],
   ['operator_2b_3d',['operator+=',['../classVector.html#a7ebb6a5509550965be894c249f13daf1',1,'Vector']]],

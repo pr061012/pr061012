@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classTool.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classTool-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Tool Class Reference</div>  </div>
@@ -124,7 +125,7 @@ Inheritance diagram for Tool:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa21c7e32c4978b4f7d2f908f18fee2e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#aa21c7e32c4978b4f7d2f908f18fee2e8">Tool</a> (<a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a> type, <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> material, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> max_strength=0)</td></tr>
+<tr class="memitem:aa21c7e32c4978b4f7d2f908f18fee2e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#aa21c7e32c4978b4f7d2f908f18fee2e8">Tool</a> (<a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> <a class="el" href="classTool.html#a3faaf3c3c4d5e17840763c5941243d22">material</a>, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c">max_strength</a>=0)</td></tr>
 <tr class="memdesc:aa21c7e32c4978b4f7d2f908f18fee2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa21c7e32c4978b4f7d2f908f18fee2e8"></a><br/></td></tr>
 <tr class="memitem:a44634ea099b7a49acf87f50e072ce660"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a44634ea099b7a49acf87f50e072ce660">~Tool</a> ()</td></tr>
 <tr class="memdesc:a44634ea099b7a49acf87f50e072ce660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a44634ea099b7a49acf87f50e072ce660"></a><br/></td></tr>
@@ -134,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a15f22d0b74d2b74670cafe8fa1532a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a15f22d0b74d2b74670cafe8fa1532a8f"></a><br/></td></tr>
 <tr class="memitem:a8f953ba8b4f921dd03dd74eb07fc41ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a8f953ba8b4f921dd03dd74eb07fc41ea">getTypeName</a> () const </td></tr>
 <tr class="memdesc:a8f953ba8b4f921dd03dd74eb07fc41ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets type's name.  <a href="#a8f953ba8b4f921dd03dd74eb07fc41ea"></a><br/></td></tr>
+<tr class="memitem:a2f2d3c70ecbff31fe17c29b917bc8f49"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a2f2d3c70ecbff31fe17c29b917bc8f49">printObjectInfo</a> () const </td></tr>
+<tr class="memdesc:a2f2d3c70ecbff31fe17c29b917bc8f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#a2f2d3c70ecbff31fe17c29b917bc8f49"></a><br/></td></tr>
 <tr class="memitem:ae75625ea225855b11bd93967c5665eb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">getHealthPoints</a> () const </td></tr>
 <tr class="memdesc:ae75625ea225855b11bd93967c5665eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#ae75625ea225855b11bd93967c5665eb4"></a><br/></td></tr>
 <tr class="memitem:a08d54ef47b226faaad1ea5419dbf47c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">getMaxHealthPoints</a> () const </td></tr>
@@ -147,12 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1d1c874a76a20b718ce3b7c344a34944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a1d1c874a76a20b718ce3b7c344a34944">getMaterial</a> () const </td></tr>
 <tr class="memdesc:a1d1c874a76a20b718ce3b7c344a34944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets tool's material.  <a href="#a1d1c874a76a20b718ce3b7c344a34944"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
-<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type, bool solidity=true, bool immortality=false)</td></tr>
+<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, bool <a class="el" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247">solidity</a>=true, bool <a class="el" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a">immortality</a>=false)</td></tr>
 <tr class="memdesc:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac3797e3194161ceeb6de884f7dae4083"></a><br/></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
-<tr class="memitem:afda9c1bda1dd939d6d402686f58d4069 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">printObjectInfo</a> () const </td></tr>
-<tr class="memdesc:afda9c1bda1dd939d6d402686f58d4069 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#afda9c1bda1dd939d6d402686f58d4069"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks this object as destroyed.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
 <tr class="memitem:a1e1a162b817f0c134836cca3a473e295 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
@@ -171,13 +172,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ade65edee1451b414e5c88ed43fffbe5e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is solid.  <a href="#ade65edee1451b414e5c88ed43fffbe5e"></a><br/></td></tr>
 <tr class="memitem:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae970ad5ee017ebf6acab62928c19d7c8">getDangerLevel</a> () const </td></tr>
 <tr class="memdesc:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's danger level.  <a href="#ae970ad5ee017ebf6acab62928c19d7c8"></a><br/></td></tr>
-<tr class="memitem:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> danger_level)</td></tr>
+<tr class="memitem:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111">danger_level</a>)</td></tr>
 <tr class="memdesc:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's danger level.  <a href="#a8f057c451361240ebc424622db893e63"></a><br/></td></tr>
+<tr class="memitem:a9a0cf11abb0cebe770fcb5796c0a09b9 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9a0cf11abb0cebe770fcb5796c0a09b9">getWeight</a> () const </td></tr>
+<tr class="memdesc:a9a0cf11abb0cebe770fcb5796c0a09b9 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's weight.  <a href="#a9a0cf11abb0cebe770fcb5796c0a09b9"></a><br/></td></tr>
+<tr class="memitem:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a17c4c5b00d5144659887191780af540a">setWeight</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a9842ab76955ad115646eb4b630e76083">weight</a>)</td></tr>
+<tr class="memdesc:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's weight.  <a href="#a17c4c5b00d5144659887191780af540a"></a><br/></td></tr>
 <tr class="memitem:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a3a1956dcb8025283e34d497abbff3a32 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a3a1956dcb8025283e34d497abbff3a32">getObjectID</a> () const </td></tr>
 <tr class="memdesc:a3a1956dcb8025283e34d497abbff3a32 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns object's ID.  <a href="#a3a1956dcb8025283e34d497abbff3a32"></a><br/></td></tr>
-<tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> type)</td></tr>
+<tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>)</td></tr>
 <tr class="memdesc:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's shape type.  <a href="#a81450ac8abbba5ee97e2558cffabedf5"></a><br/></td></tr>
 <tr class="memitem:af4a10aeb0de43db0d6bc43d6b6d9280b inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b">setShapeSize</a> (double size)</td></tr>
 <tr class="memdesc:af4a10aeb0de43db0d6bc43d6b6d9280b inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's shape size.  <a href="#af4a10aeb0de43db0d6bc43d6b6d9280b"></a><br/></td></tr>
@@ -193,6 +198,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a98ae671267306c09d28a0a4afa1a8a55 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a98ae671267306c09d28a0a4afa1a8a55"></a><br/></td></tr>
 <tr class="memitem:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4c028fe019516a89086c8750f65f3e6a">operator const ViewObject</a> ()</td></tr>
 <tr class="memdesc:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>.  <a href="#a4c028fe019516a89086c8750f65f3e6a"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a820afbc0946e01f1351671ad46937bc1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a820afbc0946e01f1351671ad46937bc1">subtype</a></td></tr>
+<tr class="memdesc:a820afbc0946e01f1351671ad46937bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTool.html" title="Tool class.">Tool</a> type.  <a href="#a820afbc0946e01f1351671ad46937bc1"></a><br/></td></tr>
+<tr class="memitem:a3faaf3c3c4d5e17840763c5941243d22"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a3faaf3c3c4d5e17840763c5941243d22">material</a></td></tr>
+<tr class="memdesc:a3faaf3c3c4d5e17840763c5941243d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Material of which tool is made.  <a href="#a3faaf3c3c4d5e17840763c5941243d22"></a><br/></td></tr>
+<tr class="memitem:a65f7bb0b6a1a15b74e8b89cb0c7ec600"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600">current_strength</a></td></tr>
+<tr class="memdesc:a65f7bb0b6a1a15b74e8b89cb0c7ec600"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTool.html" title="Tool class.">Tool</a>'s current strength.  <a href="#a65f7bb0b6a1a15b74e8b89cb0c7ec600"></a><br/></td></tr>
+<tr class="memitem:a0ce1e9e9f82662c3c906882323bf079c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTool.html#a0ce1e9e9f82662c3c906882323bf079c">max_strength</a></td></tr>
+<tr class="memdesc:a0ce1e9e9f82662c3c906882323bf079c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTool.html" title="Tool class.">Tool</a>'s maximum possible strength.  <a href="#a0ce1e9e9f82662c3c906882323bf079c"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -302,7 +318,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a46cd2e05a4f556afa59a2a61b1096fc8">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00102">102</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00103">103</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +377,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00092">92</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00093">93</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets tool's material. </p>
 <dl class="section return"><dt>Returns</dt><dd>tool's material </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00137">137</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00138">138</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +426,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00097">97</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00098">98</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -430,7 +446,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets tool's type. </p>
 <dl class="section return"><dt>Returns</dt><dd>tool's type </dd></dl>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00132">132</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00133">133</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -497,7 +513,37 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00115">115</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00116">116</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f2d3c70ecbff31fe17c29b917bc8f49"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tool::printObjectInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints out object's information. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with information </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Tool_8cpp_source.html#l00087">87</a> of file <a class="el" href="Tool_8cpp_source.html">Tool.cpp</a>.</p>
 
 </div>
 </div>
@@ -531,6 +577,103 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a65f7bb0b6a1a15b74e8b89cb0c7ec600"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Tool::current_strength</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classTool.html" title="Tool class.">Tool</a>'s current strength. </p>
+
+<p>Definition at line <a class="el" href="Tool_8h_source.html#l00075">75</a> of file <a class="el" href="Tool_8h_source.html">Tool.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3faaf3c3c4d5e17840763c5941243d22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1">ResourceType</a> Tool::material</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Material of which tool is made. </p>
+
+<p>Definition at line <a class="el" href="Tool_8h_source.html#l00072">72</a> of file <a class="el" href="Tool_8h_source.html">Tool.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ce1e9e9f82662c3c906882323bf079c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Tool::max_strength</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classTool.html" title="Tool class.">Tool</a>'s maximum possible strength. </p>
+
+<p>Definition at line <a class="el" href="Tool_8h_source.html#l00077">77</a> of file <a class="el" href="Tool_8h_source.html">Tool.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a820afbc0946e01f1351671ad46937bc1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160">ToolType</a> Tool::subtype</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classTool.html" title="Tool class.">Tool</a> type. </p>
+
+<p>Definition at line <a class="el" href="Tool_8h_source.html#l00069">69</a> of file <a class="el" href="Tool_8h_source.html">Tool.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>model/World/Object/Tool/<a class="el" href="Tool_8h_source.html">Tool.h</a></li>
 <li>model/World/Object/Tool/<a class="el" href="Tool_8cpp_source.html">Tool.cpp</a></li>
@@ -541,7 +684,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classTool.html">Tool</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:43 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:46 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

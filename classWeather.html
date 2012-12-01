@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classWeather.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classWeather-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Weather Class Reference</div>  </div>
@@ -124,7 +125,7 @@ Inheritance diagram for Weather:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aecb2d4cf892c498e09bf9e8a00ae9cbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#aecb2d4cf892c498e09bf9e8a00ae9cbd">Weather</a> (<a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a> type, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> living_steps=0)</td></tr>
+<tr class="memitem:aecb2d4cf892c498e09bf9e8a00ae9cbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#aecb2d4cf892c498e09bf9e8a00ae9cbd">Weather</a> (<a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> living_steps=0)</td></tr>
 <tr class="memdesc:aecb2d4cf892c498e09bf9e8a00ae9cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aecb2d4cf892c498e09bf9e8a00ae9cbd"></a><br/></td></tr>
 <tr class="memitem:a6cc4f6ce440531f5c882547dcf40eb22"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a6cc4f6ce440531f5c882547dcf40eb22">~Weather</a> ()</td></tr>
 <tr class="memdesc:a6cc4f6ce440531f5c882547dcf40eb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a6cc4f6ce440531f5c882547dcf40eb22"></a><br/></td></tr>
@@ -134,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac8c475e135a64a6893141f1f3cee5519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#ac8c475e135a64a6893141f1f3cee5519"></a><br/></td></tr>
 <tr class="memitem:a792e245916fe756314f87cb995533a7b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a792e245916fe756314f87cb995533a7b">getTypeName</a> () const </td></tr>
 <tr class="memdesc:a792e245916fe756314f87cb995533a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets type's name.  <a href="#a792e245916fe756314f87cb995533a7b"></a><br/></td></tr>
+<tr class="memitem:af3fbb0c7f8038edca2b3428e0a383cc1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#af3fbb0c7f8038edca2b3428e0a383cc1">printObjectInfo</a> () const </td></tr>
+<tr class="memdesc:af3fbb0c7f8038edca2b3428e0a383cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#af3fbb0c7f8038edca2b3428e0a383cc1"></a><br/></td></tr>
 <tr class="memitem:ac2d3f1b253d6616c32a78310b8e05b9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a">getSubtype</a> () const </td></tr>
 <tr class="memdesc:ac2d3f1b253d6616c32a78310b8e05b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of subtype.  <a href="#ac2d3f1b253d6616c32a78310b8e05b9a"></a><br/></td></tr>
 <tr class="memitem:a83a65c72b1aabc8eb99e63819f240bc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a83a65c72b1aabc8eb99e63819f240bc2">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
@@ -151,12 +154,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acfe16f3f5d7e762de9f199a685561d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#acfe16f3f5d7e762de9f199a685561d4e">getLivingSteps</a> () const </td></tr>
 <tr class="memdesc:acfe16f3f5d7e762de9f199a685561d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets amount of living steps.  <a href="#acfe16f3f5d7e762de9f199a685561d4e"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
-<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type, bool solidity=true, bool immortality=false)</td></tr>
+<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, bool <a class="el" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247">solidity</a>=true, bool <a class="el" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a">immortality</a>=false)</td></tr>
 <tr class="memdesc:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac3797e3194161ceeb6de884f7dae4083"></a><br/></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
-<tr class="memitem:afda9c1bda1dd939d6d402686f58d4069 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">printObjectInfo</a> () const </td></tr>
-<tr class="memdesc:afda9c1bda1dd939d6d402686f58d4069 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#afda9c1bda1dd939d6d402686f58d4069"></a><br/></td></tr>
 <tr class="memitem:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9df0b8f5aef27057192b874ebd0d361e">markAsDestroyed</a> ()</td></tr>
 <tr class="memdesc:a9df0b8f5aef27057192b874ebd0d361e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks this object as destroyed.  <a href="#a9df0b8f5aef27057192b874ebd0d361e"></a><br/></td></tr>
 <tr class="memitem:a1e1a162b817f0c134836cca3a473e295 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1e1a162b817f0c134836cca3a473e295">isDestroyed</a> () const </td></tr>
@@ -175,13 +176,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ade65edee1451b414e5c88ed43fffbe5e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is solid.  <a href="#ade65edee1451b414e5c88ed43fffbe5e"></a><br/></td></tr>
 <tr class="memitem:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae970ad5ee017ebf6acab62928c19d7c8">getDangerLevel</a> () const </td></tr>
 <tr class="memdesc:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's danger level.  <a href="#ae970ad5ee017ebf6acab62928c19d7c8"></a><br/></td></tr>
-<tr class="memitem:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> danger_level)</td></tr>
+<tr class="memitem:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111">danger_level</a>)</td></tr>
 <tr class="memdesc:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's danger level.  <a href="#a8f057c451361240ebc424622db893e63"></a><br/></td></tr>
+<tr class="memitem:a9a0cf11abb0cebe770fcb5796c0a09b9 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a9a0cf11abb0cebe770fcb5796c0a09b9">getWeight</a> () const </td></tr>
+<tr class="memdesc:a9a0cf11abb0cebe770fcb5796c0a09b9 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's weight.  <a href="#a9a0cf11abb0cebe770fcb5796c0a09b9"></a><br/></td></tr>
+<tr class="memitem:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a17c4c5b00d5144659887191780af540a">setWeight</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a9842ab76955ad115646eb4b630e76083">weight</a>)</td></tr>
+<tr class="memdesc:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's weight.  <a href="#a17c4c5b00d5144659887191780af540a"></a><br/></td></tr>
 <tr class="memitem:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a3a1956dcb8025283e34d497abbff3a32 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a3a1956dcb8025283e34d497abbff3a32">getObjectID</a> () const </td></tr>
 <tr class="memdesc:a3a1956dcb8025283e34d497abbff3a32 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns object's ID.  <a href="#a3a1956dcb8025283e34d497abbff3a32"></a><br/></td></tr>
-<tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> type)</td></tr>
+<tr class="memitem:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5">setShapeType</a> (<a class="el" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>)</td></tr>
 <tr class="memdesc:a81450ac8abbba5ee97e2558cffabedf5 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's shape type.  <a href="#a81450ac8abbba5ee97e2558cffabedf5"></a><br/></td></tr>
 <tr class="memitem:af4a10aeb0de43db0d6bc43d6b6d9280b inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b">setShapeSize</a> (double size)</td></tr>
 <tr class="memdesc:af4a10aeb0de43db0d6bc43d6b6d9280b inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's shape size.  <a href="#af4a10aeb0de43db0d6bc43d6b6d9280b"></a><br/></td></tr>
@@ -197,6 +202,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a98ae671267306c09d28a0a4afa1a8a55 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's coordinates.  <a href="#a98ae671267306c09d28a0a4afa1a8a55"></a><br/></td></tr>
 <tr class="memitem:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4c028fe019516a89086c8750f65f3e6a">operator const ViewObject</a> ()</td></tr>
 <tr class="memdesc:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>.  <a href="#a4c028fe019516a89086c8750f65f3e6a"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5434adf7f42d392584d9816edeb4b291"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a5434adf7f42d392584d9816edeb4b291">subtype</a></td></tr>
+<tr class="memdesc:a5434adf7f42d392584d9816edeb4b291"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classWeather.html" title="Weather class.">Weather</a> type.  <a href="#a5434adf7f42d392584d9816edeb4b291"></a><br/></td></tr>
+<tr class="memitem:a532473cb999c99c938ec0afb56f1e5da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a532473cb999c99c938ec0afb56f1e5da">covered_objs</a></td></tr>
+<tr class="memdesc:a532473cb999c99c938ec0afb56f1e5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covered objects. Is setted up by <a class="el" href="classController.html" title="Class controls the world!">Controller</a> by using <a class="el" href="classWeather.html" title="Weather class.">Weather</a> shape.  <a href="#a532473cb999c99c938ec0afb56f1e5da"></a><br/></td></tr>
+<tr class="memitem:a9039eba1523e7c96362d4a6e25597028"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeather.html#a9039eba1523e7c96362d4a6e25597028">steps</a></td></tr>
+<tr class="memdesc:a9039eba1523e7c96362d4a6e25597028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps for living.  <a href="#a9039eba1523e7c96362d4a6e25597028"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -262,7 +276,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00035">35</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00036">36</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a46cd2e05a4f556afa59a2a61b1096fc8">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00091">91</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00096">96</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -330,7 +344,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00043">43</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00044">44</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -350,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets reference to heap with covered objects. This heap can be modified (in fact, <a class="el" href="classController.html" title="Class controls the world!">Controller</a> modify it by using <a class="el" href="classWeather.html" title="Weather class.">Weather</a> shape). </p>
 <dl class="section return"><dt>Returns</dt><dd>reference to heap with covered objects </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00124">124</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00129">129</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +393,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00101">101</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00106">106</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +413,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets amount of living steps. </p>
 <dl class="section return"><dt>Returns</dt><dd>amount of living steps. </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00134">134</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00139">139</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +442,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00106">106</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00111">111</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +462,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the value of subtype. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of subtype </dd></dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00115">115</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00120">120</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -478,7 +492,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#a8c0e06723d36e89cf5f6f9b117782cba">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00082">82</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00083">83</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -515,7 +529,37 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00096">96</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00101">101</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3fbb0c7f8038edca2b3428e0a383cc1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Weather::printObjectInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints out object's information. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with information </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">Object</a>.</p>
+
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00087">87</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +589,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00078">78</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00079">79</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
 
 </div>
 </div>
@@ -571,7 +615,80 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00129">129</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Weather_8cpp_source.html#l00134">134</a> of file <a class="el" href="Weather_8cpp_source.html">Weather.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a532473cb999c99c938ec0afb56f1e5da"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> Weather::covered_objs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Covered objects. Is setted up by <a class="el" href="classController.html" title="Class controls the world!">Controller</a> by using <a class="el" href="classWeather.html" title="Weather class.">Weather</a> shape. </p>
+
+<p>Definition at line <a class="el" href="Weather_8h_source.html#l00091">91</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9039eba1523e7c96362d4a6e25597028"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Weather::steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Steps for living. </p>
+
+<p>Definition at line <a class="el" href="Weather_8h_source.html#l00094">94</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5434adf7f42d392584d9816edeb4b291"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516">WeatherType</a> Weather::subtype</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classWeather.html" title="Weather class.">Weather</a> type. </p>
+
+<p>Definition at line <a class="el" href="Weather_8h_source.html#l00088">88</a> of file <a class="el" href="Weather_8h_source.html">Weather.h</a>.</p>
 
 </div>
 </div>
@@ -585,7 +702,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classWeather.html">Weather</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:43 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:46 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

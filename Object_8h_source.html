@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083" title="Constructor.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type, <span class="keywordtype">bool</span> solidity = <span class="keyword">true</span>, <span class="keywordtype">bool</span> immortality = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083" title="Constructor.">Object</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>, <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247" title="Whether object is passable or not.">solidity</a> = <span class="keyword">true</span>, <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a" title="Immortality.">immortality</a> = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3" title="Destructor.">~Object</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
@@ -189,81 +189,91 @@ $(document).ready(function(){initNavTree('Object_8h_source.html','');});
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#ae970ad5ee017ebf6acab62928c19d7c8" title="Gets object&#39;s danger level.">getDangerLevel</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a8f057c451361240ebc424622db893e63" title="Sets object&#39;s danger level.">setDangerLevel</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> danger_level);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a8f057c451361240ebc424622db893e63" title="Sets object&#39;s danger level.">setDangerLevel</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111" title="Object&#39;s danger level.">danger_level</a>);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">// OBJECT TYPE AND ID.</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">// WEIGHT.</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> <a class="code" href="classObject.html#a7660dc25529325326bc280e5f5fb0194" title="Gets the value of type.">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a9a0cf11abb0cebe770fcb5796c0a09b9" title="Gets object&#39;s weight.">getWeight</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classObject.html#a8c0e06723d36e89cf5f6f9b117782cba" title="Gets type&#39;s name.">getTypeName</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a17c4c5b00d5144659887191780af540a" title="Sets object&#39;s weight.">setWeight</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a9842ab76955ad115646eb4b630e76083" title="Object&#39;s weight.">weight</a>);</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a3a1956dcb8025283e34d497abbff3a32" title="Returns object&#39;s ID.">getObjectID</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">// OBJECT SHAPE, ANGLE AND COORDINATES.</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">// OBJECT TYPE AND ID.</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> <a class="code" href="classObject.html#a7660dc25529325326bc280e5f5fb0194" title="Gets the value of type.">getType</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5" title="Sets object&#39;s shape type.">setShapeType</a>(<a class="code" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345" title="The ShapeType enum. Don&#39;t forget to change AMNT_SHAPE_TYPES while adding new elements!">ShapeType</a> type);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classObject.html#a8c0e06723d36e89cf5f6f9b117782cba" title="Gets type&#39;s name.">getTypeName</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b" title="Sets object&#39;s shape size.">setShapeSize</a>(<span class="keywordtype">double</span> size);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a3a1956dcb8025283e34d497abbff3a32" title="Returns object&#39;s ID.">getObjectID</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="classShape.html">Shape</a> <a class="code" href="classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7" title="Get the value of shape.">getShape</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a075891336e08ea144917d8468f8480f1" title="Set the value of angle.">setAngle</a>(<span class="keywordtype">double</span> new_var);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classObject.html#aaba7ccef31e74246abda5ef9cb2e202c" title="Get the value of angle.">getAngle</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a64299bd3d9948e455dd4751c465ef750" title="Set object&#39;s coordinates.">setCoords</a>(<span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a>&amp; coords);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a>&amp; <a class="code" href="classObject.html#a98ae671267306c09d28a0a4afa1a8a55" title="Get object&#39;s coordinates.">getCoords</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">// CAST OPERATORS.</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// OBJECT SHAPE, ANGLE AND COORDINATES.</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a81450ac8abbba5ee97e2558cffabedf5" title="Sets object&#39;s shape type.">setShapeType</a>(<a class="code" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345" title="The ShapeType enum. Don&#39;t forget to change AMNT_SHAPE_TYPES while adding new elements!">ShapeType</a> type);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b" title="Sets object&#39;s shape size.">setShapeSize</a>(<span class="keywordtype">double</span> size);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classShape.html">Shape</a> <a class="code" href="classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7" title="Get the value of shape.">getShape</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a075891336e08ea144917d8468f8480f1" title="Set the value of angle.">setAngle</a>(<span class="keywordtype">double</span> new_var);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classObject.html#aaba7ccef31e74246abda5ef9cb2e202c" title="Get the value of angle.">getAngle</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keyword">operator</span> <span class="keyword">const</span> <a class="code" href="classViewObject.html">ViewObject</a>();</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">// IDS.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">static</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> CURRENT_ID;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObject.html#a64299bd3d9948e455dd4751c465ef750" title="Set object&#39;s coordinates.">setCoords</a>(<span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a>&amp; coords);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a>&amp; <a class="code" href="classObject.html#a98ae671267306c09d28a0a4afa1a8a55" title="Get object&#39;s coordinates.">getCoords</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> id;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">// CAST OPERATORS.</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">// OBJECT&#39;S INFORMATION.</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">operator</span> <span class="keyword">const</span> <a class="code" href="classViewObject.html">ViewObject</a>();</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="classShape.html">Shape</a> shape;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">bool</span> destroyed;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">bool</span> immortality;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">// IDS.</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="code" href="classObject.html#af266077939f644306b0b3d6632a8083d">  261</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#af266077939f644306b0b3d6632a8083d">CURRENT_ID</a>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="code" href="classObject.html#ad4e0770a6dcb47a477610a69c22831f1">  263</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#ad4e0770a6dcb47a477610a69c22831f1">id</a>;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">bool</span> solidity;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">double</span> angle;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> danger_level;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">  276</a></span>&#160;    std::vector &lt;Action&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;};</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">// OBJECT&#39;S INFORMATION.</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">  270</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="classObject.html#a09a35e7356709e994637bd66c2c69fc4">  273</a></span>&#160;    <a class="code" href="classShape.html">Shape</a> <a class="code" href="classObject.html#a09a35e7356709e994637bd66c2c69fc4" title="Object&#39;s coordinates and shape.">shape</a>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classObject.html#a6c1d763b59ba8a5bcb23b383b3ac4428">  276</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a6c1d763b59ba8a5bcb23b383b3ac4428" title="Is object destroyed or not.">destroyed</a>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="code" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a">  279</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a" title="Immortality.">immortality</a>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="code" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247">  282</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247" title="Whether object is passable or not.">solidity</a>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="code" href="classObject.html#aa08efab6c2c6898b1d0d7103076d8674">  285</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classObject.html#aa08efab6c2c6898b1d0d7103076d8674" title="Angle of rotation.">angle</a>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="code" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111">  288</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111" title="Object&#39;s danger level.">danger_level</a>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="code" href="classObject.html#a9842ab76955ad115646eb4b630e76083">  291</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObject.html#a9842ab76955ad115646eb4b630e76083" title="Object&#39;s weight.">weight</a>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">  295</a></span>&#160;    std::vector &lt;Action&gt; <a class="code" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690" title="Array with actions.">actions</a>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;};</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="preprocessor">#endif // OBJECT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="Object_8h.html">Object.h</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

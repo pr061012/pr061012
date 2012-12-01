@@ -7,5 +7,8 @@ var classViewObject =
     [ "getY", "classViewObject.html#a4823c2380b8cb092a56ce896a235b7c1", null ],
     [ "setType", "classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8", null ],
     [ "setX", "classViewObject.html#a280ef0f29dd3a14d285e816b1798639d", null ],
-    [ "setY", "classViewObject.html#af7e0d64500d95544654420876d7f85b8", null ]
+    [ "setY", "classViewObject.html#af7e0d64500d95544654420876d7f85b8", null ],
+    [ "type", "classViewObject.html#a0a31fd47abdbaa2d9cfd2183cecaffa6", null ],
+    [ "x", "classViewObject.html#ae66fe77d158d498357238fde99dc47cf", null ],
+    [ "y", "classViewObject.html#aa8e4c36a2c9c379d317d215db3863daf", null ]
 ];

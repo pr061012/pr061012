@@ -24,5 +24,15 @@ var classResource =
     [ "makeRestorable", "classResource.html#aec065da0fac8decc9a00be7c3bfe4f32", null ],
     [ "printObjectInfo", "classResource.html#ab1996b2c5b394a0d2fc9de58c9bf7806", null ],
     [ "receiveMessage", "classResource.html#a57195a6cea3aa37c11cf038119e88de3", null ],
-    [ "setProgress", "classResource.html#aa93c9044f64f0521eceab41aadcd1188", null ]
+    [ "setProgress", "classResource.html#aa93c9044f64f0521eceab41aadcd1188", null ],
+    [ "amount", "classResource.html#ad332687c28a88319ea4b8043688fde96", null ],
+    [ "amount_per_drop", "classResource.html#a364a4134cadb257082c6b89f2e63d49e", null ],
+    [ "difficulty", "classResource.html#aa7b6b9f7e826ec31fca9b42f211718b6", null ],
+    [ "max_amount", "classResource.html#af7943399816245acec9cdca31503f37b", null ],
+    [ "mineable", "classResource.html#ac9fd886b97ba2fd90da03767777cc026", null ],
+    [ "progress", "classResource.html#a17e4c54d829c46fd13d80ef7ce65ade6", null ],
+    [ "reg_amount", "classResource.html#a12e7a57762f51b3a90c0c5a5f7446b11", null ],
+    [ "restorable", "classResource.html#a79a8d643970cbc8a0bbae17976927e20", null ],
+    [ "steps_to_reg", "classResource.html#ab5df09a77a02dff8fb14e178984c3ed9", null ],
+    [ "subtype", "classResource.html#ae7416d4085f01d720a743a1e7fec6ef1", null ]
 ];

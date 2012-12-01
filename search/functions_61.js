@@ -7,7 +7,7 @@ var searchData=
   ['addobject',['addObject',['../classIndexator.html#aebbad325d23422a61443742e2d315f2c',1,'Indexator::addObject()'],['../classWorld.html#a5958579b1313daec5993026df26c7f63',1,'World::addObject()']]],
   ['addparam',['addParam',['../classAction.html#ad093732911838eabbdbe5ec48300b6c0',1,'Action']]],
   ['addparticipant',['addParticipant',['../classAction.html#aae2912142691704bc9a61108fcb83205',1,'Action']]],
-  ['addtoinventory',['addToInventory',['../classHumanoid.html#a1830e851759c6c72c532dcac9cd06e66',1,'Humanoid']]],
-  ['areequal',['areEqual',['../classDoubleComparison.html#a6cd5879b79ca5a51d0e43fc12f3b653f',1,'DoubleComparison']]],
-  ['arenotequal',['areNotEqual',['../classDoubleComparison.html#ab2a000a490eabec358067aa0a38b5fac',1,'DoubleComparison']]]
+  ['addtoinventory',['addToInventory',['../classCreature.html#aec48cdde7c8c65cb75e1fa68b8f1f21c',1,'Creature::addToInventory()'],['../classHumanoid.html#a1830e851759c6c72c532dcac9cd06e66',1,'Humanoid::addToInventory()']]],
+  ['areequal',['areEqual',['../classDoubleComparison.html#a2c3e3c07b6526ac592a47200b87d836f',1,'DoubleComparison']]],
+  ['arenotequal',['areNotEqual',['../classDoubleComparison.html#a8f1684fc79e95e9cfb09f660cc3e706c',1,'DoubleComparison']]]
 ];

@@ -107,28 +107,37 @@ $(document).ready(function(){initNavTree('classShape.html','');});
 
 <p>This is the complete list of members for <a class="el" href="classShape.html">Shape</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a1080d17733029fbeb9f041dbe3cf64be">getCenter</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#a4295de8e4be39b23fdd789de6cfd78c4">getLastCenter</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421">getLeftBottom</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1">getRightTop</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c">getSize</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#a289caa5e54e3eed1c226fb3e5c1a0972">getType</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classShape.html#ab31c914c32eeb197065d511040bc505e">getTypeName</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#af0b525cc5e56b0b11d717ae83e27f248">hitTest</a>(const Vector &amp;vector) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8">hitTest</a>(const Shape &amp;shape) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98">intersect</a>(const Shape &amp;shape)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a964df6e7ba2e07f4449fe5a7a49ad005">center</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a07822d0d32b1438b5809e9fd8895d434">circleOverlapsSegment</a>(Shape shape, Vector pt1, Vector pt2) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a00dddc04a0aa67a1b55051a30706570b">computeCorners</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a1080d17733029fbeb9f041dbe3cf64be">getCenter</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a4295de8e4be39b23fdd789de6cfd78c4">getLastCenter</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421">getLeftBottom</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1">getRightTop</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c">getSize</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a289caa5e54e3eed1c226fb3e5c1a0972">getType</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#ab31c914c32eeb197065d511040bc505e">getTypeName</a>() const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#af0b525cc5e56b0b11d717ae83e27f248">hitTest</a>(const Vector &amp;vector) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8">hitTest</a>(const Shape &amp;shape) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98">intersect</a>(const Shape &amp;shape)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#aa2df1190ad49d00fe17be8a49b3e0d61">last_center</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a902552773905b9f4391bc21c749cf3b7">left_bottom</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#ab2813a5295d752d3d26e98003086f2e1">right_top</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classShape.html#adcc17d17d7b559e885be7f951bce8ac9">setCenter</a>(Vector new_var)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classShape.html#aaee049351828e1209697bb2b357ca61a">setSize</a>(double size)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classShape.html#a40fb28db112936018c58f718ce527150">setType</a>(ShapeType type)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classShape.html#aff179de1faf619cb6f59537d692b1e77">Shape</a>(Vector center, int type, double size)</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classShape.html#aaa8d87171e65e0d8ba3c5459978992a7">Shape</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classShape.html#a935afc9e576015f967d90de56977167d">~Shape</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a7756a847dbaa2e3784339359ea2eb072">size</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935">squareCircleHitTest</a>(const Shape &amp;square, const Shape &amp;circle) const </td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classShape.html#a5719d40a67a935c207890ea68d5b27b9">type</a></td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classShape.html#a935afc9e576015f967d90de56977167d">~Shape</a>()</td><td class="entry"><a class="el" href="classShape.html">Shape</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:42 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:45 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -18,5 +18,11 @@ var classAction =
     [ "markAsPending", "classAction.html#a9b66a527201aca5d34be6dcf632718e0", null ],
     [ "markAsSucceeded", "classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b", null ],
     [ "markAsSucceededWithErrors", "classAction.html#ac7b59d155f6b3426d75d2d689bf8648d", null ],
-    [ "setError", "classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2", null ]
+    [ "setError", "classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2", null ],
+    [ "actor", "classAction.html#a73a8456e815664d002c75d8c62087d02", null ],
+    [ "error", "classAction.html#a38a0b2e4dc87124d03d0554ddc50e767", null ],
+    [ "params", "classAction.html#a16d86b1e6495e9be0e2b99641a09cbbd", null ],
+    [ "participants", "classAction.html#a52ca96685f3ef6b5d2dedf2a7160916c", null ],
+    [ "state", "classAction.html#a7a6e6ee8dd208449d55dc41baa0deee0", null ],
+    [ "type", "classAction.html#aefdb9d98fb2d9803c37806b9cf5b22b6", null ]
 ];

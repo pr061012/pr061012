@@ -3,6 +3,8 @@ var classShape =
     [ "Shape", "classShape.html#aff179de1faf619cb6f59537d692b1e77", null ],
     [ "Shape", "classShape.html#aaa8d87171e65e0d8ba3c5459978992a7", null ],
     [ "~Shape", "classShape.html#a935afc9e576015f967d90de56977167d", null ],
+    [ "circleOverlapsSegment", "classShape.html#a07822d0d32b1438b5809e9fd8895d434", null ],
+    [ "computeCorners", "classShape.html#a00dddc04a0aa67a1b55051a30706570b", null ],
     [ "getCenter", "classShape.html#a1080d17733029fbeb9f041dbe3cf64be", null ],
     [ "getLastCenter", "classShape.html#a4295de8e4be39b23fdd789de6cfd78c4", null ],
     [ "getLeftBottom", "classShape.html#a9681e8df8d0d14164c994af50b4b6421", null ],
@@ -15,5 +17,12 @@ var classShape =
     [ "intersect", "classShape.html#ad4e614404ea0276a9eee3d8299b24e98", null ],
     [ "setCenter", "classShape.html#adcc17d17d7b559e885be7f951bce8ac9", null ],
     [ "setSize", "classShape.html#aaee049351828e1209697bb2b357ca61a", null ],
-    [ "setType", "classShape.html#a40fb28db112936018c58f718ce527150", null ]
+    [ "setType", "classShape.html#a40fb28db112936018c58f718ce527150", null ],
+    [ "squareCircleHitTest", "classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935", null ],
+    [ "center", "classShape.html#a964df6e7ba2e07f4449fe5a7a49ad005", null ],
+    [ "last_center", "classShape.html#aa2df1190ad49d00fe17be8a49b3e0d61", null ],
+    [ "left_bottom", "classShape.html#a902552773905b9f4391bc21c749cf3b7", null ],
+    [ "right_top", "classShape.html#ab2813a5295d752d3d26e98003086f2e1", null ],
+    [ "size", "classShape.html#a7756a847dbaa2e3784339359ea2eb072", null ],
+    [ "type", "classShape.html#a5719d40a67a935c207890ea68d5b27b9", null ]
 ];

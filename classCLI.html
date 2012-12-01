@@ -102,6 +102,8 @@ $(document).ready(function(){initNavTree('classCLI.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCLI-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CLI Class Reference</div>  </div>
@@ -115,12 +117,44 @@ $(document).ready(function(){initNavTree('classCLI.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afe714763a78641628a718b11db90dc35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#afe714763a78641628a718b11db90dc35">CLI</a> (<a class="el" href="classWorld.html">World</a> *world, <a class="el" href="classController.html">Controller</a> *control)</td></tr>
+<tr class="memitem:afe714763a78641628a718b11db90dc35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#afe714763a78641628a718b11db90dc35">CLI</a> (<a class="el" href="classWorld.html">World</a> *<a class="el" href="classCLI.html#abc0c2dde46571759485abcbb61d2424d">world</a>, <a class="el" href="classController.html">Controller</a> *<a class="el" href="classCLI.html#a2d62a18a83b614bac1b231d04305619a">control</a>)</td></tr>
 <tr class="memdesc:afe714763a78641628a718b11db90dc35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#afe714763a78641628a718b11db90dc35"></a><br/></td></tr>
 <tr class="memitem:a9f59d57abf434f7161fcf3f61b725752"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a9f59d57abf434f7161fcf3f61b725752">~CLI</a> ()</td></tr>
 <tr class="memdesc:a9f59d57abf434f7161fcf3f61b725752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a9f59d57abf434f7161fcf3f61b725752"></a><br/></td></tr>
 <tr class="memitem:a5aa72bf48995ece3ad760e80010be374"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a5aa72bf48995ece3ad760e80010be374">runCommand</a> (std::string command)</td></tr>
 <tr class="memdesc:a5aa72bf48995ece3ad760e80010be374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs command.  <a href="#a5aa72bf48995ece3ad760e80010be374"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a336593f6fafc09312d7e57d4354bd944"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a336593f6fafc09312d7e57d4354bd944">init</a> (std::stringstream &amp;ss, bool random)</td></tr>
+<tr class="memdesc:a336593f6fafc09312d7e57d4354bd944"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>init</code> and <code>random-init</code> commands.  <a href="#a336593f6fafc09312d7e57d4354bd944"></a><br/></td></tr>
+<tr class="memitem:a7e6ad0a7f88e1687b9ac3c851817400a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a7e6ad0a7f88e1687b9ac3c851817400a">generate</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:a7e6ad0a7f88e1687b9ac3c851817400a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>generate</code> command.  <a href="#a7e6ad0a7f88e1687b9ac3c851817400a"></a><br/></td></tr>
+<tr class="memitem:ab29d074ca7680f68b2bcc70954107bb4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#ab29d074ca7680f68b2bcc70954107bb4">create</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:ab29d074ca7680f68b2bcc70954107bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>create</code> command.  <a href="#ab29d074ca7680f68b2bcc70954107bb4"></a><br/></td></tr>
+<tr class="memitem:af3ea46c444c7276402c24d4e0ca721c8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#af3ea46c444c7276402c24d4e0ca721c8">list</a> (std::stringstream &amp;ss, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> columns=2)</td></tr>
+<tr class="memdesc:af3ea46c444c7276402c24d4e0ca721c8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>list</code> command.  <a href="#af3ea46c444c7276402c24d4e0ca721c8"></a><br/></td></tr>
+<tr class="memitem:a5147f3f5125cda2d6d4f8036a0fa323b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a5147f3f5125cda2d6d4f8036a0fa323b">info</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:a5147f3f5125cda2d6d4f8036a0fa323b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>info</code> command.  <a href="#a5147f3f5125cda2d6d4f8036a0fa323b"></a><br/></td></tr>
+<tr class="memitem:a2dd7aa68b01325b6d8cdc5008c483e1a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a2dd7aa68b01325b6d8cdc5008c483e1a">step</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:a2dd7aa68b01325b6d8cdc5008c483e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>step</code> command.  <a href="#a2dd7aa68b01325b6d8cdc5008c483e1a"></a><br/></td></tr>
+<tr class="memitem:acacf3b95e488563cabfcd3b9d3eb9564"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#acacf3b95e488563cabfcd3b9d3eb9564">traceStep</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:acacf3b95e488563cabfcd3b9d3eb9564"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>trace-step</code> command.  <a href="#acacf3b95e488563cabfcd3b9d3eb9564"></a><br/></td></tr>
+<tr class="memitem:ab51776ef158afc60e1741539a765c1b8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#ab51776ef158afc60e1741539a765c1b8">change</a> (std::stringstream &amp;ss)</td></tr>
+<tr class="memdesc:ab51776ef158afc60e1741539a765c1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>change</code> command.  <a href="#ab51776ef158afc60e1741539a765c1b8"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abc0c2dde46571759485abcbb61d2424d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#abc0c2dde46571759485abcbb61d2424d">world</a></td></tr>
+<tr class="memdesc:abc0c2dde46571759485abcbb61d2424d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>.  <a href="#abc0c2dde46571759485abcbb61d2424d"></a><br/></td></tr>
+<tr class="memitem:a2d62a18a83b614bac1b231d04305619a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classController.html">Controller</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a2d62a18a83b614bac1b231d04305619a">control</a></td></tr>
+<tr class="memdesc:a2d62a18a83b614bac1b231d04305619a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="classController.html" title="Class controls the world!">Controller</a>.  <a href="#a2d62a18a83b614bac1b231d04305619a"></a><br/></td></tr>
+<tr class="memitem:ae126ce0b17333a63e7e06f5ea09b6e85"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#ae126ce0b17333a63e7e06f5ea09b6e85">obj_types</a></td></tr>
+<tr class="memdesc:ae126ce0b17333a63e7e06f5ea09b6e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with object types names.  <a href="#ae126ce0b17333a63e7e06f5ea09b6e85"></a><br/></td></tr>
+<tr class="memitem:a2cdcb2ef3212baa6cc391c0834b70262"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a2cdcb2ef3212baa6cc391c0834b70262">creat_acts</a></td></tr>
+<tr class="memdesc:a2cdcb2ef3212baa6cc391c0834b70262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with creature actions names.  <a href="#a2cdcb2ef3212baa6cc391c0834b70262"></a><br/></td></tr>
+<tr class="memitem:a3b15297cf05888bcd94d5f7d182259cc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCLI.html#a3b15297cf05888bcd94d5f7d182259cc">hum_acts</a></td></tr>
+<tr class="memdesc:a3b15297cf05888bcd94d5f7d182259cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with detailed humanoid actions names.  <a href="#a3b15297cf05888bcd94d5f7d182259cc"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Command-Line-Interface class. </p>
@@ -209,6 +243,236 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="ab51776ef158afc60e1741539a765c1b8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::change </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>change</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00473">473</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab29d074ca7680f68b2bcc70954107bb4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::create </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>create</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00252">252</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7e6ad0a7f88e1687b9ac3c851817400a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::generate </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>generate</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00226">226</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5147f3f5125cda2d6d4f8036a0fa323b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::info </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>info</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00428">428</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a336593f6fafc09312d7e57d4354bd944"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::init </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>random</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>init</code> and <code>random-init</code> commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00208">208</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3ea46c444c7276402c24d4e0ca721c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::list </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>columns</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>list</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00343">343</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a5aa72bf48995ece3ad760e80010be374"></a>
 <div class="memitem">
 <div class="memproto">
@@ -236,6 +500,197 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2dd7aa68b01325b6d8cdc5008c483e1a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::step </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>step</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00448">448</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acacf3b95e488563cabfcd3b9d3eb9564"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CLI::traceStep </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>trace-step</code> command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00465">465</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a2d62a18a83b614bac1b231d04305619a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classController.html">Controller</a>* CLI::control</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to <a class="el" href="classController.html" title="Class controls the world!">Controller</a>. </p>
+
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00095">95</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cdcb2ef3212baa6cc391c0834b70262"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; CLI::creat_acts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array with creature actions names. </p>
+
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00105">105</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b15297cf05888bcd94d5f7d182259cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; CLI::hum_acts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array with detailed humanoid actions names. </p>
+
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00108">108</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae126ce0b17333a63e7e06f5ea09b6e85"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; CLI::obj_types</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array with object types names. </p>
+
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00102">102</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc0c2dde46571759485abcbb61d2424d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorld.html">World</a>* CLI::world</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to <a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>. </p>
+
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00092">92</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>cli/<a class="el" href="CLI_8h_source.html">CLI.h</a></li>
 <li>cli/<a class="el" href="CLI_8cpp_source.html">CLI.cpp</a></li>
@@ -246,7 +701,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCLI.html">CLI</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:39 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

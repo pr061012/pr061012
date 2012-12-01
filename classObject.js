@@ -13,6 +13,7 @@ var classObject =
     [ "getShape", "classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7", null ],
     [ "getType", "classObject.html#a7660dc25529325326bc280e5f5fb0194", null ],
     [ "getTypeName", "classObject.html#a8c0e06723d36e89cf5f6f9b117782cba", null ],
+    [ "getWeight", "classObject.html#a9a0cf11abb0cebe770fcb5796c0a09b9", null ],
     [ "heal", "classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333", null ],
     [ "isDestroyed", "classObject.html#a1e1a162b817f0c134836cca3a473e295", null ],
     [ "isImmortal", "classObject.html#a7a38ff74620fa8c16a21e46149027e6a", null ],
@@ -30,5 +31,16 @@ var classObject =
     [ "setDangerLevel", "classObject.html#a8f057c451361240ebc424622db893e63", null ],
     [ "setShapeSize", "classObject.html#af4a10aeb0de43db0d6bc43d6b6d9280b", null ],
     [ "setShapeType", "classObject.html#a81450ac8abbba5ee97e2558cffabedf5", null ],
-    [ "actions", "classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690", null ]
+    [ "setWeight", "classObject.html#a17c4c5b00d5144659887191780af540a", null ],
+    [ "actions", "classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690", null ],
+    [ "angle", "classObject.html#aa08efab6c2c6898b1d0d7103076d8674", null ],
+    [ "CURRENT_ID", "classObject.html#af266077939f644306b0b3d6632a8083d", null ],
+    [ "danger_level", "classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111", null ],
+    [ "destroyed", "classObject.html#a6c1d763b59ba8a5bcb23b383b3ac4428", null ],
+    [ "id", "classObject.html#ad4e0770a6dcb47a477610a69c22831f1", null ],
+    [ "immortality", "classObject.html#a4b001671739d8b282faf6f0ef45fcc7a", null ],
+    [ "shape", "classObject.html#a09a35e7356709e994637bd66c2c69fc4", null ],
+    [ "solidity", "classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247", null ],
+    [ "type", "classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06", null ],
+    [ "weight", "classObject.html#a9842ab76955ad115646eb4b630e76083", null ]
 ];

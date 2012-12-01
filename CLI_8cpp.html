@@ -99,7 +99,8 @@ $(document).ready(function(){initNavTree('CLI_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CLI.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -160,6 +161,12 @@ Macros</h2></td></tr>
 <tr class="memitem:a12feef234ad7de3332ea690039b9c7dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a12feef234ad7de3332ea690039b9c7dd">TN_DA_CHOOSE_PLACE_FOR_HOME</a>&#160;&#160;&#160;&quot;choose-hplace&quot;</td></tr>
 <tr class="memitem:ada79eb919c038db162958a5e11cd5217"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ada79eb919c038db162958a5e11cd5217">TN_DA_FIGHT</a>&#160;&#160;&#160;&quot;fight&quot;</td></tr>
 <tr class="memitem:a46c67a03b1e973892fd69d2cc4e94734"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#a46c67a03b1e973892fd69d2cc4e94734">TN_DA_RUN_FROM_DANGER</a>&#160;&#160;&#160;&quot;run-from-danger&quot;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab23a7eca6da7204d4650464d56881480"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#ab23a7eca6da7204d4650464d56881480">sformat</a> (const std::string &amp;format,...)</td></tr>
+<tr class="memitem:aa6c650399766799331b1e6fa79f85c83"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:aa6c650399766799331b1e6fa79f85c83"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="CLI_8cpp.html#aa6c650399766799331b1e6fa79f85c83">readFromSS</a> (std::stringstream &amp;ss, std::string arg_name)  throw (ECLIInvalidInput)</td></tr>
 </table>
 <h2>Macro Definition Documentation</h2>
 <a class="anchor" id="abb8894b7d735bdc14ec0b0fa77db5b62"></a>
@@ -750,13 +757,88 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<h2>Function Documentation</h2>
+<a class="anchor" id="aa6c650399766799331b1e6fa79f85c83"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T readFromSS </td>
+          <td>(</td>
+          <td class="paramtype">std::stringstream &amp;&#160;</td>
+          <td class="paramname"><em>ss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>arg_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>  throw (<a class="el" href="classECLIInvalidInput.html">ECLIInvalidInput</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00111">111</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab23a7eca6da7204d4650464d56881480"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string sformat </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00078">78</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_2663b12ed719ba69be18e0dee24290b5.html">cli</a></li><li class="navelem"><a class="el" href="CLI_8cpp.html">CLI.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

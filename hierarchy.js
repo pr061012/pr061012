@@ -2,15 +2,18 @@ var hierarchy =
 [
     [ "Action", "classAction.html", null ],
     [ "CLI", "classCLI.html", null ],
+    [ "ObjectHeap::const_iterator", "classObjectHeap_1_1const__iterator.html", null ],
     [ "Controller", "classController.html", null ],
     [ "DecisionMaker", "classDecisionMaker.html", null ],
     [ "DoubleComparison", "classDoubleComparison.html", null ],
     [ "ECLIInvalidInput", "classECLIInvalidInput.html", null ],
+    [ "EDeprecatedAction", "classEDeprecatedAction.html", null ],
     [ "EInvalidResPath", "classEInvalidResPath.html", null ],
     [ "EParamArrayInvalidKey", "classEParamArrayInvalidKey.html", null ],
     [ "God", "classGod.html", null ],
     [ "Indexator", "classIndexator.html", null ],
     [ "InputHandler", "classInputHandler.html", null ],
+    [ "ObjectHeap::iterator", "classObjectHeap_1_1iterator.html", null ],
     [ "IWorld", "classIWorld.html", [
       [ "World", "classWorld.html", null ]
     ] ],

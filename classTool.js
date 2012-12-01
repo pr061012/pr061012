@@ -10,5 +10,10 @@ var classTool =
     [ "getSubtype", "classTool.html#a29cba502e96018d9db4c2ad9bf364732", null ],
     [ "getTypeName", "classTool.html#a8f953ba8b4f921dd03dd74eb07fc41ea", null ],
     [ "heal", "classTool.html#ac06c987f3518f873f08a33f6a032a96d", null ],
-    [ "receiveMessage", "classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f", null ]
+    [ "printObjectInfo", "classTool.html#a2f2d3c70ecbff31fe17c29b917bc8f49", null ],
+    [ "receiveMessage", "classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f", null ],
+    [ "current_strength", "classTool.html#a65f7bb0b6a1a15b74e8b89cb0c7ec600", null ],
+    [ "material", "classTool.html#a3faaf3c3c4d5e17840763c5941243d22", null ],
+    [ "max_strength", "classTool.html#a0ce1e9e9f82662c3c906882323bf079c", null ],
+    [ "subtype", "classTool.html#a820afbc0946e01f1351671ad46937bc1", null ]
 ];

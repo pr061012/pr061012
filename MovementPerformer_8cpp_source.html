@@ -194,8 +194,8 @@ $(document).ready(function(){initNavTree('MovementPerformer_8cpp_source.html',''
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; getAreaContents(ghost);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// Can&#39;t place things over creatures and buildings</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (!obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        &amp;&amp; !obstacles.<a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (!obstacles.<a class="code" href="classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        &amp;&amp; !obstacles.<a class="code" href="classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065" title="get amount of element this type">getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>))</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        participant -&gt; setCoords(dest);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; reindexate(participant);</div>
@@ -212,7 +212,7 @@ $(document).ready(function(){initNavTree('MovementPerformer_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_bb16b8cbb152cee6d6e1d9518721f7a2.html">MovementPerformer</a></li><li class="navelem"><a class="el" href="MovementPerformer_8cpp.html">MovementPerformer.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

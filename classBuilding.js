@@ -15,5 +15,11 @@ var classBuilding =
     [ "printObjectInfo", "classBuilding.html#afde77e0b750a98f6c9056ff380221814", null ],
     [ "putInside", "classBuilding.html#a4c019de587cb657f2566cbb27623fc6f", null ],
     [ "receiveMessage", "classBuilding.html#a14d3e43a10e522356ea0022663a63d01", null ],
-    [ "takeOut", "classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2", null ]
+    [ "takeOut", "classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2", null ],
+    [ "completeness", "classBuilding.html#aa45996a3754ed9a9b57987985902e396", null ],
+    [ "contents", "classBuilding.html#a6f0a7a63f682be260c71f778fd8ed534", null ],
+    [ "free_space", "classBuilding.html#a864a10e1c903dd90bcd100e3ca22315a", null ],
+    [ "health", "classBuilding.html#a7e93a04c83479141c665339f094a47b7", null ],
+    [ "max_health", "classBuilding.html#a5125defa97304f124fae5d0f1edf9b53", null ],
+    [ "max_space", "classBuilding.html#a43dc0fcd3a10932b9e0d7eed5e2e3ccb", null ]
 ];

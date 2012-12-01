@@ -115,22 +115,22 @@ $(document).ready(function(){initNavTree('classRandom.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ba61de909c17fff604fead2a32bf462"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#a7ba61de909c17fff604fead2a32bf462">int_num</a> (int top_boundary)</td></tr>
-<tr class="memdesc:a7ba61de909c17fff604fead2a32bf462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random number from range [0, top_boundary - 1].  <a href="#a7ba61de909c17fff604fead2a32bf462"></a><br/></td></tr>
-<tr class="memitem:a112197f7100c2d2335a468e998677de3"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#a112197f7100c2d2335a468e998677de3">double_num</a> (double top_boundary)</td></tr>
-<tr class="memdesc:a112197f7100c2d2335a468e998677de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random double number from range [0, top_boundary - 1].  <a href="#a112197f7100c2d2335a468e998677de3"></a><br/></td></tr>
-<tr class="memitem:acd56ceb2c6f3422cd0759995f43ec099"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#acd56ceb2c6f3422cd0759995f43ec099">int_range</a> (int low_boundary, int top_boundary)</td></tr>
-<tr class="memdesc:acd56ceb2c6f3422cd0759995f43ec099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random number from range [low_boundary, top_boundary].  <a href="#acd56ceb2c6f3422cd0759995f43ec099"></a><br/></td></tr>
-<tr class="memitem:a04bfdb77462d64b8ecdcb016b1050a78"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78">double_range</a> (double low_boundary, double top_boundary)</td></tr>
-<tr class="memdesc:a04bfdb77462d64b8ecdcb016b1050a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random double number from range [low_boundary, top_boundary].  <a href="#a04bfdb77462d64b8ecdcb016b1050a78"></a><br/></td></tr>
+<tr class="memitem:aba7841efc856a665bf09c4734ef40991"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#aba7841efc856a665bf09c4734ef40991">int_num</a> (int top_boundary)</td></tr>
+<tr class="memdesc:aba7841efc856a665bf09c4734ef40991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random number from range [0, top_boundary - 1].  <a href="#aba7841efc856a665bf09c4734ef40991"></a><br/></td></tr>
+<tr class="memitem:a8f62dac7e19e8745c6ce880f9e40e2bd"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#a8f62dac7e19e8745c6ce880f9e40e2bd">double_num</a> (double top_boundary)</td></tr>
+<tr class="memdesc:a8f62dac7e19e8745c6ce880f9e40e2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random double number from range [0, top_boundary - 1].  <a href="#a8f62dac7e19e8745c6ce880f9e40e2bd"></a><br/></td></tr>
+<tr class="memitem:aa34e3180a5e47c619191cd74cbbc6a30"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#aa34e3180a5e47c619191cd74cbbc6a30">int_range</a> (int low_boundary, int top_boundary)</td></tr>
+<tr class="memdesc:aa34e3180a5e47c619191cd74cbbc6a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random number from range [low_boundary, top_boundary].  <a href="#aa34e3180a5e47c619191cd74cbbc6a30"></a><br/></td></tr>
+<tr class="memitem:aca879b4da96f6825affde083cd96deb3"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#aca879b4da96f6825affde083cd96deb3">double_range</a> (double low_boundary, double top_boundary)</td></tr>
+<tr class="memdesc:aca879b4da96f6825affde083cd96deb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random double number from range [low_boundary, top_boundary].  <a href="#aca879b4da96f6825affde083cd96deb3"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Interface for getting pseudorandom numbers. </p>
 <p><em>NOTE</em>: As you can see this interface doesn't use function overloading. This is done in order to prevent bugs such like when you want get double random number from 10 to 20 range and accidently use range(10, 20) instead of needed range(10.0, 20.0). </p>
 
-<p>Definition at line <a class="el" href="Random_8h_source.html#l00023">23</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
+<p>Definition at line <a class="el" href="Random_8h_source.html#l00018">18</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
 </div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a112197f7100c2d2335a468e998677de3"></a>
+<a class="anchor" id="a8f62dac7e19e8745c6ce880f9e40e2bd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -138,7 +138,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static double Random::double_num </td>
+          <td class="memname">double Random::double_num </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>top_boundary</em></td><td>)</td>
@@ -147,18 +147,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns random double number from range [0, top_boundary - 1]. </p>
 
-<p>Definition at line <a class="el" href="Random_8h_source.html#l00042">42</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
+<p>Definition at line <a class="el" href="Random_8cpp_source.html#l00022">22</a> of file <a class="el" href="Random_8cpp_source.html">Random.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a04bfdb77462d64b8ecdcb016b1050a78"></a>
+<a class="anchor" id="aca879b4da96f6825affde083cd96deb3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -166,7 +166,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static double Random::double_range </td>
+          <td class="memname">double Random::double_range </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>low_boundary</em>, </td>
@@ -185,18 +185,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns random double number from range [low_boundary, top_boundary]. </p>
 
-<p>Definition at line <a class="el" href="Random_8h_source.html#l00065">65</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
+<p>Definition at line <a class="el" href="Random_8cpp_source.html#l00038">38</a> of file <a class="el" href="Random_8cpp_source.html">Random.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ba61de909c17fff604fead2a32bf462"></a>
+<a class="anchor" id="aba7841efc856a665bf09c4734ef40991"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -204,7 +204,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int Random::int_num </td>
+          <td class="memname">int Random::int_num </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>top_boundary</em></td><td>)</td>
@@ -213,18 +213,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns random number from range [0, top_boundary - 1]. </p>
 
-<p>Definition at line <a class="el" href="Random_8h_source.html#l00029">29</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
+<p>Definition at line <a class="el" href="Random_8cpp_source.html#l00012">12</a> of file <a class="el" href="Random_8cpp_source.html">Random.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acd56ceb2c6f3422cd0759995f43ec099"></a>
+<a class="anchor" id="aa34e3180a5e47c619191cd74cbbc6a30"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -232,7 +232,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int Random::int_range </td>
+          <td class="memname">int Random::int_range </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>low_boundary</em>, </td>
@@ -251,19 +251,20 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns random number from range [low_boundary, top_boundary]. </p>
 
-<p>Definition at line <a class="el" href="Random_8h_source.html#l00056">56</a> of file <a class="el" href="Random_8h_source.html">Random.h</a>.</p>
+<p>Definition at line <a class="el" href="Random_8cpp_source.html#l00033">33</a> of file <a class="el" href="Random_8cpp_source.html">Random.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>common/Math/<a class="el" href="Random_8h_source.html">Random.h</a></li>
+<li>common/Math/<a class="el" href="Random_8cpp_source.html">Random.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -271,7 +272,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classRandom.html">Random</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:42 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:45 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

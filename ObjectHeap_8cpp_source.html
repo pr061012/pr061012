@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('ObjectHeap_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a04488dc0dacc31b8f7f08c20716d447b">   16</a></span>&#160;<a class="code" href="classObjectHeap.html#a04488dc0dacc31b8f7f08c20716d447b" title="Constructor.">ObjectHeap::ObjectHeap</a>()</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    data.resize(<a class="code" href="BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768" title="Amount of object types.">AMNT_OBJECT_TYPES</a> + 1);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a601b8bace5f8e425c90cc018b083b751">   21</a></span>&#160;<a class="code" href="classObjectHeap.html#a601b8bace5f8e425c90cc018b083b751" title="Destructor.">ObjectHeap::~ObjectHeap</a>()</div>
@@ -130,124 +130,81 @@ $(document).ready(function(){initNavTree('ObjectHeap_8cpp_source.html','');});
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// GETTING TYPE AMOUNT</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd">   29</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd" title="get amount of element">ObjectHeap::getAmount</a>()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a56a9d0d75ab61bf01fd1125c87502a5e">   29</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObjectHeap.html#a56a9d0d75ab61bf01fd1125c87502a5e" title="get amount of element">ObjectHeap::getAmount</a>()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> data[0].size();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[0].size();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a">   34</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a" title="get amount of element this type">ObjectHeap::getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type)</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065">   34</a></span>&#160;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065" title="get amount of element this type">ObjectHeap::getTypeAmount</a>(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Get type of object.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> type_id = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(type);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> data[type_id+1].size();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[type_id+1].size();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// ADDING/REMOVING ELEMENTS.</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6">   46</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6" title="Pushes object to heap.">ObjectHeap::push</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a15f2edd83cbb35c8381a5fe1cf8063de">   46</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classObjectHeap.html#a15f2edd83cbb35c8381a5fe1cf8063de" title="Pushes object to heap.">ObjectHeap::push</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* obj)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Getting type of the object.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> type_id = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<span class="keywordtype">object</span> -&gt; getType());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> exist = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[obj -&gt; getType() + 1].insert(std::pair&lt;uint, Object*&gt;(obj -&gt; getObjectID(), obj) );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[0].insert(std::pair&lt;uint,Object*&gt;(obj -&gt; getObjectID(), obj) );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// Check for exist object in heap.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; data[type_id+1].size(); i++)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (data[type_id+1][i] == <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            exist = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Add object in heap.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (!exist)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        data[type_id + 1].push_back(<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        data[0].push_back(<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> !exist;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">   53</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028" title="Removes object from heap.">ObjectHeap::remove</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[<span class="keywordtype">object</span> -&gt; getType() + 1].erase(<span class="keywordtype">object</span> -&gt; getObjectID());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[0].erase(<span class="keywordtype">object</span> -&gt; getObjectID());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a" title="Clears the heap.">ObjectHeap::clear</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt;= <a class="code" href="BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768" title="Amount of object types.">AMNT_OBJECT_TYPES</a>; i++)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686" title="Vector with all objects.">data</a>[i].clear();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// PRINTING CONTENTS.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="ObjectHeap_8cpp.html#a617a47c70795bcff659815ad0efd2266">   71</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ObjectHeap_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a> = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">   73</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028" title="Removes object from heap.">ObjectHeap::remove</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> del = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="ObjectHeap_8cpp.html#a617a47c70795bcff659815ad0efd2266">counter</a>++;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Position in TypeObject array.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// Type remove object.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9">   71</a></span>&#160;std::string <a class="code" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9" title="Print IDs of contained objects.">ObjectHeap::printIDs</a>(std::string indent, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> columns)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> cur_column = 1;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classObjectHeap_1_1const__iterator.html" title="The iterator_const class.">ObjectHeap::const_iterator</a> iter;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span> (iter = <span class="keyword">this</span> -&gt; <a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>(); iter != this-&gt;<a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>(); iter++)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        ss &lt;&lt; indent &lt;&lt; (*iter) -&gt; getObjectID();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> my_type = <span class="keywordtype">object</span> -&gt; getType();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Getting type of the object in int.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> type_int = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(my_type);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Find object.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; data[0].size(); i++)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> ((data[0][i] -&gt; getType()) == my_type)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> (data[0][i] == <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    data[0].erase(data[0].<a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>() + i);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    del = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            pos++;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// Delete object from type array.</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (del)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        data[type_int + 1].erase(data[type_int + 1].<a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>() + pos);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> del;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a" title="Clears the heap.">ObjectHeap::clear</a>()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt;= <a class="code" href="BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768" title="Amount of object types.">AMNT_OBJECT_TYPES</a>; i++)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        data[i].clear();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">// PRINTING CONTENTS.</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9">  121</a></span>&#160;std::string <a class="code" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9" title="Print IDs of contained objects.">ObjectHeap::printIDs</a>(std::string indent, <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> columns)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> cur_column = 1;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">ObjectHeap::const_iterator</a> iter;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">for</span> (iter = <span class="keyword">this</span> -&gt; <a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>(); iter != <span class="keyword">this</span> -&gt; <a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>(); iter++)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        ss &lt;&lt; indent &lt;&lt; (*iter) -&gt; getObjectID();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">if</span> (cur_column++ == columns || iter + 1 == <span class="keyword">this</span> -&gt; <a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>())</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            cur_column = 1;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            ss &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (cur_column++ == columns || iter++ == this-&gt; <a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>())</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            iter--;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            cur_column = 1;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            ss &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">// ITERATOR</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_5d44244a903ceaf8633b3f9e5df3db8b.html">ObjectHeap</a></li><li class="navelem"><a class="el" href="ObjectHeap_8cpp.html">ObjectHeap.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:35 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -101,8 +101,9 @@ $(document).ready(function(){initNavTree('classObjectHeap.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classObjectHeap-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ObjectHeap Class Reference</div>  </div>
@@ -114,12 +115,12 @@ $(document).ready(function(){initNavTree('classObjectHeap.html','');});
 
 <p><code>#include &lt;<a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a5be9fee885fae47d7dc090899d9fb7bd"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classObject.html">Object</a> * &gt;<br class="typebreak"/>
-::<a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a></td></tr>
-<tr class="memitem:af07744bc1ca895917429540266b2b9bd"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classObject.html">Object</a> * &gt;<br class="typebreak"/>
-::<a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The iterator_const class.  <a href="classObjectHeap_1_1const__iterator.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The iterator class.  <a href="classObjectHeap_1_1iterator.html#details">More...</a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -127,62 +128,38 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a04488dc0dacc31b8f7f08c20716d447b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a04488dc0dacc31b8f7f08c20716d447b"></a><br/></td></tr>
 <tr class="memitem:a601b8bace5f8e425c90cc018b083b751"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a601b8bace5f8e425c90cc018b083b751">~ObjectHeap</a> ()</td></tr>
 <tr class="memdesc:a601b8bace5f8e425c90cc018b083b751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a601b8bace5f8e425c90cc018b083b751"></a><br/></td></tr>
-<tr class="memitem:a5320eb7e37dd7bfa968935b61d9f00bd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a5320eb7e37dd7bfa968935b61d9f00bd">getAmount</a> ()</td></tr>
-<tr class="memdesc:a5320eb7e37dd7bfa968935b61d9f00bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get amount of element  <a href="#a5320eb7e37dd7bfa968935b61d9f00bd"></a><br/></td></tr>
-<tr class="memitem:aa864246aff54535535bffa4a779f6d8a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#aa864246aff54535535bffa4a779f6d8a">getTypeAmount</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>)</td></tr>
-<tr class="memdesc:aa864246aff54535535bffa4a779f6d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get amount of element this type  <a href="#aa864246aff54535535bffa4a779f6d8a"></a><br/></td></tr>
-<tr class="memitem:a31aed12bfcff1455f1682cdb816184a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a31aed12bfcff1455f1682cdb816184a6">push</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
-<tr class="memdesc:a31aed12bfcff1455f1682cdb816184a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes object to heap.  <a href="#a31aed12bfcff1455f1682cdb816184a6"></a><br/></td></tr>
+<tr class="memitem:a56a9d0d75ab61bf01fd1125c87502a5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a56a9d0d75ab61bf01fd1125c87502a5e">getAmount</a> ()</td></tr>
+<tr class="memdesc:a56a9d0d75ab61bf01fd1125c87502a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get amount of element  <a href="#a56a9d0d75ab61bf01fd1125c87502a5e"></a><br/></td></tr>
+<tr class="memitem:a26c0f761eadbcfbac5176f40faf02065"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065">getTypeAmount</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
+<tr class="memdesc:a26c0f761eadbcfbac5176f40faf02065"><td class="mdescLeft">&#160;</td><td class="mdescRight">get amount of element this type  <a href="#a26c0f761eadbcfbac5176f40faf02065"></a><br/></td></tr>
+<tr class="memitem:ae7be29d4f5049397b3c2dff7bd27016b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a> ()</td></tr>
+<tr class="memitem:ab225091de1b80c054a545bab2c11b0fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a> ()</td></tr>
+<tr class="memitem:a3fa3502f08c4016bbcfcf8578e245d15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
+<tr class="memitem:a6b530e67b5383a29be3699f891c7482b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
+<tr class="memitem:aa27cac54482c7bf5aab561eddbcaa97a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#aa27cac54482c7bf5aab561eddbcaa97a">begin</a> () const </td></tr>
+<tr class="memitem:a366c6aedfc59ff2f84b70e68e1a4d266"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a366c6aedfc59ff2f84b70e68e1a4d266">end</a> () const </td></tr>
+<tr class="memitem:ac0c481b7e2d2d1901f73073d453b9b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type) const </td></tr>
+<tr class="memitem:a9e0ace11a93deb7163989cf6e3f4e88f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a9e0ace11a93deb7163989cf6e3f4e88f">end</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type) const </td></tr>
+<tr class="memitem:a78e16a9ebe6bfe6c10f356fdd5cb5704"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a> (<a class="el" href="classObject.html">Object</a> *obj, bool return_obj_type_iter=true)</td></tr>
+<tr class="memitem:a15f2edd83cbb35c8381a5fe1cf8063de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a15f2edd83cbb35c8381a5fe1cf8063de">push</a> (<a class="el" href="classObject.html">Object</a> *obj)</td></tr>
+<tr class="memdesc:a15f2edd83cbb35c8381a5fe1cf8063de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes object to heap.  <a href="#a15f2edd83cbb35c8381a5fe1cf8063de"></a><br/></td></tr>
 <tr class="memitem:a7092926b107145c62f0a6c8bd8ff1028"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028">remove</a> (<a class="el" href="classObject.html">Object</a> *object)</td></tr>
 <tr class="memdesc:a7092926b107145c62f0a6c8bd8ff1028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes object from heap.  <a href="#a7092926b107145c62f0a6c8bd8ff1028"></a><br/></td></tr>
 <tr class="memitem:a1ac8d0ee71d6100e7253af23f1d9bb5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a">clear</a> ()</td></tr>
 <tr class="memdesc:a1ac8d0ee71d6100e7253af23f1d9bb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the heap.  <a href="#a1ac8d0ee71d6100e7253af23f1d9bb5a"></a><br/></td></tr>
 <tr class="memitem:adbd55eac306327b7de3b2826551716d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#adbd55eac306327b7de3b2826551716d9">printIDs</a> (std::string indent=&quot;\t&quot;, uint columns=5) const </td></tr>
 <tr class="memdesc:adbd55eac306327b7de3b2826551716d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print IDs of contained objects.  <a href="#adbd55eac306327b7de3b2826551716d9"></a><br/></td></tr>
-<tr class="memitem:a3fa3502f08c4016bbcfcf8578e245d15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
-<tr class="memitem:ac0c481b7e2d2d1901f73073d453b9b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35">begin</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type) const </td></tr>
-<tr class="memitem:a6b530e67b5383a29be3699f891c7482b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a6b530e67b5383a29be3699f891c7482b">end</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type)</td></tr>
-<tr class="memitem:a9e0ace11a93deb7163989cf6e3f4e88f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a9e0ace11a93deb7163989cf6e3f4e88f">end</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type) const </td></tr>
-<tr class="memitem:ae7be29d4f5049397b3c2dff7bd27016b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a> ()</td></tr>
-<tr class="memitem:aa27cac54482c7bf5aab561eddbcaa97a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#aa27cac54482c7bf5aab561eddbcaa97a">begin</a> () const </td></tr>
-<tr class="memitem:ab225091de1b80c054a545bab2c11b0fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a> ()</td></tr>
-<tr class="memitem:a366c6aedfc59ff2f84b70e68e1a4d266"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a366c6aedfc59ff2f84b70e68e1a4d266">end</a> () const </td></tr>
-<tr class="memitem:a78e16a9ebe6bfe6c10f356fdd5cb5704"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a> (<a class="el" href="classObject.html">Object</a> *obj, bool return_obj_type_iter=true)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae1d139bec56f338f6690f8f208b7f686"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, <a class="el" href="classObject.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686">data</a> [<a class="el" href="BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768">AMNT_OBJECT_TYPES</a>+1]</td></tr>
+<tr class="memdesc:ae1d139bec56f338f6690f8f208b7f686"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classVector.html" title="Vector class.">Vector</a> with all objects.  <a href="#ae1d139bec56f338f6690f8f208b7f686"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> class. </p>
 
 <p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00020">20</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-</div><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="af07744bc1ca895917429540266b2b9bd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;<a class="el" href="classObject.html">Object</a>*&gt;::<a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a> <a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">ObjectHeap::const_iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00096">96</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5be9fee885fae47d7dc090899d9fb7bd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;<a class="el" href="classObject.html">Object</a>*&gt;::<a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> <a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">ObjectHeap::iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00095">95</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-
-</div>
-</div>
-<h2>Constructor &amp; Destructor Documentation</h2>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a04488dc0dacc31b8f7f08c20716d447b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -222,58 +199,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a3fa3502f08c4016bbcfcf8578e245d15"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> ObjectHeap::begin </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00098">98</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac0c481b7e2d2d1901f73073d453b9b35"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a> ObjectHeap::begin </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00103">103</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ae7be29d4f5049397b3c2dff7bd27016b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +207,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> ObjectHeap::begin </td>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a> ObjectHeap::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -295,7 +220,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00118">118</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00116">116</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fa3502f08c4016bbcfcf8578e245d15"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a> ObjectHeap::begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00126">126</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +258,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a> ObjectHeap::begin </td>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a> ObjectHeap::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -320,7 +271,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00123">123</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00136">136</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0c481b7e2d2d1901f73073d453b9b35"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a> ObjectHeap::begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00146">146</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -339,59 +316,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Clears the heap. </p>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00109">109</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6b530e67b5383a29be3699f891c7482b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> ObjectHeap::end </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00108">108</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9e0ace11a93deb7163989cf6e3f4e88f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a> ObjectHeap::end </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00113">113</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00059">59</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
@@ -403,7 +328,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> ObjectHeap::end </td>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a> ObjectHeap::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -416,7 +341,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00128">128</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00121">121</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b530e67b5383a29be3699f891c7482b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a> ObjectHeap::end </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00131">131</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +379,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#af07744bc1ca895917429540266b2b9bd">const_iterator</a> ObjectHeap::end </td>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a> ObjectHeap::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -441,7 +392,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00133">133</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00141">141</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e0ace11a93deb7163989cf6e3f4e88f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1const__iterator.html">const_iterator</a> ObjectHeap::end </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00151">151</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +430,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html#a5be9fee885fae47d7dc090899d9fb7bd">iterator</a> ObjectHeap::find </td>
+          <td class="memname"><a class="el" href="classObjectHeap_1_1iterator.html">iterator</a> ObjectHeap::find </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
           <td class="paramname"><em>obj</em>, </td>
@@ -477,16 +454,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00138">138</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00155">155</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5320eb7e37dd7bfa968935b61d9f00bd"></a>
+<a class="anchor" id="a56a9d0d75ab61bf01fd1125c87502a5e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int ObjectHeap::getAmount </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ObjectHeap::getAmount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -501,12 +478,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa864246aff54535535bffa4a779f6d8a"></a>
+<a class="anchor" id="a26c0f761eadbcfbac5176f40faf02065"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int ObjectHeap::getTypeAmount </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ObjectHeap::getTypeAmount </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -555,11 +532,11 @@ Public Member Functions</h2></td></tr>
 <p>Print IDs of contained objects. </p>
 <dl class="section return"><dt>Returns</dt><dd>string with ids. </dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00121">121</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00071">71</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a31aed12bfcff1455f1682cdb816184a6"></a>
+<a class="anchor" id="a15f2edd83cbb35c8381a5fe1cf8063de"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -567,7 +544,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool ObjectHeap::push </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -609,7 +586,32 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00073">73</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ObjectHeap_8cpp_source.html#l00053">53</a> of file <a class="el" href="ObjectHeap_8cpp_source.html">ObjectHeap.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="ae1d139bec56f338f6690f8f208b7f686"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;int,<a class="el" href="classObject.html">Object</a>*&gt; ObjectHeap::data[<a class="el" href="BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768">AMNT_OBJECT_TYPES</a>+1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classVector.html" title="Vector class.">Vector</a> with all objects. </p>
+
+<p>Definition at line <a class="el" href="ObjectHeap_8h_source.html#l00059">59</a> of file <a class="el" href="ObjectHeap_8h_source.html">ObjectHeap.h</a>.</p>
 
 </div>
 </div>
@@ -623,7 +625,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObjectHeap.html">ObjectHeap</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:41 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:44 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

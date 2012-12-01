@@ -6,7 +6,9 @@ var searchData=
   ['decreaseendurance',['decreaseEndurance',['../classCreature.html#a6c6ed2e399f3d998c03596ddd7c4b00d',1,'Creature']]],
   ['decreasehunger',['decreaseHunger',['../classCreature.html#acb36ebcec34690ab189121e363ae52cb',1,'Creature']]],
   ['decreasesleepiness',['decreaseSleepiness',['../classCreature.html#a010b6472fba8c8feaed4feea0f4d0b5f',1,'Creature']]],
-  ['double_5fnum',['double_num',['../classRandom.html#a112197f7100c2d2335a468e998677de3',1,'Random']]],
-  ['double_5frange',['double_range',['../classRandom.html#a04bfdb77462d64b8ecdcb016b1050a78',1,'Random']]],
+  ['deleteeverything',['deleteEverything',['../classWorld.html#a8824dcbb6faf67022c81ceeea069edd7',1,'World']]],
+  ['destroy',['destroy',['../classController.html#a38a3e573e8b476be5361bf705a38bdc0',1,'Controller::destroy()'],['../classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370',1,'Indexator::destroy()']]],
+  ['double_5fnum',['double_num',['../classRandom.html#a8f62dac7e19e8745c6ce880f9e40e2bd',1,'Random']]],
+  ['double_5frange',['double_range',['../classRandom.html#aca879b4da96f6825affde083cd96deb3',1,'Random']]],
   ['droppingperformer',['DroppingPerformer',['../classDroppingPerformer.html#a5a507b3572ae68a347b67bd4e1e96cd9',1,'DroppingPerformer']]]
 ];

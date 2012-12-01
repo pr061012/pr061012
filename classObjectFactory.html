@@ -102,6 +102,8 @@ $(document).ready(function(){initNavTree('classObjectFactory.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classObjectFactory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ObjectFactory Class Reference</div>  </div>
@@ -115,12 +117,32 @@ $(document).ready(function(){initNavTree('classObjectFactory.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a732c533e17d2f62b753138d9da0eb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a3a732c533e17d2f62b753138d9da0eb4">ObjectFactory</a> (const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;hum_dmaker, const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;nhum_dmaker)</td></tr>
+<tr class="memitem:a3a732c533e17d2f62b753138d9da0eb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a3a732c533e17d2f62b753138d9da0eb4">ObjectFactory</a> (const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;<a class="el" href="classObjectFactory.html#a925e0576b895588b9779c40a551a4580">hum_dmaker</a>, const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;<a class="el" href="classObjectFactory.html#a7365bdf8f1b479457ad232187c251fdd">nhum_dmaker</a>)</td></tr>
 <tr class="memdesc:a3a732c533e17d2f62b753138d9da0eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3a732c533e17d2f62b753138d9da0eb4"></a><br/></td></tr>
 <tr class="memitem:a04a1138c18e740b8f0fd580b3d52af1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a04a1138c18e740b8f0fd580b3d52af1c">~ObjectFactory</a> ()</td></tr>
 <tr class="memdesc:a04a1138c18e740b8f0fd580b3d52af1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a04a1138c18e740b8f0fd580b3d52af1c"></a><br/></td></tr>
 <tr class="memitem:a6c7102f01ee8e5bf6a3ca562e2b2aba0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">createObject</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> type, const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
 <tr class="memdesc:a6c7102f01ee8e5bf6a3ca562e2b2aba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new object.  <a href="#a6c7102f01ee8e5bf6a3ca562e2b2aba0"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab1b0f7d7128fbfd1b8383d032f8f7403"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#ab1b0f7d7128fbfd1b8383d032f8f7403">createBuilding</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:ab1b0f7d7128fbfd1b8383d032f8f7403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates building.  <a href="#ab1b0f7d7128fbfd1b8383d032f8f7403"></a><br/></td></tr>
+<tr class="memitem:ae0dad52b25f9ea1328984d187052ee6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#ae0dad52b25f9ea1328984d187052ee6d">createCreature</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:ae0dad52b25f9ea1328984d187052ee6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates creature.  <a href="#ae0dad52b25f9ea1328984d187052ee6d"></a><br/></td></tr>
+<tr class="memitem:a59a5a2cd7bba2aad1d6b560dbcb06e53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a59a5a2cd7bba2aad1d6b560dbcb06e53">createResource</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:a59a5a2cd7bba2aad1d6b560dbcb06e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates resource.  <a href="#a59a5a2cd7bba2aad1d6b560dbcb06e53"></a><br/></td></tr>
+<tr class="memitem:ad3060544678e76dc736c701ae4ef476a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#ad3060544678e76dc736c701ae4ef476a">createTool</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:ad3060544678e76dc736c701ae4ef476a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates tool.  <a href="#ad3060544678e76dc736c701ae4ef476a"></a><br/></td></tr>
+<tr class="memitem:adf0293dda53e1ad74fe517d9f1bf0f5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#adf0293dda53e1ad74fe517d9f1bf0f5d">createWeather</a> (const <a class="el" href="classParamArray.html">ParamArray</a> &amp;params)</td></tr>
+<tr class="memdesc:adf0293dda53e1ad74fe517d9f1bf0f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates weather.  <a href="#adf0293dda53e1ad74fe517d9f1bf0f5d"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a925e0576b895588b9779c40a551a4580"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a925e0576b895588b9779c40a551a4580">hum_dmaker</a></td></tr>
+<tr class="memdesc:a925e0576b895588b9779c40a551a4580"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> decision maker.  <a href="#a925e0576b895588b9779c40a551a4580"></a><br/></td></tr>
+<tr class="memitem:a7365bdf8f1b479457ad232187c251fdd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectFactory.html#a7365bdf8f1b479457ad232187c251fdd">nhum_dmaker</a></td></tr>
+<tr class="memdesc:a7365bdf8f1b479457ad232187c251fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNonHumanoid.html" title="NonHumanoid is silly creature, has only few goals in its life: food and sleep.">NonHumanoid</a> decision maker.  <a href="#a7365bdf8f1b479457ad232187c251fdd"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a> factory allows to creates any objects (you need to provide <a class="el" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> with parameters to do this). </p>
@@ -204,6 +226,76 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="ab1b0f7d7128fbfd1b8383d032f8f7403"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * ObjectFactory::createBuilding </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates building. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>map with object params </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to created building </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00071">71</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0dad52b25f9ea1328984d187052ee6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * ObjectFactory::createCreature </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates creature. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>map with object params </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to created creature </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00079">79</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6c7102f01ee8e5bf6a3ca562e2b2aba0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -242,6 +334,160 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a59a5a2cd7bba2aad1d6b560dbcb06e53"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * ObjectFactory::createResource </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates resource. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>map with object params </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to created resource </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00099">99</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3060544678e76dc736c701ae4ef476a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * ObjectFactory::createTool </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates tool. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>map with object params </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to created tool </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00116">116</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf0293dda53e1ad74fe517d9f1bf0f5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.html">Object</a> * ObjectFactory::createWeather </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParamArray.html">ParamArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates weather. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>map with object params </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to created weather </dd></dl>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8cpp_source.html#l00134">134</a> of file <a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a925e0576b895588b9779c40a551a4580"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a>&amp; ObjectFactory::hum_dmaker</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a> decision maker. </p>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00123">123</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7365bdf8f1b479457ad232187c251fdd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a>&amp; ObjectFactory::nhum_dmaker</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classNonHumanoid.html" title="NonHumanoid is silly creature, has only few goals in its life: food and sleep.">NonHumanoid</a> decision maker. </p>
+
+<p>Definition at line <a class="el" href="ObjectFactory_8h_source.html#l00126">126</a> of file <a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>model/World/ObjectFactory/<a class="el" href="ObjectFactory_8h_source.html">ObjectFactory.h</a></li>
 <li>model/World/ObjectFactory/<a class="el" href="ObjectFactory_8cpp_source.html">ObjectFactory.cpp</a></li>
@@ -252,7 +498,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObjectFactory.html">ObjectFactory</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:41 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:44 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

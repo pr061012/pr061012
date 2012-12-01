@@ -11,7 +11,7 @@ var searchData=
   ['setcoords',['setCoords',['../classObject.html#a64299bd3d9948e455dd4751c465ef750',1,'Object']]],
   ['setcoveredobjects',['setCoveredObjects',['../classWeather.html#a936fc0d17f71087d4f88451af096b894',1,'Weather']]],
   ['setdangerlevel',['setDangerLevel',['../classObject.html#a8f057c451361240ebc424622db893e63',1,'Object']]],
-  ['setdetailedaction',['setDetailedAction',['../classHumanoid.html#a91958e428ccac5302e60e932ea96edab',1,'Humanoid']]],
+  ['setdetailedaction',['setDetailedAction',['../classHumanoid.html#a05303eea7a39529eb51eaa764a144dc5',1,'Humanoid']]],
   ['setdimensions',['setDimensions',['../classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b',1,'ViewWorld']]],
   ['setdirection',['setDirection',['../classCreature.html#ab9753af5a984c1f439c432617ea1b4d4',1,'Creature']]],
   ['setdistance',['setDistance',['../classView.html#a60228448b1a704c06c2e12aab8d7137f',1,'View']]],
@@ -42,9 +42,12 @@ var searchData=
   ['settype',['setType',['../classShape.html#a40fb28db112936018c58f718ce527150',1,'Shape::setType()'],['../classViewObject.html#a6326cc5b3e2151479f8f57149d67bcd8',1,'ViewObject::setType()']]],
   ['setuserinput',['setUserInput',['../classView.html#aa0d44f554a49467d1e2b9c7e159b406b',1,'View']]],
   ['setviewarea',['setViewArea',['../classCreature.html#abf1ee6a67d8dc02bc2bcf6f0a4fc2277',1,'Creature']]],
+  ['setweight',['setWeight',['../classObject.html#a17c4c5b00d5144659887191780af540a',1,'Object']]],
   ['setx',['setX',['../classVector.html#af979b4e93ca3b4f0e0c5f92e4698e776',1,'Vector::setX()'],['../classView.html#ab1fc5db943b079055cf570f496ed5eba',1,'View::setX()'],['../classViewObject.html#a280ef0f29dd3a14d285e816b1798639d',1,'ViewObject::setX()'],['../classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb',1,'ViewWorld::setX()']]],
   ['sety',['setY',['../classVector.html#a48ae8b759a04ca3a7ea696fbf0375bd6',1,'Vector::setY()'],['../classView.html#a1b8d36e29fc73390ac7fa8251b74f20e',1,'View::setY()'],['../classViewObject.html#af7e0d64500d95544654420876d7f85b8',1,'ViewObject::setY()'],['../classViewWorld.html#afde0728835545722c51fcf1c88eba6d0',1,'ViewWorld::setY()']]],
+  ['sformat',['sformat',['../CLI_8cpp.html#ab23a7eca6da7204d4650464d56881480',1,'CLI.cpp']]],
   ['shape',['Shape',['../classShape.html#aff179de1faf619cb6f59537d692b1e77',1,'Shape::Shape(Vector center, int type, double size)'],['../classShape.html#aaa8d87171e65e0d8ba3c5459978992a7',1,'Shape::Shape()']]],
   ['sleep',['sleep',['../classCreature.html#a8f12768e84547f6863747cfb8c930138',1,'Creature']]],
-  ['step',['step',['../classController.html#a6fe5f85677914b59f05705bf9181d948',1,'Controller']]]
+  ['squarecirclehittest',['squareCircleHitTest',['../classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935',1,'Shape']]],
+  ['step',['step',['../classCLI.html#a2dd7aa68b01325b6d8cdc5008c483e1a',1,'CLI::step()'],['../classController.html#a6fe5f85677914b59f05705bf9181d948',1,'Controller::step()']]]
 ];

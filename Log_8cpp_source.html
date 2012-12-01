@@ -111,12 +111,12 @@ $(document).ready(function(){initNavTree('Log_8cpp_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Log_8h.html">Log.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;std::ofstream Log::log_file(<span class="stringliteral">&quot;LOG&quot;</span>);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;std::ofstream <a class="code" href="classLog.html#a9006bdbd94838ad01e59f46083601757" title="Log.">Log::log_file</a>(<span class="stringliteral">&quot;LOG&quot;</span>);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classLog.html#a891b2768b418be079ea77fc0aa3caec8">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classLog.html#a891b2768b418be079ea77fc0aa3caec8" title="Logs error to log file.">Log::error</a>(std::string file_name, std::string func_name,</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                <span class="keywordtype">int</span> line_number, std::string text)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    log_file &lt;&lt; <span class="stringliteral">&quot;[ERROR] &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classLog.html#a9006bdbd94838ad01e59f46083601757" title="Log.">log_file</a> &lt;&lt; <span class="stringliteral">&quot;[ERROR] &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; func_name &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; text &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('Log_8cpp_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classLog.html#a9be8f05905ddb2bea63f1add2cc21f37">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classLog.html#a9be8f05905ddb2bea63f1add2cc21f37" title="Logs note to log file.">Log::note</a>(std::string file_name, std::string func_name,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;               <span class="keywordtype">int</span> line_number, std::string text)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    log_file &lt;&lt; <span class="stringliteral">&quot;[NOTE]  &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classLog.html#a9006bdbd94838ad01e59f46083601757" title="Log.">log_file</a> &lt;&lt; <span class="stringliteral">&quot;[NOTE]  &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; func_name &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; text &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('Log_8cpp_source.html','');});
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classLog.html#a38b1149dc867cf062f00ff7590458114">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classLog.html#a38b1149dc867cf062f00ff7590458114" title="Logs warning to log file.">Log::warn</a>(std::string file_name, std::string func_name,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               <span class="keywordtype">int</span> line_number, std::string text)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    log_file &lt;&lt; <span class="stringliteral">&quot;[WARN]  &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classLog.html#a9006bdbd94838ad01e59f46083601757" title="Log.">log_file</a> &lt;&lt; <span class="stringliteral">&quot;[WARN]  &quot;</span> &lt;&lt; file_name &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line_number &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; func_name &lt;&lt; std::endl &lt;&lt;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="stringliteral">&quot;        &quot;</span> &lt;&lt; text &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('Log_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="dir_55b501ef0595699a6ca98d54556edfa8.html">Log</a></li><li class="navelem"><a class="el" href="Log_8cpp.html">Log.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:34 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classEInvalidResPath.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classEInvalidResPath-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">EInvalidResPath Class Reference</div>  </div>
@@ -115,11 +116,16 @@ $(document).ready(function(){initNavTree('classEInvalidResPath.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adef5ebdcf1327020a2316dead2f94f1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEInvalidResPath.html#adef5ebdcf1327020a2316dead2f94f1f">EInvalidResPath</a> (std::string res_path)</td></tr>
+<tr class="memitem:adef5ebdcf1327020a2316dead2f94f1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEInvalidResPath.html#adef5ebdcf1327020a2316dead2f94f1f">EInvalidResPath</a> (std::string <a class="el" href="classEInvalidResPath.html#aaf6c1d95ee209d4ffbed5126341137e4">res_path</a>)</td></tr>
 <tr class="memdesc:adef5ebdcf1327020a2316dead2f94f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#adef5ebdcf1327020a2316dead2f94f1f"></a><br/></td></tr>
 <tr class="memitem:aa934ba8dbb7839e773f6fd9238fce7c4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEInvalidResPath.html#aa934ba8dbb7839e773f6fd9238fce7c4">getResPath</a> ()</td></tr>
 <tr class="memdesc:aa934ba8dbb7839e773f6fd9238fce7c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets resource path.  <a href="#aa934ba8dbb7839e773f6fd9238fce7c4"></a><br/></td></tr>
 <tr class="memitem:ac68d4757cac64896e31946fe68fef478"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEInvalidResPath.html#ac68d4757cac64896e31946fe68fef478">what</a> () const   throw ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aaf6c1d95ee209d4ffbed5126341137e4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEInvalidResPath.html#aaf6c1d95ee209d4ffbed5126341137e4">res_path</a></td></tr>
+<tr class="memdesc:aaf6c1d95ee209d4ffbed5126341137e4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> path.  <a href="#aaf6c1d95ee209d4ffbed5126341137e4"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Invalid resource path exception: failed to load game resource with specified path because it doesn't exist. </p>
@@ -148,7 +154,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00008">8</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00010">10</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
 
 </div>
 </div>
@@ -169,7 +175,7 @@ Public Member Functions</h2></td></tr>
 <p>Gets resource path. </p>
 <dl class="section return"><dt>Returns</dt><dd>resource path </dd></dl>
 
-<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00014">14</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00016">16</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +200,32 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00019">19</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EInvalidResPath_8cpp_source.html#l00021">21</a> of file <a class="el" href="EInvalidResPath_8cpp_source.html">EInvalidResPath.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="aaf6c1d95ee209d4ffbed5126341137e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string EInvalidResPath::res_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a> path. </p>
+
+<p>Definition at line <a class="el" href="EInvalidResPath_8h_source.html#l00035">35</a> of file <a class="el" href="EInvalidResPath_8h_source.html">EInvalidResPath.h</a>.</p>
 
 </div>
 </div>
@@ -208,7 +239,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classEInvalidResPath.html">EInvalidResPath</a></li>
-    <li class="footer">Generated on Thu Nov 29 2012 01:13:40 for pr061012 by
+    <li class="footer">Generated on Sat Dec 1 2012 15:36:42 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
