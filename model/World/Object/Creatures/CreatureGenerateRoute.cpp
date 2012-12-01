@@ -308,8 +308,8 @@ Creature::Path Creature::generateRoute()
         // Think how to process failures (path not found)
 
     }
-    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
-            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
+    //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+    //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }
