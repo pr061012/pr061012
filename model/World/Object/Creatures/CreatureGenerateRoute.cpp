@@ -26,22 +26,27 @@ public:
     // The sum of distance_to_origin and heuristic_value
     double value;
 
-    Vertex(Vector point, Vector goal) :
+    // The index of direction
+    uint direction;
+
+    Vertex(Vector point, Vector goal, uint direction) :
         point(point),
         prev_vertex(point),
         distance_to_origin(0),
         heuristic_value(point.getDistance(goal)),
-        value(heuristic_value)
+        value(heuristic_value),
+        direction(direction)
     {
     }
 
-    Vertex(Vector point, const Vertex &origin, Vector goal) :
+    Vertex(Vector point, const Vertex &origin, Vector goal, uint direction) :
         point(point),
         prev_vertex(origin.point),
         distance_to_origin(origin.point.getDistance(point) + 
                            origin.distance_to_origin),
         heuristic_value(point.getDistance(goal)),
-        value(distance_to_origin + heuristic_value)
+        value(distance_to_origin + heuristic_value),
+        direction(direction)
     {
     }
 };
@@ -204,11 +209,14 @@ Creature::Path Creature::generateRoute()
         // Iterators
         std::set<Vertex, VertexComp>::iterator vertex_iter;
         std::set<Vertex, VectorComp>::iterator vector_iter;
-        Vertex current(this -> getCoords(), goal_point);
+        Vertex current(this -> getCoords(), goal_point, 100);
 
         // Add starting vertex to the open_list.
         open_vertex_set.insert(current);
         open_vector_set.insert(current);
+
+        // Direction buffer
+        uint direction;
 
         while (!open_vertex_set.empty())
         {
@@ -236,7 +244,7 @@ Creature::Path Creature::generateRoute()
                 int passable = checkPointIsPassable(next_point, goal_in_sight);
 
                 // If we already processed this vertex, skip it.
-                Vertex neighbour(next_point, current, goal_point);
+                Vertex neighbour(next_point, current, goal_point, i);
                 if (closed_set.find(neighbour) != closed_set.end())
                 {
                     continue;
@@ -252,12 +260,17 @@ Creature::Path Creature::generateRoute()
                     
                     // Reached the goal.
                     case 1:
+                        direction = 100;
                         // Get the result path
                         while (current.point != this -> getCoords())
                         {
-                            result.push(current.point);
-                            current.point = current.prev_vertex;
-                            current = *(closed_set.find(current));
+                            // Put only turning points
+                            if (current.direction != direction)
+                            {
+                                result.push(current.point);
+                                current.point = current.prev_vertex;
+                                current = *(closed_set.find(current));
+                            }
                         }
 
                         // Make the loops stop
