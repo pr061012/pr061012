@@ -746,9 +746,46 @@ std::string Creature::printObjectInfo() const
                                      std::to_string(aim -> getObjectID())) <<
                                      std::endl <<
           "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
-          "Objects around\t\t"    << std::endl << objects_around.printIDs();
+          "Objects around\t\t"    << std::endl << objects_around.printIDs() <<
+          "Matrix of attrs:\t\t"  << printAttrs() << std::endl <<
+          "Matrix of act\t\t"     << printActMatrix() << std::endl;
 
     return output + ss.str();
+}
+
+std::string Creature::printAttrs() const
+{
+    std::stringstream ss;
+    ss << std::endl;
+    ss << "\tHUNGER:\t\t "       << attrs(ATTR_HUNGER,0)         << std::endl
+       << "\tSLEEPINESS:\t "     << attrs(ATTR_SLEEPINESS,0)     << std::endl
+       << "\tNEED_IN_HOUSE:\t "  << attrs(ATTR_NEED_IN_HOUSE,0)  << std::endl
+       << "\tNEED_IN_POINTS:\t " << attrs(ATTR_NEED_IN_POINTS,0) << std::endl
+       << "\tLAZINESS:\t "       << attrs(ATTR_LAZINESS,0)       << std::endl
+       << "\tHEALTH:\t\t "       << attrs(ATTR_HEALTH,0)         << std::endl
+       << "\tCOMMUNICATION:\t "  << attrs(ATTR_COMMUNICATION,0)  << std::endl
+       << "\tDANGER:\t\t "       << attrs(ATTR_DANGER,0)         << std::endl
+       << "\tNEED_IN_DESC:\t "   << attrs(ATTR_NEED_IN_DESC,0)   << std::endl;
+
+    return ss.str();
+}
+
+std::string Creature::printActMatrix() const
+{
+    std::stringstream ss;
+    arma::mat act = brains.getActMatrix(attrs);
+    ss << std::endl;
+    ss << "\tSLEEP:\t\t"        << act(0,0) << std::endl
+       << "\tBUILD:\t\t"        << act(1,0) << std::endl
+       << "\tWORK:\t\t"         << act(2,0) << std::endl
+       << "\tEAT:\t\t"          << act(3,0) << std::endl
+       << "\tRELAX:\t\t"        << act(4,0) << std::endl
+       << "\tCOMMUNICATE:\t"    << act(5,0) << std::endl
+       << "\tESCAPE:\t:\t"      << act(6,0) << std::endl
+       << "\tREALIZE_DREAM:\t"  << act(7,0) << std::endl
+       << "\tREPRODUCE:\t"      << act(8,0) << std::endl;
+
+   return ss.str();
 }
 
 double Creature::setDirection()

@@ -7,6 +7,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <sstream>
+#include <string>
 
 #include "../../../../../common/Log/Log.h"
 
@@ -849,9 +850,7 @@ std::string Humanoid::printObjectInfo() const
                                       std::to_string(home -> getObjectID())) <<
                                      std::endl <<
           "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
-          "Something\t\t"         << current_decision << std::endl <<
-          "Matrix of attrs\t\t"   << attrs            << std::endl <<
-          "Matrix of act\t\t"     << brains.getActMatrix(attrs) << endl;
+          "Something\t\t"         << current_decision << std::endl;
 
     return output + ss.str();
 }
@@ -890,4 +889,3 @@ uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
 }
-

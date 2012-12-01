@@ -370,7 +370,8 @@ public:
     virtual void receiveMessage(Message message) = 0;
 
     std::string printObjectInfo() const;
-
+    std::string printAttrs() const;
+    std::string printActMatrix() const;
 private:
     /// Creature's type.
     const CreatureType subtype;

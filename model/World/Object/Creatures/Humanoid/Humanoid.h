@@ -47,6 +47,7 @@ public:
     //**************************************************************************
 
     std::vector <Action>* getActions();
+
     void receiveMessage(Message message);
 
     std::string printObjectInfo() const;
@@ -242,6 +243,7 @@ private:
     // MESSAGES
     //**************************************************************************
     void messageProcess();
+
 };
 
 #endif // HUMANOID_H
