@@ -91,10 +91,10 @@
 #define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
 
 /// View area for NonHumanoid.
-#define SZ_NHUM_VIEW_DIAM           10 * SZ_HUM_DIAM
+#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM
 
 /// View area for Humanoid.
-#define SZ_HUM_VIEW_DIAM            10 * SZ_HUM_DIAM
+#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
