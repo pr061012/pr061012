@@ -46,11 +46,12 @@ public:
     }
 };
 
+//**********************************************************
 // NOTE
 // The std::set thinks that elements are equal if:
 // !(a < b) && !(b < a)
 // This check is needed to identify equal elements in set.
-
+//**********************************************************
 // Comparison class for set.
 struct VertexComp
 {
@@ -75,6 +76,10 @@ struct VectorComp
     }
 };
 
+//**********************************************************
+// CONSTANTS
+//**********************************************************
+
 const Vector Creature::neighbour_offsets[8] = 
 {
     Vector(   0,    1),
@@ -86,6 +91,12 @@ const Vector Creature::neighbour_offsets[8] =
     Vector(  -1,    0),
     Vector(  -1,    1)
 };
+
+const double Creature::MAX_OFFSET = 3;
+
+//**********************************************************
+// METHODS
+//**********************************************************
 
 // TODO
 // Make this virual and split it between humanoids and nonhumanoids.
@@ -143,7 +154,8 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 }
 
 // TODO
-// Limit the search by constant number of processed nodes.
+// Make indexating of obstacles.
+// Make straightening of the route.
 Creature::Path Creature::generateRoute()
 {
     // Default behaviour
@@ -202,7 +214,7 @@ Creature::Path Creature::generateRoute()
         {
             if (debug_step > NODE_LIMIT)
             {
-                aim = nullptr;
+                //aim = nullptr;
                 break;
             }
             debug_step++;

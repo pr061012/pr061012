@@ -389,8 +389,13 @@ private:
     /// Current goal towards which creature is moving
     Object* goal;
 
+    /// Last goal position
+    Vector last_goal_pos;
+
     /// Length of the last route
     uint last_route_size;
+
+    static const double MAX_OFFSET;
 
     //**********************************************************
     // ATTRIBUTES AND NEEDS

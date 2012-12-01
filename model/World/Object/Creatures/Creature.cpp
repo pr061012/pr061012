@@ -23,6 +23,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 
     // route computing variables
     goal(0),
+    last_goal_pos(0, 0),
     last_route_size(0),
 
     // some general attributes
@@ -509,7 +510,7 @@ void Creature::chooseDirectionToEscape()
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = Vector(0,0).getAngle(escape_vector) + M_PI;
+    this -> angle = Vector(0, 0).getAngle(escape_vector) + M_PI;
     aim = 0;
     direction_is_set = true;
 }
@@ -551,10 +552,15 @@ void Creature::go(SpeedType speed)
     else
     {
         // if we can't go the way we went, or the aim changed,
-        // reset route
-        if (!direction_is_set || aim != goal)
+        // or the aim moved too far, reset route
+        if (!direction_is_set || !goal || 
+            aim -> getObjectID() != goal -> getObjectID() || 
+            !DoubleComparison::isLess(last_goal_pos.getDistance(goal -> getCoords()),
+                                        MAX_OFFSET * getShape().getSize()/2))
         {
             goal = aim;
+            last_goal_pos = goal -> getCoords();
+            
             //generate route
             last_route_size = route.size();
             route = generateRoute();
