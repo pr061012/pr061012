@@ -91,16 +91,21 @@ std::vector <Action>* NonHumanoid::getActions()
     // Store the result of last action and clear actions.
     clearActions();
 
+    // Checking whether current action is actual.
+    if
+    (
+        !brains.isDecisionActual(attrs, current_action) ||
+        (current_action == SLEEP && getSleepiness() == 0) ||
+        (current_action == EAT && getHunger() == 0)
+    )
+    {
+        current_action = NONE;
+    }
+
     // Checking non-humanoid's sleepiness.
     if (getSleepiness() == getMaxSleepiness())
     {
         current_action = SLEEP;
-    }
-
-    // Checking whether current action is actual.
-    if (!brains.isDecisionActual(attrs, current_action))
-    {
-        current_action = NONE;
     }
 
     //**************************************************************************
@@ -149,8 +154,8 @@ std::vector <Action>* NonHumanoid::getActions()
             roam_steps = NHUM_ROAM_STEPS;
             direction_is_set = false;
         }
-
         roam_steps--;
+
         go(SLOW_SPEED);
     }
 
@@ -170,7 +175,7 @@ std::vector <Action>* NonHumanoid::getActions()
         if (aim != nullptr)
         {
             // ... check distance to aim.
-            if (this -> getShape().hitTest(aim -> getShape()))
+            if (getShape().hitTest(aim -> getShape()))
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -183,8 +188,14 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
-            // Going in random direction.
-            direction_is_set = false;
+            // ... otherwise roaming and trying to find food.
+            if (roam_steps == 0)
+            {
+                roam_steps = NHUM_ROAM_STEPS;
+                direction_is_set = false;
+            }
+            roam_steps--;
+
             go(SLOW_SPEED);
         }
 
