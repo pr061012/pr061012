@@ -9,6 +9,7 @@
 #include "../Resource/Resource.h"
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Math/Random.h"
+#include "../../../../common/Math/DoubleComparison.h"
 #include "../Weather/Weather.h"
 
 
@@ -454,16 +455,23 @@ const Object* Creature::getAim()
 // Evaluates object's danger depending on the distance to it.
 double Creature::evaluateDanger(const Object * obj)
 {
+    
     double view_radius = view_area.getSize() / 2;
     double distance = getCoords().getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
     double obj_radius = getShape().getSize() / 2;
+
+    // ~1/R
+    // - infinitely grows at r = 0 for any object - may cause problems
+    /*
     // Dependent on:
     // - the ratio of object's danger to ours (== 1 if same)
     double danger_ratio = double(obj -> getDangerLevel()) / getDangerLevel();
 
     // - distance to object (== 1 if we stand right next to the object)
-    double distance_ratio = (my_radius + obj_radius) / distance;
+    //                      (== 1 + 1/CREAT_DANGER_DISTANCE_FACTOR if distacne == 0)
+    double distance_ratio = (my_radius + obj_radius) * (CREAT_DANGER_DISTANCE_FACTOR + 1) / 
+                            (distance + CREAT_DANGER_DISTANCE_FACTOR * (my_radius + obj_radius));
 
     // - size of view_area  (== 0 if we can't see object,
     //                       == 1 if we stand right next to the object)
@@ -471,7 +479,15 @@ double Creature::evaluateDanger(const Object * obj)
                                 (view_radius - my_radius));
 
     // - constant factor
-    return pow(danger_ratio * distance_ratio, 2) * view_ratio * CREAT_DANGER_FACTOR;
+    return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
+    */
+
+    // ~r
+    double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
+                            CREAT_DANGER_FACTOR;
+
+    return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
+            danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
 }
 
 void Creature::chooseDirectionToEscape()
@@ -749,11 +765,12 @@ void Creature::updateDanger()
     this -> danger = 0;
 
     for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
+        iter = objects_around.begin();
+        iter != objects_around.end(); iter++
        )
     {
-        this -> danger += (*iter) -> getDangerLevel();
+        this -> danger += evaluateDanger(*iter);
+        assert(!isnan(danger));
     }
 
     // Update stats

@@ -343,7 +343,7 @@
 /// Amount of steps before updates basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates safety
-#define CREAT_DANGER_STEPS          1 * TM_TICKS_PER_SECOND
+#define CREAT_DANGER_STEPS          TM_TICKS_PER_SECOND / 2
 /// Amount of steps before updates need_in_descendants.
 #define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND
 /// Amount of steps before updates age.
@@ -370,7 +370,7 @@
 #define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
 
 /// Constant for evaluating danger for creatures.
-#define CREAT_DANGER_FACTOR         1
+#define CREAT_DANGER_FACTOR             2
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.

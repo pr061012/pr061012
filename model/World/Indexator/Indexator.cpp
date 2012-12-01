@@ -107,7 +107,8 @@ ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
             */
             //*****************************************************************
 
-                if (area.hitTest((*i) -> getShape()) && (*i) != viewer)
+                if (area.hitTest((*i) -> getShape()) && (!viewer ||
+                    (*i) -> getObjectID() != viewer -> getObjectID()))
                 {
                     result.push(*i);
                 }
