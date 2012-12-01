@@ -91,10 +91,10 @@
 #define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
 
 /// View area for NonHumanoid.
-#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM
+#define SZ_NHUM_VIEW_DIAM           10 * SZ_HUM_DIAM
 
 /// View area for Humanoid.
-#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM
+#define SZ_HUM_VIEW_DIAM            10 * SZ_HUM_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
@@ -358,7 +358,7 @@
 #define CREAT_DELTA_HEALTH          1
 
 /// Changes of endurance
-#define CREAT_DELTA_ENDUR          1
+#define CREAT_DELTA_ENDUR           1
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            20
@@ -444,10 +444,13 @@
 /// Maximum possible value of non-humanoid's max_age.
 #define NHUM_AGE_MAX                20
 
-/// Changes of need_in_descendant for one step
+/// Changes of need_in_descendant for one step.
 #define NHUM_DELTA_NEED_IN_DESC     2
 
-/// Amount of steps to decrease sleepiness
+/// Amount of steps to decrease sleepiness.
 #define NHUM_DECR_SLEEP_STEPS       100
+
+/// Amount of steps to change non-humanoid's roaming direction.
+#define NHUM_ROAM_STEPS             300
 
 #endif // BASIC_DEFINES_H

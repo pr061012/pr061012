@@ -54,7 +54,7 @@ void PickupMaster::perform(Action& action)
     bool errors = false;
     bool success = false;
     // go through all objects in participants and put them in inventory
-    for (ObjectHeap::iterator j = participants.begin(); 
+    for (std::vector<Object*>::iterator j = participants.begin();
             j != participants.end(); j++) 
     {
         if ((*j) -> getType() != RESOURCE &&
