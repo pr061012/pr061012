@@ -49,8 +49,9 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_DANGER, 0)         = danger;
     attrs(ATTR_NEED_IN_DESC, 0)   = 0; // need_in_descendants;
 
-    // Initialise type.
+    // Initialise private attributes.
     subsubtype = COW;
+    roam_steps = 0;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -142,6 +143,14 @@ std::vector <Action>* NonHumanoid::getActions()
             increaseEndurance(1);
         }
 
+        // Wherever I may roam...
+        if (roam_steps == 0)
+        {
+            roam_steps = NHUM_ROAM_STEPS;
+            direction_is_set = false;
+        }
+
+        roam_steps--;
         go(SLOW_SPEED);
     }
 
@@ -259,6 +268,7 @@ void NonHumanoid::findGrass()
         if (res -> getSubtype() == RES_FOOD)
         {
             coords = res -> getCoords();
+
             // Check distance to grass.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
