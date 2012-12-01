@@ -86,7 +86,13 @@ std::string Weather::getTypeName() const
 }
 std::string Weather::printObjectInfo() const
 {
+    std::stringstream ss;
+    ss << Object::printObjectInfo();
 
+    ss << "Steps for living:\t" << steps << std::endl;
+    ss << "Covered Object:\n" << this -> covered_objs.printIDs() << std::endl;
+
+    return ss.str();
 }
 
 //******************************************************************************
