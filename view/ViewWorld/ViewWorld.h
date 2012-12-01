@@ -30,6 +30,9 @@ class ViewWorld
 
     double cam_radius;
 
+    /// Flag to indicate if someone is selected.
+    bool is_selected;
+
     /// Id of currently selected unit.
     uint selected_id;
 
@@ -144,6 +147,8 @@ public:
     double getY();
 
     void setSelection(uint id);
+
+    void clearSelection();
 
     const Object* getSelection();
 

@@ -225,7 +225,7 @@ void View::redraw()
         }
         else
         {
-            this -> view_world -> setSelection(-1);
+            this -> view_world -> clearSelection();
         }
 
         mouse_clicked = false;

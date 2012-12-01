@@ -34,7 +34,7 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
     this -> height = height;
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
 
-    this -> selected_id = -1;
+    this -> is_selected = false;
 }
 
 ViewWorld::~ViewWorld()
@@ -145,13 +145,19 @@ double ViewWorld::getY()
 void ViewWorld::setSelection(uint id)
 {
     this -> selected_id = id;
+    this -> is_selected = true;
+}
+
+void ViewWorld::clearSelection()
+{
+    this -> is_selected = false;
 }
 
 const Object* ViewWorld::getSelection()
 {
     // TODO: I have to do it in more elegant way.
 
-    if (this -> selected_id == -1)
+    if (!this -> is_selected)
     {
         return NULL;
     }
