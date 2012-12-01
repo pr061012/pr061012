@@ -23,6 +23,7 @@ TextField::TextField(double x, double y, double width, double height,
 #endif
 {
     this -> render_steps = 0;
+    this -> locked = false;
 }
 
 TextField::~TextField()
@@ -100,4 +101,16 @@ double TextField::getFontSize()
 {
     return this -> font_size;
 }
+
+void TextField::setLocked(bool locked)
+{
+    this -> locked = locked;
+}
+
+bool TextField::isLocked()
+{
+    return this -> locked;
+}
+
+
 

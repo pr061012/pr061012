@@ -47,6 +47,7 @@ View::View(const IWorld& w)
     );
 
     sel_info -> setFontSize(0.2);
+    sel_info -> setLocked(true);
 
     this -> addInterfaceObject(this -> sel_info);
 
@@ -239,7 +240,7 @@ void View::redraw()
 
         for(uint i = 0; i < this -> rendered.size(); ++i)
         {
-            if(rendered.at(i) -> hitTest(sx, sy))
+            if(rendered.at(i) -> hitTest(sx, sy) && !rendered.at(i) -> isLocked())
             {
                 focus_changed = true;
                 this -> setFocus(this -> rendered.at(i));
@@ -321,7 +322,6 @@ void View::displaySelectionInfo()
     if(obj)
     {
         this -> sel_info -> setText(obj -> printObjectInfo());
-//        this -> sel_info -> setText("obj -> printObjectInfo()");
     }
 }
 
