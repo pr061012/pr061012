@@ -73,12 +73,12 @@ std::string ObjectHeap::printIDs(std::string indent, uint columns) const
     std::stringstream ss;
     uint cur_column = 1;
 
-    ObjectHeap::iterator iter;
-    for (iter = const_cast<ObjectHeap*>(this) -> begin(); iter != const_cast<ObjectHeap*>(this)->end(); iter++)
+    ObjectHeap::const_iterator iter;
+    for (iter = this -> begin(); iter != this->end(); iter++)
     {
         ss << indent << (*iter) -> getObjectID();
 
-        if (cur_column++ == columns || iter++ == const_cast<ObjectHeap*>(this)-> end())
+        if (cur_column++ == columns || iter++ == this-> end())
         {
             iter--;
             cur_column = 1;

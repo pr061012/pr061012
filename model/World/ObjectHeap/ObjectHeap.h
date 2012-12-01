@@ -133,6 +133,25 @@ public:
         return static_cast<iterator>(this->data[type + 1].end());
     }
 
+    const_iterator begin() const
+    {
+        return static_cast<const_iterator>(this->data[0].begin());
+    }
+
+    const_iterator end() const
+    {
+        return static_cast<const_iterator>(this->data[0].end());
+    }
+
+    const_iterator begin(ObjectType type) const
+    {
+        return static_cast<const_iterator>(this->data[type + 1].begin());
+    }
+
+    const_iterator end(ObjectType type) const
+    {
+        return static_cast<const_iterator>(this->data[type + 1].end());
+    }
     iterator find(Object* obj, bool return_obj_type_iter = true)
     {
         iterator iter;
