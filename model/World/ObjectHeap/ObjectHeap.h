@@ -71,7 +71,7 @@ public:
     public:
         Object* operator *()
         {
-            return static_cast<std::_Rb_tree_node<Object*>*>(_M_node)->_M_value_field;
+            return static_cast<std::_Rb_tree_node< std::pair< uint,Object* > >*>(_M_node)->_M_value_field.second;
         }
         iterator(std::map<int, Object*>::iterator it)
         {
@@ -93,7 +93,7 @@ public:
     public:
         Object* operator *() const
         {
-            return static_cast<const std::_Rb_tree_node<Object*>*>(_M_node)->_M_value_field;
+            return static_cast<const std::_Rb_tree_node< std::pair< uint,Object* > >*>(_M_node)->_M_value_field.second;
         }
 
         const_iterator(std::map<int, Object*>::const_iterator it)
