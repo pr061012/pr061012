@@ -77,15 +77,14 @@ std::string ObjectHeap::printIDs(std::string indent, uint columns) const
     for (iter = this -> begin(); iter != this->end(); iter++)
     {
         ss << indent << (*iter) -> getObjectID();
-
-        if (cur_column++ == columns || iter++ == this-> end())
+        cur_column++;
+        if (cur_column == columns)
         {
-            iter--;
             cur_column = 1;
             ss << std::endl;
         }
     }
-
+    ss << std::endl;
     return ss.str();
 }
 
