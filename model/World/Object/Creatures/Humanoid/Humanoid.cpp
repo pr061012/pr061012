@@ -429,6 +429,7 @@ std::vector <Action>* Humanoid::getActions()
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
             ObjectHeap::const_iterator iter;
+            double distance = SZ_WORLD_VSIDE;
             for
             (
                 iter = visual_memory -> begin(RESOURCE);
@@ -444,14 +445,12 @@ std::vector <Action>* Humanoid::getActions()
                 if (res -> getSubtype()  == RES_BUILDING_MAT)
                 {
                     Vector coords;
-                    double distance = SZ_WORLD_VSIDE;
                     coords = res -> getCoords();
                     if (distance > coords.getDistance(this -> getCoords()))
                     {
                         this -> aim = res;
                         distance = coords.getDistance(this -> getCoords());
                     }
-                    this -> aim = res;
                 }
             }
         }
@@ -783,16 +782,9 @@ DetailedHumAction Humanoid::chooseWayToEat()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToSleep()
 {
-    if (this -> home != 0)
+    if (this -> home != nullptr)
     {
-        if
-        (
-        this -> getCoords().getDistance(this -> home -> getCoords()) <
-        SLOW_SPEED * HUM_DECR_SLEEP_STEPS * (100 - getSleepiness())
-        )
-        {
             return SLEEP_AT_HOME;
-        }
     }
     return SLEEP_ON_THE_GROUND;
 
@@ -879,9 +871,7 @@ std::string Humanoid::printObjectInfo() const
                                       std::to_string(home -> getObjectID())) <<
                                      std::endl <<
           "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
-          "Something\t\t"         << steps_to_choose_place << std::endl <<
-          "Matrix of attrs\t\t"   << attrs            << std::endl <<
-          "Matrix of act\t\t"     << brains.getActMatrix(attrs) << endl;
+          "Something\t\t"         << steps_to_choose_place << std::endl;
 
     return output + ss.str();
 }
