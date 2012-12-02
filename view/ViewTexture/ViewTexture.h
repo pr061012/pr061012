@@ -8,12 +8,14 @@
 
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
-#include <string>
+#include <stdlib.h>
 
 class ViewTexture
 {
     /// Pointer to loaded texture data
     GLuint texture;
+
+    bool alpha;
 
 public:
 
@@ -21,7 +23,7 @@ public:
      * @brief Constructor
      * @param path path to the texture file to be loaded
      */
-    ViewTexture(const std::string path, uint flags);
+    ViewTexture(const char* path, uint flags);
 
     /**
      * @brief Destructor
@@ -29,7 +31,7 @@ public:
     ~ViewTexture();
 
 
-
+    void render(double x, double y, double width, double height);
 };
 
 #endif // VIEW_TEXTURE_H
