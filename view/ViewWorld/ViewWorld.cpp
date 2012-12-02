@@ -165,6 +165,8 @@ double ViewWorld::getCamRad()
 void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
+
+    this -> texture_buf[0] -> setScale(rad / VIEW_CAM_RADIUS);
 }
 
 double ViewWorld::getX()
