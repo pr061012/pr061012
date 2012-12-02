@@ -209,7 +209,7 @@ void ViewWorld::renderObject(const Object* object)
             }
             else
             {
-                CreatureAction action = (CreatureAction)dynamic_cast<const Creature*>(object) -> getCurrentDecision();
+                CreatureAction action = (CreatureAction)dynamic_cast<const Creature*>(object) -> getCurrentAction();
                 msg = act_repr[action];
             }
             ViewUtilities::renderText(cx-sz/2, cy-sz/2, sz*70.0, msg);

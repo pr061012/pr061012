@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 #include "Shape.h"
 #include "../../../common/Math/DoubleComparison.h"
@@ -108,33 +109,101 @@ Vector Shape::getLastCenter()
     return last_center;
 }
 
+std::vector<Vector> Shape::getVertices() const
+{
+    std::vector<Vector> result;
+    switch(type)
+    {
+        case CIRCLE:
+            break;
+            
+        case SQUARE:
+            result.push_back(center + left_bottom);
+            result.push_back(center + Vector(-size/2, size/2));
+            result.push_back(center + right_top);
+            result.push_back(center + Vector(size/2, -size/2));
+            break;
+    }
+    return result;
+}
+
 //******************************************************************************
 // HIT-TEST METHODS.
 //******************************************************************************
 
-// checks hittest with a vector
-bool Shape::hitTest (const Vector& vector) const
+// checks hittest with a point
+bool Shape::hitTest (const Vector& point) const
 {
     switch(type)
     {
         case CIRCLE:
-            // if a distance between a vector and a circle center is less than
+            // if a distance between a point and a circle center is less than
             // radius, return true
-            if (DoubleComparison::isLess(center.getDistance(vector), size/2))
+            if (DoubleComparison::isLess(center.getDistance(point), size/2))
             {
                 return true;
             }
             break;
 
         case SQUARE:
-            // if a vector lies nearer than sides of a square, return true
-            if (DoubleComparison::isLess(fabs(center.getY() - vector.getY()), 
+            // if a point lies nearer than sides of a square, return true
+            if (DoubleComparison::isLess(fabs(center.getY() - point.getY()), 
                                          size/2) &&
-                DoubleComparison::isLess(fabs(center.getX() - vector.getX()),
+                DoubleComparison::isLess(fabs(center.getX() - point.getX()),
                                          size/2))
             {
                 return true;
             }
+            break;
+    }
+    return false;
+}
+
+// check hittest with a segment
+bool Shape::hitTest (const Vector& first, const Vector& second) const
+{
+    Vector point;
+    std::vector<Vector> vertices = getVertices();
+    switch(type)
+    {
+        case CIRCLE:
+            point = this -> getCenter().project(first, second);
+
+            // check if sement line is closer than radius and if 
+            // one of the segments end lie inside a shape or
+            // if a segment crosses circle with ends outside
+            return DoubleComparison::isLess(
+                        this -> getCenter().getDistanceToLine(first, second),
+                        this -> getSize() / 2) && 
+                    (this -> hitTest(first) || this -> hitTest(second) ||
+                        DoubleComparison::isLess(
+                            Vector::scalarProduct(second - point, 
+                                                  first - point), 0));
+            break;
+        
+        case SQUARE:
+            // Check if segment ends lie inside the square.
+            if (hitTest(first) || hitTest(second))
+            {
+                return true;
+            }
+
+            vertices = getVertices();
+            // Check if segment intersects any of sides.
+            for (uint i = 0; i < 4; i++)
+            {
+                point = Vector::getLinesIntersection(first, second, 
+                                            vertices[i], vertices[(i+1) % 4]);
+                if (!isnan(point.getX()))
+                {
+                    double t = point.getLineParameter(first, second);
+                    if (t > 0 && t < 1) 
+                    {
+                        return true;
+                    }
+                }
+            }
+
             break;
     }
     return false;
@@ -237,30 +306,15 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
     }
 
     // cicle can intersect any side of the square
-    if (circleOverlapsSegment(circle, lt, rt) ||
-          circleOverlapsSegment(circle, lb, rb) ||
-          circleOverlapsSegment(circle, lb, lt) ||
-          circleOverlapsSegment(circle, rb, rt))
+    if (hitTest(lt, rt) ||
+          hitTest(lb, rb) ||
+          hitTest(lb, lt) ||
+          hitTest(rb, rt))
     {
         return true;
     }
 
     return false;
-}
-
-// check if a circle intersects segment
-bool Shape::circleOverlapsSegment(Shape shape, Vector pt1, Vector pt2) const
-{
-    Vector project = shape.getCenter().project(pt1, pt2);
-
-    // check if sement line is closer than radius and if 
-    // one of the segments end lie inside a shape or
-    // if a segment crosses circle with ends outside
-    return DoubleComparison::isLess(shape.getCenter().getDistanceToLine(pt1, pt2),
-                                     shape.getSize()/2) && 
-                (shape.hitTest(pt1) || shape.hitTest(pt2) ||
-                 DoubleComparison::isLess(Vector::scalarProduct(pt2 - project, 
-                                                                pt1 - project), 0));
 }
 
 //**********************************************************

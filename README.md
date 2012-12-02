@@ -36,7 +36,3 @@ following conditions:
 * No Tool and Weather at all.
 * No communication between humanoids.
 * No God.
-
-Current bugs
-============
-* aim == 0 in Humanoid

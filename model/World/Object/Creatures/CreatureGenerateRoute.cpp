@@ -4,8 +4,8 @@
 #include "Creature.h"
 
 #define __creature_generate_route_complete 1
-#define SCALE_FACTOR 2
-#define NODE_LIMIT 2500
+#define SCALE_FACTOR 3
+#define NODE_LIMIT 10000
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -26,31 +26,37 @@ public:
     // The sum of distance_to_origin and heuristic_value
     double value;
 
-    Vertex(Vector point, Vector goal) :
+    // The index of direction
+    uint direction;
+
+    Vertex(Vector point, Vector goal, uint direction) :
         point(point),
         prev_vertex(point),
         distance_to_origin(0),
         heuristic_value(point.getDistance(goal)),
-        value(heuristic_value)
+        value(heuristic_value),
+        direction(direction)
     {
     }
 
-    Vertex(Vector point, const Vertex &origin, Vector goal) :
+    Vertex(Vector point, const Vertex &origin, Vector goal, uint direction) :
         point(point),
         prev_vertex(origin.point),
         distance_to_origin(origin.point.getDistance(point) + 
                            origin.distance_to_origin),
         heuristic_value(point.getDistance(goal)),
-        value(distance_to_origin + heuristic_value)
+        value(distance_to_origin + heuristic_value),
+        direction(direction)
     {
     }
 };
 
+//**********************************************************
 // NOTE
 // The std::set thinks that elements are equal if:
 // !(a < b) && !(b < a)
 // This check is needed to identify equal elements in set.
-
+//**********************************************************
 // Comparison class for set.
 struct VertexComp
 {
@@ -75,6 +81,10 @@ struct VectorComp
     }
 };
 
+//**********************************************************
+// CONSTANTS
+//**********************************************************
+
 const Vector Creature::neighbour_offsets[8] = 
 {
     Vector(   0,    1),
@@ -87,14 +97,30 @@ const Vector Creature::neighbour_offsets[8] =
     Vector(  -1,    1)
 };
 
+const double Creature::MAX_OFFSET = 3;
+
+//**********************************************************
+// METHODS
+//**********************************************************
+
 // TODO
 // Make this virual and split it between humanoids and nonhumanoids.
 //
 // Check whether given point is passable or not, and check if it hits the goal.
 int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 {
+    // Check if we are out of bounds.
+    if (point.getX() < 0 || point.getY() < 0 ||
+        point.getX() >= world_size ||
+        point.getY() >= world_size)
+    {
+        return -1;
+    }
+
+    // Place our body on the point
     Shape ghost = getShape();
     ghost.setCenter(point);
+
     // Check if we can hit the goal.
     if (goal_in_sight && ghost.hitTest(aim -> getShape()))
     {
@@ -116,34 +142,19 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
         }
     }
 
-    // Check if we are out of bounds.
-    if (point.getX() < 0 || point.getY() < 0 ||
-        point.getX() >= SZ_WORLD_HSIDE ||
-        point.getY() >= SZ_WORLD_VSIDE)
+    // Check if it collides with something that we see
+    if ((obstacles_index -> getAreaContents(ghost)).getAmount())
     {
         return -1;
     }
-    // Place our body on the point
-    Shape sample = this -> getShape();
-    sample.setCenter(point);
 
-    // Check if it collides with something that we see
-    for (ObjectHeap::iterator i = obstacles -> begin();
-            i != obstacles -> end(); i++)
-    {
-        if ((*i) -> getShape().hitTest(sample))
-        {
-            return -1;
-        }
-    }
-    
     // If nothing bad happened, we can stand on the point
     return 0;
 
 }
 
 // TODO
-// Limit the search by constant number of processed nodes.
+// Make straightening of the route.
 Creature::Path Creature::generateRoute()
 {
     // Default behaviour
@@ -160,6 +171,10 @@ Creature::Path Creature::generateRoute()
         view_area.setCenter(this -> getCoords());
         Vector goal_point = goal -> getCoords();
         bool goal_in_sight = view_area.hitTest(goal -> getShape());
+        if (!goal_in_sight)
+        {
+            route.pop();
+        }
 
         // A closed list for vertices already processed.
         // Needed to find path back.
@@ -169,9 +184,12 @@ Creature::Path Creature::generateRoute()
         // Same list ordered by vertices
         std::set<Vertex, VectorComp> open_vector_set;
 
-        // Form obstacles heap.
-        delete obstacles;
-        obstacles = new ObjectHeap();
+        // Form index.
+        delete obstacles_index;
+        obstacles_index = new Indexator(view_area.getSize(), 0,
+                this -> getCoords() - Vector(1, 1) * (view_area.getSize() / 2),
+                Indexator::MIN_CELL_SIZE);
+
         for (ObjectHeap::iterator i = objects_around.begin();
              i != objects_around.end(); i++)
         {
@@ -185,24 +203,27 @@ Creature::Path Creature::generateRoute()
                 {
                     return result;
                 }
-                obstacles -> push(*i);
+                obstacles_index -> addObject(*i);
             }
         }
 
         // Iterators
         std::set<Vertex, VertexComp>::iterator vertex_iter;
         std::set<Vertex, VectorComp>::iterator vector_iter;
-        Vertex current(this -> getCoords(), goal_point);
+        Vertex current(this -> getCoords(), goal_point, 100);
 
         // Add starting vertex to the open_list.
         open_vertex_set.insert(current);
         open_vector_set.insert(current);
 
+        // Direction buffer
+        uint direction;
+
         while (!open_vertex_set.empty())
         {
             if (debug_step > NODE_LIMIT)
             {
-                aim = nullptr;
+                //aim = nullptr;
                 break;
             }
             debug_step++;
@@ -219,12 +240,12 @@ Creature::Path Creature::generateRoute()
             for (uint i = 0; i < 8; i++)
             {
                 Vector next_point =  current.point + 
-                        Creature::neighbour_offsets[i] * getShape().getSize() 
-                                                        / SCALE_FACTOR;
+                    Creature::neighbour_offsets[i] * CREAT_SPEED_SLOW_VALUE *
+                    SCALE_FACTOR;
                 int passable = checkPointIsPassable(next_point, goal_in_sight);
 
                 // If we already processed this vertex, skip it.
-                Vertex neighbour(next_point, current, goal_point);
+                Vertex neighbour(next_point, current, goal_point, i);
                 if (closed_set.find(neighbour) != closed_set.end())
                 {
                     continue;
@@ -240,12 +261,17 @@ Creature::Path Creature::generateRoute()
                     
                     // Reached the goal.
                     case 1:
+                        direction = 100;
                         // Get the result path
                         while (current.point != this -> getCoords())
                         {
-                            result.push(current.point);
-                            current.point = current.prev_vertex;
-                            current = *(closed_set.find(current));
+                            // Put only turning points
+                            if (current.direction != direction)
+                            {
+                                result.push(current.point);
+                                current.point = current.prev_vertex;
+                                current = *(closed_set.find(current));
+                            }
                         }
 
                         // Make the loops stop

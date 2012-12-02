@@ -8,7 +8,9 @@
 #include <iostream>
 #include <vector>
 
+#include "../../common/BasicDefines.h"
 #include "../../common/Math/Random.h"
+#include "Object/Creatures/Creature.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -24,6 +26,7 @@ World::World(std::string filepath) :
     hum_dmaker(HUMANOID),
     nhum_dmaker(NON_HUMANOID)
 {
+    Creature::world_size = size;
 }
 
 World::World(int rand_seed, uint size, bool generate_objs) :
@@ -35,6 +38,8 @@ World::World(int rand_seed, uint size, bool generate_objs) :
 
     Log::NOTE(std::string("Creating world with random seed ") +
               std::to_string(rand_seed) + ".");
+
+    Creature::world_size = size;
 
     this -> createEverything(generate_objs);
 }
@@ -242,6 +247,7 @@ void World::save(std::string filepath)
 void World::reset(uint size, bool generate_objs)
 {
     this -> size = size > 0 ? size : DEFAULT_SIZE;
+    Creature::world_size = size;
     this -> deleteEverything();
     this -> createEverything(generate_objs);
 }

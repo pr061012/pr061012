@@ -7,6 +7,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <sstream>
+#include <string>
 
 #include "../../../../../common/Log/Log.h"
 
@@ -230,15 +231,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (getHealth() < getMaxHealth() && common_steps == CREAT_STEPS)
-            {
-                this -> heal(CREAT_DELTA_HEALTH);
-            }
-
-            if (getEndurance() < getMaxEndurance())
-            {
-                increaseEndurance(CREAT_DELTA_ENDUR);
-            }
+            relax();
         }
     }
 
@@ -260,6 +253,7 @@ std::vector <Action>* Humanoid::getActions()
             iter != objects_around.end(CREATURE); iter++
         )
         {
+            // FIXME You don't use any of Creature's feature, why you make dynamic_cast?
             Creature* creat = dynamic_cast<Creature*>(*iter);
             if
             (
@@ -398,24 +392,27 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == BUILD_HOUSE)
     {
-        if (aim == nullptr)
-        {
-            aim = home;
-        }
-        Shape reach_area = this -> getReachArea();
-        reach_area.setCenter(this -> getCoords());
-        if (!reach_area.hitTest(aim -> getShape()))
-        {
-            go(SLOW_SPEED);
-            visualMemorize();
-        }
-        else
-        {
-            Action act(REGENERATE_OBJ, this);
-            act.addParticipant(home);
-            act.addParam("object_index", 0);
-            this -> actions.push_back(act);
-            current_action = NONE;
+        // FIXME Program can enter here with home == nullptr
+        if (home) {
+            if (aim == nullptr)
+            {
+                aim = home;
+            }
+            Shape reach_area = this -> getReachArea();
+            reach_area.setCenter(this -> getCoords());
+            if (!reach_area.hitTest(aim -> getShape()))
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
+            else
+            {
+                Action act(REGENERATE_OBJ, this);
+                act.addParticipant(home);
+                act.addParam("object_index", 0);
+                this -> actions.push_back(act);
+                current_action = NONE;
+            }
         }
     }
 
@@ -923,4 +920,3 @@ uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
 }
-

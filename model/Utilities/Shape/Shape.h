@@ -104,14 +104,21 @@ public:
     //**************************************************************************
 
 	/**
-     * @brief   Tests if a Shape includes a vector.
+     * @brief   Tests if a shape includes a point.
      * @return  true or false
-     * @param   vector    vector to test
+     * @param   point    point to test
 	 */
-    bool hitTest (const Vector& vector) const;
+    bool hitTest (const Vector& point) const;
+
+    /**
+     * @brief   Tests if a shape intersects a segment.
+     * @param   first   first end of the segment.
+     * @return  second  second end of the segment.
+     */
+    bool hitTest (const Vector& first, const Vector& second) const;
 
 	/**
-     * @brief   Tests if a Shape intersects with another Shape.
+     * @brief   Tests if a shape intersects with another shape.
      * @return  true or false
      * @param   shape   Shape to test
 	 */
@@ -129,12 +136,12 @@ public:
     //**************************************************************************
 
     /**
-     * @brief Gets the left bottom vector of the shape.
+     * @brief Gets the left bottom point of the shape.
      */
     Vector getLeftBottom() const;
 
     /**
-     * @brief Gets the right top vector of the shape.
+     * @brief Gets the right top point of the shape.
      */
     Vector getRightTop() const;
 
@@ -148,10 +155,10 @@ private:
     /// Size of shape.
     double size;
 
-    /// Left bottom vector related to center.
+    /// Left bottom point related to center.
     Vector left_bottom;
 
-    /// Right top vector related to center.
+    /// Right top point related to center.
     Vector right_top;
 
     /// Last coordinates.
@@ -162,21 +169,22 @@ private:
     //**************************************************************************
 
     /**
-     * @brief Computes new corner vectors related to center
+     * @brief Computes new corner points related to center.
      */
 
     void computeCorners();
+
+    /**
+     * @brief  Gets array of vertices.
+     * @return array of vertices.
+     */
+    std::vector<Vector> getVertices() const;
 
     /**
      * @brief Checks square-circle hit test
      */
 
     bool squareCircleHitTest(const Shape& square, const Shape& circle) const;
-
-    /**
-     *    @brief Checks if a segment overlaps a circle
-     */
-    bool circleOverlapsSegment(Shape shape, Vector pt1, Vector pt2) const;
 
 };
 

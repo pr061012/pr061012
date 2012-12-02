@@ -9,8 +9,10 @@
 #include "../Resource/Resource.h"
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Math/Random.h"
+#include "../../../../common/Math/DoubleComparison.h"
 #include "../Weather/Weather.h"
 
+double Creature::world_size = SZ_WORLD_HSIDE;
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -22,7 +24,9 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 
     // route computing variables
     goal(0),
+    last_goal_pos(0, 0),
     last_route_size(0),
+    obstacles_index(0),
 
     // some general attributes
     force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
@@ -36,38 +40,44 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     sleepiness (100 - max_sleepiness),
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
+
+    // steps
+    common_steps(CREAT_STEPS),
+    age_steps(CREAT_AGE_STEPS),
+    health_steps(CREAT_REGEN_HEALTH_STEPS),
+    endurance_steps(CREAT_REGEN_ENDURANCE_STEPS),
+    danger_steps(0),
     
     prev_action(GO),
     prev_action_state(SUCCEEDED),
     inventory(new ObjectHeap),
-    current_action(NONE),
-    attrs(arma::mat(DM_ATR_CONST, 1)),
-    brains(dmaker),
 
     // needs
-    need_in_descendants(0),
-    danger(0),               // we need in function to calculate it
+    need_in_descendants(0),  // we need in function to calculate it
                              // different for HUM and NON_HUM?
                              //
-    // step counters
-    common_steps(CREAT_STEPS),
-    age_steps(CREAT_AGE_STEPS),
     desc_steps(CREAT_DESC_STEPS),
-    danger_steps(1),
-    decr_sleep_step(1),
+    decr_sleep_step(0),
+    max_decr_sleep_step(0),
+    danger(0),
     
     // direction
     angle(0),
     direction_is_set(false),
     aim(0),
+
+    // decision
     current_decision(NONE),
-    obstacles(new ObjectHeap())
+    current_action(NONE),
+    attrs(arma::mat(DM_ATR_CONST, 1)),
+    brains(dmaker)
 {
 }
 
 Creature::~Creature()
 {
     delete inventory;
+    delete obstacles_index;
 }
 
 //******************************************************************************
@@ -113,9 +123,14 @@ ObjectHeap * Creature::getInventory()
     return this -> inventory;
 }
 
-uint Creature::getCurrentDecision() const
+CreatureAction Creature::getCurrentDecision() const
 {
     return current_decision;
+}
+
+CreatureAction Creature::getCurrentAction() const
+{
+    return current_action;
 }
 
 //**********************************************************
@@ -226,6 +241,7 @@ uint Creature::damage(uint delta)
     }
 
     this -> health -= d;
+    this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     return d;
 }
 
@@ -239,6 +255,7 @@ uint Creature::heal(uint delta)
     }
 
     this -> health += d;
+    this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     return d;
 }
 
@@ -446,44 +463,68 @@ const Object* Creature::getAim()
     return this -> aim;
 }
 
+//**********************************************************
+// DANGER EVALUATION
+//**********************************************************
+
+// Evaluates object's danger depending on the distance to it.
+double Creature::evaluateDanger(const Object * obj)
+{
+    
+    double view_radius = view_area.getSize() / 2;
+    double distance = getCoords().getDistance(obj -> getCoords());
+    double my_radius = getShape().getSize() / 2;
+    double obj_radius = getShape().getSize() / 2;
+
+    // ~1/R
+    // - infinitely grows at r = 0 for any object - may cause problems
+    /*
+    // Dependent on:
+    // - the ratio of object's danger to ours (== 1 if same)
+    double danger_ratio = double(obj -> getDangerLevel()) / getDangerLevel();
+
+    // - distance to object (== 1 if we stand right next to the object)
+    //                      (== 1 + 1/CREAT_DANGER_DISTANCE_FACTOR if distacne == 0)
+    double distance_ratio = (my_radius + obj_radius) * (CREAT_DANGER_DISTANCE_FACTOR + 1) / 
+                            (distance + CREAT_DANGER_DISTANCE_FACTOR * (my_radius + obj_radius));
+
+    // - size of view_area  (== 0 if we can't see object,
+    //                       == 1 if we stand right next to the object)
+    double view_ratio = fmax(0, (view_radius + obj_radius - distance) / 
+                                (view_radius - my_radius));
+
+    // - constant factor
+    return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
+    */
+
+    // ~r
+    double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
+                            CREAT_DANGER_FACTOR;
+
+    return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
+            danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
+}
+
 void Creature::chooseDirectionToEscape()
 {
     // Initialize vector of escaping.
-    double global_x = 0;
-    double global_y = 0;
+    Vector escape_vector(0, 0);
 
     // Add all dangerous objects danger levels as vectors
     // with length equal to object's danger level and
     // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
     for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
+        iter = objects_around.begin();
+        iter != objects_around.end(); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-        {
-            angle = getCoords().getAngle((*iter) -> getCoords());
-            global_x += (*iter) -> getDangerLevel() * cos(angle);
-            global_y += (*iter) -> getDangerLevel() * sin(angle);
-        }
-    }
-
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-        {
-            angle = getCoords().getAngle((*iter) -> getCoords());
-            global_x += (*iter) -> getDangerLevel() * cos(this -> angle);
-            global_y += (*iter) -> getDangerLevel() * sin(this -> angle);
-        }
+        angle = getCoords().getAngle((*iter) -> getCoords());
+        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter);
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = atan2(global_y, global_x) + M_PI;
+    this -> angle = Vector(0, 0).getAngle(escape_vector) + M_PI;
     aim = 0;
     direction_is_set = true;
 }
@@ -495,10 +536,22 @@ void Creature::chooseDirectionToEscape()
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
+    // Update attributes.
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
+    endurance_steps++;
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
+
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)
     {
         direction_is_set = false;
+
         // If we have the same route to the same aim, try to go random
         if (aim != nullptr && aim == goal && last_route_size == route.size())
         {
@@ -511,7 +564,7 @@ void Creature::go(SpeedType speed)
         }
     }
 
-    // if we don't have any aim, go the way we went before
+    // If we don't have any aim, go the way we went before
     if (!aim)
     {
         // if there is no direction, then go random
@@ -525,10 +578,15 @@ void Creature::go(SpeedType speed)
     else
     {
         // if we can't go the way we went, or the aim changed,
-        // reset route
-        if (!direction_is_set || aim != goal)
+        // or the aim moved too far, reset route
+        if (!direction_is_set || !goal || 
+            aim -> getObjectID() != goal -> getObjectID() || 
+            !DoubleComparison::isLess(last_goal_pos.getDistance(goal -> getCoords()),
+                                        MAX_OFFSET * getShape().getSize()/2))
         {
             goal = aim;
+            last_goal_pos = goal -> getCoords();
+            
             //generate route
             last_route_size = route.size();
             route = generateRoute();
@@ -568,11 +626,7 @@ void Creature::go(SpeedType speed)
     Action act(GO, this);
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
-    this -> actions.push_back(act);
-    if (speed == FAST_SPEED)
-    {
-        decreaseEndurance(1);
-    }
+    this -> actions.push_back(act);    
 }
 
 // Fights the aim.
@@ -612,20 +666,27 @@ void Creature::hunt()
     }
 }
 
+void Creature::relax()
+{
+    health_steps -= CREAT_RELAX_REGEN_HEALTH;
+    endurance_steps -= CREAT_RELAX_REGEN_ENDURANCE;
+}
+
 // Sleeping
 void Creature::sleep()
 {
-    // if the time has come, then sleep, heal, and rest.
-    if (!decr_sleep_step)
+    health_steps -= CREAT_SLEEP_REGEN_HEALTH;
+    endurance_steps -= CREAT_SLEEP_REGEN_ENDURANCE;
+
+    // if the time has come, then decrease sleepiness
+    if (decr_sleep_step <= 0)
     {
         decreaseSleepiness(1);
         if (!sleepiness)
         {
             this -> attrs(ATTR_SLEEPINESS, 0) = 0;
         }
-        increaseEndurance(1);
-        heal(CREAT_DELTA_HEALTH);
-        decr_sleep_step = max_decr_sleep_step;
+        decr_sleep_step += max_decr_sleep_step;
     }
     else
     {
@@ -714,47 +775,65 @@ std::string Creature::printObjectInfo() const
                                      std::to_string(aim -> getObjectID())) <<
                                      std::endl <<
           "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
-          "Objects around\t\t"    << std::endl << objects_around.printIDs();
+          "Objects around\t\t"    << std::endl << objects_around.printIDs() <<
+          "Matrix of attrs:\t\t"  << printAttrs() << std::endl <<
+          "Matrix of act\t\t"     << printActMatrix() << std::endl;
 
     return output + ss.str();
 }
 
-double Creature::setDirection()
+std::string Creature::printAttrs() const
 {
-    if (aim)
-        return this -> getCoords().getAngle(aim -> getCoords());
-    else
-        return Random::double_num(M_PI * 2);
+    std::stringstream ss;
+    ss << std::endl;
+    ss << "\tHUNGER:\t\t "       << attrs(ATTR_HUNGER,0)         << std::endl
+       << "\tSLEEPINESS:\t "     << attrs(ATTR_SLEEPINESS,0)     << std::endl
+       << "\tNEED_IN_HOUSE:\t "  << attrs(ATTR_NEED_IN_HOUSE,0)  << std::endl
+       << "\tNEED_IN_POINTS:\t " << attrs(ATTR_NEED_IN_POINTS,0) << std::endl
+       << "\tLAZINESS:\t "       << attrs(ATTR_LAZINESS,0)       << std::endl
+       << "\tHEALTH:\t\t "       << attrs(ATTR_HEALTH,0)         << std::endl
+       << "\tCOMMUNICATION:\t "  << attrs(ATTR_COMMUNICATION,0)  << std::endl
+       << "\tDANGER:\t\t "       << attrs(ATTR_DANGER,0)         << std::endl
+       << "\tNEED_IN_DESC:\t "   << attrs(ATTR_NEED_IN_DESC,0)   << std::endl;
+
+    return ss.str();
 }
 
+std::string Creature::printActMatrix() const
+{
+    std::stringstream ss;
+    arma::mat act = brains.getActMatrix(attrs);
+    ss << std::endl;
+    ss << "\tSLEEP:\t\t"        << act(0,0) << std::endl
+       << "\tBUILD:\t\t"        << act(1,0) << std::endl
+       << "\tWORK:\t\t"         << act(2,0) << std::endl
+       << "\tEAT:\t\t"          << act(3,0) << std::endl
+       << "\tRELAX:\t\t"        << act(4,0) << std::endl
+       << "\tCOMMUNICATE:\t"    << act(5,0) << std::endl
+       << "\tESCAPE:\t:\t"      << act(6,0) << std::endl
+       << "\tREALIZE_DREAM:\t"  << act(7,0) << std::endl
+       << "\tREPRODUCE:\t"      << act(8,0) << std::endl;
+
+   return ss.str();
+}
 
 //**********************************************************
 // UPDATES
 //**********************************************************
 
-// look for objects arounв and count danger level
+// look for objects around and count danger level
 void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
     this -> danger = 0;
 
-    // Only creatures and weather can be dangerous
     for(
-        iter = objects_around.begin(CREATURE);
-        iter != objects_around.end(CREATURE); iter++
+        iter = objects_around.begin();
+        iter != objects_around.end(); iter++
        )
     {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
-    }
-
-    for(
-        iter = objects_around.begin(WEATHER);
-        iter != objects_around.end(WEATHER); iter++
-       )
-    {
-        if (this -> getDangerLevel() < (*iter) -> getDangerLevel())
-            this -> danger += (*iter) -> getDangerLevel();
+        this -> danger += evaluateDanger(*iter);
+        assert(!isnan(danger));
     }
 
     // Update stats
@@ -766,10 +845,10 @@ void Creature::updateDanger()
 void Creature::updateCommonAttrs()
 {
     // Age updating
-    if (!age_steps)
+    if (age_steps <= 0)
     {
         increaseAge(1);
-        age_steps = CREAT_AGE_STEPS;
+        age_steps += CREAT_AGE_STEPS;
     }
     else
     {
@@ -777,7 +856,7 @@ void Creature::updateCommonAttrs()
     }
     
     // Sleepiness and hunger updating
-    if (!common_steps)
+    if (common_steps <= 0)
     {
         increaseHunger(CREAT_DELTA_HUNGER);
 
@@ -785,15 +864,37 @@ void Creature::updateCommonAttrs()
         {
             increaseSleepiness(CREAT_DELTA_SLEEP);
         }
-        common_steps = CREAT_STEPS;
+        common_steps += CREAT_STEPS;
+
         // Update attributes
         this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
         this -> attrs(ATTR_HUNGER, 0) = 100 * hunger / max_hunger;
-        this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     }
     else
     {
         common_steps--;
+    }
+
+    // Regenerating health.
+    if (health_steps <= 0)
+    {
+        heal(CREAT_DELTA_HEALTH);
+        health_steps += CREAT_REGEN_HEALTH_STEPS;
+    }
+    else
+    {
+        health_steps--;
+    }
+
+    // Regenerating endurance.
+    if (endurance_steps <= 0)
+    {
+        increaseEndurance(CREAT_DELTA_ENDUR);
+        endurance_steps += CREAT_REGEN_ENDURANCE_STEPS;
+    }
+    else
+    {
+        endurance_steps--;
     }
 
     // Starving
@@ -803,7 +904,7 @@ void Creature::updateCommonAttrs()
     }
 
     // Danger updating
-    if (danger_steps)
+    if (danger_steps <= 0)
     {
         updateDanger();
     }
@@ -817,6 +918,8 @@ void Creature::updateCommonAttrs()
 //******************************************************************************
 // INVENTORY
 //******************************************************************************
+
+// Adds object to inventory.
 void Creature::addToInventory(Object *obj)
 {
     // Resources should be stacked together
@@ -839,3 +942,8 @@ void Creature::addToInventory(Object *obj)
     this -> inventory -> push(obj);
 }
 
+// Remove object from inventory.
+void Creature::removeFromInventory(Object * obj)
+{
+    inventory -> remove(obj);
+}

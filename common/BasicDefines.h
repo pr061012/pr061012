@@ -205,7 +205,7 @@
 
 /// Stone tool strength.
 #define TOOL_STONE_STRENGTH         100
-/// Bronze tool strength.
+
 #define TOOL_BRONZE_STRENGTH        200
 /// Iron tool strength.
 #define TOOL_IRON_STRENGTH          400
@@ -335,19 +335,33 @@
 /// Maximum possible value of max_sleepiness.
 #define CREAT_SLEEPINESS_MAX        100
 
-/// Minimum possible value of forse.
+/// Minimum possible value of force.
 #define CREAT_FORCE_MIN             0
 /// Maximum possible value of force.
 #define CREAT_FORCE_MAX             100
 
-/// Amount of steps before updates basic attrs for creature.
+/// Amount of steps to update basic attrs for creature.
 #define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
-/// Amount of steps before updates safety
-#define CREAT_DANGER_STEPS          1 * TM_TICKS_PER_SECOND
-/// Amount of steps before updates need_in_descendants.
+/// Amount of steps to update danger.
+#define CREAT_DANGER_STEPS          TM_TICKS_PER_SECOND / 2
+/// Amount of steps to update health.
+#define CREAT_REGEN_HEALTH_STEPS    30 * TM_TICKS_PER_SECOND
+/// Amount if steps to update endurance.
+#define CREAT_REGEN_ENDURANCE_STEPS 5  * TM_TICKS_PER_SECOND
+/// Amount of steps to update need_in_descendants.
 #define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND
-/// Amount of steps before updates age.
+/// Amount of steps to update age.
 #define CREAT_AGE_STEPS             500 * TM_TICKS_PER_SECOND
+
+/// Amount of health regeneration steps while sleeping
+#define CREAT_SLEEP_REGEN_HEALTH    9
+/// Amount of endurance regeneration steps while sleeping
+#define CREAT_SLEEP_REGEN_ENDURANCE 4
+
+/// Amount of health regeneration steps while relaxing
+#define CREAT_RELAX_REGEN_HEALTH    2
+/// Amount of endurance regeneration steps while sleeping
+#define CREAT_RELAX_REGEN_ENDURANCE 2
 
 /// Changes of hunger for one step
 #define CREAT_DELTA_HUNGER          2
@@ -358,7 +372,7 @@
 #define CREAT_DELTA_HEALTH          1
 
 /// Changes of endurance
-#define CREAT_DELTA_ENDUR          1
+#define CREAT_DELTA_ENDUR           1
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            20
@@ -368,6 +382,9 @@
 
 /// Creature's slow speed.
 #define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
+
+/// Constant for evaluating danger for creatures.
+#define CREAT_DANGER_FACTOR             2
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
@@ -441,10 +458,13 @@
 /// Maximum possible value of non-humanoid's max_age.
 #define NHUM_AGE_MAX                20
 
-/// Changes of need_in_descendant for one step
+/// Changes of need_in_descendant for one step.
 #define NHUM_DELTA_NEED_IN_DESC     2
 
-/// Amount of steps to decrease sleepiness
+/// Amount of steps to decrease sleepiness.
 #define NHUM_DECR_SLEEP_STEPS       100
+
+/// Amount of steps to change non-humanoid's roaming direction.
+#define NHUM_ROAM_STEPS             300
 
 #endif // BASIC_DEFINES_H

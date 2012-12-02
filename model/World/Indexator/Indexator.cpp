@@ -1,31 +1,44 @@
 #include "Indexator.h"
 #include <cmath>
 
-const double Indexator::MAX_CELL_SIZE = 100;
+const double Indexator::MAX_CELL_SIZE = 25;
+const double Indexator::MIN_CELL_SIZE = 10;
 
 //******************************************************************************
 // CONSTRUCTORS/DESTRUCTOR.
 //******************************************************************************
 
-Indexator::Indexator(): world_size(0), row_size(0), cell_size(0)
+Indexator::Indexator(): 
+    world_size(0),
+    row_size(0),
+    cell_size(0), 
+    dx(0),
+    dy(0),
+    world_shape(Shape()),
+    cells(0)
 {
 }
 
-Indexator::Indexator(double size, ObjectHeap* list) :
-    world_size(size), row_size(ceil(size/MAX_CELL_SIZE)),
-    cell_size(size / row_size), 
-    world_shape(Shape(Vector(size/2, size/2), SQUARE, size))
-{
-    // say that our cells are not initizlized
-    cells = 0;
+Indexator::Indexator(double size, ObjectHeap* list, Vector left_bottom, 
+                        double cell_size) :
+    world_size(size), 
+    row_size(ceil(size / cell_size)),
+    cell_size(size / row_size),
+    dx(left_bottom.getX()),
+    dy(left_bottom.getY()),
+    world_shape(Shape(Vector(size/2, size/2), SQUARE, size)),
 
+    // say that our cells are not initizlized
+    cells(0)
+{
+    // If we have objects, then indexate them. 
     if (list)
     {
         reindexate(list);
     }
+    // Just initialize cells for further operations.
     else
     {
-        // just initialize cells for further operations
         init();
     }
 }
@@ -107,7 +120,8 @@ ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
             */
             //*****************************************************************
 
-                if (area.hitTest((*i) -> getShape()) && (*i) != viewer)
+                if (area.hitTest((*i) -> getShape()) && (!viewer ||
+                    (*i) -> getObjectID() != viewer -> getObjectID()))
                 {
                     result.push(*i);
                 }
@@ -276,10 +290,10 @@ uint * Indexator::getCellsArea(Shape& shape)
 
     // Compute the cells it intersects
     uint * area = new uint[4];
-    area[0] = getRow(lb.getX());
-    area[1] = getRow(lb.getY());
-    area[2] = getRow(rt.getX());
-    area[3] = getRow(rt.getY());
+    area[0] = getRow(lb.getX() - dx);
+    area[1] = getRow(lb.getY() - dy);
+    area[2] = getRow(rt.getX() - dx);
+    area[3] = getRow(rt.getY() - dy);
     
     //*************************************************************************
     /** Toroidal feature

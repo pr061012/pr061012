@@ -4,6 +4,7 @@
 */
 
 #include <cmath>
+#include <limits>
 
 #include "Vector.h"
 #include "../../../common/BasicDefines.h"
@@ -54,7 +55,7 @@ double Vector::getDistanceToLine(const Vector& line_start,
 // OTHER UTILITIES
 //**********************************************************
 
-Vector Vector::project(Vector pt1, Vector pt2) const
+Vector Vector::project(const Vector& pt1, const Vector& pt2) const
 {
     double length = pt1.getDistance(pt2);
     // if a line is not a line, project straight to the vector
@@ -62,22 +63,82 @@ Vector Vector::project(Vector pt1, Vector pt2) const
     {
         return pt1;
     }
-
+    // Triangle ABC: projecting C on AB
+    // AB
     Vector vec_line = pt2 - pt1;
+    // AC
     Vector vec_pt   = *this - pt1;
+    // (AB, AC) = |AB|*|AC|*cos(AB^AC)
+    // |AC'| = |AC|*cos(AB^AC)
+    // scale * |AB| = |AC'| = (AC, AB) / |AB|
     double scale = scalarProduct(vec_pt, vec_line) / 
                    (pow(vec_line.getX(), 2) + pow(vec_line.getY(), 2));
+
+    // OC' = OA + AC' = OA + AB * |AC'|/|AB|
     return pt1 + Vector(vec_line.getX() * scale, vec_line.getY() * scale); 
 }
 
-double Vector::scalarProduct(Vector vec1, Vector vec2)
+double Vector::scalarProduct(const Vector& vec1, const Vector& vec2)
 {
     return vec1.getX() * vec2.getX() + vec1.getY() * vec2.getY();
 }
 
-double Vector::getAngle(Vector vec) const
+double Vector::vectorProduct(const Vector& vec1, const Vector& vec2)
+{
+    return vec1.getX() * vec2.getY() - vec2.getX() * vec1.getY();
+}
+
+double Vector::getAngle(const Vector& vec) const
 {
     return atan2((vec.getY() - y), (vec.getX() - x));
+}
+
+// Gets point's projection's parameter on the line,
+// parametrized by points zero and one.
+double Vector::getLineParameter(const Vector& zero, const Vector& one) const
+{
+    // pr_this = zero + (one - zero) * t
+    // From Creature::project:
+    // pr_this = zero + (one - zero) * (this - zero, one - zero) / |one - zero|
+    // t = (this - zero, one - zero) / |one - zero|
+    double dist = zero.getDistance(one);
+    if (DoubleComparison::areEqual(dist, 0))
+    {
+        return 0;
+    }
+    return scalarProduct(*this - zero, one - zero) / dist;
+}
+
+// Finds the intersection of two lines defined with pairs of points.
+Vector Vector::getLinesIntersection(const Vector& first_start, 
+                                    const Vector& first_end,
+                                    const Vector& second_start,
+                                    const Vector& second_end)
+{
+    Vector v1 = first_end - first_start;
+    Vector v2 = second_end - second_start;
+    double a1 = v1.getY();
+    double b1 = -v1.getX();
+    double c1 = vectorProduct(first_end, first_start);
+    double a2 = v2.getY();
+    double b2 = -v2.getX();
+    double c2 = vectorProduct(second_end, second_start);
+
+    // Cramer's rule.
+    Vector result;
+    double det = a1 * b2 - a2 * b1;
+
+    // No intersection or equal lines
+    if (DoubleComparison::areEqual(det, 0))
+    {
+        result.setX(std::numeric_limits<double>::quiet_NaN());
+        return result;
+    }
+
+    result.setX(c1 * b2 - c2 * b1);
+    result.setY(a1 * c2 - c1 * a2);
+    result /= det;
+    return result;
 }
 
 //******************************************************************************

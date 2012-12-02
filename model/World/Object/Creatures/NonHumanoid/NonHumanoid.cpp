@@ -5,14 +5,15 @@
 
 #include <cstdlib>
 
-#include "NonHumanoid.h"
 
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"
 #include "../../../../../common/Math/DoubleComparison.h"
-
 #include "../../Resource/Resource.h"
+#include "../EDeprecatedAction.h"
+
+#include "NonHumanoid.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -48,8 +49,9 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_DANGER, 0)         = danger;
     attrs(ATTR_NEED_IN_DESC, 0)   = 0; // need_in_descendants;
 
-    // Initialise type.
+    // Initialise private attributes.
     subsubtype = COW;
+    roam_steps = 0;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -76,13 +78,12 @@ std::string NonHumanoid::printObjectInfo() const
 
 std::vector <Action>* NonHumanoid::getActions()
 {
-    // FIXME: Delete Log::NOTE();
-    this -> desc_steps--;
-
-    if (desc_steps == 0)
-    {
-        updateNeedInDesc();
-    }
+    // FIXME: Implement it.
+//    this -> desc_steps--;
+//    if (desc_steps == 0)
+//    {
+//        updateNeedInDesc();
+//    }
 
     // Update current state
     updateCommonAttrs();
@@ -90,20 +91,33 @@ std::vector <Action>* NonHumanoid::getActions()
     // Store the result of last action and clear actions.
     clearActions();
 
-    if (!brains.isDecisionActual(attrs, current_decision))
+    // Checking whether current action is actual.
+    if
+    (
+        !brains.isDecisionActual(attrs, current_action) ||
+        (current_action == SLEEP && getSleepiness() == 0) ||
+        (current_action == EAT && getHunger() == 0)
+    )
     {
-        current_decision = NONE;
+        current_action = NONE;
+    }
+
+    // Checking non-humanoid's sleepiness.
+    if (getSleepiness() == getMaxSleepiness())
+    {
+        current_action = SLEEP;
     }
 
     //**************************************************************************
     // DECISION : NONE | OK
     //**************************************************************************
-    if (current_decision == NONE)
-    {
-        Log::NOTE("NONE");
-        // Make decision.
-        current_decision = brains.makeDecision(attrs);
 
+    if (current_action == NONE)
+    {
+        // Make decision.
+        current_action = brains.makeDecision(attrs);
+
+        // Zeroing everything else.
         direction_is_set = false;
         aim = nullptr;
     }
@@ -111,47 +125,48 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : SLEEP | OK
     //**************************************************************************
-    if (current_decision == SLEEP)
+
+    if (current_action == SLEEP)
     {
-        Log::NOTE("SLEEP");
         sleep();
     }
 
     //*************************************************************************
     // DECISION : RELAX | OK
     //**************************************************************************
-    else if (current_decision == RELAX)
-    {
-        Log::NOTE("RELAX");
-        if (common_steps == CREAT_STEPS)
-        {
-            heal(CREAT_DELTA_HEALTH);
-        }
 
-        if (getEndurance() < getMaxEndurance())
+    else if (current_action == RELAX)
+    {
+        relax();
+
+        // Wherever I may roam...
+        if (roam_steps == 0)
         {
-            increaseEndurance(1);
+            roam_steps = NHUM_ROAM_STEPS;
+            direction_is_set = false;
         }
+        roam_steps--;
+
         go(SLOW_SPEED);
     }
 
     //**************************************************************************
     // DECISION : EAT | OK
     //**************************************************************************
-    else if (current_decision == EAT)
+
+    else if (current_action == EAT)
     {
-        Log::NOTE("EAT");
-        // If aim doesn't exist, then find grass.
+        // If aim doesn't exist trying find grass.
         if (aim == nullptr)
         {
             findGrass();
         }
 
-        // If aim exists, then...
+        // If aim was found, then...
         if (aim != nullptr)
         {
-            // Check distance to aim.
-            if (this -> getShape().hitTest(aim -> getShape()))
+            // ... check distance to aim.
+            if (getShape().hitTest(aim -> getShape()))
             {
                 Action act(EAT_OBJ, this);
                 act.addParticipant(aim);
@@ -164,15 +179,22 @@ std::vector <Action>* NonHumanoid::getActions()
         }
         else
         {
-            direction_is_set = false;
+            // ... otherwise roaming and trying to find food.
+            if (roam_steps == 0)
+            {
+                roam_steps = NHUM_ROAM_STEPS;
+                direction_is_set = false;
+            }
+            roam_steps--;
+
             go(SLOW_SPEED);
         }
 
         // Check hunger state.
         if (getHunger() == 0)
         {
-            this -> current_action = NONE;
-            direction_is_set = false;
+            current_action = NONE;
+            direction_is_set = true;
             aim = nullptr;
         }
     }
@@ -180,89 +202,64 @@ std::vector <Action>* NonHumanoid::getActions()
     //**************************************************************************
     // DECISION : ESCAPE
     //**************************************************************************
-    else if (current_decision == ESCAPE)
-    {
-        Log::NOTE("ESCAPE");
 
+    else if (current_action == ESCAPE)
+    {
         if (!direction_is_set)
         {
             chooseDirectionToEscape();
         }
+
         go(SLOW_SPEED);
     }
 
     //**************************************************************************
-    // DECISION : REPRODUCE
+    // DECISION : DEPRECATED DECISIONS
     //**************************************************************************
-    else if (current_decision == REPRODUCE)
+
+    else
     {
-        Log::NOTE("REPRODUCE");
+        throw EDeprecatedAction(NON_HUMANOID, current_decision);
     }
 
-    else if (current_decision == COMMUNICATE)
-    {
-        Log::NOTE("COMMUNICATE");
-    }
-
-    else if (current_decision == WORK)
-    {
-        Log::NOTE("WORK");
-    }
-
-    else if (current_decision == GATHER)
-    {
-        Log::NOTE("GATHER");
-    }
-
-    else if (current_decision == EXPLORE)
-    {
-        Log::NOTE("EXPLORE");
-    }
-
-    else if (current_decision == REALIZE_DREAM)
-    {
-        Log::NOTE("REALIZE_DREAM");
-    }
-
-    else if (current_decision == BUILD)
-    {
-        Log::NOTE("BUILD");
-    }
     return &actions;
 
 }
 
 void NonHumanoid::receiveMessage(Message message)
 {
-    MessageType msg_type = message.getType();
-
-    if (msg_type == UNDER_ATTACK)
-    {
-        chooseDirectionToEscape();
-        go(SLOW_SPEED);
-    }
+//    MessageType msg_type = message.getType();
+//
+//    if (msg_type == UNDER_ATTACK)
+//    {
+//        chooseDirectionToEscape();
+//        go(SLOW_SPEED);
+//    }
 }
 
 //******************************************************************************
-// UPDATES
+// UPDATES.
 //******************************************************************************
+
 void NonHumanoid::updateNeedInDesc()
 {
+    // FIXME: Silly update.
     this -> need_in_descendants += NHUM_DELTA_NEED_IN_DESC;
     this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
 //******************************************************************************
-// AUXILIARY FUNTIONS
+// AUXILIARY FUNCTIONS.
 //******************************************************************************
+
 void NonHumanoid::findGrass()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
-    double distance = SZ_NHUM_VIEW_DIAM;
+    double distance = this -> getViewArea().getSize() / 2;
 
-    // Find grass in around objects heap.
+    // Find grass in objects around.
     for
     (
         iter = objects_around.begin(RESOURCE);
@@ -273,11 +270,12 @@ void NonHumanoid::findGrass()
         if (res -> getSubtype() == RES_FOOD)
         {
             coords = res -> getCoords();
+
             // Check distance to grass.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;
-                direction_is_set = false;
+                direction_is_set = true;
                 distance = coords.getDistance(this -> getCoords());
             }
         }
