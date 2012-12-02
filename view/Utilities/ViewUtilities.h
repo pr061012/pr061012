@@ -16,6 +16,11 @@ class ViewUtilities
 public:
     static void renderText(double x, double y, double size, std::string msg, double line_size = 0.0)
     {
+        for(int i = 0; i < msg.length(); ++i)
+        {
+            if(msg[i] == '\t')msg[i] = ' ';
+        }
+
         const char* txt = msg.c_str();
 
         int scr_width, scr_height;
