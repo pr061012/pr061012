@@ -35,6 +35,8 @@ public:
     virtual std::vector<const Object*> getViewObjectsInArea(double x, double y, double size) const = 0;
 
     virtual WeatherType getWeatherAtPoint(double x, double y) const = 0;
+
+    virtual Object* getObjectByID(uint id) const = 0;
 };
 
 #endif // IWORLD_H

@@ -40,8 +40,17 @@ View::View(const IWorld& w)
 #endif
     ));
 
-    //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
-    //this -> addInterfaceObject(console);
+    sel_info = new TextField(VIEW_CAM_SIZE/2, getMaxScrY()-4.0, 4.0, 4.0
+#ifdef __glfw3_h__
+    ,window
+#endif
+    );
+
+    sel_info -> setFontSize(0.2);
+    sel_info -> setLocked(true);
+    this -> sel_info -> setHidden(true);
+
+    this -> addInterfaceObject(this -> sel_info);
 
     this -> setFocus( rendered.at(0) );
 }
@@ -172,6 +181,7 @@ void View::redraw()
     glTranslatef(0, 0, -1);
 
     view_world -> redraw();
+    this -> displaySelectionInfo();
 
     int mouse_x, mouse_y;
     glfwGetMousePos(&mouse_x, &mouse_y);
@@ -209,6 +219,14 @@ void View::redraw()
                 std::cout << selected -> printObjectInfo();
                         
             }
+
+            this -> view_world -> setSelection(selection.at(0) -> getObjectID());
+            this -> sel_info -> setHidden(false);
+        }
+        else
+        {
+            this -> view_world -> clearSelection();
+            this -> sel_info -> setHidden(true);
         }
 
         mouse_clicked = false;
@@ -222,7 +240,7 @@ void View::redraw()
 
         for(uint i = 0; i < this -> rendered.size(); ++i)
         {
-            if(rendered.at(i) -> hitTest(sx, sy))
+            if(rendered.at(i) -> hitTest(sx, sy) && !rendered.at(i) -> isLocked())
             {
                 focus_changed = true;
                 this -> setFocus(this -> rendered.at(i));
@@ -298,6 +316,74 @@ void View::redraw()
     glfwSwapBuffers();
 }
 
+void View::displaySelectionInfo()
+{
+    const Object* obj = this -> view_world -> getSelection();
+    if(obj)
+    {
+        //this -> sel_info -> setText(printObjectViewInfo(obj));
+        this -> sel_info -> setText(obj -> printObjectInfo());
+    }
+}
+
+std::string View::printObjectViewInfo(const Object* obj)
+{
+    std::stringstream ss;
+
+    switch(obj -> getType())
+    {
+        case RESOURCE:
+        {
+            const Resource* res = static_cast<const Resource*>(obj);
+            switch(res -> getSubtype())
+            {
+                case RES_FOOD:
+                    ss << "Grass?" << std::endl;
+                    break;
+                case RES_BUILDING_MAT:
+                    ss << "Wood?" << std::endl;
+                    break;
+                default:
+                    ss << "Resource" << std::endl;
+                    break;
+            }
+            break;
+        }
+        case BUILDING:
+            ss << "Building" << std::endl;
+            break;
+        case TOOL:
+            ss << "Tool" << std::endl;
+            break;
+        case CREATURE:
+        {
+            const Creature* cr = static_cast<const Creature*>(obj);
+            switch(cr -> getSubtype())
+            {
+                case HUMANOID:
+                    // Display the name of certain humanoid.
+                    ss << "Noname" << std::endl;
+
+                    ss << "Human?" << std::endl;
+                    break;
+                case NON_HUMANOID:
+                    ss << "Cow?" << std::endl;
+                    break;
+            }
+            break;
+        }
+        default:
+            ss << "You can't select weather, y'know?" << std::endl;
+            break;
+    }
+
+//    ss << "\\HP "
+//       << ((double)obj -> getHealthPoints()) / (obj -> getMaxHealthPoints())
+//       << std::endl;
+
+    return ss.str();
+}
+
 void View::initWindow()
 {
     glfwInit();
@@ -342,8 +428,8 @@ void View::addInterfaceObject(TextField *new_obj)
     rendered.push_back(new_obj);
 }
 
-void View::addConsoleOutput(std::string app)
-{
-    std::string text = console -> getText();
-    console -> setText(text + "\n" + app);
-}
+//void View::addConsoleOutput(std::string app)
+//{
+//    std::string text = console -> getText();
+//    console -> setText(text + "\n" + app);
+//}

@@ -47,6 +47,9 @@
 /// Default is VIEW_CAM_RADIUS/8 game units of length
 #define VIEW_GRID_SIZE              (double) 4
 
+/// Defines the default value of TextField top margin, relative to the font size.
+#define VIEW_TXT_TOP_MARGIN         0.25
+
 //******************************************************************************
 // SIZE DEFINES.
 // Prefix: SZ.

@@ -193,7 +193,7 @@ public:
      */
     // ObjectHeap* getObjectsInRange(double x, double y, double radius);
 
-    Object* getObjectByID(uint id);
+    Object* getObjectByID(uint id) const;
 
 
     //******************************************************************************
