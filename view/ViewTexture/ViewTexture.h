@@ -31,7 +31,8 @@ public:
     ~ViewTexture();
 
 
-    void render(double x, double y, double width, double height);
+    void render(double x, double y, double width, double height,
+                double x_offset = 0.0, double y_offset = 0.0) const;
 };
 
 #endif // VIEW_TEXTURE_H

@@ -42,7 +42,8 @@ ViewTexture::~ViewTexture()
     glDeleteTextures(1, &this -> texture);
 }
 
-void ViewTexture::render(double x, double y, double width, double height)
+void ViewTexture::render(double x, double y, double width, double height,
+                         double x_offset, double y_offset) const
 {
     // In case some texture is bound already, save it to rebind later.
     GLint boundTexture = 0;
@@ -60,15 +61,16 @@ void ViewTexture::render(double x, double y, double width, double height)
         glEnable(GL_BLEND);
     }
     glBegin(GL_POLYGON);
-        glTexCoord2f(x , y ); glVertex2f(x , y );
-        glTexCoord2f(x1, y ); glVertex2f(x1, y );
-        glTexCoord2f(x1, y1); glVertex2f(x1, y1);
-        glTexCoord2f(x , y1); glVertex2f(x , y1);
+        glTexCoord2f(x  + x_offset, y  + y_offset); glVertex2f(x , y );
+        glTexCoord2f(x1 + x_offset, y  + y_offset); glVertex2f(x1, y );
+        glTexCoord2f(x1 + x_offset, y1 + y_offset); glVertex2f(x1, y1);
+        glTexCoord2f(x  + x_offset, y1 + y_offset); glVertex2f(x , y1);
     glEnd();
     if(this -> alpha)
     {
         glDisable(GL_BLEND);
     }
+
     glDisable(GL_TEXTURE_2D);
 
 

@@ -68,7 +68,7 @@ private:
 
     /// vector of loaded textures
     //GLuint texture_buf[3];
-    std::vector texture_buf;
+    std::vector<ViewTexture*> texture_buf;
 
     /**
      * @brief preload game textures in openGL
@@ -164,6 +164,8 @@ public:
      */
     void setX(double new_var);
     void setY(double new_var);
+
+    const ViewTexture* getObjectTexture(const Object* obj);
 
 };
 
