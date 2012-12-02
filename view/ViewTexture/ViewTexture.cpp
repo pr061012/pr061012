@@ -35,6 +35,8 @@ ViewTexture::ViewTexture(const char* path, uint flags)
 
         // Rebinding the texture that was bound beforehand.
         glBindTexture(GL_TEXTURE_2D, boundTexture);
+
+        this -> scale = 1.0;
     }
     else
     {
@@ -54,6 +56,16 @@ void ViewTexture::setTextureDimensions(double tex_x, double tex_y, double tex_w,
     this -> tex_y = tex_y;
     this -> tex_w = tex_w;
     this -> tex_h = tex_h;
+}
+
+void ViewTexture::setScale(double scale)
+{
+    this -> scale = scale;
+}
+
+double ViewTexture::getScale()
+{
+    return this -> scale;
 }
 
 void ViewTexture::render(double x, double y, double width, double height,
@@ -77,6 +89,11 @@ void ViewTexture::render(double x, double y, double width, double height,
         t_y  = y  + y_offset;
         t_x1 = x1 + x_offset;
         t_y1 = y1 + y_offset;
+
+//        t_x  /= scale;
+//        t_y  /= scale;
+//        t_x1 /= scale;
+//        t_y1 /= scale;
     }
     else
     {
@@ -95,10 +112,22 @@ void ViewTexture::render(double x, double y, double width, double height,
         glEnable(GL_BLEND);
     }
     glBegin(GL_POLYGON);
-        glTexCoord2f(t_x , t_y ); glVertex2f(x , y );
-        glTexCoord2f(t_x1, t_y ); glVertex2f(x1, y );
-        glTexCoord2f(t_x1, t_y1); glVertex2f(x1, y1);
-        glTexCoord2f(t_x , t_y1); glVertex2f(x , y1);
+        if(this -> repeats)
+        {
+            double z = -1.0 + scale;
+
+            glTexCoord2f(t_x , t_y ); glVertex3f(x , y , z);
+            glTexCoord2f(t_x1, t_y ); glVertex3f(x1, y , z);
+            glTexCoord2f(t_x1, t_y1); glVertex3f(x1, y1, z);
+            glTexCoord2f(t_x , t_y1); glVertex3f(x , y1, z);
+        }
+        else
+        {
+            glTexCoord2f(t_x , t_y ); glVertex2f(x , y );
+            glTexCoord2f(t_x1, t_y ); glVertex2f(x1, y );
+            glTexCoord2f(t_x1, t_y1); glVertex2f(x1, y1);
+            glTexCoord2f(t_x , t_y1); glVertex2f(x , y1);
+        }
     glEnd();
     if(this -> alpha)
     {

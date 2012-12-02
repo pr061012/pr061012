@@ -102,7 +102,7 @@ void ViewWorld::loadTextures()
     flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
 
     ViewTexture* tex = new ViewTexture("res/tree.png", flags);
-    tex -> setTextureDimensions(126.0/640, 1.0 - 110.0/480, 196.0/640, 1.0);
+    tex -> setTextureDimensions(126.0/640, 0.0, 1.0, 1.0);
     texture_buf.push_back(tex);
 
     tex = new ViewTexture("res/cow.png", flags);
