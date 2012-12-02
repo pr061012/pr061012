@@ -4,7 +4,7 @@
 #include "Creature.h"
 
 #define __creature_generate_route_complete 1
-#define SCALE_FACTOR 2
+#define SCALE_FACTOR 3
 #define NODE_LIMIT 100000
 
 // Class for vertices with which we will build our graph.
@@ -241,8 +241,8 @@ Creature::Path Creature::generateRoute()
             for (uint i = 0; i < 8; i++)
             {
                 Vector next_point =  current.point + 
-                        Creature::neighbour_offsets[i] * getShape().getSize() 
-                                                        / SCALE_FACTOR;
+                    Creature::neighbour_offsets[i] * CREAT_SPEED_SLOW_VALUE *
+                    SCALE_FACTOR;
                 int passable = checkPointIsPassable(next_point, goal_in_sight);
 
                 // If we already processed this vertex, skip it.
@@ -308,8 +308,8 @@ Creature::Path Creature::generateRoute()
         // Think how to process failures (path not found)
 
     }
-    //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
-    //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
+    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }
