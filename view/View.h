@@ -20,6 +20,7 @@
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
 #include "Utilities/ViewUtilities.h"
+#include "ViewTexture/ViewTexture.h"
 
 #include <GL/glc.h>
 
@@ -62,6 +63,9 @@ class View
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
 
+    /// Vector of currently loaded textures.
+    std::vector<ViewTexture*> texture_buf;
+
     /// Dimensions of program window, in pixels
     int width;
     int height;
@@ -87,6 +91,11 @@ public:
      * @brief Destructor
      */
     ~View();
+
+    /**
+     * @brief Load textures that are going to be drawn into game interface.
+     */
+    void loadTextures();
 
 private:
     bool paused;
@@ -167,6 +176,12 @@ public:
      * @brief Redraw currently displayed world.
      */
     void redraw();
+
+    /**
+     * @brief Draw a bar filled with certain percentage.
+     * @param percent value from 0 to 1, indicating bar fullness
+     */
+    void drawProgressBar(double x, double y, double width, double percent = 1.0);
 
     void displaySelectionInfo();
 
