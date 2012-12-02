@@ -38,7 +38,7 @@ else
 endif
 
 # View debug.
-CFLAGS += -DVIEW_DEBUG
+#CFLAGS += -DVIEW_DEBUG
 
 # Rules.
 

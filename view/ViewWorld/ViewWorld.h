@@ -10,6 +10,7 @@
 #include <SOIL/SOIL.h>
 
 #include "../Utilities/ViewUtilities.h"
+#include "../ViewTexture/ViewTexture.h"
 
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
@@ -65,8 +66,9 @@ private:
     // TEXTURE LOADING.
     //**************************************************************************
 
-    /// array of loaded textures
-    GLuint texture_buf[3];
+    /// vector of loaded textures
+    //GLuint texture_buf[3];
+    std::vector<ViewTexture*> texture_buf;
 
     /**
      * @brief preload game textures in openGL
@@ -162,6 +164,8 @@ public:
      */
     void setX(double new_var);
     void setY(double new_var);
+
+    const ViewTexture* getObjectTexture(const Object* obj);
 
 };
 

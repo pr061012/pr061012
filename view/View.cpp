@@ -14,6 +14,8 @@ View::View(const IWorld& w)
 {
     initWindow();
 
+    loadTextures();
+
     glfwGetWindowSize(&this -> width,
                       &this -> height);
 
@@ -29,9 +31,7 @@ View::View(const IWorld& w)
     glcContext(this -> glc_context);
 
     this -> font = glcGenFontID();
-    //glcNewFontFromMaster(this -> font, 0);
     glcNewFontFromFamily(this -> font, "monospace");
-
     glcFont(this -> font);
 
     this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, -getMaxScrY(), 10.0, 0.5
@@ -65,9 +65,21 @@ View::~View()
         delete rendered.at(i);
     }
 
+    for(uint i = 0; i < texture_buf.size(); i++)
+    {
+        delete texture_buf.at(i);
+    }
+
     glcDeleteFont(this -> font);
 
     glfwTerminate();
+}
+
+void View::loadTextures()
+{
+    uint flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
+    texture_buf.push_back(new ViewTexture("res/bar_empty.png", flags));
+    texture_buf.push_back(new ViewTexture("res/bar_red.png",   flags));
 }
 
 double View::getX()
@@ -205,12 +217,12 @@ void View::redraw()
     }
     else if (glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE && mouse_clicked)
     {
-        if(selection.size() > 0)
+        if (selection.size() > 0)
         {
             std::cout << "=======Selection stats=========="
                       << std::endl;
 
-            for(uint i = 0; i < selection.size(); ++i)
+            for (uint i = 0; i < selection.size(); ++i)
             {
                 const Object* selected = selection.at(i);
 
@@ -232,22 +244,22 @@ void View::redraw()
         mouse_clicked = false;
     }
 
-    if(mouse_clicked)
+    if (mouse_clicked)
     {
         bool focus_changed = false;
 
         this -> setFocus(NULL);
 
-        for(uint i = 0; i < this -> rendered.size(); ++i)
+        for (uint i = 0; i < this -> rendered.size(); ++i)
         {
-            if(rendered.at(i) -> hitTest(sx, sy) && !rendered.at(i) -> isLocked())
+            if (rendered.at(i) -> hitTest(sx, sy) && !rendered.at(i) -> isLocked())
             {
                 focus_changed = true;
                 this -> setFocus(this -> rendered.at(i));
             }
         }
 
-        if(!focus_changed)
+        if (!focus_changed)
         {
             // Draw a circle at cursor position
 
@@ -257,9 +269,21 @@ void View::redraw()
         }
     }
 
+    if (selection.size() > 0)
+    {
+        const Object* obj = selection[0];
+
+        double px = view_world -> worldToScreenX(obj -> getCoords().getX());
+        double py = view_world -> worldToScreenY(obj -> getCoords().getY());
+        double sz = view_world -> worldToScreenDist(obj -> getShape().getSize());
+
+        drawProgressBar(px-sz, py + sz/4, sz*2,
+                        (double)obj -> getHealthPoints() / obj -> getMaxHealthPoints());
+    }
+
 
 #ifdef VIEW_DEBUG
-    if(display_grid)
+    if (display_grid)
     {
         // In debug mode, draw a grid over the screen.
 
@@ -280,7 +304,7 @@ void View::redraw()
         int end = getMaxScrX() * getDistance();
 
         glBegin(GL_LINES);
-        for(int i = -end; i <= end; i++)
+        for (int i = -end; i <= end; i++)
         {
                 double shift = (double)i / grid_size;
 
@@ -311,13 +335,23 @@ void View::redraw()
 
     // Render interface objectsTextField* focus
 
-    for(uint i = 0; i < rendered.size(); ++i)
+    for (uint i = 0; i < rendered.size(); ++i)
     {
         rendered.at(i) -> render( rendered.at(i) == focus );
     }
 
     glLoadIdentity();
     glfwSwapBuffers();
+}
+
+void View::drawProgressBar(double x, double y, double width, double percent)
+{
+    double height = width/5;
+
+    texture_buf[1] -> setTextureDimensions(0, 0, percent, 1.0);
+
+    texture_buf[0] -> render(x, y, width,         height);
+    texture_buf[1] -> render(x, y, width*percent, height);
 }
 
 void View::displaySelectionInfo()

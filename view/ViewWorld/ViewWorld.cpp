@@ -17,14 +17,6 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 {
     loadTextures();
 
-    for(int i = 0; i<2; ++i)
-    {
-        if( 0 == texture_buf[i] )
-        {
-            Log::ERROR("SOIL loading error:'" + std::string(SOIL_last_result()) + "'.");
-        }
-    }
-
     this -> x = 50.0;
     this -> y = 50.0;
 
@@ -39,39 +31,26 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 
 ViewWorld::~ViewWorld()
 {
-    glDeleteTextures( 3, texture_buf ); // Clearing textures that were previously created
+    for(uint i = 0; i < texture_buf.size(); ++i)
+    {
+        delete texture_buf[i];
+    }
 }
 
 void ViewWorld::loadTextures()
 {
-    this -> texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
-    (
-        "res/rock.png",
-        SOIL_LOAD_RGBA,
-        SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
-    );
+    uint flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;
+    texture_buf.push_back(new ViewTexture("res/rock.png", flags));
 
-    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
-    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+    flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
 
-    this -> texture_buf[1] = SOIL_load_OGL_texture
-    (
-        "res/tree.png",
-        SOIL_LOAD_RGBA,
-        SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
-    );
+    ViewTexture* tex = new ViewTexture("res/tree.png", flags);
+    tex -> setTextureDimensions(126.0/640, 1.0 - 110.0/480,
+                                70.0/640, 110.0/480);
+    texture_buf.push_back(tex);
 
-    this -> texture_buf[2] = SOIL_load_OGL_texture
-    (
-        "res/cow.png",
-        SOIL_LOAD_RGBA,
-        SOIL_CREATE_NEW_ID,
-        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
-    );
+    tex = new ViewTexture("res/cow.png", flags);
+    texture_buf.push_back(tex);
 }
 
 void ViewWorld::redraw()
@@ -130,6 +109,8 @@ double ViewWorld::getCamRad()
 void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
+
+    this -> texture_buf[0] -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -155,8 +136,6 @@ void ViewWorld::clearSelection()
 
 const Object* ViewWorld::getSelection()
 {
-    // TODO: I have to do it in more elegant way.
-
     if (!this -> is_selected)
     {
         return NULL;
@@ -182,6 +161,37 @@ void ViewWorld::setY(double new_var)
     new_var = new_var < world.getSize() - y_max_rad ?
               new_var : world.getSize() - y_max_rad;
     this -> y = new_var;
+}
+
+const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
+{
+    const ViewTexture* ret = NULL;
+
+    switch(obj -> getType())
+    {
+        case RESOURCE:
+            ret = texture_buf[1];
+            break;
+        case CREATURE:
+        {
+            const Creature* cr = static_cast<const Creature*>(obj);
+
+            switch(cr -> getSubtype())
+            {
+                case HUMANOID:
+                    ret = texture_buf[1];
+                    break;
+                case NON_HUMANOID:
+                    ret = texture_buf[2];
+                    break;
+            }
+            break;
+        }
+        default:
+            ret = texture_buf[2];
+            break;
+    }
+    return ret;
 }
 
 #ifdef VIEW_DEBUG
@@ -248,7 +258,7 @@ void ViewWorld::renderObject(const Object* object)
     {
         ViewUtilities::glCirclef_blend(px, py, radius);
 
-        if (object -> getObjectID() == selected_id)
+        if (is_selected && object -> getObjectID() == selected_id)
         {
             glColor4d(1.0, 0.0, 1.0, 0.4);
             ViewUtilities::glCirclef_blend(px, py, radius, false);
@@ -258,7 +268,7 @@ void ViewWorld::renderObject(const Object* object)
     {
         ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius);
 
-        if (object -> getObjectID() == selected_id)
+        if (is_selected && object -> getObjectID() == selected_id)
         {
             glColor4d(1.0, 0.0, 1.0, 0.4);
             ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius, false);
@@ -267,51 +277,13 @@ void ViewWorld::renderObject(const Object* object)
 
     glColor3d(1.0, 1.0, 1.0);
 #else
-    // TODO: Redo image coordinates to be taken from (file?)
-    float x0;
-    float y0;
-    float x1;
-    float y1;
 
-    float x_sz;
-    float y_sz;
+    double sz = object -> getShape().getSize();
+    sz  = worldToScreenDist(sz);
+    px -= sz/2;
+    py -= sz/2;
 
-    if (object -> getType() == RESOURCE)
-    {
-        x0 = 126.0/640;
-        y0 = 1.0 - 110.0/480;
-        x1 = 196.0/640;
-        y1 = 1.0;
-
-        x_sz = 0.33;
-        y_sz = 0.5;
-
-        glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
-    }
-    if(object -> getType() == CREATURE)
-    {
-        x0 = 0.0;
-        y0 = 0.0;
-        x1 = 1.0;
-        y1 = 1.0;
-
-        x_sz = 0.58;
-        y_sz = 0.4;
-
-        glBindTexture(GL_TEXTURE_2D, texture_buf[2]);
-    }
-
-    glEnable(GL_TEXTURE_2D);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_BLEND);
-    glBegin(GL_POLYGON);
-        glTexCoord2f(x0, y0); glVertex2f(px-x_sz, py-y_sz);
-        glTexCoord2f(x1, y0); glVertex2f(px+x_sz, py-y_sz);
-        glTexCoord2f(x1, y1); glVertex2f(px+x_sz, py+y_sz);
-        glTexCoord2f(x0, y1); glVertex2f(px-x_sz, py+y_sz);
-    glEnd();
-    glDisable(GL_BLEND);
-    glDisable(GL_TEXTURE_2D);
+    this -> getObjectTexture(object) -> render(px, py, sz, sz);
 #endif
 
 }
@@ -319,27 +291,13 @@ void ViewWorld::renderObject(const Object* object)
 void ViewWorld::renderBackground()
 {
 #ifndef VIEW_DEBUG
-    double px = worldToScreenX( 0.0 );
-    double py = worldToScreenY( 0.0 );
+    double px = worldToScreenX( x - floor(x) );
+    double py = worldToScreenY( y - floor(y) );
 
-    py *= height/width;
 
-    glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
-
-    glEnable(GL_TEXTURE_2D);
-
-    glBegin(GL_POLYGON);
-        glTexCoord2f(px       , py);
-        glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(px + 16.0, py);
-        glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(px + 16.0, 16.0 + py);
-        glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-        glTexCoord2f(0.0  + px, 16.0 + py);
-        glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-    glEnd();
-
-    glDisable(GL_TEXTURE_2D);
+    texture_buf[0] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+                             2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
+                              -px, -py);
 
     glColor3f(1.0f, 1.0f, 1.0f);
 #else
