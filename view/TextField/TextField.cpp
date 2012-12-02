@@ -68,18 +68,12 @@ void TextField::render(bool in_focus)
             }
             ViewUtilities::renderText(x, y + height - font_size * line_size,
                                       scaled_size, str,
-                              #ifdef __glfw3_h__
-                                  window,
-                              #endif
                                       font_size * line_size * 1.1);
         }
         else
         {
             ViewUtilities::renderText(x, y + height - font_size * line_size,
                                       scaled_size, content,
-                              #ifdef __glfw3_h__
-                                  window,
-                              #endif
                                       font_size * line_size * 1.1);
         }
     }
