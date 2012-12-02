@@ -76,33 +76,14 @@ void ViewWorld::loadTextures()
 //        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
 //    );
 
-    //        x0 = 126.0/640;
-    //        y0 = 1.0 - 110.0/480;
-    //        x1 = 196.0/640;
-    //        y1 = 1.0;
-
-    //        x_sz = 0.33;
-    //        y_sz = 0.5;
-
-    //        glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
-    //    }
-    //    if(object -> getType() == CREATURE)
-    //    {
-    //        x0 = 0.0;
-    //        y0 = 0.0;
-    //        x1 = 1.0;
-    //        y1 = 1.0;
-
-    //        x_sz = 0.58;
-    //        y_sz = 0.4;
-
     uint flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;
     texture_buf.push_back(new ViewTexture("res/rock.png", flags));
 
     flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
 
     ViewTexture* tex = new ViewTexture("res/tree.png", flags);
-    tex -> setTextureDimensions(126.0/640, 0.0, 1.0, 1.0);
+    tex -> setTextureDimensions(126.0/640, 1.0 - 110.0/480,
+                                70.0/640, 110.0/480);
     texture_buf.push_back(tex);
 
     tex = new ViewTexture("res/cow.png", flags);
@@ -166,7 +147,7 @@ void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
 
-    this -> texture_buf[0] -> setScale(rad / VIEW_CAM_RADIUS);
+    this -> texture_buf[0] -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -225,6 +206,9 @@ const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
 
     switch(obj -> getType())
     {
+        case RESOURCE:
+            ret = texture_buf[1];
+            break;
         case CREATURE:
         {
             const Creature* cr = static_cast<const Creature*>(obj);

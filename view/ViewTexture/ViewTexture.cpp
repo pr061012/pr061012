@@ -85,15 +85,18 @@ void ViewTexture::render(double x, double y, double width, double height,
 
     if(this -> repeats)
     {
+        x  /= scale;
+        y  /= scale;
+        x1 /= scale;
+        y1 /= scale;
+
+        x_offset /= scale;
+        y_offset /= scale;
+
         t_x  = x  + x_offset;
         t_y  = y  + y_offset;
         t_x1 = x1 + x_offset;
         t_y1 = y1 + y_offset;
-
-//        t_x  /= scale;
-//        t_y  /= scale;
-//        t_x1 /= scale;
-//        t_y1 /= scale;
     }
     else
     {
@@ -114,7 +117,7 @@ void ViewTexture::render(double x, double y, double width, double height,
     glBegin(GL_POLYGON);
         if(this -> repeats)
         {
-            double z = -1.0 + scale;
+            double z = 1.0 - 1.0/scale;
 
             glTexCoord2f(t_x , t_y ); glVertex3f(x , y , z);
             glTexCoord2f(t_x1, t_y ); glVertex3f(x1, y , z);
