@@ -19,9 +19,10 @@ ViewTexture::ViewTexture(const char* path, uint flags)
                    std::string(SOIL_last_result()) + "'.");
     }
 
-    this -> alpha = flags & SOIL_FLAG_MULTIPLY_ALPHA;
+    this -> alpha   = flags & SOIL_FLAG_MULTIPLY_ALPHA;
+    this -> repeats = flags & SOIL_FLAG_TEXTURE_REPEATS;
 
-    if(flags & SOIL_FLAG_TEXTURE_REPEATS)
+    if(this -> repeats)
     {
         // In case some texture is bound already, save it to rebind later.
         GLint boundTexture = 0;
@@ -35,11 +36,24 @@ ViewTexture::ViewTexture(const char* path, uint flags)
         // Rebinding the texture that was bound beforehand.
         glBindTexture(GL_TEXTURE_2D, boundTexture);
     }
+    else
+    {
+        this -> setTextureDimensions(0.0, 0.0, 1.0, 1.0);
+    }
+
 }
 
 ViewTexture::~ViewTexture()
 {
     glDeleteTextures(1, &this -> texture);
+}
+
+void ViewTexture::setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h)
+{
+    this -> tex_x = tex_x;
+    this -> tex_y = tex_y;
+    this -> tex_w = tex_w;
+    this -> tex_h = tex_h;
 }
 
 void ViewTexture::render(double x, double y, double width, double height,
@@ -52,6 +66,26 @@ void ViewTexture::render(double x, double y, double width, double height,
     double x1 = x + width;
     double y1 = y + height;
 
+    double t_x;
+    double t_y;
+    double t_x1;
+    double t_y1;
+
+    if(this -> repeats)
+    {
+        t_x  = x  + x_offset;
+        t_y  = y  + y_offset;
+        t_x1 = x1 + x_offset;
+        t_y1 = y1 + y_offset;
+    }
+    else
+    {
+        t_x  = tex_x + x_offset;
+        t_y  = tex_y + y_offset;
+        t_x1 = t_x + tex_w;
+        t_y1 = t_y + tex_h;
+    }
+
     glBindTexture(GL_TEXTURE_2D, this -> texture);
 
     glEnable(GL_TEXTURE_2D);
@@ -61,10 +95,10 @@ void ViewTexture::render(double x, double y, double width, double height,
         glEnable(GL_BLEND);
     }
     glBegin(GL_POLYGON);
-        glTexCoord2f(x  + x_offset, y  + y_offset); glVertex2f(x , y );
-        glTexCoord2f(x1 + x_offset, y  + y_offset); glVertex2f(x1, y );
-        glTexCoord2f(x1 + x_offset, y1 + y_offset); glVertex2f(x1, y1);
-        glTexCoord2f(x  + x_offset, y1 + y_offset); glVertex2f(x , y1);
+        glTexCoord2f(t_x , t_y ); glVertex2f(x , y );
+        glTexCoord2f(t_x1, t_y ); glVertex2f(x1, y );
+        glTexCoord2f(t_x1, t_y1); glVertex2f(x1, y1);
+        glTexCoord2f(t_x , t_y1); glVertex2f(x , y1);
     glEnd();
     if(this -> alpha)
     {

@@ -17,6 +17,18 @@ class ViewTexture
 
     bool alpha;
 
+    bool repeats;
+
+    /// Width and height dimensions of selected texture
+    double tex_x;
+    double tex_y;
+
+    double tex_w;
+    double tex_h;
+
+    /// Used only for repeating textures.
+    double scale;
+
 public:
 
     /**
@@ -29,6 +41,8 @@ public:
      * @brief Destructor
      */
     ~ViewTexture();
+
+    void setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h);
 
 
     void render(double x, double y, double width, double height,
