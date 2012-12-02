@@ -17,9 +17,9 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 {
     loadTextures();
 
-    for(int i = 0; i<2; ++i)
+    for (int i = 0; i<2; ++i)
     {
-        if( 0 == texture_buf[i] )
+        if (0 == texture_buf[i])
         {
             Log::ERROR("SOIL loading error:'" + std::string(SOIL_last_result()) + "'.");
         }
