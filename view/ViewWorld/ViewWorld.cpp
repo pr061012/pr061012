@@ -33,6 +33,8 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
     this -> width = width;
     this -> height = height;
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
+
+    this -> is_selected = false;
 }
 
 ViewWorld::~ViewWorld()
@@ -140,6 +142,29 @@ double ViewWorld::getY()
     return this -> y;
 }
 
+void ViewWorld::setSelection(uint id)
+{
+    this -> selected_id = id;
+    this -> is_selected = true;
+}
+
+void ViewWorld::clearSelection()
+{
+    this -> is_selected = false;
+}
+
+const Object* ViewWorld::getSelection()
+{
+    // TODO: I have to do it in more elegant way.
+
+    if (!this -> is_selected)
+    {
+        return NULL;
+    }
+
+    return this -> world.getObjectByID(this -> selected_id);
+}
+
 void ViewWorld::setX(double new_var)
 {
     new_var = new_var > getCamRad() ?
@@ -219,13 +244,25 @@ void ViewWorld::renderObject(const Object* object)
 
     double radius = this -> worldToScreenDist(object->getShape().getSize()/2);
 
-    if( object -> getShape().getType() == CIRCLE )
+    if (object -> getShape().getType() == CIRCLE)
     {
         ViewUtilities::glCirclef_blend(px, py, radius);
+
+        if (object -> getObjectID() == selected_id)
+        {
+            glColor4d(1.0, 0.0, 1.0, 0.4);
+            ViewUtilities::glCirclef_blend(px, py, radius, false);
+        }
     }
     else
     {
         ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius);
+
+        if (object -> getObjectID() == selected_id)
+        {
+            glColor4d(1.0, 0.0, 1.0, 0.4);
+            ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius, false);
+        }
     }
 
     glColor3d(1.0, 1.0, 1.0);
@@ -239,7 +276,7 @@ void ViewWorld::renderObject(const Object* object)
     float x_sz;
     float y_sz;
 
-    if(object -> getType() == RESOURCE)
+    if (object -> getType() == RESOURCE)
     {
         x0 = 126.0/640;
         y0 = 1.0 - 110.0/480;
@@ -296,9 +333,9 @@ void ViewWorld::renderBackground()
         glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
         glTexCoord2f(px + 16.0, py);
         glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-        glTexCoord2f(px + 16.0, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(px + 16.0, 16.0 + py);
         glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-        glTexCoord2f(0.0  + px, 16.0*VIEW_ASPECT_RATIO + py);
+        glTexCoord2f(0.0  + px, 16.0 + py);
         glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
     glEnd();
 

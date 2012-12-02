@@ -10,6 +10,7 @@
 #include <GL/glc.h>
 #include "../dev_glfw.h"
 #include "../Utilities/ViewUtilities.h"
+#include "../../common/BasicDefines.h"
 
 class TextField
 {
@@ -21,6 +22,7 @@ class TextField
     double width;
     bool hidden;
     double font_size;
+    bool locked;
     
 #ifdef __glfw3_h__ 
     GLFWwindow window;
@@ -46,6 +48,14 @@ public:
 
     void setHidden(bool hidden);
     bool isHidden();
+
+    void setFontSize(double font_size);
+
+    double getFontSize();
+
+    void setLocked(bool locked);
+
+    bool isLocked();
 };
 
 #endif // TEXT_FIELD_H
