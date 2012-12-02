@@ -17,14 +17,6 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 {
     loadTextures();
 
-//    for (int i = 0; i<2; ++i)
-//    {
-//        if (0 == texture_buf[i])
-//        {
-//            Log::ERROR("SOIL loading error:'" + std::string(SOIL_last_result()) + "'.");
-//        }
-//    }
-
     this -> x = 50.0;
     this -> y = 50.0;
 
@@ -47,35 +39,6 @@ ViewWorld::~ViewWorld()
 
 void ViewWorld::loadTextures()
 {
-//    this -> texture_buf[0] = SOIL_load_OGL_texture // Load an image file directly as a new OpenGL texture, using SOIL.
-//    (
-//        "res/rock.png",
-//        SOIL_LOAD_RGBA,
-//        SOIL_CREATE_NEW_ID,
-//        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS
-//    );
-
-//    glBindTexture(GL_TEXTURE_2D, texture_buf[0]);
-//    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );
-//    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-//    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-
-//    this -> texture_buf[1] = SOIL_load_OGL_texture
-//    (
-//        "res/tree.png",
-//        SOIL_LOAD_RGBA,
-//        SOIL_CREATE_NEW_ID,
-//        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
-//    );
-
-//    this -> texture_buf[2] = SOIL_load_OGL_texture
-//    (
-//        "res/cow.png",
-//        SOIL_LOAD_RGBA,
-//        SOIL_CREATE_NEW_ID,
-//        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA
-//    );
-
     uint flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;
     texture_buf.push_back(new ViewTexture("res/rock.png", flags));
 
@@ -314,60 +277,13 @@ void ViewWorld::renderObject(const Object* object)
 
     glColor3d(1.0, 1.0, 1.0);
 #else
-    // TODO: Redo image coordinates to be taken from (file?)
-//    float x0;
-//    float y0;
-//    float x1;
-//    float y1;
-
-//    float x_sz;
-//    float y_sz;
-
-//    if (object -> getType() == RESOURCE)
-//    {
-//        x0 = 126.0/640;
-//        y0 = 1.0 - 110.0/480;
-//        x1 = 196.0/640;
-//        y1 = 1.0;
-
-//        x_sz = 0.33;
-//        y_sz = 0.5;
-
-//        glBindTexture(GL_TEXTURE_2D, texture_buf[1]);
-//    }
-//    if(object -> getType() == CREATURE)
-//    {
-//        x0 = 0.0;
-//        y0 = 0.0;
-//        x1 = 1.0;
-//        y1 = 1.0;
-
-//        x_sz = 0.58;
-//        y_sz = 0.4;
-
-//        glBindTexture(GL_TEXTURE_2D, texture_buf[2]);
-//    }
 
     double sz = object -> getShape().getSize();
     sz  = worldToScreenDist(sz);
     px -= sz/2;
     py -= sz/2;
 
-    //glRectf(px-sz, py-sz, px+sz, py+sz);
-
     this -> getObjectTexture(object) -> render(px, py, sz, sz);
-
-//    glEnable(GL_TEXTURE_2D);
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//    glEnable(GL_BLEND);
-//    glBegin(GL_POLYGON);
-//        glTexCoord2f(x0, y0); glVertex2f(px-x_sz, py-y_sz);
-//        glTexCoord2f(x1, y0); glVertex2f(px+x_sz, py-y_sz);
-//        glTexCoord2f(x1, y1); glVertex2f(px+x_sz, py+y_sz);
-//        glTexCoord2f(x0, y1); glVertex2f(px-x_sz, py+y_sz);
-//    glEnd();
-//    glDisable(GL_BLEND);
-//    glDisable(GL_TEXTURE_2D);
 #endif
 
 }
@@ -377,26 +293,6 @@ void ViewWorld::renderBackground()
 #ifndef VIEW_DEBUG
     double px = worldToScreenX( x - floor(x) );
     double py = worldToScreenY( y - floor(y) );
-
-
-//    py *= height/width;
-
-//    glBindTexture(GL_TEXTURE_2D, this -> texture_buf[0]);
-
-//    glEnable(GL_TEXTURE_2D);
-
-//    glBegin(GL_POLYGON);
-//        glTexCoord2f(px       , py);
-//        glVertex2f(-VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-//        glTexCoord2f(px + 16.0, py);
-//        glVertex2f( VIEW_CAM_SIZE, -VIEW_CAM_SIZE);
-//        glTexCoord2f(px + 16.0, 16.0 + py);
-//        glVertex2f( VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-//        glTexCoord2f(0.0  + px, 16.0 + py);
-//        glVertex2f(-VIEW_CAM_SIZE,  VIEW_CAM_SIZE);
-//    glEnd();
-
-//    glDisable(GL_TEXTURE_2D);
 
 
     texture_buf[0] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
