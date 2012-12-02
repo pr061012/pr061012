@@ -14,7 +14,8 @@ Indexator::Indexator():
     cell_size(0), 
     dx(0),
     dy(0),
-    world_shape(Shape())
+    world_shape(Shape()),
+    cells(0)
 {
 }
 

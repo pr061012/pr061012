@@ -5,7 +5,7 @@
 
 #define __creature_generate_route_complete 1
 #define SCALE_FACTOR 3
-#define NODE_LIMIT 100000
+#define NODE_LIMIT 10000
 
 // Class for vertices with which we will build our graph.
 class Vertex
@@ -109,8 +109,18 @@ const double Creature::MAX_OFFSET = 3;
 // Check whether given point is passable or not, and check if it hits the goal.
 int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 {
+    // Check if we are out of bounds.
+    if (point.getX() < 0 || point.getY() < 0 ||
+        point.getX() >= world_size ||
+        point.getY() >= world_size)
+    {
+        return -1;
+    }
+
+    // Place our body on the point
     Shape ghost = getShape();
     ghost.setCenter(point);
+
     // Check if we can hit the goal.
     if (goal_in_sight && ghost.hitTest(aim -> getShape()))
     {
@@ -132,19 +142,8 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
         }
     }
 
-    // Check if we are out of bounds.
-    if (point.getX() < 0 || point.getY() < 0 ||
-        point.getX() >= SZ_WORLD_HSIDE ||
-        point.getY() >= SZ_WORLD_VSIDE)
-    {
-        return -1;
-    }
-    // Place our body on the point
-    Shape sample = this -> getShape();
-    sample.setCenter(point);
-
     // Check if it collides with something that we see
-    if ((obstacles_index -> getAreaContents(sample)).getAmount())
+    if ((obstacles_index -> getAreaContents(ghost)).getAmount())
     {
         return -1;
     }
@@ -308,8 +307,8 @@ Creature::Path Creature::generateRoute()
         // Think how to process failures (path not found)
 
     }
-    std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
-            goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
+    //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
+    //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
     return result;
 }

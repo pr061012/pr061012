@@ -12,6 +12,7 @@
 #include "../../../../common/Math/DoubleComparison.h"
 #include "../Weather/Weather.h"
 
+double Creature::world_size = SZ_WORLD_HSIDE;
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
