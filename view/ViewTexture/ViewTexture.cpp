@@ -20,6 +20,21 @@ ViewTexture::ViewTexture(const char* path, uint flags)
     }
 
     this -> alpha = flags & SOIL_FLAG_MULTIPLY_ALPHA;
+
+    if(flags & SOIL_FLAG_TEXTURE_REPEATS)
+    {
+        // In case some texture is bound already, save it to rebind later.
+        GLint boundTexture = 0;
+        glGetIntegerv(GL_TEXTURE_BINDING_2D, &boundTexture);
+
+        glBindTexture(GL_TEXTURE_2D, this -> texture);
+        glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );
+        glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+        glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+        // Rebinding the texture that was bound beforehand.
+        glBindTexture(GL_TEXTURE_2D, boundTexture);
+    }
 }
 
 ViewTexture::~ViewTexture()
@@ -29,7 +44,7 @@ ViewTexture::~ViewTexture()
 
 void ViewTexture::render(double x, double y, double width, double height)
 {
-    // In case some texture is bound already, save it to rebind later
+    // In case some texture is bound already, save it to rebind later.
     GLint boundTexture = 0;
     glGetIntegerv(GL_TEXTURE_BINDING_2D, &boundTexture);
 
