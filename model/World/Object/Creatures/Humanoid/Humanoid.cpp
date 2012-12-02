@@ -228,15 +228,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            if (getHealth() < getMaxHealth() && common_steps == CREAT_STEPS)
-            {
-                this -> heal(CREAT_DELTA_HEALTH);
-            }
-
-            if (getEndurance() < getMaxEndurance())
-            {
-                increaseEndurance(CREAT_DELTA_ENDUR);
-            }
+            relax();
         }
     }
 

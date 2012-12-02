@@ -265,7 +265,6 @@ public:
      * @param delta the increment value
      * @return the added value
      */
-    
     uint increaseEndurance(uint delta);
     
     /**
@@ -273,7 +272,6 @@ public:
      * @param delta the decrement value
      * @return subtracted value
      */
-    
     uint decreaseEndurance(uint delta);
     
 
@@ -326,7 +324,6 @@ public:
      * @param delta the increment value
      * @return the added value
      */
-    
     uint increaseSleepiness(uint delta);
     
     /**
@@ -334,9 +331,7 @@ public:
      * @param delta the decrement value
      * @return subtracted value
      */
-    
     uint decreaseSleepiness(uint delta);
-    
     
     /**
      * @brief get the id of aim
@@ -345,42 +340,63 @@ public:
     const Object* getAim();
 
     //**************************************************************************
-    // DEBUG
+    // DECISION
     //**************************************************************************
     
-    /// Get current action
-    uint getCurrentDecision() const;
+    /**
+     * @brief  Gets current decision.
+     * @return current decision.
+     */
+    CreatureAction getCurrentDecision() const;
+
+    /**
+     * @brief  Gets curretn action.
+     * @return current action.
+     */
+    CreatureAction getCurrentAction() const;
 
     //**************************************************************************
     // HEALTH MANIPULATION.
     //**************************************************************************
 
+    /**
+     * @brief  Gets current health points.
+     * @return current health.
+     */
     uint getHealthPoints() const;
+
+    /**
+     * @brief  Gets maximum health points.
+     * @return maximum health.
+     */
     uint getMaxHealthPoints() const;
 
-    uint damage(uint delta);
-    uint heal(uint delta);
-
-    //**************************************************************************
-    // Increase attributes
-    //**************************************************************************
     /**
-     * @brief Increases satiety level
-     * @param delta parameter changes
+     * @brief  Decreases health.
+     * @param  delta the increment value.
+     * @return subtracted amount.
      */
-    void feed(uint delta);
+    uint damage(uint delta);
 
+    /**
+     * @brief  Increases health.
+     * @param  delta the decrement value.
+     * @return added amount.
+     */
+    uint heal(uint delta);
 
     //**************************************************************************
     // INHERETED THINGS.
     //**************************************************************************
-
+    
     virtual void receiveMessage(Message message) = 0;
 
     std::string printObjectInfo() const;
     std::string printAttrs() const;
     std::string printActMatrix() const;
+
 private:
+
     /// Creature's type.
     const CreatureType subtype;
 
@@ -389,6 +405,10 @@ private:
 
     /// Reach area.
     Shape reach_area;
+
+    //**********************************************************
+    // PATH FINDING UTILITY VARIABLES
+    //**********************************************************
 
     /// Typedef for path.
     typedef std::stack<Vector> Path;
@@ -433,22 +453,41 @@ private:
     /// Current health.
     uint health;
 
-    // Quotient = 100 => creature wants sleep.
-
     /// Maximum possible value of sleepiness.
     uint max_sleepiness;
-
     /// Current value of sleepiness.
     uint sleepiness;
 
     /// Maximum possible value of hunger.
     uint max_hunger;
-    // Quotient = 100 => creature wants eat.
     /// Current value of hunger.
     uint hunger;
 
-protected:
+    //**********************************************************
+    // STEPS
+    //**********************************************************
+    
+    /// Amount of steps to update common attributes.
+    int common_steps;
 
+    /// Amount of steps to update age.
+    int age_steps;
+
+    /// Amount of steps to update health.
+    int health_steps;
+
+    /// Amount of steps to update endurance.
+    int endurance_steps;
+
+    /// Amount for steps to danger update.
+    int danger_steps;
+
+protected:
+    
+    //**********************************************************
+    // ACTION HISTORY
+    //**********************************************************
+    
     /// Prevoius action.
     ActionType prev_action;
 
@@ -457,21 +496,58 @@ protected:
 
     /// Previous action error
     ActionError prev_action_error;
-
+    
+    //**********************************************************
+    // HEAPS
+    //**********************************************************
+    
     /// Creature's inventory.
     ObjectHeap * inventory;
 
-    /**
-     * @brief    Calculate the angle between first (this) and second (aim) object
-     * @return   angle
-     */
-    double setDirection();
+    /// Creature's enviroment
+    ObjectHeap objects_around;
+
+    //**********************************************************
+    // COMMON NEEDS
+    //**********************************************************
+    
+    /// Current value of need_in_descendants (0-100)
+	uint need_in_descendants;
+
+    /// Amount for steps to need_in_descendant update.
+    int desc_steps;
+
+    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
+    int decr_sleep_step;
+
+    /// Maximum value of decr_sleep_step
+    int max_decr_sleep_step;
+
+    /// Current danger.
+    double danger;
+
+    //**************************************************************************
+    // DIRECTION
+    //**************************************************************************
+    
+    /// The direction of creature
+    double angle;
+
+    /// Flag that shows if direction is set
+    bool direction_is_set;
+
+    /// Current direction (subject) oh NHum
+    Object* aim;
+
+    //**************************************************************************
+    // DECISION
+    //**************************************************************************
+
+    /// Current decision of creature
+    CreatureAction current_decision;
 
     /// Current creature's action.
     CreatureAction current_action;
-
-    /// Creature's enviroment
-    ObjectHeap objects_around;
 
     /// Matrix of attributes
     arma::mat attrs;
@@ -479,46 +555,11 @@ protected:
     /// Reference to creature's DecisionMaker.
     const DecisionMaker& brains;
 
-    /// Current value of need_in_descendants (0-100)
-	uint need_in_descendants;
-
-    // If = 100, creature is in danger.
-    /// Current danger.
-    double danger;
-
-    /// Amount for steps to common update.
-    uint common_steps;
-    /// Amount for steps to age update.
-    uint age_steps;
-    /// Amount for steps to need_in_descendant update.
-    uint desc_steps;
-    /// Amount for steps to danger update.
-    uint danger_steps;
-    /// Amount of steps before decreasion of sleepiness. When creature is sleeping
-    uint decr_sleep_step;
-    /// Maximum value of decr_sleep_step
-    uint max_decr_sleep_step;
-
-    //**************************************************************************
-    // DIRECTION
-    //**************************************************************************
-    /// The direction of creature
-    double angle;
-    /// Flag that shows if direction is set
-    bool direction_is_set;
-    /// Current direction (subject) oh NHum
-    Object* aim;
-
-    //**************************************************************************
-    // DECISION
-    /// Current decision of creature
-    //**************************************************************************
-        CreatureAction current_decision;
-
     //**************************************************************************
     // MESSAGE
-    // Messages sended by controller
     //**************************************************************************
+    
+    /// Messages sended by controller
     std::vector<Message> msgs;
 
     //**************************************************************************
@@ -571,6 +612,7 @@ protected:
     /**
      * @brief  Checks if creature can stand on the point
      * @param  point the point we check
+     * @param  goal_in_sight flag that shows if the goal lies inside view_area
      * @return 0 if creature can stand on the point
      *         1 if the point is the goal point
      *        -1 if creature can't stand on the point
@@ -578,7 +620,7 @@ protected:
 
     virtual int checkPointIsPassable(Vector point, bool goal_in_sight);
 
-    /// Neighnour offsets for generating vertices for path graph
+    /// Neighbour offsets for generating vertices for path graph
     static const Vector neighbour_offsets[8];
 
     //**********************************************************
@@ -599,6 +641,11 @@ protected:
     //**********************************************************
     // ACTIONS
     //**********************************************************
+
+    /**
+     * @brief Resting.
+     */
+    void relax();
 
     /**
      * @brief Sleeping.

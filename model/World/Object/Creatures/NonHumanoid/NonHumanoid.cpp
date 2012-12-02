@@ -137,16 +137,7 @@ std::vector <Action>* NonHumanoid::getActions()
 
     else if (current_action == RELAX)
     {
-        if (common_steps == CREAT_STEPS)
-        {
-            heal(CREAT_DELTA_HEALTH);
-        }
-
-        if (getEndurance() < getMaxEndurance())
-        {
-            // TODO: Magic const.
-            increaseEndurance(1);
-        }
+        relax();
 
         // Wherever I may roam...
         if (roam_steps == 0)

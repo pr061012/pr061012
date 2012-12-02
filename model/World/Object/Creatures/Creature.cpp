@@ -40,31 +40,37 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     sleepiness (100 - max_sleepiness),
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
+
+    // steps
+    common_steps(CREAT_STEPS),
+    age_steps(CREAT_AGE_STEPS),
+    health_steps(CREAT_REGEN_HEALTH_STEPS),
+    endurance_steps(CREAT_REGEN_ENDURANCE_STEPS),
+    danger_steps(0),
     
     prev_action(GO),
     prev_action_state(SUCCEEDED),
     inventory(new ObjectHeap),
-    current_action(NONE),
-    attrs(arma::mat(DM_ATR_CONST, 1)),
-    brains(dmaker),
 
     // needs
-    need_in_descendants(0),
-    danger(0),               // we need in function to calculate it
+    need_in_descendants(0),  // we need in function to calculate it
                              // different for HUM and NON_HUM?
                              //
-    // step counters
-    common_steps(CREAT_STEPS),
-    age_steps(CREAT_AGE_STEPS),
     desc_steps(CREAT_DESC_STEPS),
-    danger_steps(1),
-    decr_sleep_step(1),
+    decr_sleep_step(0),
+    max_decr_sleep_step(0),
+    danger(0),
     
     // direction
     angle(0),
     direction_is_set(false),
     aim(0),
-    current_decision(NONE)
+
+    // decision
+    current_decision(NONE),
+    current_action(NONE),
+    attrs(arma::mat(DM_ATR_CONST, 1)),
+    brains(dmaker)
 {
 }
 
@@ -117,9 +123,14 @@ ObjectHeap * Creature::getInventory()
     return this -> inventory;
 }
 
-uint Creature::getCurrentDecision() const
+CreatureAction Creature::getCurrentDecision() const
 {
     return current_decision;
+}
+
+CreatureAction Creature::getCurrentAction() const
+{
+    return current_action;
 }
 
 //**********************************************************
@@ -230,6 +241,7 @@ uint Creature::damage(uint delta)
     }
 
     this -> health -= d;
+    this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     return d;
 }
 
@@ -243,6 +255,7 @@ uint Creature::heal(uint delta)
     }
 
     this -> health += d;
+    this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     return d;
 }
 
@@ -523,10 +536,22 @@ void Creature::chooseDirectionToEscape()
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
+    // Update attributes.
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
+    endurance_steps++;
+    if (speed == FAST_SPEED)
+    {
+        decreaseEndurance(1);
+    }
+
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)
     {
         direction_is_set = false;
+
         // If we have the same route to the same aim, try to go random
         if (aim != nullptr && aim == goal && last_route_size == route.size())
         {
@@ -539,7 +564,7 @@ void Creature::go(SpeedType speed)
         }
     }
 
-    // if we don't have any aim, go the way we went before
+    // If we don't have any aim, go the way we went before
     if (!aim)
     {
         // if there is no direction, then go random
@@ -601,11 +626,7 @@ void Creature::go(SpeedType speed)
     Action act(GO, this);
     act.addParam<double>("angle", angle);
     act.addParam<SpeedType>("speed", speed);
-    this -> actions.push_back(act);
-    if (speed == FAST_SPEED)
-    {
-        decreaseEndurance(1);
-    }
+    this -> actions.push_back(act);    
 }
 
 // Fights the aim.
@@ -645,20 +666,27 @@ void Creature::hunt()
     }
 }
 
+void Creature::relax()
+{
+    health_steps -= CREAT_RELAX_REGEN_HEALTH;
+    endurance_steps -= CREAT_RELAX_REGEN_ENDURANCE;
+}
+
 // Sleeping
 void Creature::sleep()
 {
-    // if the time has come, then sleep, heal, and rest.
-    if (!decr_sleep_step)
+    health_steps -= CREAT_SLEEP_REGEN_HEALTH;
+    endurance_steps -= CREAT_SLEEP_REGEN_ENDURANCE;
+
+    // if the time has come, then decrease sleepiness
+    if (decr_sleep_step <= 0)
     {
         decreaseSleepiness(1);
         if (!sleepiness)
         {
             this -> attrs(ATTR_SLEEPINESS, 0) = 0;
         }
-        increaseEndurance(1);
-        heal(CREAT_DELTA_HEALTH);
-        decr_sleep_step = max_decr_sleep_step;
+        decr_sleep_step += max_decr_sleep_step;
     }
     else
     {
@@ -789,15 +817,6 @@ std::string Creature::printActMatrix() const
    return ss.str();
 }
 
-double Creature::setDirection()
-{
-    if (aim)
-        return this -> getCoords().getAngle(aim -> getCoords());
-    else
-        return Random::double_num(M_PI * 2);
-}
-
-
 //**********************************************************
 // UPDATES
 //**********************************************************
@@ -826,10 +845,10 @@ void Creature::updateDanger()
 void Creature::updateCommonAttrs()
 {
     // Age updating
-    if (!age_steps)
+    if (age_steps <= 0)
     {
         increaseAge(1);
-        age_steps = CREAT_AGE_STEPS;
+        age_steps += CREAT_AGE_STEPS;
     }
     else
     {
@@ -837,7 +856,7 @@ void Creature::updateCommonAttrs()
     }
     
     // Sleepiness and hunger updating
-    if (!common_steps)
+    if (common_steps <= 0)
     {
         increaseHunger(CREAT_DELTA_HUNGER);
 
@@ -845,15 +864,37 @@ void Creature::updateCommonAttrs()
         {
             increaseSleepiness(CREAT_DELTA_SLEEP);
         }
-        common_steps = CREAT_STEPS;
+        common_steps += CREAT_STEPS;
+
         // Update attributes
         this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
         this -> attrs(ATTR_HUNGER, 0) = 100 * hunger / max_hunger;
-        this -> attrs(ATTR_HEALTH, 0) = 100 * (100 - health) / max_health;
     }
     else
     {
         common_steps--;
+    }
+
+    // Regenerating health.
+    if (health_steps <= 0)
+    {
+        heal(CREAT_DELTA_HEALTH);
+        health_steps += CREAT_REGEN_HEALTH_STEPS;
+    }
+    else
+    {
+        health_steps--;
+    }
+
+    // Regenerating endurance.
+    if (endurance_steps <= 0)
+    {
+        increaseEndurance(CREAT_DELTA_ENDUR);
+        endurance_steps += CREAT_REGEN_ENDURANCE_STEPS;
+    }
+    else
+    {
+        endurance_steps--;
     }
 
     // Starving
@@ -863,7 +904,7 @@ void Creature::updateCommonAttrs()
     }
 
     // Danger updating
-    if (danger_steps)
+    if (danger_steps <= 0)
     {
         updateDanger();
     }
