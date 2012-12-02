@@ -116,6 +116,3 @@ bool TextField::isLocked()
 {
     return this -> locked || this -> hidden;
 }
-
-
-

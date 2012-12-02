@@ -155,8 +155,6 @@ void ViewWorld::clearSelection()
 
 const Object* ViewWorld::getSelection()
 {
-    // TODO: I have to do it in more elegant way.
-
     if (!this -> is_selected)
     {
         return NULL;
@@ -248,7 +246,7 @@ void ViewWorld::renderObject(const Object* object)
     {
         ViewUtilities::glCirclef_blend(px, py, radius);
 
-        if (object -> getObjectID() == selected_id)
+        if (is_selected && object -> getObjectID() == selected_id)
         {
             glColor4d(1.0, 0.0, 1.0, 0.4);
             ViewUtilities::glCirclef_blend(px, py, radius, false);
@@ -258,7 +256,7 @@ void ViewWorld::renderObject(const Object* object)
     {
         ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius);
 
-        if (object -> getObjectID() == selected_id)
+        if (is_selected && object -> getObjectID() == selected_id)
         {
             glColor4d(1.0, 0.0, 1.0, 0.4);
             ViewUtilities::glRectf_blend(px-radius, py-radius, px+radius, py+radius, false);

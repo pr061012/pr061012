@@ -29,9 +29,7 @@ View::View(const IWorld& w)
     glcContext(this -> glc_context);
 
     this -> font = glcGenFontID();
-    //glcNewFontFromMaster(this -> font, 0);
     glcNewFontFromFamily(this -> font, "monospace");
-
     glcFont(this -> font);
 
     this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, -getMaxScrY(), 10.0, 0.5
