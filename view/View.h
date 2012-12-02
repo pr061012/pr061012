@@ -170,6 +170,8 @@ public:
 
     void displaySelectionInfo();
 
+    std::string printObjectViewInfo(const Object* obj);
+
     /**
      * @brief checks conditions to exit the program.
      * @return result of exit conditions

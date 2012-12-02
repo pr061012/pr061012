@@ -42,35 +42,40 @@ void TextField::setText(std::string content)
 
 void TextField::render(bool in_focus)
 {
-    glColor4f(0.0f, 0.0f, 0.0f, 0.8f);
-
-    ViewUtilities::glRectf_blend(x, y, x + width, y + height);
-    glColor3f(1.0f, 1.0f, 1.0f);
-
-    int scr_width, scr_height;
-    glfwGetWindowSize(&scr_width,
-                      &scr_height);
-
-    double scaled_size = (double)scr_height / VIEW_CAM_SIZE * font_size;
-
-    if(in_focus)
+    if(!this -> isHidden())
     {
-        std::string str = this -> content;
-        if(--render_steps < 30)
+        glColor4f(0.0f, 0.0f, 0.0f, 0.8f);
+
+        ViewUtilities::glRectf_blend(x, y, x + width, y + height);
+        glColor3f(1.0f, 1.0f, 1.0f);
+
+        int scr_width, scr_height;
+        glfwGetWindowSize(&scr_width,
+                          &scr_height);
+
+        double scaled_size = (double)scr_height / VIEW_CAM_SIZE * font_size;
+
+        if(in_focus)
         {
-            str += "|";
+            std::string str = this -> content;
+            if(--render_steps < 30)
+            {
+                str += "|";
+            }
+            if(render_steps < 0)
+            {
+                render_steps = 60;
+            }
+            ViewUtilities::renderText(x, y + height - font_size * line_size,
+                                      scaled_size, str,
+                                      font_size * line_size * 1.1);
         }
-        if(render_steps < 0)
+        else
         {
-            render_steps = 60;
+            ViewUtilities::renderText(x, y + height - font_size * line_size,
+                                      scaled_size, content,
+                                      font_size * line_size * 1.1);
         }
-        ViewUtilities::renderText(x, y + height - font_size * line_size,
-                                  scaled_size, str, font_size * line_size);
-    }
-    else
-    {
-        ViewUtilities::renderText(x, y + height - font_size * line_size,
-                                  scaled_size, content, font_size * line_size);
     }
 }
 
@@ -109,7 +114,7 @@ void TextField::setLocked(bool locked)
 
 bool TextField::isLocked()
 {
-    return this -> locked;
+    return this -> locked || this -> hidden;
 }
 
 

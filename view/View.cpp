@@ -48,11 +48,9 @@ View::View(const IWorld& w)
 
     sel_info -> setFontSize(0.2);
     sel_info -> setLocked(true);
+    this -> sel_info -> setHidden(true);
 
     this -> addInterfaceObject(this -> sel_info);
-
-    //console = new TextField(VIEW_CAM_SIZE/2-10.0, 2.5, 10.0, 4.0);
-    //this -> addInterfaceObject(console);
 
     this -> setFocus( rendered.at(0) );
 }
@@ -223,10 +221,12 @@ void View::redraw()
             }
 
             this -> view_world -> setSelection(selection.at(0) -> getObjectID());
+            this -> sel_info -> setHidden(false);
         }
         else
         {
             this -> view_world -> clearSelection();
+            this -> sel_info -> setHidden(true);
         }
 
         mouse_clicked = false;
@@ -321,8 +321,67 @@ void View::displaySelectionInfo()
     const Object* obj = this -> view_world -> getSelection();
     if(obj)
     {
+        //this -> sel_info -> setText(printObjectViewInfo(obj));
         this -> sel_info -> setText(obj -> printObjectInfo());
     }
+}
+
+std::string View::printObjectViewInfo(const Object* obj)
+{
+    std::stringstream ss;
+
+    switch(obj -> getType())
+    {
+        case RESOURCE:
+        {
+            const Resource* res = static_cast<const Resource*>(obj);
+            switch(res -> getSubtype())
+            {
+                case RES_FOOD:
+                    ss << "Grass?" << std::endl;
+                    break;
+                case RES_BUILDING_MAT:
+                    ss << "Wood?" << std::endl;
+                    break;
+                default:
+                    ss << "Resource" << std::endl;
+                    break;
+            }
+            break;
+        }
+        case BUILDING:
+            ss << "Building" << std::endl;
+            break;
+        case TOOL:
+            ss << "Tool" << std::endl;
+            break;
+        case CREATURE:
+        {
+            const Creature* cr = static_cast<const Creature*>(obj);
+            switch(cr -> getSubtype())
+            {
+                case HUMANOID:
+                    // Display the name of certain humanoid.
+                    ss << "Noname" << std::endl;
+
+                    ss << "Human?" << std::endl;
+                    break;
+                case NON_HUMANOID:
+                    ss << "Cow?" << std::endl;
+                    break;
+            }
+            break;
+        }
+        default:
+            ss << "You can't select weather, y'know?" << std::endl;
+            break;
+    }
+
+//    ss << "\\HP "
+//       << ((double)obj -> getHealthPoints()) / (obj -> getMaxHealthPoints())
+//       << std::endl;
+
+    return ss.str();
 }
 
 void View::initWindow()
