@@ -302,7 +302,11 @@ void View::redraw()
     std::string msg = std::to_string(wx) + " " + std::to_string(wy) + " " + std::to_string(getDistance());
     if(this -> isPaused()) msg += " PAUSED";
 
-    ViewUtilities::renderText(-getMaxScrX(), getMaxScrY() - 0.5, 24.f, msg);
+    ViewUtilities::renderText(-getMaxScrX(), getMaxScrY() - 0.5, 24.f, msg
+                              #ifdef __glfw3_h__
+                                  , window
+                              #endif
+                              );
 #endif
 
     // Render interface objectsTextField* focus
