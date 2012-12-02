@@ -19,7 +19,6 @@
 #include "../../../DecisionMaker/DecisionMaker.h"
 
 // TODO:
-//  Messages
 //  Errors
 //  Searching for resourse
 //  Relax/FindFood
@@ -85,6 +84,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     decr_endur_step = 0;
 
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
+    steps_to_choose_place = 0; // BAD
 
 }
 
@@ -180,6 +180,9 @@ std::vector <Action>* Humanoid::getActions()
         need_in_house = 70;// FIXME
     }
 
+    // Get current errors
+    current_errors.clear();
+    current_errors = errorProcess();
 
     // Store the result of last action and clear actions
     clearActions();
@@ -558,6 +561,7 @@ std::vector <Action>* Humanoid::getActions()
             go(SLOW_SPEED);
             visualMemorize();
         }
+        direction_is_set = true; // BAD
 
     }
 
@@ -569,16 +573,37 @@ std::vector <Action>* Humanoid::getActions()
 
     if(detailed_act == CHOOSE_PLACE_FOR_HOME)
     {
-        Action act(CREATE_OBJ, this);
-        act.addParam<ObjectType>("obj_type", BUILDING);
-        // TODO: Ugly. Humanoid need to pick max_space and max_health values
-        //       more accuratly.
-        act.addParam<uint>("building_max_space",
+        if(!steps_to_choose_place)
+        {
+            steps_to_choose_place = 20;
+            direction_is_set = true;
+            this -> special_angle = Random::double_num(2*M_PI);
+        }
+        bool is_all_ok = true;
+        for (uint i = 0; i < current_errors.size(); i++)
+        {
+            if (current_errors[i] == NO_PLACE_TO_PLACE_OBJ_ON)
+            {
+                this -> angle = special_angle;
+                this -> direction_is_set = true;
+                go(SLOW_SPEED);
+                is_all_ok = false;
+                steps_to_choose_place--;
+            }
+        }
+        if(is_all_ok)
+        {
+            Action act(CREATE_OBJ, this);
+            act.addParam<ObjectType>("obj_type", BUILDING);
+            // TODO: Ugly. Humanoid need to pick max_space and max_health values
+            //       more accuratly.
+            act.addParam<uint>("building_max_space",
                            Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
-        act.addParam<uint>("building_max_health",
+            act.addParam<uint>("building_max_health",
                            Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
-        this -> actions.push_back(act);
-        current_action = NONE;
+            this -> actions.push_back(act);
+            current_action = NONE;
+        }
     }
 
     return &actions;
@@ -612,8 +637,20 @@ void Humanoid::messageProcess()
 // ACTION'S ERRORS
 // Processing of action's errors.
 //******************************************************************************
-void Humanoid::errorProcess()
+std::vector<ActionError> Humanoid::errorProcess()
 {
+    std::vector<ActionError> error;
+    for (uint i=0; i < actions.size(); i++)
+    {
+        if (actions[i].isSucceeded())
+        {
+            this -> need_in_descendants -= 10;
+            error.push_back(NO_ERROR);
+            break;
+        }
+        error.push_back(actions[i].getError());
+    }
+    return error;
 
 }
 
@@ -845,7 +882,7 @@ std::string Humanoid::printObjectInfo() const
                                       std::to_string(home -> getObjectID())) <<
                                      std::endl <<
           "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
-          "Something\t\t"         << current_decision << std::endl <<
+          "Something\t\t"         << steps_to_choose_place << std::endl <<
           "Matrix of attrs\t\t"   << attrs            << std::endl <<
           "Matrix of act\t\t"     << brains.getActMatrix(attrs) << endl;
 

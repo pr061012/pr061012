@@ -237,11 +237,24 @@ private:
     /**
      * @brief Processing os actions errors.
      */
-    void errorProcess();
+    std::vector<ActionError> errorProcess();
+
+    std::vector<ActionError> current_errors;
     //**************************************************************************
     // MESSAGES
     //**************************************************************************
     void messageProcess();
+
+    //**************************************************************************
+    // AUXILIARY VARIABLE
+    // FIXME it is really bad idea
+    //**************************************************************************
+
+    /// How often he change direction when he try to choose place for home
+    uint steps_to_choose_place;
+
+    /// Angle wich used only in CHOOSE_PLACE_FOR_HOME
+    double special_angle;
 };
 
 #endif // HUMANOID_H
