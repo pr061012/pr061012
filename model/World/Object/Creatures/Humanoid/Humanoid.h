@@ -256,6 +256,7 @@ private:
 
     /// Angle wich used only in CHOOSE_PLACE_FOR_HOME
     double special_angle;
+
 };
 
 #endif // HUMANOID_H

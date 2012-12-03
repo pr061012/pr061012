@@ -192,7 +192,7 @@ std::vector <Action>* Humanoid::getActions()
     if (!brains.isDecisionActual(attrs, current_action))
     {
         current_decision = current_action;// BAD
-        current_action = NONE;
+        current_action   = NONE;
         detailed_act     = SLEEP_ON_THE_GROUND;
     }
 
@@ -233,6 +233,36 @@ std::vector <Action>* Humanoid::getActions()
         {
             relax();
         }
+    }
+
+    //**************************************************************************
+    // DETAILED DECISION : TAKE_FOOD_FROM_INVENTORY
+    // Humanoid searching for resource_food in inventory. After that he just
+    // eat it.
+    //**************************************************************************
+
+    if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
+    {
+        ObjectHeap::const_iterator iter;
+        for(
+            iter = inventory -> begin(RESOURCE);
+            iter != inventory -> end(RESOURCE); iter++
+           )
+        {
+            Resource* res_food = dynamic_cast<Resource*>(*iter);
+            if (res_food -> getSubtype() == RES_FOOD)
+            {
+                this -> aim = res_food;
+                break;
+            }
+        }
+        if (aim != nullptr)
+        {
+            Action act(EAT_OBJ, this);
+            act.addParticipant(aim);
+            this -> actions.push_back(act);
+        }
+        current_action = NONE;
     }
 
     //**************************************************************************
@@ -454,7 +484,6 @@ std::vector <Action>* Humanoid::getActions()
                 }
             }
         }
-
         if (aim == nullptr)
         {
              go(SLOW_SPEED);
@@ -494,35 +523,6 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     //**************************************************************************
-    // DETAILED DECISION : TAKE_FOOD_FROM_INVENTORY
-    // Humanoid searching for resource_food in inventory. After that he just
-    // eat it.
-    //**************************************************************************
-
-    if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
-    {
-        ObjectHeap::const_iterator iter;
-        for(
-            iter = inventory -> begin(RESOURCE);
-            iter != inventory -> end(RESOURCE); iter++
-           )
-        {
-            Resource* res_food = dynamic_cast<Resource*>(*iter);
-            if (res_food -> getSubtype() == RES_FOOD)
-            {
-                this -> aim = res_food;
-                break;
-            }
-        }
-        if (aim != nullptr)
-        {
-            Action act(EAT_OBJ, this);
-            act.addParticipant(aim);
-            this -> actions.push_back(act);
-        }
-    }
-
-    //**************************************************************************
     // DETAILED DECISION : FIGHT
     // Fixme
     // Create this action
@@ -557,8 +557,7 @@ std::vector <Action>* Humanoid::getActions()
             go(SLOW_SPEED);
             visualMemorize();
         }
-        direction_is_set = true; // BAD
-
+        direction_is_set = true;
     }
 
     //**************************************************************************
@@ -623,8 +622,20 @@ void Humanoid::messageProcess()
         if (msgs[i].getType() == UNDER_ATTACK)
         {
             this -> current_action = ESCAPE;
+            if
+            (
+                (getForce() > 50 && bravery > 50) ||
+                (getForce() > 80) || (bravery > 80)
+            )
+            {
+                detailed_act = FIGHT;
+            }
+            else
+            {
+                detailed_act = RUN_FROM_DANGER;
+            }
             aim = msgs[i].getSender();
-            detailed_act = chooseWayToEscape();
+
         }
     }
 }
@@ -792,18 +803,12 @@ DetailedHumAction Humanoid::chooseWayToSleep()
 
 //******************************************************************************
 // CHOOSE_WAY_TO_ESCAPE
-// If you are bravery and powerful you will fight. In other case - just run.
+// Indeed this is case when he just escapes dangerous place. He would figt if
+// somebody tries to attack him or when he hunts.
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEscape()
 {
-    if ((getForce() > 50 && bravery > 50) || (getForce() > 80) || (bravery > 80))
-    {
-        return FIGHT;
-    }
-    else
-    {
-        return RUN_FROM_DANGER;
-    }
+    return RUN_FROM_DANGER;
 }
 
 // Puts new object in humanoid's memory
