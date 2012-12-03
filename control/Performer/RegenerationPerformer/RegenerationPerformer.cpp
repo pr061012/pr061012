@@ -7,7 +7,6 @@
 #include "../../../common/Math/Random.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../model/World/Object/Object.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 
@@ -65,48 +64,45 @@ void RegenerationPerformer::perform(Action& action)
 
     if (type == CREATURE)
     {
-        if (dynamic_cast<Creature*>(actor) -> getSubtype() == HUMANOID)
+        Creature* creature = dynamic_cast<Creature*>(actor);
+        if (creature -> getSubtype() == NON_HUMANOID)
         {
-            Humanoid* humanoid = dynamic_cast<Humanoid*>(actor);
-            if (humanoid -> getSubtype() == NON_HUMANOID)
-            {
-                action.markAsFailed();
-                return;
-            }
-
-            // Check whether humanoid can heal this object.
-            Shape reach_area = humanoid -> getReachArea();
-            reach_area.setCenter(humanoid -> getCoords());
-            ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
-            if (env.find(participants[object_index], false) == env.end())
-            {
-                action.markAsFailed();
-                return;
-            }
-
-            // Searching for objects.
-            ObjectHeap* inventory = humanoid -> getInventory();
-            ObjectHeap::const_iterator iter;
-            uint count = 0;
-            for
-                (
-                 iter = inventory -> begin(RESOURCE);
-                 iter != inventory -> end(RESOURCE); iter++
-                )
-                {
-                    // TODO: Magic const.
-                    count += (*iter) -> damage(1);
-                }
-
-            if (count == 0)
-            {
-                action.markAsFailed();
-                return;
-            }
-
-            // TODO: Some resource may be just wasted.
-            participants[object_index] -> heal(delta * count);
-            action.markAsSucceeded();
+            action.markAsFailed();
+            return;
         }
+
+        // Check whether humanoid can heal this object.
+        Shape reach_area = creature -> getReachArea();
+        reach_area.setCenter(creature -> getCoords());
+        ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
+        if (env.find(participants[object_index], false) == env.end())
+        {
+            action.markAsFailed();
+            return;
+        }
+
+        // Searching for objects.
+        ObjectHeap* inventory = creature -> getInventory();
+        ObjectHeap::const_iterator iter;
+        uint count = 0;
+        for
+        (
+            iter = inventory -> begin(RESOURCE);
+            iter != inventory -> end(RESOURCE); iter++
+        )
+        {
+            // TODO: Magic const.
+            count += (*iter) -> damage(1);
+        }
+
+        if (count == 0)
+        {
+            action.markAsFailed();
+            return;
+        }
+
+        // TODO: Some resource may be just wasted.
+        participants[object_index] -> heal(delta * count);
+        action.markAsSucceeded();
     }
 }

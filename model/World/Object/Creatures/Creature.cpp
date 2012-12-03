@@ -50,6 +50,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     
     prev_action(GO),
     prev_action_state(SUCCEEDED),
+    inventory(new ObjectHeap),
 
     // needs
     need_in_descendants(0),  // we need in function to calculate it
@@ -75,6 +76,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 
 Creature::~Creature()
 {
+    delete inventory;
     delete obstacles_index;
 }
 
@@ -114,6 +116,11 @@ void Creature::setReachArea(Shape reach_area)
 Shape Creature::getReachArea()
 {
     return this -> reach_area;
+}
+
+ObjectHeap * Creature::getInventory()
+{
+    return this -> inventory;
 }
 
 CreatureAction Creature::getCurrentDecision() const
@@ -699,6 +706,27 @@ void Creature::clearActions()
         prev_action_error = actions[0].getError();
     }
     actions.clear();
+
+    // FIXME
+    // maybe put this function outsitde?
+    // 
+    // Clear inventory from destroyed objects.
+    // First place them in buffer.
+    std::vector<Object*> buffer;
+    for (ObjectHeap::iterator i = inventory -> begin();
+         i != inventory -> end(); i++)
+    {
+        if ((*i) -> isDestroyed())
+        {
+            buffer.push_back(*i);
+        }
+    }
+
+    // Then remove them from inventory.
+    for (uint i = 0; i < buffer.size(); i++)
+    {
+        inventory -> remove(buffer[i]);
+    }
 }
 
 //******************************************************************************
@@ -745,7 +773,8 @@ std::string Creature::printObjectInfo(bool full) const
               insertSpaces("Direction angle")  << angle << std::endl;
     }
 
-    ss << insertSpaces("Aim ID")               << (aim == nullptr ? "none" : std::to_string(aim -> getObjectID())) << std::endl;
+    ss << insertSpaces("Aim ID")               << (aim == nullptr ? "none" : std::to_string(aim -> getObjectID())) << std::endl <<
+          insertSpaces("Inventory")            << std::endl << inventory -> printIDs();
 
     if (full)
     {
@@ -890,3 +919,35 @@ void Creature::updateCommonAttrs()
 
 }
 
+//******************************************************************************
+// INVENTORY
+//******************************************************************************
+
+// Adds object to inventory.
+void Creature::addToInventory(Object *obj)
+{
+    // Resources should be stacked together
+    if (obj -> getType() == RESOURCE)
+    {
+        ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
+        for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
+             i != inventory -> end(RESOURCE); i++)
+        {
+            if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
+            {
+                (*i) -> heal(obj -> getHealthPoints());
+                obj -> markAsDestroyed();
+                return;
+            }
+        }
+    }
+
+    // If there are no resources of this type, or it's something else, just push it.
+    this -> inventory -> push(obj);
+}
+
+// Remove object from inventory.
+void Creature::removeFromInventory(Object * obj)
+{
+    inventory -> remove(obj);
+}

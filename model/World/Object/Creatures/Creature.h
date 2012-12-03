@@ -92,6 +92,28 @@ public:
      */
     Shape getReachArea();
 
+    //**********************************************************
+    // INVENTORY
+    //**********************************************************
+    
+    /**
+     * @brief  Add object to inventory.
+     * @param  obj object to add.
+     */
+    void addToInventory(Object * obj);
+    
+    /**
+     * @brief  Removes object from inventory.
+     * @param  obj object to remove.
+     */
+    void removeFromInventory(Object * obj);
+
+    /**
+     * @brief  Get inventory
+     * @return inventory
+     */
+    ObjectHeap* getInventory();
+
     //**************************************************************************
     // AGE
     //**************************************************************************
@@ -479,6 +501,9 @@ protected:
     // HEAPS
     //**********************************************************
     
+    /// Creature's inventory.
+    ObjectHeap * inventory;
+
     /// Creature's enviroment
     ObjectHeap objects_around;
 
