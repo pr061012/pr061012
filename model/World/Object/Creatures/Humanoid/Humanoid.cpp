@@ -839,11 +839,10 @@ void Humanoid::setHome(Building *home)
 
 std::string Humanoid::printObjectInfo(bool full) const
 {
-    std::string output = Creature::printObjectInfo(full);
-
     std::stringstream ss;
+    ss << Creature::printObjectInfo(full);
 
-    ss << "Detailed action\t\t";
+    ss << insertSpaces("Detailed action");
     switch (detailed_act)
     {
         case HUNT:                     ss << "hunt";                     break;
@@ -859,21 +858,27 @@ std::string Humanoid::printObjectInfo(bool full) const
         case RUN_FROM_DANGER:          ss << "run from danger";          break;
         default:                       ss << "unknown";                  break;
     }
-    ss << "\n";
+    ss << std::endl;
 
-    ss << "Sociability\t\t"       << sociability << "/" << max_sociability <<
-                                     std::endl <<
-          "Bravery\t\t\t"         << bravery << std::endl <<
-          "Laziness\t\t"          << laziness << std::endl <<
-          "Need in house\t\t"     << need_in_house << std::endl <<
-          "Need in points\t\t"    << need_in_points << std::endl <<
-          "Home ID\t\t\t"         << (home == nullptr ? "none" :
-                                      std::to_string(home -> getObjectID())) <<
-                                     std::endl <<
-          "Visual memory\t\t\n"   << visual_memory -> printIDs() << std::endl <<
-          "Something\t\t"         << steps_to_choose_place << std::endl;
+    ss << insertSpaces("Sociability")                << sociability << "/" << max_sociability << std::endl <<
+          insertSpaces("Bravery")                    << bravery << std::endl <<
+          insertSpaces("Laziness")                   << laziness << std::endl;
 
-    return output + ss.str();
+    if (full)
+    {
+        ss << insertSpaces("Need in house")          << need_in_house << std::endl <<
+              insertSpaces("Need in points")         << need_in_points << std::endl;
+    }
+
+    ss << insertSpaces("Home ID")                    << (home == nullptr ? "none" : std::to_string(home -> getObjectID())) << std::endl;
+
+    if (full)
+    {
+        ss << insertSpaces("Visual memory")          << std::endl << visual_memory -> printIDs() <<
+              insertSpaces("Steps for choose place") << steps_to_choose_place << std::endl;
+    }
+
+    return ss.str();
 }
 
 //******************************************************************************

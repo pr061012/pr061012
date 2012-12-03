@@ -735,11 +735,11 @@ void Creature::clearActions()
 
 std::string Creature::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo(full);
-
     std::stringstream ss;
 
-    ss << "Current action\t\t";
+    ss << Object::printObjectInfo(full) <<
+          insertSpaces("Current action");
+
     switch (current_action)
     {
         case NONE:          ss << "none";          break;
@@ -757,29 +757,33 @@ std::string Creature::printObjectInfo(bool full) const
         case DO_NOTHING:    ss << "do nothing";    break;
         default:            ss << "unknown";       break;
     }
-    ss << "\n";
+    ss << std::endl;
 
-    ss << "Force\t\t\t"           << force << std::endl <<
-          "Age\t\t\t"             << age << "/" << max_age << std::endl <<
-          "Endurance\t\t"         << endurance << "/" << max_endurance <<
-                                     std::endl <<
-          "Sleepiness\t\t"        << sleepiness << "/" << max_sleepiness <<
-                                     std::endl <<
-          "Hunger\t\t\t"          << hunger << "/" << max_hunger << std::endl <<
-          "Need in descendants\t" << need_in_descendants << std::endl <<
-          "Danger around\t\t"     << danger << std::endl <<
-          "Direction is set\t"    << (direction_is_set ? "yes" : "no") <<
-                                     std::endl <<
-          "Direction angle\t\t"   << angle << std::endl <<
-          "Aim ID\t\t\t"          << (aim == nullptr ? "none" :
-                                     std::to_string(aim -> getObjectID())) <<
-                                     std::endl <<
-          "Inventory\t\t\t"       << std::endl << inventory -> printIDs() <<
-          "Objects around\t\t"    << std::endl << objects_around.printIDs() <<
-          "Matrix of attrs:\t\t"  << printAttrs() << std::endl <<
-          "Matrix of act\t\t"     << printActMatrix() << std::endl;
+    ss << insertSpaces("Force")                << force << std::endl <<
+          insertSpaces("Age")                  << age << "/" << max_age << std::endl <<
+          insertSpaces("Endurance")            << endurance << "/" << max_endurance << std::endl <<
+          insertSpaces("Sleepiness")           << sleepiness << "/" << max_sleepiness << std::endl <<
+          insertSpaces("Hunger")               << hunger << "/" << max_hunger << std::endl <<
+          insertSpaces("Need in descendants")  << need_in_descendants << std::endl <<
+          insertSpaces("Danger around")        << danger << std::endl;
 
-    return output + ss.str();
+    if (full)
+    {
+        ss << insertSpaces("Direction is set") << (direction_is_set ? "yes" : "no") << std::endl <<
+              insertSpaces("Direction angle")  << angle << std::endl;
+    }
+
+    ss << insertSpaces("Aim ID")               << (aim == nullptr ? "none" : std::to_string(aim -> getObjectID())) << std::endl <<
+          insertSpaces("Inventory")            << std::endl << inventory -> printIDs();
+
+    if (full)
+    {
+        ss << "Objects around"                 << std::endl << objects_around.printIDs() <<
+              "Matrix of attrs"                << printAttrs() << std::endl <<
+              "Matrix of action"               << printActMatrix() << std::endl;
+    }
+
+    return ss.str();
 }
 
 std::string Creature::printAttrs() const

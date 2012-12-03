@@ -48,10 +48,6 @@
  *
  *          *step [amount]* -- does Controller's steps (suppose amount = 1, if
  *          isn't specified).
- *
- *        **trace-step**
- *          *trace-step [list of ids]* -- does Controller's step and prints out
- *          changes for specified objects.
  */
 class CLI
 {
@@ -93,19 +89,6 @@ private:
 
     /// Pointer to Controller.
     Controller* control;
-
-    //**************************************************************************
-    // ARRAYS WITH NAMES.
-    //**************************************************************************
-
-    /// Array with object types names.
-    std::vector <std::string> obj_types;
-
-    /// Array with creature actions names.
-    std::vector <std::string> creat_acts;
-
-    /// Array with detailed humanoid actions names.
-    std::vector <std::string> hum_acts;
 
     //**************************************************************************
     // COMMAND'S PROCESSORS.
@@ -152,13 +135,6 @@ private:
      * @return command output
      */
     std::string step(std::stringstream& ss);
-
-    /**
-     * @brief  `trace-step` command.
-     * @param  ss   stream with args
-     * @return command output
-     */
-    std::string traceStep(std::stringstream& ss);
 
     /**
      * @brief  `change` command.

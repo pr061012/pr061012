@@ -12,6 +12,7 @@
 #include "../Message/Message.h"
 #include "../../Utilities/Shape/Shape.h"
 #include "../../../common/BasicTypes.h"
+#include "../../../common/BasicDefines.h"
 #include "../../../view/ViewObject/ViewObject.h"
 
 /**
@@ -61,7 +62,7 @@ public:
      *              or not
      * @return string with information
      */
-    virtual std::string printObjectInfo(bool full = false) const;
+    virtual std::string printObjectInfo(bool full) const;
 
     //**************************************************************************
     // HEALING/DAMAGING.

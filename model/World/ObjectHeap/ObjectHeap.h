@@ -34,8 +34,6 @@ public:
      */
     ~ObjectHeap();
 
-
-
     //**************************************************************************
     // GETTING TYPE AMOUNT
     //**************************************************************************
@@ -44,14 +42,14 @@ public:
      * @brief  get amount of element
      * @return amount of element
      */
-    uint getAmount();
+    uint getAmount() const;
 
     /**
      * @brief  get amount of element this type
      * @param  type object type
      * @return amount of element
      */
-    uint getTypeAmount(ObjectType type);
+    uint getTypeAmount(ObjectType type) const;
 
 
 private:
