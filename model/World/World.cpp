@@ -128,6 +128,21 @@ void World::genCreatures()
             {
                 indexator -> addObject(new_obj);
                 visible_objs -> push(new_obj);
+
+                // TODO: Maybe not a good solution. What about to move this code
+                //       to controller and create these objects at the moment of
+                //       death?
+                // Everything is OK. Creating creature's "contents" %)
+                if (k == 0 || k == 1)
+                {
+                    ParamArray drop_params;
+                    drop_params.addKey<ResourceType>("res_type", RES_FOOD);
+
+                    Object* drop = object_factory -> createObject(RESOURCE, drop_params);
+                    this -> addObject(false, drop);
+
+                    dynamic_cast<Creature*>(new_obj) -> addToInventory(drop);
+                }
             }
             else
             {
