@@ -386,7 +386,7 @@
 #define CREAT_DELTA_ENDUR           1
 
 /// When delta is more than this const, creature makes new decision
-#define CREAT_CRIT_CONST            20
+#define CREAT_CRIT_CONST            40
 
 /// Creature's fast speed.
 #define CREAT_SPEED_FAST_VALUE      (SZ_HUM_DIAM * 9 / TM_TICKS_PER_SECOND)
