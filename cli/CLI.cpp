@@ -129,42 +129,6 @@ CLI::CLI(World* world, Controller* control) :
     world(world),
     control(control)
 {
-    // Initialising array with object types names.
-    this -> obj_types.resize(AMNT_OBJECT_TYPES);
-    this -> obj_types[RESOURCE] = "resource";
-    this -> obj_types[BUILDING] = "building";
-    this -> obj_types[TOOL]     = "tool    ";
-    this -> obj_types[WEATHER]  = "weather ";
-    this -> obj_types[CREATURE] = "creature";
-
-    // Initialising array with creature actions names.
-    this -> creat_acts.resize(AMNT_CREATURE_ACTS);
-    this -> creat_acts[NONE]          = "NONE";
-    this -> creat_acts[SLEEP]         = "SLEEP";
-    this -> creat_acts[EAT]           = "EAT";
-    this -> creat_acts[BUILD]         = "BUILD";
-    this -> creat_acts[GATHER]        = "GATHER";
-    this -> creat_acts[RELAX]         = "RELAX";
-    this -> creat_acts[EXPLORE]       = "EXPLORE";
-    this -> creat_acts[COMMUNICATE]   = "COMMUNICATE";
-    this -> creat_acts[WORK]          = "WORK";
-    this -> creat_acts[REALIZE_DREAM] = "REALIZE_DREAM";
-    this -> creat_acts[ESCAPE]        = "ESCAPE";
-    this -> creat_acts[REPRODUCE]     = "REPRODUCE";
-    this -> creat_acts[DO_NOTHING]    = "DO_NOTHING";
-
-    // Initialising array with detailed humanoid action types.
-    this -> hum_acts.resize(AMNT_DET_HUM_ACTS);
-    this -> hum_acts[HUNT]                     = "HUNT";
-    this -> hum_acts[TAKE_FOOD_FROM_INVENTORY] = "TAKE_FOOD_FROM_INVENTORY";
-    this -> hum_acts[FIND_FOOD]                = "FIND_FOOD";
-    this -> hum_acts[RELAX_AT_HOME]            = "RELAX_AT_HOME";
-    this -> hum_acts[SLEEP_AT_HOME]            = "SLEEP_AT_HOME";
-    this -> hum_acts[SLEEP_ON_THE_GROUND]      = "SLEEP_ON_THE_GROUND";
-    this -> hum_acts[BUILD_HOUSE]              = "BUILD_HOUSE";
-    this -> hum_acts[CHOOSE_PLACE_FOR_HOME]    = "CHOOSE_PLACE_FOR_HOME";
-    this -> hum_acts[FIGHT]                    = "FIGHT";
-    this -> hum_acts[RUN_FROM_DANGER]          = "RUN_FROM_DANGER";
 }
 
 //******************************************************************************
@@ -191,7 +155,6 @@ std::string CLI::runCommand(std::string command)
         if (cmd == "info")          return this -> info(ss);
         if (cmd == "change")        return this -> change(ss);
         if (cmd == "step")          return this -> step(ss);
-        if (cmd == "trace-step")    return this -> traceStep(ss);
     }
     catch(ECLIInvalidInput& exc)
     {
@@ -402,7 +365,7 @@ std::string CLI::list(std::stringstream& ss, uint columns)
             // Printing output.
             output += sformat("%d\t│ %s │ %s │ %f\t%f", obj -> getObjectID(),
                               flags.c_str(),
-                              this -> obj_types[obj -> getType()].c_str(),
+                              obj -> getTypeName().c_str(),
                               obj -> getCoords().getX(),
                               obj -> getCoords().getY());
 
@@ -456,14 +419,6 @@ std::string CLI::step(std::stringstream& ss)
     }
 
     return sformat("Successfully made %u steps.\n", amount);
-}
-
-//******************************************************************************
-// `TRACE-STEP` PROCESSOR.
-//******************************************************************************
-
-std::string CLI::traceStep(std::stringstream& ss)
-{
 }
 
 //******************************************************************************
