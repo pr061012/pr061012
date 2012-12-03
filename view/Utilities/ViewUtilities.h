@@ -13,7 +13,8 @@ class ViewUtilities
 {
 
 public:
-    static void renderText(double x, double y, double size, std::string msg, double line_size = 0.0)
+    static void renderText(double x, double y, double size, std::string msg,
+                            double line_size = 0.0)
     {
         for(uint i = 0; i < msg.length(); ++i)
         {
