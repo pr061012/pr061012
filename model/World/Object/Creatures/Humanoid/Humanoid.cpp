@@ -837,9 +837,9 @@ void Humanoid::setHome(Building *home)
 // INHERETED THINGS.
 //******************************************************************************
 
-std::string Humanoid::printObjectInfo() const
+std::string Humanoid::printObjectInfo(bool full) const
 {
-    std::string output = Creature::printObjectInfo();
+    std::string output = Creature::printObjectInfo(full);
 
     std::stringstream ss;
 

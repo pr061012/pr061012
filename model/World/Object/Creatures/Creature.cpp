@@ -733,9 +733,9 @@ void Creature::clearActions()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::string Creature::printObjectInfo() const
+std::string Creature::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo();
+    std::string output = Object::printObjectInfo(full);
 
     std::stringstream ss;
 

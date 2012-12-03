@@ -47,9 +47,9 @@ void Building::receiveMessage(Message message)
 {
 }
 
-std::string Building::printObjectInfo() const
+std::string Building::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo();
+    std::string output = Object::printObjectInfo(full);
 
     std::stringstream ss;
 

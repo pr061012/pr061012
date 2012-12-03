@@ -185,9 +185,9 @@ void Resource::receiveMessage(Message message)
 {
 }
 
-std::string Resource::printObjectInfo() const
+std::string Resource::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo();
+    std::string output = Object::printObjectInfo(full);
 
     std::stringstream ss;
 

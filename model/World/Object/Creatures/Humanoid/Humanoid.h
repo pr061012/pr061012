@@ -50,7 +50,7 @@ public:
 
     void receiveMessage(Message message);
 
-    std::string printObjectInfo() const;
+    std::string printObjectInfo(bool full) const;
 
     //**************************************************************************
     // ID.

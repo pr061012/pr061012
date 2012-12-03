@@ -57,9 +57,11 @@ public:
 
     /**
      * @brief  Prints out object's information.
+     * @param  full flag determing return complete information about object
+     *              or not
      * @return string with information
      */
-    virtual std::string printObjectInfo() const;
+    virtual std::string printObjectInfo(bool full = false) const;
 
     //**************************************************************************
     // HEALING/DAMAGING.

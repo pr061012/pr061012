@@ -391,7 +391,7 @@ public:
     
     virtual void receiveMessage(Message message) = 0;
 
-    std::string printObjectInfo() const;
+    std::string printObjectInfo(bool full) const;
     std::string printAttrs() const;
     std::string printActMatrix() const;
 

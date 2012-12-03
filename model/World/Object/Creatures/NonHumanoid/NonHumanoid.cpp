@@ -67,11 +67,6 @@ std::string NonHumanoid::getTypeName() const
     return "non-humanoid";
 }
 
-std::string NonHumanoid::printObjectInfo() const
-{
-    return Creature::printObjectInfo();
-}
-
 //******************************************************************************
 // NON-HUMANOID ACTIONS.
 //******************************************************************************

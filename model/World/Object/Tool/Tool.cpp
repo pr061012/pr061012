@@ -84,7 +84,6 @@ std::string Tool::getTypeName() const
 {
     return "tool";
 }
-std::string Tool::printObjectInfo() const{};
 
 //******************************************************************************
 // HEALTH MANIPULATION.
