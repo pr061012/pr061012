@@ -12,6 +12,7 @@
 #include "../Message/Message.h"
 #include "../../Utilities/Shape/Shape.h"
 #include "../../../common/BasicTypes.h"
+#include "../../../common/BasicDefines.h"
 #include "../../../view/ViewObject/ViewObject.h"
 
 /**
@@ -57,9 +58,11 @@ public:
 
     /**
      * @brief  Prints out object's information.
+     * @param  full flag determing return complete information about object
+     *              or not
      * @return string with information
      */
-    virtual std::string printObjectInfo() const;
+    virtual std::string printObjectInfo(bool full) const;
 
     //**************************************************************************
     // HEALING/DAMAGING.
@@ -293,6 +296,18 @@ private:
 protected:
     /// Array with actions.
     std::vector <Action> actions;
+
+    //**************************************************************************
+    // AUXILIARY METHODS.
+    //**************************************************************************
+
+    /**
+     * @brief  Returns string in style: str<...spaces...>. Amount of spaces is
+     *         equal to indent - str.size().
+     * @param  str  string
+     * @return string with spaces
+     */
+    std::string insertSpaces(std::string str, uint indent = OBJ_INFO_INDENT) const;
 };
 
 #endif // OBJECT_H

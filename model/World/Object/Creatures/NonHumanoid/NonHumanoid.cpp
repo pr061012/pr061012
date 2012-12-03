@@ -19,8 +19,10 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
-    Creature(NON_HUMANOID, dmaker)
+NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
+    Creature(NON_HUMANOID, dmaker),
+    subsubtype(type),
+    roam_steps(0)
 {
     // Randomly initialise some values.
     int age = Random::int_range(NHUM_AGE_MIN, NHUM_AGE_MAX);
@@ -29,13 +31,28 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     this -> max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setAge(0);
     this -> setMaxAge(age);
-    this -> setShapeSize(SZ_NHUM_DIAM);
-    this -> setShapeType(SHP_NON_HUMANOID);
+
+    // Initialise type-dependent attributes.
+    switch (subsubtype)
+    {
+        default: case COW:
+            this -> setShapeSize(SZ_NHUM_COW_DIAM);
+            this -> setDangerLevel(DNGR_NHUM_COW);
+            this -> setWeight(WGHT_NHUM_COW);
+        break;
+
+        case DRAGON:
+            this -> setShapeSize(SZ_NHUM_DRAGON_DIAM);
+            this -> setDangerLevel(DNGR_NHUM_DRAGON);
+            this -> setWeight(WGHT_NHUM_DRAGON);
+        break;
+    }
+
+    this -> setShapeType(SHP_NHUM);
+
+    // View and reach areas.
     this -> setViewArea(Shape(Vector(), SHP_NHUM_VIEW_TYPE, SZ_NHUM_VIEW_DIAM));
-    this -> setReachArea(Shape(Vector(), SHP_NON_HUMANOID,
-                               SZ_NHUM_DIAM * SZ_REACH_AREA_COEF));
-    this -> setDangerLevel(DNGR_NON_HUMANOID);
-    this -> setWeight(WGHT_NON_HUMANOID);
+    this -> setReachArea(Shape(Vector(), SHP_NHUM, this -> getShape().getSize() * SZ_REACH_AREA_COEF));
 
     // Initialise of matrix of attributes.
     attrs(ATTR_HUNGER, 0)         = 100 * getHunger() / getMaxHunger();
@@ -48,10 +65,6 @@ NonHumanoid::NonHumanoid(const DecisionMaker & dmaker) :
     attrs(ATTR_COMMUNICATION, 0)  = 0;
     attrs(ATTR_DANGER, 0)         = danger;
     attrs(ATTR_NEED_IN_DESC, 0)   = 0; // need_in_descendants;
-
-    // Initialise private attributes.
-    subsubtype = COW;
-    roam_steps = 0;
 }
 
 NonHumanoid::~NonHumanoid()
@@ -65,11 +78,6 @@ NonHumanoid::~NonHumanoid()
 std::string NonHumanoid::getTypeName() const
 {
     return "non-humanoid";
-}
-
-std::string NonHumanoid::printObjectInfo() const
-{
-    return Creature::printObjectInfo();
 }
 
 //******************************************************************************

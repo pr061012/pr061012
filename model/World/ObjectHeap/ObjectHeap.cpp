@@ -26,12 +26,12 @@ ObjectHeap::~ObjectHeap()
 // GETTING TYPE AMOUNT
 //******************************************************************************
 
-uint ObjectHeap::getAmount()
+uint ObjectHeap::getAmount() const
 {
     return data[0].size();
 }
 
-uint ObjectHeap::getTypeAmount(ObjectType type)
+uint ObjectHeap::getTypeAmount(ObjectType type) const
 {
     // Get type of object.
     int type_id = static_cast<int>(type);
@@ -80,11 +80,16 @@ void ObjectHeap::clear()
 
 std::string ObjectHeap::printIDs(std::string indent, uint columns) const
 {
+    if (this -> getAmount() == 0)
+    {
+        return indent + "empty\n";
+    }
+
     std::stringstream ss;
     uint cur_column = 1;
 
     ObjectHeap::const_iterator iter;
-    for (iter = this -> begin(); iter != this->end(); iter++)
+    for (iter = this -> begin(); iter != this -> end(); iter++)
     {
         ss << indent << (*iter) -> getObjectID();
         cur_column++;
@@ -95,6 +100,7 @@ std::string ObjectHeap::printIDs(std::string indent, uint columns) const
         }
     }
     ss << std::endl;
+
     return ss.str();
 }
 

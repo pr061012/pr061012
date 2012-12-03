@@ -96,8 +96,13 @@ void World::genResources()
 // Creating cows!
 void World::genCreatures()
 {
-    ParamArray nhum_params;
-    nhum_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+    ParamArray cow_params;
+    cow_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+    cow_params.addKey<NonHumanoidType>("nhum_type", COW);
+
+    ParamArray dragon_params;
+    dragon_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
+    dragon_params.addKey<NonHumanoidType>("nhum_type", DRAGON);
 
     ParamArray hum_params;
     hum_params.addKey<CreatureType>("creat_type", HUMANOID);
@@ -105,31 +110,25 @@ void World::genCreatures()
     uint amount = Random::int_range(10, 20);
     for (uint i = 0; i < amount; i++)
     {
-        Object* new_obj = object_factory -> createObject(CREATURE, nhum_params);
-        new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
-                                    Random::double_range(size / 3, 2 * size / 3)));
+        for (uint k = 0; k < 3; k++)
+        {
+            Object* new_obj;
 
-        if (checkCoord(new_obj))
-        {
-            indexator -> addObject(new_obj);
-            visible_objs -> push(new_obj);
-        }
-        else
-        {
-            delete new_obj;
-        }
-        new_obj = object_factory -> createObject(CREATURE, hum_params);
-        new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
-                                    Random::double_range(size / 3, 2 * size / 3)));
+            if (k == 0)      new_obj = object_factory -> createObject(CREATURE, cow_params);
+            else if (k == 1) new_obj = object_factory -> createObject(CREATURE, dragon_params);
+            else if (k == 2) new_obj = object_factory -> createObject(CREATURE, hum_params);
 
-        if (checkCoord(new_obj))
-        {
-            indexator -> addObject(new_obj);
-            visible_objs -> push(new_obj);
-        }
-        else
-        {
-            delete new_obj;
+            new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
+                                        Random::double_range(size / 3, 2 * size / 3)));
+            if (checkCoord(new_obj))
+            {
+                indexator -> addObject(new_obj);
+                visible_objs -> push(new_obj);
+            }
+            else
+            {
+                delete new_obj;
+            }
         }
     }
 }

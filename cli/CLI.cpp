@@ -22,7 +22,9 @@
 
 #define TN_CREATURE                 "c"
 #define TN_HUMANOID                 "h"
-#define TN_NON_HUMANOID             "nh"
+#define TN_NHUM                     "nh"
+#define TN_NHUM_COW                 "cow"
+#define TN_NHUM_DRAGON              "drg"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
 #define TN_RESOURCE_FOOD            "f"
@@ -129,42 +131,6 @@ CLI::CLI(World* world, Controller* control) :
     world(world),
     control(control)
 {
-    // Initialising array with object types names.
-    this -> obj_types.resize(AMNT_OBJECT_TYPES);
-    this -> obj_types[RESOURCE] = "resource";
-    this -> obj_types[BUILDING] = "building";
-    this -> obj_types[TOOL]     = "tool    ";
-    this -> obj_types[WEATHER]  = "weather ";
-    this -> obj_types[CREATURE] = "creature";
-
-    // Initialising array with creature actions names.
-    this -> creat_acts.resize(AMNT_CREATURE_ACTS);
-    this -> creat_acts[NONE]          = "NONE";
-    this -> creat_acts[SLEEP]         = "SLEEP";
-    this -> creat_acts[EAT]           = "EAT";
-    this -> creat_acts[BUILD]         = "BUILD";
-    this -> creat_acts[GATHER]        = "GATHER";
-    this -> creat_acts[RELAX]         = "RELAX";
-    this -> creat_acts[EXPLORE]       = "EXPLORE";
-    this -> creat_acts[COMMUNICATE]   = "COMMUNICATE";
-    this -> creat_acts[WORK]          = "WORK";
-    this -> creat_acts[REALIZE_DREAM] = "REALIZE_DREAM";
-    this -> creat_acts[ESCAPE]        = "ESCAPE";
-    this -> creat_acts[REPRODUCE]     = "REPRODUCE";
-    this -> creat_acts[DO_NOTHING]    = "DO_NOTHING";
-
-    // Initialising array with detailed humanoid action types.
-    this -> hum_acts.resize(AMNT_DET_HUM_ACTS);
-    this -> hum_acts[HUNT]                     = "HUNT";
-    this -> hum_acts[TAKE_FOOD_FROM_INVENTORY] = "TAKE_FOOD_FROM_INVENTORY";
-    this -> hum_acts[FIND_FOOD]                = "FIND_FOOD";
-    this -> hum_acts[RELAX_AT_HOME]            = "RELAX_AT_HOME";
-    this -> hum_acts[SLEEP_AT_HOME]            = "SLEEP_AT_HOME";
-    this -> hum_acts[SLEEP_ON_THE_GROUND]      = "SLEEP_ON_THE_GROUND";
-    this -> hum_acts[BUILD_HOUSE]              = "BUILD_HOUSE";
-    this -> hum_acts[CHOOSE_PLACE_FOR_HOME]    = "CHOOSE_PLACE_FOR_HOME";
-    this -> hum_acts[FIGHT]                    = "FIGHT";
-    this -> hum_acts[RUN_FROM_DANGER]          = "RUN_FROM_DANGER";
 }
 
 //******************************************************************************
@@ -191,7 +157,6 @@ std::string CLI::runCommand(std::string command)
         if (cmd == "info")          return this -> info(ss);
         if (cmd == "change")        return this -> change(ss);
         if (cmd == "step")          return this -> step(ss);
-        if (cmd == "trace-step")    return this -> traceStep(ss);
     }
     catch(ECLIInvalidInput& exc)
     {
@@ -251,6 +216,9 @@ std::string CLI::generate(std::stringstream& ss)
 
 std::string CLI::create(std::stringstream& ss)
 {
+    // FIXME: Leaks are possible! If exception is thrown from there ParamArray
+    //        pa won't be destroyed => leaks. Need to fix this somehow.
+
     // Reading coordinates.
     double x = readFromSS<double>(ss, "X coordinate");
     double y = readFromSS<double>(ss, "Y coordinate");
@@ -270,9 +238,23 @@ std::string CLI::create(std::stringstream& ss)
         {
             pa.addKey<CreatureType>("creat_type", HUMANOID);
         }
-        else if (creat_type == TN_NON_HUMANOID)
+        else if (creat_type == TN_NHUM)
         {
             pa.addKey<CreatureType>("creat_type", NON_HUMANOID);
+            std::string nhum_type = readFromSS<std::string>(ss, "NonHumanoidType");
+
+            if (nhum_type == TN_NHUM_COW)
+            {
+                pa.addKey<NonHumanoidType>("nhum_type", COW);
+            }
+            else if (nhum_type == TN_NHUM_DRAGON)
+            {
+                pa.addKey<NonHumanoidType>("nhum_type", DRAGON);
+            }
+            else
+            {
+                throw ECLIInvalidInput("unknown NonHumanoidType");
+            }
         }
         else
         {
@@ -402,7 +384,7 @@ std::string CLI::list(std::stringstream& ss, uint columns)
             // Printing output.
             output += sformat("%d\t│ %s │ %s │ %f\t%f", obj -> getObjectID(),
                               flags.c_str(),
-                              this -> obj_types[obj -> getType()].c_str(),
+                              obj -> getTypeName().c_str(),
                               obj -> getCoords().getX(),
                               obj -> getCoords().getY());
 
@@ -438,7 +420,7 @@ std::string CLI::info(std::stringstream& ss)
         throw ECLIInvalidInput("object with specified id doesn't exist");
     }
 
-    return obj -> printObjectInfo() + "\n";
+    return obj -> printObjectInfo(true) + "\n";
 }
 
 //******************************************************************************
@@ -456,14 +438,6 @@ std::string CLI::step(std::stringstream& ss)
     }
 
     return sformat("Successfully made %u steps.\n", amount);
-}
-
-//******************************************************************************
-// `TRACE-STEP` PROCESSOR.
-//******************************************************************************
-
-std::string CLI::traceStep(std::stringstream& ss)
-{
 }
 
 //******************************************************************************

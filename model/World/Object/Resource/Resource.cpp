@@ -185,21 +185,19 @@ void Resource::receiveMessage(Message message)
 {
 }
 
-std::string Resource::printObjectInfo() const
+std::string Resource::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo();
-
     std::stringstream ss;
 
-    ss << "Progress\t\t"      << progress << std::endl <<
-          "Difficulty\t\t"    << difficulty << std::endl <<
-          "Drop amount\t\t"   << amount_per_drop << std::endl <<
-          "Reg amount\t\t"    << reg_amount << std::endl <<
-          "Steps to reg\t\t"  << steps_to_reg << std::endl <<
-          "Is mineable\t\t"   << (mineable ? "yes" : "no") << std::endl <<
-          "Is restorable\t\t" << (restorable ? "yes" : "no") << std::endl;
+    ss << Object::printObjectInfo(full) <<
+          insertSpaces("Progress")      << progress << "/" << difficulty << std::endl <<
+          insertSpaces("Drop amount")   << amount_per_drop << std::endl <<
+          insertSpaces("Reg amount")    << reg_amount << std::endl <<
+          insertSpaces("Steps to reg")  << steps_to_reg << std::endl <<
+          insertSpaces("Is mineable")   << (mineable ? "yes" : "no") << std::endl <<
+          insertSpaces("Is restorable") << (restorable ? "yes" : "no") << std::endl;
 
-    return output + ss.str();
+    return ss.str();
 }
 
 std::string Resource::getTypeName() const

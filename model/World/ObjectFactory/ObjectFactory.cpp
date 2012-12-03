@@ -89,7 +89,10 @@ Object * ObjectFactory::createCreature(const ParamArray & params)
         break;
 
         case NON_HUMANOID:
-            obj = new NonHumanoid(this -> nhum_dmaker);
+        {
+            NonHumanoidType nhum_type = params.getValue<NonHumanoidType>("nhum_type");
+            obj = new NonHumanoid(nhum_type, this -> nhum_dmaker);
+        }
         break;
     }
 

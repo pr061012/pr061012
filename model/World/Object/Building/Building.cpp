@@ -47,17 +47,19 @@ void Building::receiveMessage(Message message)
 {
 }
 
-std::string Building::printObjectInfo() const
+std::string Building::printObjectInfo(bool full) const
 {
-    std::string output = Object::printObjectInfo();
-
     std::stringstream ss;
 
-    ss << "Is complete\t\t" << (completeness ? "yes" : "no") << std::endl <<
-          "Free space\t\t"  << free_space << "/" << max_space << std::endl <<
-          "Contents"        << std::endl << contents -> printIDs();
+    ss << Object::printObjectInfo(full) <<
+          insertSpaces("Is complete") << (completeness ? "yes" : "no") <<
+                                         std::endl <<
+          insertSpaces("Free space")  << free_space << "/" << max_space <<
+                                         std::endl <<
+          "Contents"                  << std::endl << contents -> printIDs() <<
+                                         std::endl;
 
-    return output + ss.str();
+    return ss.str();
 }
 
 std::string Building::getTypeName() const

@@ -38,7 +38,8 @@ public:
     void receiveMessage(Message message);
 
     std::string getTypeName() const;
-    std::string printObjectInfo() const;
+    std::string printObjectInfo(bool full) const;
+
     //**************************************************************************
     // WEATHER TYPE.
     //**************************************************************************

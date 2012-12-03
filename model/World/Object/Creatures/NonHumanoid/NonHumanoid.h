@@ -23,9 +23,10 @@ public:
     /**
      * @brief Random constructor (creates NonHumanoid with really random
      *        attributes).
+     * @param type      non-humanoid's type
      * @param dmaker    non-humanoid's decision maker
      */
-    NonHumanoid(const DecisionMaker & dmaker);
+    NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker);
 
     /**
      * @brief Destructor
@@ -37,7 +38,6 @@ public:
     //**************************************************************************
 
     std::string getTypeName() const;
-    std::string printObjectInfo() const;
 
     //**************************************************************************
     // NON-HUMANOID ACTIONS.

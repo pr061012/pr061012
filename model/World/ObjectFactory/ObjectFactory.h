@@ -25,6 +25,7 @@
  *
  *        **Creature**
  *          * *creat_type* -- CreatureType.
+ *          * *nhum_type* -- NonHumanoidType (only for NonHumanoid).
  *
  *        **Building**
  *          * *max_health* -- Building health (uint).
