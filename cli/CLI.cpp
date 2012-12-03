@@ -438,7 +438,7 @@ std::string CLI::info(std::stringstream& ss)
         throw ECLIInvalidInput("object with specified id doesn't exist");
     }
 
-    return obj -> printObjectInfo() + "\n";
+    return obj -> printObjectInfo(true) + "\n";
 }
 
 //******************************************************************************
