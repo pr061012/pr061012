@@ -22,7 +22,9 @@
 
 #define TN_CREATURE                 "c"
 #define TN_HUMANOID                 "h"
-#define TN_NON_HUMANOID             "nh"
+#define TN_NHUM                     "nh"
+#define TN_NHUM_COW                 "cow"
+#define TN_NHUM_DRAGON              "drg"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
 #define TN_RESOURCE_FOOD            "f"
@@ -214,6 +216,9 @@ std::string CLI::generate(std::stringstream& ss)
 
 std::string CLI::create(std::stringstream& ss)
 {
+    // FIXME: Leaks are possible! If exception is thrown from there ParamArray
+    //        pa won't be destroyed => leaks. Need to fix this somehow.
+
     // Reading coordinates.
     double x = readFromSS<double>(ss, "X coordinate");
     double y = readFromSS<double>(ss, "Y coordinate");
@@ -233,9 +238,23 @@ std::string CLI::create(std::stringstream& ss)
         {
             pa.addKey<CreatureType>("creat_type", HUMANOID);
         }
-        else if (creat_type == TN_NON_HUMANOID)
+        else if (creat_type == TN_NHUM)
         {
             pa.addKey<CreatureType>("creat_type", NON_HUMANOID);
+            std::string nhum_type = readFromSS<std::string>(ss, "NonHumanoidType");
+
+            if (nhum_type == TN_NHUM_COW)
+            {
+                pa.addKey<NonHumanoidType>("nhum_type", COW);
+            }
+            else if (nhum_type == TN_NHUM_DRAGON)
+            {
+                pa.addKey<NonHumanoidType>("nhum_type", DRAGON);
+            }
+            else
+            {
+                throw ECLIInvalidInput("unknown NonHumanoidType");
+            }
         }
         else
         {
