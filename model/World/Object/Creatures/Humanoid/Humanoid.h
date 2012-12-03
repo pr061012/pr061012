@@ -96,32 +96,14 @@ public:
      */
     void setDetailedAction(DetailedHumAction detailed_act);
 
-    //**********************************************************
-    // INVENTORY
-    //**********************************************************
-    
-    /**
-     * @brief  Add object to inventory.
-     * @param  obj object to add.
-     */
-    void addToInventory(Object * obj);
-    
-    /**
-     * @brief  Removes object from inventory.
-     * @param  obj object to remove.
-     */
-    void removeFromInventory(Object * obj);
+    //**************************************************************************
+    // ADD TO INVENTORY
+    //**************************************************************************
 
     /**
-     * @brief Removes destroyed objects from inventory.
+     * @brief  Add object in inventory
      */
-    void cleanInventory();
-
-    /**
-     * @brief  Get inventory
-     * @return inventory
-     */
-    ObjectHeap* getInventory();
+    void addToInventory(Object* obj);
 
 private:
     //**************************************************************************
@@ -178,9 +160,6 @@ private:
 
     /// Bravery
     uint bravery;
-
-    /// Creature's inventory.
-    ObjectHeap * inventory;
 
     //**************************************************************************
     // MEMORY
