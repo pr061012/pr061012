@@ -5,19 +5,9 @@
 
 #include "PickupMaster.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include <string>
 #include <cmath>
-
-//*****************************************************************************
-// FOR TEST ONLY
-//*****************************************************************************
-#ifndef CREAT_SPEED_FAST_VALUE
-#define CREAT_SPEED_FAST_VALUE 10
-#endif
-
-#ifndef CREAT_SPEED_SLOW_VALUE
-#define CREAT_SPEED_SLOW_VALUE 5
-#endif
 
 PickupMaster::PickupMaster(World * world) :
     Performer(world)
@@ -38,14 +28,21 @@ void PickupMaster::perform(Action& action)
     if (actor_type != CREATURE)
     {
         action.markAsFailed();
+    }
+    else if(dynamic_cast<Creature*>(actor) -> getSubtype() != HUMANOID)
+    { 
+        action.markAsFailed();
+    }
+
+    if (action.isFailed())
+    {
         action.setError(OBJ_CANT_PICKUP);
         return;
     }
-
     // continue getting data
     Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
-    ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
+    ObjectHeap * inventory = dynamic_cast<Humanoid *>(actor) -> getInventory();
 
     //*************************************************************************
     // TODO

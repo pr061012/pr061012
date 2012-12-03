@@ -32,14 +32,20 @@ void MiningPerformer::perform(Action& action)
 /*
     uint tool_index = action.getParam<uint>("tool_index");
 */
-    if ((actor -> getType() != CREATURE) && (participants.size() != 1))
+    if ((actor -> getType() != CREATURE) ||
+        (participants.size() != 1))
     {
         action.markAsFailed();
         return;
     }
+    else if(dynamic_cast<Creature*>(actor) -> getSubtype() != HUMANOID)
+    { 
+        action.markAsFailed();
+        return;
+    }
 
-    Creature* creature = dynamic_cast<Creature*>(actor);
-    CreatureType subtype = creature -> getSubtype();
+    Humanoid* humanoid = dynamic_cast<Humanoid*>(actor);
+    CreatureType subtype = humanoid -> getSubtype();
 
     if (subtype == NON_HUMANOID)
     {
@@ -51,8 +57,8 @@ void MiningPerformer::perform(Action& action)
     // Object* tool = participant[tool_index];
 
     // Getting object is reach area.
-    Shape reach_area = creature -> getReachArea();
-    reach_area.setCenter(creature -> getCoords());
+    Shape reach_area = humanoid -> getReachArea();
+    reach_area.setCenter(humanoid -> getCoords());
     ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
 
     // Trying to find required object.
@@ -85,7 +91,7 @@ void MiningPerformer::perform(Action& action)
         uint drop_amount = resource -> damage(resource -> getAmountPerDrop());
 
         // Trying to find this resource in humanoid's inventory.
-        ObjectHeap* inv = creature -> getInventory();
+        ObjectHeap* inv = humanoid -> getInventory();
         ObjectHeap::const_iterator i;
         bool success = false;
         for (i = inv -> begin(RESOURCE); i != inv -> end(RESOURCE); i++)
@@ -117,7 +123,7 @@ void MiningPerformer::perform(Action& action)
 
             // Adding object to inventory and world's heap.
             this -> world -> addObject(false, drop);
-            dynamic_cast<Creature*>(creature) -> addToInventory(drop);
+            humanoid -> addToInventory(drop);
         }
     }
 

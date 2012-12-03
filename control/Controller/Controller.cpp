@@ -18,6 +18,7 @@
 #include "../../model/World/Object/Object.h"
 #include "../../model/World/Object/Weather/Weather.h"
 #include "../../model/World/Object/Creatures/Creature.h"
+#include "../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../common/BasicDefines.h"
 #include "../../common/Log/Log.h"
 
@@ -52,17 +53,19 @@ void Controller::destroy(Object * object)
 
     if (object -> getType() == CREATURE)
     {
-        // Drop all belongings to the ground.
-        ObjectHeap * inventory = 
-            dynamic_cast<Creature*>(object) -> getInventory();
-
-        for (ObjectHeap::iterator i = inventory -> begin();
-             i != inventory -> end(); i++)
+        if (dynamic_cast<Creature*>(object) -> getSubtype() == HUMANOID)
         {
-            hiddenToVisible.push(*i);
-            (*i) -> setCoords(object -> getCoords());
-        }
+            // Drop all belongings to the ground.
+            ObjectHeap * inventory = 
+                dynamic_cast<Humanoid*>(object) -> getInventory();
 
+            for (ObjectHeap::iterator i = inventory -> begin();
+                    i != inventory -> end(); i++)
+            {
+                hiddenToVisible.push(*i);
+                (*i) -> setCoords(object -> getCoords());
+            }
+        }
     }
 }
 
