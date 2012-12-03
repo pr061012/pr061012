@@ -8,12 +8,20 @@ Game's name, features and concept are coming soon.
 Compilation
 ===========
 
+**Note**: compilation will be succeeded with libraries/compilers versions given
+below. But maybe you will succeed with lower versions (we don't know these
+details).
+
 To compile pr061012 you need following libraries:
 * armadillo (>= 3.2.3)
 * GL
 * GLFW (>= 2.7.2 or >= 3.0.0)
 * GLC (>= 0.7.2)
 * SOIL (>= 1.07)
+
+Compilation succeed with following compilers:
+* g++ (>= 4.7.2)
+* clang++ (>= 3.1-8)
 
 GNU/Linux
 ---------

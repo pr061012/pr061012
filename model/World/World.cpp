@@ -107,10 +107,14 @@ void World::genCreatures()
     ParamArray hum_params;
     hum_params.addKey<CreatureType>("creat_type", HUMANOID);
 
-    uint amount = Random::int_range(10, 20);
-    for (uint i = 0; i < amount; i++)
+    for (uint k = 0; k < 3; k++)
     {
-        for (uint k = 0; k < 3; k++)
+        uint amount;
+        if (k == 0) amount = Random::int_range(20, 30);
+        else if (k == 1) amount = Random::int_range(1, 3);
+        else if (k == 2) amount = Random::int_range(10, 20);
+
+        for (uint i = 0; i < amount; i++)
         {
             Object* new_obj;
 
@@ -118,12 +122,27 @@ void World::genCreatures()
             else if (k == 1) new_obj = object_factory -> createObject(CREATURE, dragon_params);
             else if (k == 2) new_obj = object_factory -> createObject(CREATURE, hum_params);
 
-            new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
-                                        Random::double_range(size / 3, 2 * size / 3)));
+            new_obj -> setCoords(Vector(Random::double_range(0, size),
+                                        Random::double_range(0, size)));
             if (checkCoord(new_obj))
             {
                 indexator -> addObject(new_obj);
                 visible_objs -> push(new_obj);
+
+                // TODO: Maybe not a good solution. What about to move this code
+                //       to controller and create these objects at the moment of
+                //       death?
+                // Everything is OK. Creating creature's "contents" %)
+                if (k == 0 || k == 1)
+                {
+                    ParamArray drop_params;
+                    drop_params.addKey<ResourceType>("res_type", RES_FOOD);
+
+                    Object* drop = object_factory -> createObject(RESOURCE, drop_params);
+                    this -> addObject(false, drop);
+
+                    dynamic_cast<Creature*>(new_obj) -> addToInventory(drop);
+                }
             }
             else
             {
