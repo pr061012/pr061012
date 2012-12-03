@@ -118,6 +118,8 @@ void World::genCreatures()
             else if (k == 1) new_obj = object_factory -> createObject(CREATURE, dragon_params);
             else if (k == 2) new_obj = object_factory -> createObject(CREATURE, hum_params);
 
+            new_obj -> setCoords(Vector(Random::double_range(size / 3, 2 * size / 3),
+                                        Random::double_range(size / 3, 2 * size / 3)));
             if (checkCoord(new_obj))
             {
                 indexator -> addObject(new_obj);
