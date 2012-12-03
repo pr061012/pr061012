@@ -53,8 +53,10 @@
 #define SZ_HUM_DIAM                 (double) 1
 
 // TODO: Add sizes for different types of NonHums.
-/// NonHumanoid size.
-#define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5
+/// Cow size.
+#define SZ_NHUM_COW_DIAM            SZ_HUM_DIAM * 0.5
+/// Dragon size.
+#define SZ_NHUM_DRAGON_DIAM         SZ_HUM_DIAM * 2.5
 
 /// World size (vertical side).
 #define SZ_WORLD_VSIDE              100 * SZ_HUM_DIAM
@@ -105,7 +107,7 @@
 #define SHP_HUMANOID                CIRCLE
 
 /// NonHumanoid's shape.
-#define SHP_NON_HUMANOID            CIRCLE
+#define SHP_NHUM                    CIRCLE
 
 /// Building's shape.
 #define SHP_BUILDING                SQUARE
@@ -134,8 +136,10 @@
 #define DNGR_HUMANOID               5
 
 // TODO: Different values for different types of NonHumanoid.
-/// NonHumanoid's danger level.
-#define DNGR_NON_HUMANOID           3
+/// Cow's s danger level.
+#define DNGR_NHUM_COW               3
+/// Dragon's s danger level.
+#define DNGR_NHUM_DRAGON            10
 
 /// Resource's danger level.
 #define DNGR_RESOURCE               0
@@ -156,8 +160,10 @@
 #define WGHT_HUMANOID               50
 
 // TODO: Different values for different types of NonHumanoid.
-/// Humanoid's weight.
-#define WGHT_NON_HUMANOID           30
+/// Cow's weight.
+#define WGHT_NHUM_COW               30
+/// Dragon's weight.
+#define WGHT_NHUM_DRAGON            500
 
 // TODO: Different values for different types of Resource.
 /// Resource's weight.
