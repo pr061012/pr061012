@@ -228,7 +228,7 @@ void View::redraw()
 
                 std::cout << "=======Selected object=========="
                           << std::endl;
-                std::cout << selected -> printObjectInfo();
+                std::cout << selected -> printObjectInfo(true);
                         
             }
 
@@ -360,7 +360,7 @@ void View::displaySelectionInfo()
     if(obj)
     {
         //this -> sel_info -> setText(printObjectViewInfo(obj));
-        this -> sel_info -> setText(obj -> printObjectInfo());
+        this -> sel_info -> setText(obj -> printObjectInfo(false));
     }
 }
 
