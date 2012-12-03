@@ -243,20 +243,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        ObjectHeap::const_iterator iter;
-        for(
-            iter = inventory -> begin(RESOURCE);
-            iter != inventory -> end(RESOURCE); iter++
-           )
-        {
-            Resource* res_food = dynamic_cast<Resource*>(*iter);
-            if (res_food -> getSubtype() == RES_FOOD)
-            {
-                this -> aim = res_food;
-                break;
-            }
-        }
-        if (aim != nullptr)
+        if (isResInInventory(RES_FOOD))
         {
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
@@ -323,7 +310,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (aim == nullptr)
         {
-            if (100 * getHunger() / getMaxHunger() > 80)
+            if (100 * getHunger() / getMaxHunger() > 70)
             {
                 findSacrifice();
                 if (aim != nullptr)
@@ -470,21 +457,12 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-
-                ObjectHeap::const_iterator iter;
-                for(
-                    iter = inventory -> begin(RESOURCE);
-                    iter != inventory -> end(RESOURCE); iter++
-                   )
+                if (isResInInventory(RES_BUILDING_MAT))
                 {
-                    Resource* res = dynamic_cast<Resource*>(*iter);
-                    if (res -> getSubtype() == RES_BUILDING_MAT)
-                    {
-                          detailed_act = BUILD_HOUSE;
-                          aim = nullptr;
-                    }
+                    detailed_act = BUILD_HOUSE;
+                    aim = nullptr;
                 }
-            }
+             }
         }
     }
 
@@ -634,8 +612,8 @@ std::vector<ActionError> Humanoid::errorProcess()
 
 void Humanoid::updateNeedInDesc()
 {
-    this -> need_in_descendants += HUM_DELTA_NEED_IN_DESC; // need 0 NHum dont need in descendant
-    this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants; // we dont need in transformation this attr
+    this -> need_in_descendants += HUM_DELTA_NEED_IN_DESC;
+    this -> attrs(ATTR_NEED_IN_DESC,0) = need_in_descendants;
     this -> desc_steps = CREAT_DESC_STEPS;
 }
 
@@ -698,17 +676,10 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
     else
     {
-        ObjectHeap::const_iterator iter;
-        for(
-            iter = inventory -> begin(RESOURCE);
-            iter != inventory -> end(RESOURCE); iter++
-           )
+        if (isResInInventory(RES_BUILDING_MAT))
         {
-            Resource* res_build = dynamic_cast<Resource*>(*iter);
-            if (res_build -> getSubtype() == RES_BUILDING_MAT)
-            {
-                return BUILD_HOUSE;
-            }
+            aim = home;
+            return BUILD_HOUSE;
         }
         return MINE_RESOURSES;
     }
@@ -721,34 +692,23 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    ObjectHeap::const_iterator iter;
-    for(
-        iter = inventory -> begin(RESOURCE);
-        iter != inventory -> end(RESOURCE); iter++
-       )
+    if (isResInInventory(RES_FOOD))
     {
-        Resource* res_food = dynamic_cast<Resource*>(*iter);
-        if (res_food -> getSubtype() == RES_FOOD)
-        {
-            this -> aim = res_food;
-            return TAKE_FOOD_FROM_INVENTORY;
-        }
+        return TAKE_FOOD_FROM_INVENTORY;
     }
 
-    {
-        if
-        (
-            ((getForce() > 50 && bravery > 50) || (getForce() > 80)
-            || (bravery > 80)) && 100 * getHunger() / getMaxHunger() < 60 // BAD - magic const
-        )
-        {
-            return HUNT;
-        }
-        else
-        {
-            return FIND_FOOD;
-        }
 
+    if
+    (
+        ((getForce() > 50 && bravery > 50) || (getForce() > 80)
+        || (bravery > 80))// BAD magic const
+    )
+    {
+        return HUNT;
+    }
+    else
+    {
+        return FIND_FOOD;
     }
 }
 
@@ -887,7 +847,12 @@ uint Humanoid::getCurrentDetailedAct() const
     return detailed_act;
 }
 
-// Searching for res
+//******************************************************************************
+// Searching
+// Different funcs of searching to reduce code
+//******************************************************************************
+
+// Searching for res in vis mem
 void Humanoid::findNearestRes(ResourceType type)
 {
     ObjectHeap::const_iterator iter;
@@ -917,6 +882,7 @@ void Humanoid::findNearestRes(ResourceType type)
     }
 }
 
+// searching for sacrifice in obj around
 void Humanoid::findSacrifice()
 {
     double min_dist = SZ_WORLD_VSIDE;
@@ -939,4 +905,23 @@ void Humanoid::findSacrifice()
             min_dist = this -> getCoords().getDistance(aim -> getCoords());
         }
     }
+}
+
+// Searching for res in inventory
+bool Humanoid::isResInInventory(ResourceType type)
+{
+    ObjectHeap::const_iterator iter;
+    for(
+        iter = inventory -> begin(RESOURCE);
+        iter != inventory -> end(RESOURCE); iter++
+       )
+    {
+        Resource* res = dynamic_cast<Resource*>(*iter);
+        if (res -> getSubtype() == type)
+        {
+            this -> aim = res;
+            return true;
+        }
+    }
+    return false;
 }

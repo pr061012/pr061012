@@ -269,6 +269,12 @@ private:
      * @brief Searching for sacrifice
      */
     void findSacrifice();
+
+    /**
+     * @brief Searching for res in inventory
+     * @return bool Is resource in inventory?
+     */
+    bool isResInInventory(ResourceType type);
 };
 
 #endif // HUMANOID_H
