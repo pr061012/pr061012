@@ -265,6 +265,10 @@ private:
      * @param  type type of res.
      */
     void findNearestRes(ResourceType type);
+    /**
+     * @brief Searching for sacrifice
+     */
+    void findSacrifice();
 };
 
 #endif // HUMANOID_H

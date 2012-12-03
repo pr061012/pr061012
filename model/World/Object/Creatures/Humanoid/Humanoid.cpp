@@ -275,30 +275,27 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == HUNT)
     {
-        double min_dist = SZ_WORLD_VSIDE;
-        ObjectHeap::const_iterator iter;
-        for
-        (
-            iter = objects_around.begin(CREATURE);
-            iter != objects_around.end(CREATURE); iter++
-        )
-        {
-            // FIXME You don't use any of Creature's feature, why you make dynamic_cast?
-            Creature* creat = dynamic_cast<Creature*>(*iter);
-            if
-            (
-                this -> getCoords().getDistance(creat -> getCoords()) < min_dist
-                && this -> getDangerLevel() > creat -> getDangerLevel()
-            )
-            {
-                aim = creat;
-                min_dist = this -> getCoords().getDistance(aim -> getCoords());
-            }
-        }
+        findSacrifice();
         if (aim == nullptr)
         {
-            go(SLOW_SPEED);
-            visualMemorize();
+            if (100 * getHunger() / getMaxHunger() > 80)
+            {
+                findNearestRes(RES_FOOD);
+                if (aim != nullptr)
+                {
+                    detailed_act = FIND_FOOD;
+                }
+                else
+                {
+                    go(SLOW_SPEED);
+                    visualMemorize();
+                }
+            }
+            else
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
         }
         else
         {
@@ -326,8 +323,24 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (aim == nullptr)
         {
-            go(SLOW_SPEED);
-            visualMemorize();
+            if (100 * getHunger() / getMaxHunger() > 80)
+            {
+                findSacrifice();
+                if (aim != nullptr)
+                {
+                    detailed_act = HUNT;
+                }
+                else
+                {
+                    go(SLOW_SPEED);
+                    visualMemorize();
+                }
+            }
+            else
+            {
+                go(SLOW_SPEED);
+                visualMemorize();
+            }
         }
         else
         {
@@ -900,6 +913,30 @@ void Humanoid::findNearestRes(ResourceType type)
                 this -> aim = res;
                 distance = coords.getDistance(this -> getCoords());
             }
+        }
+    }
+}
+
+void Humanoid::findSacrifice()
+{
+    double min_dist = SZ_WORLD_VSIDE;
+    ObjectHeap::const_iterator iter;
+    for
+    (
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+    )
+    {
+        // FIXME You don't use any of Creature's feature, why you make dynamic_cast?
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+        if
+        (
+            this -> getCoords().getDistance(creat -> getCoords()) < min_dist
+            && this -> getDangerLevel() > creat -> getDangerLevel()
+        )
+        {
+            aim = creat;
+            min_dist = this -> getCoords().getDistance(aim -> getCoords());
         }
     }
 }
