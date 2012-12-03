@@ -278,6 +278,14 @@ private:
     /// Angle wich used only in CHOOSE_PLACE_FOR_HOME
     double special_angle;
 
+    //**************************************************************************
+    // SEARCHING FUNCTION
+    //**************************************************************************
+    /**
+     * @brief Searching for resource
+     * @param  type type of res.
+     */
+    void findNearestRes(ResourceType type);
 };
 
 #endif // HUMANOID_H

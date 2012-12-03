@@ -306,10 +306,7 @@ std::vector <Action>* Humanoid::getActions()
         else
         {
             hunt();
-            if (100* getHunger() / getMaxHunger() > 60)
-            {
-                detailed_act = FIND_FOOD;
-            }
+
             if (aim -> isDestroyed())
             {
                 detailed_act = TAKE_FOOD_FROM_INVENTORY;
@@ -326,30 +323,10 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIND_FOOD)
     {
-        double min_dist = SZ_WORLD_VSIDE;
-        ObjectHeap::const_iterator iter;
-        for
-        (
-            iter = visual_memory -> begin(RESOURCE);
-            iter != visual_memory -> end(RESOURCE); iter++
-        )
+        if ((visual_memory != nullptr) && (aim == nullptr))
         {
-            // skip all destroyed objects 
-            if ((*iter) -> isDestroyed())
-            {
-                continue;
-            }
-            Resource* res_food = dynamic_cast<Resource*>(*iter);
-            if (res_food -> getSubtype() == RES_FOOD)
-            {
-                if (this -> getCoords().getDistance(res_food -> getCoords()) < min_dist)
-                {
-                    aim = res_food;
-                    min_dist = this -> getCoords().getDistance(aim -> getCoords());
-                }
-            }
+            findNearestRes(RES_FOOD);
         }
-
         if (aim == nullptr)
         {
             go(SLOW_SPEED);
@@ -461,31 +438,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
-            ObjectHeap::const_iterator iter;
-            double distance = SZ_WORLD_VSIDE;
-            for
-            (
-                iter = visual_memory -> begin(RESOURCE);
-                iter != visual_memory -> end(RESOURCE); iter++
-            )
-            {
-                // skip all destroyed objects
-                if ((*iter) -> isDestroyed())
-                {
-                    continue;
-                }
-                Resource* res = dynamic_cast<Resource*>(*iter);
-                if (res -> getSubtype()  == RES_BUILDING_MAT)
-                {
-                    Vector coords;
-                    coords = res -> getCoords();
-                    if (distance > coords.getDistance(this -> getCoords()))
-                    {
-                        this -> aim = res;
-                        distance = coords.getDistance(this -> getCoords());
-                    }
-                }
-            }
+            findNearestRes(RES_BUILDING_MAT);
         }
         if (aim == nullptr)
         {
@@ -982,4 +935,34 @@ void Humanoid::setDetailedAction(DetailedHumAction detailed_act)
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+// Searching for res
+void Humanoid::findNearestRes(ResourceType type)
+{
+    ObjectHeap::const_iterator iter;
+    double distance = SZ_WORLD_VSIDE;
+    for
+    (
+        iter = visual_memory -> begin(RESOURCE);
+        iter != visual_memory -> end(RESOURCE); iter++
+    )
+    {
+        // skip all destroyed objects
+        if ((*iter) -> isDestroyed())
+        {
+            continue;
+        }
+        Resource* res = dynamic_cast<Resource*>(*iter);
+        if (res -> getSubtype()  == type)
+        {
+            Vector coords;
+            coords = res -> getCoords();
+            if (distance > coords.getDistance(this -> getCoords()))
+            {
+                this -> aim = res;
+                distance = coords.getDistance(this -> getCoords());
+            }
+        }
+    }
 }
