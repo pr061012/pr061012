@@ -41,22 +41,38 @@ std::string Object::printObjectInfo(bool full) const
 {
     std::stringstream ss;
 
-    ss << "ID\t\t\t"             << id << std::endl <<
-          "Type\t\t\t"           << getTypeName() << std::endl <<
-          "Flags\t\t\t"          << (destroyed   ? "d" : "") <<
-                                    (immortality ? "i" : "") <<
-                                    (solidity    ? "s" : "") << std::endl <<
-          "Centre coordinates\t" << "(" << shape.getCenter().getX() << ", " <<
-                                           shape.getCenter().getY() << ")" <<
-                                    std::endl <<
-          "HP\t\t\t"             << getHealthPoints() << "/" <<
-                                    getMaxHealthPoints() << std::endl <<
-          "Danger level\t\t"     << danger_level << std::endl <<
-          "Weight\t\t\t"         << weight << std::endl <<
-          "Shape\t\t\t"          << shape.getTypeName() << " (" <<
-                                    shape.getSize() << ")" << std::endl;
+    // Printing information.
+    ss << "#" << id << " (" << getTypeName() << ")" << std::endl <<
+
+          // Common flags.
+          (destroyed   ? "Destroyed\n" : "") <<
+          (immortality ? "Immortal\n"  : "") <<
+          (solidity    ? "Solid\n"     : "") <<
+
+          // Coordinates.
+          insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
+                                          ", " << shape.getCenter().getY() <<
+                                          ")" << std::endl <<
+          // Health points.
+          insertSpaces("HP")           << getHealthPoints() << "/" <<
+                                          getMaxHealthPoints() << std::endl <<
+          // Danger level and weight.
+          insertSpaces("Danger level") << danger_level << std::endl <<
+          insertSpaces("Weight")       << weight << std::endl;
+
+    // Information only for full-mode.
+    if (full)
+    {
+        ss << insertSpaces("Shape") << shape.getTypeName() << " (" <<
+                                       shape.getSize() << ")" << std::endl;
+    }
 
     return ss.str();
+}
+
+std::string Object::insertSpaces(std::string str, uint indent) const
+{
+    return str + std::string(indent - str.size(), ' ');
 }
 
 //******************************************************************************

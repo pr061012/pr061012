@@ -22,6 +22,7 @@
 
 //******************************************************************************
 // VIEW DEFINES.
+// Prefix: VIEW.
 //******************************************************************************
 
 #define VIEW_SCREEN_WIDTH           800
@@ -174,12 +175,20 @@
 // Prefix: GEN.
 //******************************************************************************
 
-/// Linear decrease of tree gen probability as tree generation goes
-/// further from forest center (initial is 1.0 == 100%).
+/// @brief Linear decrease of tree gen probability as tree generation goes
+///        further from forest center (initial is 1.0 == 100%).
 #define GEN_TREE_PROB_DECAY         0.1
 
 /// Interval in distance of trees generation.
 #define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX
+
+//******************************************************************************
+// OBJECT DEFINES.
+// Prefix: OBJ.
+//******************************************************************************
+
+/// Indentation for second column in object information.
+#define OBJ_INFO_INDENT             25
 
 //******************************************************************************
 // WEATHER DEFINES.

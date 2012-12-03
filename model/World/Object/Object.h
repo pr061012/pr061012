@@ -295,6 +295,18 @@ private:
 protected:
     /// Array with actions.
     std::vector <Action> actions;
+
+    //**************************************************************************
+    // AUXILIARY METHODS.
+    //**************************************************************************
+
+    /**
+     * @brief  Returns string in style: str<...spaces...>. Amount of spaces is
+     *         equal to indent - str.size().
+     * @param  str  string
+     * @return string with spaces
+     */
+    std::string insertSpaces(std::string str, uint indent = OBJ_INFO_INDENT) const;
 };
 
 #endif // OBJECT_H
