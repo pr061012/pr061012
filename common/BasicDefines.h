@@ -163,7 +163,7 @@
 /// Cow's weight.
 #define WGHT_NHUM_COW               30
 /// Dragon's weight.
-#define WGHT_NHUM_DRAGON            500
+#define WGHT_NHUM_DRAGON            5000
 
 // TODO: Different values for different types of Resource.
 /// Resource's weight.
