@@ -1,5 +1,5 @@
 # Main compilation parameters.
-CC          = g++
+CPP         = c++
 CFLAGS      = -g -c -Wall -std=c++11 -march=native -O2
 LFLAGS      =
 LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC
@@ -45,10 +45,10 @@ CFLAGS += -DVIEW_DEBUG
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LFLAGS) $(OBJECTS) -o $@ $(LIBS) 
+	$(CPP) $(LFLAGS) $(OBJECTS) -o $@ $(LIBS) 
 
 .cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CPP) $(CFLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJECTS)
