@@ -13,15 +13,15 @@ below. But maybe you will succeed with lower versions (we don't know these
 details).
 
 To compile pr061012 you need following libraries:
-* armadillo (>= 3.2.3)
+* armadillo (⩾ 3.2.3)
 * GL
-* GLFW (>= 2.7.2 or >= 3.0.0)
-* GLC (>= 0.7.2)
-* SOIL (>= 1.07)
+* GLFW (⩾ 2.7.2 or ⩾ 3.0.0)
+* GLC (⩾ 0.7.2)
+* SOIL (⩾ 1.07)
 
 Compilation succeed with following compilers:
-* g++ (>= 4.7.2)
-* clang++ (>= 3.1-8)
+* g++ (⩾ 4.7.2)
+* clang++ (⩾ 3.1-8) (note: maybe you will need to apply [this patch](http://clang.llvm.org/libstdc++4.7-clang11.patch))
 
 GNU/Linux
 ---------
