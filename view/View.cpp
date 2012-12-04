@@ -31,7 +31,8 @@ View::View(const IWorld& w)
     glcContext(this -> glc_context);
 
     this -> font = glcGenFontID();
-    glcNewFontFromFamily(this -> font, "monospace");
+    glcNewFontFromFamily(this -> font, "Liberation Mono");
+    glcFontFace(this -> font, "Regular");
     glcFont(this -> font);
 
     this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, -getMaxScrY(), 10.0, 0.5
@@ -40,7 +41,7 @@ View::View(const IWorld& w)
 #endif
     ));
 
-    sel_info = new TextField(VIEW_CAM_SIZE/2, getMaxScrY()-4.0, 4.0, 4.0
+    sel_info = new TextField(getMaxScrX() - 7.0, getMaxScrY() - 4.0, 7.0, 4.0
 #ifdef __glfw3_h__
     ,window
 #endif
