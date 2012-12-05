@@ -31,14 +31,13 @@ PickupMaster::~PickupMaster()
 void PickupMaster::perform(Action& action)
 {
     // Get needed data
-    Object * actor = action.getActor();
+    Object* actor = action.getActor();
     ObjectType actor_type = actor -> getType();
 
     // check if actor can pick up
     if (actor_type != CREATURE)
     {
-        action.markAsFailed();
-        action.setError(OBJ_CANT_PICKUP);
+        action.markAsFailed(OBJ_CANT_PICKUP);
         return;
     }
 
@@ -51,8 +50,11 @@ void PickupMaster::perform(Action& action)
     // TODO
     // check if creature can have enough place to pickup
     //*************************************************************************
+
     bool errors = false;
     bool success = false;
+    ActionError act_error = NO_ERROR;
+
     // go through all objects in participants and put them in inventory
     for (std::vector<Object*>::iterator j = participants.begin();
             j != participants.end(); j++) 
@@ -61,7 +63,7 @@ void PickupMaster::perform(Action& action)
             (*j) -> getType() != TOOL) 
         {
             errors = true;
-            action.setError(OBJ_IS_NOT_PICKABLE);
+            act_error = OBJ_IS_NOT_PICKABLE;
         }
         else
         {
@@ -80,11 +82,11 @@ void PickupMaster::perform(Action& action)
 
     if (!success)
     {
-        action.markAsFailed();
+        action.markAsFailed(act_error);
     }
     else if (success && errors) 
     {
-        action.markAsSucceededWithErrors();
+        action.markAsSucceededWithErrors(act_error);
     }
     else 
     {

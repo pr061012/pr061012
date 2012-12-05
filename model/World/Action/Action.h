@@ -83,12 +83,13 @@ public:
     /**
      * @brief Marks action as pending.
      */
-    void markAsPending();
+    //void markAsPending();
 
     /**
      * @brief Marks action as failed.
+     * @param error action's error
      */
-    void markAsFailed();
+    void markAsFailed(ActionError error);
 
     /**
      * @brief Marks action as succeeded.
@@ -97,8 +98,9 @@ public:
 
     /**
      * @brief Marks action as succeeded with errors.
+     * @param error action's error
      */
-    void markAsSucceededWithErrors();
+    void markAsSucceededWithErrors(ActionError error);
 
     //**************************************************************************
     // ACCESSING PARAMS/PARTICIPANTS.
@@ -164,12 +166,6 @@ public:
      * @return type of error
      */
     ActionError getError() const;
-
-    /**
-     * @brief Sets action's error.
-     * @param error action's error
-     */
-    void setError(ActionError error);
 
 private:
     /// Action type.

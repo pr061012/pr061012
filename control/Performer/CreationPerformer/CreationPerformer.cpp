@@ -55,15 +55,13 @@ void CreationPerformer::perform(Action& action)
                 {
                     // If all is OK, add new_object in world.
                     world -> addObject(true, new_object);
-
                     action.markAsSucceeded();
                     return;
                 }
                 else
                 {
                     delete new_object;
-                    action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
-                    action.markAsFailed();
+                    action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
                     return;
                 }
             }
@@ -99,22 +97,19 @@ void CreationPerformer::perform(Action& action)
                     else
                     {
                         delete new_object;
-                        action.setError(NO_PLACE_TO_PLACE_OBJ_ON);
-                        action.markAsFailed();
+                        action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
                     }
                     return;
                 }
                 else
                 {
-                    action.setError(OBJ_CANT_CREATE);
-                    action.markAsFailed();
+                    action.markAsFailed(OBJ_CANT_CREATE);
                     return;
                 }
             break;
 
             default:
-                action.setError(OBJ_IS_NOT_CREATABLE);
-                action.markAsFailed();
+                action.markAsFailed(OBJ_IS_NOT_CREATABLE);
                 return;
             break;
 
@@ -122,8 +117,7 @@ void CreationPerformer::perform(Action& action)
     }
     else
     {
-        action.setError(OBJ_CANT_CREATE);
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_CREATE);
         return;
     }
 }
