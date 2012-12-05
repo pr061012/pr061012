@@ -720,12 +720,24 @@ void Creature::clearActions()
     // Clear inventory from destroyed objects.
     // First place them in buffer.
     std::vector<Object*> buffer;
+    free_space = capacity;
     for (ObjectHeap::iterator i = inventory -> begin();
          i != inventory -> end(); i++)
     {
         if ((*i) -> isDestroyed())
         {
             buffer.push_back(*i);
+        }
+        else
+        {
+            if ((*i) -> getType() == RESOURCE)
+            {
+                free_space -= (*i) -> getHealthPoints() * (*i) -> getWeight();
+            }
+            else
+            {
+                free_space -= (*i) -> getWeight();
+            }
         }
     }
 
