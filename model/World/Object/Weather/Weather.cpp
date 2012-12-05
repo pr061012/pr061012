@@ -15,9 +15,10 @@
 //******************************************************************************
 
 Weather::Weather(WeatherType type, uint living_steps) :
-    Object(WEATHER, false),
+    Object(WEATHER, false, false, true),
     subtype(type)
 {
+    this -> makeFlying();
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
     this -> setDangerLevel(DNGR_WEATHER);

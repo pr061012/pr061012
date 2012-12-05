@@ -9,20 +9,23 @@
 #include <sstream>
 #include <string>
 
-#include "../../../../../common/Log/Log.h"
-
 #include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../Resource/Resource.h"
 #include "../../../../../common/Math/DoubleComparison.h"
-// BAD
-#include "../../../DecisionMaker/DecisionMaker.h"
+
+#define  HALF                        50
+#define  HIGH_LEVEL                  80
+#define  START_LEVEL_NEED_IN_HOUSE   70
+#define  SMALL_LEVEL                 20
+#define  TINY_LEVEL                  10
+#define  A_BIT_MORE_THAN_HALF        60
 
 // TODO:
 //  Errors
-//  Searching for resourse
-//  Relax/FindFood
+//  Searching for resourse - mass
+// Messages
 
 using namespace std;
 //******************************************************************************
@@ -65,7 +68,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     // Initialize other values.
     sociability    = 0;  // BAD 100 - max_sociability;
     need_in_points = 0;  //100;
-    need_in_house  = 70;
+    need_in_house  = START_LEVEL_NEED_IN_HOUSE;
 
     //Initialize of matrix of attr.
     attrs(ATTR_HUNGER,0)         = 100 * getHunger() / getMaxHunger();
@@ -135,7 +138,7 @@ std::vector <Action>* Humanoid::getActions()
         if
         (
             100 * home -> getHealthPoints() / home -> getMaxHealthPoints()
-            > 70
+            > START_LEVEL_NEED_IN_HOUSE
         )
         {
             need_in_house = 100 * home -> getHealthPoints()
@@ -152,7 +155,7 @@ std::vector <Action>* Humanoid::getActions()
     // Update attrs
     if (current_action == EAT)
     {
-        if (getHunger() < 10) // FIXME magic const
+        if (getHunger() < TINY_LEVEL)
         {
             attrs(ATTR_HUNGER, 0) = getHunger();
             current_action = NONE;
@@ -178,7 +181,7 @@ std::vector <Action>* Humanoid::getActions()
     if (home != nullptr && home -> isDestroyed())
     {
         home = nullptr;
-        need_in_house = 70;// FIXME
+        need_in_house = START_LEVEL_NEED_IN_HOUSE;
     }
 
     // Get current errors
@@ -191,7 +194,6 @@ std::vector <Action>* Humanoid::getActions()
     // If decision is not actual humanoid makes new decision.
     if (!brains.isDecisionActual(attrs, current_action))
     {
-        current_decision = current_action;// BAD
         current_action   = NONE;
         detailed_act     = SLEEP_ON_THE_GROUND;
     }
@@ -265,7 +267,7 @@ std::vector <Action>* Humanoid::getActions()
         findSacrifice();
         if (aim == nullptr)
         {
-            if (100 * getHunger() / getMaxHunger() > 80)
+            if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
             {
                 findNearestRes(RES_FOOD);
                 if (aim != nullptr)
@@ -310,7 +312,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (aim == nullptr)
         {
-            if (100 * getHunger() / getMaxHunger() > 70)
+            if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
             {
                 findSacrifice();
                 if (aim != nullptr)
@@ -339,10 +341,19 @@ std::vector <Action>* Humanoid::getActions()
             }
             else
             {
-                Action act(EAT_OBJ, this);
-                act.addParticipant(aim);
-                this -> actions.push_back(act);
-            }
+                if (current_action == EAT)
+                {
+                    Action act(EAT_OBJ, this);
+                    act.addParticipant(aim);
+                    this -> actions.push_back(act);
+                }
+                else
+                {
+                    Action act(PICK_UP_OBJS, this);
+                    act.addParticipant(aim);
+                    this -> actions.push_back(act);
+                }
+             }
         }
     }
 
@@ -399,8 +410,8 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == BUILD_HOUSE)
     {
-        // FIXME Program can enter here with home == nullptr
-        if (home) {
+        if (home)
+        {
             if (aim == nullptr)
             {
                 aim = home;
@@ -459,8 +470,15 @@ std::vector <Action>* Humanoid::getActions()
                 this -> actions.push_back(act);
                 if (isResInInventory(RES_BUILDING_MAT))
                 {
-                    detailed_act = BUILD_HOUSE;
-                    aim = nullptr;
+                    if (current_action == BUILD)
+                    {
+                        detailed_act = BUILD_HOUSE;
+                    }
+                    else
+                    {
+                        current_action = NONE;
+                    }
+                    aim = home;
                 }
              }
         }
@@ -468,12 +486,11 @@ std::vector <Action>* Humanoid::getActions()
 
     //**************************************************************************
     // DETAILED DECISION : FIGHT
-    // Fixme
-    // Create this action
     //**************************************************************************
 
     if (detailed_act == FIGHT)
     {
+        if (aim != nullptr)
         fight();
     }
 
@@ -481,6 +498,7 @@ std::vector <Action>* Humanoid::getActions()
     // DETAILED DECISION : RUN_FROM_DANGER
     // Humanoid chooses direction to escape. After thart he run, if he doesn't
     // tired. In other case he just goes.
+    // Endurance is to make him go then he tired.
     //**************************************************************************
 
     if (detailed_act == RUN_FROM_DANGER)
@@ -488,7 +506,6 @@ std::vector <Action>* Humanoid::getActions()
         chooseDirectionToEscape();
         if (getEndurance() > getMaxEndurance() / 2)
         {
-            // FIXME What is this?
             if (decr_endur_step == 0)
             {
                  decr_sleep_step = HUM_DECR_ENDUR_STEPS;
@@ -568,8 +585,8 @@ void Humanoid::messageProcess()
             this -> current_action = ESCAPE;
             if
             (
-                (getForce() > 50 && bravery > 50) ||
-                (getForce() > 80) || (bravery > 80)
+                (getForce() > HALF && bravery > HALF) ||
+                (getForce() > HIGH_LEVEL) || (bravery > HIGH_LEVEL)
             )
             {
                 detailed_act = FIGHT;
@@ -595,7 +612,6 @@ std::vector<ActionError> Humanoid::errorProcess()
     {
         if (actions[i].isSucceeded())
         {
-            this -> need_in_descendants -= 10;
             error.push_back(NO_ERROR);
             break;
         }
@@ -652,15 +668,43 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 // CHOOSE_WAY_TO_RELAX
 // We just check: is his home exsist at all? If it doesn't exist... So, he is
 // going to sleep on the ground.
+// But they relax too much. So, sometimes they searching for food or resource.
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    if(home != nullptr)
+    if
+    (
+        (laziness < A_BIT_MORE_THAN_HALF &&
+         100 * getHealth() / max_health > HIGH_LEVEL)
+        || (laziness < SMALL_LEVEL && 100 * getHealth()
+            / max_health > A_BIT_MORE_THAN_HALF)
+    )
     {
-        return RELAX_AT_HOME;
+        uint a = Random::int_num(2);
+        switch (a)
+        {
+            case 0: return MINE_RESOURSES; break;
+            case 1:
+                if (bravery > A_BIT_MORE_THAN_HALF)
+                {
+                    return HUNT;
+                }
+                else
+                {
+                    return FIND_FOOD;
+                }
+                break;
+            default: return FIND_FOOD;
+        }
     }
-
-    return SLEEP_ON_THE_GROUND;
+    else
+    {
+        if(home != nullptr)
+        {
+            return RELAX_AT_HOME;
+        }
+    }
+        return SLEEP_ON_THE_GROUND;
 }
 
 //******************************************************************************
@@ -700,8 +744,8 @@ DetailedHumAction Humanoid::chooseWayToEat()
 
     if
     (
-        ((getForce() > 50 && bravery > 50) || (getForce() > 80)
-        || (bravery > 80))// BAD magic const
+        ((getForce() > HALF && bravery > HALF) || (getForce() > HIGH_LEVEL)
+        || (bravery > HIGH_LEVEL))
     )
     {
         return HUNT;

@@ -111,8 +111,8 @@ void MiningPerformer::perform(Action& action)
             pa.addKey<uint>("res_amount", drop_amount);
             Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
 
-            // Making it pickable and non-restorable.
-            drop -> makePickable();
+            // Making it non-mineable and non-restorable.
+            drop -> makeNonMineable();
             drop -> makeNonRestorable();
 
             // Adding object to inventory and world's heap.
