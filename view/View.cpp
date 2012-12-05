@@ -62,15 +62,16 @@ View::~View()
     delete input_handler;
     delete json_reader;
 
-    for(uint i = 0; i < rendered.size(); i++)
+    for (uint i = 0; i < rendered.size(); i++)
     {
         delete rendered.at(i);
     }
 
-    for(uint i = 0; i < texture_buf.size(); i++)
-    {
-        delete texture_buf.at(i);
-    }
+//    std::map<std::string, ViewTexture*>::iterator iter;
+//    for (iter = texture_buf.begin(); iter != texture_buf.end(); iter++)
+//    {
+//        delete (*iter);
+//    }
 
     glcDeleteFont(this -> font);
 
@@ -81,16 +82,48 @@ void View::loadTextures()
 {
     std::fstream config("res/view.json");
 
-    Json::Value* json_data = new Json::Value();
+    Json::Value json_data;
 
     json_reader = new Json::Reader();
-    json_reader -> parse(config, *json_data);
+    json_reader -> parse(config, json_data);
 
+    if(json_data.isMember("interface_textures"))
+    {
+        Json::Value textures = json_data.get("interface_textures", 0);
 
+        if(textures.isArray())
+        {
+            uint size = textures.size();
 
-    uint flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
-    texture_buf.push_back(new ViewTexture("res/images/bar_empty.png", flags));
-    texture_buf.push_back(new ViewTexture("res/images/bar_red.png",   flags));
+            for(uint i = 0; i < size; ++i)
+            {
+                const Json::Value& tex = textures[i];
+                std::string name = tex.get("name", "default").asString();
+                std::string path = "res/images/" + tex.get("file", "").asString();
+
+                uint flags = SOIL_FLAG_INVERT_Y;
+
+                if (tex.get("alpha", false).asBool())
+                {
+                    flags |= SOIL_FLAG_MULTIPLY_ALPHA;
+                }
+                if (tex.get("repeatable", false).asBool())
+                {
+                    flags |= SOIL_FLAG_TEXTURE_REPEATS;
+                }
+
+                ViewTexture* view_tex = new ViewTexture(path.c_str(), flags);
+
+                view_tex -> setTextureDimensions(tex.get("x0",     0.0).asDouble(),
+                                                 tex.get("y0",     0.0).asDouble(),
+                                                 tex.get("width",  1.0).asDouble(),
+                                                 tex.get("height", 1.0).asDouble());
+
+                texture_buf[name] = view_tex;
+            }
+        }
+    }
+
 }
 
 double View::getX()
@@ -355,10 +388,10 @@ void View::drawProgressBar(double x, double y, double width, double percent)
 {
     double height = width/5;
 
-    texture_buf[1] -> setTextureDimensions(0, 0, percent, 1.0);
+    texture_buf["Red bar"] -> setTextureDimensions(0, 0, percent, 1.0);
 
-    texture_buf[0] -> render(x, y, width,         height);
-    texture_buf[1] -> render(x, y, width*percent, height);
+    texture_buf["Empty bar"] -> render(x, y, width,         height);
+    texture_buf["Red bar"] -> render(x, y, width*percent, height);
 }
 
 void View::displaySelectionInfo()

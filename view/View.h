@@ -65,8 +65,8 @@ class View
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
 
-    /// Vector of currently loaded textures.
-    std::vector<ViewTexture*> texture_buf;
+    /// Map of currently loaded textures.
+    std::map<std::string, ViewTexture*> texture_buf;
 
     Json::Reader* json_reader;
 

@@ -1,0 +1,35 @@
+{
+        "world_textures": [
+        {
+            "name": "Cow",
+            "file": "cow.png",
+            "alpha": true
+        },
+        {
+            "name": "Grass",
+            "file": "grass.png",
+            "repeatable": true
+        },
+        {
+            "name": "Rock",
+            "file": "rock.png",
+            "repeatable": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png"
+        }
+    ],
+        "interface_textures": [
+        {
+            "name": "Empty bar",
+            "file": "bar_empty.png",
+            "alpha": true
+        },
+        {
+            "name": "Red bar",
+            "file": "bar_red.png",
+            "alpha": true
+        }
+    ]
+}
