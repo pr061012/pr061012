@@ -99,8 +99,9 @@ public:
     /**
      * @brief  Add object to inventory.
      * @param  obj object to add.
+     * @return true, if object was fully moved to inventory.
      */
-    void addToInventory(Object * obj);
+    bool addToInventory(Object * obj);
     
     /**
      * @brief  Removes object from inventory.
@@ -113,6 +114,18 @@ public:
      * @return inventory
      */
     ObjectHeap* getInventory();
+
+    /**
+     * @brief  Get inventory's capacity.
+     * @return capacity.
+     */
+    uint getCapacity();
+
+    /**
+     * @brief  Get free space.
+     * @return free space.
+     */
+    uint getFreeSpace();
 
     //**************************************************************************
     // AGE
@@ -462,6 +475,11 @@ private:
     uint max_hunger;
     /// Current value of hunger.
     uint hunger;
+
+    /// Capacity of the inventory.
+    uint capacity;
+    /// Space left in the inventory.
+    uint free_space;
 
     //**********************************************************
     // STEPS
