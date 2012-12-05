@@ -350,10 +350,16 @@ public:
     CreatureAction getCurrentDecision() const;
 
     /**
-     * @brief  Gets curretn action.
+     * @brief  Gets current action.
      * @return current action.
      */
     CreatureAction getCurrentAction() const;
+
+    /**
+     * @brief Sets current action.
+     * @param act   new current action
+     */
+    void setCurrentAction(CreatureAction act);
 
     //**************************************************************************
     // HEALTH MANIPULATION.

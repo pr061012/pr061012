@@ -133,6 +133,11 @@ CreatureAction Creature::getCurrentAction() const
     return current_action;
 }
 
+void Creature::setCurrentAction(CreatureAction act)
+{
+    this -> current_action = act;
+}
+
 //**********************************************************
 // AGE
 //**********************************************************
