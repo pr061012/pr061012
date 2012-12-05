@@ -90,7 +90,7 @@
 // http://stackoverflow.com/a/8098080
 static std::string sformat(const std::string& format, ...)
 {
-    int size = 100;
+    uint size = 100;
     std::string result;
     va_list ap;
 
@@ -102,15 +102,15 @@ static std::string sformat(const std::string& format, ...)
         int n = vsnprintf((char *) result.c_str(), size, format.c_str(), ap);
         va_end(ap);
 
-        if (n > -1 && n < size)
+        if (n > -1 && n < (int) size)
         {
-            result.resize(n);
+            result.resize((uint) n);
             break;
         }
 
         if (n > -1)
         {
-            size = n + 1;
+            size = (uint) n + 1;
         }
         else
         {
