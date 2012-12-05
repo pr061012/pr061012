@@ -125,6 +125,17 @@ ObjectHeap * Creature::getInventory()
     return this -> inventory;
 }
 
+uint Creature::getCapacity()
+{
+    return this -> capacity;
+}
+
+uint Creature::getFreeSpace()
+{
+    return this -> free_space;
+}
+
+
 CreatureAction Creature::getCurrentDecision() const
 {
     return current_decision;
