@@ -481,7 +481,7 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     double view_radius = view_area.getSize() / 2;
     double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
-    double obj_radius = getShape().getSize() / 2;
+    double obj_radius = obj -> getShape().getSize() / 2;
 
     // ~1/R
     // - infinitely grows at r = 0 for any object - may cause problems
@@ -504,12 +504,28 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
     */
 
-    // ~r
     double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
                             CREAT_DANGER_FACTOR;
 
-    return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
+    if (obj -> isMovable())
+    {
+        // linear dependency: == 0 at bounds of view_area
+        //                    == danger_ratio when standing next to the object.
+        return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
             danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
+    }
+    else
+    {
+        // immovable objects are dangerous only at near distances.
+        if (distance - obj_radius < CREAT_DANGER_IMMOVABLE_FACTOR * CREAT_SPEED_SLOW_VALUE)
+        {
+            return danger_ratio;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
 
 void Creature::chooseDirectionToEscape()

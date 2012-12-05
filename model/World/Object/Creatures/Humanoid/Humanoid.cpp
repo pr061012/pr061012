@@ -675,9 +675,9 @@ DetailedHumAction Humanoid::chooseWayToRelax()
     if
     (
         (laziness < A_BIT_MORE_THAN_HALF &&
-         100 * getHealth() / max_health > HIGH_LEVEL)
+         100 * getHealth() / getMaxHealth() > HIGH_LEVEL)
         || (laziness < SMALL_LEVEL && 100 * getHealth()
-            / max_health > A_BIT_MORE_THAN_HALF)
+            / getMaxHealth() > A_BIT_MORE_THAN_HALF)
     )
     {
         uint a = Random::int_num(2);
