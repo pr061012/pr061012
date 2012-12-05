@@ -31,6 +31,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         case RES_FOOD:
             this -> mineable        = false;
             this -> restorable      = false;
+            this -> makePickable();
             this -> makeNonSolid();
             this -> difficulty      = RES_DEFAULT_DIFFICULTY;
             // FIXME: Consts for wood.
@@ -43,6 +44,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         case RES_BUILDING_MAT:
             this -> mineable        = true;
             this -> restorable      = true;
+            this -> makeNonPickable();
             this -> makeSolid();
             this -> difficulty      = RES_WOOD_DIFFICULTY;
             // FIXME: Consts for wood.
@@ -258,7 +260,7 @@ void Resource::makeMineable()
     this -> mineable = true;
 }
 
-void Resource::makePickable()
+void Resource::makeNonMineable()
 {
     this -> mineable = false;
 }

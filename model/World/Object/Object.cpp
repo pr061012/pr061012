@@ -56,7 +56,7 @@ std::string Object::printObjectInfo(bool full) const
           (movable     ? "Movable\n"   : "") <<
           (pickable    ? "Pickable\n"  : "") <<
           (flyable     ? "Flyable"     : "") <<
-          (flyable && isCurrentlyFlying() ? "(currently flying)\n" : "") <<
+          (flyable && isCurrentlyFlying() ? "(currently flying)\n" : "\n") <<
 
           // Coordinates.
           insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
