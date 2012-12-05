@@ -67,7 +67,7 @@
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Coefficient for reach area size.
-#define SZ_REACH_AREA_COEF          1.5
+#define SZ_REACH_AREA_COEF          2
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
@@ -400,6 +400,9 @@
 
 /// Constant for evaluating distance at which immovable objects are dangerous
 #define CREAT_DANGER_IMMOVABLE_FACTOR   20
+
+/// Distance at which creatures rush at enemies.
+#define CREAT_RUSH_DISTANCE             4
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.

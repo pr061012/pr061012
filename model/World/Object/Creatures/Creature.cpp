@@ -689,8 +689,8 @@ void Creature::hunt()
         }
         else
         {
-            // FIXME Magic constant
-            if (getCoords().getDistance(aim -> getCoords()) < 7)
+            // Run at the target if it is close enough.
+            if (getCoords().getDistance(aim -> getCoords()) < CREAT_RUSH_DISTANCE)
             {
                 go(FAST_SPEED);
             }
