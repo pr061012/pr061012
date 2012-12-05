@@ -475,11 +475,11 @@ const Object* Creature::getAim()
 //**********************************************************
 
 // Evaluates object's danger depending on the distance to it.
-double Creature::evaluateDanger(const Object * obj)
+double Creature::evaluateDanger(const Object * obj, const Vector& coords)
 {
     
     double view_radius = view_area.getSize() / 2;
-    double distance = getCoords().getDistance(obj -> getCoords());
+    double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
     double obj_radius = getShape().getSize() / 2;
 
@@ -521,13 +521,14 @@ void Creature::chooseDirectionToEscape()
     // with length equal to object's danger level and
     // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
+    Vector coords = getCoords();
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
         angle = getCoords().getAngle((*iter) -> getCoords());
-        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter);
+        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter, coords);
     }
 
     // go to the opposite direction of biggest danger
@@ -737,6 +738,7 @@ void Creature::clearActions()
             else
             {
                 free_space -= (*i) -> getWeight();
+
             }
         }
     }
@@ -849,13 +851,14 @@ void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
     this -> danger = 0;
+    Vector coords = getCoords();
 
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
-        this -> danger += evaluateDanger(*iter);
+        this -> danger += evaluateDanger(*iter, coords);
         assert(!isnan(danger));
     }
 
