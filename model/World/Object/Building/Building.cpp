@@ -14,7 +14,7 @@
 //******************************************************************************
 
 Building::Building(uint max_space, uint max_health) :
-    Object(BUILDING, false),
+    Object(BUILDING, false, false),
     contents(new ObjectHeap),
     health(1),
     max_health(max_health),
@@ -22,9 +22,12 @@ Building::Building(uint max_space, uint max_health) :
     max_space(max_space),
     completeness(false)
 {
-    this -> setDangerLevel(DNGR_BUILDING);
+    // Setting shape parameters.
     this -> setShapeType(SHP_BUILDING);
     this -> setShapeSize(Random::double_range(SZ_BUILDING_SIDE_MIN, SZ_BUILDING_SIDE_MAX));
+
+    // Setting danger level and weight.
+    this -> setDangerLevel(DNGR_BUILDING);
     this -> setWeight(WGHT_BUILDING);
 }
 

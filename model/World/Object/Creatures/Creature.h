@@ -99,8 +99,9 @@ public:
     /**
      * @brief  Add object to inventory.
      * @param  obj object to add.
+     * @return true, if object was fully moved to inventory.
      */
-    void addToInventory(Object * obj);
+    bool addToInventory(Object * obj);
     
     /**
      * @brief  Removes object from inventory.
@@ -113,6 +114,18 @@ public:
      * @return inventory
      */
     ObjectHeap* getInventory();
+
+    /**
+     * @brief  Get inventory's capacity.
+     * @return capacity.
+     */
+    uint getCapacity();
+
+    /**
+     * @brief  Get free space.
+     * @return free space.
+     */
+    uint getFreeSpace();
 
     //**************************************************************************
     // AGE
@@ -350,10 +363,16 @@ public:
     CreatureAction getCurrentDecision() const;
 
     /**
-     * @brief  Gets curretn action.
+     * @brief  Gets current action.
      * @return current action.
      */
     CreatureAction getCurrentAction() const;
+
+    /**
+     * @brief Sets current action.
+     * @param act   new current action
+     */
+    void setCurrentAction(CreatureAction act);
 
     //**************************************************************************
     // HEALTH MANIPULATION.
@@ -463,6 +482,11 @@ private:
     /// Current value of hunger.
     uint hunger;
 
+    /// Capacity of the inventory.
+    uint capacity;
+    /// Space left in the inventory.
+    uint free_space;
+
     //**********************************************************
     // STEPS
     //**********************************************************
@@ -569,8 +593,9 @@ protected:
     /**
      * @brief Evalutates danger of given object.
      * @param obj object to evaluate danger.
+     * @param coords coordinates of the point to calculate danger for.
      */
-    double evaluateDanger(const Object * obj);
+    double evaluateDanger(const Object * obj, const Vector& coords);
 
     /**
      * @brief Updates need_in_descendants

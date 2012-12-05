@@ -40,6 +40,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     sleepiness (100 - max_sleepiness),
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
+    capacity(100),
+    free_space(capacity),
 
     // steps
     common_steps(CREAT_STEPS),
@@ -131,6 +133,11 @@ CreatureAction Creature::getCurrentDecision() const
 CreatureAction Creature::getCurrentAction() const
 {
     return current_action;
+}
+
+void Creature::setCurrentAction(CreatureAction act)
+{
+    this -> current_action = act;
 }
 
 //**********************************************************
@@ -468,11 +475,11 @@ const Object* Creature::getAim()
 //**********************************************************
 
 // Evaluates object's danger depending on the distance to it.
-double Creature::evaluateDanger(const Object * obj)
+double Creature::evaluateDanger(const Object * obj, const Vector& coords)
 {
     
     double view_radius = view_area.getSize() / 2;
-    double distance = getCoords().getDistance(obj -> getCoords());
+    double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
     double obj_radius = getShape().getSize() / 2;
 
@@ -514,13 +521,14 @@ void Creature::chooseDirectionToEscape()
     // with length equal to object's danger level and
     // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
+    Vector coords = getCoords();
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
         angle = getCoords().getAngle((*iter) -> getCoords());
-        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter);
+        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter, coords);
     }
 
     // go to the opposite direction of biggest danger
@@ -713,12 +721,25 @@ void Creature::clearActions()
     // Clear inventory from destroyed objects.
     // First place them in buffer.
     std::vector<Object*> buffer;
+    free_space = capacity;
     for (ObjectHeap::iterator i = inventory -> begin();
          i != inventory -> end(); i++)
     {
         if ((*i) -> isDestroyed())
         {
             buffer.push_back(*i);
+        }
+        else
+        {
+            if ((*i) -> getType() == RESOURCE)
+            {
+                free_space -= (*i) -> getHealthPoints() * (*i) -> getWeight();
+            }
+            else
+            {
+                free_space -= (*i) -> getWeight();
+
+            }
         }
     }
 
@@ -830,13 +851,14 @@ void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
     this -> danger = 0;
+    Vector coords = getCoords();
 
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
-        this -> danger += evaluateDanger(*iter);
+        this -> danger += evaluateDanger(*iter, coords);
         assert(!isnan(danger));
     }
 
@@ -924,30 +946,54 @@ void Creature::updateCommonAttrs()
 //******************************************************************************
 
 // Adds object to inventory.
-void Creature::addToInventory(Object *obj)
+bool Creature::addToInventory(Object *obj)
 {
+    uint weight = obj -> getWeight();
+
     // Resources should be stacked together
     if (obj -> getType() == RESOURCE)
     {
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
+        uint amount = obj -> getHealthPoints();
+        
+        // Check if there is enough place for placing resource.
+        if (amount * weight > free_space)
+        {
+            return false;
+        }
+        free_space -= amount * weight;
+
+        // Stack resources.
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
-             i != inventory -> end(RESOURCE); i++)
+             i != inventory -> end(RESOURCE) && obj -> getHealthPoints(); i++)
         {
             if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
             {
-                (*i) -> heal(obj -> getHealthPoints());
-                obj -> markAsDestroyed();
-                return;
+                obj -> damage((*i) -> heal(amount));
             }
         }
+        
+        // Push the rest as it is.
+        if (amount)
+        {
+            inventory -> push(obj);
+        }
+        return true;
     }
 
-    // If there are no resources of this type, or it's something else, just push it.
-    this -> inventory -> push(obj);
+    return false;
 }
 
 // Remove object from inventory.
 void Creature::removeFromInventory(Object * obj)
 {
     inventory -> remove(obj);
+    if (obj -> getType() == RESOURCE)
+    {
+        free_space += obj -> getHealthPoints() * obj -> getWeight();
+    }
+    else
+    {
+        free_space += obj -> getWeight();
+    }
 }

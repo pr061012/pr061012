@@ -129,7 +129,7 @@ public:
     /**
      * @brief Makes resource pickable.
      */
-    void makePickable();
+    void makeNonMineable();
 
     /**
      * @brief Returns is resource restorable.
