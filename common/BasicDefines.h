@@ -485,3 +485,11 @@
 #define NHUM_ROAM_STEPS             300
 
 #endif // BASIC_DEFINES_H
+
+//******************************************************************************
+// REGENERATION'S DEFINES
+// Prefix: REG
+//******************************************************************************
+
+/// Delta health of building "per" one res
+#define REG_BUILD   10
