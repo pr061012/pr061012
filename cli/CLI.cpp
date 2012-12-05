@@ -227,9 +227,6 @@ std::string CLI::generate(std::stringstream& ss)
 
 std::string CLI::create(std::stringstream& ss)
 {
-    // FIXME: Leaks are possible! If exception is thrown from there ParamArray
-    //        pa won't be destroyed => leaks. Need to fix this somehow.
-
     // Reading coordinates.
     double x = readFromSS<double>(ss, "X coordinate");
     double y = readFromSS<double>(ss, "Y coordinate");
