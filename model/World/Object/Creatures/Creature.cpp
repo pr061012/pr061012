@@ -40,6 +40,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     sleepiness (100 - max_sleepiness),
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
     hunger(100 - max_hunger),
+    capacity(100),
+    free_space(capacity),
 
     // steps
     common_steps(CREAT_STEPS),
@@ -131,6 +133,11 @@ CreatureAction Creature::getCurrentDecision() const
 CreatureAction Creature::getCurrentAction() const
 {
     return current_action;
+}
+
+void Creature::setCurrentAction(CreatureAction act)
+{
+    this -> current_action = act;
 }
 
 //**********************************************************
@@ -924,30 +931,54 @@ void Creature::updateCommonAttrs()
 //******************************************************************************
 
 // Adds object to inventory.
-void Creature::addToInventory(Object *obj)
+bool Creature::addToInventory(Object *obj)
 {
+    uint weight = obj -> getWeight();
+
     // Resources should be stacked together
     if (obj -> getType() == RESOURCE)
     {
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
+        uint amount = obj -> getHealthPoints();
+        
+        // Check if there is enough place for placing resource.
+        if (amount * weight > free_space)
+        {
+            return false;
+        }
+        free_space -= amount * weight;
+
+        // Stack resources.
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
-             i != inventory -> end(RESOURCE); i++)
+             i != inventory -> end(RESOURCE) && obj -> getHealthPoints(); i++)
         {
             if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
             {
-                (*i) -> heal(obj -> getHealthPoints());
-                obj -> markAsDestroyed();
-                return;
+                obj -> damage((*i) -> heal(amount));
             }
         }
+        
+        // Push the rest as it is.
+        if (amount)
+        {
+            inventory -> push(obj);
+        }
+        return true;
     }
 
-    // If there are no resources of this type, or it's something else, just push it.
-    this -> inventory -> push(obj);
+    return false;
 }
 
 // Remove object from inventory.
 void Creature::removeFromInventory(Object * obj)
 {
     inventory -> remove(obj);
+    if (obj -> getType() == RESOURCE)
+    {
+        free_space += obj -> getHealthPoints() * obj -> getWeight();
+    }
+    else
+    {
+        free_space += obj -> getWeight();
+    }
 }

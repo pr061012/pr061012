@@ -14,7 +14,7 @@
 //******************************************************************************
 
 Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
-    Object(TOOL),
+    Object(TOOL, true, false),
     subtype(type),
     material(material)
 {

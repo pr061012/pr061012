@@ -15,16 +15,21 @@
 
 uint Object::CURRENT_ID = 0;
 
-Object::Object(ObjectType type, bool solidity, bool immortality) :
+Object::Object(ObjectType type, bool solidity, bool movable, bool flyable,
+               bool pickable, bool immortality) :
     id(CURRENT_ID++),
     type(type),
     shape(Shape(Vector(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
+    angle(0),
+    danger_level(0),
+    weight(0),
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
-    angle(0),
-    danger_level(0),
-    weight(0)
+    pickable(pickable),
+    movable(movable),
+    flyable(flyable),
+    is_currently_flying(false)
 {
 }
 
@@ -48,6 +53,10 @@ std::string Object::printObjectInfo(bool full) const
           (destroyed   ? "Destroyed\n" : "") <<
           (immortality ? "Immortal\n"  : "") <<
           (solidity    ? "Solid\n"     : "") <<
+          (movable     ? "Movable\n"   : "") <<
+          (pickable    ? "Pickable\n"  : "") <<
+          (flyable     ? "Flyable"     : "") <<
+          (flyable && isCurrentlyFlying() ? "(currently flying)\n" : "\n") <<
 
           // Coordinates.
           insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
@@ -125,6 +134,82 @@ void Object::makeNonSolid()
 bool Object::isSolid() const
 {
     return this -> solidity;
+}
+
+//******************************************************************************
+// PICKABILITY.
+//******************************************************************************
+
+void Object::makePickable()
+{
+    this -> pickable = true;
+}
+
+void Object::makeNonPickable()
+{
+    this -> pickable = false;
+}
+
+bool Object::isPickable() const
+{
+    return this -> pickable;
+}
+
+//******************************************************************************
+// MOVABILITY.
+//******************************************************************************
+
+void Object::makeMovable()
+{
+    this -> movable = true;
+}
+
+void Object::makeImmovable()
+{
+    this -> movable = false;
+}
+
+bool Object::isMovable() const
+{
+    return this -> movable;
+}
+
+//******************************************************************************
+// ABILITY TO FLY.
+//******************************************************************************
+
+void Object::makeFlyable()
+{
+    this -> flyable = true;
+}
+
+void Object::makeNonFlyable()
+{
+    this -> flyable = false;
+}
+
+bool Object::isFlyable() const
+{
+    return this -> flyable;
+}
+
+//******************************************************************************
+// FLYING FLAG.
+//******************************************************************************
+
+void Object::makeFlying()
+{
+    this -> is_currently_flying = true;
+}
+
+void Object::makeNonFlying()
+{
+    this -> is_currently_flying = false;
+}
+
+bool Object::isCurrentlyFlying() const
+{
+    return this -> is_currently_flying;
 }
 
 //******************************************************************************
