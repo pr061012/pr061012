@@ -30,7 +30,9 @@ public:
      * @brief Constructor.
      * @param type  ObjectType
      */
-    Object(ObjectType type, bool solidity = true, bool immortality = false);
+    Object(ObjectType type, bool solidity = true, bool movable = true,
+           bool flyable = false, bool pickable = false,
+           bool immortality = false);
 
     /**
      * @brief Destructor.

@@ -15,7 +15,8 @@
 
 uint Object::CURRENT_ID = 0;
 
-Object::Object(ObjectType type, bool solidity, bool immortality) :
+Object::Object(ObjectType type, bool solidity, bool movable, bool flyable,
+               bool pickable, bool immortality) :
     id(CURRENT_ID++),
     type(type),
     shape(Shape(Vector(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
@@ -25,9 +26,9 @@ Object::Object(ObjectType type, bool solidity, bool immortality) :
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
-    pickable(false),
-    movable(false),
-    flyable(false),
+    pickable(pickable),
+    movable(movable),
+    flyable(flyable),
     is_currently_flying(false)
 {
 }

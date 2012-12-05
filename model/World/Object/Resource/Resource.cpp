@@ -15,7 +15,7 @@
 //******************************************************************************
 
 Resource::Resource(ResourceType type, uint res_amount) :
-    Object(RESOURCE),
+    Object(RESOURCE, true, false),
     subtype(type),
     progress(0),
     steps_to_reg(0)

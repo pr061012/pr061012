@@ -15,7 +15,7 @@
 //******************************************************************************
 
 Weather::Weather(WeatherType type, uint living_steps) :
-    Object(WEATHER, false),
+    Object(WEATHER, false, false, true),
     subtype(type)
 {
     this -> setShapeType(SHP_WEATHER);
