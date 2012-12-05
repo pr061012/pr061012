@@ -464,6 +464,8 @@
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
 
+/// Space in inventory which is necessary in cratical situation
+#define HUM_CRIT_SPACE              5
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
@@ -486,3 +488,11 @@
 #define NHUM_ROAM_STEPS             300
 
 #endif // BASIC_DEFINES_H
+
+//******************************************************************************
+// REGENERATION'S DEFINES
+// Prefix: REG
+//******************************************************************************
+
+/// Delta health of building "per" one res
+#define REG_BUILD   10

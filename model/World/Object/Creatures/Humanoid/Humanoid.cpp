@@ -969,3 +969,32 @@ bool Humanoid::isResInInventory(ResourceType type)
     }
     return false;
 }
+//**************************************************************************
+// INVENTORY FUNC
+//**************************************************************************
+
+// If we mine resource because we build, we calculate it (how many res we need
+// to complete our home?). If we just mining res for best future, we choose
+// amount randomly.
+uint Humanoid::calculateResAmount()
+{
+    if (current_action == BUILD)
+    {
+        if (home != nullptr)
+        {
+            return 1;
+        }
+    }
+    else
+    {
+        uint res_amount = Random::int_range(1, getCapacity() / 2);
+        if (res_amount * WGHT_RESOURCE <= getFreeSpace())
+        {
+            return res_amount;
+        }
+        else
+        {
+            return getFreeSpace();
+        }
+    }
+}
