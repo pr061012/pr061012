@@ -29,7 +29,7 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     obstacles_index(0),
 
     // some general attributes
-    force(Random::int_range(CREAT_FORCE_MIN,    CREAT_FORCE_MAX)),
+    force(Random::int_range(CREAT_FORCE_MIN, CREAT_FORCE_MAX)),
     max_endurance(Random::int_range(CREAT_ENDURANCE_MAX,  CREAT_ENDURANCE_MAX)),
     endurance(max_endurance),
     max_age(0),
@@ -37,10 +37,11 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_health(Random::int_range(CREAT_HEALTH_MIN, CREAT_HEALTH_MAX)),
     health(max_health),
     max_sleepiness(Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX)),
-    sleepiness (100 - max_sleepiness),
-    max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
-    hunger(100 - max_hunger),
-    capacity(100),
+    sleepiness (0),
+    max_hunger(Random::int_range(CREAT_HUNGER_MIN, CREAT_HUNGER_MAX)),
+    hunger(0),
+
+    capacity(force / 10 + 5),
     free_space(capacity),
 
     // steps
@@ -688,8 +689,8 @@ void Creature::hunt()
         }
         else
         {
-            // FIXME Magic constant
-            if (getCoords().getDistance(aim -> getCoords()) < 7)
+            // Run at the target if it is close enough.
+            if (getCoords().getDistance(aim -> getCoords()) < CREAT_RUSH_DISTANCE)
             {
                 go(FAST_SPEED);
             }

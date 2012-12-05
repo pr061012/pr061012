@@ -165,7 +165,7 @@ Creature::Path Creature::generateRoute()
     uint debug_step = 0;
 
     // Some creatures can fly
-    if (__creature_generate_route_complete && this -> isSolid())
+    if (!isCurrentlyFlying() && isSolid())
     {
         // Check if our object lies inside view_area
         view_area.setCenter(this -> getCoords());

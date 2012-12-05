@@ -67,7 +67,7 @@
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Coefficient for reach area size.
-#define SZ_REACH_AREA_COEF          1.5
+#define SZ_REACH_AREA_COEF          2
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
@@ -401,6 +401,9 @@
 /// Constant for evaluating distance at which immovable objects are dangerous
 #define CREAT_DANGER_IMMOVABLE_FACTOR   20
 
+/// Distance at which creatures rush at enemies.
+#define CREAT_RUSH_DISTANCE             4
+
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.
 // Prefix: ATTR.
@@ -461,6 +464,8 @@
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
 
+/// Space in inventory which is necessary in cratical situation
+#define HUM_CRIT_SPACE              5
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
@@ -483,3 +488,11 @@
 #define NHUM_ROAM_STEPS             300
 
 #endif // BASIC_DEFINES_H
+
+//******************************************************************************
+// REGENERATION'S DEFINES
+// Prefix: REG
+//******************************************************************************
+
+/// Delta health of building "per" one res
+#define REG_BUILD   10
