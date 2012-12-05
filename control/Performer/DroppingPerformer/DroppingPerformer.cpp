@@ -40,8 +40,7 @@ void DroppingPerformer::perform(Action& action)
     // check if actor can go
     if (actor_type != CREATURE)
     {
-        action.markAsFailed();
-        action.setError(OBJ_CANT_DROP);
+        action.markAsFailed(OBJ_CANT_DROP);
         return;
     }
 
@@ -53,6 +52,7 @@ void DroppingPerformer::perform(Action& action)
     // initalize flags
     bool success = false;
     bool errors = false;
+    ActionError act_error = NO_ERROR;
 
     // go through all objects in participants and check if
     // they lie in inventory
@@ -63,7 +63,7 @@ void DroppingPerformer::perform(Action& action)
         if (object == inventory -> end())
         {
             errors = true;
-            action.setError(OBJ_IS_NOT_IN_HEAP);
+            act_error = OBJ_IS_NOT_IN_HEAP;
         }
         else 
         {
@@ -83,11 +83,11 @@ void DroppingPerformer::perform(Action& action)
 
     if (!success)
     {
-        action.markAsFailed();
+        action.markAsFailed(act_error);
     }
     else if (success && errors) 
     {
-        action.markAsSucceededWithErrors();
+        action.markAsSucceededWithErrors(act_error);
     }
     else 
     {

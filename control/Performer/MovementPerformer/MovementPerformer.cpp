@@ -32,7 +32,7 @@ void MovementPerformer::perform(Action& action)
     // check if actor can move objects
     if (actor_type != CREATURE && actor_type != WEATHER)
     {
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_MOVE);
         return;
     }
 
@@ -40,21 +40,16 @@ void MovementPerformer::perform(Action& action)
     std::vector<Object*> participants = action.getParticipants();
     if (participants.size() != 1)
     {
-        action.markAsFailed();
+        action.markAsFailed(TOO_MANY_PARTICIPANTS);
         return;
     }
 
-    Object * participant = *participants.begin();
+    Object* participant = *participants.begin();
 
-    // check if a participant can be moved (tools and mined resources)
-    if
-    (
-        participant -> getType() != TOOL &&
-        !(participant -> getType() == RESOURCE &&
-        !dynamic_cast<Resource*>(participant) -> isMineable())
-    )
+    // check if a participant can be moved
+    if (!participant -> isMovable())
     {
-        action.markAsFailed();
+        action.markAsFailed(OBJ_IS_NOT_MOVABLE);
         return;
     }
 
@@ -66,12 +61,11 @@ void MovementPerformer::perform(Action& action)
     {
         case SLOW_SPEED: 
             speed = CREAT_SPEED_SLOW_VALUE; 
-            break;
+        break;
 
         case FAST_SPEED:
             speed = CREAT_SPEED_FAST_VALUE;
-            break;
-
+        break;
     }
     
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
@@ -80,7 +74,8 @@ void MovementPerformer::perform(Action& action)
     if (dest.getX() < 0 || dest.getX() >= world -> getSize() || 
         dest.getY() < 0 || dest.getY() >= world -> getSize())
     {
-        action.markAsFailed();
+        // FIXME: What action error we need to set here?
+        // action.markAsFailed();
         return;
     }
 
@@ -99,6 +94,7 @@ void MovementPerformer::perform(Action& action)
     }
     else
     {
-        action.markAsFailed();
+        // FIXME: What action error we need to set here?
+        // action.markAsFailed();
     }
 }

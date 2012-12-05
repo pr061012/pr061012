@@ -29,22 +29,29 @@ void MiningPerformer::perform(Action& action)
     std::vector<Object*> participants = action.getParticipants();
 
     uint res_index = action.getParam<uint>("res_index");
-/*
-    uint tool_index = action.getParam<uint>("tool_index");
-*/
-    if ((actor -> getType() != CREATURE) && (participants.size() != 1))
+    // uint tool_index = action.getParam<uint>("tool_index");
+
+    // Only creature can mine.
+    if (actor -> getType() != CREATURE)
     {
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_MINE);
         return;
     }
 
     Creature* creature = dynamic_cast<Creature*>(actor);
     CreatureType subtype = creature -> getSubtype();
 
-    if (subtype == NON_HUMANOID)
+    // Only humanoid can mine.
+    if (subtype != HUMANOID)
     {
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_MINE);
         return;
+    }
+
+    // It's possible to mine only one object.
+    if (participants.size() > 1)
+    {
+        action.markAsFailed(TOO_MANY_PARTICIPANTS);
     }
 
     Object* res = participants[res_index];
@@ -59,8 +66,7 @@ void MiningPerformer::perform(Action& action)
     ObjectHeap::const_iterator iter = env.end();
     if (env.find(res, false) == iter)
     {
-        action.markAsFailed();
-        action.setError(OBJ_IS_OUT_OF_RANGE);
+        action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
@@ -68,8 +74,7 @@ void MiningPerformer::perform(Action& action)
     Resource* resource = dynamic_cast<Resource*>(res);
     if (!resource -> isMineable())
     {
-        action.markAsFailed();
-        action.setError(OBJ_IS_NOT_MINEABLE);
+        action.markAsFailed(OBJ_IS_NOT_MINEABLE);
     }
 
     // Incrementing progress.

@@ -40,8 +40,7 @@ void HarmPerformer::perform(Action& action)
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
     {
-        action.setError(OBJ_CANT_HARM);
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_HARM);
         return;
     }
 
@@ -90,14 +89,12 @@ void HarmPerformer::perform(Action& action)
     // If all objects are out of reach, then...
     else if (count_error == participants.size())
     {
-        action.setError(ALL_OBJS_ARE_OUT_OF_REACH);
-        action.markAsFailed();
+        action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
         return;
     }
     // If some objects are out of reach, then...
     else
     {
-        action.setError(SOME_OBJS_ARE_OUT_OF_REACH);
-        action.markAsSucceededWithErrors();
+        action.markAsSucceededWithErrors(SOME_OBJS_ARE_OUT_OF_REACH);
     }
 }

@@ -29,8 +29,7 @@ void TravelingPerformer::perform(Action& action)
     // check if actor can go
     if (actor_type != CREATURE && actor_type != WEATHER)
     {
-        action.markAsFailed();
-        action.setError(OBJ_IS_NOT_MOVEABLE);
+        action.markAsFailed(OBJ_IS_NOT_MOVABLE);
         return;
     }
 
@@ -79,8 +78,8 @@ void TravelingPerformer::perform(Action& action)
         dest.getY() + size >= world -> getSize()
     )
     {
-        action.markAsFailed();
-        action.setError(OBJ_IS_OUT_OF_RANGE);
+        // FIXME: Strange error, isn't it?
+        action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
         return;
     }
 
@@ -106,7 +105,8 @@ void TravelingPerformer::perform(Action& action)
         {
             if ((*i) -> isSolid() && (*i) != actor)
             {
-                action.markAsFailed();
+                // FIXME: Strange error!
+                action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
                 break;
             }
         }
@@ -122,6 +122,5 @@ void TravelingPerformer::perform(Action& action)
 
     // roll back if something wrong
     actor -> setCoords(origin);
-    action.setError(OBJ_IS_STUCK);
-    action.markAsFailed();
+    action.markAsFailed(OBJ_IS_STUCK);
 }

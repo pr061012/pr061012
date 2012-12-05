@@ -29,8 +29,7 @@ void EatingPerformer::perform(Action& action)
     // Check if actor is creature
     if (actor_type != CREATURE)
     {
-        action.markAsFailed();
-        action.setError(OBJ_CANT_EAT);
+        action.markAsFailed(OBJ_CANT_EAT);
         return;
     }
 
@@ -39,8 +38,7 @@ void EatingPerformer::perform(Action& action)
     // check if there are more than one participants
     if (participants.size() > 1)
     {
-        action.markAsFailed();
-        action.setError(TOO_MANY_PARTICIPANTS);
+        action.markAsFailed(TOO_MANY_PARTICIPANTS);
         return;
     }
 
@@ -49,40 +47,34 @@ void EatingPerformer::perform(Action& action)
     // check resource type
     if (food -> getType() != RESOURCE)
     {
-        action.markAsFailed();
-        action.setError(OBJ_IS_NOT_EATABLE);
+        action.markAsFailed(OBJ_IS_NOT_EATABLE);
         return;
     }
 
     // get food value
     uint food_value = 0;
-    action.markAsPending();
     switch(dynamic_cast<Resource*>(food) -> getSubtype())
     {
         case RES_FOOD:
             food_value = RES_FOOD_VALUE;
-            break;
+        break;
 
         case GRASS:
             food_value = RES_BERRIES_FOOD_VALUE;
-            break;
+        break;
 
         case BERRIES:
             food_value = RES_GRASS_FOOD_VALUE;
-            break;
+        break;
 
         default:
-            action.markAsFailed();
-            break;
+            action.markAsFailed(OBJ_IS_NOT_EATABLE);
+            return;
+        break;
     }
-    if (action.isFailed())
-    {
-        action.setError(OBJ_IS_NOT_EATABLE);
-        return;
-    }
-     
+
     // check if an object lies in inventory or around object
-    ObjectHeap * inventory = dynamic_cast<Creature*>(actor) -> getInventory();
+    ObjectHeap* inventory = dynamic_cast<Creature*>(actor) -> getInventory();
     ObjectHeap surroundings = world -> getIndexator() -> 
                                 getAreaContents(actor -> getShape());
     if (inventory -> find(food) != inventory -> end() ||
@@ -96,6 +88,5 @@ void EatingPerformer::perform(Action& action)
         return;
     }
 
-
-    action.markAsFailed();
+    action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
 }

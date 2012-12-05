@@ -11,7 +11,8 @@
 
 Action::Action(const ActionType type, Object* actor) :
     type(type),
-    actor(actor)
+    actor(actor),
+    state(PENDING)
 {
 }
 
@@ -52,13 +53,9 @@ bool Action::isSucceededWithErrors() const
 // STATE'S CHANGERS.
 //**************************************************************************
 
-void Action::markAsPending()
+void Action::markAsFailed(ActionError error)
 {
-    this -> state = PENDING;
-}
-
-void Action::markAsFailed()
-{
+    this -> error = error;
     this -> state = FAILED;
 }
 
@@ -67,8 +64,9 @@ void Action::markAsSucceeded()
     this -> state = SUCCEEDED;
 }
 
-void Action::markAsSucceededWithErrors()
+void Action::markAsSucceededWithErrors(ActionError error)
 {
+    this -> error = error;
     this -> state = SUCCEEDED_WITH_ERRORS;
 }
 
@@ -99,9 +97,4 @@ ActionType Action::getType() const
 ActionError Action::getError() const
 {
     return this -> error;
-}
-
-void Action::setError(ActionError error)
-{
-    this -> error = error;
 }

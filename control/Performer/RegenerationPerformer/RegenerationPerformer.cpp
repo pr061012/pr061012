@@ -37,13 +37,13 @@ void RegenerationPerformer::perform(Action& action)
 
     if (object_index > participants.size())
     {
-        action.markAsFailed();
+        action.markAsFailed(INCORRECT_INDEX);
         return;
     }
 
     if ((type != RESOURCE) && (type != CREATURE))
     {
-        action.markAsFailed();
+        action.markAsFailed(OBJ_CANT_REGENERATE);
         return;
     }
 
@@ -57,7 +57,7 @@ void RegenerationPerformer::perform(Action& action)
         }
         else
         {
-            action.markAsFailed();
+            action.markAsFailed(OBJ_CAN_REGENERATE_ONLY_ITSELF);
             return;
         }
     }
@@ -67,7 +67,7 @@ void RegenerationPerformer::perform(Action& action)
         Creature* creature = dynamic_cast<Creature*>(actor);
         if (creature -> getSubtype() == NON_HUMANOID)
         {
-            action.markAsFailed();
+            action.markAsFailed(OBJ_CANT_REGENERATE);
             return;
         }
 
@@ -77,7 +77,7 @@ void RegenerationPerformer::perform(Action& action)
         ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
         if (env.find(participants[object_index], false) == env.end())
         {
-            action.markAsFailed();
+            action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
             return;
         }
 
@@ -97,7 +97,7 @@ void RegenerationPerformer::perform(Action& action)
 
         if (count == 0)
         {
-            action.markAsFailed();
+            action.markAsFailed(NOT_ENOUGH_INGREDIENTS);
             return;
         }
 
