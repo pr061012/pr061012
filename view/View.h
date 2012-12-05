@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include <vector>
 
+#include <jsoncpp/json/json.h>
+
 #include "ViewWorld/ViewWorld.h"
 #include "InputHandler/InputHandler.h"
 #include "../common/BasicTypes.h"
