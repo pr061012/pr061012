@@ -675,9 +675,9 @@ DetailedHumAction Humanoid::chooseWayToRelax()
     if
     (
         (laziness < A_BIT_MORE_THAN_HALF &&
-         100 * getHealth() / max_health > HIGH_LEVEL)
+         100 * getHealth() / getMaxHealth() > HIGH_LEVEL)
         || (laziness < SMALL_LEVEL && 100 * getHealth()
-            / max_health > A_BIT_MORE_THAN_HALF)
+            / getMaxHealth() > A_BIT_MORE_THAN_HALF)
     )
     {
         uint a = Random::int_num(2);
@@ -968,4 +968,33 @@ bool Humanoid::isResInInventory(ResourceType type)
         }
     }
     return false;
+}
+//**************************************************************************
+// INVENTORY FUNC
+//**************************************************************************
+
+// If we mine resource because we build, we calculate it (how many res we need
+// to complete our home?). If we just mining res for best future, we choose
+// amount randomly.
+uint Humanoid::calculateResAmount()
+{
+    if (current_action == BUILD)
+    {
+        if (home != nullptr)
+        {
+            return 1;
+        }
+    }
+    else
+    {
+        uint res_amount = Random::int_range(1, getCapacity() / 2);
+        if (res_amount * WGHT_RESOURCE <= getFreeSpace())
+        {
+            return res_amount;
+        }
+        else
+        {
+            return getFreeSpace();
+        }
+    }
 }

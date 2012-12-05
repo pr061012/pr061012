@@ -457,6 +457,8 @@
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
 
+/// Space in inventory which is necessary in cratical situation
+#define HUM_CRIT_SPACE              5
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
