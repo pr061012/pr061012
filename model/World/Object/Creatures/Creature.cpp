@@ -37,10 +37,11 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_health(Random::int_range(CREAT_HEALTH_MIN, CREAT_HEALTH_MAX)),
     health(max_health),
     max_sleepiness(Random::int_range(CREAT_SLEEPINESS_MIN, CREAT_SLEEPINESS_MAX)),
-    sleepiness (100 - max_sleepiness),
+    sleepiness (0),
     max_hunger(Random::int_range(CREAT_HUNGER_MIN,     CREAT_HUNGER_MAX)),
-    hunger(100 - max_hunger),
-    capacity(100),
+    hunger(0),
+
+    capacity(force / 10 + 5),
     free_space(capacity),
 
     // steps
