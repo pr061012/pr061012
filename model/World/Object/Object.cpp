@@ -52,6 +52,10 @@ std::string Object::printObjectInfo(bool full) const
           (destroyed   ? "Destroyed\n" : "") <<
           (immortality ? "Immortal\n"  : "") <<
           (solidity    ? "Solid\n"     : "") <<
+          (movable     ? "Movable\n"   : "") <<
+          (pickable    ? "Pickable\n"  : "") <<
+          (flyable     ? "Flyable"     : "") <<
+          (flyable && isCurrentlyFlying() ? "(currently flying)\n" : "") <<
 
           // Coordinates.
           insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
