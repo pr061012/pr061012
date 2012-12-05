@@ -287,6 +287,7 @@
 // Food values
 #define RES_GRASS_FOOD_VALUE        1
 #define RES_BERRIES_FOOD_VALUE      2
+#define RES_FOOD_VALUE              3
 
 //******************************************************************************
 // BUILDING DEFINES
@@ -396,6 +397,9 @@
 
 /// Constant for evaluating danger for creatures.
 #define CREAT_DANGER_FACTOR             2
+
+/// Constant for evaluating distance at which immovable objects are dangerous
+#define CREAT_DANGER_IMMOVABLE_FACTOR   20
 
 //******************************************************************************
 // CREATURES ATTRIBUTES DEFINES.

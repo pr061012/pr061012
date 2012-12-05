@@ -125,6 +125,17 @@ ObjectHeap * Creature::getInventory()
     return this -> inventory;
 }
 
+uint Creature::getCapacity()
+{
+    return this -> capacity;
+}
+
+uint Creature::getFreeSpace()
+{
+    return this -> free_space;
+}
+
+
 CreatureAction Creature::getCurrentDecision() const
 {
     return current_decision;
@@ -475,13 +486,13 @@ const Object* Creature::getAim()
 //**********************************************************
 
 // Evaluates object's danger depending on the distance to it.
-double Creature::evaluateDanger(const Object * obj)
+double Creature::evaluateDanger(const Object * obj, const Vector& coords)
 {
     
     double view_radius = view_area.getSize() / 2;
-    double distance = getCoords().getDistance(obj -> getCoords());
+    double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
-    double obj_radius = getShape().getSize() / 2;
+    double obj_radius = obj -> getShape().getSize() / 2;
 
     // ~1/R
     // - infinitely grows at r = 0 for any object - may cause problems
@@ -504,12 +515,28 @@ double Creature::evaluateDanger(const Object * obj)
     return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
     */
 
-    // ~r
     double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
                             CREAT_DANGER_FACTOR;
 
-    return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
+    if (obj -> isMovable())
+    {
+        // linear dependency: == 0 at bounds of view_area
+        //                    == danger_ratio when standing next to the object.
+        return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
             danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
+    }
+    else
+    {
+        // immovable objects are dangerous only at near distances.
+        if (distance - obj_radius < CREAT_DANGER_IMMOVABLE_FACTOR * CREAT_SPEED_SLOW_VALUE)
+        {
+            return danger_ratio;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
 
 void Creature::chooseDirectionToEscape()
@@ -521,13 +548,14 @@ void Creature::chooseDirectionToEscape()
     // with length equal to object's danger level and
     // angle equal to direction to the object
     ObjectHeap::const_iterator iter;
+    Vector coords = getCoords();
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
         angle = getCoords().getAngle((*iter) -> getCoords());
-        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter);
+        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter, coords);
     }
 
     // go to the opposite direction of biggest danger
@@ -720,12 +748,25 @@ void Creature::clearActions()
     // Clear inventory from destroyed objects.
     // First place them in buffer.
     std::vector<Object*> buffer;
+    free_space = capacity;
     for (ObjectHeap::iterator i = inventory -> begin();
          i != inventory -> end(); i++)
     {
         if ((*i) -> isDestroyed())
         {
             buffer.push_back(*i);
+        }
+        else
+        {
+            if ((*i) -> getType() == RESOURCE)
+            {
+                free_space -= (*i) -> getHealthPoints() * (*i) -> getWeight();
+            }
+            else
+            {
+                free_space -= (*i) -> getWeight();
+
+            }
         }
     }
 
@@ -837,13 +878,14 @@ void Creature::updateDanger()
 {
     ObjectHeap::const_iterator iter;
     this -> danger = 0;
+    Vector coords = getCoords();
 
     for(
         iter = objects_around.begin();
         iter != objects_around.end(); iter++
        )
     {
-        this -> danger += evaluateDanger(*iter);
+        this -> danger += evaluateDanger(*iter, coords);
         assert(!isnan(danger));
     }
 

@@ -11,9 +11,6 @@
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../common/BasicDefines.h"
 
-// TODO
-// Improve movement algo
-
 EatingPerformer::EatingPerformer(World * world) :
     Performer(world)
 {
@@ -63,7 +60,7 @@ void EatingPerformer::perform(Action& action)
     switch(dynamic_cast<Resource*>(food) -> getSubtype())
     {
         case RES_FOOD:
-            food_value = 3;
+            food_value = RES_FOOD_VALUE;
             break;
 
         case GRASS:

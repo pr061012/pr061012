@@ -593,8 +593,9 @@ protected:
     /**
      * @brief Evalutates danger of given object.
      * @param obj object to evaluate danger.
+     * @param coords coordinates of the point to calculate danger for.
      */
-    double evaluateDanger(const Object * obj);
+    double evaluateDanger(const Object * obj, const Vector& coords);
 
     /**
      * @brief Updates need_in_descendants
