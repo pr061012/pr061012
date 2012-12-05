@@ -484,12 +484,13 @@
 /// Amount of steps to change non-humanoid's roaming direction.
 #define NHUM_ROAM_STEPS             300
 
-#endif // BASIC_DEFINES_H
-
 //******************************************************************************
-// REGENERATION'S DEFINES
-// Prefix: REG
+// REGENERATION'S DEFINES.
+// Prefix: REG.
 //******************************************************************************
 
 /// Delta health of building "per" one res
-#define REG_BUILD   10
+#define REG_BUILDING_COEF           10
+
+#endif // BASIC_DEFINES_H
+
