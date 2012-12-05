@@ -60,6 +60,7 @@ View::~View()
 {
     delete view_world;
     delete input_handler;
+    delete json_reader;
 
     for(uint i = 0; i < rendered.size(); i++)
     {
@@ -78,9 +79,18 @@ View::~View()
 
 void View::loadTextures()
 {
+    std::fstream config("res/view.json");
+
+    Json::Value* json_data = new Json::Value();
+
+    json_reader = new Json::Reader();
+    json_reader -> parse(config, *json_data);
+
+
+
     uint flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
-    texture_buf.push_back(new ViewTexture("res/bar_empty.png", flags));
-    texture_buf.push_back(new ViewTexture("res/bar_red.png",   flags));
+    texture_buf.push_back(new ViewTexture("res/images/bar_empty.png", flags));
+    texture_buf.push_back(new ViewTexture("res/images/bar_red.png",   flags));
 }
 
 double View::getX()

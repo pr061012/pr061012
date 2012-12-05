@@ -68,6 +68,8 @@ class View
     /// Vector of currently loaded textures.
     std::vector<ViewTexture*> texture_buf;
 
+    Json::Reader* json_reader;
+
     /// Dimensions of program window, in pixels
     int width;
     int height;
