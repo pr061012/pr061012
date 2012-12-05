@@ -57,8 +57,19 @@
 #define TN_FIELD_MAX_SLEEPINESS     "msleepiness"
 #define TN_FIELD_FORCE              "force"
 
-#define TN_FIELD_DET_ACT            "da"
+#define TN_FIELD_ACT                "a"
+#define TN_A_NONE                   "none"
+#define TN_A_SLEEP                  "sleep"
+#define TN_A_EAT                    "eat"
+#define TN_A_BUILD                  "build"
+#define TN_A_GATHER                 "gather"
+#define TN_A_COMMUNICATE            "communicate"
+#define TN_A_WORK                   "work"
+#define TN_A_REALIZE_DREAM          "realize-dream"
+#define TN_A_ESCAPE                 "escape"
+#define TN_A_DO_NOTHING             "do-nothing"
 
+#define TN_FIELD_DET_ACT            "da"
 #define TN_DA_HUNT                  "hunt"
 #define TN_DA_TAKE_FOOD_FROM_INV    "inv-food"
 #define TN_DA_FIND_FOOD             "find-food"
@@ -569,6 +580,20 @@ std::string CLI::change(std::stringstream& ss)
         {
             uint force = readFromSS<uint>(ss, "force");
             creat -> setForce(force);
+        }
+        else if (field == TN_FIELD_ACT)
+        {
+            std::string act = readFromSS<std::string>(ss, "creature action");
+            if (act == TN_A_BUILD)              creat -> setCurrentAction(BUILD);
+            else if (act == TN_A_COMMUNICATE)   creat -> setCurrentAction(COMMUNICATE);
+            else if (act == TN_A_DO_NOTHING)    creat -> setCurrentAction(DO_NOTHING);
+            else if (act == TN_A_EAT)           creat -> setCurrentAction(EAT);
+            else if (act == TN_A_ESCAPE)        creat -> setCurrentAction(ESCAPE);
+            else if (act == TN_A_GATHER)        creat -> setCurrentAction(GATHER);
+            else if (act == TN_A_NONE)          creat -> setCurrentAction(NONE);
+            else if (act == TN_A_REALIZE_DREAM) creat -> setCurrentAction(REALIZE_DREAM);
+            else if (act == TN_A_SLEEP)         creat -> setCurrentAction(SLEEP);
+            else if (act == TN_A_WORK)          creat -> setCurrentAction(WORK);
         }
         else if (creat -> getSubtype() == HUMANOID)
         {
