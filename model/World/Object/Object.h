@@ -148,6 +148,86 @@ public:
     bool isSolid() const;
 
     //**************************************************************************
+    // PICKABILITY.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object pickable.
+     */
+    void makePickable();
+
+    /**
+     * @brief Makes object non-pickable.
+     */
+    void makeNonPickable();
+
+    /**
+     * @brief  Returns true if object is pickable.
+     * @return is object pickable or not
+     */
+    bool isPickable() const;
+
+    //**************************************************************************
+    // MOVABILITY.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object movable.
+     */
+    void makeMovable();
+
+    /**
+     * @brief Makes object immovable.
+     */
+    void makeImmovable();
+
+    /**
+     * @brief  Returns true if object is movable.
+     * @return is object movable or not
+     */
+    bool isMovable() const;
+
+    //**************************************************************************
+    // ABILITY TO FLY.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object flyable.
+     */
+    void makeFlyable();
+
+    /**
+     * @brief Makes object non-flyable.
+     */
+    void makeNonFlyable();
+
+    /**
+     * @brief  Returns true if object is flyable.
+     * @return is object flyable or not
+     */
+    bool isFlyable() const;
+
+    //**************************************************************************
+    // FLYING FLAG.
+    //**************************************************************************
+
+    /**
+     * @brief Makes object currently flying.
+     */
+    void makeFlying();
+
+    /**
+     * @brief Makes object non-flying.
+     */
+    void makeNonFlying();
+
+    /**
+     * @brief  Returns true if object is currently flying.
+     * @return is object currently flying or not
+     */
+    bool isCurrentlyFlying() const;
+
+    //**************************************************************************
     // DANGER.
     //**************************************************************************
 
@@ -275,6 +355,19 @@ private:
     /// Object's coordinates and shape.
     Shape shape;
 
+    /// Angle of rotation.
+    double angle;
+
+    /// Object's danger level.
+    uint danger_level;
+
+    /// Object's weight.
+    uint weight;
+
+    //**************************************************************************
+    // PROPERTIES FLAGS.
+    //**************************************************************************
+
     /// Is object destroyed or not.
     bool destroyed;
 
@@ -284,14 +377,18 @@ private:
     /// Whether object is passable or not.
     bool solidity;
 
-    /// Angle of rotation.
-    double angle;
+    /// Is it possible to pick up this object or not.
+    bool pickable;
 
-    /// Object's danger level.
-    uint danger_level;
+    /// Can this object move (or can someone move it) or not.
+    bool movable;
 
-    /// Object's weight.
-    uint weight;
+    /// Can this object fly or not.
+    bool flyable;
+
+    /// Is this object currently flying or not. (Have sence only for objects
+    /// with flyable == true flag).
+    bool is_currently_flying;
 
 protected:
     /// Array with actions.

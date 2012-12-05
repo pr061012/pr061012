@@ -19,12 +19,16 @@ Object::Object(ObjectType type, bool solidity, bool immortality) :
     id(CURRENT_ID++),
     type(type),
     shape(Shape(Vector(0, 0), SHP_DEFAULT, SZ_DEFAULT)),
+    angle(0),
+    danger_level(0),
+    weight(0),
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
-    angle(0),
-    danger_level(0),
-    weight(0)
+    pickable(false),
+    movable(false),
+    flyable(false),
+    is_currently_flying(false)
 {
 }
 
@@ -125,6 +129,82 @@ void Object::makeNonSolid()
 bool Object::isSolid() const
 {
     return this -> solidity;
+}
+
+//******************************************************************************
+// PICKABILITY.
+//******************************************************************************
+
+void Object::makePickable()
+{
+    this -> pickable = true;
+}
+
+void Object::makeNonPickable()
+{
+    this -> pickable = false;
+}
+
+bool Object::isPickable() const
+{
+    return this -> pickable;
+}
+
+//******************************************************************************
+// MOVABILITY.
+//******************************************************************************
+
+void Object::makeMovable()
+{
+    this -> movable = true;
+}
+
+void Object::makeImmovable()
+{
+    this -> movable = false;
+}
+
+bool Object::isMovable() const
+{
+    return this -> movable;
+}
+
+//******************************************************************************
+// ABILITY TO FLY.
+//******************************************************************************
+
+void Object::makeFlyable()
+{
+    this -> flyable = true;
+}
+
+void Object::makeNonFlyable()
+{
+    this -> flyable = false;
+}
+
+bool Object::isFlyable() const
+{
+    return this -> flyable;
+}
+
+//******************************************************************************
+// FLYING FLAG.
+//******************************************************************************
+
+void Object::makeFlying()
+{
+    this -> is_currently_flying = true;
+}
+
+void Object::makeNonFlying()
+{
+    this -> is_currently_flying = false;
+}
+
+bool Object::isCurrentlyFlying() const
+{
+    return this -> is_currently_flying;
 }
 
 //******************************************************************************
