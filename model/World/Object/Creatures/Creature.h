@@ -92,41 +92,6 @@ public:
      */
     Shape getReachArea();
 
-    //**********************************************************
-    // INVENTORY
-    //**********************************************************
-    
-    /**
-     * @brief  Add object to inventory.
-     * @param  obj object to add.
-     * @return true, if object was fully moved to inventory.
-     */
-    bool addToInventory(Object * obj);
-    
-    /**
-     * @brief  Removes object from inventory.
-     * @param  obj object to remove.
-     */
-    void removeFromInventory(Object * obj);
-
-    /**
-     * @brief  Get inventory
-     * @return inventory
-     */
-    ObjectHeap* getInventory();
-
-    /**
-     * @brief  Get inventory's capacity.
-     * @return capacity.
-     */
-    uint getCapacity();
-
-    /**
-     * @brief  Get free space.
-     * @return free space.
-     */
-    uint getFreeSpace();
-
     //**************************************************************************
     // AGE
     //**************************************************************************
@@ -482,11 +447,6 @@ private:
     /// Current value of hunger.
     uint hunger;
 
-    /// Capacity of the inventory.
-    uint capacity;
-    /// Space left in the inventory.
-    uint free_space;
-
     //**********************************************************
     // STEPS
     //**********************************************************
@@ -525,9 +485,6 @@ protected:
     // HEAPS
     //**********************************************************
     
-    /// Creature's inventory.
-    ObjectHeap * inventory;
-
     /// Creature's enviroment
     ObjectHeap objects_around;
 
