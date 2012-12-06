@@ -5,22 +5,9 @@
 
 #include "DroppingPerformer.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include <string>
 #include <cmath>
-
-//*****************************************************************************
-// FOR TEST ONLY
-//*****************************************************************************
-#ifndef CREAT_SPEED_FAST_VALUE
-#define CREAT_SPEED_FAST_VALUE 10
-#endif
-
-#ifndef CREAT_SPEED_SLOW_VALUE
-#define CREAT_SPEED_SLOW_VALUE 5
-#endif
-
-// TODO
-// Improve movement algo
 
 DroppingPerformer::DroppingPerformer(World * world) :
     Performer(world)
@@ -37,17 +24,21 @@ void DroppingPerformer::perform(Action& action)
     Object * actor = action.getActor();
     ObjectType actor_type = actor -> getType();
 
-    // check if actor can go
+    // check if actor can drop
     if (actor_type != CREATURE)
+    {
+        action.markAsFailed(OBJ_CANT_DROP);
+        return;
+    }
+    else if (dynamic_cast<Creature*>(actor) -> getSubtype() != HUMANOID)
     {
         action.markAsFailed(OBJ_CANT_DROP);
         return;
     }
 
     // continue getting data
-    Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
-    ObjectHeap * inventory = dynamic_cast<Creature *>(actor) -> getInventory();
+    ObjectHeap * inventory = dynamic_cast<Humanoid *>(actor) -> getInventory();
 
     // initalize flags
     bool success = false;

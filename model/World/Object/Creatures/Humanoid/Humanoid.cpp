@@ -36,7 +36,10 @@ uint Humanoid::CURRENT_HUM_ID = 0;
 
 Humanoid::Humanoid(const DecisionMaker& dmaker) :
     Creature(HUMANOID, dmaker),
-    hum_id(CURRENT_HUM_ID++)
+    hum_id(CURRENT_HUM_ID++),
+    inventory(new ObjectHeap),
+    capacity(getForce() / 10 + 5),
+    free_space(capacity)
 {
     int max_age = Random::int_range(HUM_AGE_MIN, HUM_AGE_MAX);
 
@@ -94,6 +97,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
 
 Humanoid::~Humanoid()
 {
+    delete inventory;
     delete visual_memory;
 }
 
@@ -190,6 +194,7 @@ std::vector <Action>* Humanoid::getActions()
 
     // Store the result of last action and clear actions
     clearActions();
+    cleanInventory();
 
     // If decision is not actual humanoid makes new decision.
     if (!brains.isDecisionActual(attrs, current_action))
@@ -849,11 +854,83 @@ std::string Humanoid::printObjectInfo(bool full) const
 
     if (full)
     {
+        ss << insertSpaces("Inventory")              << std::endl << inventory -> printIDs();
         ss << insertSpaces("Visual memory")          << std::endl << visual_memory -> printIDs() <<
               insertSpaces("Steps for choose place") << steps_to_choose_place << std::endl;
     }
 
     return ss.str();
+}
+
+//******************************************************************************
+// INVENTORY
+//******************************************************************************
+
+// Adds object to inventory.
+void Humanoid::addToInventory(Object *obj)
+{
+    // Resources should be stacked together
+    if (obj -> getType() == RESOURCE)
+    {
+        ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
+        for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
+             i != inventory -> end(RESOURCE); i++)
+        {
+            if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
+            {
+                (*i) -> heal(obj -> getHealthPoints());
+                obj -> markAsDestroyed();
+                return;
+            }
+        }
+    }
+
+    // If there are no resources of this type, or it's something else, just push it.
+    this -> inventory -> push(obj);
+}
+
+// Clear inventory from destroyed objects.
+void Humanoid::cleanInventory()
+{
+    // First place them in buffer.
+    std::vector<Object*> buffer;
+    free_space = capacity;
+    for (ObjectHeap::iterator i = inventory -> begin();
+         i != inventory -> end(); i++)
+    {
+        if ((*i) -> isDestroyed())
+        {
+            buffer.push_back(*i);
+        }
+        else
+        {
+            if ((*i) -> getType() == RESOURCE)
+            {
+                free_space -= (*i) -> getWeight() * (*i) -> getHealthPoints();
+            }
+            else
+            {
+                free_space -= (*i) -> getWeight();
+            }
+        }
+    }
+
+    // Then remove them from inventory.
+    for (uint i = 0; i < buffer.size(); i++)
+    {
+        inventory -> remove(buffer[i]);
+    }
+}
+
+// Remove object from inventory.
+void Humanoid::removeFromInventory(Object * obj)
+{
+    inventory -> remove(obj);
+}
+
+ObjectHeap * Humanoid::getInventory()
+{
+    return this -> inventory;
 }
 
 //******************************************************************************
@@ -987,14 +1064,14 @@ uint Humanoid::calculateResAmount()
     }
     else
     {
-        uint res_amount = Random::int_range(1, getCapacity() / 2);
-        if (res_amount * WGHT_RESOURCE <= getFreeSpace())
+        uint res_amount = Random::int_range(1, capacity / 2);
+        if (res_amount * WGHT_RESOURCE <= free_space)
         {
             return res_amount;
         }
         else
         {
-            return getFreeSpace();
+            return free_space;
         }
     }
 }

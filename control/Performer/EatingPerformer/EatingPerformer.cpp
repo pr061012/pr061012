@@ -9,6 +9,7 @@
 #include "EatingPerformer.h"
 #include "../../../model/World/Object/Resource/Resource.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../common/BasicDefines.h"
 
 EatingPerformer::EatingPerformer(World * world) :
@@ -73,12 +74,27 @@ void EatingPerformer::perform(Action& action)
         break;
     }
 
-    // check if an object lies in inventory or around object
-    ObjectHeap* inventory = dynamic_cast<Creature*>(actor) -> getInventory();
+    action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
+
+    // check if an object lies around creature
     ObjectHeap surroundings = world -> getIndexator() -> 
                                 getAreaContents(actor -> getShape());
-    if (inventory -> find(food) != inventory -> end() ||
-        surroundings.find(food) != surroundings.end())
+    if(surroundings.find(food) != surroundings.end())
+    {
+        action.markAsSucceeded();
+    }
+
+    // Check if an actor is humanoid and it has object in his inventory.
+    if (dynamic_cast<Creature*>(actor) -> getSubtype() == HUMANOID)
+    {
+        ObjectHeap * inventory = dynamic_cast<Humanoid*>(actor) -> getInventory();
+        if (inventory -> find(food) != inventory -> end())
+        {
+            action.markAsSucceeded();
+        }
+    }
+
+    if (action.isSucceeded())
     {
         // EPIC MEAL TIME!!!
         // TODO: Magic const.
@@ -87,6 +103,5 @@ void EatingPerformer::perform(Action& action)
         action.markAsSucceeded();
         return;
     }
-
     action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
 }
