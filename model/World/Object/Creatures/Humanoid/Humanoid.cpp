@@ -1153,24 +1153,48 @@ void Humanoid::putInvInHome()
         Object* obj = isResInInventory(TREE);
         if (obj)
         {
-            home -> putInside(obj);
-            removeFromInventory(obj);
+            if (home -> putInside(obj))
+            {
+                removeFromInventory(obj);
+            }
+            else
+            {
+                Action act(DROP_OBJS, this);
+                act.addParticipant(obj);
+                this -> actions.push_back(act);
+            }
         }
         else
         {
             obj = isResInInventory(BERRIES);
             if (obj)
             {
-                home -> putInside(obj);
-                removeFromInventory(obj);
+                if (home -> putInside(obj))
+                {
+                    removeFromInventory(obj);
+                }
+                else
+                {
+                    Action act(DROP_OBJS, this);
+                    act.addParticipant(obj);
+                    this -> actions.push_back(act);
+                }
                 // just because it is better if some eat will be in inventory
                 return ;
             }
             obj = isResInInventory(MEAT);
             if (obj)
             {
-                home -> putInside(obj);
-                removeFromInventory(obj);
+                if (home -> putInside(obj))
+                {
+                    removeFromInventory(obj);
+                }
+                else
+                {
+                    Action act(DROP_OBJS, this);
+                    act.addParticipant(obj);
+                    this -> actions.push_back(act);
+                }
             }
         }
     }
