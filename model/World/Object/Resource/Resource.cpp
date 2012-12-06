@@ -177,14 +177,18 @@ uint Resource::getMaxHealthPoints() const
 
 std::vector<Action>* Resource::getActions()
 {
-    // TODO: Maybe it's better to use REGENERATE_OBJ action?
+    this -> actions.clear();
+
     if(this -> steps_to_reg-- == 0)
     {
-        this -> heal(this -> reg_amount);
+        Action act(REGENERATE_OBJ, this);
+        act.addParticipant(this);
+        act.addParam<uint>("object_index", 0);
+        this -> actions.push_back(act);
+
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 
-    this -> actions.clear();
     return &(this -> actions);
 }
 
