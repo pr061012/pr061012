@@ -894,11 +894,11 @@ bool Humanoid::addToInventory(Object *obj)
     {
         uint amount = obj -> getHealthPoints();
         // Check if we have enough free space
-        if (amount * weight > free_space)
+        if (weight > free_space)
         {
             return false;
         }
-        free_space -= amount * weight;
+        free_space -= weight;
 
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
@@ -933,14 +933,7 @@ void Humanoid::cleanInventory()
         }
         else
         {
-            if ((*i) -> getType() == RESOURCE)
-            {
-                free_space -= (*i) -> getWeight() * (*i) -> getHealthPoints();
-            }
-            else
-            {
-                free_space -= (*i) -> getWeight();
-            }
+            free_space -= (*i) -> getWeight();
         }
     }
 
@@ -955,6 +948,7 @@ void Humanoid::cleanInventory()
 void Humanoid::removeFromInventory(Object * obj)
 {
     inventory -> remove(obj);
+    free_space += obj -> getWeight();
 }
 
 ObjectHeap * Humanoid::getInventory()

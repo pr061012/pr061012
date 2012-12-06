@@ -56,12 +56,9 @@ void TravelingPerformer::perform(Action& action)
                     speed = CREAT_SPEED_SLOW_VALUE;
                 }
             }
-            // No restrictions for weather.
             else
             {
-                // TODO
-                // Do all things move with the speed of creatures?
-                speed = CREAT_SPEED_FAST_VALUE;
+                speed = CREAT_SPEED_SLOW_VALUE;
             }
             break;
 
