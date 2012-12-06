@@ -130,8 +130,19 @@ std::string Weather::printObjectInfo(bool full) const
     std::stringstream ss;
 
     ss << Object::printObjectInfo(full) <<
-          "Covered Object" << std::endl << this -> covered_objs.printIDs() <<
-                              std::endl;
+          insertSpaces("Type");
+    switch (subtype)
+    {
+        case METEOR_SHOWER: ss << "meteor shower"; break;
+        case RAIN:          ss << "rain";          break;
+        case CLOUDS:        ss << "clouds";        break;
+        case HURRICANE:     ss << "hurricane";     break;
+    }
+    ss << "\n";
+
+    ss << insertSpaces("Covered Object") << std::endl <<
+                                            this -> covered_objs.printIDs() <<
+                                            std::endl;
 
     return ss.str();
 }
