@@ -480,7 +480,8 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-                this -> sociability = calculateNecessResAmount() * REG_BUILDING_COEF;
+                // if we got some res in inventory, we are checking - is it all
+                // what we need to take?
                 if (isResInInventory(TREE))
                 {
                     if
@@ -1093,7 +1094,7 @@ uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
     {
-        if (free_space == 0)
+        if (free_space <= HUM_CRIT_SPACE)
         {
             return 0;
         }
@@ -1110,7 +1111,7 @@ uint Humanoid::calculateNecessResAmount()
                 (free_space - HUM_CRIT_SPACE) * REG_BUILDING_COEF
             )
             {
-                return delta_health / REG_BUILDING_COEF +1 /** WGHT_RESOURCE / REG_BUILDING_COEF + 1*/;
+                return delta_health / REG_BUILDING_COEF;
             }
             // if no - take as much as you can
             else
@@ -1126,6 +1127,7 @@ uint Humanoid::calculateNecessResAmount()
     }
     else
     {
+        // Just random numb
         uint res_amount = Random::int_range(1, capacity / 2);
         if (res_amount * WGHT_RESOURCE <= free_space - HUM_CRIT_SPACE)
         {
