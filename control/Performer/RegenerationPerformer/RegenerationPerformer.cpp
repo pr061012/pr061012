@@ -30,9 +30,6 @@ void RegenerationPerformer::perform(Action& action)
     ObjectType type = actor -> getType();
     std::vector<Object*> participants = action.getParticipants();
 
-    // TODO: LOLWUT?
-    uint delta = Random::int_num(actor -> getHealthPoints());
-
     uint object_index = action.getParam<uint>("object_index");
     // uint tool_index = action.getParam<uint>("tool_index");
 
@@ -52,6 +49,7 @@ void RegenerationPerformer::perform(Action& action)
     {
         if (actor == participants[object_index])
         {
+            uint delta = dynamic_cast<Resource*>(actor) -> getRegAmount();
             actor -> heal(delta);
             action.markAsSucceeded();
             return;
@@ -68,6 +66,12 @@ void RegenerationPerformer::perform(Action& action)
         if (dynamic_cast<Creature*>(actor) -> getSubtype() == HUMANOID)
         {
             Humanoid* humanoid = dynamic_cast<Humanoid*>(actor);
+
+            if (participants[object_index] -> getType() != BUILDING)
+            {
+                action.markAsFailed(OBJ_IS_NOT_REGENERABLE);
+                return;
+            }
             if (humanoid -> getSubtype() == NON_HUMANOID)
             {
                 action.markAsFailed(OBJ_CANT_REGENERATE);
@@ -83,28 +87,43 @@ void RegenerationPerformer::perform(Action& action)
                 return;
             }
 
+            Building* building = dynamic_cast<Building*>(participants[object_index]);
+            uint rest_hp = building -> getMaxHealthPoints() - building -> getHealthPoints();
+
             // Searching for objects.
             ObjectHeap* inventory = humanoid -> getInventory();
             ObjectHeap::const_iterator iter;
             uint count = 0;
-            for
-                (
-                 iter = inventory -> begin(RESOURCE);
-                 iter != inventory -> end(RESOURCE); iter++
-                )
-                {
-                    // TODO: Magic const.
-                    count += (*iter) -> damage(1);
-                }
 
+            for
+            (
+                iter = inventory -> begin(RESOURCE);
+                iter != inventory -> end(RESOURCE);
+                iter++
+            )
+            {
+                Resource* res = dynamic_cast<Resource*>(*iter);
+                if (rest_hp > count)
+                {
+                    // Check how many resource need.
+                    if (res -> getHealthPoints() * REG_BUILDING_COEF <= rest_hp - count)
+                    {
+                        count += res -> damage(res -> getHealthPoints()) * REG_BUILDING_COEF;
+                    }
+                    else
+                    {
+                        count += res -> damage( (rest_hp - count) / REG_BUILDING_COEF)* REG_BUILDING_COEF;
+                    }
+                    assert (rest_hp - count);
+                }
+            }
             if (count == 0)
             {
                 action.markAsFailed(NOT_ENOUGH_INGREDIENTS);
                 return;
             }
 
-            // TODO: Some resource may be just wasted.
-            participants[object_index] -> heal(delta * count);
+            building -> heal(count);
             action.markAsSucceeded();
         }
     }
