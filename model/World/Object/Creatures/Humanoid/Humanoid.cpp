@@ -481,18 +481,19 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
                // if (isResInInventory(RES_BUILDING_MAT))
-                this -> sociability = calculateNecessResAmount();
+                this -> sociability = calculateNecessResAmount() * REG_BUILDING_COEF;
                 if (isResInInventory(RES_BUILDING_MAT))
                 {
                     if
                     (
                         isResInInventory(RES_BUILDING_MAT) -> getHealthPoints() >
-                        calculateNecessResAmount()
+                        calculateNecessResAmount() * REG_BUILDING_COEF
                      )
                     {
                         if (home != nullptr && current_action == BUILD)
                         {
                             detailed_act = BUILD_HOUSE;
+                            aim = home;
                         }
                         else
                         {
@@ -1094,6 +1095,7 @@ Object* Humanoid::isResInInventory(ResourceType type)
 // If we mine resource because we build, we calculate it (how many res we need
 // to complete our home?). If we just mining res for best future, we choose
 // amount randomly.
+// TODO What about free space = 0? FIXME BAD
 uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
@@ -1115,7 +1117,7 @@ uint Humanoid::calculateNecessResAmount()
                 (free_space - HUM_CRIT_SPACE) * REG_BUILDING_COEF
             )
             {
-                return delta_health  * WGHT_RESOURCE / REG_BUILDING_COEF + 1;
+                return delta_health / REG_BUILDING_COEF +1 /** WGHT_RESOURCE / REG_BUILDING_COEF + 1*/;
             }
             // if no - take as much as you can
             else
