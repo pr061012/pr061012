@@ -317,8 +317,11 @@
 // Prefix: DMG.
 //******************************************************************************
 
-#define DMG_PER_HIT_MIN             1
-#define DMG_PER_HIT_MAX             10
+#define DMG_FORCE_MIN               1
+#define DMG_FORCE_MAX               10
+
+#define DMG_DANGER_MIN              1
+#define DMG_DANGER_MAX              10
 
 //******************************************************************************
 // DECISION MAKER DEFINES.

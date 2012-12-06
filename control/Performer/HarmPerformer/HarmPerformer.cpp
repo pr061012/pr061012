@@ -33,9 +33,7 @@ void HarmPerformer::perform(Action& action)
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
 
-    // Set damage.
-    uint harm = Random::int_range(DMG_PER_HIT_MIN, DMG_PER_HIT_MAX);
-    harm *= actor -> getDangerLevel();
+    uint harm;
 
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
@@ -53,12 +51,14 @@ void HarmPerformer::perform(Action& action)
     {
         Creature* cr = dynamic_cast<Creature*>(actor);
         env_shape = cr -> getReachArea();
+        harm = cr -> getForce() / Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
     }
 
     if (type == WEATHER)
     {
         Weather* weather = dynamic_cast<Weather*>(actor);
         env_shape = weather -> getShape();
+        harm = weather -> getDangerLevel() / Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
     }
 
     // Harm object in view area.
