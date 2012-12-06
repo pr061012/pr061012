@@ -67,6 +67,7 @@ class View
 
     /// Map of currently loaded textures.
     std::map<std::string, Texture*> texture_buf;
+    std::map<std::string, int> texture_num;
 
     Json::Reader* json_reader;
 

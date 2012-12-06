@@ -12,9 +12,11 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, Texture*>& texture_buf) :
+ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
+                     std::map<std::string, Texture*>& texture_buf, std::map<std::string, int>& texture_num) :
     world(w),
-    texture_buf(texture_buf)
+    texture_buf(texture_buf),
+    texture_num(texture_num)
 {
     loadTextures();
 
@@ -84,6 +86,34 @@ double ViewWorld::screenToWorldY(double screen_y)
 double ViewWorld::worldToScreenDist(double distance)
 {
     return distance / getCamRad() * VIEW_CAM_SIZE;
+}
+
+const Texture *ViewWorld::getTexture(std::string name, int index)
+{
+    const Texture* tex = texture_buf.find(name) -> second;
+    std::map<std::string, int>::iterator len_iter = texture_num.find(name);
+
+    int len;
+    if(len_iter == texture_num.end())
+    {
+        len = 1;
+    }
+
+    len = len_iter -> second;
+
+    if(tex != NULL)
+    {
+        index = index % len;
+        name += std::to_string(index);
+
+        const Texture* tex = texture_buf.find(name) -> second;
+
+        return tex;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 double ViewWorld::getCamRad()

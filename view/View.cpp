@@ -25,7 +25,7 @@ View::View(const IWorld& w)
     console_input = "";
 
     this -> view_world = new ViewWorld(w, this -> width, this -> height,
-                                       this -> texture_buf);
+                                       this -> texture_buf, this -> texture_num);
     this -> input_handler = new InputHandler(this);
 
     this -> glc_context = glcGenContext();
@@ -88,15 +88,15 @@ void View::loadTextures()
     json_reader = new Json::Reader();
     json_reader -> parse(config, json_data);
 
-    if(json_data.isMember("textures"))
+    if (json_data.isMember("textures"))
     {
         Json::Value textures = json_data.get("textures", 0);
 
-        if(textures.isArray())
+        if (textures.isArray())
         {
             uint size = textures.size();
 
-            for(uint i = 0; i < size; ++i)
+            for (uint i = 0; i < size; ++i)
             {
                 const Json::Value& tex = textures[i];
                 std::string name = tex.get("name", "default").asString();
@@ -119,6 +119,14 @@ void View::loadTextures()
                                                  tex.get("y0",     0.0).asDouble(),
                                                  tex.get("width",  1.0).asDouble(),
                                                  tex.get("height", 1.0).asDouble());
+
+                if (texture_num.find(name) == texture_num.end())
+                {
+                    texture_num[name] = 0;
+                }
+
+                name += std::to_string(texture_num[name]);
+                texture_num[name]++;
 
                 texture_buf[name] = view_tex;
             }
