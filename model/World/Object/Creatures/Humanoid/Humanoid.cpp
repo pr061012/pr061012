@@ -1149,55 +1149,37 @@ uint Humanoid::calculateNecessResAmount()
 // also put it at home.
 void Humanoid::putInvInHome()
 {
+    if (putHomeAux(TREE))
     {
-        Object* obj = isResInInventory(TREE);
-        if (obj)
+        return ;
+    }
+    else
+    {
+        putHomeAux(MEAT);
+        putHomeAux(BERRIES);
+        // I dont rhink that hum should eat grass
+    }
+}
+
+bool Humanoid::putHomeAux(ResourceType type)
+{
+    Object* obj = isResInInventory(type);
+    if (obj)
+    {
+        if (home -> putInside(obj))
         {
-            if (home -> putInside(obj))
-            {
-                removeFromInventory(obj);
-            }
-            else
-            {
-                Action act(DROP_OBJS, this);
-                act.addParticipant(obj);
-                this -> actions.push_back(act);
-            }
+            removeFromInventory(obj);
+            return true;
         }
         else
         {
-            obj = isResInInventory(BERRIES);
-            if (obj)
-            {
-                if (home -> putInside(obj))
-                {
-                    removeFromInventory(obj);
-                }
-                else
-                {
-                    Action act(DROP_OBJS, this);
-                    act.addParticipant(obj);
-                    this -> actions.push_back(act);
-                }
-                // just because it is better if some eat will be in inventory
-                return ;
-            }
-            obj = isResInInventory(MEAT);
-            if (obj)
-            {
-                if (home -> putInside(obj))
-                {
-                    removeFromInventory(obj);
-                }
-                else
-                {
-                    Action act(DROP_OBJS, this);
-                    act.addParticipant(obj);
-                    this -> actions.push_back(act);
-                }
-            }
+            Action act(DROP_OBJS, this);
+            act.addParticipant(obj);
+            this -> actions.push_back(act);
+            return true;
         }
     }
+        return false;
 }
 
 //**************************************************************************

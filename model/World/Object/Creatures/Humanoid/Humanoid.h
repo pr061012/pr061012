@@ -329,6 +329,12 @@ private:
      * @brief Move inventory to build inventory
      */
     void putInvInHome();
+
+    /**
+     * @brief Drop on ground or put in home
+     * @return bool drop - false; home - true
+     */
+    bool putHomeAux(ResourceType type);
 };
 
 #endif // HUMANOID_H
