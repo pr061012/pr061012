@@ -41,8 +41,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger(Random::int_range(CREAT_HUNGER_MIN, CREAT_HUNGER_MAX)),
     hunger(0),
 
-    capacity(force / 10 + 5),
-    free_space(capacity),
 
     // steps
     common_steps(CREAT_STEPS),
@@ -53,7 +51,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     
     prev_action(GO),
     prev_action_state(SUCCEEDED),
-    inventory(new ObjectHeap),
 
     // needs
     need_in_descendants(0),  // we need in function to calculate it
@@ -79,7 +76,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
 
 Creature::~Creature()
 {
-    delete inventory;
     delete obstacles_index;
 }
 
@@ -120,22 +116,6 @@ Shape Creature::getReachArea()
 {
     return this -> reach_area;
 }
-
-ObjectHeap * Creature::getInventory()
-{
-    return this -> inventory;
-}
-
-uint Creature::getCapacity()
-{
-    return this -> capacity;
-}
-
-uint Creature::getFreeSpace()
-{
-    return this -> free_space;
-}
-
 
 CreatureAction Creature::getCurrentDecision() const
 {
@@ -742,40 +722,6 @@ void Creature::clearActions()
         prev_action_error = actions[0].getError();
     }
     actions.clear();
-
-    // FIXME
-    // maybe put this function outsitde?
-    // 
-    // Clear inventory from destroyed objects.
-    // First place them in buffer.
-    std::vector<Object*> buffer;
-    free_space = capacity;
-    for (ObjectHeap::iterator i = inventory -> begin();
-         i != inventory -> end(); i++)
-    {
-        if ((*i) -> isDestroyed())
-        {
-            buffer.push_back(*i);
-        }
-        else
-        {
-            if ((*i) -> getType() == RESOURCE)
-            {
-                free_space -= (*i) -> getHealthPoints() * (*i) -> getWeight();
-            }
-            else
-            {
-                free_space -= (*i) -> getWeight();
-
-            }
-        }
-    }
-
-    // Then remove them from inventory.
-    for (uint i = 0; i < buffer.size(); i++)
-    {
-        inventory -> remove(buffer[i]);
-    }
 }
 
 //******************************************************************************
@@ -822,8 +768,7 @@ std::string Creature::printObjectInfo(bool full) const
               insertSpaces("Direction angle")  << angle << std::endl;
     }
 
-    ss << insertSpaces("Aim ID")               << (aim == nullptr ? "none" : std::to_string(aim -> getObjectID())) << std::endl <<
-          insertSpaces("Inventory")            << std::endl << inventory -> printIDs();
+    ss << insertSpaces("Aim ID")               << (aim == nullptr ? "none" : std::to_string(aim -> getObjectID())) << std::endl;
 
     if (full)
     {
@@ -967,61 +912,4 @@ void Creature::updateCommonAttrs()
         danger_steps--;
     }
 
-}
-
-//******************************************************************************
-// INVENTORY
-//******************************************************************************
-
-// Adds object to inventory.
-bool Creature::addToInventory(Object *obj)
-{
-    uint weight = obj -> getWeight();
-
-    // Resources should be stacked together
-    if (obj -> getType() == RESOURCE)
-    {
-        ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
-        uint amount = obj -> getHealthPoints();
-        
-        // Check if there is enough place for placing resource.
-        if (amount * weight > free_space)
-        {
-            return false;
-        }
-        free_space -= amount * weight;
-
-        // Stack resources.
-        for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
-             i != inventory -> end(RESOURCE) && obj -> getHealthPoints(); i++)
-        {
-            if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
-            {
-                obj -> damage((*i) -> heal(amount));
-            }
-        }
-        
-        // Push the rest as it is.
-        if (amount)
-        {
-            inventory -> push(obj);
-        }
-        return true;
-    }
-
-    return false;
-}
-
-// Remove object from inventory.
-void Creature::removeFromInventory(Object * obj)
-{
-    inventory -> remove(obj);
-    if (obj -> getType() == RESOURCE)
-    {
-        free_space += obj -> getHealthPoints() * obj -> getWeight();
-    }
-    else
-    {
-        free_space += obj -> getWeight();
-    }
 }
