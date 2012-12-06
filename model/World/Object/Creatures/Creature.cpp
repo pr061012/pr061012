@@ -41,7 +41,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger(Random::int_range(CREAT_HUNGER_MIN, CREAT_HUNGER_MAX)),
     hunger(0),
 
-
     // steps
     common_steps(CREAT_STEPS),
     age_steps(CREAT_AGE_STEPS),
@@ -474,7 +473,6 @@ const Object* Creature::getAim()
 // Evaluates object's danger depending on the distance to it.
 double Creature::evaluateDanger(const Object * obj, const Vector& coords)
 {
-    
     double view_radius = view_area.getSize() / 2;
     double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;

@@ -53,6 +53,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     this -> setReachArea(Shape(Vector(), SHP_HUMANOID,
                                SZ_HUM_DIAM * SZ_REACH_AREA_COEF));
     this -> setWeight(WGHT_HUMANOID);
+    this -> setNormalSpeed(SPD_HUM);
 
     // Set danger level
     this -> setDangerLevel(DNGR_HUMANOID);
