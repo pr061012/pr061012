@@ -14,7 +14,7 @@
 #include <vector>
 
 #include "../Utilities/ViewUtilities.h"
-#include "../ViewTexture/ViewTexture.h"
+#include "../Texture/Texture.h"
 
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
@@ -58,7 +58,7 @@ public:
      * @param width width of screen to render
      * @param height height of screen to render
      */
-    ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, ViewTexture*>& texture_buf);
+    ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, Texture*>& texture_buf);
 
     /**
      * @brief Destructor
@@ -72,7 +72,7 @@ private:
 
     /// vector of loaded textures
     //GLuint texture_buf[3];
-    std::map<std::string, ViewTexture*>& texture_buf;
+    std::map<std::string, Texture*>& texture_buf;
 
     /**
      * @brief preload game textures in openGL
@@ -169,7 +169,7 @@ public:
     void setX(double new_var);
     void setY(double new_var);
 
-    const ViewTexture* getObjectTexture(const Object* obj);
+    const Texture* getObjectTexture(const Object* obj);
 
 };
 

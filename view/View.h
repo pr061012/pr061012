@@ -22,7 +22,7 @@
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
 #include "Utilities/ViewUtilities.h"
-#include "ViewTexture/ViewTexture.h"
+#include "Texture/Texture.h"
 
 #include <GL/glc.h>
 
@@ -66,7 +66,7 @@ class View
     std::vector<TextField*> rendered;
 
     /// Map of currently loaded textures.
-    std::map<std::string, ViewTexture*> texture_buf;
+    std::map<std::string, Texture*> texture_buf;
 
     Json::Reader* json_reader;
 

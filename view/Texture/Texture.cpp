@@ -1,8 +1,8 @@
-#include "ViewTexture.h"
+#include "Texture.h"
 
 #include "../../common/Log/Log.h"
 
-ViewTexture::ViewTexture(const char* path, uint flags)
+Texture::Texture(const char* path, uint flags)
 {
 
     this -> texture = SOIL_load_OGL_texture
@@ -45,12 +45,12 @@ ViewTexture::ViewTexture(const char* path, uint flags)
 
 }
 
-ViewTexture::~ViewTexture()
+Texture::~Texture()
 {
     glDeleteTextures(1, &this -> texture);
 }
 
-void ViewTexture::setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h)
+void Texture::setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h)
 {
     this -> tex_x = tex_x;
     this -> tex_y = tex_y;
@@ -58,17 +58,17 @@ void ViewTexture::setTextureDimensions(double tex_x, double tex_y, double tex_w,
     this -> tex_h = tex_h;
 }
 
-void ViewTexture::setScale(double scale)
+void Texture::setScale(double scale)
 {
     this -> scale = scale;
 }
 
-double ViewTexture::getScale()
+double Texture::getScale()
 {
     return this -> scale;
 }
 
-void ViewTexture::render(double x, double y, double width, double height,
+void Texture::render(double x, double y, double width, double height,
                          double x_offset, double y_offset) const
 {
     // In case some texture is bound already, save it to rebind later.

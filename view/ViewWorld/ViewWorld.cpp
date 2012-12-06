@@ -12,7 +12,7 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, ViewTexture*>& texture_buf) :
+ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, Texture*>& texture_buf) :
     world(w),
     texture_buf(texture_buf)
 {
@@ -148,9 +148,9 @@ void ViewWorld::setY(double new_var)
     this -> y = new_var;
 }
 
-const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
+const Texture* ViewWorld::getObjectTexture(const Object *obj)
 {
-    const ViewTexture* ret = NULL;
+    const Texture* ret = NULL;
 
     switch(obj -> getType())
     {

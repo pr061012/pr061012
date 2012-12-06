@@ -68,7 +68,7 @@ View::~View()
         delete rendered.at(i);
     }
 
-//    std::map<std::string, ViewTexture*>::iterator iter;
+//    std::map<std::string, Texture*>::iterator iter;
 //    for (iter = texture_buf.begin(); iter != texture_buf.end(); iter++)
 //    {
 //        delete (*iter);
@@ -113,7 +113,7 @@ void View::loadTextures()
                     flags |= SOIL_FLAG_TEXTURE_REPEATS;
                 }
 
-                ViewTexture* view_tex = new ViewTexture(path.c_str(), flags);
+                Texture* view_tex = new Texture(path.c_str(), flags);
 
                 view_tex -> setTextureDimensions(tex.get("x0",     0.0).asDouble(),
                                                  tex.get("y0",     0.0).asDouble(),
