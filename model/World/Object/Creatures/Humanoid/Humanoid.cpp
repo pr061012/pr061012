@@ -250,8 +250,9 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        if (isResInInventory(RES_FOOD, true), true)
+        if (isResInInventory(RES_FOOD))
         {
+            aim = isResInInventory(RES_FOOD);
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
             this -> actions.push_back(act);
@@ -481,17 +482,23 @@ std::vector <Action>* Humanoid::getActions()
                 this -> actions.push_back(act);
                // if (isResInInventory(RES_BUILDING_MAT))
                 this -> sociability = calculateNecessResAmount();
-                if (isResInInventory(RES_BUILDING_MAT, false) && home -> getHealthPoints() > calculateNecessResAmount())
+                if (isResInInventory(RES_BUILDING_MAT))
                 {
-                    if (current_action == BUILD)
+                    if
+                    (
+                        isResInInventory(RES_BUILDING_MAT) -> getHealthPoints() >
+                        calculateNecessResAmount()
+                     )
                     {
-                        detailed_act = BUILD_HOUSE;
+                        if (home != nullptr && current_action == BUILD)
+                        {
+                            detailed_act = BUILD_HOUSE;
+                        }
+                        else
+                        {
+                            current_action = NONE;
+                        }
                     }
-                    else
-                    {
-                        current_action = NONE;
-                    }
-                    aim = home;
                 }
              }
         }
@@ -733,7 +740,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
     else
     {
-        if (isResInInventory(RES_BUILDING_MAT, false))
+        if (isResInInventory(RES_BUILDING_MAT))
         {
             aim = home;
             return BUILD_HOUSE;
@@ -749,7 +756,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    if (isResInInventory(RES_FOOD, true))
+    if (isResInInventory(RES_FOOD))
     {
         return TAKE_FOOD_FROM_INVENTORY;
     }
@@ -1063,7 +1070,7 @@ void Humanoid::findVictim()
 }
 
 // Searching for res in inventory
-bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
+Object* Humanoid::isResInInventory(ResourceType type)
 {
     ObjectHeap::const_iterator iter;
     for(
@@ -1074,14 +1081,10 @@ bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
         Resource* res = dynamic_cast<Resource*>(*iter);
         if (res -> getSubtype() == type)
         {
-            if (isSetAim)
-            {
-                this -> aim = res;
-            }
-            return true;
+            return res;
         }
     }
-    return false;
+    return nullptr;
 }
 
 //**************************************************************************
@@ -1120,6 +1123,11 @@ uint Humanoid::calculateNecessResAmount()
                 return (free_space - HUM_CRIT_SPACE) / WGHT_RESOURCE;
             }
         }
+        else
+        {
+            detailed_act = CHOOSE_PLACE_FOR_HOME;
+            return 0;
+        }
     }
     else
     {
@@ -1133,4 +1141,5 @@ uint Humanoid::calculateNecessResAmount()
             return (free_space - HUM_CRIT_SPACE) / WGHT_RESOURCE;
         }
     }
+    return 1;
 }

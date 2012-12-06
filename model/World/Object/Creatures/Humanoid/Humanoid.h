@@ -309,7 +309,7 @@ private:
      * @param isSetAim are we need to change aim?
      * @return bool Is resource in inventory?
      */
-    bool isResInInventory(ResourceType type, bool isSetAim);
+    Object *isResInInventory(ResourceType type);
 
     //**************************************************************************
     // INVENTORY FUNC
