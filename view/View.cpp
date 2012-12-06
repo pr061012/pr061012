@@ -371,10 +371,10 @@ std::string View::printObjectViewInfo(const Object* obj)
             const Resource* res = static_cast<const Resource*>(obj);
             switch(res -> getSubtype())
             {
-                case RES_FOOD:
+                case GRASS:
                     ss << "Grass?" << std::endl;
                     break;
-                case RES_BUILDING_MAT:
+                case TREE:
                     ss << "Wood?" << std::endl;
                     break;
                 default:

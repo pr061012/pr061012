@@ -23,12 +23,11 @@ Resource::Resource(ResourceType type, uint res_amount) :
     this -> setShapeType(SHP_RESOURCE);
     this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
-    this -> setWeight(WGHT_RESOURCE);
 
     // FIXME: Foolish code.
     switch(this -> subtype)
     {
-        case RES_FOOD:
+        case GRASS: case MEAT:
             this -> mineable        = false;
             this -> restorable      = false;
             this -> makePickable();
@@ -41,7 +40,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> reg_amount      = 0;
         break;
 
-        case RES_BUILDING_MAT:
+        case TREE:
             this -> mineable        = true;
             this -> restorable      = true;
             this -> makeNonPickable();
@@ -106,6 +105,8 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> reg_amount      = 0;
         break;
     }
+
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
 }
 
 Resource::~Resource()
@@ -140,6 +141,8 @@ uint Resource::damage(uint delta)
     }
 
     this -> amount -= d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -153,6 +156,8 @@ uint Resource::heal(uint delta)
     }
 
     this -> amount += d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -172,14 +177,18 @@ uint Resource::getMaxHealthPoints() const
 
 std::vector<Action>* Resource::getActions()
 {
-    // TODO: Maybe it's better to use REGENERATE_OBJ action?
+    this -> actions.clear();
+
     if(this -> steps_to_reg-- == 0)
     {
-        this -> heal(this -> reg_amount);
+        Action act(REGENERATE_OBJ, this);
+        act.addParticipant(this);
+        act.addParam<uint>("object_index", 0);
+        this -> actions.push_back(act);
+
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 
-    this -> actions.clear();
     return &(this -> actions);
 }
 
@@ -195,8 +204,10 @@ std::string Resource::printObjectInfo(bool full) const
           insertSpaces("Type");
     switch (subtype)
     {
-        case RES_FOOD:         ss << "food";              break;
-        case RES_BUILDING_MAT: ss << "building material"; break;
+        case GRASS:            ss << "grass";             break;
+        case BERRIES:          ss << "berries";           break;
+        case MEAT:             ss << "meat";              break;
+        case TREE:             ss << "tree";              break;
         default:               ss << "unknown";           break;
     }
     ss << "\n";

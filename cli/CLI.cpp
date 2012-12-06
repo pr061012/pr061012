@@ -28,8 +28,10 @@
 #define TN_NHUM_DRAGON              "drg"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
-#define TN_RESOURCE_FOOD            "f"
-#define TN_RESOURCE_BUILDING_MAT    "bm"
+#define TN_RESOURCE_GRASS           "grass"
+#define TN_RESOURCE_BERRIES         "berries"
+#define TN_RESOURCE_MEAT            "meat"
+#define TN_RESOURCE_TREE            "tree"
 #define TN_WEATHER                  "w"
 #define TN_WEATHER_METEOR_SHOWER    "ms"
 #define TN_WEATHER_RAIN             "rn"
@@ -293,13 +295,21 @@ std::string CLI::create(std::stringstream& ss)
         obj_type = RESOURCE;
 
         std::string res_type = readFromSS<std::string>(ss, "ResourceType");
-        if (res_type == TN_RESOURCE_FOOD)
+        if (res_type == TN_RESOURCE_GRASS)
         {
-            pa.addKey<ResourceType>("res_type", RES_FOOD);
+            pa.addKey<ResourceType>("res_type", GRASS);
         }
-        else if (res_type == TN_RESOURCE_BUILDING_MAT)
+        else if (res_type == TN_RESOURCE_BERRIES)
         {
-            pa.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+            pa.addKey<ResourceType>("res_type", BERRIES);
+        }
+        else if (res_type == TN_RESOURCE_MEAT)
+        {
+            pa.addKey<ResourceType>("res_type", MEAT);
+        }
+        else if (res_type == TN_RESOURCE_TREE)
+        {
+            pa.addKey<ResourceType>("res_type", TREE);
         }
         else
         {

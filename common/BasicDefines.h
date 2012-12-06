@@ -295,6 +295,7 @@
 // Food values
 #define RES_GRASS_FOOD_VALUE        1
 #define RES_BERRIES_FOOD_VALUE      2
+#define RES_MEAT_FOOD_VALUE         5
 #define RES_FOOD_VALUE              3
 
 //******************************************************************************
