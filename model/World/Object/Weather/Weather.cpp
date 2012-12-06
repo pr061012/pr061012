@@ -23,6 +23,7 @@ Weather::Weather(WeatherType type, uint living_steps) :
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
     this -> setWeight(WGHT_WEATHER);
+    this -> setNormalSpeed(SPD_WEATHER);
 
     // Setting danger level.
     switch (type)

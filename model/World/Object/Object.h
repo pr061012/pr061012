@@ -262,6 +262,22 @@ public:
     void setWeight(uint weight);
 
     //**************************************************************************
+    // NORMAL SPEED.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets object's normal speed.
+     * @return normal speed
+     */
+    double getNormalSpeed() const;
+
+    /**
+     * @brief Sets object's normal speed.
+     * @param speed     new normal speed
+     */
+    void setNormalSpeed(double speed);
+
+    //**************************************************************************
     // OBJECT TYPE AND ID.
     //**************************************************************************
 
@@ -365,6 +381,9 @@ private:
 
     /// Object's weight.
     uint weight;
+
+    /// Object's normal_speed.
+    double normal_speed;
 
     //**************************************************************************
     // PROPERTIES FLAGS.

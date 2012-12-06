@@ -39,12 +39,14 @@ NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
             this -> setShapeSize(SZ_NHUM_COW_DIAM);
             this -> setDangerLevel(DNGR_NHUM_COW);
             this -> setWeight(WGHT_NHUM_COW);
+            this -> setNormalSpeed(SPD_NHUM_COW);
         break;
 
         case DRAGON:
             this -> setShapeSize(SZ_NHUM_DRAGON_DIAM);
             this -> setDangerLevel(DNGR_NHUM_DRAGON);
             this -> setWeight(WGHT_NHUM_DRAGON);
+            this -> setNormalSpeed(SPD_NHUM_DRAGON);
         break;
     }
 
@@ -230,15 +232,6 @@ std::vector<Action>* NonHumanoid::getActions()
         }
 
         go(SLOW_SPEED);
-    }
-
-    //**************************************************************************
-    // DECISION : HUNT
-    //**************************************************************************
-
-    else if (current_action == HUNT)
-    {
-        //
     }
 
     //**************************************************************************
