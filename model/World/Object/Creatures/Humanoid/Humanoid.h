@@ -298,9 +298,9 @@ private:
      */
     void findNearestRes(ResourceType type);
     /**
-     * @brief Searching for sacrifice
+     * @brief Searching for Victim
      */
-    void findSacrifice();
+    void findVictim();
 
     /**
      * @brief Searching for res in inventory
