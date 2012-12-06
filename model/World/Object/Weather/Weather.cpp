@@ -15,9 +15,10 @@
 //******************************************************************************
 
 Weather::Weather(WeatherType type, uint living_steps) :
-    Object(WEATHER, false, false, true),
+    Object(WEATHER, false, true, true),
     subtype(type)
 {
+    // Initialising inhereted things.
     this -> makeFlying();
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
@@ -26,12 +27,13 @@ Weather::Weather(WeatherType type, uint living_steps) :
     // Setting danger level.
     switch (type)
     {
-        case METEOR_SHOWER: setDangerLevel(DNGR_WEATHER_METEOR_SHOWER); break;
-        case HURRICANE:     setDangerLevel(DNGR_WEATHER_HURRICANE);     break;
-        case RAIN:          setDangerLevel(DNGR_WEATHER_RAIN);          break;
-        case CLOUDS:        setDangerLevel(DNGR_WEATHER_CLOUDS);        break;
+        case METEOR_SHOWER: this -> setDangerLevel(DNGR_WEATHER_METEOR_SHOWER); break;
+        case HURRICANE:     this -> setDangerLevel(DNGR_WEATHER_HURRICANE);     break;
+        case RAIN:          this -> setDangerLevel(DNGR_WEATHER_RAIN);          break;
+        case CLOUDS:        this -> setDangerLevel(DNGR_WEATHER_CLOUDS);        break;
     }
 
+    // Initialising living steps.
     if(living_steps == 0)
     {
         this -> steps = Random::int_range(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
@@ -40,6 +42,10 @@ Weather::Weather(WeatherType type, uint living_steps) :
     {
         this -> steps = living_steps;
     }
+
+    // Initialising direction angle.
+    this -> direction_angle = Random::double_num(2 * M_PI);
+    this -> roam_steps      = WEAT_ROAM_STEPS;
 }
 
 Weather::~Weather()
@@ -52,12 +58,28 @@ Weather::~Weather()
 
 std::vector<Action>* Weather::getActions()
 {
-    if(this -> steps > 0)
+    // Checking success of previous GO action.
+    bool need_to_change_direction = false;
+    for (uint i = 0; i < this -> actions.size(); i++)
     {
-        this -> steps--;
+        Action act = this -> actions[i];
+        if (act.getType() == GO && act.isFailed())
+        {
+            need_to_change_direction = true;
+        }
     }
-
     this -> actions.clear();
+
+    // Decreasing steps.
+    if (this -> steps > 0)      this -> steps--;
+    if (this -> roam_steps > 0) this -> roam_steps--;
+
+    // Changing direction (if needed).
+    if (this -> roam_steps == 0 || need_to_change_direction)
+    {
+        this -> roam_steps = WEAT_ROAM_STEPS;
+        this -> direction_angle = Random::double_num(2 * M_PI);
+    }
 
     // Meteor shower harms all objects.
     if (subtype == METEOR_SHOWER)
@@ -113,6 +135,12 @@ std::vector<Action>* Weather::getActions()
         }
     }
 
+    // Going in set direction.
+    Action act(GO, this);
+    act.addParam<double>("angle", this -> direction_angle);
+    act.addParam<SpeedType>("speed", FAST_SPEED);
+    this -> actions.push_back(act);
+
     return &(this -> actions);
 }
 
@@ -140,9 +168,11 @@ std::string Weather::printObjectInfo(bool full) const
     }
     ss << "\n";
 
-    ss << insertSpaces("Covered Object") << std::endl <<
-                                            this -> covered_objs.printIDs() <<
-                                            std::endl;
+    ss << insertSpaces("Direction angle") << direction_angle << std::endl <<
+          insertSpaces("Roam steps")      << roam_steps << std::endl <<
+          insertSpaces("Covered objects") << std::endl <<
+                                             this -> covered_objs.printIDs() <<
+                                             std::endl;
 
     return ss.str();
 }

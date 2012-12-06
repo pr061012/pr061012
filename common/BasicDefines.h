@@ -211,6 +211,9 @@
 /// Maximum amount of living steps for weather.
 #define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND
 
+/// Weather's roaming steps (steps before roam direction changing).
+#define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
+
 //******************************************************************************
 // TOOL DEFINES.
 // Prefix: TOOL.
@@ -470,7 +473,8 @@
 #define HUM_DECR_ENDUR_STEPS        100
 
 /// Space in inventory which is necessary in cratical situation
-#define HUM_CRIT_SPACE              5
+#define HUM_CRIT_SPACE              2
+
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
@@ -497,8 +501,11 @@
 // Prefix: REG.
 //******************************************************************************
 
-/// Delta health of building "per" one res
+/// Delta health of building "per" one res.
 #define REG_BUILDING_COEF           10
+
+/// Delta health for resource.
+#define REG_RES_COEF                10
 
 #endif // BASIC_DEFINES_H
 
