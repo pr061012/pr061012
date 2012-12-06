@@ -30,13 +30,33 @@ void CreationPerformer::perform(Action& action)
 {
     // Get initial values.
     Object* actor = action.getActor();
+    ObjectType obj_type = action.getParam<ObjectType>("obj_type");
     Object* new_object;
+    ParamArray param;
+
+    // Check for god.
+    if (actor == nullptr)
+    {
+        if (obj_type != WEATHER)
+        {
+            action.markAsFailed(OBJ_CANT_CREATE);
+            return;
+        }
+
+        new_object = createBuilding(action, param);
+
+        Vector coord = action.getParam<Vector>("coord");
+        new_object -> setCoords(coord);
+
+        world -> addObject(true, new_object);
+        action.markAsSucceeded();
+        return;
+    }
+
     ObjectType type = actor -> getType();
     double size = actor -> getShape().getSize();
 
-    ObjectType obj_type = action.getParam<ObjectType>("obj_type");
     Vector new_center(Random::double_range(size,2*size), Random::double_range(size, 2*size));
-    ParamArray param;
 
     // Check of actor type.
     if ( type == CREATURE )
@@ -206,4 +226,15 @@ Object* CreationPerformer::createTool(Action& action, ParamArray& param)
     param.addKey<uint>("tool_str",tool_str);
 
     return world -> getObjectFactory() -> createObject(TOOL, param);
+}
+
+Object* CreationPerformer::createWeather(Action& action, ParamArray& param)
+{
+    WeatherType weat_type = action.getParam<WeatherType>("weat_type");
+    uint weat_steps = action.getParam<uint>("weat_steps");
+
+    param.addKey<WeatherType>("weat_type", weat_type);
+    param.addKey<uint>("weat_step", weat_steps);
+
+    return world -> getObjectFactory() -> createObject(WEATHER, param);
 }

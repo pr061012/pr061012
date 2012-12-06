@@ -81,7 +81,15 @@ private:
      * @param param
      * @return object was created
      */
-    Object* createTool(Action& action, ParamArray &param);
+    Object* createTool(Action& action, ParamArray& param);
+
+    /**
+     * @brief Auxiliary function for create weather
+     * @param action
+     * @param param
+     * @return object was created
+     */
+    Object* createWeather(Action& action, ParamArray& param);
 
 };
 
