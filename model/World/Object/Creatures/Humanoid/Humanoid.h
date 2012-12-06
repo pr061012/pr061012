@@ -303,9 +303,28 @@ private:
 
     /**
      * @brief Searching for res in inventory
+     * @param type Resource type
+     * @param isSetAim are we need to change aim?
      * @return bool Is resource in inventory?
      */
-    bool isResInInventory(ResourceType type);
+    bool isResInInventory(ResourceType type, bool isSetAim);
+
+    //**************************************************************************
+    // INVENTORY FUNC
+    //**************************************************************************
+
+    /**
+     * @brief Calculate, how many res amount should humanoid mine
+     * @return uint res amount
+     */
+    uint calculateNecessResAmount();
+
+
+//    /**
+//     * @brief Calculate, how many res in inventory
+//     * @return uint res amount
+//     */
+//    uint countRes(ResourceType type);
 };
 
 #endif // HUMANOID_H
