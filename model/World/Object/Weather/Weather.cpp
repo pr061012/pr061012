@@ -42,7 +42,7 @@ Weather::~Weather()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::vector <Action> * Weather::getActions()
+std::vector<Action>* Weather::getActions()
 {
     if(this -> steps > 0)
     {

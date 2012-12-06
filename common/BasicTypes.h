@@ -109,7 +109,8 @@ enum CreatureType
  */
 enum NonHumanoidType
 {
-    COW, BEAR, DRAGON, GOOSE, SHEEP
+    COW, COW_DEMON, DRAGON,
+    // BEAR, GOOSE, SHEEP
 };
 
 //******************************************************************************

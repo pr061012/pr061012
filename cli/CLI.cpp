@@ -24,6 +24,7 @@
 #define TN_HUMANOID                 "h"
 #define TN_NHUM                     "nh"
 #define TN_NHUM_COW                 "cow"
+#define TN_NHUM_COW_DEMON           "0xDEADBEEF"
 #define TN_NHUM_DRAGON              "drg"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
@@ -254,6 +255,10 @@ std::string CLI::create(std::stringstream& ss)
             if (nhum_type == TN_NHUM_COW)
             {
                 pa.addKey<NonHumanoidType>("nhum_type", COW);
+            }
+            else if (nhum_type == TN_NHUM_COW_DEMON)
+            {
+                pa.addKey<NonHumanoidType>("nhum_type", COW_DEMON);
             }
             else if (nhum_type == TN_NHUM_DRAGON)
             {
