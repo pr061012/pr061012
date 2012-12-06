@@ -245,7 +245,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        if (isResInInventory(RES_FOOD))
+        if (isResInInventory(RES_FOOD, true), true)
         {
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
@@ -346,12 +346,14 @@ std::vector <Action>* Humanoid::getActions()
                     Action act(EAT_OBJ, this);
                     act.addParticipant(aim);
                     this -> actions.push_back(act);
+                    aim = nullptr;
                 }
                 else
                 {
                     Action act(PICK_UP_OBJS, this);
                     act.addParticipant(aim);
                     this -> actions.push_back(act);
+                    aim = nullptr;
                 }
              }
         }
@@ -444,7 +446,7 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == MINE_RESOURSES)
     {
-        if ((visual_memory != nullptr) && (aim == nullptr))
+        if ((visual_memory != nullptr) && ((aim == nullptr) || aim -> isDestroyed()))
         {
             findNearestRes(RES_BUILDING_MAT);
         }
@@ -468,7 +470,9 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-                if (isResInInventory(RES_BUILDING_MAT))
+               // if (isResInInventory(RES_BUILDING_MAT))
+                this -> sociability = calculateNecessResAmount();
+                if (isResInInventory(RES_BUILDING_MAT, false) && aim -> getHealthPoints() > calculateNecessResAmount())
                 {
                     if (current_action == BUILD)
                     {
@@ -672,38 +676,38 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-    if
-    (
-        (laziness < A_BIT_MORE_THAN_HALF &&
-         100 * getHealth() / getMaxHealth() > HIGH_LEVEL)
-        || (laziness < SMALL_LEVEL && 100 * getHealth()
-            / getMaxHealth() > A_BIT_MORE_THAN_HALF)
-    )
-    {
-        uint a = Random::int_num(2);
-        switch (a)
-        {
-            case 0: return MINE_RESOURSES; break;
-            case 1:
-                if (bravery > A_BIT_MORE_THAN_HALF)
-                {
-                    return HUNT;
-                }
-                else
-                {
-                    return FIND_FOOD;
-                }
-                break;
-            default: return FIND_FOOD;
-        }
-    }
-    else
-    {
+//    if
+//    (
+//        (laziness < A_BIT_MORE_THAN_HALF &&
+//         100 * getHealth() / getMaxHealth() > HIGH_LEVEL)
+//        || (laziness < SMALL_LEVEL && 100 * getHealth()
+//            / getMaxHealth() > A_BIT_MORE_THAN_HALF)
+//    )
+//    {
+//        uint a = Random::int_num(2);
+//        switch (a)
+//        {
+//            case 0: return MINE_RESOURSES; break;
+//            case 1:
+//                if (bravery > A_BIT_MORE_THAN_HALF)
+//                {
+//                    return HUNT;
+//                }
+//                else
+//                {
+//                    return FIND_FOOD;
+//                }
+//                break;
+//            default: return FIND_FOOD;
+//        }
+//    }
+//    else
+//    {
         if(home != nullptr)
         {
             return RELAX_AT_HOME;
         }
-    }
+//    }
         return SLEEP_ON_THE_GROUND;
 }
 
@@ -720,7 +724,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
     else
     {
-        if (isResInInventory(RES_BUILDING_MAT))
+        if (isResInInventory(RES_BUILDING_MAT, false))
         {
             aim = home;
             return BUILD_HOUSE;
@@ -736,7 +740,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    if (isResInInventory(RES_FOOD))
+    if (isResInInventory(RES_FOOD, true))
     {
         return TAKE_FOOD_FROM_INVENTORY;
     }
@@ -952,7 +956,7 @@ void Humanoid::findSacrifice()
 }
 
 // Searching for res in inventory
-bool Humanoid::isResInInventory(ResourceType type)
+bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
 {
     ObjectHeap::const_iterator iter;
     for(
@@ -963,12 +967,16 @@ bool Humanoid::isResInInventory(ResourceType type)
         Resource* res = dynamic_cast<Resource*>(*iter);
         if (res -> getSubtype() == type)
         {
-            this -> aim = res;
+            if (isSetAim)
+            {
+                this -> aim = res;
+            }
             return true;
         }
     }
     return false;
 }
+
 //**************************************************************************
 // INVENTORY FUNC
 //**************************************************************************
@@ -976,25 +984,46 @@ bool Humanoid::isResInInventory(ResourceType type)
 // If we mine resource because we build, we calculate it (how many res we need
 // to complete our home?). If we just mining res for best future, we choose
 // amount randomly.
-uint Humanoid::calculateResAmount()
+uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
     {
+        if (getFreeSpace() == 0)
+        {
+            return 0;
+        }
         if (home != nullptr)
         {
-            return 1;
+            // checking - can we mine necessary amount for one time?
+            // if yes - take it
+            // delta health = reg_bild * space/weight
+            // space/weight = amount
+            uint delta_health = home -> getMaxHealthPoints() - home -> getHealthPoints();
+            if
+            (
+                delta_health * WGHT_RESOURCE <
+                (getFreeSpace() - HUM_CRIT_SPACE) * REG_BUILDING_COEF
+            )
+            {
+                return delta_health  * WGHT_RESOURCE / REG_BUILDING_COEF + 1;
+            }
+            // if no - take as much as you can
+            else
+            {
+                return (getFreeSpace() - HUM_CRIT_SPACE) / WGHT_RESOURCE;
+            }
         }
     }
     else
     {
         uint res_amount = Random::int_range(1, getCapacity() / 2);
-        if (res_amount * WGHT_RESOURCE <= getFreeSpace())
+        if (res_amount * WGHT_RESOURCE <= getFreeSpace() - HUM_CRIT_SPACE)
         {
             return res_amount;
         }
         else
         {
-            return getFreeSpace();
+            return (getFreeSpace() - HUM_CRIT_SPACE) / WGHT_RESOURCE;
         }
     }
 }
