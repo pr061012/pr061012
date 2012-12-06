@@ -54,7 +54,7 @@ void CreationPerformer::perform(Action& action)
     }
 
     ObjectType type = actor -> getType();
-
+    double actor_size = actor -> getShape().getSize() / 2;
     // Check of actor type.
     if ( type == CREATURE )
     {
@@ -67,9 +67,8 @@ void CreationPerformer::perform(Action& action)
                 new_object = createCreature(action, param);
 
                 // Set coord new_object and check it.
-                double size = actor -> getShape().getSize();
-                Vector new_center(Random::double_range(size, 2 * size),
-                                  Random::double_range(size, 2 * size));
+                Vector new_center(Random::double_range(actor_size, 1.2 * actor_size),
+                                  Random::double_range(actor_size, 1.2 * actor_size));
                 new_object -> setCoords(actor -> getCoords() + new_center);
 
                 if (checkCoord(new_object))
@@ -105,10 +104,10 @@ void CreationPerformer::perform(Action& action)
                     new_object = createBuilding(action, param);
 
                     // Check coord new_object and add its in world.
-                    double size = new_object -> getShape().getSize();
-                    Vector new_center(Random::double_range(size, 2 * size),
-                                      Random::double_range(size, 2 * size));
-                    new_object -> setCoords(actor->getCoords() + new_center);
+                    double size = new_object -> getShape().getSize() / 2;
+                    Vector new_center(Random::double_range(size, 1.2 * size) + actor_size,
+                                      Random::double_range(size, 1.2 * size) + actor_size);
+                    new_object -> setCoords(actor -> getCoords() + new_center);
 
                     if (checkCoord(new_object))
                     {

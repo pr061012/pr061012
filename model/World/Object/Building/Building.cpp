@@ -14,7 +14,7 @@
 //******************************************************************************
 
 Building::Building(uint max_space, uint max_health) :
-    Object(BUILDING, false, false),
+    Object(BUILDING, true, false),
     contents(new ObjectHeap),
     health(1),
     max_health(max_health),
