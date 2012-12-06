@@ -1079,7 +1079,7 @@ uint Humanoid::calculateNecessResAmount()
             if
             (
                 delta_health * WGHT_RESOURCE <
-                (getFreeSpace() - HUM_CRIT_SPACE) * REG_BUILDING_COEF
+                (free_space - HUM_CRIT_SPACE) * REG_BUILDING_COEF
             )
             {
                 return delta_health  * WGHT_RESOURCE / REG_BUILDING_COEF + 1;
@@ -1087,7 +1087,7 @@ uint Humanoid::calculateNecessResAmount()
             // if no - take as much as you can
             else
             {
-                return (getFreeSpace() - HUM_CRIT_SPACE) / WGHT_RESOURCE;
+                return (free_space - HUM_CRIT_SPACE) / WGHT_RESOURCE;
             }
         }
     }
