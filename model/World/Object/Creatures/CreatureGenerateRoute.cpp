@@ -240,7 +240,7 @@ Creature::Path Creature::generateRoute()
             for (uint i = 0; i < 8; i++)
             {
                 Vector next_point =  current.point + 
-                    Creature::neighbour_offsets[i] * CREAT_SPEED_SLOW_VALUE *
+                    Creature::neighbour_offsets[i] * getNormalSpeed() *
                     SCALE_FACTOR;
                 int passable = checkPointIsPassable(next_point, goal_in_sight);
 
