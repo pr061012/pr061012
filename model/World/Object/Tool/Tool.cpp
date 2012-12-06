@@ -18,6 +18,8 @@ Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
     subtype(type),
     material(material)
 {
+    /*
+
     // Initialising shape.
     this -> setShapeSize(SZ_TOOL_DIAM);
     this -> setShapeType(SHP_TOOL);
@@ -58,6 +60,8 @@ Tool::Tool(ToolType type, ResourceType material, uint max_strength) :
         default: break;
     }
     this -> current_strength = this -> max_strength;
+
+    */
 }
 
 Tool::~Tool()
