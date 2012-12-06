@@ -866,6 +866,10 @@ std::string Humanoid::printObjectInfo(bool full) const
         ss << insertSpaces("Visual memory")          << std::endl << visual_memory -> printIDs() <<
               insertSpaces("Steps for choose place") << steps_to_choose_place << std::endl;
     }
+    if (full)
+    {
+        ss << insertSpaces("FreeSpace/Capacity")     << free_space << '/' << capacity << std::endl;
+    }
 
     return ss.str();
 }
@@ -984,6 +988,18 @@ void Humanoid::setDetailedAction(DetailedHumAction detailed_act)
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+// gets free space
+uint Humanoid::getFreeSpace()
+{
+    return this -> free_space;
+}
+
+// gets free space
+uint Humanoid::getCapacity()
+{
+    return this -> capacity;
 }
 
 //******************************************************************************

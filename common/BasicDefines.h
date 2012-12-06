@@ -473,7 +473,7 @@
 #define HUM_DECR_ENDUR_STEPS        100
 
 /// Space in inventory which is necessary in cratical situation
-#define HUM_CRIT_SPACE              5
+#define HUM_CRIT_SPACE              2
 
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
