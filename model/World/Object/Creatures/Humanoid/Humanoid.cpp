@@ -451,9 +451,13 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == MINE_RESOURSES)
     {
-        if ((visual_memory != nullptr) && ((aim == nullptr) || aim -> isDestroyed()))
+        if ((visual_memory != nullptr) && aim == nullptr)
         {
             findNearestRes(RES_BUILDING_MAT);
+        }
+        if (aim != nullptr && aim -> isDestroyed())
+        {
+            aim = nullptr;
         }
         if (aim == nullptr)
         {
@@ -477,7 +481,7 @@ std::vector <Action>* Humanoid::getActions()
                 this -> actions.push_back(act);
                // if (isResInInventory(RES_BUILDING_MAT))
                 this -> sociability = calculateNecessResAmount();
-                if (isResInInventory(RES_BUILDING_MAT, false) && aim -> getHealthPoints() > calculateNecessResAmount())
+                if (isResInInventory(RES_BUILDING_MAT, false) && home -> getHealthPoints() > calculateNecessResAmount())
                 {
                     if (current_action == BUILD)
                     {
