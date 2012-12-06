@@ -908,6 +908,7 @@ bool Humanoid::addToInventory(Object *obj)
         {
             if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
             {
+                dynamic_cast<Resource*>(*i) -> increaseMaxAmount(obj -> getHealthPoints());
                 obj -> damage((*i) -> heal(obj -> getHealthPoints()));
             }
         }
@@ -917,7 +918,9 @@ bool Humanoid::addToInventory(Object *obj)
         {
             this -> inventory -> push(obj);
         }
+        return true;
     }
+    return false;
 }
 
 // Clear inventory from destroyed objects.

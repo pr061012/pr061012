@@ -76,16 +76,17 @@ void MovementPerformer::perform(Action& action)
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
     SpeedType speed_type = action.getParam<SpeedType>(std::string("speed"));
-    double speed = 0;
+    // TODO
+    // Make dependancy on weight.
+    double speed = actor -> getNormalSpeed();
     switch (speed_type)
     {
         case SLOW_SPEED: 
-            speed = CREAT_SPEED_SLOW_VALUE; 
-        break;
+            break;
 
         case FAST_SPEED:
-            speed = CREAT_SPEED_FAST_VALUE;
-        break;
+            speed *= SPD_FAST_SPEED_COEF;
+            break;
     }
     
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));

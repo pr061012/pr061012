@@ -512,7 +512,8 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     else
     {
         // immovable objects are dangerous only at near distances.
-        if (distance - obj_radius < CREAT_DANGER_IMMOVABLE_FACTOR * CREAT_SPEED_SLOW_VALUE)
+        if (distance - obj_radius < 
+            CREAT_DANGER_IMMOVABLE_FACTOR * obj -> getNormalSpeed())
         {
             return danger_ratio;
         }
@@ -614,14 +615,10 @@ void Creature::go(SpeedType speed)
         }
 
         // if we reached the target, face to the next point
-        double my_speed = 0;
-        if (speed == SLOW_SPEED)
-        {   
-            my_speed = CREAT_SPEED_SLOW_VALUE;
-        }
-        else
+        double my_speed = getNormalSpeed();
+        if (speed == FAST_SPEED)
         {
-            my_speed = CREAT_SPEED_FAST_VALUE;
+            my_speed *= SPD_FAST_SPEED_COEF;
         }
 
         while (getCoords().getDistance(route.top()) < my_speed)
