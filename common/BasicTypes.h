@@ -82,16 +82,13 @@ enum ToolType
 enum ResourceType
 {
     // FIXME: Silly dummy.
-    RES_FOOD, RES_BUILDING_MAT,
+    RES_FOOD, RES_BUILDING_MAT
 
     // Mineable resources.
-    BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
+    // BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
 
     // Pickable resources.
-    BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE,
-
-    // TODO: Add food.
-    GRASS
+    // BRONZE, IRON, SILVER, GOLD, COAL, BERRIES, STONE,
 };
 
 /// Amount of creature types.

@@ -263,13 +263,13 @@ std::vector <Action>* Humanoid::getActions()
     // DETAILED DECISION : HUNT
     // FIXME. Nobody put food in inventory
     // First of all, he searching for victim in objects around. If he has
-    // founded his sacrifice, he just hunts. If other case he goes in random
-    // way serching for sacrifice.
+    // founded his victim, he just hunts. If other case he goes in random
+    // way serching for victim.
     //**************************************************************************
 
     if (detailed_act == HUNT)
     {
-        findSacrifice();
+        findVictim();
         if (aim == nullptr)
         {
             if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
@@ -319,7 +319,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
             {
-                findSacrifice();
+                findVictim();
                 if (aim != nullptr)
                 {
                     detailed_act = HUNT;
@@ -1021,8 +1021,8 @@ void Humanoid::findNearestRes(ResourceType type)
     }
 }
 
-// searching for sacrifice in obj around
-void Humanoid::findSacrifice()
+// searching for victim in obj around
+void Humanoid::findVictim()
 {
     double min_dist = SZ_WORLD_VSIDE;
     ObjectHeap::const_iterator iter;

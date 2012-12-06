@@ -21,8 +21,16 @@ Weather::Weather(WeatherType type, uint living_steps) :
     this -> makeFlying();
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
-    this -> setDangerLevel(DNGR_WEATHER);
     this -> setWeight(WGHT_WEATHER);
+
+    // Setting danger level.
+    switch (type)
+    {
+        case METEOR_SHOWER: setDangerLevel(DNGR_WEATHER_METEOR_SHOWER); break;
+        case HURRICANE:     setDangerLevel(DNGR_WEATHER_HURRICANE);     break;
+        case RAIN:          setDangerLevel(DNGR_WEATHER_RAIN);          break;
+        case CLOUDS:        setDangerLevel(DNGR_WEATHER_CLOUDS);        break;
+    }
 
     if(living_steps == 0)
     {
@@ -97,6 +105,7 @@ std::vector<Action>* Weather::getActions()
             Vector v1 = (*iter) -> getCoords();
             Vector v2 = this -> getCoords();
 
+            act.addParticipant(*iter);
             act.addParam<double>("angle", v1.getAngle(v2));
             act.addParam<SpeedType>("speed", FAST_SPEED);
 
@@ -121,8 +130,19 @@ std::string Weather::printObjectInfo(bool full) const
     std::stringstream ss;
 
     ss << Object::printObjectInfo(full) <<
-          "Covered Object" << std::endl << this -> covered_objs.printIDs() <<
-                              std::endl;
+          insertSpaces("Type");
+    switch (subtype)
+    {
+        case METEOR_SHOWER: ss << "meteor shower"; break;
+        case RAIN:          ss << "rain";          break;
+        case CLOUDS:        ss << "clouds";        break;
+        case HURRICANE:     ss << "hurricane";     break;
+    }
+    ss << "\n";
+
+    ss << insertSpaces("Covered Object") << std::endl <<
+                                            this -> covered_objs.printIDs() <<
+                                            std::endl;
 
     return ss.str();
 }

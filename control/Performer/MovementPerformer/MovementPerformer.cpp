@@ -10,6 +10,7 @@
 
 #include "MovementPerformer.h"
 #include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../common/BasicDefines.h"
 #include <cmath>
 #include <string>
@@ -53,6 +54,25 @@ void MovementPerformer::perform(Action& action)
         return;
     }
 
+    // Get the area at which actor can move other objects.
+    Shape reach_area;
+    if (actor_type == WEATHER)
+    {
+        reach_area = actor -> getShape();
+    }
+    else
+    {
+        reach_area = dynamic_cast<Creature*>(actor) -> getReachArea();
+        reach_area.setCenter(actor -> getCoords());
+    }
+
+    // Check if participant is inside reach area.
+    if (!reach_area.hitTest(participant -> getShape()))
+    {
+        action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
+        return;
+    }
+
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
     SpeedType speed_type = action.getParam<SpeedType>(std::string("speed"));
@@ -74,27 +94,35 @@ void MovementPerformer::perform(Action& action)
     if (dest.getX() < 0 || dest.getX() >= world -> getSize() || 
         dest.getY() < 0 || dest.getY() >= world -> getSize())
     {
-        // FIXME: What action error we need to set here?
-        // action.markAsFailed();
+        action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
         return;
     }
 
     // Try to place an object and see if it collides with anything
     Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
-    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost);
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost, 
+                                                                      participant);
+    action.markAsSucceeded();
 
     // Can't place things over creatures and buildings
-    if (!obstacles.getTypeAmount(CREATURE)
-        && !obstacles.getTypeAmount(BUILDING))
+    for (ObjectHeap::iterator i = obstacles.begin();
+         i != obstacles.end(); i++)
+    {
+        if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
+        {
+            if ((*i) -> getShape().hitTest(ghost))
+            {
+                action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
+                return;
+            }
+        }
+    }
+
+    if (action.isSucceeded())
     {
         participant -> setCoords(dest);
         world -> getIndexator() -> reindexate(participant);
         action.markAsSucceeded();
-    }
-    else
-    {
-        // FIXME: What action error we need to set here?
-        // action.markAsFailed();
     }
 }

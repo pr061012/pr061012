@@ -144,9 +144,14 @@
 /// Resource's danger level.
 #define DNGR_RESOURCE               0
 
-// TODO: Different values for different types of Weather.
-/// Weather's danger level.
-#define DNGR_WEATHER                25
+/// Meteor shower's danger level.
+#define DNGR_WEATHER_METEOR_SHOWER  25
+/// Rain's danger level.
+#define DNGR_WEATHER_RAIN           0
+/// Clouds' danger level.
+#define DNGR_WEATHER_CLOUDS         0
+/// Hurricane's danger level.
+#define DNGR_WEATHER_HURRICANE      25
 
 /// Building's danger level.
 #define DNGR_BUILDING               0

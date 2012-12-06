@@ -60,13 +60,13 @@ void EatingPerformer::perform(Action& action)
             food_value = RES_FOOD_VALUE;
         break;
 
-        case GRASS:
-            food_value = RES_BERRIES_FOOD_VALUE;
-        break;
+//        case GRASS:
+//            food_value = RES_BERRIES_FOOD_VALUE;
+//        break;
 
-        case BERRIES:
-            food_value = RES_GRASS_FOOD_VALUE;
-        break;
+//        case BERRIES:
+//            food_value = RES_GRASS_FOOD_VALUE;
+//        break;
 
         default:
             action.markAsFailed(OBJ_IS_NOT_EATABLE);
