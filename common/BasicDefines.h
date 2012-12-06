@@ -471,6 +471,7 @@
 
 /// Space in inventory which is necessary in cratical situation
 #define HUM_CRIT_SPACE              2
+
 //******************************************************************************
 // NONHUMANOID'S DEFINES.
 // Prefix: NHUM.
@@ -497,8 +498,11 @@
 // Prefix: REG.
 //******************************************************************************
 
-/// Delta health of building "per" one res
+/// Delta health of building "per" one res.
 #define REG_BUILDING_COEF           10
+
+/// Delta health for resource.
+#define REG_RES_COEF                10
 
 #endif // BASIC_DEFINES_H
 

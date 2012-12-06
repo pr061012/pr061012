@@ -134,7 +134,43 @@ void RegenerationPerformer::perform(Action& action)
     }
     else if (type == WEATHER)
     {
+        uint count_error = 0;
         Weather* weat = dynamic_cast<Weather*>(actor);
+        Shape env_shape = weat -> getShape();
+        env_shape.setCenter(weat -> getCoords());
 
+        for (uint i = 0; i < participants.size(); i++)
+        {
+            if (!env_shape.hitTest(participants[i] -> getShape()))
+            {
+                count_error++;
+            }
+            else
+            {
+                if (participants[i] == RESOURCE)
+                {
+                    participants[i] -> heal(REG_RES_COEF);
+                }
+                else
+                {
+                    count_error++;
+                }
+            }
+        }
+        if (!count_error)
+        {
+            action.markAsSucceeded();
+            return;
+        }
+        if (count_error == participants.size())
+        {
+            action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
+            return;
+        }
+        else
+        {
+            action.markAsSucceededWithErrors(SOME_OBJS_ARE_OUT_OF_REACH);
+            return;
+        }
     }
 }
