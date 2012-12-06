@@ -31,6 +31,10 @@
 #define TN_RESOURCE_FOOD            "f"
 #define TN_RESOURCE_BUILDING_MAT    "bm"
 #define TN_WEATHER                  "w"
+#define TN_WEATHER_METEOR_SHOWER    "ms"
+#define TN_WEATHER_RAIN             "rn"
+#define TN_WEATHER_CLOUDS           "clds"
+#define TN_WEATHER_HURRICANE        "hrcn"
 
 #define TN_CLUSTER_BUILDING_MAT     "fr"
 
@@ -309,8 +313,27 @@ std::string CLI::create(std::stringstream& ss)
     {
         obj_type = WEATHER;
 
-        // FIXME: Ignoring weather type.
-        pa.addKey<WeatherType>("weat_type", METEOR_SHOWER);
+        std::string weat_type = readFromSS<std::string>(ss, "WeatherType");
+        if (weat_type == TN_WEATHER_CLOUDS)
+        {
+            pa.addKey<WeatherType>("weat_type", CLOUDS);
+        }
+        else if (weat_type == TN_WEATHER_HURRICANE)
+        {
+            pa.addKey<WeatherType>("weat_type", HURRICANE);
+        }
+        else if (weat_type == TN_WEATHER_METEOR_SHOWER)
+        {
+            pa.addKey<WeatherType>("weat_type", METEOR_SHOWER);
+        }
+        else if (weat_type == TN_WEATHER_RAIN)
+        {
+            pa.addKey<WeatherType>("weat_type", RAIN);
+        }
+        else
+        {
+            throw ECLIInvalidInput("unknown WeatherType");
+        }
 
         uint weat_steps = readFromSS<uint>(ss, "weather living steps");
         pa.addKey<uint>("weat_steps", weat_steps);

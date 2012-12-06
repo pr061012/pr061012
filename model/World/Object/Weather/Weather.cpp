@@ -64,10 +64,9 @@ std::vector<Action>* Weather::getActions()
 
         this -> actions.push_back(act);
     }
+    // Rain heals food and bulding material.
     else if (subtype == RAIN)
     {
-        Action act(REGENERATE_OBJ, this);
-
         ObjectHeap::const_iterator iter;
         for
         (
@@ -80,12 +79,14 @@ std::vector<Action>* Weather::getActions()
             ResourceType type = res -> getSubtype();
             if (type == RES_FOOD || type == RES_BUILDING_MAT)
             {
+                Action act(REGENERATE_OBJ, this);
                 act.addParticipant(res);
+                act.addParam<uint>("object_index", 0);
+                this -> actions.push_back(act);
             }
         }
-
-        this -> actions.push_back(act);
     }
+    // Hurricane moves all objects.
     else if (subtype == HURRICANE)
     {
         ObjectHeap::const_iterator iter;
