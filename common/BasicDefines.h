@@ -211,6 +211,9 @@
 /// Maximum amount of living steps for weather.
 #define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND
 
+/// Weather's roaming steps (steps before roam direction changing).
+#define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
+
 //******************************************************************************
 // TOOL DEFINES.
 // Prefix: TOOL.
