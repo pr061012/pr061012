@@ -182,6 +182,30 @@
 #define WGHT_BUILDING               1000
 
 //******************************************************************************
+// SPEED DEFINES.
+// Prefix: SPD.
+//******************************************************************************
+
+// Coefficient for calculation of slow speed.
+#define SPD_SLOW_SPEED_COEF         1
+
+// Coefficient for calculation of fast speed.
+#define SPD_FAST_SPEED_COEF         1.8
+
+// Humanoid's normal speed.
+#define SPD_HUM                     (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
+
+// Cow's normal speed.
+#define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)
+
+// Dragon's normal speed.
+#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)
+
+// TODO: Different values for different weather types?
+/// Weather's normal speed.
+#define SPD_WEATHER                 SPD_NHUM_COW / 2
+
+//******************************************************************************
 // GENERATION DEFINES.
 // Prefix: GEN.
 //******************************************************************************
@@ -374,12 +398,6 @@
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40
-
-/// Creature's fast speed.
-#define CREAT_SPEED_FAST_VALUE      (SZ_HUM_DIAM * 9 / TM_TICKS_PER_SECOND)
-
-/// Creature's slow speed.
-#define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)
 
 /// Constant for evaluating danger for creatures.
 #define CREAT_DANGER_FACTOR             2
