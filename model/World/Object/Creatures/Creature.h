@@ -369,6 +369,15 @@ public:
      */
     uint heal(uint delta);
 
+    //**********************************************************
+    // DROP OBJECTS
+    //**********************************************************
+    
+    /**
+     * @brief Get drop objects.
+     */
+    ObjectHeap * getDropObjects();
+
     //**************************************************************************
     // INHERETED THINGS.
     //**************************************************************************
@@ -487,6 +496,9 @@ protected:
     
     /// Creature's enviroment
     ObjectHeap objects_around;
+
+    /// Creature's drop objects
+    ObjectHeap drop_objects;
 
     //**********************************************************
     // COMMON NEEDS

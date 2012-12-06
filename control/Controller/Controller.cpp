@@ -53,6 +53,15 @@ void Controller::destroy(Object * object)
 
     if (object -> getType() == CREATURE)
     {
+        // Drop the meat!
+        ObjectHeap * drop = dynamic_cast<Creature*>(object) -> getDropObjects();
+        for (ObjectHeap::iterator i = drop -> begin();
+                i != drop -> end(); i++)
+        {
+            hiddenToVisible.push(*i);
+            (*i) -> setCoords(object -> getCoords());
+        }
+
         if (dynamic_cast<Creature*>(object) -> getSubtype() == HUMANOID)
         {
             // Drop all belongings to the ground.

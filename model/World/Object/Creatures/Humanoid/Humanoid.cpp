@@ -867,26 +867,36 @@ std::string Humanoid::printObjectInfo(bool full) const
 //******************************************************************************
 
 // Adds object to inventory.
-void Humanoid::addToInventory(Object *obj)
+bool Humanoid::addToInventory(Object *obj)
 {
+    uint weight = obj -> getWeight();
     // Resources should be stacked together
     if (obj -> getType() == RESOURCE)
     {
+        uint amount = obj -> getHealthPoints();
+        // Check if we have enough free space
+        if (amount * weight > free_space)
+        {
+            return false;
+        }
+        free_space -= amount * weight;
+
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
-             i != inventory -> end(RESOURCE); i++)
+             i != inventory -> end(RESOURCE) && obj -> getHealthPoints(); i++)
         {
             if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
             {
-                (*i) -> heal(obj -> getHealthPoints());
-                obj -> markAsDestroyed();
-                return;
+                obj -> damage((*i) -> heal(obj -> getHealthPoints()));
             }
         }
-    }
 
-    // If there are no resources of this type, or it's something else, just push it.
-    this -> inventory -> push(obj);
+        // Push the rest.
+        if (obj -> getHealthPoints())
+        {
+            this -> inventory -> push(obj);
+        }
+    }
 }
 
 // Clear inventory from destroyed objects.

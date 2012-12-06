@@ -36,7 +36,7 @@ void RegenerationPerformer::perform(Action& action)
     uint object_index = action.getParam<uint>("object_index");
     // uint tool_index = action.getParam<uint>("tool_index");
 
-    if (object_index > participants.size())
+    if (object_index >= participants.size())
     {
         action.markAsFailed(INCORRECT_INDEX);
         return;
@@ -77,7 +77,7 @@ void RegenerationPerformer::perform(Action& action)
             // Check whether humanoid can heal this object.
             Shape reach_area = humanoid -> getReachArea();
             reach_area.setCenter(humanoid -> getCoords());
-            if (reach_area.hitTest(humanoid -> getShape()))
+            if (!reach_area.hitTest(humanoid -> getShape()))
             {
                 action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
                 return;
