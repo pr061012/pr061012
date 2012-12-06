@@ -8,7 +8,9 @@ var searchData=
   ['decreasesleepiness',['decreaseSleepiness',['../classCreature.html#a010b6472fba8c8feaed4feea0f4d0b5f',1,'Creature']]],
   ['deleteeverything',['deleteEverything',['../classWorld.html#a8824dcbb6faf67022c81ceeea069edd7',1,'World']]],
   ['destroy',['destroy',['../classController.html#a38a3e573e8b476be5361bf705a38bdc0',1,'Controller::destroy()'],['../classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370',1,'Indexator::destroy()']]],
+  ['displayselectioninfo',['displaySelectionInfo',['../classView.html#a04220e33293401f72df85107792a5448',1,'View']]],
   ['double_5fnum',['double_num',['../classRandom.html#a8f62dac7e19e8745c6ce880f9e40e2bd',1,'Random']]],
   ['double_5frange',['double_range',['../classRandom.html#aca879b4da96f6825affde083cd96deb3',1,'Random']]],
+  ['drawprogressbar',['drawProgressBar',['../classView.html#a96e3195be3920f48933447f354485efc',1,'View']]],
   ['droppingperformer',['DroppingPerformer',['../classDroppingPerformer.html#a5a507b3572ae68a347b67bd4e1e96cd9',1,'DroppingPerformer']]]
 ];

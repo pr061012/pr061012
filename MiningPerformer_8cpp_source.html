@@ -133,107 +133,100 @@ $(document).ready(function(){initNavTree('MiningPerformer_8cpp_source.html','');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::vector&lt;Object*&gt; participants = action.<a class="code" href="classAction.html#a69c59ae9452d9c712cbf75b1647da3ce" title="Gets action participants.">getParticipants</a>();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> res_index = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_index&quot;</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    uint tool_index = action.getParam&lt;uint&gt;(&quot;tool_index&quot;);</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> ((actor -&gt; getType() != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp; (participants.size() != 1))</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* creature = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a> subtype = creature -&gt; getSubtype();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (subtype == <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a">NON_HUMANOID</a>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//uint tool_index = action.getParam&lt;uint&gt;(&quot;tool_index&quot;);</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Only creature can mine.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> ((actor -&gt; getType() != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) ||</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        (participants.size() != 1))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ac57b1f3cb5218375aa7643c34f453a21">OBJ_CANT_MINE</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(dynamic_cast&lt;Creature*&gt;(actor) -&gt; getSubtype() != <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b">HUMANOID</a>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    { </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ac57b1f3cb5218375aa7643c34f453a21">OBJ_CANT_MINE</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>* humanoid = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>*<span class="keyword">&gt;</span>(actor);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694df" title="The CreatureType enum. Don&#39;t forget to change AMNT_CREATURE_TYPES while adding new elements!...">CreatureType</a> subtype = humanoid -&gt; getSubtype();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* res = participants[res_index];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Object* tool = participant[tool_index];</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Getting object is reach area.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classShape.html">Shape</a> reach_area = creature -&gt; getReachArea();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    reach_area.<a class="code" href="classShape.html#adcc17d17d7b559e885be7f951bce8ac9" title="Set the value of center.">setCenter</a>(creature -&gt; getCoords());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> env = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; getAreaContents(reach_area);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Trying to find required object.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classObjectHeap_1_1const__iterator.html" title="The iterator_const class.">ObjectHeap::const_iterator</a> iter = env.<a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span> (env.<a class="code" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a>(res, <span class="keyword">false</span>) == iter)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32">OBJ_IS_OUT_OF_RANGE</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Check whether resource is mineable.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* resource = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(res);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (!resource -&gt; isMineable())</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a10d47f9cc859334f3438fed9815561cf">OBJ_IS_NOT_MINEABLE</a>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Incrementing progress.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    resource -&gt; incrementProgress();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Creating new resource object (if needed) and adding it to inventory.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (resource -&gt; getProgress() == resource -&gt; getDifficulty())</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// Zeroing progress.</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        resource -&gt; setProgress(0);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// It&#39;s possible to mine only one object.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (participants.size() &gt; 1)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a64c517d0b3e51db2d35fbb919d25280c">TOO_MANY_PARTICIPANTS</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* res = participants[res_index];</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Object* tool = participant[tool_index];</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Getting object is reach area.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classShape.html">Shape</a> reach_area = humanoid -&gt; getReachArea();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    reach_area.<a class="code" href="classShape.html#adcc17d17d7b559e885be7f951bce8ac9" title="Set the value of center.">setCenter</a>(humanoid -&gt; getCoords());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> env = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; getAreaContents(reach_area);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Trying to find required object.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classObjectHeap_1_1const__iterator.html" title="The iterator_const class.">ObjectHeap::const_iterator</a> iter = env.<a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (env.<a class="code" href="classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704">find</a>(res, <span class="keyword">false</span>) == iter)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32">OBJ_IS_OUT_OF_RANGE</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Check whether resource is mineable.</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* resource = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(res);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (!resource -&gt; isMineable())</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a10d47f9cc859334f3438fed9815561cf">OBJ_IS_NOT_MINEABLE</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// Incrementing progress.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    resource -&gt; incrementProgress();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// Decreasing amount of resource.</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> drop_amount = resource -&gt; damage(resource -&gt; getAmountPerDrop());</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// Trying to find this resource in humanoid&#39;s inventory.</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* inv = creature -&gt; getInventory();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="classObjectHeap_1_1const__iterator.html" title="The iterator_const class.">ObjectHeap::const_iterator</a> i;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">bool</span> success = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">for</span> (i = inv -&gt; begin(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>); i != inv -&gt; end(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>); i++)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* inv_res = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(*i);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span> (inv_res -&gt; getSubtype() == resource -&gt; getSubtype())</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="comment">// Success.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                inv_res -&gt; increaseMaxAmount(drop_amount);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                inv_res -&gt; heal(drop_amount);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                success = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Creating new resource object (if needed) and adding it to inventory.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (resource -&gt; getProgress() == resource -&gt; getDifficulty())</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> drop_amount = resource -&gt; damage(resource -&gt; getAmountPerDrop());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">// Creating new resource.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> pa;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        pa.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>, resource -&gt; getSubtype());</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        pa.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>, drop_amount);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* drop = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>, pa));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> (humanoid -&gt; addToInventory(drop))</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="comment">// Zeroing progress.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            resource -&gt; setProgress(0);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="comment">// Decreasing amount of resource.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="comment">// Making it non-mineable and non-restorable.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            drop -&gt; makeNonMineable();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            drop -&gt; makeNonRestorable();</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// Failure: creating new resource.</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (!success)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="comment">// Creating new resource.</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <a class="code" href="classParamArray.html" title="Assoсiative array (keys are strings, value type – doesn&#39;t matter). Used in Action, Message and ObjectFactory.">ParamArray</a> pa;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            pa.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a>&gt;(<span class="stringliteral">&quot;res_type&quot;</span>, resource -&gt; getSubtype());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            pa.<a class="code" href="classParamArray.html#a0c26d008b8d1565b5b6a05bc52a883d7" title="Adds new key with value into param array. Note: it will overwrite value if such key already exists!...">addKey</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;res_amount&quot;</span>, drop_amount);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* drop = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span> -&gt; <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getObjectFactory() -&gt; createObject(<a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>, pa));</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="comment">// Making it pickable and non-restorable.</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            drop -&gt; makePickable();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            drop -&gt; makeNonRestorable();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="comment">// Adding object to inventory and world&#39;s heap.</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keyword">this</span> -&gt; <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; addObject(<span class="keyword">false</span>, drop);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(creature) -&gt; addToInventory(drop);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="comment">// Adding object to inventory and world&#39;s heap.</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">this</span> -&gt; <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; addObject(<span class="keyword">false</span>, drop);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">delete</span> drop;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            resource -&gt; heal(drop_amount);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae2a19abd177cbbd1de6ae3e9348a81c3">NOT_ENOUGH_FREE_SPACE</a>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_0c1706ddd68b8263e1ec53dd58429a57.html">MiningPerformer</a></li><li class="navelem"><a class="el" href="MiningPerformer_8cpp.html">MiningPerformer.cpp</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

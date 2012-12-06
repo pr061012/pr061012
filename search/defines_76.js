@@ -7,5 +7,6 @@ var searchData=
   ['view_5fgrid_5fsize',['VIEW_GRID_SIZE',['../BasicDefines_8h.html#aaf0cf5657e83af00fc7f4784fadde819',1,'BasicDefines.h']]],
   ['view_5fscreen_5fheight',['VIEW_SCREEN_HEIGHT',['../BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865',1,'BasicDefines.h']]],
   ['view_5fscreen_5fwidth',['VIEW_SCREEN_WIDTH',['../BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b',1,'BasicDefines.h']]],
+  ['view_5ftxt_5ftop_5fmargin',['VIEW_TXT_TOP_MARGIN',['../BasicDefines_8h.html#a19f27ea6100802f1f23d78f54dd00120',1,'BasicDefines.h']]],
   ['view_5fz_5fspeed',['VIEW_Z_SPEED',['../InputHandler_8cpp.html#af7b365029a307019d06a91447fab04b2',1,'InputHandler.cpp']]]
 ];

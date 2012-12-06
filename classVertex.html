@@ -111,8 +111,8 @@ $(document).ready(function(){initNavTree('classVertex.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a151399eafaafba4061709e6d50b3b946"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a151399eafaafba4061709e6d50b3b946">Vertex</a> (<a class="el" href="classVector.html">Vector</a> <a class="el" href="classVertex.html#a6c5d23be18391870999b167162236749">point</a>, <a class="el" href="classVector.html">Vector</a> goal)</td></tr>
-<tr class="memitem:aa2292c7dff60300bd3950d45281d484e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#aa2292c7dff60300bd3950d45281d484e">Vertex</a> (<a class="el" href="classVector.html">Vector</a> <a class="el" href="classVertex.html#a6c5d23be18391870999b167162236749">point</a>, const <a class="el" href="classVertex.html">Vertex</a> &amp;origin, <a class="el" href="classVector.html">Vector</a> goal)</td></tr>
+<tr class="memitem:a0571754449533c1b72e63f8dd01e5923"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a0571754449533c1b72e63f8dd01e5923">Vertex</a> (<a class="el" href="classVector.html">Vector</a> <a class="el" href="classVertex.html#a6c5d23be18391870999b167162236749">point</a>, <a class="el" href="classVector.html">Vector</a> goal, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classVertex.html#a092993d4feb68b6a72074af940545248">direction</a>)</td></tr>
+<tr class="memitem:af2b07938634cc9e8adaad25ff19d480b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#af2b07938634cc9e8adaad25ff19d480b">Vertex</a> (<a class="el" href="classVector.html">Vector</a> <a class="el" href="classVertex.html#a6c5d23be18391870999b167162236749">point</a>, const <a class="el" href="classVertex.html">Vertex</a> &amp;origin, <a class="el" href="classVector.html">Vector</a> goal, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classVertex.html#a092993d4feb68b6a72074af940545248">direction</a>)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -121,12 +121,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a6f7e884dbdce3f1d16dad7b62dce9a94"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a6f7e884dbdce3f1d16dad7b62dce9a94">distance_to_origin</a></td></tr>
 <tr class="memitem:ab34fc343eb592c5ce1636eba121575d9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#ab34fc343eb592c5ce1636eba121575d9">heuristic_value</a></td></tr>
 <tr class="memitem:ac13bf22e56aa0e9859764ec77a4414a2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#ac13bf22e56aa0e9859764ec77a4414a2">value</a></td></tr>
+<tr class="memitem:a092993d4feb68b6a72074af940545248"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a092993d4feb68b6a72074af940545248">direction</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00011">11</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a151399eafaafba4061709e6d50b3b946"></a>
+<a class="anchor" id="a0571754449533c1b72e63f8dd01e5923"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -143,7 +144,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classVector.html">Vector</a>&#160;</td>
-          <td class="paramname"><em>goal</em>&#160;</td>
+          <td class="paramname"><em>goal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -158,11 +165,11 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00029">29</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00032">32</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa2292c7dff60300bd3950d45281d484e"></a>
+<a class="anchor" id="af2b07938634cc9e8adaad25ff19d480b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -185,7 +192,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classVector.html">Vector</a>&#160;</td>
-          <td class="paramname"><em>goal</em>&#160;</td>
+          <td class="paramname"><em>goal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -200,11 +213,25 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00038">38</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00042">42</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Data Documentation</h2>
+<a class="anchor" id="a092993d4feb68b6a72074af940545248"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Vertex::direction</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00030">30</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6f7e884dbdce3f1d16dad7b62dce9a94"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +311,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classVertex.html">Vertex</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:46 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:19 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

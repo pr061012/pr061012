@@ -131,111 +131,100 @@ $(document).ready(function(){initNavTree('TravelingPerformer_8cpp_source.html','
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> actor_type = actor -&gt; getType();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// check if actor can go</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (actor_type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a> &amp;&amp; actor_type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (!actor -&gt; isMovable())</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae3744f552cc73ce7d58f0fb4cee340c1">OBJ_IS_NOT_MOVEABLE</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// continue getting data</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">double</span> angle = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<span class="keywordtype">double</span>&gt;(std::string(<span class="stringliteral">&quot;angle&quot;</span>));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845" title="The SpeedType enum.">SpeedType</a> speed_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845" title="The SpeedType enum.">SpeedType</a>&gt;(std::string(<span class="stringliteral">&quot;speed&quot;</span>));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">double</span> speed = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">switch</span> (speed_type)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa">SLOW_SPEED</a>: </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            speed = <a class="code" href="BasicDefines_8h.html#accf4fc5c9f279394d37aa8c9becd3ef6" title="Creature&#39;s slow speed.">CREAT_SPEED_SLOW_VALUE</a>; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2">FAST_SPEED</a>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// If actor is creature, it can&#39;t run with 0 endurance.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (actor -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> (dynamic_cast&lt;Creature*&gt;(actor) -&gt; getEndurance() &gt; 0)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    speed = <a class="code" href="BasicDefines_8h.html#a8c1f6db13c55c6472864e3ad214bd346" title="Creature&#39;s fast speed.">CREAT_SPEED_FAST_VALUE</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    speed = <a class="code" href="BasicDefines_8h.html#accf4fc5c9f279394d37aa8c9becd3ef6" title="Creature&#39;s slow speed.">CREAT_SPEED_SLOW_VALUE</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">// No restrictions for weather.</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="comment">// TODO</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">// Do all things move with the speed of creatures?</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                speed = <a class="code" href="BasicDefines_8h.html#a8c1f6db13c55c6472864e3ad214bd346" title="Creature&#39;s fast speed.">CREAT_SPEED_FAST_VALUE</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> origin = actor -&gt; getCoords();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> dest = origin + <a class="code" href="classVector.html" title="Vector class.">Vector</a>(speed * cos(angle), speed * sin(angle));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">double</span> size = actor -&gt; getShape().getSize() / 2;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Do not let objects fall of the bounds</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    (</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() - size &lt; 0 ||</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() + size &gt;= <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getSize() ||</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() - size &lt; 0 ||</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() + size &gt;= <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getSize()</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    )</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32">OBJ_IS_OUT_OF_RANGE</a>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// place an object</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    actor -&gt; setCoords(dest);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Nothing can stop weather</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (actor -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; reindexate(actor);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// Look for all the obstacles and check if actor collides</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// with anything</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; getAreaContents(actor -&gt; getShape());</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="classObjectHeap_1_1iterator.html" title="The iterator class.">ObjectHeap::iterator</a> i = obstacles.<a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;             i != obstacles.<a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>(); i++)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span> ((*i) -&gt; isSolid() &amp;&amp; (*i) != actor)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aa6288f8f48ee5ec89e7435160b198a5f">OBJ_IS_NOT_MOVABLE</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// continue getting data</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">double</span> angle = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<span class="keywordtype">double</span>&gt;(std::string(<span class="stringliteral">&quot;angle&quot;</span>));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845" title="The SpeedType enum.">SpeedType</a> speed_type = action.<a class="code" href="classAction.html#abd2f3f78fc31cf97cfd380bc69272e2b" title="Gets value of param.">getParam</a>&lt;<a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845" title="The SpeedType enum.">SpeedType</a>&gt;(std::string(<span class="stringliteral">&quot;speed&quot;</span>));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">double</span> speed = actor -&gt; getNormalSpeed();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">switch</span> (speed_type)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845a053fc12e5c3618c73955e2c8ca7cb5aa">SLOW_SPEED</a>: </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#ae69ae616a32e1cd9040b4352defdc845aa9d1e1f7e81487c907dd97ac8ced07c2">FAST_SPEED</a>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="comment">// If actor is creature, it can&#39;t run with 0 endurance.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (actor -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">if</span> (dynamic_cast&lt;Creature*&gt;(actor) -&gt; getEndurance() &gt; 0)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    speed *= <a class="code" href="BasicDefines_8h.html#a0bf04007df1846513783ca9f11509010">SPD_FAST_SPEED_COEF</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                speed *+ <a class="code" href="BasicDefines_8h.html#a0bf04007df1846513783ca9f11509010">SPD_FAST_SPEED_COEF</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> origin = actor -&gt; getCoords();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> dest = origin + <a class="code" href="classVector.html" title="Vector class.">Vector</a>(speed * cos(angle), speed * sin(angle));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">double</span> size = actor -&gt; getShape().getSize() / 2;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// Do not let objects fall of the bounds</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    (</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() - size &lt; 0 ||</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        dest.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>() + size &gt;= <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getSize() ||</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() - size &lt; 0 ||</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        dest.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>() + size &gt;= <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getSize()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    )</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// FIXME: Strange error, isn&#39;t it?</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae636841785f13a08bfcfc657109472df">OBJ_IS_OUT_OF_WORLD_BOUNDS</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// place an object</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    actor -&gt; setCoords(dest);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// Nothing can stop non-solid and flying objects</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> (!actor -&gt; isSolid() || actor -&gt; isCurrentlyFlying())</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; reindexate(actor);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// Look for all the obstacles and check if actor collides</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// with anything</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> obstacles = <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; getAreaContents(actor -&gt; getShape());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="classObjectHeap_1_1iterator.html" title="The iterator class.">ObjectHeap::iterator</a> i = obstacles.<a class="code" href="classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b">begin</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;             i != obstacles.<a class="code" href="classObjectHeap.html#ab225091de1b80c054a545bab2c11b0fe">end</a>(); i++)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">if</span> ((*i) -&gt; isSolid() &amp;&amp; (*i) != actor)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a40a4e5e02ce5a199f79c87cec69c2e4b">NO_PLACE_TO_PLACE_OBJ_ON</a>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// if everything is ok, reindexate actor</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (!action.<a class="code" href="classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe" title="Failed state checker.">isFailed</a>())</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; reindexate(actor);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">// if everything is ok, reindexate actor</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> (!action.<a class="code" href="classAction.html#a9c8b3fb9d7133c60449c2ad380f491fe" title="Failed state checker.">isFailed</a>())</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <a class="code" href="classPerformer.html#a39563f182f3a5670cdb000715407d065" title="Pointer to controlled world.">world</a> -&gt; getIndexator() -&gt; reindexate(actor);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// roll back if something wrong</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    actor -&gt; setCoords(origin);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a798ddd35bc4a60744b2a5165152190">OBJ_IS_STUCK</a>);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// roll back if something wrong</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    actor -&gt; setCoords(origin);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_fc6874d29781e19679f3980d2eb0ad6f.html">TravelingPerformer</a></li><li class="navelem"><a class="el" href="TravelingPerformer_8cpp.html">TravelingPerformer.cpp</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

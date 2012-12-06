@@ -1,7 +1,7 @@
 var classIndexator =
 [
     [ "Index", "classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57", null ],
-    [ "Indexator", "classIndexator.html#aa5adafc65a3b10399adb6f2158bc5417", null ],
+    [ "Indexator", "classIndexator.html#ac299c2f7a7f2cb8a5773204f19f3a3db", null ],
     [ "~Indexator", "classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b", null ],
     [ "Indexator", "classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc", null ],
     [ "addObject", "classIndexator.html#aebbad325d23422a61443742e2d315f2c", null ],
@@ -17,8 +17,11 @@ var classIndexator =
     [ "removeObject", "classIndexator.html#a494d579d9b7444788099ee9f57ba6420", null ],
     [ "cell_size", "classIndexator.html#a74263652951b0c9e60c196f51f9dee9e", null ],
     [ "cells", "classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e", null ],
+    [ "dx", "classIndexator.html#a0036f96ada7cfd2973e41d5c9b94212c", null ],
+    [ "dy", "classIndexator.html#acc6ad583865f442f836c328f7239a616", null ],
     [ "index", "classIndexator.html#a64e2b29366719f4818c48cadd8efaacb", null ],
     [ "MAX_CELL_SIZE", "classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f", null ],
+    [ "MIN_CELL_SIZE", "classIndexator.html#a44b4e8d301d941126800b85c51e688da", null ],
     [ "row_size", "classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c", null ],
     [ "world_shape", "classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4", null ],
     [ "world_size", "classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0", null ]

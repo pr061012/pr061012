@@ -6,5 +6,6 @@ var classCreationPerformer =
     [ "createBuilding", "classCreationPerformer.html#af4c34c3431f1278bdd3deea5f75c1562", null ],
     [ "createCreature", "classCreationPerformer.html#abe040fc96361cdb6b51f9989c777ed10", null ],
     [ "createTool", "classCreationPerformer.html#aa4f716ce1b5f25cdd6102411c30cc327", null ],
+    [ "createWeather", "classCreationPerformer.html#a98de4d181cc1168f0603468461c446b3", null ],
     [ "perform", "classCreationPerformer.html#a910e6f4c9e88fde870a4ca35e01c0173", null ]
 ];

@@ -12,7 +12,7 @@ var classBuilding =
     [ "getMaxSpace", "classBuilding.html#ac37f23792d59ba27ba82dabe988752f6", null ],
     [ "getTypeName", "classBuilding.html#aa2f7d9050b8fa9429c6f4c03a95b09c5", null ],
     [ "heal", "classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b", null ],
-    [ "printObjectInfo", "classBuilding.html#afde77e0b750a98f6c9056ff380221814", null ],
+    [ "printObjectInfo", "classBuilding.html#ad7a2c46346924de8b64ddabbf456ee5a", null ],
     [ "putInside", "classBuilding.html#a4c019de587cb657f2566cbb27623fc6f", null ],
     [ "receiveMessage", "classBuilding.html#a14d3e43a10e522356ea0022663a63d01", null ],
     [ "takeOut", "classBuilding.html#a793d0afc39ccf187e0a749f93eecffe2", null ],

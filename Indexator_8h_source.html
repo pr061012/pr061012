@@ -124,78 +124,89 @@ $(document).ready(function(){initNavTree('Indexator_8h_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// CONSTRUCTORS/DESTRUCTOR.</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc" title="Hidden empty constructor.">Indexator</a>(<span class="keywordtype">double</span> size, <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * list = 0);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b" title="Destructor.">~Indexator</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// GETTING OBJECTS.</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> <a class="code" href="classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d" title="Returns heap with objects from the certain area.">getAreaContents</a>(<a class="code" href="classShape.html">Shape</a> area, <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * viewer = 0);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// REINDEXATING</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127" title="Creates an index for all given objects, and removes the previous one.">reindexate</a>(<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * objects);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127" title="Creates an index for all given objects, and removes the previous one.">reindexate</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#aebbad325d23422a61443742e2d315f2c" title="Adds object to index.">addObject</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420" title="Removes object from index.">removeObject</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc" title="Hidden empty constructor.">Indexator</a>(<span class="keywordtype">double</span> size, <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * list = 0, <a class="code" href="classVector.html" title="Vector class.">Vector</a> left_bottom = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(0, 0),</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e" title="Cell size.">cell_size</a> = <a class="code" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f" title="Maximimum size of the cell.">MAX_CELL_SIZE</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classIndexator.html#a1d84445c20808fddf2f8877cfd968a5b" title="Destructor.">~Indexator</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// GETTING OBJECTS.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> <a class="code" href="classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d" title="Returns heap with objects from the certain area.">getAreaContents</a>(<a class="code" href="classShape.html">Shape</a> area, <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * viewer = 0);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// REINDEXATING</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127" title="Creates an index for all given objects, and removes the previous one.">reindexate</a>(<a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> * objects);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ad3ee911b9f5cd04c2c6426dd90bce127" title="Creates an index for all given objects, and removes the previous one.">reindexate</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#aebbad325d23422a61443742e2d315f2c" title="Adds object to index.">addObject</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#a494d579d9b7444788099ee9f57ba6420" title="Removes object from index.">removeObject</a>(<a class="code" href="classObject.html" title="Abstract Object class.">Object</a> * <span class="keywordtype">object</span>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc" title="Hidden empty constructor.">Indexator</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//**********************************************************</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// CONSTANTS</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//**********************************************************</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f">   86</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f" title="Maximimum size of the cell.">MAX_CELL_SIZE</a>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// ATTRIBUTES</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classIndexator.html#a44b4e8d301d941126800b85c51e688da">   89</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#a44b4e8d301d941126800b85c51e688da" title="Minimum size of the cell.">MIN_CELL_SIZE</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f">   93</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#ac5495faf16b37e53ca6aaf3d05ac6f7f" title="Maximimum size of the cell.">MAX_CELL_SIZE</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0">   96</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0" title="Size of world.">world_size</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c">   99</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c" title="Ammount of cells on a row.">row_size</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e">  102</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e" title="Cell size.">cell_size</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4">  105</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a> <a class="code" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4" title="Shape of the world.">world_shape</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">  108</a></span>&#160;    <span class="keyword">typedef</span> std::map&lt;Object *, uint *&gt; <a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57" title="Type of an index structure.">Index</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classIndexator.html#a64e2b29366719f4818c48cadd8efaacb">  111</a></span>&#160;    <a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57" title="Type of an index structure.">Index</a> <a class="code" href="classIndexator.html#a64e2b29366719f4818c48cadd8efaacb" title="Index structure.">index</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e">  112</a></span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> ** <a class="code" href="classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e">cells</a>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// UTILITIES</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc" title="Hidden empty constructor.">Indexator</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// ATTRIBUTES</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0">  104</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0" title="Size of world.">world_size</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c">  107</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classIndexator.html#a6f558a917ecaf9b06d9d40294f99783c" title="Ammount of cells on a row.">row_size</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e">  110</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#a74263652951b0c9e60c196f51f9dee9e" title="Cell size.">cell_size</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classIndexator.html#a0036f96ada7cfd2973e41d5c9b94212c">  113</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#a0036f96ada7cfd2973e41d5c9b94212c" title="The X coordinate of left bottom point of the world.">dx</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classIndexator.html#acc6ad583865f442f836c328f7239a616">  116</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classIndexator.html#acc6ad583865f442f836c328f7239a616" title="The Y coordinate of left bottom point of the world.">dy</a>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#aa42d674aa86a0f4002f1f119d793d995" title="Returns the minimum of two uints.">min</a> (<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#a1c595ae92d8a759e20040d1cf051870b" title="Returns maximum of two uints.">max</a> (<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4">  119</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a> <a class="code" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4" title="Shape of the world.">world_shape</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57">  122</a></span>&#160;    <span class="keyword">typedef</span> std::map&lt;Object *, uint *&gt; <a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57" title="Type of an index structure.">Index</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classIndexator.html#a64e2b29366719f4818c48cadd8efaacb">  125</a></span>&#160;    <a class="code" href="classIndexator.html#afed38b1829d33e2c76231d34ed7cdf57" title="Type of an index structure.">Index</a> <a class="code" href="classIndexator.html#a64e2b29366719f4818c48cadd8efaacb" title="Index structure.">index</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e">  126</a></span>&#160;    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a> ** <a class="code" href="classIndexator.html#a99ec2031c8ed4fc6d9abb4f3d64b923e">cells</a>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * <a class="code" href="classIndexator.html#a7f396d84a95cc10edfa560ea820deaa5" title="Returns cells within which the shape lies.">getCellsArea</a>(<a class="code" href="classShape.html">Shape</a>&amp; shape);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#aa4b3b388b07b2265b0c9bd87682e9774" title="Returns row index for coodinate.">getRow</a>(<span class="keywordtype">double</span> coordinate);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ac530016e5394f663eb05f6d838ea4068" title="Initialize index.">init</a>();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370" title="Destroys index.">destroy</a>();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;};</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif // INDEXATOR_H</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">// UTILITIES</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#aa42d674aa86a0f4002f1f119d793d995" title="Returns the minimum of two uints.">min</a> (<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#a1c595ae92d8a759e20040d1cf051870b" title="Returns maximum of two uints.">max</a> (<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> * <a class="code" href="classIndexator.html#a7f396d84a95cc10edfa560ea820deaa5" title="Returns cells within which the shape lies.">getCellsArea</a>(<a class="code" href="classShape.html">Shape</a>&amp; shape);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classIndexator.html#aa4b3b388b07b2265b0c9bd87682e9774" title="Returns row index for coodinate.">getRow</a>(<span class="keywordtype">double</span> coordinate);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#ac530016e5394f663eb05f6d838ea4068" title="Initialize index.">init</a>();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370" title="Destroys index.">destroy</a>();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;};</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif // INDEXATOR_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_fbd119b69a7ed1122061576f68632c00.html">Indexator</a></li><li class="navelem"><a class="el" href="Indexator_8h.html">Indexator.h</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

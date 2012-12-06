@@ -11,10 +11,12 @@ var classWeather =
     [ "getSubtype", "classWeather.html#ac2d3f1b253d6616c32a78310b8e05b9a", null ],
     [ "getTypeName", "classWeather.html#a792e245916fe756314f87cb995533a7b", null ],
     [ "heal", "classWeather.html#a5047894ac189777ce9e855d5f37dc96d", null ],
-    [ "printObjectInfo", "classWeather.html#af3fbb0c7f8038edca2b3428e0a383cc1", null ],
+    [ "printObjectInfo", "classWeather.html#addf4a3e572795abcd7dbc9139e2b3ee8", null ],
     [ "receiveMessage", "classWeather.html#ac8c475e135a64a6893141f1f3cee5519", null ],
     [ "setCoveredObjects", "classWeather.html#a936fc0d17f71087d4f88451af096b894", null ],
     [ "covered_objs", "classWeather.html#a532473cb999c99c938ec0afb56f1e5da", null ],
+    [ "direction_angle", "classWeather.html#ab4d54c75d72cfc41208a19bdca558497", null ],
+    [ "roam_steps", "classWeather.html#a523d7c41d664a09a0601cfd2b91246e6", null ],
     [ "steps", "classWeather.html#a9039eba1523e7c96362d4a6e25597028", null ],
     [ "subtype", "classWeather.html#a5434adf7f42d392584d9816edeb4b291", null ]
 ];

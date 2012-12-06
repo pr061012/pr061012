@@ -102,11 +102,13 @@ $(document).ready(function(){initNavTree('classCreature.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classCreature-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Creature Class Reference</div>  </div>
@@ -149,12 +151,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2c1190b13349d72910a475b6f7d03574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of reachg_area.  <a href="#a2c1190b13349d72910a475b6f7d03574"></a><br/></td></tr>
 <tr class="memitem:a964a443b84b5ccd1ef58cb7d3c506e74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a964a443b84b5ccd1ef58cb7d3c506e74">getReachArea</a> ()</td></tr>
 <tr class="memdesc:a964a443b84b5ccd1ef58cb7d3c506e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of reach_area.  <a href="#a964a443b84b5ccd1ef58cb7d3c506e74"></a><br/></td></tr>
-<tr class="memitem:aec48cdde7c8c65cb75e1fa68b8f1f21c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aec48cdde7c8c65cb75e1fa68b8f1f21c">addToInventory</a> (<a class="el" href="classObject.html">Object</a> *obj)</td></tr>
-<tr class="memdesc:aec48cdde7c8c65cb75e1fa68b8f1f21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add object to inventory.  <a href="#aec48cdde7c8c65cb75e1fa68b8f1f21c"></a><br/></td></tr>
-<tr class="memitem:a49b2758559c8b5d79cfb0afb8d87634b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a49b2758559c8b5d79cfb0afb8d87634b">removeFromInventory</a> (<a class="el" href="classObject.html">Object</a> *obj)</td></tr>
-<tr class="memdesc:a49b2758559c8b5d79cfb0afb8d87634b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes object from inventory.  <a href="#a49b2758559c8b5d79cfb0afb8d87634b"></a><br/></td></tr>
-<tr class="memitem:abe4efe29a57906cd5e23c9dbf4b0bbd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#abe4efe29a57906cd5e23c9dbf4b0bbd2">getInventory</a> ()</td></tr>
-<tr class="memdesc:abe4efe29a57906cd5e23c9dbf4b0bbd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get inventory.  <a href="#abe4efe29a57906cd5e23c9dbf4b0bbd2"></a><br/></td></tr>
 <tr class="memitem:a218e2238145d382fb76727618db5d0d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a218e2238145d382fb76727618db5d0d1">setAge</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classCreature.html#aa3544784cbb26961f214a39b49fd171e">age</a>)</td></tr>
 <tr class="memdesc:a218e2238145d382fb76727618db5d0d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of age.  <a href="#a218e2238145d382fb76727618db5d0d1"></a><br/></td></tr>
 <tr class="memitem:a6556cd2825edd90caf6673324e5132d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a6556cd2825edd90caf6673324e5132d9">getAge</a> ()</td></tr>
@@ -217,25 +213,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a010b6472fba8c8feaed4feea0f4d0b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrease sleepiness.  <a href="#a010b6472fba8c8feaed4feea0f4d0b5f"></a><br/></td></tr>
 <tr class="memitem:a2b20a9a395bf5e380ca10d5b9ecb5a0f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a2b20a9a395bf5e380ca10d5b9ecb5a0f">getAim</a> ()</td></tr>
 <tr class="memdesc:a2b20a9a395bf5e380ca10d5b9ecb5a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the id of aim  <a href="#a2b20a9a395bf5e380ca10d5b9ecb5a0f"></a><br/></td></tr>
-<tr class="memitem:a8bf037650ed133ed7643c1d7c01c4ecc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a8bf037650ed133ed7643c1d7c01c4ecc">getCurrentDecision</a> () const </td></tr>
-<tr class="memdesc:a8bf037650ed133ed7643c1d7c01c4ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current action.  <a href="#a8bf037650ed133ed7643c1d7c01c4ecc"></a><br/></td></tr>
+<tr class="memitem:a9b4c8ab0b2f11dd6c78a2673b1c7cb17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a9b4c8ab0b2f11dd6c78a2673b1c7cb17">getCurrentDecision</a> () const </td></tr>
+<tr class="memdesc:a9b4c8ab0b2f11dd6c78a2673b1c7cb17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current decision.  <a href="#a9b4c8ab0b2f11dd6c78a2673b1c7cb17"></a><br/></td></tr>
+<tr class="memitem:a7eaf3d07cafa87183f79dc60d0d06876"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a7eaf3d07cafa87183f79dc60d0d06876">getCurrentAction</a> () const </td></tr>
+<tr class="memdesc:a7eaf3d07cafa87183f79dc60d0d06876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current action.  <a href="#a7eaf3d07cafa87183f79dc60d0d06876"></a><br/></td></tr>
+<tr class="memitem:a2bebd3668369a5f9aef558a02271392c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a2bebd3668369a5f9aef558a02271392c">setCurrentAction</a> (<a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> act)</td></tr>
+<tr class="memdesc:a2bebd3668369a5f9aef558a02271392c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets current action.  <a href="#a2bebd3668369a5f9aef558a02271392c"></a><br/></td></tr>
 <tr class="memitem:aa169fd7250aee18a8a5f8b0a9eba843b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">getHealthPoints</a> () const </td></tr>
-<tr class="memdesc:aa169fd7250aee18a8a5f8b0a9eba843b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current object's heatlh points.  <a href="#aa169fd7250aee18a8a5f8b0a9eba843b"></a><br/></td></tr>
+<tr class="memdesc:aa169fd7250aee18a8a5f8b0a9eba843b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current health points.  <a href="#aa169fd7250aee18a8a5f8b0a9eba843b"></a><br/></td></tr>
 <tr class="memitem:a9b3326520fdf11e5110d25afd90c577a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">getMaxHealthPoints</a> () const </td></tr>
-<tr class="memdesc:a9b3326520fdf11e5110d25afd90c577a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum possible object's health points.  <a href="#a9b3326520fdf11e5110d25afd90c577a"></a><br/></td></tr>
+<tr class="memdesc:a9b3326520fdf11e5110d25afd90c577a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets maximum health points.  <a href="#a9b3326520fdf11e5110d25afd90c577a"></a><br/></td></tr>
 <tr class="memitem:a3c8713e642f1c33fd3559fd332a128c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3c8713e642f1c33fd3559fd332a128c0">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
-<tr class="memdesc:a3c8713e642f1c33fd3559fd332a128c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a3c8713e642f1c33fd3559fd332a128c0"></a><br/></td></tr>
+<tr class="memdesc:a3c8713e642f1c33fd3559fd332a128c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases health.  <a href="#a3c8713e642f1c33fd3559fd332a128c0"></a><br/></td></tr>
 <tr class="memitem:a79f88cfa5524a47b05575d31758126a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a79f88cfa5524a47b05575d31758126a3">heal</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
-<tr class="memdesc:a79f88cfa5524a47b05575d31758126a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heals object.  <a href="#a79f88cfa5524a47b05575d31758126a3"></a><br/></td></tr>
-<tr class="memitem:a3713e64f34e65e1db20baea4a9958804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3713e64f34e65e1db20baea4a9958804">feed</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)</td></tr>
-<tr class="memdesc:a3713e64f34e65e1db20baea4a9958804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases satiety level.  <a href="#a3713e64f34e65e1db20baea4a9958804"></a><br/></td></tr>
+<tr class="memdesc:a79f88cfa5524a47b05575d31758126a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases health.  <a href="#a79f88cfa5524a47b05575d31758126a3"></a><br/></td></tr>
+<tr class="memitem:ad424937f2fefddea94e8a3e065223013"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ad424937f2fefddea94e8a3e065223013">getDropObjects</a> ()</td></tr>
+<tr class="memdesc:ad424937f2fefddea94e8a3e065223013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get drop objects.  <a href="#ad424937f2fefddea94e8a3e065223013"></a><br/></td></tr>
 <tr class="memitem:a1e3f76d1a74435c7311f42a81fcbf77b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">receiveMessage</a> (<a class="el" href="classMessage.html">Message</a> message)=0</td></tr>
 <tr class="memdesc:a1e3f76d1a74435c7311f42a81fcbf77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a1e3f76d1a74435c7311f42a81fcbf77b"></a><br/></td></tr>
-<tr class="memitem:aa0a679da2807e45b7ab652967e01d0a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa0a679da2807e45b7ab652967e01d0a1">printObjectInfo</a> () const </td></tr>
-<tr class="memdesc:aa0a679da2807e45b7ab652967e01d0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#aa0a679da2807e45b7ab652967e01d0a1"></a><br/></td></tr>
+<tr class="memitem:ab880a703a4a83b9e3ff0dce4bf8b2951"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ab880a703a4a83b9e3ff0dce4bf8b2951">printObjectInfo</a> (bool full) const </td></tr>
+<tr class="memdesc:ab880a703a4a83b9e3ff0dce4bf8b2951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#ab880a703a4a83b9e3ff0dce4bf8b2951"></a><br/></td></tr>
+<tr class="memitem:acce028a2054c88327db4712badb8333a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#acce028a2054c88327db4712badb8333a">printAttrs</a> () const </td></tr>
+<tr class="memitem:a0abc2abdd55ddcc9d79645e0370e906d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a0abc2abdd55ddcc9d79645e0370e906d">printActMatrix</a> () const </td></tr>
 <tr class="inherit_header pub_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
-<tr class="memitem:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ac3797e3194161ceeb6de884f7dae4083">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, bool <a class="el" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247">solidity</a>=true, bool <a class="el" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a">immortality</a>=false)</td></tr>
-<tr class="memdesc:ac3797e3194161ceeb6de884f7dae4083 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac3797e3194161ceeb6de884f7dae4083"></a><br/></td></tr>
+<tr class="memitem:aef403a71dc1fe4fbff3c810a0bae2c40 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#aef403a71dc1fe4fbff3c810a0bae2c40">Object</a> (<a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a> <a class="el" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06">type</a>, bool <a class="el" href="classObject.html#a74f5df30ba1dcd99fafb0c21bb06d247">solidity</a>=true, bool <a class="el" href="classObject.html#a83fe7b9945471326069e022c321426a9">movable</a>=true, bool <a class="el" href="classObject.html#a686ea11886156cc37a2a11e0134e8356">flyable</a>=false, bool <a class="el" href="classObject.html#ab715870abab50ef4d8ab4a730d43997e">pickable</a>=false, bool <a class="el" href="classObject.html#a4b001671739d8b282faf6f0ef45fcc7a">immortality</a>=false)</td></tr>
+<tr class="memdesc:aef403a71dc1fe4fbff3c810a0bae2c40 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aef403a71dc1fe4fbff3c810a0bae2c40"></a><br/></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
 <tr class="memitem:addf0658ee2f8da579d10a6682dc097d7 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
@@ -256,6 +258,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad53f9bda5a4b5829d0d808c60454d218 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object non-solid.  <a href="#ad53f9bda5a4b5829d0d808c60454d218"></a><br/></td></tr>
 <tr class="memitem:ade65edee1451b414e5c88ed43fffbe5e inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ade65edee1451b414e5c88ed43fffbe5e">isSolid</a> () const </td></tr>
 <tr class="memdesc:ade65edee1451b414e5c88ed43fffbe5e inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is solid.  <a href="#ade65edee1451b414e5c88ed43fffbe5e"></a><br/></td></tr>
+<tr class="memitem:a07f813ee83748ca38995d666b45663f0 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a07f813ee83748ca38995d666b45663f0">makePickable</a> ()</td></tr>
+<tr class="memdesc:a07f813ee83748ca38995d666b45663f0 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object pickable.  <a href="#a07f813ee83748ca38995d666b45663f0"></a><br/></td></tr>
+<tr class="memitem:ab3888e1990edfb2bba565554641b9ca6 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab3888e1990edfb2bba565554641b9ca6">makeNonPickable</a> ()</td></tr>
+<tr class="memdesc:ab3888e1990edfb2bba565554641b9ca6 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object non-pickable.  <a href="#ab3888e1990edfb2bba565554641b9ca6"></a><br/></td></tr>
+<tr class="memitem:acf7cd9d8679688566b852d838ca9bf12 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#acf7cd9d8679688566b852d838ca9bf12">isPickable</a> () const </td></tr>
+<tr class="memdesc:acf7cd9d8679688566b852d838ca9bf12 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is pickable.  <a href="#acf7cd9d8679688566b852d838ca9bf12"></a><br/></td></tr>
+<tr class="memitem:a6ffe32032cb5a3eaaf28281133bbb4dc inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a6ffe32032cb5a3eaaf28281133bbb4dc">makeMovable</a> ()</td></tr>
+<tr class="memdesc:a6ffe32032cb5a3eaaf28281133bbb4dc inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object movable.  <a href="#a6ffe32032cb5a3eaaf28281133bbb4dc"></a><br/></td></tr>
+<tr class="memitem:a54767e8d6e078f84496c0a30ab4047c9 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a54767e8d6e078f84496c0a30ab4047c9">makeImmovable</a> ()</td></tr>
+<tr class="memdesc:a54767e8d6e078f84496c0a30ab4047c9 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object immovable.  <a href="#a54767e8d6e078f84496c0a30ab4047c9"></a><br/></td></tr>
+<tr class="memitem:a39b7f5e1f47d01149f42c958a3a818c7 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a39b7f5e1f47d01149f42c958a3a818c7">isMovable</a> () const </td></tr>
+<tr class="memdesc:a39b7f5e1f47d01149f42c958a3a818c7 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is movable.  <a href="#a39b7f5e1f47d01149f42c958a3a818c7"></a><br/></td></tr>
+<tr class="memitem:a04c07db877f495457bc8553023ce4ad7 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a04c07db877f495457bc8553023ce4ad7">makeFlyable</a> ()</td></tr>
+<tr class="memdesc:a04c07db877f495457bc8553023ce4ad7 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object flyable.  <a href="#a04c07db877f495457bc8553023ce4ad7"></a><br/></td></tr>
+<tr class="memitem:a082b4bef17770330f2ab4fc1ab2d87dd inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a082b4bef17770330f2ab4fc1ab2d87dd">makeNonFlyable</a> ()</td></tr>
+<tr class="memdesc:a082b4bef17770330f2ab4fc1ab2d87dd inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object non-flyable.  <a href="#a082b4bef17770330f2ab4fc1ab2d87dd"></a><br/></td></tr>
+<tr class="memitem:a1472d3a4c0953a49ab5bab935c71dd50 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a1472d3a4c0953a49ab5bab935c71dd50">isFlyable</a> () const </td></tr>
+<tr class="memdesc:a1472d3a4c0953a49ab5bab935c71dd50 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is flyable.  <a href="#a1472d3a4c0953a49ab5bab935c71dd50"></a><br/></td></tr>
+<tr class="memitem:a177fe50b2fcf89f74ce8fb261afa8ae2 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a177fe50b2fcf89f74ce8fb261afa8ae2">makeFlying</a> ()</td></tr>
+<tr class="memdesc:a177fe50b2fcf89f74ce8fb261afa8ae2 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object currently flying.  <a href="#a177fe50b2fcf89f74ce8fb261afa8ae2"></a><br/></td></tr>
+<tr class="memitem:adcde1fb6eba756ac0b19f9d495530827 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#adcde1fb6eba756ac0b19f9d495530827">makeNonFlying</a> ()</td></tr>
+<tr class="memdesc:adcde1fb6eba756ac0b19f9d495530827 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes object non-flying.  <a href="#adcde1fb6eba756ac0b19f9d495530827"></a><br/></td></tr>
+<tr class="memitem:ae67d105d2aed649035fbf2b9f58ae39d inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae67d105d2aed649035fbf2b9f58ae39d">isCurrentlyFlying</a> () const </td></tr>
+<tr class="memdesc:ae67d105d2aed649035fbf2b9f58ae39d inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if object is currently flying.  <a href="#ae67d105d2aed649035fbf2b9f58ae39d"></a><br/></td></tr>
 <tr class="memitem:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae970ad5ee017ebf6acab62928c19d7c8">getDangerLevel</a> () const </td></tr>
 <tr class="memdesc:ae970ad5ee017ebf6acab62928c19d7c8 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's danger level.  <a href="#ae970ad5ee017ebf6acab62928c19d7c8"></a><br/></td></tr>
 <tr class="memitem:a8f057c451361240ebc424622db893e63 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8f057c451361240ebc424622db893e63">setDangerLevel</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a5b47f0ca2f9319073afdbc15dd1ce111">danger_level</a>)</td></tr>
@@ -264,6 +290,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9a0cf11abb0cebe770fcb5796c0a09b9 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's weight.  <a href="#a9a0cf11abb0cebe770fcb5796c0a09b9"></a><br/></td></tr>
 <tr class="memitem:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a17c4c5b00d5144659887191780af540a">setWeight</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classObject.html#a9842ab76955ad115646eb4b630e76083">weight</a>)</td></tr>
 <tr class="memdesc:a17c4c5b00d5144659887191780af540a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's weight.  <a href="#a17c4c5b00d5144659887191780af540a"></a><br/></td></tr>
+<tr class="memitem:a58c3ae61cae28e908a31f5cb5241b7ff inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a58c3ae61cae28e908a31f5cb5241b7ff">getNormalSpeed</a> () const </td></tr>
+<tr class="memdesc:a58c3ae61cae28e908a31f5cb5241b7ff inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets object's normal speed.  <a href="#a58c3ae61cae28e908a31f5cb5241b7ff"></a><br/></td></tr>
+<tr class="memitem:a417df8ee5c83c711e21817c362903900 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a417df8ee5c83c711e21817c362903900">setNormalSpeed</a> (double speed)</td></tr>
+<tr class="memdesc:a417df8ee5c83c711e21817c362903900 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets object's normal speed.  <a href="#a417df8ee5c83c711e21817c362903900"></a><br/></td></tr>
 <tr class="memitem:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980">ObjectType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7660dc25529325326bc280e5f5fb0194">getType</a> () const </td></tr>
 <tr class="memdesc:a7660dc25529325326bc280e5f5fb0194 inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of type.  <a href="#a7660dc25529325326bc280e5f5fb0194"></a><br/></td></tr>
 <tr class="memitem:a8c0e06723d36e89cf5f6f9b117782cba inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a8c0e06723d36e89cf5f6f9b117782cba">getTypeName</a> () const =0</td></tr>
@@ -287,12 +317,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a4c028fe019516a89086c8750f65f3e6a">operator const ViewObject</a> ()</td></tr>
 <tr class="memdesc:a4c028fe019516a89086c8750f65f3e6a inherit pub_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>.  <a href="#a4c028fe019516a89086c8750f65f3e6a"></a><br/></td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a03ef0625b0a27a6366229f1260a228b6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a03ef0625b0a27a6366229f1260a228b6">world_size</a> = <a class="el" href="BasicDefines_8h.html#a113d8e5b968b4f899b27e7647fff9d46">SZ_WORLD_HSIDE</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ab9753af5a984c1f439c432617ea1b4d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ab9753af5a984c1f439c432617ea1b4d4">setDirection</a> ()</td></tr>
-<tr class="memdesc:ab9753af5a984c1f439c432617ea1b4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the angle between first (this) and second (aim) object.  <a href="#ab9753af5a984c1f439c432617ea1b4d4"></a><br/></td></tr>
-<tr class="memitem:af429bb5458e6312aa7e264d8619e8d15"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#af429bb5458e6312aa7e264d8619e8d15">evaluateDanger</a> (const <a class="el" href="classObject.html">Object</a> *obj)</td></tr>
-<tr class="memdesc:af429bb5458e6312aa7e264d8619e8d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evalutates danger of given object.  <a href="#af429bb5458e6312aa7e264d8619e8d15"></a><br/></td></tr>
+<tr class="memitem:a9a55c4fa3de6ed0629c205f7e095bb61"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a9a55c4fa3de6ed0629c205f7e095bb61">evaluateDanger</a> (const <a class="el" href="classObject.html">Object</a> *obj, const <a class="el" href="classVector.html">Vector</a> &amp;coords)</td></tr>
+<tr class="memdesc:a9a55c4fa3de6ed0629c205f7e095bb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evalutates danger of given object.  <a href="#a9a55c4fa3de6ed0629c205f7e095bb61"></a><br/></td></tr>
 <tr class="memitem:aa7e689cd7024701857bc069a8b1c3959"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa7e689cd7024701857bc069a8b1c3959">updateNeedInDesc</a> ()=0</td></tr>
 <tr class="memdesc:aa7e689cd7024701857bc069a8b1c3959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates need_in_descendants.  <a href="#aa7e689cd7024701857bc069a8b1c3959"></a><br/></td></tr>
 <tr class="memitem:ab0d3c3f83004a050d2eda3df8ed8fb73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ab0d3c3f83004a050d2eda3df8ed8fb73">updateDanger</a> ()</td></tr>
@@ -311,10 +343,15 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:a7045a8944e0da4bb74955a23d112d30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Damages object.  <a href="#a7045a8944e0da4bb74955a23d112d30a"></a><br/></td></tr>
 <tr class="memitem:a079ffd60d5e11ebfe1b349f95e9e75a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a079ffd60d5e11ebfe1b349f95e9e75a2">hunt</a> ()</td></tr>
 <tr class="memdesc:a079ffd60d5e11ebfe1b349f95e9e75a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chases and tries to kill the target.  <a href="#a079ffd60d5e11ebfe1b349f95e9e75a2"></a><br/></td></tr>
+<tr class="memitem:a31a3e5e3e9e22d6590e516dbc3335c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a31a3e5e3e9e22d6590e516dbc3335c43">relax</a> ()</td></tr>
+<tr class="memdesc:a31a3e5e3e9e22d6590e516dbc3335c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resting.  <a href="#a31a3e5e3e9e22d6590e516dbc3335c43"></a><br/></td></tr>
 <tr class="memitem:a8f12768e84547f6863747cfb8c930138"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a8f12768e84547f6863747cfb8c930138">sleep</a> ()</td></tr>
 <tr class="memdesc:a8f12768e84547f6863747cfb8c930138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeping.  <a href="#a8f12768e84547f6863747cfb8c930138"></a><br/></td></tr>
 <tr class="memitem:a3426a803526afc49d10f21836c393ea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3426a803526afc49d10f21836c393ea3">clearActions</a> ()</td></tr>
 <tr class="memdesc:a3426a803526afc49d10f21836c393ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store results of previous action and clear actions.  <a href="#a3426a803526afc49d10f21836c393ea3"></a><br/></td></tr>
+<tr class="inherit_header pro_methods_classObject"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classObject')"><img src="closed.png" alt="-"/>&nbsp;Protected Member Functions inherited from <a class="el" href="classObject.html">Object</a></td></tr>
+<tr class="memitem:ab050de257e6372cb7d67c83b31f76024 inherit pro_methods_classObject"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ab050de257e6372cb7d67c83b31f76024">insertSpaces</a> (std::string str, <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> indent=<a class="el" href="BasicDefines_8h.html#ac780ca20b5d9ae8dc411ec41dd697c75">OBJ_INFO_INDENT</a>) const </td></tr>
+<tr class="memdesc:ab050de257e6372cb7d67c83b31f76024 inherit pro_methods_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string in style: str&lt;...spaces...&gt;. Amount of spaces is equal to indent - str.size().  <a href="#ab050de257e6372cb7d67c83b31f76024"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -324,32 +361,20 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:aaae4bed180bf29d898e5232bac1dc175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous action result.  <a href="#aaae4bed180bf29d898e5232bac1dc175"></a><br/></td></tr>
 <tr class="memitem:a01898c7161135f4ab7957a05c4cbfc42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7">ActionError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a01898c7161135f4ab7957a05c4cbfc42">prev_action_error</a></td></tr>
 <tr class="memdesc:a01898c7161135f4ab7957a05c4cbfc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous action error.  <a href="#a01898c7161135f4ab7957a05c4cbfc42"></a><br/></td></tr>
-<tr class="memitem:a798074bf1cffa051749ecf3da07527d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a798074bf1cffa051749ecf3da07527d9">inventory</a></td></tr>
-<tr class="memdesc:a798074bf1cffa051749ecf3da07527d9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s inventory.  <a href="#a798074bf1cffa051749ecf3da07527d9"></a><br/></td></tr>
-<tr class="memitem:a3f97c007c64aa78502e9fa9cab716408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3f97c007c64aa78502e9fa9cab716408">current_action</a></td></tr>
-<tr class="memdesc:a3f97c007c64aa78502e9fa9cab716408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current creature's action.  <a href="#a3f97c007c64aa78502e9fa9cab716408"></a><br/></td></tr>
 <tr class="memitem:aed0603ebcea67d0f024adbe5b4ab8a91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aed0603ebcea67d0f024adbe5b4ab8a91">objects_around</a></td></tr>
 <tr class="memdesc:aed0603ebcea67d0f024adbe5b4ab8a91"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s enviroment.  <a href="#aed0603ebcea67d0f024adbe5b4ab8a91"></a><br/></td></tr>
-<tr class="memitem:a641e41105d04d3faf56ca7a0132586e2"><td class="memItemLeft" align="right" valign="top">arma::mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2">attrs</a></td></tr>
-<tr class="memdesc:a641e41105d04d3faf56ca7a0132586e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix of attributes.  <a href="#a641e41105d04d3faf56ca7a0132586e2"></a><br/></td></tr>
-<tr class="memitem:a8499febfbaad5783181a01000cbc4dc6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a8499febfbaad5783181a01000cbc4dc6">brains</a></td></tr>
-<tr class="memdesc:a8499febfbaad5783181a01000cbc4dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to creature's <a class="el" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a>.  <a href="#a8499febfbaad5783181a01000cbc4dc6"></a><br/></td></tr>
+<tr class="memitem:a2628b01ff755d0be534e5bc8e5a79e64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a2628b01ff755d0be534e5bc8e5a79e64">drop_objects</a></td></tr>
+<tr class="memdesc:a2628b01ff755d0be534e5bc8e5a79e64"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s drop objects.  <a href="#a2628b01ff755d0be534e5bc8e5a79e64"></a><br/></td></tr>
 <tr class="memitem:aed2975e3833046d705ae928dc2aed4b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aed2975e3833046d705ae928dc2aed4b6">need_in_descendants</a></td></tr>
 <tr class="memdesc:aed2975e3833046d705ae928dc2aed4b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current value of need_in_descendants (0-100)  <a href="#aed2975e3833046d705ae928dc2aed4b6"></a><br/></td></tr>
+<tr class="memitem:ab071dd9724d51c2abe2434d5ca072ccf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ab071dd9724d51c2abe2434d5ca072ccf">desc_steps</a></td></tr>
+<tr class="memdesc:ab071dd9724d51c2abe2434d5ca072ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to need_in_descendant update.  <a href="#ab071dd9724d51c2abe2434d5ca072ccf"></a><br/></td></tr>
+<tr class="memitem:a05427094eb57c1ee24864f58f0d027a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a05427094eb57c1ee24864f58f0d027a0">decr_sleep_step</a></td></tr>
+<tr class="memdesc:a05427094eb57c1ee24864f58f0d027a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps before decreasion of sleepiness. When creature is sleeping.  <a href="#a05427094eb57c1ee24864f58f0d027a0"></a><br/></td></tr>
+<tr class="memitem:a1986ca2404bdc034d71ef5201b55417d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a1986ca2404bdc034d71ef5201b55417d">max_decr_sleep_step</a></td></tr>
+<tr class="memdesc:a1986ca2404bdc034d71ef5201b55417d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of decr_sleep_step.  <a href="#a1986ca2404bdc034d71ef5201b55417d"></a><br/></td></tr>
 <tr class="memitem:a49164adb00905e8e53da875ed4f44663"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a49164adb00905e8e53da875ed4f44663">danger</a></td></tr>
 <tr class="memdesc:a49164adb00905e8e53da875ed4f44663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current danger.  <a href="#a49164adb00905e8e53da875ed4f44663"></a><br/></td></tr>
-<tr class="memitem:aa1c351d6da7f1df976efb27fe21d5014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa1c351d6da7f1df976efb27fe21d5014">common_steps</a></td></tr>
-<tr class="memdesc:aa1c351d6da7f1df976efb27fe21d5014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to common update.  <a href="#aa1c351d6da7f1df976efb27fe21d5014"></a><br/></td></tr>
-<tr class="memitem:aa9bf4d151801ecb1326cd734b341167d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#aa9bf4d151801ecb1326cd734b341167d">age_steps</a></td></tr>
-<tr class="memdesc:aa9bf4d151801ecb1326cd734b341167d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to age update.  <a href="#aa9bf4d151801ecb1326cd734b341167d"></a><br/></td></tr>
-<tr class="memitem:ad80371401e4349fd4c5b05367964b530"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ad80371401e4349fd4c5b05367964b530">desc_steps</a></td></tr>
-<tr class="memdesc:ad80371401e4349fd4c5b05367964b530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to need_in_descendant update.  <a href="#ad80371401e4349fd4c5b05367964b530"></a><br/></td></tr>
-<tr class="memitem:a385256f111f7616e7f4a5876c1b0025b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a385256f111f7616e7f4a5876c1b0025b">danger_steps</a></td></tr>
-<tr class="memdesc:a385256f111f7616e7f4a5876c1b0025b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to danger update.  <a href="#a385256f111f7616e7f4a5876c1b0025b"></a><br/></td></tr>
-<tr class="memitem:af9f4ec99542d75600f9aa61218c7b113"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#af9f4ec99542d75600f9aa61218c7b113">decr_sleep_step</a></td></tr>
-<tr class="memdesc:af9f4ec99542d75600f9aa61218c7b113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps before decreasion of sleepiness. When creature is sleeping.  <a href="#af9f4ec99542d75600f9aa61218c7b113"></a><br/></td></tr>
-<tr class="memitem:a095d84d14f130bafb022a21459889b9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a095d84d14f130bafb022a21459889b9e">max_decr_sleep_step</a></td></tr>
-<tr class="memdesc:a095d84d14f130bafb022a21459889b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of decr_sleep_step.  <a href="#a095d84d14f130bafb022a21459889b9e"></a><br/></td></tr>
 <tr class="memitem:ac4c9b3d40d693d119f8c59a9c697ded4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ac4c9b3d40d693d119f8c59a9c697ded4">angle</a></td></tr>
 <tr class="memdesc:ac4c9b3d40d693d119f8c59a9c697ded4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The direction of creature.  <a href="#ac4c9b3d40d693d119f8c59a9c697ded4"></a><br/></td></tr>
 <tr class="memitem:a7d2a48a8b2e369b5d39e6b034ecf2356"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a7d2a48a8b2e369b5d39e6b034ecf2356">direction_is_set</a></td></tr>
@@ -358,9 +383,14 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:a5afe8922b7d190de59f4eed81333f04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current direction (subject) oh NHum.  <a href="#a5afe8922b7d190de59f4eed81333f04c"></a><br/></td></tr>
 <tr class="memitem:a15b8493b0290264746a155627b8b46d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a15b8493b0290264746a155627b8b46d5">current_decision</a></td></tr>
 <tr class="memdesc:a15b8493b0290264746a155627b8b46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current decision of creature.  <a href="#a15b8493b0290264746a155627b8b46d5"></a><br/></td></tr>
+<tr class="memitem:a3f97c007c64aa78502e9fa9cab716408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3f97c007c64aa78502e9fa9cab716408">current_action</a></td></tr>
+<tr class="memdesc:a3f97c007c64aa78502e9fa9cab716408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current creature's action.  <a href="#a3f97c007c64aa78502e9fa9cab716408"></a><br/></td></tr>
+<tr class="memitem:a641e41105d04d3faf56ca7a0132586e2"><td class="memItemLeft" align="right" valign="top">arma::mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a641e41105d04d3faf56ca7a0132586e2">attrs</a></td></tr>
+<tr class="memdesc:a641e41105d04d3faf56ca7a0132586e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix of attributes.  <a href="#a641e41105d04d3faf56ca7a0132586e2"></a><br/></td></tr>
+<tr class="memitem:a8499febfbaad5783181a01000cbc4dc6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDecisionMaker.html">DecisionMaker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a8499febfbaad5783181a01000cbc4dc6">brains</a></td></tr>
+<tr class="memdesc:a8499febfbaad5783181a01000cbc4dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to creature's <a class="el" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a>.  <a href="#a8499febfbaad5783181a01000cbc4dc6"></a><br/></td></tr>
 <tr class="memitem:a462ec996602f624a8749997c30427213"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classMessage.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a462ec996602f624a8749997c30427213">msgs</a></td></tr>
-<tr class="memitem:acf654a04eea4c55382b4cd13adb32c9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObjectHeap.html">ObjectHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#acf654a04eea4c55382b4cd13adb32c9f">obstacles</a></td></tr>
-<tr class="memdesc:acf654a04eea4c55382b4cd13adb32c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap of obstacles.  <a href="#acf654a04eea4c55382b4cd13adb32c9f"></a><br/></td></tr>
+<tr class="memdesc:a462ec996602f624a8749997c30427213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages sended by controller.  <a href="#a462ec996602f624a8749997c30427213"></a><br/></td></tr>
 <tr class="inherit_header pro_attribs_classObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classObject')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classObject.html">Object</a></td></tr>
 <tr class="memitem:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a7fa5bd0db11056aac9440fa9f6eb2690">actions</a></td></tr>
 <tr class="memdesc:a7fa5bd0db11056aac9440fa9f6eb2690 inherit pro_attribs_classObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with actions.  <a href="#a7fa5bd0db11056aac9440fa9f6eb2690"></a><br/></td></tr>
@@ -368,7 +398,7 @@ Protected Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:ada792aed6d7388a18b102c2bc25e8b45"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classVector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ada792aed6d7388a18b102c2bc25e8b45">neighbour_offsets</a> [8]</td></tr>
-<tr class="memdesc:ada792aed6d7388a18b102c2bc25e8b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighnour offsets for generating vertices for path graph.  <a href="#ada792aed6d7388a18b102c2bc25e8b45"></a><br/></td></tr>
+<tr class="memdesc:ada792aed6d7388a18b102c2bc25e8b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighbour offsets for generating vertices for path graph.  <a href="#ada792aed6d7388a18b102c2bc25e8b45"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-types"></a>
 Private Types</h2></td></tr>
@@ -387,8 +417,12 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a1ed859e08765b7e2d633ec172f940a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route to the goal.  <a href="#a1ed859e08765b7e2d633ec172f940a70"></a><br/></td></tr>
 <tr class="memitem:ae4d58a6c167a21f9a63a2332c7490b43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ae4d58a6c167a21f9a63a2332c7490b43">goal</a></td></tr>
 <tr class="memdesc:ae4d58a6c167a21f9a63a2332c7490b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current goal towards which creature is moving.  <a href="#ae4d58a6c167a21f9a63a2332c7490b43"></a><br/></td></tr>
+<tr class="memitem:a37d6d7fbb3fc35678a2a645ca626851d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a37d6d7fbb3fc35678a2a645ca626851d">last_goal_pos</a></td></tr>
+<tr class="memdesc:a37d6d7fbb3fc35678a2a645ca626851d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last goal position.  <a href="#a37d6d7fbb3fc35678a2a645ca626851d"></a><br/></td></tr>
 <tr class="memitem:acf8434d39f233808b6ece5109fa8322a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#acf8434d39f233808b6ece5109fa8322a">last_route_size</a></td></tr>
 <tr class="memdesc:acf8434d39f233808b6ece5109fa8322a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the last route.  <a href="#acf8434d39f233808b6ece5109fa8322a"></a><br/></td></tr>
+<tr class="memitem:a3693626fa6aba2bd6722a7d049b9c2fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIndexator.html">Indexator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3693626fa6aba2bd6722a7d049b9c2fc">obstacles_index</a></td></tr>
+<tr class="memdesc:a3693626fa6aba2bd6722a7d049b9c2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index for objects.  <a href="#a3693626fa6aba2bd6722a7d049b9c2fc"></a><br/></td></tr>
 <tr class="memitem:a156fe32d0860fd39b6d0502634c8fe87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a156fe32d0860fd39b6d0502634c8fe87">force</a></td></tr>
 <tr class="memdesc:a156fe32d0860fd39b6d0502634c8fe87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force of creations.  <a href="#a156fe32d0860fd39b6d0502634c8fe87"></a><br/></td></tr>
 <tr class="memitem:a5f332f7fd352da8dab020b819e26f3fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a5f332f7fd352da8dab020b819e26f3fd">max_endurance</a></td></tr>
@@ -411,11 +445,26 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a49691e6b47ba6704b980963ab63c1881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum possible value of hunger.  <a href="#a49691e6b47ba6704b980963ab63c1881"></a><br/></td></tr>
 <tr class="memitem:a0ac52285317bd2d52b3901b9c2a9c24a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a0ac52285317bd2d52b3901b9c2a9c24a">hunger</a></td></tr>
 <tr class="memdesc:a0ac52285317bd2d52b3901b9c2a9c24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current value of hunger.  <a href="#a0ac52285317bd2d52b3901b9c2a9c24a"></a><br/></td></tr>
+<tr class="memitem:a729ef411a8ce9d50492b93931d9e1600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a729ef411a8ce9d50492b93931d9e1600">common_steps</a></td></tr>
+<tr class="memdesc:a729ef411a8ce9d50492b93931d9e1600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps to update common attributes.  <a href="#a729ef411a8ce9d50492b93931d9e1600"></a><br/></td></tr>
+<tr class="memitem:a0567982e56bdddf95b621acc7e0e40ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a0567982e56bdddf95b621acc7e0e40ab">age_steps</a></td></tr>
+<tr class="memdesc:a0567982e56bdddf95b621acc7e0e40ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps to update age.  <a href="#a0567982e56bdddf95b621acc7e0e40ab"></a><br/></td></tr>
+<tr class="memitem:a704aa0a98f583885459374888ecbf9b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a704aa0a98f583885459374888ecbf9b0">health_steps</a></td></tr>
+<tr class="memdesc:a704aa0a98f583885459374888ecbf9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps to update health.  <a href="#a704aa0a98f583885459374888ecbf9b0"></a><br/></td></tr>
+<tr class="memitem:a3084628aa2abdd6b124a4d0f4ff118f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a3084628aa2abdd6b124a4d0f4ff118f1">endurance_steps</a></td></tr>
+<tr class="memdesc:a3084628aa2abdd6b124a4d0f4ff118f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of steps to update endurance.  <a href="#a3084628aa2abdd6b124a4d0f4ff118f1"></a><br/></td></tr>
+<tr class="memitem:ac5cc3c1911d41aa4ae0e14dc9f1d73be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#ac5cc3c1911d41aa4ae0e14dc9f1d73be">danger_steps</a></td></tr>
+<tr class="memdesc:ac5cc3c1911d41aa4ae0e14dc9f1d73be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount for steps to danger update.  <a href="#ac5cc3c1911d41aa4ae0e14dc9f1d73be"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a024fb5b966fd2eaf2b1cee24ffc5c8a8"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCreature.html#a024fb5b966fd2eaf2b1cee24ffc5c8a8">MAX_OFFSET</a> = 3</td></tr>
+<tr class="memdesc:a024fb5b966fd2eaf2b1cee24ffc5c8a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset at which route to the goal is recomputed.  <a href="#a024fb5b966fd2eaf2b1cee24ffc5c8a8"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Abstract <a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> class. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00020">20</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00021">21</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 </div><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="aa5d7ad559b5b96f1a40cf26acff9e769"></a>
 <div class="memitem">
@@ -437,7 +486,7 @@ Private Attributes</h2></td></tr>
 
 <p>Typedef for path. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00384">384</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00407">407</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +524,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00019">19</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00021">21</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -502,39 +551,11 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00068">68</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00076">76</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="aec48cdde7c8c65cb75e1fa68b8f1f21c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Creature::addToInventory </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add object to inventory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obj</td><td>object to add. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Reimplemented in <a class="el" href="classHumanoid.html#a1830e851759c6c72c532dcac9cd06e66">Humanoid</a>.</p>
-
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00821">821</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a861d0d434ea480780f539f8b7456db17"></a>
 <div class="memitem">
 <div class="memproto">
@@ -571,12 +592,13 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">point</td><td>the point we check </td></tr>
+    <tr><td class="paramname">goal_in_sight</td><td>flag that shows if the goal lies inside view_area </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if creature can stand on the point 1 if the point is the goal point -1 if creature can't stand on the point </dd></dl>
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00094">94</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00110">110</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
@@ -603,7 +625,7 @@ Private Attributes</h2></td></tr>
 
 <p>Calculates the direction for escaping. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00477">477</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00527">527</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -630,7 +652,7 @@ Private Attributes</h2></td></tr>
 
 <p>Store results of previous action and clear actions. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00647">647</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00714">714</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -656,18 +678,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Damages object. </p>
+<p>Decreases health. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delta</td><td>amount of damage </td></tr>
+    <tr><td class="paramname">delta</td><td>the increment value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>amount of done damage </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>subtracted amount. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#a46cd2e05a4f556afa59a2a61b1096fc8">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00220">220</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00232">232</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -694,7 +716,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>subtracted value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00168">168</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00180">180</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -721,7 +743,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>subtracted value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00360">360</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00379">379</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -748,7 +770,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>subtracted value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00303">303</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00322">322</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -775,11 +797,11 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>subtracted value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00418">418</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00437">437</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af429bb5458e6312aa7e264d8619e8d15"></a>
+<a class="anchor" id="a9a55c4fa3de6ed0629c205f7e095bb61"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -790,8 +812,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">double Creature::evaluateDanger </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classObject.html">Object</a> *&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -805,35 +837,12 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">obj</td><td>object to evaluate danger. </td></tr>
+    <tr><td class="paramname">coords</td><td>coordinates of the point to calculate danger for. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00455">455</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3713e64f34e65e1db20baea4a9958804"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Creature::feed </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
-          <td class="paramname"><em>delta</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Increases satiety level. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">delta</td><td>parameter changes </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00474">474</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +875,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00589">589</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00649">649</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -900,7 +909,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>path to the goal </dd></dl>
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00147">147</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00158">158</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
@@ -920,7 +929,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00138">138</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00150">150</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -940,16 +949,16 @@ Private Attributes</h2></td></tr>
 <p>get the id of aim </p>
 <dl class="section return"><dt>Returns</dt><dd>id of aim </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00445">445</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00464">464</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8bf037650ed133ed7643c1d7c01c4ecc"></a>
+<a class="anchor" id="a7eaf3d07cafa87183f79dc60d0d06876"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::getCurrentDecision </td>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> Creature::getCurrentAction </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -957,9 +966,49 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get current action. </p>
+<p>Gets current action. </p>
+<dl class="section return"><dt>Returns</dt><dd>current action. </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00117">117</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00124">124</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b4c8ab0b2f11dd6c78a2673b1c7cb17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a> Creature::getCurrentDecision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets current decision. </p>
+<dl class="section return"><dt>Returns</dt><dd>current decision. </dd></dl>
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00119">119</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad424937f2fefddea94e8a3e065223013"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> * Creature::getDropObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get drop objects. </p>
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00260">260</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -979,7 +1028,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of endurance. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of endurance </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00330">330</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00349">349</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -999,7 +1048,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of force. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of force </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00439">439</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00458">458</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1068,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of health. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of health </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00197">197</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00209">209</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1044,11 +1093,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets current object's heatlh points. </p>
+<p>Gets current health points. </p>
+<dl class="section return"><dt>Returns</dt><dd>current health. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#a1d3b6e7106f7e73ed8e5c2ea807047a7">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00246">246</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00265">265</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1068,27 +1118,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of hunger. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of hunger </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00273">273</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abe4efe29a57906cd5e23c9dbf4b0bbd2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> * Creature::getInventory </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get inventory. </p>
-<dl class="section return"><dt>Returns</dt><dd>inventory </dd></dl>
-
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00112">112</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00292">292</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1138,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of max age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00152">152</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00164">164</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1128,7 +1158,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of max_endurance. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max_endurance </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00344">344</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00363">363</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1148,7 +1178,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of max age. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max age </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00211">211</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00223">223</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1173,11 +1203,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets maximum possible object's health points. </p>
+<p>Gets maximum health points. </p>
+<dl class="section return"><dt>Returns</dt><dd>maximum health. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#aaf54c4ebc3fddf706d0c3ea4787cf34d">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00251">251</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00270">270</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1228,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of max_hunger. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max_hunger </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00287">287</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00306">306</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1217,7 +1248,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of max_sleepines. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of max_sleepines </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00402">402</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00421">421</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1268,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of creature's window. </p>
 <dl class="section return"><dt>Returns</dt><dd>the window </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00087">87</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00094">94</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1257,7 +1288,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of reach_area. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of reach_area </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00107">107</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00114">114</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1277,7 +1308,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of sleepiness. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of sleepiness </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00388">388</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00407">407</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1297,7 +1328,7 @@ Private Attributes</h2></td></tr>
 <p>Get subtype. </p>
 <dl class="section return"><dt>Returns</dt><dd>creature subtype </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00077">77</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00084">84</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1317,7 +1348,7 @@ Private Attributes</h2></td></tr>
 <p>Get the value of view_area. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of view_area </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00097">97</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00104">104</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1351,7 +1382,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00506">506</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00557">557</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1377,18 +1408,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Heals object. </p>
+<p>Increases health. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delta</td><td>amount of healing </td></tr>
+    <tr><td class="paramname">delta</td><td>the decrement value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>amount of done healing </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>added amount. </dd></dl>
 
 <p>Implements <a class="el" href="classObject.html#af1f6f43c394fb3ee08b8a078dc0f1333">Object</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00233">233</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00246">246</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1446,7 @@ Private Attributes</h2></td></tr>
 
 <p>Chases and tries to kill the target. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00600">600</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00660">660</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1473,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the added value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00157">157</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00169">169</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1500,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the added value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00349">349</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00368">368</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1496,7 +1527,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the added value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00292">292</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00311">311</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1523,11 +1554,45 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the added value </dd></dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00407">407</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00426">426</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa0a679da2807e45b7ab652967e01d0a1"></a>
+<a class="anchor" id="a0abc2abdd55ddcc9d79645e0370e906d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Creature::printActMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00800">800</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acce028a2054c88327db4712badb8333a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Creature::printAttrs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00783">783</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab880a703a4a83b9e3ff0dce4bf8b2951"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1537,7 +1602,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::string Creature::printObjectInfo </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>full</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1549,13 +1615,19 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints out object's information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">full</td><td>flag determing return complete information about object or not </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>string with information </dd></dl>
 
-<p>Reimplemented from <a class="el" href="classObject.html#afda9c1bda1dd939d6d402686f58d4069">Object</a>.</p>
+<p>Reimplemented from <a class="el" href="classObject.html#a06a7cbb966daffad13f40ee1dff326a2">Object</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classHumanoid.html#ad80bc06c8d9784aa462dbaefa167934d">Humanoid</a>, and <a class="el" href="classNonHumanoid.html#ac0e4fdae5bc8ad66be3f82d03f972eb2">NonHumanoid</a>.</p>
+<p>Reimplemented in <a class="el" href="classHumanoid.html#ade64d810547aef296300f9cee7b18298">Humanoid</a>.</p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00685">685</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00731">731</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1589,29 +1661,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a49b2758559c8b5d79cfb0afb8d87634b"></a>
+<a class="anchor" id="a31a3e5e3e9e22d6590e516dbc3335c43"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Creature::removeFromInventory </td>
+          <td class="memname">void Creature::relax </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classObject.html">Object</a> *&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Removes object from inventory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obj</td><td>object to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Resting. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00844">844</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00685">685</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1637,35 +1710,33 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00126">126</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00138">138</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab9753af5a984c1f439c432617ea1b4d4"></a>
+<a class="anchor" id="a2bebd3668369a5f9aef558a02271392c"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Creature::setDirection </td>
+          <td class="memname">void Creature::setCurrentAction </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706">CreatureAction</a>&#160;</td>
+          <td class="paramname"><em>act</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Calculate the angle between first (this) and second (aim) object. </p>
-<dl class="section return"><dt>Returns</dt><dd>angle </dd></dl>
+<p>Sets current action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">act</td><td>new current action </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00732">732</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00129">129</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1691,7 +1762,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00318">318</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00337">337</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1717,7 +1788,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00434">434</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00453">453</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1743,7 +1814,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00185">185</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00197">197</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1769,7 +1840,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00261">261</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00280">280</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1795,7 +1866,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00143">143</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00155">155</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1821,7 +1892,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00335">335</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00354">354</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1847,7 +1918,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00202">202</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00214">214</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1873,7 +1944,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00278">278</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00297">297</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1899,7 +1970,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00393">393</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00412">412</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1925,7 +1996,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00082">82</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00089">89</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1951,7 +2022,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00102">102</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00109">109</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -1977,7 +2048,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00376">376</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00395">395</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -2003,7 +2074,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00092">92</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00099">99</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -2030,7 +2101,7 @@ Private Attributes</h2></td></tr>
 
 <p>Sleeping. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00626">626</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00692">692</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -2057,7 +2128,7 @@ Private Attributes</h2></td></tr>
 
 <p>Updates hunger, sleepiness, health, age, danger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00765">765</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00844">844</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -2084,7 +2155,7 @@ Private Attributes</h2></td></tr>
 
 <p>Updates danger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00746">746</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8cpp_source.html#l00823">823</a> of file <a class="el" href="Creature_8cpp_source.html">Creature.cpp</a>.</p>
 
 </div>
 </div>
@@ -2134,11 +2205,11 @@ Private Attributes</h2></td></tr>
 
 <p>Current age. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00410">410</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00442">442</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa9bf4d151801ecb1326cd734b341167d"></a>
+<a class="anchor" id="a0567982e56bdddf95b621acc7e0e40ab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2146,19 +2217,19 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::age_steps</td>
+          <td class="memname">int Creature::age_steps</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Amount for steps to age update. </p>
+<p>Amount of steps to update age. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00473">473</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00467">467</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2182,7 +2253,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current direction (subject) oh NHum. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00491">491</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00533">533</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2206,7 +2277,7 @@ Private Attributes</h2></td></tr>
 
 <p>The direction of creature. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00487">487</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00527">527</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2230,7 +2301,7 @@ Private Attributes</h2></td></tr>
 
 <p>Matrix of attributes. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00458">458</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00546">546</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2254,11 +2325,11 @@ Private Attributes</h2></td></tr>
 
 <p>Reference to creature's <a class="el" href="classDecisionMaker.html" title="Makes a prediction about next creature&#39;s action.">DecisionMaker</a>. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00461">461</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00549">549</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa1c351d6da7f1df976efb27fe21d5014"></a>
+<a class="anchor" id="a729ef411a8ce9d50492b93931d9e1600"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2266,19 +2337,19 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::common_steps</td>
+          <td class="memname">int Creature::common_steps</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Amount for steps to common update. </p>
+<p>Amount of steps to update common attributes. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00471">471</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00464">464</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2302,7 +2373,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current creature's action. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00452">452</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00543">543</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2326,7 +2397,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current decision of creature. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00497">497</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00540">540</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2350,11 +2421,11 @@ Private Attributes</h2></td></tr>
 
 <p>Current danger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00468">468</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00520">520</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a385256f111f7616e7f4a5876c1b0025b"></a>
+<a class="anchor" id="ac5cc3c1911d41aa4ae0e14dc9f1d73be"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2362,23 +2433,23 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::danger_steps</td>
+          <td class="memname">int Creature::danger_steps</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Amount for steps to danger update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00477">477</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00476">476</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af9f4ec99542d75600f9aa61218c7b113"></a>
+<a class="anchor" id="a05427094eb57c1ee24864f58f0d027a0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2386,7 +2457,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::decr_sleep_step</td>
+          <td class="memname">int Creature::decr_sleep_step</td>
         </tr>
       </table>
   </td>
@@ -2398,11 +2469,11 @@ Private Attributes</h2></td></tr>
 
 <p>Amount of steps before decreasion of sleepiness. When creature is sleeping. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00479">479</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00514">514</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad80371401e4349fd4c5b05367964b530"></a>
+<a class="anchor" id="ab071dd9724d51c2abe2434d5ca072ccf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2410,7 +2481,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::desc_steps</td>
+          <td class="memname">int Creature::desc_steps</td>
         </tr>
       </table>
   </td>
@@ -2422,7 +2493,7 @@ Private Attributes</h2></td></tr>
 
 <p>Amount for steps to need_in_descendant update. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00475">475</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00511">511</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2446,7 +2517,31 @@ Private Attributes</h2></td></tr>
 
 <p>Flag that shows if direction is set. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00489">489</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00530">530</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2628b01ff755d0be534e5bc8e5a79e64"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a> Creature::drop_objects</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s drop objects. </p>
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00501">501</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2470,7 +2565,31 @@ Private Attributes</h2></td></tr>
 
 <p>Current endurance of creations. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00405">405</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00437">437</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3084628aa2abdd6b124a4d0f4ff118f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Creature::endurance_steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of steps to update endurance. </p>
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00473">473</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2494,7 +2613,7 @@ Private Attributes</h2></td></tr>
 
 <p>Force of creations. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00400">400</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00432">432</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2518,7 +2637,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current goal towards which creature is moving. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00390">390</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00413">413</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2542,7 +2661,31 @@ Private Attributes</h2></td></tr>
 
 <p>Current health. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00415">415</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00447">447</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a704aa0a98f583885459374888ecbf9b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Creature::health_steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of steps to update health. </p>
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00470">470</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2566,11 +2709,11 @@ Private Attributes</h2></td></tr>
 
 <p>Current value of hunger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00429">429</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00457">457</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a798074bf1cffa051749ecf3da07527d9"></a>
+<a class="anchor" id="a37d6d7fbb3fc35678a2a645ca626851d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2578,19 +2721,19 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a>* Creature::inventory</td>
+          <td class="memname"><a class="el" href="classVector.html">Vector</a> Creature::last_goal_pos</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s inventory. </p>
+<p>Last goal position. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00443">443</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00416">416</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2614,7 +2757,7 @@ Private Attributes</h2></td></tr>
 
 <p>Length of the last route. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00393">393</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00419">419</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2638,11 +2781,11 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum possible age. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00408">408</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00440">440</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a095d84d14f130bafb022a21459889b9e"></a>
+<a class="anchor" id="a1986ca2404bdc034d71ef5201b55417d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2650,7 +2793,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Creature::max_decr_sleep_step</td>
+          <td class="memname">int Creature::max_decr_sleep_step</td>
         </tr>
       </table>
   </td>
@@ -2662,7 +2805,7 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum value of decr_sleep_step. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00481">481</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00517">517</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2686,7 +2829,7 @@ Private Attributes</h2></td></tr>
 
 <p>Max endurance of creations. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00403">403</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00435">435</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2710,7 +2853,7 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum possible health. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00413">413</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00445">445</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2734,7 +2877,31 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum possible value of hunger. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00426">426</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00455">455</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a024fb5b966fd2eaf2b1cee24ffc5c8a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Creature::MAX_OFFSET = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Offset at which route to the goal is recomputed. </p>
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00425">425</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2758,7 +2925,7 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum possible value of sleepiness. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00420">420</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00450">450</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2780,7 +2947,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00503">503</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Messages sended by controller. </p>
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00556">556</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2804,7 +2973,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current value of need_in_descendants (0-100) </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00464">464</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00508">508</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2837,9 +3006,9 @@ Private Attributes</h2></td></tr>
 <div class="line">    <a class="code" href="classVector.html" title="Vector class.">Vector</a>(  -1,    1)</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Neighnour offsets for generating vertices for path graph. </p>
+<p>Neighbour offsets for generating vertices for path graph. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00563">563</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00618">618</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2863,11 +3032,11 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s enviroment. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00455">455</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00498">498</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acf654a04eea4c55382b4cd13adb32c9f"></a>
+<a class="anchor" id="a3693626fa6aba2bd6722a7d049b9c2fc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2875,19 +3044,19 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classObjectHeap.html">ObjectHeap</a>* Creature::obstacles</td>
+          <td class="memname"><a class="el" href="classIndexator.html">Indexator</a>* Creature::obstacles_index</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Heap of obstacles. </p>
+<p>Index for objects. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00566">566</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00422">422</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2911,7 +3080,7 @@ Private Attributes</h2></td></tr>
 
 <p>Prevoius action. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00434">434</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00485">485</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2935,7 +3104,7 @@ Private Attributes</h2></td></tr>
 
 <p>Previous action error. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00440">440</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00491">491</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2959,7 +3128,7 @@ Private Attributes</h2></td></tr>
 
 <p>Previous action result. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00437">437</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00488">488</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -2983,7 +3152,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reach area. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00381">381</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00400">400</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -3007,7 +3176,7 @@ Private Attributes</h2></td></tr>
 
 <p>Route to the goal. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00387">387</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00410">410</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -3031,7 +3200,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current value of sleepiness. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00423">423</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00452">452</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -3055,7 +3224,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>'s type. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00375">375</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00394">394</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -3079,7 +3248,29 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classView.html">View</a> area for <a class="el" href="classIndexator.html">Indexator</a>. </p>
 
-<p>Definition at line <a class="el" href="Creature_8h_source.html#l00378">378</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00397">397</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a03ef0625b0a27a6366229f1260a228b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Creature::world_size = <a class="el" href="BasicDefines_8h.html#a113d8e5b968b4f899b27e7647fff9d46">SZ_WORLD_HSIDE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="Creature_8h_source.html#l00030">30</a> of file <a class="el" href="Creature_8h_source.html">Creature.h</a>.</p>
 
 </div>
 </div>
@@ -3094,7 +3285,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCreature.html">Creature</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:42 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:14 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

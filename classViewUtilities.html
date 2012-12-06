@@ -112,15 +112,16 @@ $(document).ready(function(){initNavTree('classViewUtilities.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b9176864d9d6a45f8f7d335a925d45f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#a3b9176864d9d6a45f8f7d335a925d45f">renderText</a> (double x, double y, float size, std::string msg)</td></tr>
-<tr class="memitem:a41b52030d48c3b343735fb039b6921dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#a41b52030d48c3b343735fb039b6921dc">glRectf_blend</a> (float x1, float y1, float x2, float y2)</td></tr>
-<tr class="memitem:a23c69c830f828f1f76b7ead9b0c1ef76"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#a23c69c830f828f1f76b7ead9b0c1ef76">glCirclef_blend</a> (float x, float y, float rad)</td></tr>
+<tr class="memitem:aa65e1414d236ece709164ed83749d534"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#aa65e1414d236ece709164ed83749d534">renderText</a> (double x, double y, double size, std::string msg, double <a class="el" href="TextField_8cpp.html#ae8621897e1760eb1b4744f7207712558">line_size</a>=0.0)</td></tr>
+<tr class="memitem:a398c9bda3c4b3b383172989b794afb5f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#a398c9bda3c4b3b383172989b794afb5f">glRectf_blend</a> (float x1, float y1, float x2, float y2, bool filled=true)</td></tr>
+<tr class="memitem:abb1d5153de19613267b97a73aae790e8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtilities.html#abb1d5153de19613267b97a73aae790e8">glCirclef_blend</a> (float x, float y, float rad, bool filled=true)</td></tr>
+<tr class="memdesc:abb1d5153de19613267b97a73aae790e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a circle at specified screen coordinates.  <a href="#abb1d5153de19613267b97a73aae790e8"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00011">11</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00012">12</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
 </div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a23c69c830f828f1f76b7ead9b0c1ef76"></a>
+<a class="anchor" id="abb1d5153de19613267b97a73aae790e8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -143,7 +144,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>rad</em>&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>filled</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -158,11 +165,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00031">31</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
+<p>Draw a circle at specified screen coordinates. </p>
+
+<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00072">72</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a41b52030d48c3b343735fb039b6921dc"></a>
+<a class="anchor" id="a398c9bda3c4b3b383172989b794afb5f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -191,7 +200,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y2</em>&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>filled</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -206,11 +221,11 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00023">23</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00052">52</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b9176864d9d6a45f8f7d335a925d45f"></a>
+<a class="anchor" id="aa65e1414d236ece709164ed83749d534"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -232,14 +247,20 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>line_size</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -254,7 +275,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00014">14</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewUtilities_8h_source.html#l00016">16</a> of file <a class="el" href="ViewUtilities_8h_source.html">ViewUtilities.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +288,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classViewUtilities.html">ViewUtilities</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:46 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:19 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -52,6 +52,7 @@ var hierarchy =
     [ "VertexComp", "structVertexComp.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
+    [ "ViewTexture", "classViewTexture.html", null ],
     [ "ViewUtilities", "classViewUtilities.html", null ],
     [ "ViewWorld", "classViewWorld.html", null ]
 ];

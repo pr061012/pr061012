@@ -124,128 +124,140 @@ $(document).ready(function(){initNavTree('View_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../model/World/IWorld.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TextField_8h.html">TextField/TextField.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ViewUtilities_8h.html">Utilities/ViewUtilities.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;GL/glc.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ViewTexture_8h.html">ViewTexture/ViewTexture.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;GL/glc.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/* VIEW_DEBUG turns on debug mode.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * In debug mode, objects are rendered as circles.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * BUILDING_MAT - green.</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * FOOD - red.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * CREATURE - white.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/* VIEW_DEBUG turns on debug mode.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * In debug mode, objects are rendered as circles.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * BUILDING_MAT - green.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * FOOD - red.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * CREATURE - white.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// TODO: I guess that would be adequate to replace TextField to some interface like IRenderable</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//       that is going to be used by View and its inner classes.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classView.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classView.html">View</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classView.html#a6c56041cfd4913597ddab55ad8f9388c">   41</a></span>&#160;    <a class="code" href="classViewWorld.html">ViewWorld</a>* <a class="code" href="classView.html#a6c56041cfd4913597ddab55ad8f9388c" title="World to be rendered by View.">view_world</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classView.html#ae05bad216aa7488d0551758785c802a9">   44</a></span>&#160;    <a class="code" href="classInputHandler.html">InputHandler</a>* <a class="code" href="classView.html#ae05bad216aa7488d0551758785c802a9" title="Key handler for GUI.">input_handler</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689">   47</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689" title="Indixates, whether world should be reset.">reset</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classView.html#a6aec2faa4da6b6ea5061d74af4edd0bf">   50</a></span>&#160;    GLint <a class="code" href="classView.html#a6aec2faa4da6b6ea5061d74af4edd0bf" title="GLC context used to render text.">glc_context</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classView.html#afcb5985034724fa2c9aa41555e480644">   51</a></span>&#160;    GLint <a class="code" href="classView.html#afcb5985034724fa2c9aa41555e480644">font</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61">   54</a></span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61" title="Object that is currently in focus. NULL if main window is in focus.">focus</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classView.html#addf6b6a27d59a15c2f333e875b7c4932">   57</a></span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#addf6b6a27d59a15c2f333e875b7c4932" title="TextField that is used as a debug console.">console</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classView.html#ac61ac6d4babe10d0d1250f48cdb2c4c7">   59</a></span>&#160;    std::string <a class="code" href="classView.html#ac61ac6d4babe10d0d1250f48cdb2c4c7" title="Console input send by user.">console_input</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classView.html#a15e84d070a53ba8a97e162743e140198">   62</a></span>&#160;    std::vector&lt;TextField*&gt; <a class="code" href="classView.html#a15e84d070a53ba8a97e162743e140198" title="Interface objects that are currently rendered by View.">rendered</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classView.html#ae039aa744b085db819ae149705b2c32b">   65</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classView.html#ae039aa744b085db819ae149705b2c32b" title="Dimensions of program window, in pixels.">width</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classView.html#a6e3e5c18893617490f02166641356746">   66</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classView.html#a6e3e5c18893617490f02166641356746">height</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span><span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> display_grid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classView.html#af45658447d3a86487b55b599ecf96674" title="Constructor.">View</a>(<span class="keyword">const</span> <a class="code" href="classIWorld.html">IWorld</a>&amp; w);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classView.html#ad0dc854db9aabbea98a334dec89f785c" title="Destructor.">~View</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// TODO: I guess that would be adequate to replace TextField to some interface like IRenderable</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//       that is going to be used by View and its inner classes.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classView.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classView.html">View</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classView.html#a6c56041cfd4913597ddab55ad8f9388c">   42</a></span>&#160;    <a class="code" href="classViewWorld.html">ViewWorld</a>* <a class="code" href="classView.html#a6c56041cfd4913597ddab55ad8f9388c" title="World to be rendered by View.">view_world</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classView.html#ae05bad216aa7488d0551758785c802a9">   45</a></span>&#160;    <a class="code" href="classInputHandler.html">InputHandler</a>* <a class="code" href="classView.html#ae05bad216aa7488d0551758785c802a9" title="Key handler for GUI.">input_handler</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689">   48</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689" title="Indixates, whether world should be reset.">reset</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classView.html#a6aec2faa4da6b6ea5061d74af4edd0bf">   51</a></span>&#160;    GLint <a class="code" href="classView.html#a6aec2faa4da6b6ea5061d74af4edd0bf" title="GLC context used to render text.">glc_context</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classView.html#afcb5985034724fa2c9aa41555e480644">   52</a></span>&#160;    GLint <a class="code" href="classView.html#afcb5985034724fa2c9aa41555e480644">font</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61">   55</a></span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61" title="Object that is currently in focus. NULL if main window is in focus.">focus</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classView.html#a84aba772a400394d1a15fa35e64d81d7">   58</a></span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#a84aba772a400394d1a15fa35e64d81d7" title="TextField that is displaying selection information.">sel_info</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classView.html#ac61ac6d4babe10d0d1250f48cdb2c4c7">   61</a></span>&#160;    std::string <a class="code" href="classView.html#ac61ac6d4babe10d0d1250f48cdb2c4c7" title="Console input send by user.">console_input</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classView.html#a15e84d070a53ba8a97e162743e140198">   64</a></span>&#160;    std::vector&lt;TextField*&gt; <a class="code" href="classView.html#a15e84d070a53ba8a97e162743e140198" title="Interface objects that are currently rendered by View.">rendered</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classView.html#aaa3bc368403d40dd2fd1de5f4affbd3b">   67</a></span>&#160;    std::vector&lt;ViewTexture*&gt; <a class="code" href="classView.html#aaa3bc368403d40dd2fd1de5f4affbd3b" title="Vector of currently loaded textures.">texture_buf</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classView.html#ae039aa744b085db819ae149705b2c32b">   70</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classView.html#ae039aa744b085db819ae149705b2c32b" title="Dimensions of program window, in pixels.">width</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classView.html#a6e3e5c18893617490f02166641356746">   71</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classView.html#a6e3e5c18893617490f02166641356746">height</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> display_grid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classView.html#af45658447d3a86487b55b599ecf96674" title="Constructor.">View</a>(<span class="keyword">const</span> <a class="code" href="classIWorld.html">IWorld</a>&amp; w);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classView.html#abdbeae0f8d3998fdc8b8e90f75166781">   91</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#abdbeae0f8d3998fdc8b8e90f75166781">paused</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// ACCESSORS</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a0540947a23562805676d3731ca1c3521" title="Returns in-game x coordinate of camera center.">getX</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#abfb31bd034fc17e3456f1c52dfaf3d95" title="Returns in-game y coordinate of camera center.">getY</a>();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#ab1fc5db943b079055cf570f496ed5eba" title="Sets in-game x and y coordinates of game cam center.">setX</a>(<span class="keywordtype">double</span> new_var);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">setY</a>(<span class="keywordtype">double</span> new_var);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#aedd1174511ded49f7d0a072a87d88583" title="Returns max on-screen coordinates.">getMaxScrX</a>();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a768d2e22e1d575e1d09768b41ca267a7">getMaxScrY</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a60228448b1a704c06c2e12aab8d7137f">setDistance</a>(<span class="keywordtype">double</span> newdist);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a81c1ff5306977a139765be367a92ea3d">getDistance</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="classView.html#ad0dc854db9aabbea98a334dec89f785c" title="Destructor.">~View</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#af3b02b172b87fc315a98ce00f86074d4" title="Load textures that are going to be drawn into game interface.">loadTextures</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classView.html#abdbeae0f8d3998fdc8b8e90f75166781">  101</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#abdbeae0f8d3998fdc8b8e90f75166781">paused</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">// ACCESSORS</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a0540947a23562805676d3731ca1c3521" title="Returns in-game x coordinate of camera center.">getX</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#abfb31bd034fc17e3456f1c52dfaf3d95" title="Returns in-game y coordinate of camera center.">getY</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#ab1fc5db943b079055cf570f496ed5eba" title="Sets in-game x and y coordinates of game cam center.">setX</a>(<span class="keywordtype">double</span> new_var);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">setY</a>(<span class="keywordtype">double</span> new_var);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#aaf7b022a42b09309a6a7e0260e8b7895" title="Sets game state to paused.">setPaused</a>(<span class="keywordtype">bool</span> new_state);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a081a223723c725fbfe36a459ab1811bb" title="Returns boolean value indicating if game state is set to paused.">isPaused</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#aedd1174511ded49f7d0a072a87d88583" title="Returns max on-screen coordinates.">getMaxScrX</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a768d2e22e1d575e1d09768b41ca267a7">getMaxScrY</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a60228448b1a704c06c2e12aab8d7137f">setDistance</a>(<span class="keywordtype">double</span> newdist);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classView.html#a81c1ff5306977a139765be367a92ea3d">getDistance</a>();</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a26909c3b833e47444e756a9015b563c8" title="Sets variable, whether world should be reset.">setReset</a>(<span class="keywordtype">bool</span> <a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689" title="Indixates, whether world should be reset.">reset</a>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#aaf7b022a42b09309a6a7e0260e8b7895" title="Sets game state to paused.">setPaused</a>(<span class="keywordtype">bool</span> new_state);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a1e63c63ac672f609a2e7bbc7907cbcbf" title="Returns boolean value, if world should be reset.">isReset</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a081a223723c725fbfe36a459ab1811bb" title="Returns boolean value indicating if game state is set to paused.">isPaused</a>();</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <span class="keyword">const</span> <a class="code" href="classView.html#a5cbb513e24fc483ee6981d9ec5b8883d">getFocus</a>();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a2da4a2f66cd63f47d286bf7d045c3b70">setFocus</a>(<a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61" title="Object that is currently in focus. NULL if main window is in focus.">focus</a>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a26909c3b833e47444e756a9015b563c8" title="Sets variable, whether world should be reset.">setReset</a>(<span class="keywordtype">bool</span> <a class="code" href="classView.html#a396cc43b7850005092f35e1e26b80689" title="Indixates, whether world should be reset.">reset</a>);</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#aa0d44f554a49467d1e2b9c7e159b406b">setUserInput</a>(std::string input);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    std::string <a class="code" href="classView.html#acf82b655f7bbba9062344564fb330ec5" title="Returns user console input.">getUserInput</a>();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a0ed93b6506570752c176ea0094ba6e14">addConsoleOutput</a>(std::string app);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span>    GLFWwindow getWindow();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">// DRAWING METHODS.</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a1e63c63ac672f609a2e7bbc7907cbcbf" title="Returns boolean value, if world should be reset.">isReset</a>();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="classTextField.html">TextField</a>* <span class="keyword">const</span> <a class="code" href="classView.html#a5cbb513e24fc483ee6981d9ec5b8883d">getFocus</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a2da4a2f66cd63f47d286bf7d045c3b70">setFocus</a>(<a class="code" href="classTextField.html">TextField</a>* <a class="code" href="classView.html#a6c76d79b1d8bfe842878b663e30a6b61" title="Object that is currently in focus. NULL if main window is in focus.">focus</a>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#aa0d44f554a49467d1e2b9c7e159b406b">setUserInput</a>(std::string input);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    std::string <a class="code" href="classView.html#acf82b655f7bbba9062344564fb330ec5" title="Returns user console input.">getUserInput</a>();</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a2e088b57c015d551b27605cab3530187" title="Redraw currently displayed world.">redraw</a>();</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd" title="checks conditions to exit the program.">continues</a>();</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a66f38438a132d3844226a522fda941fa">addInterfaceObject</a>(<a class="code" href="classTextField.html">TextField</a>* new_obj);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a605c23e2cf8d2c5751c29b9a6e23c364" title="initialize graphics window">initWindow</a>();</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    GLFWwindow window;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;};</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif // VIEW_H</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">//    void addConsoleOutput(std::string app);</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor"></span>    GLFWwindow getWindow();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">// DRAWING METHODS.</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a2e088b57c015d551b27605cab3530187" title="Redraw currently displayed world.">redraw</a>();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a96e3195be3920f48933447f354485efc" title="Draw a bar filled with certain percentage.">drawProgressBar</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> <a class="code" href="classView.html#ae039aa744b085db819ae149705b2c32b" title="Dimensions of program window, in pixels.">width</a>, <span class="keywordtype">double</span> percent = 1.0);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a04220e33293401f72df85107792a5448">displaySelectionInfo</a>();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    std::string <a class="code" href="classView.html#a18b317d939506eeb16fc3977d51e4385">printObjectViewInfo</a>(<span class="keyword">const</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* obj);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd" title="checks conditions to exit the program.">continues</a>();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a66f38438a132d3844226a522fda941fa">addInterfaceObject</a>(<a class="code" href="classTextField.html">TextField</a>* new_obj);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classView.html#a605c23e2cf8d2c5751c29b9a6e23c364" title="initialize graphics window">initWindow</a>();</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    GLFWwindow window;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif // VIEW_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f2a51cd3127c93b57800170255376407.html">view</a></li><li class="navelem"><a class="el" href="View_8h.html">View.h</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

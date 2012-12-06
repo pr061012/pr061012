@@ -10,10 +10,6 @@ var classCLI =
     [ "list", "classCLI.html#af3ea46c444c7276402c24d4e0ca721c8", null ],
     [ "runCommand", "classCLI.html#a5aa72bf48995ece3ad760e80010be374", null ],
     [ "step", "classCLI.html#a2dd7aa68b01325b6d8cdc5008c483e1a", null ],
-    [ "traceStep", "classCLI.html#acacf3b95e488563cabfcd3b9d3eb9564", null ],
     [ "control", "classCLI.html#a2d62a18a83b614bac1b231d04305619a", null ],
-    [ "creat_acts", "classCLI.html#a2cdcb2ef3212baa6cc391c0834b70262", null ],
-    [ "hum_acts", "classCLI.html#a3b15297cf05888bcd94d5f7d182259cc", null ],
-    [ "obj_types", "classCLI.html#ae126ce0b17333a63e7e06f5ea09b6e85", null ],
     [ "world", "classCLI.html#abc0c2dde46571759485abcbb61d2424d", null ]
 ];

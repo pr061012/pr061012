@@ -108,27 +108,45 @@ $(document).ready(function(){initNavTree('God_8cpp_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="God_8h.html">God.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../World/Action/Action.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../common/BasicDefines.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../common/BasicTypes.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../common/Math/Random.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classGod.html#addc6776ed9e06891a0a19f28e945e5c3">   12</a></span>&#160;<a class="code" href="classGod.html#addc6776ed9e06891a0a19f28e945e5c3" title="Constructor.">God::God</a>()</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classGod.html#a905bb10f55a27a73b5d1550ed7dd582d">   17</a></span>&#160;<a class="code" href="classGod.html#a905bb10f55a27a73b5d1550ed7dd582d" title="Destructor.">God::~God</a>()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classGod.html#afeb073f97f035bed2d5daaf4771bfc81">   16</a></span>&#160;<a class="code" href="classGod.html#afeb073f97f035bed2d5daaf4771bfc81" title="Constructor.">God::God</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>&amp; world):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    world(world)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classGod.html#a905bb10f55a27a73b5d1550ed7dd582d">   22</a></span>&#160;<a class="code" href="classGod.html#a905bb10f55a27a73b5d1550ed7dd582d" title="Destructor.">God::~God</a>()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classGod.html#ae0f707fd98294c9e1aa5f104af419474">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classGod.html#ae0f707fd98294c9e1aa5f104af419474" title="setWeatherAt">God::setWeatherAt</a>(<a class="code" href="classVector.html" title="Vector class.">Vector</a> x, <a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a> type)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classGod.html#aab317abedde7bead678da025732c3c80" title="Array with actions.">actions</a>.clear();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a> act(<a class="code" href="BasicTypes_8h.html#a21d5e8f8cdaa838586b31007df0a950ba11180bdd12238c960d64cfbd2f2d17ff" title="Description: Create object.   Actor: Humanoid/Resource   Participants: none   Parameters:">CREATE_OBJ</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    act.<a class="code" href="classAction.html#ad093732911838eabbdbe5ec48300b6c0" title="Adds param.">addParam</a>&lt;<a class="code" href="classVector.html" title="Vector class.">Vector</a>&gt;(<span class="stringliteral">&quot;coord&quot;</span>, x);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    act.<a class="code" href="classAction.html#ad093732911838eabbdbe5ec48300b6c0" title="Adds param.">addParam</a>&lt;<a class="code" href="BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516" title="The WeatherType enum.">WeatherType</a>&gt;(<span class="stringliteral">&quot;weat_type&quot;</span>, type);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> weat_steps = <a class="code" href="classRandom.html#aa34e3180a5e47c619191cd74cbbc6a30" title="Returns random number from range [low_boundary, top_boundary].">Random::int_range</a>(<a class="code" href="BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f" title="Minimum amount of living steps for weather.">WEAT_STEPS_MIN</a>, <a class="code" href="BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c" title="Maximum amount of living steps for weather.">WEAT_STEPS_MAX</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    act.<a class="code" href="classAction.html#ad093732911838eabbdbe5ec48300b6c0" title="Adds param.">addParam</a>&lt;<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a>&gt;(<span class="stringliteral">&quot;weat_steps&quot;</span>, weat_steps);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classGod.html#aab317abedde7bead678da025732c3c80" title="Array with actions.">actions</a>.push_back(act);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_cdddd47c705b0b9e68c00266b56b0385.html">God</a></li><li class="navelem"><a class="el" href="God_8cpp.html">God.cpp</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

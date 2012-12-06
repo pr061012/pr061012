@@ -8,7 +8,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
@@ -30,11 +30,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Action_8cpp.html",
-"BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a48de155833d9c3eb81bf4d611ac56d7b",
-"ViewWorld_8h.html",
-"classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701",
-"classResource.html#ab5df09a77a02dff8fb14e178984c3ed9",
-"dir_1c12eaac5674d1d6eb62cc0a72334383.html"
+"BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a66b874d1b01b66d7d474a9ddbab2d351",
+"TextField_8cpp_source.html",
+"classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4",
+"classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704",
+"classViewTexture.html#a77d26388a4667604e28f0e13531099d9",
+"globals_defs_0x64.html"
 ];
 
 var navTreeSubIndices = new Array();

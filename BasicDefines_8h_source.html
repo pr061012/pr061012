@@ -113,386 +113,433 @@ $(document).ready(function(){initNavTree('BasicDefines_8h_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BasicTypes_8h.html">BasicTypes.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// MATH DEFINES.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Prefix: MATH.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// TIME DEFINES.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Prefix: TM.</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af5c9d91107dc710f9abfa42cf2be2e6f">   20</a></span>&#160;<span class="preprocessor">#define MATH_EPSILON                42E-9</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// TIME DEFINES.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Prefix: TM.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">   28</a></span>&#160;<span class="preprocessor">#define TM_TICKS_PER_SECOND         32</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// VIEW DEFINES.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b">   34</a></span>&#160;<span class="preprocessor">#define VIEW_SCREEN_WIDTH           800</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865">   35</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define VIEW_SCREEN_HEIGHT          600</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8256059bc513e544ba7d94aea0e8c2e0">   21</a></span>&#160;<span class="preprocessor">#define TM_TICKS_PER_SECOND         32</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// VIEW DEFINES.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// Prefix: VIEW.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa3f3ca8978ac625f40759b8c880f341b">   28</a></span>&#160;<span class="preprocessor">#define VIEW_SCREEN_WIDTH           800</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ada9027c28758e93c8e64b2e22f37e865">   29</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define VIEW_SCREEN_HEIGHT          600</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3e75a27e368673e6d288fd24b9e8cd3b">   32</a></span>&#160;<span class="preprocessor">#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f">   35</a></span>&#160;<span class="preprocessor">#define VIEW_CAM_RADIUS             20</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3e75a27e368673e6d288fd24b9e8cd3b">   38</a></span>&#160;<span class="preprocessor">#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9">   38</a></span>&#160;<span class="preprocessor">#define VIEW_CURSOR_RAD             (double) 1</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f">   41</a></span>&#160;<span class="preprocessor">#define VIEW_CAM_RADIUS             20</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9">   44</a></span>&#160;<span class="preprocessor">#define VIEW_CURSOR_RAD             (double) 1</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aaf0cf5657e83af00fc7f4784fadde819">   48</a></span>&#160;<span class="preprocessor">#define VIEW_GRID_SIZE              (double) 4</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aaf0cf5657e83af00fc7f4784fadde819">   42</a></span>&#160;<span class="preprocessor">#define VIEW_GRID_SIZE              (double) 4</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a19f27ea6100802f1f23d78f54dd00120">   45</a></span>&#160;<span class="preprocessor">#define VIEW_TXT_TOP_MARGIN         0.25</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// SIZE DEFINES.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// Prefix: SZ.</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// SIZE DEFINES.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// Prefix: SZ.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a55e2da5f4a0af7e603cf858d88f28f77">   56</a></span>&#160;<span class="preprocessor">#define SZ_HUM_DIAM                 (double) 1</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// TODO: Add sizes for different types of NonHums.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a1a724924e8034fdf27e5928616f50d08">   60</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_NHUM_DIAM                SZ_HUM_DIAM * 0.5</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#afc389381096b3625e20a7a5116ea63a4">   63</a></span>&#160;<span class="preprocessor">#define SZ_WORLD_VSIDE              100 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a113d8e5b968b4f899b27e7647fff9d46">   65</a></span>&#160;<span class="preprocessor">#define SZ_WORLD_HSIDE              100 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a97562c181890e600a888e5e8f716b358">   68</a></span>&#160;<span class="preprocessor">#define SZ_DEFAULT                  SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa70891461f9b116e280b49369ba095c1">   71</a></span>&#160;<span class="preprocessor">#define SZ_REACH_AREA_COEF          1.5</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f">   74</a></span>&#160;<span class="preprocessor">#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3">   76</a></span>&#160;<span class="preprocessor">#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a07348cb586b9d51bade5116a23a93f19">   79</a></span>&#160;<span class="preprocessor">#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span><span class="comment">// TODO: Someday we will need to change this param.</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae3a928147d93d1af99600183361fdf91">   82</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4bb4a5798963edc76911af93fe3ba291">   85</a></span>&#160;<span class="preprocessor">#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span><span class="comment">// TODO: Someday we will need to change this param.</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a740e950101bb317f2e762106401922bb">   88</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a18989a0597eced1f9b6b294081ca9731">   91</a></span>&#160;<span class="preprocessor">#define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab67a78871c04d1f4ae6a0528713d3f9d">   94</a></span>&#160;<span class="preprocessor">#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3ffc83f40da8d867a995fecc0ba3358f">   97</a></span>&#160;<span class="preprocessor">#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">// SHAPE DEFINES.</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// Prefix: SHP.</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af3ce5877f44c73e115ae62b6572e64eb">  105</a></span>&#160;<span class="preprocessor">#define SHP_DEFAULT                 CIRCLE</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a439de12ebf02a921e686c9684dac6a82">  108</a></span>&#160;<span class="preprocessor">#define SHP_HUMANOID                CIRCLE</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad75ca850ec961865320fce34cb8fdd75">  111</a></span>&#160;<span class="preprocessor">#define SHP_NON_HUMANOID            CIRCLE</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0cbf71972f094dcce2c650fca8f684c6">  114</a></span>&#160;<span class="preprocessor">#define SHP_BUILDING                SQUARE</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7ff0bdaea8e1824dc1fad64600786353">  117</a></span>&#160;<span class="preprocessor">#define SHP_WEATHER                 CIRCLE</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4e8e938cacc9500850f3c1a9984c6092">  120</a></span>&#160;<span class="preprocessor">#define SHP_RESOURCE                CIRCLE</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6a92565ff4fe5afad39744fcebeffc87">  123</a></span>&#160;<span class="preprocessor">#define SHP_TOOL                    CIRCLE</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a497eab21ecb46f15068a5072bf48615b">  126</a></span>&#160;<span class="preprocessor">#define SHP_HUM_VIEW_TYPE           CIRCLE</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac42fd289222728b5dd2d79b2816dc39d">  129</a></span>&#160;<span class="preprocessor">#define SHP_NHUM_VIEW_TYPE          CIRCLE</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">// DANGER DEFINES.</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">// Prefix: DNGR.</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4552948917adfd5880be115b8362e37d">  137</a></span>&#160;<span class="preprocessor">#define DNGR_HUMANOID               5</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">// TODO: Different values for different types of NonHumanoid.</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a437400964bf6083fcda93ebd4438f631">  141</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define DNGR_NON_HUMANOID           3</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7e8be08df80294fda5d444e9a1673e76">  144</a></span>&#160;<span class="preprocessor">#define DNGR_RESOURCE               0</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">// TODO: Different values for different types of Weather.</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abb2ef8c72016eeedea67b52ff73af18e">  148</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define DNGR_WEATHER                25</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a55e2da5f4a0af7e603cf858d88f28f77">   53</a></span>&#160;<span class="preprocessor">#define SZ_HUM_DIAM                 (double) 1</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// TODO: Add sizes for different types of NonHums.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0266fbcf9012e1f4fe78465e5fe37dbd">   57</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_NHUM_COW_DIAM            SZ_HUM_DIAM * 0.5</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac2d571b8f08bb60b82af121dbc47eafe">   59</a></span>&#160;<span class="preprocessor">#define SZ_NHUM_DRAGON_DIAM         SZ_HUM_DIAM * 2.5</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#afc389381096b3625e20a7a5116ea63a4">   62</a></span>&#160;<span class="preprocessor">#define SZ_WORLD_VSIDE              100 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a113d8e5b968b4f899b27e7647fff9d46">   64</a></span>&#160;<span class="preprocessor">#define SZ_WORLD_HSIDE              100 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a97562c181890e600a888e5e8f716b358">   67</a></span>&#160;<span class="preprocessor">#define SZ_DEFAULT                  SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa70891461f9b116e280b49369ba095c1">   70</a></span>&#160;<span class="preprocessor">#define SZ_REACH_AREA_COEF          2</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7faad0f033cd75047461cb831eda221f">   73</a></span>&#160;<span class="preprocessor">#define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a01c73f3e690cb0ea645f8cb9154e2da3">   75</a></span>&#160;<span class="preprocessor">#define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a07348cb586b9d51bade5116a23a93f19">   78</a></span>&#160;<span class="preprocessor">#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span><span class="comment">// TODO: Someday we will need to change this param.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae3a928147d93d1af99600183361fdf91">   81</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4bb4a5798963edc76911af93fe3ba291">   84</a></span>&#160;<span class="preprocessor">#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="comment">// TODO: Someday we will need to change this param.</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a740e950101bb317f2e762106401922bb">   87</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a18989a0597eced1f9b6b294081ca9731">   90</a></span>&#160;<span class="preprocessor">#define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab67a78871c04d1f4ae6a0528713d3f9d">   93</a></span>&#160;<span class="preprocessor">#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3ffc83f40da8d867a995fecc0ba3358f">   96</a></span>&#160;<span class="preprocessor">#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">// SHAPE DEFINES.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">// Prefix: SHP.</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af3ce5877f44c73e115ae62b6572e64eb">  104</a></span>&#160;<span class="preprocessor">#define SHP_DEFAULT                 CIRCLE</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a439de12ebf02a921e686c9684dac6a82">  107</a></span>&#160;<span class="preprocessor">#define SHP_HUMANOID                CIRCLE</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3c877e4840e2b424eef72d70205b5f8f">  110</a></span>&#160;<span class="preprocessor">#define SHP_NHUM                    CIRCLE</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0cbf71972f094dcce2c650fca8f684c6">  113</a></span>&#160;<span class="preprocessor">#define SHP_BUILDING                SQUARE</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7ff0bdaea8e1824dc1fad64600786353">  116</a></span>&#160;<span class="preprocessor">#define SHP_WEATHER                 CIRCLE</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4e8e938cacc9500850f3c1a9984c6092">  119</a></span>&#160;<span class="preprocessor">#define SHP_RESOURCE                CIRCLE</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6a92565ff4fe5afad39744fcebeffc87">  122</a></span>&#160;<span class="preprocessor">#define SHP_TOOL                    CIRCLE</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a497eab21ecb46f15068a5072bf48615b">  125</a></span>&#160;<span class="preprocessor">#define SHP_HUM_VIEW_TYPE           CIRCLE</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac42fd289222728b5dd2d79b2816dc39d">  128</a></span>&#160;<span class="preprocessor">#define SHP_NHUM_VIEW_TYPE          CIRCLE</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">// DANGER DEFINES.</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">// Prefix: DNGR.</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4552948917adfd5880be115b8362e37d">  136</a></span>&#160;<span class="preprocessor">#define DNGR_HUMANOID               5</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">// TODO: Different values for different types of NonHumanoid.</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa2e3a37f0fd56b43c79437f3bc36b307">  140</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define DNGR_NHUM_COW               3</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9e3bc1a4ee7f32a3c99cbfdefa1e4be1">  142</a></span>&#160;<span class="preprocessor">#define DNGR_NHUM_DRAGON            10</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7e8be08df80294fda5d444e9a1673e76">  145</a></span>&#160;<span class="preprocessor">#define DNGR_RESOURCE               0</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a13a710ef2e5759d03a74db5b054754c1">  148</a></span>&#160;<span class="preprocessor">#define DNGR_WEATHER_METEOR_SHOWER  25</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a5d1c0525a55a20280f65cd0169439938">  151</a></span>&#160;<span class="preprocessor">#define DNGR_BUILDING               0</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">// WEIGHT DEFINES.</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">// Prefix: WGHT.</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a30fc0cae2a72800432bef5f5a0d7d1bc">  159</a></span>&#160;<span class="preprocessor">#define WGHT_HUMANOID               50</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">// TODO: Different values for different types of NonHumanoid.</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6aa24dc2e0f76c3f11caec73ee916315">  163</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_NON_HUMANOID           30</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">// TODO: Different values for different types of Resource.</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a57fceefa4df45f9704a92e183ab60a54">  167</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_RESOURCE               1</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">// TODO: Different values for different types of Weather.</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac9fdb4886a3b8baf5704df29229f237e">  171</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_WEATHER                1000</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ada5908d153d8f9f6d18ed0df0c95ad13">  150</a></span>&#160;<span class="preprocessor">#define DNGR_WEATHER_RAIN           0</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aba45e86c474acaa2c941bba28fbc1207">  152</a></span>&#160;<span class="preprocessor">#define DNGR_WEATHER_CLOUDS         0</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abc0e5a97c0bedb068be4d6e0f9107dac">  154</a></span>&#160;<span class="preprocessor">#define DNGR_WEATHER_HURRICANE      25</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a5d1c0525a55a20280f65cd0169439938">  157</a></span>&#160;<span class="preprocessor">#define DNGR_BUILDING               0</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">// WEIGHT DEFINES.</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">// Prefix: WGHT.</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a30fc0cae2a72800432bef5f5a0d7d1bc">  165</a></span>&#160;<span class="preprocessor">#define WGHT_HUMANOID               50</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">// TODO: Different values for different types of NonHumanoid.</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2c3fa53f5e3a31dc1147257627ecfe10">  169</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_NHUM_COW               30</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a317d95cde806ad55d6221da3a827c121">  171</a></span>&#160;<span class="preprocessor">#define WGHT_NHUM_DRAGON            5000</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4c28533352078a7a681cf40d741b28d9">  174</a></span>&#160;<span class="preprocessor">#define WGHT_BUILDING               1000</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">// GENERATION DEFINES.</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">// Prefix: GEN.</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a56dbcb2941e4f099ecb28eb26e07d067">  183</a></span>&#160;<span class="preprocessor">#define GEN_TREE_PROB_DECAY         0.1</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad0039d1e56bcf367da4e7c8caf0115f9">  186</a></span>&#160;<span class="preprocessor">#define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">// WEATHER DEFINES.</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">// Prefix: WEAT.</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f">  194</a></span>&#160;<span class="preprocessor">#define WEAT_STEPS_MIN              180 * TM_TICKS_PER_SECOND</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c">  196</a></span>&#160;<span class="preprocessor">#define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">// TODO: Different values for different types of Resource.</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a57fceefa4df45f9704a92e183ab60a54">  175</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_RESOURCE               1</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">// TODO: Different values for different types of Weather.</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac9fdb4886a3b8baf5704df29229f237e">  179</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define WGHT_WEATHER                1000</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4c28533352078a7a681cf40d741b28d9">  182</a></span>&#160;<span class="preprocessor">#define WGHT_BUILDING               1000</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">// SPEED DEFINES.</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">// Prefix: SPD.</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">// Coefficient for calculation of slow speed.</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa18e565ee804a8685f4e8d9cf6b4ed5a">  190</a></span>&#160;<span class="preprocessor">#define SPD_SLOW_SPEED_COEF         1</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">// Coefficient for calculation of fast speed.</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0bf04007df1846513783ca9f11509010">  193</a></span>&#160;<span class="preprocessor">#define SPD_FAST_SPEED_COEF         1.8</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">// Humanoid&#39;s normal speed.</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9a701dd3d40cf8f633cdfe3393976a7f">  196</a></span>&#160;<span class="preprocessor">#define SPD_HUM                     (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">// TOOL DEFINES.</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">// Prefix: TOOL.</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">// These defines describes value of tool&#39;s max strength. They are defined there</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">// for each mine resource type, for list of them look for BasicTypes.h file</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">// (ResourceType enum).</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3a8daf0f2ae33fde98c16ca352c45df5">  207</a></span>&#160;<span class="preprocessor">#define TOOL_STONE_STRENGTH         100</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4163c010f138107c64bb231e31844061">  209</a></span>&#160;<span class="preprocessor">#define TOOL_BRONZE_STRENGTH        200</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0a8c1d8b0b62890248f9b466920d9a1e">  211</a></span>&#160;<span class="preprocessor">#define TOOL_IRON_STRENGTH          400</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00213"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abaeafa25ebe3281253066a4a55a91a3e">  213</a></span>&#160;<span class="preprocessor">#define TOOL_SILVER_STRENGTH        800</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00215"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aac7265b3c052ad36d06e5c96b3692ab3">  215</a></span>&#160;<span class="preprocessor">#define TOOL_GOLD_STRENGTH          1600</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">// Cow&#39;s normal speed.</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac2fb4ba5c0aa602dac06b9481651abc1">  199</a></span>&#160;<span class="preprocessor">#define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">// Dragon&#39;s normal speed.</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4767cabec91360aa3baad853fe8c5274">  202</a></span>&#160;<span class="preprocessor">#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">// TODO: Different values for different weather types?</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a16cfb6d226f8adeb6d661ce10b21cd46">  206</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define SPD_WEATHER                 SPD_NHUM_COW / 2</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">// GENERATION DEFINES.</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">// Prefix: GEN.</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a56dbcb2941e4f099ecb28eb26e07d067">  215</a></span>&#160;<span class="preprocessor">#define GEN_TREE_PROB_DECAY         0.1</span></div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">// RESOURCE DEFINES.</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">// Prefix: RES.</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad0039d1e56bcf367da4e7c8caf0115f9">  218</a></span>&#160;<span class="preprocessor">#define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">// Regeneration rate (amount of world steps to regenerate).</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7478a031a927af3cab6c2e42ce41a7a0">  223</a></span>&#160;<span class="preprocessor">#define RES_REGENERATION_RATE       160</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">// Ranges of amount of resource.</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af9c4bd179c53e34722d9df2153c1e448">  227</a></span>&#160;<span class="preprocessor">#define RES_WOOD_AMOUNT_MIN         10</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a37a1d72164b0057b6e99ad13dc77d6b8">  228</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_WOOD_AMOUNT_MAX         20</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a1a1afbdf66be90927f27340e80c641fc">  230</a></span>&#160;<span class="preprocessor">#define RES_BRONZE_ORE_AMOUNT_MIN   50</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a56d35f6feefa0535f680715f77cc76ae">  231</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BRONZE_ORE_AMOUNT_MAX   60</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00233"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0f3371638e0309f9fcb88897550d30d2">  233</a></span>&#160;<span class="preprocessor">#define RES_IRON_ORE_AMOUNT_MIN     50</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7dc1cba51689a644b5a53e0a78991a61">  234</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_IRON_ORE_AMOUNT_MAX     60</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">// OBJECT DEFINES.</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">// Prefix: OBJ.</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac780ca20b5d9ae8dc411ec41dd697c75">  226</a></span>&#160;<span class="preprocessor">#define OBJ_INFO_INDENT             25</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">// WEATHER DEFINES.</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">// Prefix: WEAT.</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f">  234</a></span>&#160;<span class="preprocessor">#define WEAT_STEPS_MIN              180 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00236"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a58f8baf369a6378084e0f5be1403f29a">  236</a></span>&#160;<span class="preprocessor">#define RES_SILVER_ORE_AMOUNT_MIN   30</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0f888c8c7b30a6d675187e40528d81ce">  237</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_SILVER_ORE_AMOUNT_MAX   40</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a31ec083ce88c5ea72c8bc19011dd572d">  239</a></span>&#160;<span class="preprocessor">#define RES_GOLD_ORE_AMOUNT_MIN     10</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0fef6d98779e9efc5f7e9c60c717c9eb">  240</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_GOLD_ORE_AMOUNT_MAX     20</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">// Amount of resource to regenerate on each regeneration step.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac0e79a9923d76ed46b7632edf2a9c8ac">  244</a></span>&#160;<span class="preprocessor">#define RES_WOOD_REG_AMOUNT         2</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2adf1e0e0bce1e2335362fc93285a3fc">  245</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BRONZE_ORE_REG_AMOUNT   3</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3560cc2347a69ceb8a9dbe545255c304">  246</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_IRON_ORE_REG_AMOUNT     3</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9784224cb7fe9fa102ba251f839f7341">  247</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_SILVER_ORE_REG_AMOUNT   2</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a55b5a88f8c9aa58af063364af12491c6">  248</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_GOLD_ORE_REG_AMOUNT     1</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">// Amount of steps to mine resource.</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a739211e0f2aff3dc8ce0d02c5310b616">  252</a></span>&#160;<span class="preprocessor">#define RES_DEFAULT_DIFFICULTY      1</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9b2d856bcfc775bb4b89e662bfcb87e3">  253</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_WOOD_DIFFICULTY         16</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aba17794c2ca91d58e749e575282d0148">  254</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BRONZE_ORE_DIFFICULTY   32</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a166adcac8a8e2a3bfe46639dc31ffcb0">  255</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_IRON_ORE_DIFFICULTY     48</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4bf81a6d3e30df4433698e886b7a841d">  256</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_SILVER_ORE_DIFFICULTY   64</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a69674a589d59b8b4c0edf5d90d989130">  257</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_GOLD_ORE_DIFFICULTY     80</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">// Ranges of amount of resource what will drop at each mining.</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a14b424b354ab1e772549840c5d56c19a">  261</a></span>&#160;<span class="preprocessor">#define RES_WOOD_DROP_MIN           1</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#acc93a23b208d1387c5728bb8dc8a2713">  262</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_WOOD_DROP_MAX           3</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00264"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a651fe5925d65d3eebae04d9c178278ab">  264</a></span>&#160;<span class="preprocessor">#define RES_BRONZE_ORE_DROP_MIN     10</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad7951e58c83bd55c49774028843bcc0f">  265</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BRONZE_ORE_DROP_MAX     15</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae375b4f0126b4c9c35fd99c1b8339a11">  267</a></span>&#160;<span class="preprocessor">#define RES_IRON_ORE_DROP_MIN       10</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a64258aa1becd6bee228478830f6d8930">  268</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_IRON_ORE_DROP_MAX       15</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a063897933d3035593eefcfcc94727537">  270</a></span>&#160;<span class="preprocessor">#define RES_SILVER_ORE_DROP_MIN     5</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a009c691032a3e32527f92591f6471bfc">  271</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_SILVER_ORE_DROP_MAX     10</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c">  236</a></span>&#160;<span class="preprocessor">#define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2c954fd02b350b309131cf39489b9b58">  239</a></span>&#160;<span class="preprocessor">#define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">// TOOL DEFINES.</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">// Prefix: TOOL.</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">// These defines describes value of tool&#39;s max strength. They are defined there</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">// for each mine resource type, for list of them look for BasicTypes.h file</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">// (ResourceType enum).</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3a8daf0f2ae33fde98c16ca352c45df5">  250</a></span>&#160;<span class="preprocessor">#define TOOL_STONE_STRENGTH         100</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4163c010f138107c64bb231e31844061">  252</a></span>&#160;<span class="preprocessor">#define TOOL_BRONZE_STRENGTH        200</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0a8c1d8b0b62890248f9b466920d9a1e">  254</a></span>&#160;<span class="preprocessor">#define TOOL_IRON_STRENGTH          400</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abaeafa25ebe3281253066a4a55a91a3e">  256</a></span>&#160;<span class="preprocessor">#define TOOL_SILVER_STRENGTH        800</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aac7265b3c052ad36d06e5c96b3692ab3">  258</a></span>&#160;<span class="preprocessor">#define TOOL_GOLD_STRENGTH          1600</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">// RESOURCE DEFINES.</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">// Prefix: RES.</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">// Regeneration rate (amount of world steps to regenerate).</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7478a031a927af3cab6c2e42ce41a7a0">  266</a></span>&#160;<span class="preprocessor">#define RES_REGENERATION_RATE       160</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">// Ranges of amount of resource.</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad4c61915dfcf47eaa85ca2e18e59e57b">  270</a></span>&#160;<span class="preprocessor">#define RES_TREE_AMOUNT_MIN         10</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa571502ec90c1352efa83419fb3662be">  271</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_TREE_AMOUNT_MAX         20</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac4b35036432fee9af635eb8d318a957d">  273</a></span>&#160;<span class="preprocessor">#define RES_GOLD_ORE_DROP_MIN       3</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9355b666c9a8b881538aee9ed31da597">  274</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_GOLD_ORE_DROP_MAX       8</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a192fcbd7c5db87c625cba2aee5097d04">  273</a></span>&#160;<span class="preprocessor">#define RES_GRASS_AMOUNT_MIN        30</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad3df787cbe013ce91d9a719fc219fdab">  274</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_GRASS_AMOUNT_MAX        50</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">// Food values</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3d2b19438c485c5091277a689896e7a2">  277</a></span>&#160;<span class="preprocessor">#define RES_GRASS_FOOD_VALUE        1</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67">  278</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BERRIES_FOOD_VALUE      2</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">// BUILDING DEFINES</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">// Prefix: BLD.</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">// Range for building max health.</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab82b72baf62bb5c404a3bb0a1d7681f5">  286</a></span>&#160;<span class="preprocessor">#define BLD_MAX_HEALTH_MIN          100</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#afc9e5f7e6415aa2977649e646e15079f">  287</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BLD_MAX_HEALTH_MAX          150</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">// Range for building max space.</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a65ff048cfd19ec70a287f434acbcd0e5">  290</a></span>&#160;<span class="preprocessor">#define BLD_MAX_SPACE_MIN           100</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#adf951f3c00529f0c6d72082a33366b1c">  291</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BLD_MAX_SPACE_MAX           150</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">// DAMAGE DEFINES</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">// Prefix: DMG.</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a193b30585bff9043a2903d441906a4e1">  298</a></span>&#160;<span class="preprocessor">#define DMG_PER_HIT_MIN             1</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4137f96d772bd1553ba3f6d9d0df831d">  299</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DMG_PER_HIT_MAX             10</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">// DECISION MAKER DEFINES.</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">// Prefix: DM.</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af632a4b398cfb78799deeb6d2c7f07d6">  306</a></span>&#160;<span class="preprocessor">#define DM_ATR_CONST                9</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa49defee0bd0fa1193d67f47b4319b9e">  307</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_ACT_CONST                9</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af08b7bd368983913d6c2f61c209a5dd2">  308</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_PATH_TO_HUM_MATRIX       &quot;res/humanoid_decision_matrix.txt&quot;</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a042033d138c03e6e2d67a305227e102b">  309</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_PATH_TO_NHUM_MATRIX      &quot;res/non_humanoid_decision_matrix.txt&quot;</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a734ac16f7820e768261055dac04b67ef">  276</a></span>&#160;<span class="preprocessor">#define RES_BERRIES_AMOUNT_MIN      20</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae27a45ebbc70845cfe7bd6f60fdd8057">  277</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BERRIES_AMOUNT_MAX      40</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aeb5999dd5fe635faa65fefc1ce1cb8ce">  279</a></span>&#160;<span class="preprocessor">#define RES_MEAT_AMOUNT_MIN         15</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a9601bb7e48ec2af2f98309ce5756c432">  280</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_MEAT_AMOUNT_MAX         25</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">// Amount of resource to regenerate on each regeneration step.</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa0c19db54106ce4a2c35074ea0aede85">  284</a></span>&#160;<span class="preprocessor">#define RES_TREE_REG_AMOUNT         2</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">// Amount of steps to mine resource.</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a739211e0f2aff3dc8ce0d02c5310b616">  288</a></span>&#160;<span class="preprocessor">#define RES_DEFAULT_DIFFICULTY      1</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aab3aa4632e4b280a356ae959abf23ae4">  289</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_TREE_DIFFICULTY         16</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">// Ranges of amount of resource what will drop at each mining.</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4a610140538fa287165a9f374522bd58">  293</a></span>&#160;<span class="preprocessor">#define RES_TREE_DROP_MIN           1</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6fc5102ff4c17190b74bd2403604aa43">  294</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_TREE_DROP_MAX           3</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">// Food values</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3d2b19438c485c5091277a689896e7a2">  297</a></span>&#160;<span class="preprocessor">#define RES_GRASS_FOOD_VALUE        1</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67">  298</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_BERRIES_FOOD_VALUE      2</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abc2e67665f288df27a35237696d83a7e">  299</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_MEAT_FOOD_VALUE         5</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a01b8663f65f62832ecdb9ed56aab86e6">  300</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RES_FOOD_VALUE              3</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">// BUILDING DEFINES</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">// Prefix: BLD.</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">// Range for building max health.</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab82b72baf62bb5c404a3bb0a1d7681f5">  308</a></span>&#160;<span class="preprocessor">#define BLD_MAX_HEALTH_MIN          100</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#afc9e5f7e6415aa2977649e646e15079f">  309</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BLD_MAX_HEALTH_MAX          150</span></div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">// CREATURE DEFINES.</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">// Prefix: CREAT.</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [CREAT_*_MIN, CREAT_*_MAX].</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136">  319</a></span>&#160;<span class="preprocessor">#define CREAT_HEALTH_MIN            50</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00321"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911">  321</a></span>&#160;<span class="preprocessor">#define CREAT_HEALTH_MAX            100</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">// Range for building max space.</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a65ff048cfd19ec70a287f434acbcd0e5">  312</a></span>&#160;<span class="preprocessor">#define BLD_MAX_SPACE_MIN           100</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#adf951f3c00529f0c6d72082a33366b1c">  313</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BLD_MAX_SPACE_MAX           150</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">// DAMAGE DEFINES</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">// Prefix: DMG.</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0b5a75e8e0439081845e3e8d20c3ec15">  320</a></span>&#160;<span class="preprocessor">#define DMG_FORCE_MIN               1</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4cad781983a3ca6871fdfe3020d29d3a">  321</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DMG_FORCE_MAX               10</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00324"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2febbdb621d916da4f70da09cfcabb3e">  324</a></span>&#160;<span class="preprocessor">#define CREAT_ENDURANCE_MIN         50</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a665bd7caf93b1a1daf6284c2c3876363">  323</a></span>&#160;<span class="preprocessor">#define DMG_DANGER_MIN              1</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab9f164b9f10b738a925b0a3cd1a77383">  324</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DMG_DANGER_MAX              10</span></div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00326"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a946239c56de2ebb36fdad94e0c8f0199">  326</a></span>&#160;<span class="preprocessor">#define CREAT_ENDURANCE_MAX         100</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00329"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8">  329</a></span>&#160;<span class="preprocessor">#define CREAT_HUNGER_MIN            50</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00331"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef">  331</a></span>&#160;<span class="preprocessor">#define CREAT_HUNGER_MAX            100</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00334"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25">  334</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEPINESS_MIN        50</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">// DECISION MAKER DEFINES.</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">// Prefix: DM.</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af632a4b398cfb78799deeb6d2c7f07d6">  331</a></span>&#160;<span class="preprocessor">#define DM_ATR_CONST                9</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa49defee0bd0fa1193d67f47b4319b9e">  332</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_ACT_CONST                9</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af08b7bd368983913d6c2f61c209a5dd2">  333</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_PATH_TO_HUM_MATRIX       &quot;res/humanoid_decision_matrix.txt&quot;</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a042033d138c03e6e2d67a305227e102b">  334</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DM_PATH_TO_NHUM_MATRIX      &quot;res/non_humanoid_decision_matrix.txt&quot;</span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00336"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77">  336</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEPINESS_MAX        100</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00339"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a55624cce545d3c3b88dcaeaba16b1a20">  339</a></span>&#160;<span class="preprocessor">#define CREAT_FORCE_MIN             0</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00341"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad804f4251c09753d8fb5b9f70492b12a">  341</a></span>&#160;<span class="preprocessor">#define CREAT_FORCE_MAX             100</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00344"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273">  344</a></span>&#160;<span class="preprocessor">#define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">// CREATURE DEFINES.</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">// Prefix: CREAT.</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [CREAT_*_MIN, CREAT_*_MAX].</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a4cea802c9227116f08ea1d5d88fa9136">  344</a></span>&#160;<span class="preprocessor">#define CREAT_HEALTH_MIN            50</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00346"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a09085d90f379cafadaaa479336273d9b">  346</a></span>&#160;<span class="preprocessor">#define CREAT_DANGER_STEPS          1 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af7204ee659b0e8e16921a3cc77080911">  346</a></span>&#160;<span class="preprocessor">#define CREAT_HEALTH_MAX            100</span></div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00348"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a00bc71bbe32c141390ea61a51920a5e8">  348</a></span>&#160;<span class="preprocessor">#define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00350"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d">  350</a></span>&#160;<span class="preprocessor">#define CREAT_AGE_STEPS             500 * TM_TICKS_PER_SECOND</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00353"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc">  353</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_HUNGER          2</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00355"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa5c6b911a547b09ed02c49469b907dad">  355</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_SLEEP           1</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00358"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3c19f06dc3277124c2e4113704c79bef">  358</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_HEALTH          1</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00361"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac6dbd9f9e8cf0073a4b028ff5721a981">  361</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_ENDUR          1</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2febbdb621d916da4f70da09cfcabb3e">  349</a></span>&#160;<span class="preprocessor">#define CREAT_ENDURANCE_MIN         50</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a946239c56de2ebb36fdad94e0c8f0199">  351</a></span>&#160;<span class="preprocessor">#define CREAT_ENDURANCE_MAX         100</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00354"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a991f20489d51d6d778bc0b224ed6bff8">  354</a></span>&#160;<span class="preprocessor">#define CREAT_HUNGER_MIN            50</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab08de69be685419f52652972e5da9aef">  356</a></span>&#160;<span class="preprocessor">#define CREAT_HUNGER_MAX            100</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25">  359</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEPINESS_MIN        50</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00361"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77">  361</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEPINESS_MAX        100</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00364"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8290214020f59371b797b23f06e03769">  364</a></span>&#160;<span class="preprocessor">#define CREAT_CRIT_CONST            20</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a55624cce545d3c3b88dcaeaba16b1a20">  364</a></span>&#160;<span class="preprocessor">#define CREAT_FORCE_MIN             0</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00367"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8c1f6db13c55c6472864e3ad214bd346">  367</a></span>&#160;<span class="preprocessor">#define CREAT_SPEED_FAST_VALUE      (SZ_HUM_DIAM * 9 / TM_TICKS_PER_SECOND)</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00370"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#accf4fc5c9f279394d37aa8c9becd3ef6">  370</a></span>&#160;<span class="preprocessor">#define CREAT_SPEED_SLOW_VALUE      (SZ_HUM_DIAM * 5 / TM_TICKS_PER_SECOND)</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a713d02e8ffe317722267fc070425de0f">  373</a></span>&#160;<span class="preprocessor">#define CREAT_DANGER_FACTOR         1</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad804f4251c09753d8fb5b9f70492b12a">  366</a></span>&#160;<span class="preprocessor">#define CREAT_FORCE_MAX             100</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273">  369</a></span>&#160;<span class="preprocessor">#define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00371"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a09085d90f379cafadaaa479336273d9b">  371</a></span>&#160;<span class="preprocessor">#define CREAT_DANGER_STEPS          TM_TICKS_PER_SECOND / 2</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00373"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7817c1c05d290b8fadf1ebf88268d970">  373</a></span>&#160;<span class="preprocessor">#define CREAT_REGEN_HEALTH_STEPS    30 * TM_TICKS_PER_SECOND</span></div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">// CREATURES ATTRIBUTES DEFINES.</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">// Prefix: ATTR.</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6792239a974aedf05d810ffea55e7ffb">  381</a></span>&#160;<span class="preprocessor">#define ATTR_HUNGER                 0</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00383"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a87356b10e29cc79f14b5974805160498">  383</a></span>&#160;<span class="preprocessor">#define ATTR_SLEEPINESS             1</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00385"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2688453e754d003a8b18f2c133cff4e8">  385</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_HOUSE          2</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00387"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af498eec4e8099318603f54cced85c90e">  387</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_POINTS         3</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab71ee328934f300c8d2e66238392259c">  375</a></span>&#160;<span class="preprocessor">#define CREAT_REGEN_ENDURANCE_STEPS 5  * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00377"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a00bc71bbe32c141390ea61a51920a5e8">  377</a></span>&#160;<span class="preprocessor">#define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00379"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a21985a739dd1686da8b6e7c2b175782d">  379</a></span>&#160;<span class="preprocessor">#define CREAT_AGE_STEPS             500 * TM_TICKS_PER_SECOND</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00382"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a46da502c39bfa044f9d8ce37a68c320d">  382</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEP_REGEN_HEALTH    9</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00384"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad029718f62f714762a9fb23cb06e5054">  384</a></span>&#160;<span class="preprocessor">#define CREAT_SLEEP_REGEN_ENDURANCE 4</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aeaa87b70aa7474c1351584ca2562ec34">  387</a></span>&#160;<span class="preprocessor">#define CREAT_RELAX_REGEN_HEALTH    2</span></div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00389"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a57ce9223fff87a9e67ec7fc2419f220e">  389</a></span>&#160;<span class="preprocessor">#define ATTR_LAZINESS               4</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aeca31b62f97cac51f078e5d8e403d1b4">  389</a></span>&#160;<span class="preprocessor">#define CREAT_RELAX_REGEN_ENDURANCE 2</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00391"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abb264af405757854a8bfd5f46c72a439">  391</a></span>&#160;<span class="preprocessor">#define ATTR_HEALTH                 5</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00393"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a620518d9fbfa230e95531a1668cc2f5b">  393</a></span>&#160;<span class="preprocessor">#define ATTR_COMMUNICATION          6</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00395"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a06fc1dff9dd60517f2299fd827afab82">  395</a></span>&#160;<span class="preprocessor">#define ATTR_DANGER                 7</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00397"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a67c339fc96f0c6ac94da72de9589df50">  397</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_DESC           8</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a408cea66b8f0d8bbd45bc8c49560b4fc">  392</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_HUNGER          2</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa5c6b911a547b09ed02c49469b907dad">  394</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_SLEEP           1</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00397"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a3c19f06dc3277124c2e4113704c79bef">  397</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_HEALTH          1</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">// HUMANOID&#39;S DEFINES.</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">// Prefix: HUM.</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a5c99ab2c218ed4f7bd5da5c886a8aa23">  407</a></span>&#160;<span class="preprocessor">#define HUM_AGE_MIN                 40</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00409"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad359afc245a54a12c3bd5f6e21fb02ff">  409</a></span>&#160;<span class="preprocessor">#define HUM_AGE_MAX                 50</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac6dbd9f9e8cf0073a4b028ff5721a981">  400</a></span>&#160;<span class="preprocessor">#define CREAT_DELTA_ENDUR           1</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00403"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8290214020f59371b797b23f06e03769">  403</a></span>&#160;<span class="preprocessor">#define CREAT_CRIT_CONST            40</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a713d02e8ffe317722267fc070425de0f">  406</a></span>&#160;<span class="preprocessor">#define CREAT_DANGER_FACTOR             2</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00409"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8655311616104d9d4e2c47b6db75fadf">  409</a></span>&#160;<span class="preprocessor">#define CREAT_DANGER_IMMOVABLE_FACTOR   20</span></div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00412"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2dfaccd90b2268af80502c34a3c09f01">  412</a></span>&#160;<span class="preprocessor">#define HUM_SOCIABILITY_MIN         0</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ab1c2c063a629a4cee3ad4129e43c8803">  412</a></span>&#160;<span class="preprocessor">#define CREAT_RUSH_DISTANCE             4</span></div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00414"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0621c18a2f7e2e95bf88dd9a71b5c9e1">  414</a></span>&#160;<span class="preprocessor">#define HUM_SOCIABILITY_MAX         100</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00417"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae4dae16022edea3371890f3a7618ab19">  417</a></span>&#160;<span class="preprocessor">#define HUM_LAZINESS_MIN            0</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00419"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa1693ea6bb0f7496bc5d9d5be356097e">  419</a></span>&#160;<span class="preprocessor">#define HUM_LAZINESS_MAX            100</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a651508aca44e0c7a48ef70210219f156">  422</a></span>&#160;<span class="preprocessor">#define HUM_BRAVERY_MIN             0</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">// CREATURES ATTRIBUTES DEFINES.</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">// Prefix: ATTR.</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00420"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a6792239a974aedf05d810ffea55e7ffb">  420</a></span>&#160;<span class="preprocessor">#define ATTR_HUNGER                 0</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a87356b10e29cc79f14b5974805160498">  422</a></span>&#160;<span class="preprocessor">#define ATTR_SLEEPINESS             1</span></div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af296789b92124b78cdaaf0c5f6f39fca">  424</a></span>&#160;<span class="preprocessor">#define HUM_BRAVERY_MAX             100</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2688453e754d003a8b18f2c133cff4e8">  424</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_HOUSE          2</span></div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00427"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a26309d03a95878b003e386e0a527662f">  427</a></span>&#160;<span class="preprocessor">#define HUM_DELTA_NEED_IN_DESC      1</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aff9c53c4e09e86da8900ab3c8540c889">  429</a></span>&#160;<span class="preprocessor">#define HUM_DELTA_SOC               1</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00431"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#acbbc012167d619037d7352434cf0b663">  431</a></span>&#160;<span class="preprocessor">#define HUM_DECR_SLEEP_STEPS        150</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00433"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8ec5920acc2eae18930a70379718bd82">  433</a></span>&#160;<span class="preprocessor">#define HUM_DECR_ENDUR_STEPS        100</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">// NONHUMANOID&#39;S DEFINES.</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">// Prefix: NHUM.</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af498eec4e8099318603f54cced85c90e">  426</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_POINTS         3</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00428"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a57ce9223fff87a9e67ec7fc2419f220e">  428</a></span>&#160;<span class="preprocessor">#define ATTR_LAZINESS               4</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00430"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#abb264af405757854a8bfd5f46c72a439">  430</a></span>&#160;<span class="preprocessor">#define ATTR_HEALTH                 5</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00432"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a620518d9fbfa230e95531a1668cc2f5b">  432</a></span>&#160;<span class="preprocessor">#define ATTR_COMMUNICATION          6</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00434"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a06fc1dff9dd60517f2299fd827afab82">  434</a></span>&#160;<span class="preprocessor">#define ATTR_DANGER                 7</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a67c339fc96f0c6ac94da72de9589df50">  436</a></span>&#160;<span class="preprocessor">#define ATTR_NEED_IN_DESC           8</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">//******************************************************************************</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [NHUM_*_MIN, NHUM_*_MAX].</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
-<div class="line"><a name="l00443"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a88cd210a7773c8a70c821d1cb37d0f85">  443</a></span>&#160;<span class="preprocessor">#define NHUM_AGE_MIN                10</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00445"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac162f9c5b51e9371df47c6bfd88c3419">  445</a></span>&#160;<span class="preprocessor">#define NHUM_AGE_MAX                20</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00448"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae8e5ec5ac050c79a88f1926b46e9c9f0">  448</a></span>&#160;<span class="preprocessor">#define NHUM_DELTA_NEED_IN_DESC     2</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">// HUMANOID&#39;S DEFINES.</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">// Prefix: HUM.</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [HUM_*_MIN, HUM_*_MAX].</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a5c99ab2c218ed4f7bd5da5c886a8aa23">  446</a></span>&#160;<span class="preprocessor">#define HUM_AGE_MIN                 40</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad359afc245a54a12c3bd5f6e21fb02ff">  448</a></span>&#160;<span class="preprocessor">#define HUM_AGE_MAX                 50</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00451"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8c2ebfee37c5a80508c2b55b714b2702">  451</a></span>&#160;<span class="preprocessor">#define NHUM_DECR_SLEEP_STEPS       100</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a2dfaccd90b2268af80502c34a3c09f01">  451</a></span>&#160;<span class="preprocessor">#define HUM_SOCIABILITY_MIN         0</span></div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="preprocessor">#endif // BASIC_DEFINES_H</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0621c18a2f7e2e95bf88dd9a71b5c9e1">  453</a></span>&#160;<span class="preprocessor">#define HUM_SOCIABILITY_MAX         100</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00456"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae4dae16022edea3371890f3a7618ab19">  456</a></span>&#160;<span class="preprocessor">#define HUM_LAZINESS_MIN            0</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00458"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aa1693ea6bb0f7496bc5d9d5be356097e">  458</a></span>&#160;<span class="preprocessor">#define HUM_LAZINESS_MAX            100</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00461"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a651508aca44e0c7a48ef70210219f156">  461</a></span>&#160;<span class="preprocessor">#define HUM_BRAVERY_MIN             0</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#af296789b92124b78cdaaf0c5f6f39fca">  463</a></span>&#160;<span class="preprocessor">#define HUM_BRAVERY_MAX             100</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00466"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a26309d03a95878b003e386e0a527662f">  466</a></span>&#160;<span class="preprocessor">#define HUM_DELTA_NEED_IN_DESC      1</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00468"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#aff9c53c4e09e86da8900ab3c8540c889">  468</a></span>&#160;<span class="preprocessor">#define HUM_DELTA_SOC               1</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00470"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#acbbc012167d619037d7352434cf0b663">  470</a></span>&#160;<span class="preprocessor">#define HUM_DECR_SLEEP_STEPS        150</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8ec5920acc2eae18930a70379718bd82">  472</a></span>&#160;<span class="preprocessor">#define HUM_DECR_ENDUR_STEPS        100</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00475"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a7acff5e08663b4e5031e335efe529fda">  475</a></span>&#160;<span class="preprocessor">#define HUM_CRIT_SPACE              2</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">// NONHUMANOID&#39;S DEFINES.</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">// Prefix: NHUM.</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">// Values of these coeffiecients should lay in range [NHUM_*_MIN, NHUM_*_MAX].</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
+<div class="line"><a name="l00485"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a88cd210a7773c8a70c821d1cb37d0f85">  485</a></span>&#160;<span class="preprocessor">#define NHUM_AGE_MIN                10</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00487"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ac162f9c5b51e9371df47c6bfd88c3419">  487</a></span>&#160;<span class="preprocessor">#define NHUM_AGE_MAX                20</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00490"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ae8e5ec5ac050c79a88f1926b46e9c9f0">  490</a></span>&#160;<span class="preprocessor">#define NHUM_DELTA_NEED_IN_DESC     2</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00493"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a8c2ebfee37c5a80508c2b55b714b2702">  493</a></span>&#160;<span class="preprocessor">#define NHUM_DECR_SLEEP_STEPS       100</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00496"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#ad0e8d99dd1c0f4ee706f45083e43b91e">  496</a></span>&#160;<span class="preprocessor">#define NHUM_ROAM_STEPS             300</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">// REGENERATION&#39;S DEFINES.</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">// Prefix: REG.</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">//******************************************************************************</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;</div>
+<div class="line"><a name="l00504"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a5e363dee5fc8f8efdc69c211d56e9eb1">  504</a></span>&#160;<span class="preprocessor">#define REG_BUILDING_COEF           10</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00507"></a><span class="lineno"><a class="code" href="BasicDefines_8h.html#a0998df16c9326b5b5405a59ae5fbe8ae">  507</a></span>&#160;<span class="preprocessor">#define REG_RES_COEF                10</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="preprocessor">#endif // BASIC_DEFINES_H</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="BasicDefines_8h.html">BasicDefines.h</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calculatenecessresamount',['calculateNecessResAmount',['../classHumanoid.html#a7e780f685a2fef72d6d52f5c99cb4754',1,'Humanoid']]],
   ['change',['change',['../classCLI.html#ab51776ef158afc60e1741539a765c1b8',1,'CLI']]],
   ['checkcoord',['checkCoord',['../classCreationPerformer.html#a8a08de8178403f1e9da9130b9b809d38',1,'CreationPerformer::checkCoord()'],['../classWorld.html#a4d736ad16f50d363d9f961e9fb5360a0',1,'World::checkCoord()']]],
   ['checkpointispassable',['checkPointIsPassable',['../classCreature.html#a861d0d434ea480780f539f8b7456db17',1,'Creature']]],
@@ -10,12 +11,13 @@ var searchData=
   ['choosewaytoescape',['chooseWayToEscape',['../classHumanoid.html#aa4ee8fe3d8afddf2fee0e2340e1e77d5',1,'Humanoid']]],
   ['choosewaytorelax',['chooseWayToRelax',['../classHumanoid.html#a373392cef6b0ad0bda88f3e9ff86035a',1,'Humanoid']]],
   ['choosewaytosleep',['chooseWayToSleep',['../classHumanoid.html#aff87057312083b40e6cd7b1a8068c95c',1,'Humanoid']]],
-  ['circleoverlapssegment',['circleOverlapsSegment',['../classShape.html#a07822d0d32b1438b5809e9fd8895d434',1,'Shape']]],
+  ['cleaninventory',['cleanInventory',['../classHumanoid.html#a487850a1704218b8b553d3bf561d5231',1,'Humanoid']]],
   ['clear',['clear',['../classParamArray.html#a3a6f77df7533ee30728f104c233abd81',1,'ParamArray::clear()'],['../classObjectHeap.html#a1ac8d0ee71d6100e7253af23f1d9bb5a',1,'ObjectHeap::clear()']]],
   ['clearactions',['clearActions',['../classCreature.html#a3426a803526afc49d10f21836c393ea3',1,'Creature']]],
+  ['clearselection',['clearSelection',['../classViewWorld.html#a1337370e8fed452ee49d99d11d9957ae',1,'ViewWorld']]],
   ['cli',['CLI',['../classCLI.html#afe714763a78641628a718b11db90dc35',1,'CLI']]],
   ['computecorners',['computeCorners',['../classShape.html#a00dddc04a0aa67a1b55051a30706570b',1,'Shape']]],
-  ['const_5fiterator',['const_iterator',['../classObjectHeap_1_1const__iterator.html#a74471f2fed40f8aa9e47b1e2a5d11801',1,'ObjectHeap::const_iterator::const_iterator(std::map&lt; int, Object * &gt;::const_iterator it)'],['../classObjectHeap_1_1const__iterator.html#abf3b9be7202b74b0a0b67e1d214ae278',1,'ObjectHeap::const_iterator::const_iterator()'],['../classObjectHeap_1_1const__iterator.html#a3fe450d2a519751baaf84ca986329dab',1,'ObjectHeap::const_iterator::const_iterator(iterator it)']]],
+  ['const_5fiterator',['const_iterator',['../classObjectHeap_1_1const__iterator.html#a9ee6404f240bc511c1e137944c494e5a',1,'ObjectHeap::const_iterator::const_iterator(std::map&lt; uint, Object * &gt;::const_iterator it)'],['../classObjectHeap_1_1const__iterator.html#abf3b9be7202b74b0a0b67e1d214ae278',1,'ObjectHeap::const_iterator::const_iterator()'],['../classObjectHeap_1_1const__iterator.html#a3fe450d2a519751baaf84ca986329dab',1,'ObjectHeap::const_iterator::const_iterator(iterator it)']]],
   ['continues',['continues',['../classView.html#a4efadcdfb36125ba4dcb3ef6627d5ecd',1,'View']]],
   ['controller',['Controller',['../classController.html#a9cc164fbf96bbbd6bc44105824325f8e',1,'Controller']]],
   ['create',['create',['../classCLI.html#ab29d074ca7680f68b2bcc70954107bb4',1,'CLI']]],
@@ -25,7 +27,7 @@ var searchData=
   ['createobject',['createObject',['../classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0',1,'ObjectFactory']]],
   ['createresource',['createResource',['../classObjectFactory.html#a59a5a2cd7bba2aad1d6b560dbcb06e53',1,'ObjectFactory']]],
   ['createtool',['createTool',['../classCreationPerformer.html#aa4f716ce1b5f25cdd6102411c30cc327',1,'CreationPerformer::createTool()'],['../classObjectFactory.html#ad3060544678e76dc736c701ae4ef476a',1,'ObjectFactory::createTool()']]],
-  ['createweather',['createWeather',['../classObjectFactory.html#adf0293dda53e1ad74fe517d9f1bf0f5d',1,'ObjectFactory']]],
+  ['createweather',['createWeather',['../classCreationPerformer.html#a98de4d181cc1168f0603468461c446b3',1,'CreationPerformer::createWeather()'],['../classObjectFactory.html#adf0293dda53e1ad74fe517d9f1bf0f5d',1,'ObjectFactory::createWeather()']]],
   ['creationperformer',['CreationPerformer',['../classCreationPerformer.html#a9a4c05a741464b60f2f6dc69c03c9070',1,'CreationPerformer']]],
   ['creature',['Creature',['../classCreature.html#a2b8a9dd1201d1142d4b634a9b6d8dfa9',1,'Creature']]]
 ];

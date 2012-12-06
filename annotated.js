@@ -44,6 +44,7 @@ var annotated =
     [ "VertexComp", "structVertexComp.html", "structVertexComp" ],
     [ "View", "classView.html", "classView" ],
     [ "ViewObject", "classViewObject.html", "classViewObject" ],
+    [ "ViewTexture", "classViewTexture.html", "classViewTexture" ],
     [ "ViewUtilities", "classViewUtilities.html", "classViewUtilities" ],
     [ "ViewWorld", "classViewWorld.html", "classViewWorld" ],
     [ "Weather", "classWeather.html", "classWeather" ],

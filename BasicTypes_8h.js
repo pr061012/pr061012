@@ -9,24 +9,32 @@ var BasicTypes_8h =
     [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
     [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
       [ "NO_ERROR", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abf350750d0d4fabd8954c0f1e9bbae94", null ],
+      [ "INCORRECT_INDEX", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a49dca28091c437561ce194ec6f129d71", null ],
       [ "NO_PLACE_TO_PLACE_OBJ_ON", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a40a4e5e02ce5a199f79c87cec69c2e4b", null ],
       [ "OBJ_IS_OUT_OF_RANGE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aae5e8a11c0e323ca771a6430b8d36f32", null ],
       [ "OBJ_IS_OUT_OF_VIEW", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a7df0f4d3180b0e502cd989b1712893fb", null ],
+      [ "OBJ_IS_OUT_OF_WORLD_BOUNDS", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae636841785f13a08bfcfc657109472df", null ],
       [ "OBJ_IS_IMMORTAL", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a377109c095e9b4290095cfa1b4865bf8", null ],
-      [ "OBJ_IS_NOT_REPAIRABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a874ceebc7bb9861356e34c5bb1f411af", null ],
+      [ "OBJ_IS_NOT_MOVABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7aa6288f8f48ee5ec89e7435160b198a5f", null ],
+      [ "OBJ_IS_NOT_REGENERABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abbf9da02803c283cc088561a261461b8", null ],
       [ "OBJ_IS_NOT_MINEABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a10d47f9cc859334f3438fed9815561cf", null ],
       [ "OBJ_IS_NOT_CREATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a771384e51d7308ede9febd5c755825b2", null ],
       [ "OBJ_IS_NOT_PICKABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a569f06c27bbbad0dbb2f2d8e09f52272", null ],
-      [ "OBJ_IS_NOT_MOVEABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae3744f552cc73ce7d58f0fb4cee340c1", null ],
+      [ "OBJ_IS_NOT_IN_HEAP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a48de155833d9c3eb81bf4d611ac56d7b", null ],
+      [ "OBJ_IS_NOT_EATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c", null ],
       [ "OBJ_IS_STUCK", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a798ddd35bc4a60744b2a5165152190", null ],
       [ "OBJ_CANT_PICKUP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a66b874d1b01b66d7d474a9ddbab2d351", null ],
       [ "OBJ_CANT_DROP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a68af6b0a67aeb3e44a232a4ac717e74d", null ],
-      [ "OBJ_IS_NOT_IN_HEAP", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a48de155833d9c3eb81bf4d611ac56d7b", null ],
       [ "OBJ_CANT_EAT", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a778230853f028eb35816d2f13af0e477", null ],
       [ "OBJ_CANT_HARM", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a162a63e61e4c9ccebe466f50bc6041d4", null ],
       [ "OBJ_CANT_CREATE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7af5807eaef670512d92af8b5db39c5054", null ],
+      [ "OBJ_CANT_MINE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ac57b1f3cb5218375aa7643c34f453a21", null ],
+      [ "OBJ_CANT_MOVE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a8bb0d925b1c9d0ed04105b52425b122c", null ],
+      [ "OBJ_CANT_REGENERATE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a66167871bc4ffcd835f2983ac7aa5e87", null ],
+      [ "OBJ_CAN_REGENERATE_ONLY_ITSELF", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a086cbe5f792a89fe72e68bf897123d2e", null ],
+      [ "NOT_ENOUGH_INGREDIENTS", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a17cb1fc4e39e72cc55c82e235400b258", null ],
+      [ "NOT_ENOUGH_FREE_SPACE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae2a19abd177cbbd1de6ae3e9348a81c3", null ],
       [ "TOO_MANY_PARTICIPANTS", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a64c517d0b3e51db2d35fbb919d25280c", null ],
-      [ "OBJ_IS_NOT_EATABLE", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a3a1c5ab3ba9944b4c8eefa831120578c", null ],
       [ "ALL_OBJS_ARE_OUT_OF_REACH", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae11568d7462098ecf0529d291f3aa140", null ],
       [ "SOME_OBJS_ARE_OUT_OF_REACH", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ab7b876badf23f59c94033e580a28964b", null ]
     ] ],
@@ -84,10 +92,8 @@ var BasicTypes_8h =
     ] ],
     [ "NonHumanoidType", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ec", [
       [ "COW", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca48505ba252c1ec37e34d882e6f4a3ecf", null ],
-      [ "BEAR", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca2c8e784be44eaf71fd77dae142f27b42", null ],
-      [ "DRAGON", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca715823e7de6bbbbdd0de7fe00a9c05d6", null ],
-      [ "GOOSE", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ecae713141236cb4eb93c146cedc1925f8c", null ],
-      [ "SHEEP", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70ecad83915beec9329d34ab91824344a492c", null ]
+      [ "COW_DEMON", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca08e8e761112cc9d35f7b17c2e97fc77e", null ],
+      [ "DRAGON", "BasicTypes_8h.html#a0b4282769c07ef55a3c2981bd98c70eca715823e7de6bbbbdd0de7fe00a9c05d6", null ]
     ] ],
     [ "ObjectType", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980", [
       [ "RESOURCE", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4", null ],
@@ -97,21 +103,10 @@ var BasicTypes_8h =
       [ "CREATURE", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8", null ]
     ] ],
     [ "ResourceType", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1", [
-      [ "RES_FOOD", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ac06c5bb4e50101a840021de18f45a33b", null ],
-      [ "RES_BUILDING_MAT", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a12a6d94d9800703a3be48933214788b1", null ],
-      [ "BRONZE_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1abe053ca4db96cfdbded902334df28830", null ],
-      [ "IRON_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ae2a29c21bf073b3e0f86632fce0bf1b5", null ],
-      [ "SILVER_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a4596d1575691d15d37118873e34160cf", null ],
-      [ "GOLD_ORE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0227e9e293b26a3f0d57cc231155acf1", null ],
-      [ "WOOD", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a633a5aa6913d52cbd31286e8934e8df0", null ],
-      [ "BRONZE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1ad983993c64c637c2a38b49dfb94048b3", null ],
-      [ "IRON", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a1c1fdce1593af16402fd482beb1e1497", null ],
-      [ "SILVER", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a6c87736f9fe31c8d2650db184cb2097f", null ],
-      [ "GOLD", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1aa7790837e9c1f7cb78b55743b9a67623", null ],
-      [ "COAL", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a7b33cec24386ace3dac71e0b351677ac", null ],
+      [ "GRASS", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa", null ],
       [ "BERRIES", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444", null ],
-      [ "STONE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a0fca859752b1db047acd56aca4021d2d", null ],
-      [ "GRASS", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa", null ]
+      [ "MEAT", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a762b0c1d81e03ca0afd9ffe51c31a202", null ],
+      [ "TREE", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a80ee3d282aa2d7af547e862568d3e240", null ]
     ] ],
     [ "ShapeType", "BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345", [
       [ "CIRCLE", "BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911", null ],
@@ -132,13 +127,9 @@ var BasicTypes_8h =
       [ "AXE", "BasicTypes_8h.html#a38675390df8e0ebbab2867be799b7160a7fc7bc2b5c24575b5cd0fcec2c37db09", null ]
     ] ],
     [ "WeatherType", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516", [
+      [ "METEOR_SHOWER", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a1142a5e72ceed9f7c5aa3d7fa6f93225", null ],
       [ "RAIN", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a5b1b71f2b77a08a17c728a6f854a7bfe", null ],
       [ "CLOUDS", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a2864a88199aef8238cc4345e675c596b", null ],
-      [ "SNOW", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a9e6e4a865dcb327f484752cf5af49846", null ],
-      [ "HAIL", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a22c225df59b2950b47f8ced249c5b7cd", null ],
-      [ "STORM", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a018159d526e860dc987901467c8660cb", null ],
-      [ "HURRICANE", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a36abd3d0e25831fb6a51172f650de239", null ],
-      [ "EARTHQUAKE", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516ad051caba41c36ea659e90402156ed899", null ],
-      [ "METEOR_SHOWER", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a1142a5e72ceed9f7c5aa3d7fa6f93225", null ]
+      [ "HURRICANE", "BasicTypes_8h.html#aae2a79ad426e847c0ddfd77d04ce2516a36abd3d0e25831fb6a51172f650de239", null ]
     ] ]
 ];

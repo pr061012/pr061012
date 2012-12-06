@@ -16,7 +16,7 @@ var classWorld =
     [ "genWeather", "classWorld.html#a571672ba03c683c47c9df0dc6f41266e", null ],
     [ "getHiddenObjects", "classWorld.html#acdde856cd58e64641405806d08650004", null ],
     [ "getIndexator", "classWorld.html#ad75ce919ba59eb32d7b9aa4b1ec89ea6", null ],
-    [ "getObjectByID", "classWorld.html#a255ca465937e92cc80c3fc250a031f9f", null ],
+    [ "getObjectByID", "classWorld.html#a83d04b77391f0f769e1a1ef5dffb063f", null ],
     [ "getObjectFactory", "classWorld.html#a25dfb5e9ccd3dd5540ccf6f56937ec28", null ],
     [ "getSize", "classWorld.html#ab595144aa998cddab7e9489467843cb6", null ],
     [ "getViewObjectsInArea", "classWorld.html#a18725db8fe88482c638464884f9661ba", null ],

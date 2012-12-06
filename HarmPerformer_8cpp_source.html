@@ -117,101 +117,126 @@ $(document).ready(function(){initNavTree('HarmPerformer_8cpp_source.html','');})
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Object.h&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Creatures/Creature.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Weather/Weather.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701">   19</a></span>&#160;<a class="code" href="classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701" title="Constructor.">HarmPerformer::HarmPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world):</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a0c1d9f1e442a5926c2f8b1b7b294c9aa">   25</a></span>&#160;<a class="code" href="classHarmPerformer.html#a0c1d9f1e442a5926c2f8b1b7b294c9aa" title="Destructor.">HarmPerformer::~HarmPerformer</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a58a611a6b7cd808b9e57fb6b5123701c">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHarmPerformer.html#a58a611a6b7cd808b9e57fb6b5123701c" title="Check if an object can harm.">HarmPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Get actor and type of actor.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type = actor -&gt; getType();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Set damage.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> harm = <a class="code" href="classRandom.html#aa34e3180a5e47c619191cd74cbbc6a30" title="Returns random number from range [low_boundary, top_boundary].">Random::int_range</a>(<a class="code" href="BasicDefines_8h.html#a193b30585bff9043a2903d441906a4e1">DMG_PER_HIT_MIN</a>, <a class="code" href="BasicDefines_8h.html#a4137f96d772bd1553ba3f6d9d0df831d">DMG_PER_HIT_MAX</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    harm *= actor -&gt; getDangerLevel();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Check type of actor.</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> ((type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp; (type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>))</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a162a63e61e4c9ccebe466f50bc6041d4">OBJ_CANT_HARM</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Get participants of action.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::vector&lt;Object*&gt; participants = action.<a class="code" href="classAction.html#a69c59ae9452d9c712cbf75b1647da3ce" title="Gets action participants.">getParticipants</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Get shape influence.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classShape.html">Shape</a> env_shape;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        env_shape = cr -&gt; getReachArea();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classWeather.html" title="Weather class.">Weather</a>* weather = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classWeather.html" title="Weather class.">Weather</a>*<span class="keyword">&gt;</span>(actor);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        env_shape = weather -&gt; getShape();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../../../model/World/Object/Creatures/Humanoid/Humanoid.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701">   20</a></span>&#160;<a class="code" href="classHarmPerformer.html#a73b133c22ac232f1dc189fad6406c701" title="Constructor.">HarmPerformer::HarmPerformer</a>(<a class="code" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>* world):</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classPerformer.html" title="Class is an interface for processing messages that come from the world.">Performer</a>(world)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a0c1d9f1e442a5926c2f8b1b7b294c9aa">   26</a></span>&#160;<a class="code" href="classHarmPerformer.html#a0c1d9f1e442a5926c2f8b1b7b294c9aa" title="Destructor.">HarmPerformer::~HarmPerformer</a>()</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classHarmPerformer.html#a58a611a6b7cd808b9e57fb6b5123701c">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classHarmPerformer.html#a58a611a6b7cd808b9e57fb6b5123701c" title="Check if an object can harm.">HarmPerformer::perform</a>(<a class="code" href="classAction.html" title="Action contains information about object&#39;s pending action.">Action</a>&amp; action)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Get actor and type of actor.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* actor = action.<a class="code" href="classAction.html#ab5ab685c5ab0375885f160d4138ac75d" title="Gets actor.">getActor</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980" title="The ObjectType enum. Don&#39;t forget to change AMNT_OBJECT_TYPES while adding new elements!">ObjectType</a> type = actor -&gt; getType();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> harm;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Check type of actor.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> ((type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp; (type != <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>))</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a162a63e61e4c9ccebe466f50bc6041d4">OBJ_CANT_HARM</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Get participants of action.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::vector&lt;Object*&gt; participants = action.<a class="code" href="classAction.html#a69c59ae9452d9c712cbf75b1647da3ce" title="Gets action participants.">getParticipants</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Get shape influence.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classShape.html">Shape</a> env_shape;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        env_shape = cr -&gt; getReachArea();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        harm = cr -&gt; getForce() / <a class="code" href="classRandom.html#aa34e3180a5e47c619191cd74cbbc6a30" title="Returns random number from range [low_boundary, top_boundary].">Random::int_range</a>(<a class="code" href="BasicDefines_8h.html#a0b5a75e8e0439081845e3e8d20c3ec15">DMG_FORCE_MIN</a>, <a class="code" href="BasicDefines_8h.html#a4cad781983a3ca6871fdfe3020d29d3a">DMG_FORCE_MAX</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (type == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classWeather.html" title="Weather class.">Weather</a>* weather = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classWeather.html" title="Weather class.">Weather</a>*<span class="keyword">&gt;</span>(actor);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        env_shape = weather -&gt; getShape();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        harm = weather -&gt; getDangerLevel() / <a class="code" href="classRandom.html#aa34e3180a5e47c619191cd74cbbc6a30" title="Returns random number from range [low_boundary, top_boundary].">Random::int_range</a>(<a class="code" href="BasicDefines_8h.html#a665bd7caf93b1a1daf6284c2c3876363">DMG_DANGER_MIN</a>, <a class="code" href="BasicDefines_8h.html#ab9f164b9f10b738a925b0a3cd1a77383">DMG_DANGER_MAX</a>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Harm object in view area.</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> count_error = 0;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt; participants.size(); i++)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (env_shape.<a class="code" href="classShape.html#af0b525cc5e56b0b11d717ae83e27f248" title="Tests if a Shape includes a vector.">hitTest</a>(participants[i] -&gt; getShape()))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (env_shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(participants[i] -&gt; getShape()))</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            participants[i] -&gt; damage(harm);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// Send message about attack.</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="classMessage.html" title="Messages are mechanism for communication between objects.">Message</a> msg(<a class="code" href="BasicTypes_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013a71ffa6e4bf89b9d4944beac486d181e0">UNDER_ATTACK</a>, actor);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            participants[i] -&gt; receiveMessage(msg);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="comment">// Count the amount of error.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            count_error += 1;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// If all objects receive attack, then...</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (!count_error)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// If all objects are out of reach, then...</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (count_error == participants.size())</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae11568d7462098ecf0529d291f3aa140">ALL_OBJS_ARE_OUT_OF_REACH</a>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        action.<a class="code" href="classAction.html#aae9f9b7922b0c2dffafba4f13402312c" title="Marks action as failed.">markAsFailed</a>();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// If some objects are out of reach, then...</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        action.<a class="code" href="classAction.html#a33f73e0906a3394bc51fa8987e3d2ae2" title="Sets action&#39;s error.">setError</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ab7b876badf23f59c94033e580a28964b">SOME_OBJS_ARE_OUT_OF_REACH</a>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        action.<a class="code" href="classAction.html#ac7b59d155f6b3426d75d2d689bf8648d" title="Marks action as succeeded with errors.">markAsSucceededWithErrors</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            (</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                (participants[i] -&gt; getHealthPoints() == 0) &amp;&amp;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                (participants[i] -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>) &amp;&amp;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                (actor -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            )</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(participants[i]);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr_actor = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(actor);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">if</span> (cr -&gt; getSubtype() == <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a">NON_HUMANOID</a>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <a class="code" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>* hum = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classHumanoid.html" title="Humanoid is clever creature, has own ideals, thoughts and preferences. Humanoids are base element in ...">Humanoid</a>*<span class="keyword">&gt;</span>(cr_actor);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <a class="code" href="classObjectHeap.html" title="ObjectHeap class.">ObjectHeap</a>* drop = cr -&gt; getDropObjects();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <a class="code" href="classObjectHeap_1_1iterator.html" title="The iterator class.">ObjectHeap::iterator</a> iter;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">for</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    (</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        iter = drop -&gt; begin();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        iter != drop -&gt; end();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        iter++</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    )</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        hum -&gt; addToInventory(*iter);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    drop -&gt; clear();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="comment">// Count the amount of error.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            count_error += 1;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// If all objects receive attack, then...</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> (!count_error)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        action.<a class="code" href="classAction.html#ae1e98bdf1d1caa884db07c23f8eb322b" title="Marks action as succeeded.">markAsSucceeded</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// If all objects are out of reach, then...</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (count_error == participants.size())</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        action.<a class="code" href="classAction.html#a7a8f6409e7fcd977955ccef01a126a04" title="Marks action as pending.">markAsFailed</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ae11568d7462098ecf0529d291f3aa140">ALL_OBJS_ARE_OUT_OF_REACH</a>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// If some objects are out of reach, then...</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        action.<a class="code" href="classAction.html#a6276b0c5b034065e8a6b9434f41b37ff" title="Marks action as succeeded with errors.">markAsSucceededWithErrors</a>(<a class="code" href="BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7ab7b876badf23f59c94033e580a28964b">SOME_OBJS_ARE_OUT_OF_REACH</a>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8efabbd1d2d49a7734c91ecd46a24fd9.html">control</a></li><li class="navelem"><a class="el" href="dir_1c12eaac5674d1d6eb62cc0a72334383.html">Performer</a></li><li class="navelem"><a class="el" href="dir_d264c522490a68149b676dc09d63ac6c.html">HarmPerformer</a></li><li class="navelem"><a class="el" href="HarmPerformer_8cpp.html">HarmPerformer.cpp</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

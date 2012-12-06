@@ -5,11 +5,17 @@ var searchData=
   ['dm_5fatr_5fconst',['DM_ATR_CONST',['../BasicDefines_8h.html#af632a4b398cfb78799deeb6d2c7f07d6',1,'BasicDefines.h']]],
   ['dm_5fpath_5fto_5fhum_5fmatrix',['DM_PATH_TO_HUM_MATRIX',['../BasicDefines_8h.html#af08b7bd368983913d6c2f61c209a5dd2',1,'BasicDefines.h']]],
   ['dm_5fpath_5fto_5fnhum_5fmatrix',['DM_PATH_TO_NHUM_MATRIX',['../BasicDefines_8h.html#a042033d138c03e6e2d67a305227e102b',1,'BasicDefines.h']]],
-  ['dmg_5fper_5fhit_5fmax',['DMG_PER_HIT_MAX',['../BasicDefines_8h.html#a4137f96d772bd1553ba3f6d9d0df831d',1,'BasicDefines.h']]],
-  ['dmg_5fper_5fhit_5fmin',['DMG_PER_HIT_MIN',['../BasicDefines_8h.html#a193b30585bff9043a2903d441906a4e1',1,'BasicDefines.h']]],
+  ['dmg_5fdanger_5fmax',['DMG_DANGER_MAX',['../BasicDefines_8h.html#ab9f164b9f10b738a925b0a3cd1a77383',1,'BasicDefines.h']]],
+  ['dmg_5fdanger_5fmin',['DMG_DANGER_MIN',['../BasicDefines_8h.html#a665bd7caf93b1a1daf6284c2c3876363',1,'BasicDefines.h']]],
+  ['dmg_5fforce_5fmax',['DMG_FORCE_MAX',['../BasicDefines_8h.html#a4cad781983a3ca6871fdfe3020d29d3a',1,'BasicDefines.h']]],
+  ['dmg_5fforce_5fmin',['DMG_FORCE_MIN',['../BasicDefines_8h.html#a0b5a75e8e0439081845e3e8d20c3ec15',1,'BasicDefines.h']]],
   ['dngr_5fbuilding',['DNGR_BUILDING',['../BasicDefines_8h.html#a5d1c0525a55a20280f65cd0169439938',1,'BasicDefines.h']]],
   ['dngr_5fhumanoid',['DNGR_HUMANOID',['../BasicDefines_8h.html#a4552948917adfd5880be115b8362e37d',1,'BasicDefines.h']]],
-  ['dngr_5fnon_5fhumanoid',['DNGR_NON_HUMANOID',['../BasicDefines_8h.html#a437400964bf6083fcda93ebd4438f631',1,'BasicDefines.h']]],
+  ['dngr_5fnhum_5fcow',['DNGR_NHUM_COW',['../BasicDefines_8h.html#aa2e3a37f0fd56b43c79437f3bc36b307',1,'BasicDefines.h']]],
+  ['dngr_5fnhum_5fdragon',['DNGR_NHUM_DRAGON',['../BasicDefines_8h.html#a9e3bc1a4ee7f32a3c99cbfdefa1e4be1',1,'BasicDefines.h']]],
   ['dngr_5fresource',['DNGR_RESOURCE',['../BasicDefines_8h.html#a7e8be08df80294fda5d444e9a1673e76',1,'BasicDefines.h']]],
-  ['dngr_5fweather',['DNGR_WEATHER',['../BasicDefines_8h.html#abb2ef8c72016eeedea67b52ff73af18e',1,'BasicDefines.h']]]
+  ['dngr_5fweather_5fclouds',['DNGR_WEATHER_CLOUDS',['../BasicDefines_8h.html#aba45e86c474acaa2c941bba28fbc1207',1,'BasicDefines.h']]],
+  ['dngr_5fweather_5fhurricane',['DNGR_WEATHER_HURRICANE',['../BasicDefines_8h.html#abc0e5a97c0bedb068be4d6e0f9107dac',1,'BasicDefines.h']]],
+  ['dngr_5fweather_5fmeteor_5fshower',['DNGR_WEATHER_METEOR_SHOWER',['../BasicDefines_8h.html#a13a710ef2e5759d03a74db5b054754c1',1,'BasicDefines.h']]],
+  ['dngr_5fweather_5frain',['DNGR_WEATHER_RAIN',['../BasicDefines_8h.html#ada5908d153d8f9f6d18ed0df0c95ad13',1,'BasicDefines.h']]]
 ];

@@ -14,10 +14,10 @@ var classObjectHeap =
     [ "end", "classObjectHeap.html#a366c6aedfc59ff2f84b70e68e1a4d266", null ],
     [ "end", "classObjectHeap.html#a9e0ace11a93deb7163989cf6e3f4e88f", null ],
     [ "find", "classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704", null ],
-    [ "getAmount", "classObjectHeap.html#a56a9d0d75ab61bf01fd1125c87502a5e", null ],
-    [ "getTypeAmount", "classObjectHeap.html#a26c0f761eadbcfbac5176f40faf02065", null ],
+    [ "getAmount", "classObjectHeap.html#a453dd3a04df61b56e439069cd9f8bfcb", null ],
+    [ "getTypeAmount", "classObjectHeap.html#a74f5baa5ca6fc9cec8618ade2012c563", null ],
     [ "printIDs", "classObjectHeap.html#adbd55eac306327b7de3b2826551716d9", null ],
     [ "push", "classObjectHeap.html#a15f2edd83cbb35c8381a5fe1cf8063de", null ],
     [ "remove", "classObjectHeap.html#a7092926b107145c62f0a6c8bd8ff1028", null ],
-    [ "data", "classObjectHeap.html#ae1d139bec56f338f6690f8f208b7f686", null ]
+    [ "data", "classObjectHeap.html#a7b0b649182683bba8ad39c86815169a9", null ]
 ];

@@ -120,311 +120,306 @@ $(document).ready(function(){initNavTree('ViewWorld_8cpp_source.html','');});
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2" title="preload game textures in openGL">loadTextures</a>();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;2; ++i)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span>( 0 == <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[i] )</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="Log_8h.html#aac9d06502938110618f0326b5fec8a80">Log::ERROR</a>(<span class="stringliteral">&quot;SOIL loading error:&#39;&quot;</span> + std::string(SOIL_last_result()) + <span class="stringliteral">&quot;&#39;.&quot;</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a> = 50.0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a> = 50.0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a46f30278bdc35ff1a88a5d8e44558503" title="number of frames drawn">frame</a> = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">this</span> -&gt; width = <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">this</span> -&gt; height = <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a> = (double) <a class="code" href="BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f" title="Radius of field of view of game camera.">VIEW_CAM_RADIUS</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c">   38</a></span>&#160;<a class="code" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c" title="Destructor.">ViewWorld::~ViewWorld</a>()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    glDeleteTextures( 3, <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a> ); <span class="comment">// Clearing textures that were previously created</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2" title="preload game textures in openGL">ViewWorld::loadTextures</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[0] = SOIL_load_OGL_texture <span class="comment">// Load an image file directly as a new OpenGL texture, using SOIL.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    (</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="stringliteral">&quot;res/rock.png&quot;</span>,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        SOIL_LOAD_RGBA,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        SOIL_CREATE_NEW_ID,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    glBindTexture(GL_TEXTURE_2D, <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[0]);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[1] = SOIL_load_OGL_texture</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    (</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="stringliteral">&quot;res/tree.png&quot;</span>,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        SOIL_LOAD_RGBA,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        SOIL_CREATE_NEW_ID,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[2] = SOIL_load_OGL_texture</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    (</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="stringliteral">&quot;res/cow.png&quot;</span>,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        SOIL_LOAD_RGBA,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        SOIL_CREATE_NEW_ID,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    );</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6" title="redraw background and all objects in range of the game camera">ViewWorld::redraw</a>()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;     <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e" title="render a grass background all over the window">renderBackground</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::vector&lt;const Object*&gt; objects = <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#acf4246b8d67b045fb317f065bcadfe05">getViewObjectsInArea</a>(<a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a>, <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>, <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>()*2);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i=0; i &lt; objects.size(); i++)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span>(!objects.at(i)-&gt;isDestroyed())</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc" title="draws specific object relative to current coordinates">renderObject</a>(objects.at(i));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classViewWorld.html#a657d6237f4de5a21f3be843cdddc5186">   91</a></span>&#160;<span class="keyword">const</span> std::vector&lt;const Object*&gt; <a class="code" href="classViewWorld.html#a657d6237f4de5a21f3be843cdddc5186" title="returns ViewObject situated at specific screen coordinates">ViewWorld::getViewObjectAt</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#acf4246b8d67b045fb317f065bcadfe05">getViewObjectsInArea</a>(x, y, <a class="code" href="BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9" title="Radius in which objects are checked for cursor click (in-game coordinates)">VIEW_CURSOR_RAD</a>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">   96</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">ViewWorld::worldToScreenX</a>(<span class="keywordtype">double</span> world_x)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    world_x -= <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">getX</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> world_x / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">  102</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">ViewWorld::worldToScreenY</a>(<span class="keywordtype">double</span> world_y)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    world_y -= <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> world_y / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classViewWorld.html#a70c21536b83dbec0ebd0c21d704427f0">  108</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a70c21536b83dbec0ebd0c21d704427f0">ViewWorld::screenToWorldX</a>(<span class="keywordtype">double</span> screen_x)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> screen_x * <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() / <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a> + <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">getX</a>();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a> = 50.0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a> = 50.0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a46f30278bdc35ff1a88a5d8e44558503" title="number of frames drawn">frame</a> = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">this</span> -&gt; width = <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">this</span> -&gt; height = <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a> = (double) <a class="code" href="BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f" title="Radius of field of view of game camera.">VIEW_CAM_RADIUS</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c">   32</a></span>&#160;<a class="code" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c" title="Destructor.">ViewWorld::~ViewWorld</a>()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i = 0; i &lt; <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>.size(); ++i)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[i];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2" title="preload game textures in openGL">ViewWorld::loadTextures</a>()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>.push_back(<span class="keyword">new</span> <a class="code" href="classViewTexture.html">ViewTexture</a>(<span class="stringliteral">&quot;res/rock.png&quot;</span>, flags));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classViewTexture.html">ViewTexture</a>* tex = <span class="keyword">new</span> <a class="code" href="classViewTexture.html">ViewTexture</a>(<span class="stringliteral">&quot;res/tree.png&quot;</span>, flags);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    tex -&gt; setTextureDimensions(126.0/640, 1.0 - 110.0/480,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                70.0/640, 110.0/480);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>.push_back(tex);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    tex = <span class="keyword">new</span> <a class="code" href="classViewTexture.html">ViewTexture</a>(<span class="stringliteral">&quot;res/cow.png&quot;</span>, flags);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>.push_back(tex);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6" title="redraw background and all objects in range of the game camera">ViewWorld::redraw</a>()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e" title="render a grass background all over the window">renderBackground</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::vector&lt;const Object*&gt; objects = <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#acf4246b8d67b045fb317f065bcadfe05">getViewObjectsInArea</a>(<a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a>, <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>, <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>()*2);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> i=0; i &lt; objects.size(); i++)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(!objects.at(i)-&gt;isDestroyed())</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc" title="draws specific object relative to current coordinates">renderObject</a>(objects.at(i));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classViewWorld.html#a657d6237f4de5a21f3be843cdddc5186">   72</a></span>&#160;<span class="keyword">const</span> std::vector&lt;const Object*&gt; <a class="code" href="classViewWorld.html#a657d6237f4de5a21f3be843cdddc5186" title="returns ViewObject situated at specific screen coordinates">ViewWorld::getViewObjectAt</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#acf4246b8d67b045fb317f065bcadfe05">getViewObjectsInArea</a>(x, y, <a class="code" href="BasicDefines_8h.html#af29359cf3065a0d073351ae7695c35d9" title="Radius in which objects are checked for cursor click (in-game coordinates)">VIEW_CURSOR_RAD</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">   77</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">ViewWorld::worldToScreenX</a>(<span class="keywordtype">double</span> world_x)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    world_x -= <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393" title="Returns current coordinates of game camera center.">getX</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> world_x / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">   83</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">ViewWorld::worldToScreenY</a>(<span class="keywordtype">double</span> world_y)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    world_y -= <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> world_y / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classViewWorld.html#a70c21536b83dbec0ebd0c21d704427f0">   89</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a70c21536b83dbec0ebd0c21d704427f0">ViewWorld::screenToWorldX</a>(<span class="keywordtype">double</span> screen_x)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> screen_x * <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() / <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a> + <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393" title="Returns current coordinates of game camera center.">getX</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classViewWorld.html#a27396c3648364f102e0e93a7d71964e9">   94</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a27396c3648364f102e0e93a7d71964e9">ViewWorld::screenToWorldY</a>(<span class="keywordtype">double</span> screen_y)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> screen_y * <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() / <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a> + <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">   99</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">ViewWorld::worldToScreenDist</a>(<span class="keywordtype">double</span> distance)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> distance / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">  104</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">ViewWorld::getCamRad</a>()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classViewWorld.html#af5280cc5f6c325b3361dabdb7ab0a146">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#af5280cc5f6c325b3361dabdb7ab0a146" title="Changes current camera radius.">ViewWorld::setCamRad</a>(<span class="keywordtype">double</span> rad)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a> = rad;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classViewWorld.html#a27396c3648364f102e0e93a7d71964e9">  113</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a27396c3648364f102e0e93a7d71964e9">ViewWorld::screenToWorldY</a>(<span class="keywordtype">double</span> screen_y)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> screen_y * <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() / <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a> + <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">  118</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">ViewWorld::worldToScreenDist</a>(<span class="keywordtype">double</span> distance)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> distance / <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() * <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">  123</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">ViewWorld::getCamRad</a>()</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classViewWorld.html#af5280cc5f6c325b3361dabdb7ab0a146">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#af5280cc5f6c325b3361dabdb7ab0a146">ViewWorld::setCamRad</a>(<span class="keywordtype">double</span> rad)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a5d39b63ce30e0a76bbe5428cb3096b9d">cam_radius</a> = rad;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">  133</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">ViewWorld::getX</a>()</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">  138</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">ViewWorld::getY</a>()</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="code" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb">  143</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb" title="set coordinates of center of the game cam">ViewWorld::setX</a>(<span class="keywordtype">double</span> new_var)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    new_var = new_var &gt; <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() ?</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    new_var = new_var &lt; <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() ?</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>();</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a> = new_var;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">  152</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">ViewWorld::setY</a>(<span class="keywordtype">double</span> new_var)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> y_max_rad = (double)<a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817">getCamRad</a>() * <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a> / <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    new_var = new_var &gt; y_max_rad ?</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;              new_var : y_max_rad;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    new_var = new_var &lt; <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - y_max_rad ?</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - y_max_rad;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a> = new_var;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor"></span>std::string act_repr[] = {<span class="stringliteral">&quot;N&quot;</span>, <span class="stringliteral">&quot;S&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;G&quot;</span>, <span class="stringliteral">&quot;R&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;C&quot;</span>, <span class="stringliteral">&quot;W&quot;</span>, <span class="stringliteral">&quot;RD&quot;</span>, <span class="stringliteral">&quot;ES&quot;</span>, <span class="stringliteral">&quot;REP&quot;</span>, <span class="stringliteral">&quot;DN&quot;</span>};</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;std::string hum_act_repr[] = {<span class="stringliteral">&quot;H&quot;</span>, <span class="stringliteral">&quot;I_F&quot;</span>, <span class="stringliteral">&quot;F_F&quot;</span>, <span class="stringliteral">&quot;REL&quot;</span>, <span class="stringliteral">&quot;SL_H&quot;</span>, <span class="stringliteral">&quot;SL_G&quot;</span>, <span class="stringliteral">&quot;MINE&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;CH&quot;</span>, <span class="stringliteral">&quot;FI&quot;</span>, <span class="stringliteral">&quot;RUN&quot;</span>};</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc">  167</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc" title="draws specific object relative to current coordinates">ViewWorld::renderObject</a>(<span class="keyword">const</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;{</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a> &amp;p = <span class="keywordtype">object</span> -&gt; getCoords();</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">double</span> px = this-&gt;<a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>(p.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">double</span> py = this-&gt;<a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>(p.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">switch</span>(<span class="keywordtype">object</span> -&gt; getType())</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>:</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keyword">const</span> <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* res = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(object);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">if</span>(res -&gt; getSubtype() == <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a12a6d94d9800703a3be48933214788b1">RES_BUILDING_MAT</a>)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                glColor4d(0.0, 1.0, 0.0, 0.4);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                glColor4d(1.0, 0.0, 0.0, 0.4);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[0] -&gt; setScale(<a class="code" href="BasicDefines_8h.html#a0a1e00d2cf7d1da0e3d803a32337301f" title="Radius of field of view of game camera.">VIEW_CAM_RADIUS</a> / rad);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">  116</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393" title="Returns current coordinates of game camera center.">ViewWorld::getX</a>()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">  121</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">ViewWorld::getY</a>()</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classViewWorld.html#a40352af1891ad8f961af8e5cb06926fb">  126</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a40352af1891ad8f961af8e5cb06926fb">ViewWorld::setSelection</a>(<a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aade1a62fb9c4066da61ab966da6abde3" title="Id of currently selected unit.">selected_id</a> = id;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="code" href="classViewWorld.html#a1337370e8fed452ee49d99d11d9957ae">  132</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a1337370e8fed452ee49d99d11d9957ae">ViewWorld::clearSelection</a>()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="code" href="classViewWorld.html#a011103e9c775ae4792275a10e24aff38">  137</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <a class="code" href="classViewWorld.html#a011103e9c775ae4792275a10e24aff38">ViewWorld::getSelection</a>()</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span> (!<span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a>)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#ad0959f92d23feefe2a4f43efe6a8a8c3">getObjectByID</a>(<span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aade1a62fb9c4066da61ab966da6abde3" title="Id of currently selected unit.">selected_id</a>);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb">  147</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb" title="set coordinates of center of the game cam">ViewWorld::setX</a>(<span class="keywordtype">double</span> new_var)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    new_var = new_var &gt; <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() ?</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    new_var = new_var &lt; <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() ?</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - <a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a> = new_var;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="code" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">  156</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">ViewWorld::setY</a>(<span class="keywordtype">double</span> new_var)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> y_max_rad = (double)<a class="code" href="classViewWorld.html#a442ddb41a323d0cff4624143ec8dd817" title="Returns current radius of game cam, in game length units.">getCamRad</a>() * <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a> / <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    new_var = new_var &gt; y_max_rad ?</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;              new_var : y_max_rad;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    new_var = new_var &lt; <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - y_max_rad ?</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;              new_var : <a class="code" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6" title="World that is rendered by this class.">world</a>.<a class="code" href="classIWorld.html#afcfeb9a53212b5213527100d489ecd61">getSize</a>() - y_max_rad;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a> = new_var;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="code" href="classViewWorld.html#ac34028c48e87706a99ddabf7417d78d4">  166</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classViewTexture.html">ViewTexture</a>* <a class="code" href="classViewWorld.html#ac34028c48e87706a99ddabf7417d78d4">ViewWorld::getObjectTexture</a>(<span class="keyword">const</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> *obj)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">const</span> <a class="code" href="classViewTexture.html">ViewTexture</a>* ret = NULL;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">switch</span>(obj -&gt; getType())</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            ret = <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[1];</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>* cr = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code" href="classCreature.html" title="Abstract Creature class.">Creature</a>*<span class="keyword">&gt;</span>(obj);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordflow">switch</span>(cr -&gt; getSubtype())</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b">HUMANOID</a>:</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    ret = <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[1];</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfaf197f84c88170597c248101eac3e4b4a">NON_HUMANOID</a>:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    ret = <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[2];</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>:</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            glColor4d(0.0, 1.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ret = <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[2];</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>:</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            glColor4d(0.0, 0.0, 1.0, 0.4);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            glColor4d(0.0, 0.0, 0.0, 0.4);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordtype">double</span> cx = <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>(<span class="keywordtype">object</span> -&gt; getCoords().<a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">getX</a>());</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordtype">double</span> cy = <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>(<span class="keywordtype">object</span> -&gt; getCoords().<a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>());</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordtype">double</span> sz = <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">worldToScreenDist</a>(<span class="keywordtype">object</span> -&gt; getShape().<a class="code" href="classViewWorld.html#a78161b08d1fbad54573eff78ffad0b87">getSize</a>());</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            std::string msg;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">if</span> (dynamic_cast&lt;const Creature*&gt;(<span class="keywordtype">object</span>) -&gt; getSubtype() == <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b">HUMANOID</a>)</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> action = (<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a>)dynamic_cast&lt;const Humanoid*&gt;(<span class="keywordtype">object</span>) -&gt; getCurrentDetailedAct();</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                msg = hum_act_repr[action];</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> action = (<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a>)dynamic_cast&lt;const Creature*&gt;(<span class="keywordtype">object</span>) -&gt; getCurrentDecision();</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                msg = act_repr[action];</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <a class="code" href="classViewUtilities.html#a3b9176864d9d6a45f8f7d335a925d45f">ViewUtilities::renderText</a>(cx-sz/2, cy-sz/2, sz*70.0, msg);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            glColor4d(1.0, 1.0, 1.0, 0.4);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">double</span> radius = <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">worldToScreenDist</a>(object-&gt;<a class="code" href="classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7" title="Get the value of shape.">getShape</a>().<a class="code" href="classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c" title="Get size (edge length for polygons, diameter for circle).">getSize</a>()/2);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">if</span>( <span class="keywordtype">object</span> -&gt; getShape().getType() == <a class="code" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">CIRCLE</a> )</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <a class="code" href="classViewUtilities.html#a23c69c830f828f1f76b7ead9b0c1ef76">ViewUtilities::glCirclef_blend</a>(px, py, radius);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <a class="code" href="classViewUtilities.html#a41b52030d48c3b343735fb039b6921dc">ViewUtilities::glRectf_blend</a>(px-radius, py-radius, px+radius, py+radius);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    glColor3d(1.0, 1.0, 1.0);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor"></span>    <span class="comment">// TODO: Redo image coordinates to be taken from (file?)</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">float</span> x0;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">float</span> y0;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">float</span> x1;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">float</span> y1;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor"></span>std::string act_repr[] = {<span class="stringliteral">&quot;N&quot;</span>, <span class="stringliteral">&quot;S&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;G&quot;</span>, <span class="stringliteral">&quot;R&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;C&quot;</span>, <span class="stringliteral">&quot;W&quot;</span>, <span class="stringliteral">&quot;RD&quot;</span>, <span class="stringliteral">&quot;ES&quot;</span>, <span class="stringliteral">&quot;REP&quot;</span>, <span class="stringliteral">&quot;DN&quot;</span>};</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;std::string hum_act_repr[] = {<span class="stringliteral">&quot;H&quot;</span>, <span class="stringliteral">&quot;I_F&quot;</span>, <span class="stringliteral">&quot;F_F&quot;</span>, <span class="stringliteral">&quot;REL&quot;</span>, <span class="stringliteral">&quot;SL_H&quot;</span>, <span class="stringliteral">&quot;SL_G&quot;</span>, <span class="stringliteral">&quot;MINE&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;CH&quot;</span>, <span class="stringliteral">&quot;FI&quot;</span>, <span class="stringliteral">&quot;RUN&quot;</span>};</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc">  202</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc" title="draws specific object relative to current coordinates">ViewWorld::renderObject</a>(<span class="keyword">const</span> <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">const</span> <a class="code" href="classVector.html" title="Vector class.">Vector</a> &amp;p = <span class="keywordtype">object</span> -&gt; getCoords();</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">double</span> px = this-&gt;<a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>(p.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>());</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">double</span> py = this-&gt;<a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>(p.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">switch</span>(<span class="keywordtype">object</span> -&gt; getType())</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>:</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keyword">const</span> <a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>* res = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>*<span class="keyword">&gt;</span>(object);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">if</span>(res -&gt; getSubtype() == <a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a80ee3d282aa2d7af547e862568d3e240">TREE</a>)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                glColor4d(0.0, 1.0, 0.0, 0.4);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                glColor4d(1.0, 0.0, 0.0, 0.4);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            }</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ae19452a763ea5148b06bf3eba8d08ef6">TOOL</a>:</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            glColor4d(0.0, 1.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a1ae565a2eb1b9ddd41f0cefc3f33a087">BUILDING</a>:</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            glColor4d(0.0, 0.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a8fa00ed53a162ee3eb07e179f4fc1216">WEATHER</a>:</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            glColor4d(0.0, 0.0, 0.0, 0.4);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>:</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordtype">double</span> cx = <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>(<span class="keywordtype">object</span> -&gt; getCoords().<a class="code" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393" title="Returns current coordinates of game camera center.">getX</a>());</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordtype">double</span> cy = <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>(<span class="keywordtype">object</span> -&gt; getCoords().<a class="code" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a>());</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordtype">double</span> sz = <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">worldToScreenDist</a>(<span class="keywordtype">object</span> -&gt; getShape().getSize());</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">float</span> x_sz;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">float</span> y_sz;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">if</span>(<span class="keywordtype">object</span> -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980ab65ac186b662e7e9d83c795efdbb46c4">RESOURCE</a>)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        x0 = 126.0/640;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        y0 = 1.0 - 110.0/480;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        x1 = 196.0/640;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        y1 = 1.0;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        x_sz = 0.33;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        y_sz = 0.5;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        glBindTexture(GL_TEXTURE_2D, <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[1]);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            std::string msg;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="keywordflow">if</span> (dynamic_cast&lt;const Creature*&gt;(<span class="keywordtype">object</span>) -&gt; getSubtype() == <a class="code" href="BasicTypes_8h.html#a5bc40f1116d89138cda8ebd1a04694dfa2593e883617605be4584de391d2deb8b">HUMANOID</a>)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> action = (<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a>)dynamic_cast&lt;const Humanoid*&gt;(<span class="keywordtype">object</span>) -&gt; getCurrentDetailedAct();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                msg = hum_act_repr[action];</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a> action = (<a class="code" href="BasicTypes_8h.html#a5303344c79577371e13252b373606706" title="The CreatureAction enum. Don&#39;t forget to change AMNT_CREATURE_ACTS while adding new elements!...">CreatureAction</a>)dynamic_cast&lt;const Creature*&gt;(<span class="keywordtype">object</span>) -&gt; getCurrentAction();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                msg = act_repr[action];</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <a class="code" href="classViewUtilities.html#aa65e1414d236ece709164ed83749d534">ViewUtilities::renderText</a>(cx-sz/2, cy-sz/2, sz*70.0, msg);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            glColor4d(1.0, 1.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    }</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">if</span>(<span class="keywordtype">object</span> -&gt; getType() == <a class="code" href="BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8">CREATURE</a>)</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    {</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        x0 = 0.0;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        y0 = 0.0;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        x1 = 1.0;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        y1 = 1.0;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">double</span> radius = <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">worldToScreenDist</a>(object-&gt;<a class="code" href="classObject.html#ab55fd6193bbe9f7f4deb793222e79ca7" title="Get the value of shape.">getShape</a>().<a class="code" href="classShape.html#a1c04ad00113b2a8c0787c50edfa08c5c" title="Get size (edge length for polygons, diameter for circle).">getSize</a>()/2);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">object</span> -&gt; getShape().getType() == <a class="code" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345aa79c827759ea48f0735386c4b1188911">CIRCLE</a>)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <a class="code" href="classViewUtilities.html#abb1d5153de19613267b97a73aae790e8" title="Draw a circle at specified screen coordinates.">ViewUtilities::glCirclef_blend</a>(px, py, radius);</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        x_sz = 0.58;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        y_sz = 0.4;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        glBindTexture(GL_TEXTURE_2D, <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[2]);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    glEnable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    glEnable(GL_BLEND);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    glBegin(GL_POLYGON);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        glTexCoord2f(x0, y0); glVertex2f(px-x_sz, py-y_sz);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        glTexCoord2f(x1, y0); glVertex2f(px+x_sz, py-y_sz);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        glTexCoord2f(x1, y1); glVertex2f(px+x_sz, py+y_sz);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        glTexCoord2f(x0, y1); glVertex2f(px-x_sz, py+y_sz);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    glEnd();</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    glDisable(GL_BLEND);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    glDisable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;}</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
-<div class="line"><a name="l00282"></a><span class="lineno"><a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e">  282</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e" title="render a grass background all over the window">ViewWorld::renderBackground</a>()</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;{</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="preprocessor">#ifndef VIEW_DEBUG</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">double</span> px = <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>( 0.0 );</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">double</span> py = <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>( 0.0 );</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    py *= <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>/<a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    glBindTexture(GL_TEXTURE_2D, <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#a73b537c9a1fd6fe87576fd60b990def9" title="array of loaded textures">texture_buf</a>[0]);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    glEnable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    glBegin(GL_POLYGON);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        glTexCoord2f(px       , py);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        glVertex2f(-<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>, -<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        glTexCoord2f(px + 16.0, py);</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        glVertex2f( <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>, -<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        glTexCoord2f(px + 16.0, 16.0*<a class="code" href="BasicDefines_8h.html#a3e75a27e368673e6d288fd24b9e8cd3b" title="Aspect ratio of the screen.">VIEW_ASPECT_RATIO</a> + py);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        glVertex2f( <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>,  <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        glTexCoord2f(0.0  + px, 16.0*<a class="code" href="BasicDefines_8h.html#a3e75a27e368673e6d288fd24b9e8cd3b" title="Aspect ratio of the screen.">VIEW_ASPECT_RATIO</a> + py);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        glVertex2f(-<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>,  <a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    glEnd();</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    glDisable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    glColor3f(1.0f, 1.0f, 1.0f);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="preprocessor"></span>    glClearColor(0.1f, 0.1f, 0.2f, 1.0f);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno"><a class="code" href="classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b">  313</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b" title="changes current width and height attributes">ViewWorld::setDimensions</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;width, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;height)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;{</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">this</span> -&gt; width  = <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keyword">this</span> -&gt; height = <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a> &amp;&amp; <span class="keywordtype">object</span> -&gt; getObjectID() == <a class="code" href="classViewWorld.html#aade1a62fb9c4066da61ab966da6abde3" title="Id of currently selected unit.">selected_id</a>)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        {</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            glColor4d(1.0, 0.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <a class="code" href="classViewUtilities.html#abb1d5153de19613267b97a73aae790e8" title="Draw a circle at specified screen coordinates.">ViewUtilities::glCirclef_blend</a>(px, py, radius, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="classViewUtilities.html#a398c9bda3c4b3b383172989b794afb5f">ViewUtilities::glRectf_blend</a>(px-radius, py-radius, px+radius, py+radius);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classViewWorld.html#af6cfa93485eb3051d0fa96ffb4dbc56c" title="Flag to indicate if someone is selected.">is_selected</a> &amp;&amp; <span class="keywordtype">object</span> -&gt; getObjectID() == <a class="code" href="classViewWorld.html#aade1a62fb9c4066da61ab966da6abde3" title="Id of currently selected unit.">selected_id</a>)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            glColor4d(1.0, 0.0, 1.0, 0.4);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <a class="code" href="classViewUtilities.html#a398c9bda3c4b3b383172989b794afb5f">ViewUtilities::glRectf_blend</a>(px-radius, py-radius, px+radius, py+radius, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    glColor3d(1.0, 1.0, 1.0);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">double</span> sz = <span class="keywordtype">object</span> -&gt; getShape().getSize();</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    sz  = <a class="code" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">worldToScreenDist</a>(sz);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    px -= sz/2;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    py -= sz/2;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">this</span> -&gt; <a class="code" href="classViewWorld.html#ac34028c48e87706a99ddabf7417d78d4">getObjectTexture</a>(<span class="keywordtype">object</span>) -&gt; render(px, py, sz, sz);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;}</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e">  291</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e" title="render a grass background all over the window">ViewWorld::renderBackground</a>()</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#ifndef VIEW_DEBUG</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">double</span> px = <a class="code" href="classViewWorld.html#a4fb46760a8b0d3c8c7bebdb00110cc47">worldToScreenX</a>( <a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a> - floor(<a class="code" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0" title="X and Y coordinates of center of the game cam.">x</a>) );</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">double</span> py = <a class="code" href="classViewWorld.html#ad23f8f54d643d70d9b93b081c5b2deb3">worldToScreenY</a>( <a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a> - floor(<a class="code" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>) );</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <a class="code" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7" title="vector of loaded textures">texture_buf</a>[0] -&gt; render( -<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>,  -<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>,</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                             2*<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>, 2*<a class="code" href="ViewWorld_8cpp.html#ae2dc0ede8365582e38339709536ffbc8" title="Max x and y of screen coordinates.">VIEW_CAM_SIZE</a>,</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                              -px, -py);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    glColor3f(1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="preprocessor"></span>    glClearColor(0.1f, 0.1f, 0.2f, 1.0f);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="code" href="classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b">  308</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classViewWorld.html#a3f237b82eb8273c7e1e2c98627620c1b" title="changes current width and height attributes">ViewWorld::setDimensions</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;width, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;height)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;{</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">this</span> -&gt; width  = <a class="code" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3" title="Screen dimensions given by View.">width</a>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">this</span> -&gt; height = <a class="code" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_f2a51cd3127c93b57800170255376407.html">view</a></li><li class="navelem"><a class="el" href="dir_529094bc062a0fc924e285fd09887548.html">ViewWorld</a></li><li class="navelem"><a class="el" href="ViewWorld_8cpp.html">ViewWorld.cpp</a></li>
-    <li class="footer">Generated on Sat Dec 1 2012 15:36:38 for pr061012 by
+    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
