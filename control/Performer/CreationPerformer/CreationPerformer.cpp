@@ -43,7 +43,7 @@ void CreationPerformer::perform(Action& action)
             return;
         }
 
-        new_object = createBuilding(action, param);
+        new_object = createWeather(action, param);
 
         Vector coord = action.getParam<Vector>("coord");
         new_object -> setCoords(coord);

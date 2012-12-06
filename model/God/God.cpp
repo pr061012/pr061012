@@ -31,7 +31,7 @@ void God::setWeatherAt(Vector x, WeatherType type)
     Action act(CREATE_OBJ, nullptr);
     act.addParam<Vector>("coord", x);
     act.addParam<WeatherType>("weat_type", type);
-    uint weat_steps = Random::double_num(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
+    uint weat_steps = Random::int_range(WEAT_STEPS_MIN, WEAT_STEPS_MAX);
     act.addParam<uint>("weat_steps", weat_steps);
 
     actions.push_back(act);
