@@ -101,7 +101,8 @@ void MovementPerformer::perform(Action& action)
     // Try to place an object and see if it collides with anything
     Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
-    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost);
+    ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost, 
+                                                                      participant);
     action.markAsSucceeded();
 
     // Can't place things over creatures and buildings
