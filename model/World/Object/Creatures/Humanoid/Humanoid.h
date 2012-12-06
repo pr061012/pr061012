@@ -103,8 +103,9 @@ public:
     /**
      * @brief  Add object to inventory.
      * @param  obj object to add.
+     * @return true if object was put in the inventory.
      */
-    void addToInventory(Object * obj);
+    bool addToInventory(Object * obj);
     
     /**
      * @brief  Removes object from inventory.

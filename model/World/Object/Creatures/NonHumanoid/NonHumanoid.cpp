@@ -35,7 +35,7 @@ NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
     // Initialise type-dependent attributes.
     switch (subsubtype)
     {
-        default: case COW:
+        default: case COW: case COW_DEMON:
             this -> setShapeSize(SZ_NHUM_COW_DIAM);
             this -> setDangerLevel(DNGR_NHUM_COW);
             this -> setWeight(WGHT_NHUM_COW);
@@ -84,7 +84,7 @@ std::string NonHumanoid::getTypeName() const
 // NON-HUMANOID ACTIONS.
 //******************************************************************************
 
-std::vector <Action>* NonHumanoid::getActions()
+std::vector<Action>* NonHumanoid::getActions()
 {
     // FIXME: Implement it.
 //    this -> desc_steps--;
@@ -98,6 +98,17 @@ std::vector <Action>* NonHumanoid::getActions()
 
     // Store the result of last action and clear actions.
     clearActions();
+
+    // Cow demon will destroy this world!
+    if (subsubtype == COW_DEMON)
+    {
+        ObjectHeap::const_iterator iter;
+        for (iter = objects_around.begin(); iter != objects_around.end();
+             iter++)
+        {
+            (*iter) -> markAsDestroyed();
+        }
+    }
 
     // Checking whether current action is actual.
     if
@@ -219,6 +230,15 @@ std::vector <Action>* NonHumanoid::getActions()
         }
 
         go(SLOW_SPEED);
+    }
+
+    //**************************************************************************
+    // DECISION : HUNT
+    //**************************************************************************
+
+    else if (current_action == HUNT)
+    {
+        //
     }
 
     //**************************************************************************

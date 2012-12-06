@@ -451,9 +451,13 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == MINE_RESOURSES)
     {
-        if ((visual_memory != nullptr) && ((aim == nullptr) || aim -> isDestroyed()))
+        if ((visual_memory != nullptr) && aim == nullptr)
         {
             findNearestRes(RES_BUILDING_MAT);
+        }
+        if (aim != nullptr && aim -> isDestroyed())
+        {
+            aim = nullptr;
         }
         if (aim == nullptr)
         {
@@ -477,7 +481,7 @@ std::vector <Action>* Humanoid::getActions()
                 this -> actions.push_back(act);
                // if (isResInInventory(RES_BUILDING_MAT))
                 this -> sociability = calculateNecessResAmount();
-                if (isResInInventory(RES_BUILDING_MAT, false) && aim -> getHealthPoints() > calculateNecessResAmount())
+                if (isResInInventory(RES_BUILDING_MAT, false) && home -> getHealthPoints() > calculateNecessResAmount())
                 {
                     if (current_action == BUILD)
                     {
@@ -871,26 +875,36 @@ std::string Humanoid::printObjectInfo(bool full) const
 //******************************************************************************
 
 // Adds object to inventory.
-void Humanoid::addToInventory(Object *obj)
+bool Humanoid::addToInventory(Object *obj)
 {
+    uint weight = obj -> getWeight();
     // Resources should be stacked together
     if (obj -> getType() == RESOURCE)
     {
+        uint amount = obj -> getHealthPoints();
+        // Check if we have enough free space
+        if (amount * weight > free_space)
+        {
+            return false;
+        }
+        free_space -= amount * weight;
+
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
-             i != inventory -> end(RESOURCE); i++)
+             i != inventory -> end(RESOURCE) && obj -> getHealthPoints(); i++)
         {
             if (dynamic_cast<Resource*>(*i) -> getSubtype() == subtype)
             {
-                (*i) -> heal(obj -> getHealthPoints());
-                obj -> markAsDestroyed();
-                return;
+                obj -> damage((*i) -> heal(obj -> getHealthPoints()));
             }
         }
-    }
 
-    // If there are no resources of this type, or it's something else, just push it.
-    this -> inventory -> push(obj);
+        // Push the rest.
+        if (obj -> getHealthPoints())
+        {
+            this -> inventory -> push(obj);
+        }
+    }
 }
 
 // Clear inventory from destroyed objects.

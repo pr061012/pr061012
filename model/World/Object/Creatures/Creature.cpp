@@ -258,6 +258,11 @@ uint Creature::heal(uint delta)
     return d;
 }
 
+ObjectHeap * Creature::getDropObjects()
+{
+    return &drop_objects;
+}
+
 uint Creature::getHealthPoints() const
 {
     return this -> health;

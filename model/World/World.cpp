@@ -133,7 +133,6 @@ void World::genCreatures()
                 //       to controller and create these objects at the moment of
                 //       death?
                 // Everything is OK. Creating creature's "contents" %)
-                /*
                 if (k == 0 || k == 1)
                 {
                     ParamArray drop_params;
@@ -142,8 +141,8 @@ void World::genCreatures()
                     Object* drop = object_factory -> createObject(RESOURCE, drop_params);
                     this -> addObject(false, drop);
 
-                    dynamic_cast<Creature*>(new_obj) -> addToInventory(drop);
-                }*/
+                    dynamic_cast<Creature*>(new_obj) -> getDropObjects() -> push(drop);
+                }
             }
             else
             {
