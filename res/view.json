@@ -10,6 +10,15 @@
             "alpha": true
         },
         {
+            "name": "Human",
+            "file": "human.png",
+            "x0": 0.33,
+            "y0": 0.87,
+            "width": 0.08,
+            "height": 0.13,
+            "alpha": true
+        },
+        {
             "name": "Cow",
             "file": "cow.png",
             "alpha": true

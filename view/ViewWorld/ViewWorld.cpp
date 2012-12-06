@@ -88,32 +88,24 @@ double ViewWorld::worldToScreenDist(double distance)
     return distance / getCamRad() * VIEW_CAM_SIZE;
 }
 
-const Texture *ViewWorld::getTexture(std::string name, int index)
+Texture* ViewWorld::getTexture(std::string name, int index)
 {
-    const Texture* tex = texture_buf.find(name) -> second;
     std::map<std::string, int>::iterator len_iter = texture_num.find(name);
 
     int len;
     if(len_iter == texture_num.end())
     {
-        len = 1;
+        std::cout << "[View] No texture loaded." << std::endl;
+        return NULL;
     }
 
     len = len_iter -> second;
+    index = index % len;
+    name += std::to_string(index);
 
-    if(tex != NULL)
-    {
-        index = index % len;
-        name += std::to_string(index);
+    Texture* tex = texture_buf.find(name) -> second;
 
-        const Texture* tex = texture_buf.find(name) -> second;
-
-        return tex;
-    }
-    else
-    {
-        return NULL;
-    }
+    return tex;
 }
 
 double ViewWorld::getCamRad()
@@ -125,7 +117,7 @@ void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
 
-    this -> texture_buf["Grass"] -> setScale(VIEW_CAM_RADIUS / rad);
+    this -> getTexture("Rock") -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -185,7 +177,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
     switch(obj -> getType())
     {
         case RESOURCE:
-            ret = texture_buf["Tree"];
+            ret = this -> getTexture("Tree");
             break;
         case CREATURE:
         {
@@ -194,16 +186,16 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = texture_buf["Tree"];
+                    ret = this -> getTexture("Human");
                     break;
                 case NON_HUMANOID:
-                    ret = texture_buf["Cow"];
+                    ret = this -> getTexture("Cow");
                     break;
             }
             break;
         }
         default:
-            ret = texture_buf["Cow"];
+            ret = this -> getTexture("Cow");
             break;
     }
     return ret;
@@ -310,9 +302,9 @@ void ViewWorld::renderBackground()
     double py = worldToScreenY( y - floor(y) );
 
 
-    texture_buf["Rock"] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
-                             2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
-                              -px, -py);
+    this -> getTexture("Rock") -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+                                         2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
+                                         -px, -py);
 
     glColor3f(1.0f, 1.0f, 1.0f);
 #else

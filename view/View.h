@@ -110,6 +110,8 @@ public:
     // ACCESSORS
     //**************************************************************************
 
+    Texture* getTexture(std::string name, int index = 0);
+
     /**
      * @brief Returns in-game x coordinate of camera center
      */

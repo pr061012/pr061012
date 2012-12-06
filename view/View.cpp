@@ -68,11 +68,11 @@ View::~View()
         delete rendered.at(i);
     }
 
-//    std::map<std::string, Texture*>::iterator iter;
-//    for (iter = texture_buf.begin(); iter != texture_buf.end(); iter++)
-//    {
-//        delete (*iter);
-//    }
+    std::map<std::string, Texture*>::iterator iter;
+    for (iter = texture_buf.begin(); iter != texture_buf.end(); iter++)
+    {
+        delete iter -> second;
+    }
 
     glcDeleteFont(this -> font);
 
@@ -125,14 +125,34 @@ void View::loadTextures()
                     texture_num[name] = 0;
                 }
 
-                name += std::to_string(texture_num[name]);
                 texture_num[name]++;
 
+                name += std::to_string(texture_num[name] - 1);
                 texture_buf[name] = view_tex;
             }
         }
     }
 
+}
+
+Texture* View::getTexture(std::string name, int index)
+{
+    std::map<std::string, int>::iterator len_iter = texture_num.find(name);
+
+    int len;
+    if(len_iter == texture_num.end())
+    {
+        std::cout << "[View] No texture loaded." << std::endl;
+        return NULL;
+    }
+
+    len = len_iter -> second;
+    index = index % len;
+    name += std::to_string(index);
+
+    Texture* tex = texture_buf.find(name) -> second;
+
+    return tex;
 }
 
 double View::getX()
@@ -397,10 +417,10 @@ void View::drawProgressBar(double x, double y, double width, double percent)
 {
     double height = width/5;
 
-    texture_buf["Red bar"] -> setTextureDimensions(0, 0, percent, 1.0);
+    getTexture("Red bar") -> setTextureDimensions(0, 0, percent, 1.0);
 
-    texture_buf["Empty bar"] -> render(x, y, width,         height);
-    texture_buf["Red bar"] -> render(x, y, width*percent, height);
+    getTexture("Empty bar") -> render(x, y, width,         height);
+    getTexture("Red bar") -> render(x, y, width*percent, height);
 }
 
 void View::displaySelectionInfo()

@@ -136,7 +136,7 @@ public:
     // ACCESSORS.
     //**************************************************************************
 
-    const Texture* getTexture(std::string name, int index = 0);
+    Texture* getTexture(std::string name, int index = 0);
 
     /**
      * @brief Returns current radius of game cam, in game length units.
