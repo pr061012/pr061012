@@ -212,6 +212,12 @@ std::vector <Action>* Humanoid::getActions()
         detailed_act = chooseAction(current_action);
     }
 
+    // Boundary case. Maybe meteor shower killed our victim?
+    if (aim -> isDestroyed())
+    {
+        aim = nullptr;
+    }
+
     // Get messages
     messageProcess();
 
