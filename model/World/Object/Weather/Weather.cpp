@@ -21,8 +21,16 @@ Weather::Weather(WeatherType type, uint living_steps) :
     this -> makeFlying();
     this -> setShapeType(SHP_WEATHER);
     this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
-    this -> setDangerLevel(DNGR_WEATHER);
     this -> setWeight(WGHT_WEATHER);
+
+    // Setting danger level.
+    switch (type)
+    {
+        case METEOR_SHOWER: setDangerLevel(DNGR_WEATHER_METEOR_SHOWER); break;
+        case HURRICANE:     setDangerLevel(DNGR_WEATHER_HURRICANE);     break;
+        case RAIN:          setDangerLevel(DNGR_WEATHER_RAIN);          break;
+        case CLOUDS:        setDangerLevel(DNGR_WEATHER_CLOUDS);        break;
+    }
 
     if(living_steps == 0)
     {
