@@ -5,10 +5,10 @@
 
 #include <sstream>
 
-#include "Weather.h"
-
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Math/Random.h"
+#include "../Resource/Resource.h"
+#include "Weather.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -42,7 +42,7 @@ Weather::~Weather()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::vector <Action> * Weather::getActions()
+std::vector<Action>* Weather::getActions()
 {
     if(this -> steps > 0)
     {
@@ -51,27 +51,57 @@ std::vector <Action> * Weather::getActions()
 
     this -> actions.clear();
 
-    // TODO: Add actions for RAIN, CLOUDS, SNOW.
-
-    if
-    (
-        this -> subtype == METEOR_SHOWER ||
-        this -> subtype == STORM ||
-        this -> subtype == HURRICANE ||
-        this -> subtype == HAIL ||
-        this -> subtype == EARTHQUAKE
-    )
+    // Meteor shower harms all objects.
+    if (subtype == METEOR_SHOWER)
     {
         Action act(HARM_OBJS, this);
 
-        // Add all objects to this action.
         ObjectHeap::const_iterator iter;
-        for(iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
+        for (iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
         {
             act.addParticipant(*iter);
         }
 
         this -> actions.push_back(act);
+    }
+    // Rain heals food and bulding material.
+    else if (subtype == RAIN)
+    {
+        ObjectHeap::const_iterator iter;
+        for
+        (
+            iter = covered_objs.begin(RESOURCE);
+            iter != covered_objs.end(RESOURCE);
+            iter++
+        )
+        {
+            Resource* res = dynamic_cast<Resource*>(*iter);
+            ResourceType type = res -> getSubtype();
+            if (type == RES_FOOD || type == RES_BUILDING_MAT)
+            {
+                Action act(REGENERATE_OBJ, this);
+                act.addParticipant(res);
+                act.addParam<uint>("object_index", 0);
+                this -> actions.push_back(act);
+            }
+        }
+    }
+    // Hurricane moves all objects.
+    else if (subtype == HURRICANE)
+    {
+        ObjectHeap::const_iterator iter;
+        for (iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
+        {
+            Action act(MOVE, this);
+
+            Vector v1 = (*iter) -> getCoords();
+            Vector v2 = this -> getCoords();
+
+            act.addParam<double>("angle", v1.getAngle(v2));
+            act.addParam<SpeedType>("speed", FAST_SPEED);
+
+            this -> actions.push_back(act);
+        }
     }
 
     return &(this -> actions);

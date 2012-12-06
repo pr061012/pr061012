@@ -55,7 +55,11 @@ enum ObjectType
  */
 enum WeatherType
 {
-    RAIN, CLOUDS, SNOW, HAIL, STORM, HURRICANE, EARTHQUAKE, METEOR_SHOWER
+    METEOR_SHOWER,
+    RAIN,
+    CLOUDS,
+    HURRICANE
+    //RAIN, CLOUDS, SNOW, HAIL, STORM, HURRICANE, EARTHQUAKE, METEOR_SHOWER
 };
 
 /**
@@ -109,7 +113,8 @@ enum CreatureType
  */
 enum NonHumanoidType
 {
-    COW, BEAR, DRAGON, GOOSE, SHEEP
+    COW, COW_DEMON, DRAGON
+    // BEAR, GOOSE, SHEEP
 };
 
 //******************************************************************************
