@@ -23,7 +23,6 @@ Resource::Resource(ResourceType type, uint res_amount) :
     this -> setShapeType(SHP_RESOURCE);
     this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
-    this -> setWeight(WGHT_RESOURCE);
 
     // FIXME: Foolish code.
     switch(this -> subtype)
@@ -106,6 +105,8 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> reg_amount      = 0;
         break;
     }
+
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
 }
 
 Resource::~Resource()
@@ -140,6 +141,8 @@ uint Resource::damage(uint delta)
     }
 
     this -> amount -= d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -153,6 +156,8 @@ uint Resource::heal(uint delta)
     }
 
     this -> amount += d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -172,14 +177,18 @@ uint Resource::getMaxHealthPoints() const
 
 std::vector<Action>* Resource::getActions()
 {
-    // TODO: Maybe it's better to use REGENERATE_OBJ action?
+    this -> actions.clear();
+
     if(this -> steps_to_reg-- == 0)
     {
-        this -> heal(this -> reg_amount);
+        Action act(REGENERATE_OBJ, this);
+        act.addParticipant(this);
+        act.addParam<uint>("object_index", 0);
+        this -> actions.push_back(act);
+
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 
-    this -> actions.clear();
     return &(this -> actions);
 }
 
