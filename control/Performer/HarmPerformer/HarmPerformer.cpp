@@ -13,6 +13,7 @@
 #include "../../../model/World/Object/Object.h"
 #include "../../../model/World/Object/Creatures/Creature.h"
 #include "../../../model/World/Object/Weather/Weather.h"
+#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 
 #include <vector>
 
@@ -72,6 +73,33 @@ void HarmPerformer::perform(Action& action)
             // Send message about attack.
             Message msg(UNDER_ATTACK, actor);
             participants[i] -> receiveMessage(msg);
+            if
+            (
+                (participants[i] -> getHealthPoints() == 0) &&
+                (participants[i] -> getType() == CREATURE) &&
+                (actor -> getType() == CREATURE)
+            )
+            {
+                Creature* cr = dynamic_cast<Creature*>(participants[i]);
+                Creature* cr_actor = dynamic_cast<Creature*>(actor);
+                if (cr -> getSubtype() == NON_HUMANOID)
+                {
+                    Humanoid* hum = dynamic_cast<Humanoid*>(cr_actor);
+
+                    ObjectHeap* drop = cr -> getDropObjects();
+                    ObjectHeap::iterator iter;
+                    for
+                    (
+                        iter = drop -> begin();
+                        iter != drop -> end();
+                        iter++
+                    )
+                    {
+                        hum -> addToInventory(*iter);
+                    }
+                    drop -> clear();
+                }
+            }
         }
         else
         {
