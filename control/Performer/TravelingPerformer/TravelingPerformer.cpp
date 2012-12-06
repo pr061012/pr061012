@@ -105,8 +105,7 @@ void TravelingPerformer::perform(Action& action)
         {
             if ((*i) -> isSolid() && (*i) != actor)
             {
-                // FIXME: Strange error!
-                action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
+                action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
                 break;
             }
         }
