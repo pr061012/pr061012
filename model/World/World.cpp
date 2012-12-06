@@ -54,9 +54,9 @@ void World::genResources()
     ParamArray food_params;
     ParamArray building_mat_params;
 
-    food_params.addKey<ResourceType>("res_type", RES_FOOD);
+    food_params.addKey<ResourceType>("res_type", GRASS);
 
-    building_mat_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    building_mat_params.addKey<ResourceType>("res_type", TREE);
 
     uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
@@ -136,7 +136,7 @@ void World::genCreatures()
                 if (k == 0 || k == 1)
                 {
                     ParamArray drop_params;
-                    drop_params.addKey<ResourceType>("res_type", RES_FOOD);
+                    drop_params.addKey<ResourceType>("res_type", MEAT);
 
                     Object* drop = object_factory -> createObject(RESOURCE, drop_params);
                     this -> addObject(false, drop);
@@ -211,7 +211,7 @@ void World::genForestAt(double x, double y, int x_trees, int y_trees, const Para
 void World::genForestAt(double x, double y)
 {
     ParamArray tree_params;
-    tree_params.addKey<ResourceType>("res_type", RES_BUILDING_MAT);
+    tree_params.addKey<ResourceType>("res_type", TREE);
     tree_params.addKey<uint>("res_amount", 10);
 
     this -> genForestAt(x, y, 20, 20, tree_params);

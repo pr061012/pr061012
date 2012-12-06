@@ -27,7 +27,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
     // FIXME: Foolish code.
     switch(this -> subtype)
     {
-        case RES_FOOD:
+        case GRASS: case MEAT:
             this -> mineable        = false;
             this -> restorable      = false;
             this -> makePickable();
@@ -40,7 +40,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
             this -> reg_amount      = 0;
         break;
 
-        case RES_BUILDING_MAT:
+        case TREE:
             this -> mineable        = true;
             this -> restorable      = true;
             this -> makeNonPickable();
@@ -204,8 +204,10 @@ std::string Resource::printObjectInfo(bool full) const
           insertSpaces("Type");
     switch (subtype)
     {
-        case RES_FOOD:         ss << "food";              break;
-        case RES_BUILDING_MAT: ss << "building material"; break;
+        case GRASS:            ss << "grass";             break;
+        case BERRIES:          ss << "berries";           break;
+        case MEAT:             ss << "meat";              break;
+        case TREE:             ss << "tree";              break;
         default:               ss << "unknown";           break;
     }
     ss << "\n";

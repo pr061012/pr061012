@@ -250,9 +250,9 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        if (isResInInventory(RES_FOOD))
+        if (isResInInventory(GRASS))
         {
-            aim = isResInInventory(RES_FOOD);
+            aim = isResInInventory(GRASS);
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
             this -> actions.push_back(act);
@@ -275,7 +275,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
             {
-                findNearestRes(RES_FOOD);
+                findNearestRes(GRASS);
                 if (aim != nullptr)
                 {
                     detailed_act = FIND_FOOD;
@@ -314,7 +314,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
-            findNearestRes(RES_FOOD);
+            findNearestRes(GRASS);
         }
         if (aim == nullptr)
         {
@@ -454,7 +454,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && aim == nullptr)
         {
-            findNearestRes(RES_BUILDING_MAT);
+            findNearestRes(TREE);
         }
         if (aim != nullptr && aim -> isDestroyed())
         {
@@ -480,13 +480,13 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-               // if (isResInInventory(RES_BUILDING_MAT))
+               // if (isResInInventory(TREE))
                 this -> sociability = calculateNecessResAmount();
-                if (isResInInventory(RES_BUILDING_MAT))
+                if (isResInInventory(TREE))
                 {
                     if
                     (
-                        isResInInventory(RES_BUILDING_MAT) -> getHealthPoints() >
+                        isResInInventory(TREE) -> getHealthPoints() >
                         calculateNecessResAmount()
                      )
                     {
@@ -740,7 +740,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
     else
     {
-        if (isResInInventory(RES_BUILDING_MAT))
+        if (isResInInventory(TREE))
         {
             aim = home;
             return BUILD_HOUSE;
@@ -756,7 +756,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    if (isResInInventory(RES_FOOD))
+    if (isResInInventory(GRASS))
     {
         return TAKE_FOOD_FROM_INVENTORY;
     }

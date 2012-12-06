@@ -212,7 +212,7 @@ void ViewWorld::renderObject(const Object* object)
         case RESOURCE:
         {
             const Resource* res = dynamic_cast<const Resource*>(object);
-            if(res -> getSubtype() == RES_BUILDING_MAT)
+            if(res -> getSubtype() == TREE)
             {
                 glColor4d(0.0, 1.0, 0.0, 0.4);
             }
