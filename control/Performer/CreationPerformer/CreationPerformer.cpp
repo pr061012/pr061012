@@ -54,10 +54,7 @@ void CreationPerformer::perform(Action& action)
     }
 
     ObjectType type = actor -> getType();
-    double size = actor -> getShape().getSize();
-
-    Vector new_center(Random::double_range(size,2*size), Random::double_range(size, 2*size));
-
+    double actor_size = actor -> getShape().getSize() / 2;
     // Check of actor type.
     if ( type == CREATURE )
     {
@@ -70,7 +67,10 @@ void CreationPerformer::perform(Action& action)
                 new_object = createCreature(action, param);
 
                 // Set coord new_object and check it.
+                Vector new_center(Random::double_range(actor_size, 1.2 * actor_size),
+                                  Random::double_range(actor_size, 1.2 * actor_size));
                 new_object -> setCoords(actor -> getCoords() + new_center);
+
                 if (checkCoord(new_object))
                 {
                     // If all is OK, add new_object in world.
@@ -102,11 +102,15 @@ void CreationPerformer::perform(Action& action)
                 {
                     // Create new resource.
                     new_object = createBuilding(action, param);
-                    new_object -> setCoords(actor -> getCoords());
+
+                    // Check coord new_object and add its in world.
+                    double size = new_object -> getShape().getSize() / 2;
+                    Vector new_center(Random::double_range(size, 1.2 * size) + actor_size,
+                                      Random::double_range(size, 1.2 * size) + actor_size);
+                    new_object -> setCoords(actor -> getCoords() + new_center);
 
                     if (checkCoord(new_object))
                     {
-                        // Set coord new_object and add its in world.
                         world -> addObject(true, new_object);
 
                         Building* new_home = dynamic_cast<Building*>(new_object);
@@ -174,7 +178,7 @@ bool CreationPerformer::checkCoord(Object* new_obj)
         (
             !count_building &&
             !count_resource &&
-            count_creature == 1
+            !count_creature
         )
         {
             ret = true;
