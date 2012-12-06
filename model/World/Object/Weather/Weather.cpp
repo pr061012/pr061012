@@ -105,6 +105,7 @@ std::vector<Action>* Weather::getActions()
             Vector v1 = (*iter) -> getCoords();
             Vector v2 = this -> getCoords();
 
+            act.addParticipant(*iter);
             act.addParam<double>("angle", v1.getAngle(v2));
             act.addParam<SpeedType>("speed", FAST_SPEED);
 
