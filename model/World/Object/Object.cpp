@@ -23,6 +23,7 @@ Object::Object(ObjectType type, bool solidity, bool movable, bool flyable,
     angle(0),
     danger_level(0),
     weight(0),
+    normal_speed(0),
     destroyed(false),
     immortality(immortality),
     solidity(solidity),
@@ -238,6 +239,20 @@ uint Object::getWeight() const
 void Object::setWeight(uint weight)
 {
     this -> weight = weight;
+}
+
+//******************************************************************************
+// NORMAL SPEED.
+//******************************************************************************
+
+double Object::getNormalSpeed() const
+{
+    return this -> normal_speed;
+}
+
+void Object::setNormalSpeed(double speed)
+{
+    this -> normal_speed = speed;
 }
 
 //******************************************************************************
