@@ -10,6 +10,7 @@
 #include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../model/World/Object/Object.h"
 #include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/World/Object/Weather/Weather.h"
 
 #include <vector>
 
@@ -61,7 +62,7 @@ void RegenerationPerformer::perform(Action& action)
         }
     }
 
-    if (type == CREATURE)
+    else if (type == CREATURE)
     {
         if (dynamic_cast<Creature*>(actor) -> getSubtype() == HUMANOID)
         {
@@ -103,18 +104,22 @@ void RegenerationPerformer::perform(Action& action)
             )
             {
                 Resource* res = dynamic_cast<Resource*>(*iter);
-                if (rest_hp > count)
+                if (res -> getSubtype() != RES_BUILDING_MAT)
                 {
-                    // Check how many resource need.
-                    if (res -> getHealthPoints() * REG_BUILDING_COEF <= rest_hp - count)
+                    continue;
+                }
+                while ((rest_hp > count) && (res -> getHealthPoints() != 0))
+                {
+                    if (rest_hp < count + REG_BUILDING_COEF)
                     {
-                        count += res -> damage(res -> getHealthPoints()) * REG_BUILDING_COEF;
+                        count = rest_hp;
+                        res -> damage(1);
                     }
                     else
                     {
-                        count += res -> damage( (rest_hp - count) / REG_BUILDING_COEF)* REG_BUILDING_COEF;
+                        res -> damage(1);
+                        count += REG_BUILDING_COEF;
                     }
-                    assert (rest_hp - count);
                 }
             }
             if (count == 0)
@@ -126,5 +131,10 @@ void RegenerationPerformer::perform(Action& action)
             building -> heal(count);
             action.markAsSucceeded();
         }
+    }
+    else if (type == WEATHER)
+    {
+        Weather* weat = dynamic_cast<Weather*>(actor);
+
     }
 }
