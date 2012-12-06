@@ -73,7 +73,8 @@ std::string Object::printObjectInfo(bool full) const
     // Information only for full-mode.
     if (full)
     {
-        ss << insertSpaces("Shape") << shape.getTypeName() << " (" <<
+        ss << insertSpaces("Speed") << normal_speed << std::endl <<
+              insertSpaces("Shape") << shape.getTypeName() << " (" <<
                                        shape.getSize() << ")" << std::endl;
     }
 

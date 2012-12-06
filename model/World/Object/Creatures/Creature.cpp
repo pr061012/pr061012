@@ -41,7 +41,6 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     max_hunger(Random::int_range(CREAT_HUNGER_MIN, CREAT_HUNGER_MAX)),
     hunger(0),
 
-
     // steps
     common_steps(CREAT_STEPS),
     age_steps(CREAT_AGE_STEPS),
@@ -474,7 +473,6 @@ const Object* Creature::getAim()
 // Evaluates object's danger depending on the distance to it.
 double Creature::evaluateDanger(const Object * obj, const Vector& coords)
 {
-    
     double view_radius = view_area.getSize() / 2;
     double distance = coords.getDistance(obj -> getCoords());
     double my_radius = getShape().getSize() / 2;
@@ -514,7 +512,8 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     else
     {
         // immovable objects are dangerous only at near distances.
-        if (distance - obj_radius < CREAT_DANGER_IMMOVABLE_FACTOR * CREAT_SPEED_SLOW_VALUE)
+        if (distance - obj_radius < 
+            CREAT_DANGER_IMMOVABLE_FACTOR * obj -> getNormalSpeed())
         {
             return danger_ratio;
         }
@@ -616,14 +615,10 @@ void Creature::go(SpeedType speed)
         }
 
         // if we reached the target, face to the next point
-        double my_speed = 0;
-        if (speed == SLOW_SPEED)
-        {   
-            my_speed = CREAT_SPEED_SLOW_VALUE;
-        }
-        else
+        double my_speed = getNormalSpeed();
+        if (speed == FAST_SPEED)
         {
-            my_speed = CREAT_SPEED_FAST_VALUE;
+            my_speed *= SPD_FAST_SPEED_COEF;
         }
 
         while (getCoords().getDistance(route.top()) < my_speed)

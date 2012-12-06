@@ -47,17 +47,11 @@ void MiningPerformer::perform(Action& action)
     Humanoid* humanoid = dynamic_cast<Humanoid*>(actor);
     CreatureType subtype = humanoid -> getSubtype();
 
-    // Only humanoid can mine.
-    if (subtype != HUMANOID)
-    {
-        action.markAsFailed(OBJ_CANT_MINE);
-        return;
-    }
-
     // It's possible to mine only one object.
     if (participants.size() > 1)
     {
         action.markAsFailed(TOO_MANY_PARTICIPANTS);
+        return;
     }
 
     Object* res = participants[res_index];
@@ -81,6 +75,7 @@ void MiningPerformer::perform(Action& action)
     if (!resource -> isMineable())
     {
         action.markAsFailed(OBJ_IS_NOT_MINEABLE);
+        return;
     }
 
     // Incrementing progress.
@@ -89,38 +84,19 @@ void MiningPerformer::perform(Action& action)
     // Creating new resource object (if needed) and adding it to inventory.
     if (resource -> getProgress() == resource -> getDifficulty())
     {
-        // Zeroing progress.
-        resource -> setProgress(0);
-
-        // Decreasing amount of resource.
         uint drop_amount = resource -> damage(resource -> getAmountPerDrop());
+        // Creating new resource.
+        ParamArray pa;
+        pa.addKey<ResourceType>("res_type", resource -> getSubtype());
+        pa.addKey<uint>("res_amount", drop_amount);
+        Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
 
-        // Trying to find this resource in humanoid's inventory.
-        ObjectHeap* inv = humanoid -> getInventory();
-        ObjectHeap::const_iterator i;
-        bool success = false;
-        for (i = inv -> begin(RESOURCE); i != inv -> end(RESOURCE); i++)
+        if (humanoid -> addToInventory(drop))
         {
-            Resource* inv_res = dynamic_cast<Resource*>(*i);
+            // Zeroing progress.
+            resource -> setProgress(0);
 
-            if (inv_res -> getSubtype() == resource -> getSubtype())
-            {
-                // Success.
-                inv_res -> increaseMaxAmount(drop_amount);
-                inv_res -> heal(drop_amount);
-                success = true;
-                break;
-            }
-        }
-
-        // Failure: creating new resource.
-        if (!success)
-        {
-            // Creating new resource.
-            ParamArray pa;
-            pa.addKey<ResourceType>("res_type", resource -> getSubtype());
-            pa.addKey<uint>("res_amount", drop_amount);
-            Resource* drop = dynamic_cast<Resource*>(this -> world -> getObjectFactory() -> createObject(RESOURCE, pa));
+            // Decreasing amount of resource.
 
             // Making it non-mineable and non-restorable.
             drop -> makeNonMineable();
@@ -128,7 +104,13 @@ void MiningPerformer::perform(Action& action)
 
             // Adding object to inventory and world's heap.
             this -> world -> addObject(false, drop);
-            humanoid -> addToInventory(drop);
+        }
+        else
+        {
+            delete drop;
+            resource -> heal(drop_amount);
+            action.markAsFailed(NOT_ENOUGH_FREE_SPACE);
+            return;
         }
     }
 

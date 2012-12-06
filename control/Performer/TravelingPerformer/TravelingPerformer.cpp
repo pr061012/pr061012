@@ -36,11 +36,10 @@ void TravelingPerformer::perform(Action& action)
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
     SpeedType speed_type = action.getParam<SpeedType>(std::string("speed"));
-    double speed = 0;
+    double speed = actor -> getNormalSpeed();
     switch (speed_type)
     {
         case SLOW_SPEED: 
-            speed = CREAT_SPEED_SLOW_VALUE; 
             break;
 
         case FAST_SPEED:
@@ -49,16 +48,12 @@ void TravelingPerformer::perform(Action& action)
             {
                 if (dynamic_cast<Creature*>(actor) -> getEndurance() > 0)
                 {
-                    speed = CREAT_SPEED_FAST_VALUE;
-                }
-                else
-                {
-                    speed = CREAT_SPEED_SLOW_VALUE;
+                    speed *= SPD_FAST_SPEED_COEF;
                 }
             }
             else
             {
-                speed = CREAT_SPEED_SLOW_VALUE;
+                speed *+ SPD_FAST_SPEED_COEF;
             }
             break;
 
