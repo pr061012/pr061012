@@ -254,6 +254,11 @@ private:
      */
     DetailedHumAction chooseWayToRelax();
 
+    /**
+     * @brief Make hum eat aim
+     */
+    void eat();
+
     //**************************************************************************
     // UPDATE STEP
     //**************************************************************************
@@ -306,8 +311,7 @@ private:
     /**
      * @brief Searching for res in inventory
      * @param type Resource type
-     * @param isSetAim are we need to change aim?
-     * @return bool Is resource in inventory?
+     * @return Object Founded obj
      */
     Object *isResInInventory(ResourceType type);
 
@@ -321,11 +325,10 @@ private:
      */
     uint calculateNecessResAmount();
 
-//    /**
-//     * @brief Calculate, how many res in inventory
-//     * @return uint res amount
-//     */
-//    uint countRes(ResourceType type);
+    /**
+     * @brief Move inventory to build inventory
+     */
+    void putInvInHome();
 };
 
 #endif // HUMANOID_H
