@@ -8,6 +8,10 @@
 
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <vector>
 
 #include "../Utilities/ViewUtilities.h"
 #include "../ViewTexture/ViewTexture.h"
@@ -54,7 +58,7 @@ public:
      * @param width width of screen to render
      * @param height height of screen to render
      */
-    ViewWorld(const IWorld& w, const int& width, const int& height);
+    ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, ViewTexture*>& texture_buf);
 
     /**
      * @brief Destructor
@@ -68,7 +72,7 @@ private:
 
     /// vector of loaded textures
     //GLuint texture_buf[3];
-    std::vector<ViewTexture*> texture_buf;
+    std::map<std::string, ViewTexture*>& texture_buf;
 
     /**
      * @brief preload game textures in openGL

@@ -24,7 +24,8 @@ View::View(const IWorld& w)
     focus = NULL;
     console_input = "";
 
-    this -> view_world = new ViewWorld(w, this -> width, this -> height);
+    this -> view_world = new ViewWorld(w, this -> width, this -> height,
+                                       this -> texture_buf);
     this -> input_handler = new InputHandler(this);
 
     this -> glc_context = glcGenContext();
@@ -87,9 +88,9 @@ void View::loadTextures()
     json_reader = new Json::Reader();
     json_reader -> parse(config, json_data);
 
-    if(json_data.isMember("interface_textures"))
+    if(json_data.isMember("textures"))
     {
-        Json::Value textures = json_data.get("interface_textures", 0);
+        Json::Value textures = json_data.get("textures", 0);
 
         if(textures.isArray())
         {

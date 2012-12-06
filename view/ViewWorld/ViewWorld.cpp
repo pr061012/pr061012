@@ -12,8 +12,9 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
-    world(w)
+ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height, std::map<std::string, ViewTexture*>& texture_buf) :
+    world(w),
+    texture_buf(texture_buf)
 {
     loadTextures();
 
@@ -31,26 +32,10 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
 
 ViewWorld::~ViewWorld()
 {
-    for(uint i = 0; i < texture_buf.size(); ++i)
-    {
-        delete texture_buf[i];
-    }
 }
 
 void ViewWorld::loadTextures()
 {
-    uint flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;
-    texture_buf.push_back(new ViewTexture("res/rock.png", flags));
-
-    flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
-
-    ViewTexture* tex = new ViewTexture("res/tree.png", flags);
-    tex -> setTextureDimensions(126.0/640, 1.0 - 110.0/480,
-                                70.0/640, 110.0/480);
-    texture_buf.push_back(tex);
-
-    tex = new ViewTexture("res/cow.png", flags);
-    texture_buf.push_back(tex);
 }
 
 void ViewWorld::redraw()
@@ -110,7 +95,7 @@ void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
 
-    this -> texture_buf[0] -> setScale(VIEW_CAM_RADIUS / rad);
+    this -> texture_buf["Grass"] -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -170,7 +155,7 @@ const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
     switch(obj -> getType())
     {
         case RESOURCE:
-            ret = texture_buf[1];
+            ret = texture_buf["Tree"];
             break;
         case CREATURE:
         {
@@ -179,16 +164,16 @@ const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = texture_buf[1];
+                    ret = texture_buf["Tree"];
                     break;
                 case NON_HUMANOID:
-                    ret = texture_buf[2];
+                    ret = texture_buf["Cow"];
                     break;
             }
             break;
         }
         default:
-            ret = texture_buf[2];
+            ret = texture_buf["Cow"];
             break;
     }
     return ret;
@@ -295,7 +280,7 @@ void ViewWorld::renderBackground()
     double py = worldToScreenY( y - floor(y) );
 
 
-    texture_buf[0] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+    texture_buf["Rock"] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
                              2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
                               -px, -py);
 
