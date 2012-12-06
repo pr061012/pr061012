@@ -23,14 +23,15 @@ class Message
 {
 public:
     //**************************************************************************
-    // CONSTRUCTOR/DESTRUCTOR
+    // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
 
     /**
      * @brief Constructor.
-     * @param type  message's type
+     * @param type      message's type
+     * @param reason    message's reason object
      */
-    Message(const MessageType type, Object* sender);
+    Message(const MessageType type, Object* reason);
 
     /**
      * @brief Destructor.
@@ -48,17 +49,17 @@ public:
     MessageType getType() const;
 
     /**
-     * @brief  Gets message's sender.
-     * @return message's sender
+     * @brief  Gets message's reason.
+     * @return message's reason
      */
-    Object* getSender() const;
+    Object* getReason() const;
 
 private:
     /// Message type.
     const MessageType type;
 
     /// Message's sender.
-    Object* sender;
+    Object* reason;
 };
 
 #endif // MESSAGE_H
