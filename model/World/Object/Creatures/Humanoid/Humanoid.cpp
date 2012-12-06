@@ -213,7 +213,7 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     // Boundary case. Maybe meteor shower killed our victim?
-    if (aim -> isDestroyed())
+    if (aim && aim -> isDestroyed())
     {
         aim = nullptr;
     }
@@ -304,7 +304,7 @@ std::vector <Action>* Humanoid::getActions()
 
             if (aim -> isDestroyed())
             {
-                detailed_act = TAKE_FOOD_FROM_INVENTORY;
+                eat();
             }
         }
     }
@@ -353,21 +353,8 @@ std::vector <Action>* Humanoid::getActions()
             }
             else
             {
-                if (current_action == EAT)
-                {
-                    Action act(EAT_OBJ, this);
-                    act.addParticipant(aim);
-                    this -> actions.push_back(act);
-                    aim = nullptr;
-                }
-                else
-                {
-                    Action act(PICK_UP_OBJS, this);
-                    act.addParticipant(aim);
-                    this -> actions.push_back(act);
-                    aim = nullptr;
-                }
-             }
+                eat();
+            }
         }
     }
 
@@ -1145,4 +1132,29 @@ uint Humanoid::calculateNecessResAmount()
         }
     }
     return 1;
+}
+
+//**************************************************************************
+// AUXILIARY FUNC
+// It puts victim (or res) in inventory if we want to eat and make him eat it
+// if he want
+//**************************************************************************
+
+void Humanoid::eat()
+{
+    if (current_action == EAT)
+    {
+        Action act(EAT_OBJ, this);
+        act.addParticipant(aim);
+        this -> actions.push_back(act);
+        aim = nullptr;
+    }
+    else
+    {
+        Action act(PICK_UP_OBJS, this);
+        act.addParticipant(aim);
+        this -> actions.push_back(act);
+        aim = nullptr;
+        current_action = NONE;
+    }
 }
