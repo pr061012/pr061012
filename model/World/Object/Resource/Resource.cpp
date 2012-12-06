@@ -192,7 +192,16 @@ std::string Resource::printObjectInfo(bool full) const
     std::stringstream ss;
 
     ss << Object::printObjectInfo(full) <<
-          insertSpaces("Progress")      << progress << "/" << difficulty << std::endl <<
+          insertSpaces("Type");
+    switch (subtype)
+    {
+        case RES_FOOD:         ss << "food";              break;
+        case RES_BUILDING_MAT: ss << "building material"; break;
+        default:               ss << "unknown";           break;
+    }
+    ss << "\n";
+
+    ss << insertSpaces("Progress")      << progress << "/" << difficulty << std::endl <<
           insertSpaces("Drop amount")   << amount_per_drop << std::endl <<
           insertSpaces("Reg amount")    << reg_amount << std::endl <<
           insertSpaces("Steps to reg")  << steps_to_reg << std::endl <<
