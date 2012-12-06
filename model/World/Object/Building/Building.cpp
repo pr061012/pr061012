@@ -123,12 +123,42 @@ uint Building::getMaxHealthPoints() const
 
 bool Building::putInside(Object * object)
 {
-    return this -> contents -> push(object);
+    if (free_space != 0)
+    {
+        if (this -> contents -> push(object))
+        {
+            free_space--;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
 }
 
 bool Building::takeOut(Object * object)
 {
-    return this -> contents -> remove(object);
+    if (free_space != max_space)
+    {
+        if (this -> contents -> remove(object))
+        {
+            free_space++;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //******************************************************************************
