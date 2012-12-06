@@ -1065,7 +1065,7 @@ uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
     {
-        if (getFreeSpace() == 0)
+        if (free_space == 0)
         {
             return 0;
         }
