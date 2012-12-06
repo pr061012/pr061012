@@ -147,7 +147,7 @@ void RegenerationPerformer::perform(Action& action)
             }
             else
             {
-                if (participants[i] == RESOURCE)
+                if (participants[i] -> getType() == RESOURCE)
                 {
                     participants[i] -> heal(REG_RES_COEF);
                 }
