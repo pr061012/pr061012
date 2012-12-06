@@ -244,6 +244,10 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
+            if (free_space < HUM_CRIT_SPACE * 2)
+            {
+                putInvInHome();
+            }
             relax();
         }
     }
@@ -686,38 +690,40 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
-//    if
-//    (
-//        (laziness < A_BIT_MORE_THAN_HALF &&
-//         100 * getHealth() / getMaxHealth() > HIGH_LEVEL)
-//        || (laziness < SMALL_LEVEL && 100 * getHealth()
-//            / getMaxHealth() > A_BIT_MORE_THAN_HALF)
-//    )
-//    {
-//        uint a = Random::int_num(2);
-//        switch (a)
-//        {
-//            case 0: return MINE_RESOURSES; break;
-//            case 1:
-//                if (bravery > A_BIT_MORE_THAN_HALF)
-//                {
-//                    return HUNT;
-//                }
-//                else
-//                {
-//                    return FIND_FOOD;
-//                }
-//                break;
-//            default: return FIND_FOOD;
-//        }
-//    }
-//    else
-//    {
+    if
+    (
+        (laziness < SMALL_LEVEL && 100 * getHealth()
+        / getMaxHealth() > HIGH_LEVEL)
+    )
+    {
+        if (free_space <= 2 * HUM_CRIT_SPACE)
+        {
+            return RELAX_AT_HOME;
+        }
+        uint a = Random::int_num(2);
+        switch (a)
+        {
+            case 0: return MINE_RESOURSES; break;
+            case 1:
+                if (bravery > A_BIT_MORE_THAN_HALF)
+                {
+                    return HUNT;
+                }
+                else
+                {
+                    return FIND_FOOD;
+                }
+                break;
+            default: return FIND_FOOD;
+        }
+    }
+    else
+    {
         if(home != nullptr)
         {
             return RELAX_AT_HOME;
         }
-//    }
+    }
         return SLEEP_ON_THE_GROUND;
 }
 
@@ -1132,6 +1138,38 @@ uint Humanoid::calculateNecessResAmount()
         }
     }
     return 1;
+}
+
+// move inv to home
+// if we have res - put them to home, but if our inventory full of eat we shoul
+// also put it at home.
+void Humanoid::putInvInHome()
+{
+    {
+        Object* obj = isResInInventory(TREE);
+        if (obj)
+        {
+            home -> putInside(obj);
+            removeFromInventory(obj);
+        }
+        else
+        {
+            obj = isResInInventory(BERRIES);
+            if (obj)
+            {
+                home -> putInside(obj);
+                removeFromInventory(obj);
+                // just because it is better if some eat will be in inventory
+                return ;
+            }
+            obj = isResInInventory(MEAT);
+            if (obj)
+            {
+                home -> putInside(obj);
+                removeFromInventory(obj);
+            }
+        }
+    }
 }
 
 //**************************************************************************
