@@ -7,6 +7,8 @@
 #define GOD_H
 
 #include "../World/World.h"
+#include "../../model/Utilities/Vector/Vector.h"
+#include <vector>
 
 /**
  * @class God
@@ -22,12 +24,28 @@ public:
     /**
      * @brief Constructor.
      */
-    God();
+    God(World& world);
 
     /**
      * @brief Destructor.
      */
     ~God();
+
+    /**
+     * @brief setWeatherAt
+     * @param x
+     * @param type
+     * @return successful of operation
+     */
+    void setWeatherAt(Vector x, WeatherType type);
+
+private:
+    World& world;
+
+protected:
+    /// Array with actions.
+    std::vector <Action> actions;
+
 };
 
 #endif // GOD_H
