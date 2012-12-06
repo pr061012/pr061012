@@ -81,6 +81,12 @@ public:
     /// Gets bravery
     uint getBravery() const;
 
+    /// Gets free space
+    uint getFreeSpace();
+
+    /// Gets capacity
+    uint getCapacity();
+
     //**************************************************************************
     // SETTERS
     //**************************************************************************
@@ -123,11 +129,6 @@ public:
      * @return inventory
      */
     ObjectHeap* getInventory();
-
-    /**
-     * @brief 
-     */
-    uint calculateResAmount();
 
 private:
     //**************************************************************************
@@ -319,7 +320,6 @@ private:
      * @return uint res amount
      */
     uint calculateNecessResAmount();
-
 
 //    /**
 //     * @brief Calculate, how many res in inventory
