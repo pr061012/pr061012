@@ -79,16 +79,16 @@ void RegenerationPerformer::perform(Action& action)
                 return;
             }
 
+            Building* building = dynamic_cast<Building*>(participants[object_index]);
             // Check whether humanoid can heal this object.
             Shape reach_area = humanoid -> getReachArea();
             reach_area.setCenter(humanoid -> getCoords());
-            if (!reach_area.hitTest(humanoid -> getShape()))
+            if (!reach_area.hitTest(building -> getShape()))
             {
                 action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
                 return;
             }
 
-            Building* building = dynamic_cast<Building*>(participants[object_index]);
             uint rest_hp = building -> getMaxHealthPoints() - building -> getHealthPoints();
 
             // Searching for objects.
