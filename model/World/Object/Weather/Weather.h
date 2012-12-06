@@ -34,7 +34,7 @@ public:
     // INHERETED THINGS.
     //**************************************************************************
 
-    std::vector <Action> * getActions();
+    std::vector<Action>* getActions();
     void receiveMessage(Message message);
 
     std::string getTypeName() const;
@@ -93,6 +93,12 @@ private:
 
     /// Steps for living.
     uint steps;
+
+    /// Direction angle.
+    double direction_angle;
+
+    /// Roam steps.
+    uint roam_steps;
 };
 
 #endif // WEATHER_H

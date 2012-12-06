@@ -295,7 +295,8 @@ void NonHumanoid::findGrass()
     )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        if (res -> getSubtype() == RES_FOOD)
+        // TODO: Meat for dragons?
+        if (res -> getSubtype() == GRASS)
         {
             coords = res -> getCoords();
 

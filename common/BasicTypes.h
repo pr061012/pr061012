@@ -81,8 +81,11 @@ enum ToolType
  */
 enum ResourceType
 {
-    // FIXME: Silly dummy.
-    RES_FOOD, RES_BUILDING_MAT
+    // Food.
+    GRASS, BERRIES, MEAT,
+
+    // Resources.
+    TREE
 
     // Mineable resources.
     // BRONZE_ORE, IRON_ORE, SILVER_ORE, GOLD_ORE, WOOD,
@@ -287,6 +290,7 @@ enum ActionError
     NO_PLACE_TO_PLACE_OBJ_ON,
     OBJ_IS_OUT_OF_RANGE,
     OBJ_IS_OUT_OF_VIEW,
+    OBJ_IS_OUT_OF_WORLD_BOUNDS,
     OBJ_IS_IMMORTAL,
     OBJ_IS_NOT_MOVABLE,
     OBJ_IS_NOT_REGENERABLE,
@@ -306,6 +310,7 @@ enum ActionError
     OBJ_CANT_REGENERATE,
     OBJ_CAN_REGENERATE_ONLY_ITSELF,
     NOT_ENOUGH_INGREDIENTS,
+    NOT_ENOUGH_FREE_SPACE,
     TOO_MANY_PARTICIPANTS,
     ALL_OBJS_ARE_OUT_OF_REACH,
     SOME_OBJS_ARE_OUT_OF_REACH

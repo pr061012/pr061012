@@ -104,7 +104,7 @@ void RegenerationPerformer::perform(Action& action)
             )
             {
                 Resource* res = dynamic_cast<Resource*>(*iter);
-                if (res -> getSubtype() != RES_BUILDING_MAT)
+                if (res -> getSubtype() != TREE)
                 {
                     continue;
                 }

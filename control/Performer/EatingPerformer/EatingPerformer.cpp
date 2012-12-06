@@ -56,17 +56,17 @@ void EatingPerformer::perform(Action& action)
     uint food_value = 0;
     switch(dynamic_cast<Resource*>(food) -> getSubtype())
     {
-        case RES_FOOD:
-            food_value = RES_FOOD_VALUE;
+        case GRASS:
+            food_value = RES_GRASS_FOOD_VALUE;
         break;
 
-//        case GRASS:
-//            food_value = RES_BERRIES_FOOD_VALUE;
-//        break;
+        case BERRIES:
+            food_value = RES_BERRIES_FOOD_VALUE;
+        break;
 
-//        case BERRIES:
-//            food_value = RES_GRASS_FOOD_VALUE;
-//        break;
+        case MEAT:
+            food_value = RES_MEAT_FOOD_VALUE;
+        break;
 
         default:
             action.markAsFailed(OBJ_IS_NOT_EATABLE);
@@ -74,11 +74,10 @@ void EatingPerformer::perform(Action& action)
         break;
     }
 
-    action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
-
     // check if an object lies around creature
     ObjectHeap surroundings = world -> getIndexator() -> 
                                 getAreaContents(actor -> getShape());
+
     if(surroundings.find(food) != surroundings.end())
     {
         action.markAsSucceeded();

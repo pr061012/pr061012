@@ -250,8 +250,9 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        if (isResInInventory(RES_FOOD, true), true)
+        if (isResInInventory(GRASS))
         {
+            aim = isResInInventory(GRASS);
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
             this -> actions.push_back(act);
@@ -274,7 +275,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (100 * getHunger() / getMaxHunger() > A_BIT_MORE_THAN_HALF)
             {
-                findNearestRes(RES_FOOD);
+                findNearestRes(GRASS);
                 if (aim != nullptr)
                 {
                     detailed_act = FIND_FOOD;
@@ -313,7 +314,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
-            findNearestRes(RES_FOOD);
+            findNearestRes(GRASS);
         }
         if (aim == nullptr)
         {
@@ -453,7 +454,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && aim == nullptr)
         {
-            findNearestRes(RES_BUILDING_MAT);
+            findNearestRes(TREE);
         }
         if (aim != nullptr && aim -> isDestroyed())
         {
@@ -479,19 +480,25 @@ std::vector <Action>* Humanoid::getActions()
                 act.addParticipant(aim);
                 act.addParam("res_index", 0);
                 this -> actions.push_back(act);
-               // if (isResInInventory(RES_BUILDING_MAT))
-                this -> sociability = calculateNecessResAmount();
-                if (isResInInventory(RES_BUILDING_MAT, false) && home -> getHealthPoints() > calculateNecessResAmount())
+                this -> sociability = calculateNecessResAmount() * REG_BUILDING_COEF;
+                if (isResInInventory(TREE))
                 {
-                    if (current_action == BUILD)
+                    if
+                    (
+                        isResInInventory(TREE) -> getHealthPoints() >
+                        calculateNecessResAmount() * REG_BUILDING_COEF
+                    )
                     {
-                        detailed_act = BUILD_HOUSE;
+                        if (home != nullptr && current_action == BUILD)
+                        {
+                            detailed_act = BUILD_HOUSE;
+                            aim = home;
+                        }
+                        else
+                        {
+                            current_action = NONE;
+                        }
                     }
-                    else
-                    {
-                        current_action = NONE;
-                    }
-                    aim = home;
                 }
              }
         }
@@ -608,7 +615,7 @@ void Humanoid::messageProcess()
             {
                 detailed_act = RUN_FROM_DANGER;
             }
-            aim = msgs[i].getSender();
+            aim = msgs[i].getReason();
 
         }
     }
@@ -733,7 +740,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     }
     else
     {
-        if (isResInInventory(RES_BUILDING_MAT, false))
+        if (isResInInventory(TREE))
         {
             aim = home;
             return BUILD_HOUSE;
@@ -749,7 +756,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    if (isResInInventory(RES_FOOD, true))
+    if (isResInInventory(GRASS))
     {
         return TAKE_FOOD_FROM_INVENTORY;
     }
@@ -866,6 +873,10 @@ std::string Humanoid::printObjectInfo(bool full) const
         ss << insertSpaces("Visual memory")          << std::endl << visual_memory -> printIDs() <<
               insertSpaces("Steps for choose place") << steps_to_choose_place << std::endl;
     }
+    if (full)
+    {
+        ss << insertSpaces("FreeSpace/Capacity")     << free_space << '/' << capacity << std::endl;
+    }
 
     return ss.str();
 }
@@ -883,11 +894,11 @@ bool Humanoid::addToInventory(Object *obj)
     {
         uint amount = obj -> getHealthPoints();
         // Check if we have enough free space
-        if (amount * weight > free_space)
+        if (weight > free_space)
         {
             return false;
         }
-        free_space -= amount * weight;
+        free_space -= weight;
 
         ResourceType subtype = dynamic_cast<Resource*>(obj) -> getSubtype();
         for (ObjectHeap::iterator i = inventory -> begin(RESOURCE);
@@ -922,14 +933,7 @@ void Humanoid::cleanInventory()
         }
         else
         {
-            if ((*i) -> getType() == RESOURCE)
-            {
-                free_space -= (*i) -> getWeight() * (*i) -> getHealthPoints();
-            }
-            else
-            {
-                free_space -= (*i) -> getWeight();
-            }
+            free_space -= (*i) -> getWeight();
         }
     }
 
@@ -944,6 +948,7 @@ void Humanoid::cleanInventory()
 void Humanoid::removeFromInventory(Object * obj)
 {
     inventory -> remove(obj);
+    free_space += obj -> getWeight();
 }
 
 ObjectHeap * Humanoid::getInventory()
@@ -984,6 +989,18 @@ void Humanoid::setDetailedAction(DetailedHumAction detailed_act)
 uint Humanoid::getCurrentDetailedAct() const
 {
     return detailed_act;
+}
+
+// gets free space
+uint Humanoid::getFreeSpace()
+{
+    return this -> free_space;
+}
+
+// gets free space
+uint Humanoid::getCapacity()
+{
+    return this -> capacity;
 }
 
 //******************************************************************************
@@ -1047,7 +1064,7 @@ void Humanoid::findVictim()
 }
 
 // Searching for res in inventory
-bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
+Object* Humanoid::isResInInventory(ResourceType type)
 {
     ObjectHeap::const_iterator iter;
     for(
@@ -1058,14 +1075,10 @@ bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
         Resource* res = dynamic_cast<Resource*>(*iter);
         if (res -> getSubtype() == type)
         {
-            if (isSetAim)
-            {
-                this -> aim = res;
-            }
-            return true;
+            return res;
         }
     }
-    return false;
+    return nullptr;
 }
 
 //**************************************************************************
@@ -1075,6 +1088,7 @@ bool Humanoid::isResInInventory(ResourceType type,bool isSetAim)
 // If we mine resource because we build, we calculate it (how many res we need
 // to complete our home?). If we just mining res for best future, we choose
 // amount randomly.
+// TODO What about free space = 0? FIXME BAD
 uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
@@ -1096,13 +1110,18 @@ uint Humanoid::calculateNecessResAmount()
                 (free_space - HUM_CRIT_SPACE) * REG_BUILDING_COEF
             )
             {
-                return delta_health  * WGHT_RESOURCE / REG_BUILDING_COEF + 1;
+                return delta_health / REG_BUILDING_COEF +1 /** WGHT_RESOURCE / REG_BUILDING_COEF + 1*/;
             }
             // if no - take as much as you can
             else
             {
                 return (free_space - HUM_CRIT_SPACE) / WGHT_RESOURCE;
             }
+        }
+        else
+        {
+            detailed_act = CHOOSE_PLACE_FOR_HOME;
+            return 0;
         }
     }
     else
@@ -1117,4 +1136,5 @@ uint Humanoid::calculateNecessResAmount()
             return (free_space - HUM_CRIT_SPACE) / WGHT_RESOURCE;
         }
     }
+    return 1;
 }

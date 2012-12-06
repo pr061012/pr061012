@@ -23,89 +23,70 @@ Resource::Resource(ResourceType type, uint res_amount) :
     this -> setShapeType(SHP_RESOURCE);
     this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
-    this -> setWeight(WGHT_RESOURCE);
 
-    // FIXME: Foolish code.
-    switch(this -> subtype)
+    // Initialise food resource.
+    if
+    (
+        this -> subtype == GRASS || this -> subtype == MEAT ||
+        this -> subtype == BERRIES
+    )
     {
-        case RES_FOOD:
-            this -> mineable        = false;
-            this -> restorable      = false;
-            this -> makePickable();
-            this -> makeNonSolid();
-            this -> difficulty      = RES_DEFAULT_DIFFICULTY;
-            // FIXME: Consts for wood.
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
-            this -> max_amount      = this -> amount;
-            this -> amount_per_drop = 0;
-            this -> reg_amount      = 0;
-        break;
+        this -> mineable        = false;
+        this -> restorable      = false;
+        this -> makePickable();
+        this -> makeNonSolid();
+        this -> difficulty      = RES_DEFAULT_DIFFICULTY;
+        this -> amount_per_drop = 0;
+        this -> reg_amount      = 0;
 
-        case RES_BUILDING_MAT:
-            this -> mineable        = true;
-            this -> restorable      = true;
-            this -> makeNonPickable();
-            this -> makeSolid();
-            this -> difficulty      = RES_WOOD_DIFFICULTY;
-            // FIXME: Consts for wood.
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
-            this -> max_amount      = 1.5 * this -> amount;
-            this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
-            this -> reg_amount      = RES_WOOD_REG_AMOUNT;
-        break;
+        if (res_amount != 0)
+        {
+            this -> amount = res_amount;
+        }
+        else if (this -> subtype == GRASS)
+        {
+            this -> amount = Random::int_range(RES_GRASS_AMOUNT_MIN,
+                                               RES_GRASS_AMOUNT_MAX);
+        }
+        else if (this -> subtype == BERRIES)
+        {
+            this -> amount = Random::int_range(RES_BERRIES_AMOUNT_MIN,
+                                               RES_BERRIES_AMOUNT_MAX);
+        }
+        else if (this -> subtype == MEAT)
+        {
+            this -> amount = Random::int_range(RES_MEAT_AMOUNT_MIN,
+                                               RES_MEAT_AMOUNT_MAX);
+        }
 
-        /*
-        case WOOD:
-            this -> mineable        = true;
-            this -> difficulty      = RES_WOOD_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_WOOD_AMOUNT_MIN, RES_WOOD_AMOUNT_MAX);
-            this -> amount_per_drop = Random::int_range(RES_WOOD_DROP_MIN, RES_WOOD_DROP_MAX);
-            this -> reg_amount      = RES_WOOD_REG_AMOUNT;
-        break;
-
-        case BRONZE_ORE:
-            this -> mineable        = true;
-            this -> difficulty      = RES_BRONZE_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_BRONZE_ORE_AMOUNT_MIN, RES_BRONZE_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = Random::int_range(RES_BRONZE_ORE_DROP_MIN, RES_BRONZE_ORE_DROP_MAX);
-            this -> reg_amount      = RES_BRONZE_ORE_REG_AMOUNT;
-        break;
-
-        case IRON_ORE:
-            this -> mineable        = true;
-            this -> difficulty      = RES_IRON_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_IRON_ORE_AMOUNT_MIN, RES_IRON_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = Random::int_range(RES_IRON_ORE_DROP_MIN, RES_IRON_ORE_DROP_MAX);
-            this -> reg_amount      = RES_IRON_ORE_REG_AMOUNT;
-        break;
-
-        case SILVER_ORE:
-            this -> mineable        = true;
-            this -> difficulty      = RES_SILVER_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_SILVER_ORE_AMOUNT_MIN, RES_SILVER_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = Random::int_range(RES_SILVER_ORE_DROP_MIN, RES_SILVER_ORE_DROP_MAX);
-            this -> reg_amount      = RES_SILVER_ORE_REG_AMOUNT;
-        break;
-
-        case GOLD_ORE:
-            this -> mineable        = true;
-            this -> difficulty      = RES_GOLD_ORE_DIFFICULTY;
-            this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_GOLD_ORE_AMOUNT_MIN, RES_GOLD_ORE_AMOUNT_MAX);
-            this -> amount_per_drop = Random::int_range(RES_GOLD_ORE_DROP_MIN, RES_GOLD_ORE_DROP_MAX);
-            this -> reg_amount      = RES_GOLD_ORE_REG_AMOUNT;
-        break;
-        */
-
-        default:
-            this -> mineable        = false;
-            this -> restorable      = false;
-            this -> difficulty      = RES_DEFAULT_DIFFICULTY;
-            this -> amount          = res_amount;
-            this -> max_amount      = res_amount;
-            this -> amount_per_drop = 0;
-            this -> reg_amount      = 0;
-        break;
+        this -> max_amount = this -> amount;
     }
+    // Initialising tree.
+    else if (this -> subtype == TREE)
+    {
+        this -> mineable        = true;
+        this -> restorable      = true;
+        this -> makeNonPickable();
+        this -> makeSolid();
+        this -> difficulty      = RES_TREE_DIFFICULTY;
+        this -> amount          = res_amount != 0 ? res_amount : Random::int_range(RES_TREE_AMOUNT_MIN, RES_TREE_AMOUNT_MAX);
+        this -> max_amount      = 1.5 * this -> amount;
+        this -> amount_per_drop = Random::int_range(RES_TREE_DROP_MIN, RES_TREE_DROP_MAX);
+        this -> reg_amount      = RES_TREE_REG_AMOUNT;
+    }
+    // Unknown resource type. Using defaults.
+    else
+    {
+        this -> mineable        = false;
+        this -> restorable      = false;
+        this -> difficulty      = RES_DEFAULT_DIFFICULTY;
+        this -> amount          = res_amount;
+        this -> max_amount      = res_amount;
+        this -> amount_per_drop = 0;
+        this -> reg_amount      = 0;
+    }
+
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
 }
 
 Resource::~Resource()
@@ -140,6 +121,8 @@ uint Resource::damage(uint delta)
     }
 
     this -> amount -= d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -153,6 +136,8 @@ uint Resource::heal(uint delta)
     }
 
     this -> amount += d;
+    this -> setWeight(WGHT_RESOURCE * this -> amount);
+
     return d;
 }
 
@@ -172,14 +157,18 @@ uint Resource::getMaxHealthPoints() const
 
 std::vector<Action>* Resource::getActions()
 {
-    // TODO: Maybe it's better to use REGENERATE_OBJ action?
+    this -> actions.clear();
+
     if(this -> steps_to_reg-- == 0)
     {
-        this -> heal(this -> reg_amount);
+        Action act(REGENERATE_OBJ, this);
+        act.addParticipant(this);
+        act.addParam<uint>("object_index", 0);
+        this -> actions.push_back(act);
+
         this -> steps_to_reg = RES_REGENERATION_RATE;
     }
 
-    this -> actions.clear();
     return &(this -> actions);
 }
 
@@ -195,8 +184,10 @@ std::string Resource::printObjectInfo(bool full) const
           insertSpaces("Type");
     switch (subtype)
     {
-        case RES_FOOD:         ss << "food";              break;
-        case RES_BUILDING_MAT: ss << "building material"; break;
+        case GRASS:            ss << "grass";             break;
+        case BERRIES:          ss << "berries";           break;
+        case MEAT:             ss << "meat";              break;
+        case TREE:             ss << "tree";              break;
         default:               ss << "unknown";           break;
     }
     ss << "\n";
