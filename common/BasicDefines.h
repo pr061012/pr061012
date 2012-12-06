@@ -498,7 +498,7 @@
 //******************************************************************************
 
 /// Delta health of building "per" one res
-#define REG_BUILDING_COEF           1
+#define REG_BUILDING_COEF           10
 
 #endif // BASIC_DEFINES_H
 
