@@ -5,10 +5,10 @@
 
 #include <sstream>
 
-#include "Weather.h"
-
 #include "../../../../common/BasicDefines.h"
 #include "../../../../common/Math/Random.h"
+#include "../Resource/Resource.h"
+#include "Weather.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -51,27 +51,56 @@ std::vector<Action>* Weather::getActions()
 
     this -> actions.clear();
 
-    // TODO: Add actions for RAIN, CLOUDS, SNOW.
-
-    if
-    (
-        this -> subtype == METEOR_SHOWER ||
-        this -> subtype == STORM ||
-        this -> subtype == HURRICANE ||
-        this -> subtype == HAIL ||
-        this -> subtype == EARTHQUAKE
-    )
+    // Meteor shower harms all objects.
+    if (subtype == METEOR_SHOWER)
     {
         Action act(HARM_OBJS, this);
 
-        // Add all objects to this action.
         ObjectHeap::const_iterator iter;
-        for(iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
+        for (iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
         {
             act.addParticipant(*iter);
         }
 
         this -> actions.push_back(act);
+    }
+    else if (subtype == RAIN)
+    {
+        Action act(REGENERATE_OBJ, this);
+
+        ObjectHeap::const_iterator iter;
+        for
+        (
+            iter = covered_objs.begin(RESOURCE);
+            iter != covered_objs.end(RESOURCE);
+            iter++
+        )
+        {
+            Resource* res = dynamic_cast<Resource*>(*iter);
+            ResourceType type = res -> getSubtype();
+            if (type == RES_FOOD || type == RES_BUILDING_MAT)
+            {
+                act.addParticipant(res);
+            }
+        }
+
+        this -> actions.push_back(act);
+    }
+    else if (subtype == HURRICANE)
+    {
+        ObjectHeap::const_iterator iter;
+        for (iter = covered_objs.begin(); iter != covered_objs.end(); iter++)
+        {
+            Action act(MOVE, this);
+
+            Vector v1 = (*iter) -> getCoords();
+            Vector v2 = this -> getCoords();
+
+            act.addParam<double>("angle", v1.getAngle(v2));
+            act.addParam<SpeedType>("speed", FAST_SPEED);
+
+            this -> actions.push_back(act);
+        }
     }
 
     return &(this -> actions);
