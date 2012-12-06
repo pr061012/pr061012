@@ -71,14 +71,14 @@ void EatingPerformer::perform(Action& action)
         default:
             action.markAsFailed(OBJ_IS_NOT_EATABLE);
             return;
+
         break;
     }
-
-    action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
 
     // check if an object lies around creature
     ObjectHeap surroundings = world -> getIndexator() -> 
                                 getAreaContents(actor -> getShape());
+
     if(surroundings.find(food) != surroundings.end())
     {
         action.markAsSucceeded();

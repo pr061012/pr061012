@@ -27,7 +27,7 @@ void TravelingPerformer::perform(Action& action)
     ObjectType actor_type = actor -> getType();
 
     // check if actor can go
-    if (actor_type != CREATURE && actor_type != WEATHER)
+    if (!actor -> isMovable())
     {
         action.markAsFailed(OBJ_IS_NOT_MOVABLE);
         return;
@@ -79,15 +79,15 @@ void TravelingPerformer::perform(Action& action)
     )
     {
         // FIXME: Strange error, isn't it?
-        action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
+        action.markAsFailed(OBJ_IS_OUT_OF_WORLD_BOUNDS);
         return;
     }
 
     // place an object
     actor -> setCoords(dest);
 
-    // Nothing can stop weather
-    if (actor -> getType() == WEATHER)
+    // Nothing can stop non-solid and flying objects
+    if (!actor -> isSolid() || actor -> isCurrentlyFlying())
     {
         action.markAsSucceeded();
         world -> getIndexator() -> reindexate(actor);
@@ -121,5 +121,4 @@ void TravelingPerformer::perform(Action& action)
 
     // roll back if something wrong
     actor -> setCoords(origin);
-    action.markAsFailed(OBJ_IS_STUCK);
 }

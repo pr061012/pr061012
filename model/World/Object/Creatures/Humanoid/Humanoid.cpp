@@ -615,7 +615,7 @@ void Humanoid::messageProcess()
             {
                 detailed_act = RUN_FROM_DANGER;
             }
-            aim = msgs[i].getSender();
+            aim = msgs[i].getReason();
 
         }
     }
