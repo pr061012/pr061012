@@ -39,12 +39,7 @@ void PickupMaster::perform(Action& action)
     // continue getting data
     Vector dest = actor -> getCoords();
     std::vector<Object*> participants = action.getParticipants();
-    ObjectHeap * inventory = dynamic_cast<Humanoid *>(actor) -> getInventory();
-
-    //*************************************************************************
-    // TODO
-    // check if creature can have enough place to pickup
-    //*************************************************************************
+    Humanoid * human = dynamic_cast<Humanoid *>(actor);
 
     bool errors = false;
     bool success = false;
@@ -54,24 +49,25 @@ void PickupMaster::perform(Action& action)
     for (std::vector<Object*>::iterator j = participants.begin();
             j != participants.end(); j++) 
     {
-        if ((*j) -> getType() != RESOURCE &&
-            (*j) -> getType() != TOOL) 
+        // Check if object is pickable.
+        if (!(*j) -> isPickable()) 
         {
             errors = true;
             act_error = OBJ_IS_NOT_PICKABLE;
         }
-        else
+        // Check if an object fits in the inventory.
+        else if (human -> addToInventory(*j))
         {
             // make object hidden
             world -> getVisibleObjects() -> remove(*j);
             world -> getHiddenObjects() -> push(*j);
             world -> getIndexator() -> removeObject(*j);
-
-            // put it in inventory
-            inventory -> push(*j);
-
-            // remove from index
             success = true;
+        }
+        else
+        {
+            errors = true;
+            act_error = NOT_ENOUGH_FREE_SPACE;
         }
     }
 
