@@ -12,19 +12,18 @@
         {
             "name": "Human",
             "file": "human.png",
-            "x0": 0.33,
-            "y0": 0.87,
-            "width": 0.08,
-            "height": 0.13,
+            "split": true,
+            "x0": 0.0,
+            "y0": 0.0,
+            "width": 0.33,
+            "height": 0.5,
+            "xparts": 3,
+            "yparts": 4,
             "alpha": true
         },
         {
-            "name": "Human",
-            "file": "human.png",
-            "x0": 0.33,
-            "y0": 0.87,
-            "width": 0.08,
-            "height": 0.13,
+            "name": "House",
+            "file": "house.png",
             "alpha": true
         },
         {
@@ -41,10 +40,6 @@
             "name": "Rock",
             "file": "rock.png",
             "repeatable": true
-        },
-        {
-            "name": "Human",
-            "file": "human.png"
         },
         {
             "name": "Empty bar",

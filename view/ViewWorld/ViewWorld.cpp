@@ -13,7 +13,7 @@
 //******************************************************************************
 
 ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
-                     const TextureManager* texture_manager) :
+                     TextureManager* texture_manager) :
     world(w),
     texture_manager(texture_manager)
 {
@@ -29,6 +29,8 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
 
     this -> is_selected = false;
+
+    this -> step = 0;
 }
 
 ViewWorld::~ViewWorld()
@@ -41,7 +43,13 @@ void ViewWorld::loadTextures()
 
 void ViewWorld::redraw()
 {
-     this -> renderBackground();
+    this -> step++;
+    if(this -> step > 15)
+    {
+        this -> step = 0;
+    }
+
+    this -> renderBackground();
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
 
@@ -141,7 +149,7 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    const double y_max_rad = (double)getCamRad() * height / width;
+    const double y_max_rad = getCamRad() * height / width;
     new_var = new_var > y_max_rad ?
               new_var : y_max_rad;
     new_var = new_var < world.getSize() - y_max_rad ?
@@ -165,14 +173,70 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = texture_manager -> getTexture("Human");
+                {
+                    const Humanoid* h = static_cast<const Humanoid*>(obj);
+
+                    const Object* aim = h -> getAim();
+                    double ang = M_PI*3/2;
+
+                    if(aim)
+                    {
+                        double hx = h -> getCoords().getX();
+                        double hy = h -> getCoords().getY();
+
+                        double ax = aim -> getCoords().getX();
+                        double ay = aim -> getCoords().getY();
+
+                        ang = atan((hy-ay)/(hx-ax));
+                        ang += M_PI/2;
+
+                        if(ax < hx)
+                        {
+                            ang += M_PI;
+                        }
+                    }
+
+                    TextureManager::Rotation rot = TextureManager::DOWN;
+
+                    if(ang >= M_PI*7/4 || ang < M_PI/4)
+                    {
+                        rot = TextureManager::RIGHT;
+                    }
+                    if(ang >= M_PI/4 && ang < M_PI*3/4)
+                    {
+                        rot = TextureManager::UP;
+                    }
+                    if(ang >= M_PI*3/4 && ang < M_PI*5/4)
+                    {
+                        rot = TextureManager::LEFT;
+                    }
+                    if(ang >= M_PI*5/4 && ang < M_PI*7/4)
+                    {
+                        rot = TextureManager::DOWN;
+                    }
+
+                    uint act = h -> getCurrentDetailedAct();
+
+                    if(act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), 1);
+                    }
+                    else
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
+                    }
+
                     break;
+                }
                 case NON_HUMANOID:
                     ret = texture_manager -> getTexture("Cow");
                     break;
             }
             break;
         }
+        case BUILDING:
+            ret = texture_manager -> getTexture("House");
+            break;
         default:
             ret = texture_manager -> getTexture("Cow");
             break;

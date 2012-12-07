@@ -19,12 +19,19 @@ class Texture
 
     bool repeats;
 
-    /// Width and height dimensions of selected texture
+    /// X and Y offsets of loaded texture
+    double tex_x0;
+    double tex_y0;
+
     double tex_x;
     double tex_y;
 
+    /// Width and height dimensions of the selected texture
     double tex_w;
     double tex_h;
+
+    double tex_max_w;
+    double tex_max_h;
 
     /// Used only for repeating textures.
     double scale;
@@ -35,12 +42,23 @@ public:
      * @brief Constructor
      * @param path path to the texture file to be loaded
      */
-    Texture(const char* path, uint flags);
+    Texture(const char* path, uint flags, double x, double y, double width, double height);
 
     /**
      * @brief Destructor
      */
     ~Texture();
+
+    //**************************************************************************
+    // ACCESSORS.
+    //**************************************************************************
+
+    double getX();
+    double getY();
+    double getWidth();
+    double getHeight();
+
+    void resetTextureDimensions();
 
     void setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h);
 

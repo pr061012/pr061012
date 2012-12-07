@@ -20,14 +20,17 @@ class TextureManager
 
     std::map<std::string, Texture*> texture_buf;
     std::map<std::string, int> texture_num;
+    std::map<std::string, int> xparts;
+    std::map<std::string, int> yparts;
 
 public:
+    enum Rotation{UP, RIGHT, LEFT, DOWN};
+
     TextureManager(const std::string file);
 
     ~TextureManager();
 
-    Texture* getTexture(std::string name, int index = 0, int step = 0) const;
-
+    Texture* getTexture(std::string name, Rotation rotation = UP, int index = 0, int step = 0);
 };
 
 #endif // TEXTURE_MANAGER_H
