@@ -773,8 +773,8 @@ std::string Creature::printObjectInfo(bool full) const
     if (full)
     {
         ss << "Objects around"                 << std::endl << objects_around.printIDs() <<
-              "Matrix of attrs"                << printAttrs() << std::endl <<
-              "Matrix of action"               << printActMatrix() << std::endl;
+              "Matrix of attrs"                << printAttrs() <<
+              "Matrix of action"               << printActMatrix();
     }
 
     return ss.str();
