@@ -1,4 +1,5 @@
 #include "TextureManager.h"
+#include "../../common/Log/Log.h"
 
 TextureManager::TextureManager(const std::string file)
 {
@@ -35,6 +36,8 @@ TextureManager::TextureManager(const std::string file)
                 }
 
                 Texture* view_tex = new Texture(path.c_str(), flags);
+
+                Log::NOTE("Loaded texture '" + name + "' at " + path + ".");
 
                 view_tex -> setTextureDimensions(tex.get("x0",     0.0).asDouble(),
                                                  tex.get("y0",     0.0).asDouble(),

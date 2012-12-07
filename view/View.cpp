@@ -22,11 +22,11 @@ View::View(const IWorld& w)
     focus = NULL;
     console_input = "";
 
+    this -> texture_manager = new TextureManager("res/view.json");
+
     this -> view_world = new ViewWorld(w, this -> width, this -> height,
                                        this -> texture_manager);
     this -> input_handler = new InputHandler(this);
-
-    this -> texture_manager = new TextureManager("res/view.json");
 
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
@@ -42,7 +42,7 @@ View::View(const IWorld& w)
 #endif
     ));
 
-    sel_info = new TextField(getMaxScrX() - 7.0, getMaxScrY() - 4.0, 7.0, 4.0
+    sel_info = new TextField(getMaxScrX() - 7.0, getMaxScrY() - 6.0, 7.0, 6.0
 #ifdef __glfw3_h__
     ,window
 #endif
@@ -332,7 +332,7 @@ void View::redraw()
 
 void View::drawProgressBar(double x, double y, double width, double percent)
 {
-    double height = width/5;
+    double height = SZ_HUM_DIAM / 4;
 
     texture_manager -> getTexture("Red bar") -> setTextureDimensions(0, 0, percent, 1.0);
 
