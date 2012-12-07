@@ -78,7 +78,7 @@ void MovementPerformer::perform(Action& action)
 
     // TODO
     // Make dependancy on weight.
-    double speed = sqrt(actor -> getWeight() / participant -> getWeight());
+    double speed = sqrt(actor -> getWeight() / participant -> getWeight()) / TM_TICKS_PER_SECOND;
     
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
 
