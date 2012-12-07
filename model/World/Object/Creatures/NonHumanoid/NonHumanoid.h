@@ -38,6 +38,7 @@ public:
     //**************************************************************************
 
     std::string getTypeName() const;
+    std::string printObjectInfo(bool full) const;
 
     //**************************************************************************
     // NON-HUMANOID TYPE.

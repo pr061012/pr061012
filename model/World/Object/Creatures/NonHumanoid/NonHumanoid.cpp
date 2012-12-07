@@ -83,6 +83,23 @@ std::string NonHumanoid::getTypeName() const
     return "non-humanoid";
 }
 
+std::string NonHumanoid::printObjectInfo(bool full) const
+{
+    std::stringstream ss;
+
+    ss << Creature::printObjectInfo(full) <<
+          insertSpaces("Type");
+    switch (this -> subsubtype)
+    {
+        case COW: case COW_DEMON: ss << "cow";     break;
+        case DRAGON:              ss << "dragon";  break;
+        default:                  ss << "unknown"; break;
+    }
+    ss << std::endl;
+
+    return ss.str();
+}
+
 //******************************************************************************
 // NON-HUMANOID TYPE.
 //******************************************************************************
