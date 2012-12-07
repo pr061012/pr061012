@@ -197,13 +197,17 @@
 
 // Cow's normal speed.
 #define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)
-
 // Dragon's normal speed.
 #define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)
 
-// TODO: Different values for different weather types?
-/// Weather's normal speed.
-#define SPD_WEATHER                 SPD_NHUM_COW / 2
+/// Meteor shower's normal speed.
+#define SPD_WEATHER_METEOR_SHOWER   (SPD_NHUM_COW / 2)
+/// Clouds's normal speed.
+#define SPD_WEATHER_CLOUDS          (SPD_NHUM_COW / 4)
+/// Rain's normal speed.
+#define SPD_WEATHER_RAIN            (SPD_NHUM_COW / 2)
+/// Hurricane's normal speed.
+#define SPD_WEATHER_HURRICANE       SPD_HUM
 
 //******************************************************************************
 // GENERATION DEFINES.
