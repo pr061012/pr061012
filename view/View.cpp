@@ -14,8 +14,6 @@ View::View(const IWorld& w)
 {
     initWindow();
 
-    loadTextures();
-
     glfwGetWindowSize(&this -> width,
                       &this -> height);
 
@@ -24,14 +22,18 @@ View::View(const IWorld& w)
     focus = NULL;
     console_input = "";
 
-    this -> view_world = new ViewWorld(w, this -> width, this -> height);
+    this -> view_world = new ViewWorld(w, this -> width, this -> height,
+                                       this -> texture_manager);
     this -> input_handler = new InputHandler(this);
+
+    this -> texture_manager = new TextureManager("res/view.json");
 
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
 
     this -> font = glcGenFontID();
-    glcNewFontFromFamily(this -> font, "monospace");
+    glcNewFontFromFamily(this -> font, "Liberation Mono");
+    glcFontFace(this -> font, "Regular");
     glcFont(this -> font);
 
     this -> addInterfaceObject(new TextField(VIEW_CAM_SIZE/2-10.0, -getMaxScrY(), 10.0, 0.5
@@ -40,7 +42,7 @@ View::View(const IWorld& w)
 #endif
     ));
 
-    sel_info = new TextField(VIEW_CAM_SIZE/2, getMaxScrY()-4.0, 4.0, 4.0
+    sel_info = new TextField(getMaxScrX() - 7.0, getMaxScrY() - 4.0, 7.0, 4.0
 #ifdef __glfw3_h__
     ,window
 #endif
@@ -60,26 +62,14 @@ View::~View()
     delete view_world;
     delete input_handler;
 
-    for(uint i = 0; i < rendered.size(); i++)
+    for (uint i = 0; i < rendered.size(); i++)
     {
         delete rendered.at(i);
-    }
-
-    for(uint i = 0; i < texture_buf.size(); i++)
-    {
-        delete texture_buf.at(i);
     }
 
     glcDeleteFont(this -> font);
 
     glfwTerminate();
-}
-
-void View::loadTextures()
-{
-    uint flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
-    texture_buf.push_back(new ViewTexture("res/bar_empty.png", flags));
-    texture_buf.push_back(new ViewTexture("res/bar_red.png",   flags));
 }
 
 double View::getX()
@@ -344,10 +334,10 @@ void View::drawProgressBar(double x, double y, double width, double percent)
 {
     double height = width/5;
 
-    texture_buf[1] -> setTextureDimensions(0, 0, percent, 1.0);
+    texture_manager -> getTexture("Red bar") -> setTextureDimensions(0, 0, percent, 1.0);
 
-    texture_buf[0] -> render(x, y, width,         height);
-    texture_buf[1] -> render(x, y, width*percent, height);
+    texture_manager -> getTexture("Empty bar") -> render(x, y, width,         height);
+    texture_manager -> getTexture("Red bar") -> render(x, y, width*percent, height);
 }
 
 void View::displaySelectionInfo()
@@ -411,9 +401,6 @@ std::string View::printObjectViewInfo(const Object* obj)
             break;
     }
 
-//    ss << "\\HP "
-//       << ((double)obj -> getHealthPoints()) / (obj -> getMaxHealthPoints())
-//       << std::endl;
 
     return ss.str();
 }
@@ -461,9 +448,3 @@ void View::addInterfaceObject(TextField *new_obj)
 {
     rendered.push_back(new_obj);
 }
-
-//void View::addConsoleOutput(std::string app)
-//{
-//    std::string text = console -> getText();
-//    console -> setText(text + "\n" + app);
-//}
