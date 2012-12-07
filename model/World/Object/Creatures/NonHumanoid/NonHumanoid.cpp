@@ -184,7 +184,13 @@ std::vector<Action>* NonHumanoid::getActions()
             findFood();
         }
 
-        // If aim was found, then...
+        // Bad. Trying to find someone to eat.
+        if (aim == nullptr)
+        {
+            findVictim();
+        }
+
+        // So if aim was found, then...
         if (aim != nullptr)
         {
             // ... check distance to aim.
@@ -275,10 +281,59 @@ void NonHumanoid::updateNeedInDesc()
 // AUXILIARY FUNCTIONS.
 //******************************************************************************
 
+void NonHumanoid::findVictim()
+{
+    ObjectHeap::const_iterator iter;
+    double distance = this -> getViewArea().getSize() / 2;
+
+    // Only chosen one can eat other creatures.
+    if (this -> subsubtype != DRAGON)
+    {
+        return;
+    }
+
+    // Trying to find victim in objects around.
+    for
+    (
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+    )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+
+        bool is_eatable = false;
+
+        if (creat -> getSubtype() == HUMANOID)
+        {
+            is_eatable = true;
+        }
+        else
+        {
+            NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
+            if (nhum -> getSubsubtype() != DRAGON)
+            {
+                is_eatable = true;
+            }
+        }
+
+        if (is_eatable)
+        {
+            Vector coords = creat -> getCoords();
+
+            // Check distance to found creature.
+            if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
+            {
+                this -> aim = creat;
+                direction_is_set = true;
+                distance = coords.getDistance(this -> getCoords());
+            }
+        }
+    }
+}
+
 void NonHumanoid::findFood()
 {
     ObjectHeap::const_iterator iter;
-    Vector coords;
     double distance = this -> getViewArea().getSize() / 2;
 
     // Trying to find resources in objects around.
@@ -312,7 +367,7 @@ void NonHumanoid::findFood()
 
         if (is_eatable)
         {
-            coords = res -> getCoords();
+            Vector coords = res -> getCoords();
 
             // Check distance to found food.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))

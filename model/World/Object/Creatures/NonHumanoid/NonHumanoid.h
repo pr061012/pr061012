@@ -61,6 +61,12 @@ private:
     //**************************************************************************
 
     /**
+     * @brief  Searches for victim.
+     * @return the nearest victim
+     */
+    void findVictim();
+
+    /**
      * @brief  Searches for food around NonHumanoid.
      * @return the nearest food
      */
