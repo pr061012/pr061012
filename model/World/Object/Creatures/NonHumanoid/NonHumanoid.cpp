@@ -163,6 +163,8 @@ std::vector<Action>* NonHumanoid::getActions()
     // Reading messages.
     for (uint i = 0; i < messages.size(); i++)
     {
+        // TODO: Need to add check (e.g. for dragons) whether can this non-
+        //       humanoid fight with agressor or not.
         if (messages[i].getType() == UNDER_ATTACK)
         {
             current_action = ESCAPE;
