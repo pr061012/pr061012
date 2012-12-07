@@ -129,6 +129,17 @@ private:
      */
     int genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray& tree_params);
 
+    /**
+     * @brief Creates object at given point.
+     * @param type type of object
+     * @param params the parmeters of object
+     * @param random_place true if we don't need any current place.
+     * @param coords coordinates of an object.
+     * @return object pointer if creation was successful, nullptr otherwise.
+     */
+    Object* createObject(ObjectType type, const ParamArray& params, 
+                         bool random_place = true, Vector coords = Vector(0, 0));
+
 public:
     //**************************************************************************
     // OBJECT HEAP METHODS.
@@ -229,6 +240,9 @@ private:
 
     /// Global world indexator
     Indexator* indexator;
+
+    /// Object creating matrix of parmeters.
+    ParamArray ** object_parameters;
 
     /// Our world's ObjectFactory
     ObjectFactory* object_factory;
