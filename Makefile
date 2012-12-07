@@ -39,7 +39,10 @@ else
 endif
 
 # View debug.
-CFLAGS += -DVIEW_DEBUG
+ifeq ($(view), pretty)
+else
+	CFLAGS += -DVIEW_DEBUG
+endif
 
 # Rules.
 
