@@ -40,7 +40,7 @@ void HarmPerformer::perform(Action& action)
     ObjectType type = actor -> getType();
 
     uint harm;
-
+    uint count_error = 0;
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
     {
@@ -58,59 +58,68 @@ void HarmPerformer::perform(Action& action)
         Creature* cr = dynamic_cast<Creature*>(actor);
         env_shape = cr -> getReachArea();
         harm = cr -> getForce() / Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
+        for (uint i = 0; i < participants.size(); i++)
+        {
+            if (env_shape.hitTest(participants[i] -> getShape()))
+            {
+                participants[i] -> damage(harm);
+
+                // Send message about attack.
+                Message msg(UNDER_ATTACK, actor);
+                participants[i] -> receiveMessage(msg);
+                if
+                (
+                    (participants[i] -> getHealthPoints() == 0) &&
+                    (participants[i] -> getType() == CREATURE) &&
+                    (actor -> getType() == CREATURE) &&
+                )
+                {
+                    Creature* cr = dynamic_cast<Creature*>(participants[i]);
+                    Creature* cr_actor = dynamic_cast<Creature*>(actor);
+                    if (cr_actor -> getSubtype() == HUMANOID)
+                    {
+                        Humanoid* hum = dynamic_cast<Humanoid*>(cr_actor);
+
+                        ObjectHeap* drop = cr -> getDropObjects();
+                        ObjectHeap::iterator iter;
+                        for(iter = drop -> begin(); iter != drop -> end(); iter++)
+                        {
+                            hum -> addToInventory(*iter);
+                        }
+                        drop -> clear();
+                    }
+                }
+            }
+            else
+            {
+                // Count the amount of error.
+                count_error += 1;
+            }
+        }
     }
 
-    if (type == WEATHER)
+    else if (type == WEATHER)
     {
         Weather* weather = dynamic_cast<Weather*>(actor);
         env_shape = weather -> getShape();
         harm = weather -> getDangerLevel() / Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
-    }
-
-    // Harm object in view area.
-    uint count_error = 0;
-    for (uint i = 0; i < participants.size(); i++)
-    {
-        if (env_shape.hitTest(participants[i] -> getShape()))
+        for (uint i = 0; i < participants.size(); i++)
         {
-            participants[i] -> damage(harm);
-
-            // Send message about attack.
-            Message msg(UNDER_ATTACK, actor);
-            participants[i] -> receiveMessage(msg);
-            if
-            (
-                (participants[i] -> getHealthPoints() == 0) &&
-                (participants[i] -> getType() == CREATURE) &&
-                (actor -> getType() == CREATURE)
-            )
+            if (env_shape.hitTest(participants[i] -> getShape()))
             {
-                Creature* cr = dynamic_cast<Creature*>(participants[i]);
-                Creature* cr_actor = dynamic_cast<Creature*>(actor);
-                if (cr -> getSubtype() == NON_HUMANOID)
-                {
-                    Humanoid* hum = dynamic_cast<Humanoid*>(cr_actor);
+                participants[i] -> damage(harm);
 
-                    ObjectHeap* drop = cr -> getDropObjects();
-                    ObjectHeap::iterator iter;
-                    for
-                    (
-                        iter = drop -> begin();
-                        iter != drop -> end();
-                        iter++
-                    )
-                    {
-                        hum -> addToInventory(*iter);
-                    }
-                    drop -> clear();
-                }
+                // Send message about attack.
+                Message msg(UNDER_ATTACK, actor);
+                participants[i] -> receiveMessage(msg);
+            }
+            else
+            {
+                // Count the amount of error.
+                count_error += 1;
             }
         }
-        else
-        {
-            // Count the amount of error.
-            count_error += 1;
-        }
+
     }
 
     // If all objects receive attack, then...
