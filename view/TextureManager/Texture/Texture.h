@@ -3,14 +3,14 @@
     See the LICENSE file for copying permission.
 */
 
-#ifndef VIEW_TEXTURE_H
-#define VIEW_TEXTURE_H
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
 #include <stdlib.h>
 
-class ViewTexture
+class Texture
 {
     /// Pointer to loaded texture data
     GLuint texture;
@@ -35,12 +35,12 @@ public:
      * @brief Constructor
      * @param path path to the texture file to be loaded
      */
-    ViewTexture(const char* path, uint flags);
+    Texture(const char* path, uint flags);
 
     /**
      * @brief Destructor
      */
-    ~ViewTexture();
+    ~Texture();
 
     void setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h);
 
@@ -51,4 +51,4 @@ public:
                 double x_offset = 0.0, double y_offset = 0.0) const;
 };
 
-#endif // VIEW_TEXTURE_H
+#endif // TEXTURE_H

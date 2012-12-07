@@ -1,0 +1,60 @@
+{
+        "textures": [
+        {
+            "name": "Tree",
+            "file": "tree.png",
+            "x0": 0.2,
+            "y0": 0.77,
+            "width": 0.11,
+            "height": 0.23,
+            "alpha": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png",
+            "x0": 0.33,
+            "y0": 0.87,
+            "width": 0.08,
+            "height": 0.13,
+            "alpha": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png",
+            "x0": 0.33,
+            "y0": 0.87,
+            "width": 0.08,
+            "height": 0.13,
+            "alpha": true
+        },
+        {
+            "name": "Cow",
+            "file": "cow.png",
+            "alpha": true
+        },
+        {
+            "name": "Grass",
+            "file": "grass.png",
+            "repeatable": true
+        },
+        {
+            "name": "Rock",
+            "file": "rock.png",
+            "repeatable": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png"
+        },
+        {
+            "name": "Empty bar",
+            "file": "bar_empty.png",
+            "alpha": true
+        },
+        {
+            "name": "Red bar",
+            "file": "bar_red.png",
+            "alpha": true
+        },
+    ]
+}
