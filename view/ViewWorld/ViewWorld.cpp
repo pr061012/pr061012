@@ -29,6 +29,8 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
 
     this -> is_selected = false;
+
+    this -> step = 0;
 }
 
 ViewWorld::~ViewWorld()
@@ -41,7 +43,13 @@ void ViewWorld::loadTextures()
 
 void ViewWorld::redraw()
 {
-     this -> renderBackground();
+    this -> step++;
+    if(this -> step > 2)
+    {
+        this -> step = 0;
+    }
+
+    this -> renderBackground();
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
 
@@ -180,6 +188,12 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         double ay = aim -> getCoords().getY();
 
                         ang = atan((hy-ay)/(hx-ax));
+                        ang += M_PI/2;
+
+                        if(ax < hx)
+                        {
+                            ang += M_PI;
+                        }
                     }
 
                     TextureManager::Rotation rot = TextureManager::DOWN;
@@ -201,7 +215,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         rot = TextureManager::DOWN;
                     }
 
-                    ret = texture_manager -> getTexture("Human", rot);
+                    ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step);
                     break;
                 }
                 case NON_HUMANOID:

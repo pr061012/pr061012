@@ -43,6 +43,9 @@ class ViewWorld
     /// Id of currently selected unit.
     uint selected_id;
 
+    /// Number of steps passed.
+    int step;
+
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
     /// required to get information about units that are not

@@ -78,7 +78,7 @@ Texture* TextureManager::getTexture(std::string name, Rotation rotation, int ind
     int len;
     if(len_iter == texture_num.end())
     {
-//        std::cout << "[View] No texture loaded." << std::endl;
+        Log::ERROR("Texture " + name + " is not loaded.");
         return NULL;
     }
 
@@ -90,8 +90,8 @@ Texture* TextureManager::getTexture(std::string name, Rotation rotation, int ind
 
     tex -> resetTextureDimensions();
 
-//    step     %= xparts[name];
-//    rotation %= yparts[name];
+    step     %= xparts[name];
+    rotation = (Rotation)((int)rotation % yparts[name]);
 
     double width  = tex -> getWidth()  / xparts[name];
     double height = tex -> getHeight() / yparts[name];
