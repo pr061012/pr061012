@@ -256,9 +256,7 @@ std::vector<Action>* NonHumanoid::getActions()
                 // Aim is creature, harm it.
                 else if (aim -> getType() == CREATURE)
                 {
-                    Action act(HARM_OBJS, this);
-                    act.addParticipant(aim);
-                    actions.push_back(act);
+                    fight();
                 }
             }
             else

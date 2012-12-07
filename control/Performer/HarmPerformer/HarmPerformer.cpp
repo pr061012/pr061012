@@ -54,7 +54,7 @@ void HarmPerformer::perform(Action& action)
     Shape env_shape;
     if (type == CREATURE)
     {
-        if (participants.size() != 0)
+        if (participants.size() != 1)
         {
             action.markAsFailed(TOO_MANY_PARTICIPANTS);
             return;

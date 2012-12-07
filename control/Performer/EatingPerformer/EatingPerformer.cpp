@@ -74,9 +74,12 @@ void EatingPerformer::perform(Action& action)
         break;
     }
 
-    // check if an object lies around creature
+    // check if an object lies around creaturei
+    //
+    Shape surrounding_area = dynamic_cast<Creature*>(actor) -> getReachArea();
+    surrounding_area.setCenter(actor -> getCoords());
     ObjectHeap surroundings = world -> getIndexator() -> 
-                                getAreaContents(actor -> getShape());
+                                        getAreaContents(surrounding_area);
 
     if(surroundings.find(food) != surroundings.end())
     {
