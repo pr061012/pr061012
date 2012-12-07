@@ -14,7 +14,9 @@
 #include <vector>
 
 #include "../Utilities/ViewUtilities.h"
-#include "../Texture/Texture.h"
+
+#include "../TextureManager/TextureManager.h"
+#include "../TextureManager/Texture/Texture.h"
 
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
@@ -95,7 +97,7 @@ private:
     /**
      * @brief draws specific object relative to current coordinates
      */
-    void renderObject(const Object* object); // TODO: Object -> ViewObject
+    void renderObject(const Object* object);
 
     /**
      * @brief render a grass background all over the window

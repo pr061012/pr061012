@@ -28,6 +28,8 @@ View::View(const IWorld& w)
                                        this -> texture_buf, this -> texture_num);
     this -> input_handler = new InputHandler(this);
 
+    this -> texture_manager = new TextureManager("res/view.json");
+
     this -> glc_context = glcGenContext();
     glcContext(this -> glc_context);
 
@@ -142,7 +144,7 @@ Texture* View::getTexture(std::string name, int index)
     int len;
     if(len_iter == texture_num.end())
     {
-        std::cout << "[View] No texture loaded." << std::endl;
+//        std::cout << "[View] No texture loaded." << std::endl;
         return NULL;
     }
 
@@ -484,9 +486,6 @@ std::string View::printObjectViewInfo(const Object* obj)
             break;
     }
 
-//    ss << "\\HP "
-//       << ((double)obj -> getHealthPoints()) / (obj -> getMaxHealthPoints())
-//       << std::endl;
 
     return ss.str();
 }
@@ -534,9 +533,3 @@ void View::addInterfaceObject(TextField *new_obj)
 {
     rendered.push_back(new_obj);
 }
-
-//void View::addConsoleOutput(std::string app)
-//{
-//    std::string text = console -> getText();
-//    console -> setText(text + "\n" + app);
-//}

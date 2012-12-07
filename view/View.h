@@ -6,14 +6,10 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include "dev_glfw.h"
-#include <GL/gl.h>
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <vector>
-
-#include <jsoncpp/json/json.h>
 
 #include "ViewWorld/ViewWorld.h"
 #include "InputHandler/InputHandler.h"
@@ -22,9 +18,13 @@
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
 #include "Utilities/ViewUtilities.h"
-#include "Texture/Texture.h"
 
+#include "TextureManager/TextureManager.h"
+#include "TextureManager/Texture/Texture.h"
+
+#include "dev_glfw.h"
 #include <GL/glc.h>
+#include <GL/gl.h>
 
 
 /* VIEW_DEBUG turns on debug mode.
@@ -46,7 +46,10 @@ class View
     /// Key handler for GUI
     InputHandler* input_handler;
 
-    /// Indixates, whether world should be reset
+    /// Texture manager
+    TextureManager* texture_manager;
+
+    /// Indicates, if world reset is necessary
     bool reset;
 
     /// GLC context used to render text
@@ -68,8 +71,6 @@ class View
     /// Map of currently loaded textures.
     std::map<std::string, Texture*> texture_buf;
     std::map<std::string, int> texture_num;
-
-    Json::Reader* json_reader;
 
     /// Dimensions of program window, in pixels
     int width;
