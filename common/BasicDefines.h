@@ -238,6 +238,9 @@
 /// Weather's roaming steps (steps before roam direction changing).
 #define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
 
+/// Weather's action steps (steps before generating new weather action).
+#define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
+
 //******************************************************************************
 // TOOL DEFINES.
 // Prefix: TOOL.

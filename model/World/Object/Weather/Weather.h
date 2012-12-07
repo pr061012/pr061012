@@ -99,6 +99,9 @@ private:
 
     /// Roam steps.
     uint roam_steps;
+
+    /// Steps for next weather action.
+    uint action_steps;
 };
 
 #endif // WEATHER_H

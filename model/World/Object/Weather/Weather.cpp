@@ -47,6 +47,9 @@ Weather::Weather(WeatherType type, uint living_steps) :
     // Initialising direction angle.
     this -> direction_angle = Random::double_num(2 * M_PI);
     this -> roam_steps      = WEAT_ROAM_STEPS;
+
+    // Initialising action steps.
+    this -> action_steps    = WEAT_ACTION_STEPS;
 }
 
 Weather::~Weather()
@@ -72,14 +75,31 @@ std::vector<Action>* Weather::getActions()
     this -> actions.clear();
 
     // Decreasing steps.
-    if (this -> steps > 0)      this -> steps--;
-    if (this -> roam_steps > 0) this -> roam_steps--;
+    if (this -> steps > 0)        this -> steps--;
+    if (this -> roam_steps > 0)   this -> roam_steps--;
+    if (this -> action_steps > 0) this -> action_steps--;
 
     // Changing direction (if needed).
     if (this -> roam_steps == 0 || need_to_change_direction)
     {
         this -> roam_steps = WEAT_ROAM_STEPS;
         this -> direction_angle = Random::double_num(2 * M_PI);
+    }
+
+    // Going in set direction.
+    Action act(GO, this);
+    act.addParam<double>("angle", this -> direction_angle);
+    act.addParam<SpeedType>("speed", FAST_SPEED);
+    this -> actions.push_back(act);
+
+    // No need in new action generation.
+    if (this -> action_steps != 0)
+    {
+        return &(this -> actions);
+    }
+    else
+    {
+        this -> action_steps = WEAT_ACTION_STEPS;
     }
 
     // Meteor shower harms all objects.
@@ -135,12 +155,6 @@ std::vector<Action>* Weather::getActions()
             this -> actions.push_back(act);
         }
     }
-
-    // Going in set direction.
-    Action act(GO, this);
-    act.addParam<double>("angle", this -> direction_angle);
-    act.addParam<SpeedType>("speed", FAST_SPEED);
-    this -> actions.push_back(act);
 
     return &(this -> actions);
 }
