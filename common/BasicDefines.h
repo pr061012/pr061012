@@ -75,10 +75,10 @@
 #define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM
 
 /// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM
-// TODO: Someday we will need to change this param.
+#define SZ_WEATHER_DIAM_MIN         4 * SZ_HUM_DIAM
+
 /// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM
+#define SZ_WEATHER_DIAM_MAX         100 * SZ_HUM_DIAM
 
 /// Resource shape diameter (minimum size).
 #define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM
