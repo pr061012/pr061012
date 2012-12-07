@@ -90,10 +90,12 @@ std::vector<Action>* Weather::getActions()
     Action act(GO, this);
     act.addParam<double>("angle", this -> direction_angle);
     act.addParam<SpeedType>("speed", FAST_SPEED);
-    this -> actions.push_back(act);
+    //this -> actions.push_back(act);
 
-    // No need in new action generation.
-    if (this -> action_steps != 0)
+    // No need in new action generation
+    // Note: HURRICANE is exception only for one reason, it moves all objects
+    //       add should do it each step.
+    if (this -> action_steps != 0 && this -> subtype != HURRICANE)
     {
         return &(this -> actions);
     }
@@ -149,7 +151,7 @@ std::vector<Action>* Weather::getActions()
             Vector v2 = this -> getCoords();
 
             act.addParticipant(*iter);
-            act.addParam<double>("angle", v1.getAngle(v2));
+            act.addParam<double>("angle", v2.getAngle(v1) + 1.1 * M_PI / 2);
             act.addParam<SpeedType>("speed", FAST_SPEED);
 
             this -> actions.push_back(act);
