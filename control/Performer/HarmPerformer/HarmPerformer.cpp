@@ -39,7 +39,6 @@ void HarmPerformer::perform(Action& action)
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
 
-    uint harm;
     uint count_error = 0;
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
@@ -57,11 +56,13 @@ void HarmPerformer::perform(Action& action)
     {
         Creature* cr = dynamic_cast<Creature*>(actor);
         env_shape = cr -> getReachArea();
-        harm = cr -> getForce() / Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
+        env_shape.setCenter(actor -> getCoords());
         for (uint i = 0; i < participants.size(); i++)
         {
             if (env_shape.hitTest(participants[i] -> getShape()))
             {
+                uint harm = cr -> getForce() /
+                            Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
                 participants[i] -> damage(harm);
 
                 // Send message about attack.
@@ -102,11 +103,13 @@ void HarmPerformer::perform(Action& action)
     {
         Weather* weather = dynamic_cast<Weather*>(actor);
         env_shape = weather -> getShape();
-        harm = weather -> getDangerLevel() / Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
+
         for (uint i = 0; i < participants.size(); i++)
         {
             if (env_shape.hitTest(participants[i] -> getShape()))
             {
+                uint harm = weather -> getDangerLevel() /
+                            Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
                 participants[i] -> damage(harm);
 
                 // Send message about attack.
