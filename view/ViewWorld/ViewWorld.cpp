@@ -215,7 +215,17 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         rot = TextureManager::DOWN;
                     }
 
-                    ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
+                    uint act = h -> getCurrentDetailedAct();
+
+                    if(act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), 1);
+                    }
+                    else
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
+                    }
+
                     break;
                 }
                 case NON_HUMANOID:
