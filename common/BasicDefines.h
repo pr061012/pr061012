@@ -168,7 +168,7 @@
 /// Cow's weight.
 #define WGHT_NHUM_COW               30
 /// Dragon's weight.
-#define WGHT_NHUM_DRAGON            5000
+#define WGHT_NHUM_DRAGON            250
 
 // TODO: Different values for different types of Resource.
 /// Resource's weight.
@@ -179,7 +179,7 @@
 #define WGHT_WEATHER                1000
 
 /// Building's weight.
-#define WGHT_BUILDING               1000
+#define WGHT_BUILDING               400
 
 //******************************************************************************
 // SPEED DEFINES.
@@ -197,13 +197,17 @@
 
 // Cow's normal speed.
 #define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)
-
 // Dragon's normal speed.
 #define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)
 
-// TODO: Different values for different weather types?
-/// Weather's normal speed.
-#define SPD_WEATHER                 SPD_NHUM_COW / 2
+/// Meteor shower's normal speed.
+#define SPD_WEATHER_METEOR_SHOWER   (SPD_NHUM_COW / 2)
+/// Clouds's normal speed.
+#define SPD_WEATHER_CLOUDS          (SPD_NHUM_COW / 4)
+/// Rain's normal speed.
+#define SPD_WEATHER_RAIN            (SPD_NHUM_COW / 2)
+/// Hurricane's normal speed.
+#define SPD_WEATHER_HURRICANE       SPD_HUM
 
 //******************************************************************************
 // GENERATION DEFINES.
@@ -237,6 +241,9 @@
 
 /// Weather's roaming steps (steps before roam direction changing).
 #define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
+
+/// Weather's action steps (steps before generating new weather action).
+#define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
 
 //******************************************************************************
 // TOOL DEFINES.
@@ -317,11 +324,11 @@
 // Prefix: DMG.
 //******************************************************************************
 
-#define DMG_FORCE_MIN               1
-#define DMG_FORCE_MAX               10
+#define DMG_FORCE_MIN               10
+#define DMG_FORCE_MAX               50
 
-#define DMG_DANGER_MIN              1
-#define DMG_DANGER_MAX              10
+#define DMG_DANGER_MIN              10
+#define DMG_DANGER_MAX              50
 
 //******************************************************************************
 // DECISION MAKER DEFINES.

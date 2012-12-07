@@ -1,9 +1,9 @@
 # Main compilation parameters.
 CPP         = c++
-CFLAGS      = -g -c -Wall -std=c++11 -march=native -O2
+CFLAGS      = -g -c -Wall -std=c++11 -march=native
 CFLAGS     += -Wextra -pedantic -Wold-style-cast -Woverloaded-virtual -Winit-self -Wparentheses
 LFLAGS      =
-LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC
+LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC -ljsoncpp
 
 # Paths.
 INPUT_DIR   = ./
@@ -16,7 +16,7 @@ COMMON_DIR  = $(INPUT_DIR)common/
 # Files with sources.
 SOURCES     = $(wildcard $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)*/*/*/*.cpp $(MODEL_DIR)*/*/*/*/*.cpp)
 SOURCES    += $(wildcard $(CONTROL_DIR)*.cpp $(CONTROL_DIR)*/*.cpp $(CONTROL_DIR)*/*/*.cpp)
-SOURCES    += $(wildcard $(VIEW_DIR)*.cpp $(VIEW_DIR)*/*.cpp)
+SOURCES    += $(wildcard $(VIEW_DIR)*.cpp $(VIEW_DIR)*/*.cpp $(VIEW_DIR)*/*/*.cpp)
 SOURCES    += $(wildcard $(CLI_DIR)*.cpp)
 SOURCES    += $(wildcard $(COMMON_DIR)*/*.cpp)
 SOURCES    += main.cpp
