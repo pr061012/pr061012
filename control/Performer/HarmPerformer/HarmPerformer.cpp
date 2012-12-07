@@ -30,6 +30,11 @@ HarmPerformer::~HarmPerformer()
 
 void HarmPerformer::perform(Action& action)
 {
+    // Random))
+    if (Random::int_range(0, 100) > 90)
+    {
+        return;
+    }
     // Get actor and type of actor.
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
