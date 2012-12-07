@@ -61,10 +61,10 @@ private:
     //**************************************************************************
 
     /**
-     * @brief    Find grass around NHum
-     * @return   the nearest grass
+     * @brief  Searches for food around NonHumanoid.
+     * @return the nearest food
      */
-    void findGrass();
+    void findFood();
 
     //**************************************************************************
     // PRIVATE ATTRIBUTES.

@@ -31,6 +31,7 @@ NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
     this -> max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setAge(0);
     this -> setMaxAge(age);
+    this -> setHunger(0.9 * this -> getMaxHunger());
 
     // Initialise type-dependent attributes.
     switch (subsubtype)
@@ -177,10 +178,10 @@ std::vector<Action>* NonHumanoid::getActions()
 
     else if (current_action == EAT)
     {
-        // If aim doesn't exist trying find grass.
+        // If aim doesn't exist trying to find food.
         if (aim == nullptr)
         {
-            findGrass();
+            findFood();
         }
 
         // If aim was found, then...
@@ -274,13 +275,13 @@ void NonHumanoid::updateNeedInDesc()
 // AUXILIARY FUNCTIONS.
 //******************************************************************************
 
-void NonHumanoid::findGrass()
+void NonHumanoid::findFood()
 {
     ObjectHeap::const_iterator iter;
     Vector coords;
     double distance = this -> getViewArea().getSize() / 2;
 
-    // Find grass in objects around.
+    // Trying to find resources in objects around.
     for
     (
         iter = objects_around.begin(RESOURCE);
@@ -288,12 +289,32 @@ void NonHumanoid::findGrass()
     )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        // TODO: Meat for dragons?
-        if (res -> getSubtype() == GRASS)
+        ResourceType type = res -> getSubtype();
+
+        bool is_eatable = false;
+
+        switch (this -> subsubtype)
+        {
+            case COW: case COW_DEMON:
+                if (type == GRASS || type == BERRIES)
+                {
+                    is_eatable = true;
+                }
+            break;
+
+            case DRAGON:
+                if (type == MEAT)
+                {
+                    is_eatable = true;
+                }
+            break;
+        }
+
+        if (is_eatable)
         {
             coords = res -> getCoords();
 
-            // Check distance to grass.
+            // Check distance to found food.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;

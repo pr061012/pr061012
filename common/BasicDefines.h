@@ -135,7 +135,6 @@
 /// Humanoid's danger level.
 #define DNGR_HUMANOID               5
 
-// TODO: Different values for different types of NonHumanoid.
 /// Cow's s danger level.
 #define DNGR_NHUM_COW               3
 /// Dragon's s danger level.
