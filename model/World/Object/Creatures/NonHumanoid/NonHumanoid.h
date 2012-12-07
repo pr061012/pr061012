@@ -92,6 +92,9 @@ private:
 
     /// Steps for current roam direction.
     uint roam_steps;
+
+    /// Array with messages.
+    std::vector <Message> messages;
 };
 
 #endif // NON_HUMANOID_H

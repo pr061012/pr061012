@@ -139,6 +139,10 @@ std::vector<Action>* NonHumanoid::getActions()
         }
     }
 
+    //**************************************************************************
+    // FORCE ACTION RESETTING.
+    //**************************************************************************
+
     // Checking whether current action is actual.
     if
     (
@@ -155,6 +159,18 @@ std::vector<Action>* NonHumanoid::getActions()
     {
         current_action = SLEEP;
     }
+
+    // Reading messages.
+    for (uint i = 0; i < messages.size(); i++)
+    {
+        if (messages[i].getType() == UNDER_ATTACK)
+        {
+            current_action = ESCAPE;
+            direction_is_set = false;
+            aim = nullptr;
+        }
+    }
+    messages.clear();
 
     //**************************************************************************
     // DECISION : NONE | OK
@@ -301,13 +317,7 @@ std::vector<Action>* NonHumanoid::getActions()
 
 void NonHumanoid::receiveMessage(Message message)
 {
-//    MessageType msg_type = message.getType();
-//
-//    if (msg_type == UNDER_ATTACK)
-//    {
-//        chooseDirectionToEscape();
-//        go(SLOW_SPEED);
-//    }
+    this -> messages.push_back(message);
 }
 
 //******************************************************************************
