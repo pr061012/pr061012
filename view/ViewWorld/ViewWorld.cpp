@@ -44,7 +44,7 @@ void ViewWorld::loadTextures()
 void ViewWorld::redraw()
 {
     this -> step++;
-    if(this -> step > 2)
+    if(this -> step > 15)
     {
         this -> step = 0;
     }
@@ -215,7 +215,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         rot = TextureManager::DOWN;
                     }
 
-                    ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step);
+                    ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
                     break;
                 }
                 case NON_HUMANOID:

@@ -42,10 +42,6 @@
             "repeatable": true
         },
         {
-            "name": "Human",
-            "file": "human.png"
-        },
-        {
             "name": "Empty bar",
             "file": "bar_empty.png",
             "alpha": true

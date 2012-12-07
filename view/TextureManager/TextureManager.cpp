@@ -84,13 +84,15 @@ Texture* TextureManager::getTexture(std::string name, Rotation rotation, int ind
 
     len = len_iter -> second;
     index = index % len;
+
+//    if(name == "Human")std::cout << len << "||" << index << std::endl;
     name += "_" + std::to_string(index);
 
     Texture* tex = texture_buf.find(name) -> second;
 
     tex -> resetTextureDimensions();
 
-    step     %= xparts[name];
+    step    %= xparts[name];
     rotation = (Rotation)((int)rotation % yparts[name]);
 
     double width  = tex -> getWidth()  / xparts[name];
