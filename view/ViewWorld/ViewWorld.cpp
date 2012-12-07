@@ -13,7 +13,7 @@
 //******************************************************************************
 
 ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
-                     const TextureManager* texture_manager) :
+                     TextureManager* texture_manager) :
     world(w),
     texture_manager(texture_manager)
 {
@@ -173,6 +173,9 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             }
             break;
         }
+        case BUILDING:
+            ret = texture_manager -> getTexture("House");
+            break;
         default:
             ret = texture_manager -> getTexture("Cow");
             break;

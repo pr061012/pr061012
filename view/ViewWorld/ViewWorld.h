@@ -61,7 +61,7 @@ public:
      * @param height height of screen to render
      */
     ViewWorld(const IWorld& w, const int& width, const int& height,
-              const TextureManager* texture_manager);
+              TextureManager* texture_manager);
 
     /**
      * @brief Destructor
@@ -73,7 +73,7 @@ private:
     // TEXTURE LOADING.
     //**************************************************************************
 
-    const TextureManager* texture_manager;
+    TextureManager* texture_manager;
 
     /**
      * @brief preload game textures in openGL

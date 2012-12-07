@@ -2,7 +2,7 @@
 
 #include "../../../common/Log/Log.h"
 
-Texture::Texture(const char* path, uint flags)
+Texture::Texture(const char* path, uint flags, double x, double y, double width, double height)
 {
 
     this -> texture = SOIL_load_OGL_texture
@@ -40,7 +40,12 @@ Texture::Texture(const char* path, uint flags)
     }
     else
     {
-        this -> setTextureDimensions(0.0, 0.0, 1.0, 1.0);
+        tex_x0 = x;
+        tex_y0 = y;
+        tex_max_w = width;
+        tex_max_h = height;
+
+        this -> setTextureDimensions(x, y, width, height);
     }
 
 }
@@ -48,6 +53,31 @@ Texture::Texture(const char* path, uint flags)
 Texture::~Texture()
 {
     glDeleteTextures(1, &this -> texture);
+}
+
+double Texture::getX()
+{
+    return this -> tex_x;
+}
+
+double Texture::getY()
+{
+    return this -> tex_y;
+}
+
+double Texture::getWidth()
+{
+    return this -> tex_w;
+}
+
+double Texture::getHeight()
+{
+    return this -> tex_h;
+}
+
+void Texture::resetTextureDimensions()
+{
+    setTextureDimensions(tex_x0, tex_y0, tex_max_w, tex_max_h);
 }
 
 void Texture::setTextureDimensions(double tex_x, double tex_y, double tex_w, double tex_h)

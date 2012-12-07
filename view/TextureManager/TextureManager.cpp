@@ -35,14 +35,13 @@ TextureManager::TextureManager(const std::string file)
                     flags |= SOIL_FLAG_TEXTURE_REPEATS;
                 }
 
-                Texture* view_tex = new Texture(path.c_str(), flags);
+                Texture* view_tex = new Texture(path.c_str(), flags,
+                                                tex.get("x0",     0.0).asDouble(),
+                                                tex.get("y0",     0.0).asDouble(),
+                                                tex.get("width",  1.0).asDouble(),
+                                                tex.get("height", 1.0).asDouble());
 
                 Log::NOTE("Loaded texture '" + name + "' at " + path + ".");
-
-                view_tex -> setTextureDimensions(tex.get("x0",     0.0).asDouble(),
-                                                 tex.get("y0",     0.0).asDouble(),
-                                                 tex.get("width",  1.0).asDouble(),
-                                                 tex.get("height", 1.0).asDouble());
 
                 if (texture_num.find(name) == texture_num.end())
                 {
@@ -53,6 +52,9 @@ TextureManager::TextureManager(const std::string file)
 
                 name += "_" + std::to_string(texture_num[name] - 1);
                 texture_buf[name] = view_tex;
+
+                xparts[name] = tex.get("xparts", 1).asInt();
+                yparts[name] = tex.get("yparts", 1).asInt();
             }
         }
     }
@@ -69,7 +71,7 @@ TextureManager::~TextureManager()
     delete json_reader;
 }
 
-Texture* TextureManager::getTexture(std::string name, int index, int step) const
+Texture* TextureManager::getTexture(std::string name, int rotation, int index, int step)
 {
     std::map<std::string, int>::const_iterator len_iter = texture_num.find(name);
 
@@ -85,6 +87,19 @@ Texture* TextureManager::getTexture(std::string name, int index, int step) const
     name += "_" + std::to_string(index);
 
     Texture* tex = texture_buf.find(name) -> second;
+
+    tex -> resetTextureDimensions();
+
+//    step     %= xparts[name];
+//    rotation %= yparts[name];
+
+    double width  = tex -> getWidth()  / xparts[name];
+    double height = tex -> getHeight() / yparts[name];
+    double x = tex -> getX() + width * step;
+    double y = tex -> getY() + height * rotation;
+
+    tex -> setTextureDimensions(x, y, width, height);
+
 
     return tex;
 }
