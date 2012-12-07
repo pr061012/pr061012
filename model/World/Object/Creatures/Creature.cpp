@@ -461,7 +461,7 @@ uint Creature::getForce()
 }
 
 
-const Object* Creature::getAim()
+const Object* Creature::getAim() const
 {
     return this -> aim;
 }

@@ -71,7 +71,7 @@ TextureManager::~TextureManager()
     delete json_reader;
 }
 
-Texture* TextureManager::getTexture(std::string name, int rotation, int index, int step)
+Texture* TextureManager::getTexture(std::string name, Rotation rotation, int index, int step)
 {
     std::map<std::string, int>::const_iterator len_iter = texture_num.find(name);
 

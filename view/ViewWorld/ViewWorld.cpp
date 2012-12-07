@@ -141,7 +141,7 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    const double y_max_rad = (double)getCamRad() * height / width;
+    const double y_max_rad = getCamRad() * height / width;
     new_var = new_var > y_max_rad ?
               new_var : y_max_rad;
     new_var = new_var < world.getSize() - y_max_rad ?
@@ -165,8 +165,45 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = texture_manager -> getTexture("Human");
+                {
+                    const Humanoid* h = static_cast<const Humanoid*>(obj);
+
+                    const Object* aim = h -> getAim();
+                    double ang = M_PI*3/2;
+
+                    if(aim)
+                    {
+                        double hx = h -> getCoords().getX();
+                        double hy = h -> getCoords().getY();
+
+                        double ax = aim -> getCoords().getX();
+                        double ay = aim -> getCoords().getY();
+
+                        ang = atan((hy-ay)/(hx-ax));
+                    }
+
+                    TextureManager::Rotation rot = TextureManager::DOWN;
+
+                    if(ang >= M_PI*7/4 || ang < M_PI/4)
+                    {
+                        rot = TextureManager::RIGHT;
+                    }
+                    if(ang >= M_PI/4 && ang < M_PI*3/4)
+                    {
+                        rot = TextureManager::UP;
+                    }
+                    if(ang >= M_PI*3/4 && ang < M_PI*5/4)
+                    {
+                        rot = TextureManager::LEFT;
+                    }
+                    if(ang >= M_PI*5/4 && ang < M_PI*7/4)
+                    {
+                        rot = TextureManager::DOWN;
+                    }
+
+                    ret = texture_manager -> getTexture("Human", rot);
                     break;
+                }
                 case NON_HUMANOID:
                     ret = texture_manager -> getTexture("Cow");
                     break;

@@ -315,7 +315,7 @@ public:
      * @brief get the id of aim
      * @return id of aim
      */
-    const Object* getAim();
+    const Object* getAim() const;
 
     //**************************************************************************
     // DECISION

@@ -16,8 +16,6 @@
 
 class TextureManager
 {
-    enum Rotation{UP, RIGHT, LEFT, DOWN};
-
     Json::Reader* json_reader;
 
     std::map<std::string, Texture*> texture_buf;
@@ -26,11 +24,13 @@ class TextureManager
     std::map<std::string, int> yparts;
 
 public:
+    enum Rotation{UP, RIGHT, LEFT, DOWN};
+
     TextureManager(const std::string file);
 
     ~TextureManager();
 
-    Texture* getTexture(std::string name, int rotation = 0, int index = 0, int step = 0);
+    Texture* getTexture(std::string name, Rotation rotation = UP, int index = 0, int step = 0);
 };
 
 #endif // TEXTURE_MANAGER_H
