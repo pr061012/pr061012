@@ -303,9 +303,12 @@ void World::createEverything(bool generate_objs)
 
     if (generate_objs)
     {
+        /*
         genCreatures();
         genResources();
         genWeather();
+        */
+        generateWorld();
     }
 }
 
