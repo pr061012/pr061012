@@ -244,7 +244,9 @@ std::vector<Action>* NonHumanoid::getActions()
         if (aim != nullptr)
         {
             // ... check distance to aim.
-            if (getShape().hitTest(aim -> getShape()))
+            Shape ra = getReachArea();
+            ra.setCenter(getCoords());
+            if (ra.hitTest(aim -> getShape()))
             {
                 // If aim is resource, just eat it!
                 if (aim -> getType() == RESOURCE)
