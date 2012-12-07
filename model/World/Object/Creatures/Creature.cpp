@@ -844,8 +844,9 @@ void Creature::updateDanger()
 // Update age, hunger, sleepiness, health, danger.
 void Creature::updateCommonAttrs()
 {
-    // Reset reach area.
+    // Reset reach and view area.
     reach_area.setCenter(getCoords());
+    view_area.setCenter(getCoords());
 
     // Age updating
     if (age_steps <= 0)

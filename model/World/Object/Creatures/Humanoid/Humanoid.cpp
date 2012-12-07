@@ -236,9 +236,8 @@ std::vector <Action>* Humanoid::getActions()
             aim = home;
         }
 
-        Shape reach_area = this -> getReachArea();
-        reach_area.setCenter(this -> getCoords());
-        if (!reach_area.hitTest(aim -> getShape()))
+        
+        if (!getReachArea().hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
             visualMemorize();
@@ -376,9 +375,7 @@ std::vector <Action>* Humanoid::getActions()
             aim = home;
         }
 
-        Shape reach_area = this -> getReachArea();
-        reach_area.setCenter(this -> getCoords());
-        if (!reach_area.hitTest(aim -> getShape()))
+        if (!getReachArea().hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
             visualMemorize();
@@ -422,9 +419,7 @@ std::vector <Action>* Humanoid::getActions()
             {
                 aim = home;
             }
-            Shape reach_area = this -> getReachArea();
-            reach_area.setCenter(this -> getCoords());
-            if (!reach_area.hitTest(aim -> getShape()))
+            if (!getReachArea().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
@@ -465,9 +460,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            Shape reach_area = this -> getReachArea();
-            reach_area.setCenter(this -> getCoords());
-            if (!reach_area.hitTest(aim -> getShape()))
+            if (!getReachArea().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
                 visualMemorize();
