@@ -204,6 +204,12 @@ std::vector<Action>* NonHumanoid::getActions()
 
     else if (current_action == EAT)
     {
+        // If aim was destroyed, reset it and try to find new.
+        if (aim != nullptr && aim -> isDestroyed())
+        {
+            aim = nullptr;
+        }
+
         // If aim doesn't exist trying to find food.
         if (aim == nullptr)
         {
