@@ -38,6 +38,17 @@ public:
     //**************************************************************************
 
     std::string getTypeName() const;
+    std::string printObjectInfo(bool full) const;
+
+    //**************************************************************************
+    // NON-HUMANOID TYPE.
+    //**************************************************************************
+
+    /**
+     * @brief  Gets non-humanoid's type.
+     * @return non-humanoid's type
+     */
+    NonHumanoidType getSubsubtype() const;
 
     //**************************************************************************
     // NON-HUMANOID ACTIONS.
@@ -61,10 +72,16 @@ private:
     //**************************************************************************
 
     /**
-     * @brief    Find grass around NHum
-     * @return   the nearest grass
+     * @brief  Searches for victim.
+     * @return the nearest victim
      */
-    void findGrass();
+    void findVictim();
+
+    /**
+     * @brief  Searches for food around NonHumanoid.
+     * @return the nearest food
+     */
+    void findFood();
 
     //**************************************************************************
     // PRIVATE ATTRIBUTES.

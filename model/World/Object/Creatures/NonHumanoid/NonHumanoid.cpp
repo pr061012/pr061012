@@ -31,6 +31,7 @@ NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
     this -> max_decr_sleep_step = NHUM_DECR_SLEEP_STEPS;
     this -> setAge(0);
     this -> setMaxAge(age);
+    this -> setHunger(0.9 * this -> getMaxHunger());
 
     // Initialise type-dependent attributes.
     switch (subsubtype)
@@ -80,6 +81,32 @@ NonHumanoid::~NonHumanoid()
 std::string NonHumanoid::getTypeName() const
 {
     return "non-humanoid";
+}
+
+std::string NonHumanoid::printObjectInfo(bool full) const
+{
+    std::stringstream ss;
+
+    ss << Creature::printObjectInfo(full) <<
+          insertSpaces("Type");
+    switch (this -> subsubtype)
+    {
+        case COW: case COW_DEMON: ss << "cow";     break;
+        case DRAGON:              ss << "dragon";  break;
+        default:                  ss << "unknown"; break;
+    }
+    ss << std::endl;
+
+    return ss.str();
+}
+
+//******************************************************************************
+// NON-HUMANOID TYPE.
+//******************************************************************************
+
+NonHumanoidType NonHumanoid::getSubsubtype() const
+{
+    return this -> subsubtype;
 }
 
 //******************************************************************************
@@ -177,27 +204,52 @@ std::vector<Action>* NonHumanoid::getActions()
 
     else if (current_action == EAT)
     {
-        // If aim doesn't exist trying find grass.
-        if (aim == nullptr)
+        // If aim was destroyed, reset it and try to find new.
+        if (aim != nullptr && aim -> isDestroyed())
         {
-            findGrass();
+            aim = nullptr;
         }
 
-        // If aim was found, then...
+        // If aim doesn't exist trying to find food.
+        if (aim == nullptr)
+        {
+            findFood();
+        }
+
+        // Bad. Trying to find someone to eat.
+        if (aim == nullptr)
+        {
+            findVictim();
+        }
+
+        // So if aim was found, then...
         if (aim != nullptr)
         {
             // ... check distance to aim.
             if (getShape().hitTest(aim -> getShape()))
             {
-                Action act(EAT_OBJ, this);
-                act.addParticipant(aim);
-                actions.push_back(act);
+                // If aim is resource, just eat it!
+                if (aim -> getType() == RESOURCE)
+                {
+                    Action act(EAT_OBJ, this);
+                    act.addParticipant(aim);
+                    actions.push_back(act);
+                }
+                // Aim is creature, harm it.
+                else if (aim -> getType() == CREATURE)
+                {
+                    Action act(HARM_OBJS, this);
+                    act.addParticipant(aim);
+                    actions.push_back(act);
+                }
+
+                // FIXME: Will non-humanoid decide to eat drop or not?
             }
             else
             {
                 go(SLOW_SPEED);
             }
-        }
+        }        
         else
         {
             // ... otherwise roaming and trying to find food.
@@ -274,13 +326,62 @@ void NonHumanoid::updateNeedInDesc()
 // AUXILIARY FUNCTIONS.
 //******************************************************************************
 
-void NonHumanoid::findGrass()
+void NonHumanoid::findVictim()
 {
     ObjectHeap::const_iterator iter;
-    Vector coords;
     double distance = this -> getViewArea().getSize() / 2;
 
-    // Find grass in objects around.
+    // Only chosen one can eat other creatures.
+    if (this -> subsubtype != DRAGON)
+    {
+        return;
+    }
+
+    // Trying to find victim in objects around.
+    for
+    (
+        iter = objects_around.begin(CREATURE);
+        iter != objects_around.end(CREATURE); iter++
+    )
+    {
+        Creature* creat = dynamic_cast<Creature*>(*iter);
+
+        bool is_eatable = false;
+
+        if (creat -> getSubtype() == HUMANOID)
+        {
+            is_eatable = true;
+        }
+        else
+        {
+            NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(creat);
+            if (nhum -> getSubsubtype() != DRAGON)
+            {
+                is_eatable = true;
+            }
+        }
+
+        if (is_eatable)
+        {
+            Vector coords = creat -> getCoords();
+
+            // Check distance to found creature.
+            if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
+            {
+                this -> aim = creat;
+                direction_is_set = true;
+                distance = coords.getDistance(this -> getCoords());
+            }
+        }
+    }
+}
+
+void NonHumanoid::findFood()
+{
+    ObjectHeap::const_iterator iter;
+    double distance = this -> getViewArea().getSize() / 2;
+
+    // Trying to find resources in objects around.
     for
     (
         iter = objects_around.begin(RESOURCE);
@@ -288,12 +389,32 @@ void NonHumanoid::findGrass()
     )
     {
         Resource* res = dynamic_cast<Resource*>(*iter);
-        // TODO: Meat for dragons?
-        if (res -> getSubtype() == GRASS)
-        {
-            coords = res -> getCoords();
+        ResourceType type = res -> getSubtype();
 
-            // Check distance to grass.
+        bool is_eatable = false;
+
+        switch (this -> subsubtype)
+        {
+            case COW: case COW_DEMON:
+                if (type == GRASS || type == BERRIES)
+                {
+                    is_eatable = true;
+                }
+            break;
+
+            case DRAGON:
+                if (type == MEAT)
+                {
+                    is_eatable = true;
+                }
+            break;
+        }
+
+        if (is_eatable)
+        {
+            Vector coords = res -> getCoords();
+
+            // Check distance to found food.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
                 this -> aim = res;

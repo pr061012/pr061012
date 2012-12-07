@@ -49,18 +49,25 @@ std::string Object::printObjectInfo(bool full) const
 
     // Printing information.
     ss << "#" << id << " (" << getTypeName() << ")" << std::endl <<
-
           // Common flags.
           (destroyed   ? "Destroyed\n" : "") <<
           (immortality ? "Immortal\n"  : "") <<
           (solidity    ? "Solid\n"     : "") <<
           (movable     ? "Movable\n"   : "") <<
-          (pickable    ? "Pickable\n"  : "") <<
-          (flyable     ? "Flyable"     : "") <<
-          (flyable && isCurrentlyFlying() ? " (currently flying)\n" : "\n") <<
+          (pickable    ? "Pickable\n"  : "");
+
+    if (flyable)
+    {
+        ss << "Flyable";
+        if (isCurrentlyFlying())
+        {
+            ss << " (currently flying)";
+        }
+        ss << "\n";
+    }
 
           // Coordinates.
-          insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
+    ss << insertSpaces("Center")       << "("  << shape.getCenter().getX() <<
                                           ", " << shape.getCenter().getY() <<
                                           ")" << std::endl <<
           // Health points.
