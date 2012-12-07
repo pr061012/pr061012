@@ -68,10 +68,6 @@ class View
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
 
-    /// Map of currently loaded textures.
-    std::map<std::string, Texture*> texture_buf;
-    std::map<std::string, int> texture_num;
-
     /// Dimensions of program window, in pixels
     int width;
     int height;

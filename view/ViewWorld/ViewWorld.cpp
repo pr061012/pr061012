@@ -13,10 +13,9 @@
 //******************************************************************************
 
 ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
-                     std::map<std::string, Texture*>& texture_buf, std::map<std::string, int>& texture_num) :
+                     const TextureManager* texture_manager) :
     world(w),
-    texture_buf(texture_buf),
-    texture_num(texture_num)
+    texture_manager(texture_manager)
 {
     loadTextures();
 
@@ -88,26 +87,6 @@ double ViewWorld::worldToScreenDist(double distance)
     return distance / getCamRad() * VIEW_CAM_SIZE;
 }
 
-Texture* ViewWorld::getTexture(std::string name, int index)
-{
-    std::map<std::string, int>::iterator len_iter = texture_num.find(name);
-
-    int len;
-    if(len_iter == texture_num.end())
-    {
-        std::cout << "[View] No texture loaded." << std::endl;
-        return NULL;
-    }
-
-    len = len_iter -> second;
-    index = index % len;
-    name += std::to_string(index);
-
-    Texture* tex = texture_buf.find(name) -> second;
-
-    return tex;
-}
-
 double ViewWorld::getCamRad()
 {
     return this -> cam_radius;
@@ -117,7 +96,7 @@ void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
 
-    this -> getTexture("Rock") -> setScale(VIEW_CAM_RADIUS / rad);
+    texture_manager -> getTexture("Rock") -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -177,7 +156,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
     switch(obj -> getType())
     {
         case RESOURCE:
-            ret = this -> getTexture("Tree");
+            ret = texture_manager -> getTexture("Tree");
             break;
         case CREATURE:
         {
@@ -186,16 +165,16 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = this -> getTexture("Human");
+                    ret = texture_manager -> getTexture("Human");
                     break;
                 case NON_HUMANOID:
-                    ret = this -> getTexture("Cow");
+                    ret = texture_manager -> getTexture("Cow");
                     break;
             }
             break;
         }
         default:
-            ret = this -> getTexture("Cow");
+            ret = texture_manager -> getTexture("Cow");
             break;
     }
     return ret;
@@ -302,7 +281,7 @@ void ViewWorld::renderBackground()
     double py = worldToScreenY( y - floor(y) );
 
 
-    this -> getTexture("Rock") -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+    texture_manager -> getTexture("Rock") -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
                                          2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
                                          -px, -py);
 

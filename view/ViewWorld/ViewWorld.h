@@ -61,7 +61,7 @@ public:
      * @param height height of screen to render
      */
     ViewWorld(const IWorld& w, const int& width, const int& height,
-              std::map<std::string, Texture*>& texture_buf, std::map<std::string, int>& texture_num);
+              const TextureManager* texture_manager);
 
     /**
      * @brief Destructor
@@ -73,9 +73,7 @@ private:
     // TEXTURE LOADING.
     //**************************************************************************
 
-    /// map of loaded textures
-    std::map<std::string, Texture*>& texture_buf;
-    std::map<std::string, int>& texture_num;
+    const TextureManager* texture_manager;
 
     /**
      * @brief preload game textures in openGL
@@ -137,8 +135,6 @@ public:
     //**************************************************************************
     // ACCESSORS.
     //**************************************************************************
-
-    Texture* getTexture(std::string name, int index = 0);
 
     /**
      * @brief Returns current radius of game cam, in game length units.

@@ -1,7 +1,7 @@
 # Main compilation parameters.
 CPP         = c++
 CFLAGS      = -g -c -Wall -std=c++11 -march=native -O2
-#CFLAGS     += -Wextra -pedantic -Wold-style-cast -Woverloaded-virtual -Wconversion -Wsign-conversion -Winit-self -Wparentheses
+CFLAGS     += -Wextra -pedantic -Wold-style-cast -Woverloaded-virtual -Wconversion -Wsign-conversion -Winit-self -Wparentheses
 LFLAGS      =
 LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC -ljsoncpp
 
@@ -39,7 +39,7 @@ else
 endif
 
 # View debug.
-# CFLAGS += -DVIEW_DEBUG
+CFLAGS += -DVIEW_DEBUG
 
 # Rules.
 
