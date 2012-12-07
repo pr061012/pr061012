@@ -71,7 +71,7 @@ void HarmPerformer::perform(Action& action)
                 (
                     (participants[i] -> getHealthPoints() == 0) &&
                     (participants[i] -> getType() == CREATURE) &&
-                    (actor -> getType() == CREATURE) &&
+                    (actor -> getType() == CREATURE)
                 )
                 {
                     Creature* cr = dynamic_cast<Creature*>(participants[i]);
