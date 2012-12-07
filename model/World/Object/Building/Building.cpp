@@ -101,7 +101,6 @@ uint Building::heal(uint delta)
     if (this -> health == this -> max_health)
     {
         this -> completeness = true;
-        this -> makeSolid();
     }
 
     return d;
