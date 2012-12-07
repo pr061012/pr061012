@@ -222,15 +222,28 @@ std::vector<Action>* NonHumanoid::getActions()
             // ... check distance to aim.
             if (getShape().hitTest(aim -> getShape()))
             {
-                Action act(EAT_OBJ, this);
-                act.addParticipant(aim);
-                actions.push_back(act);
+                // If aim is resource, just eat it!
+                if (aim -> getType() == RESOURCE)
+                {
+                    Action act(EAT_OBJ, this);
+                    act.addParticipant(aim);
+                    actions.push_back(act);
+                }
+                // Aim is creature, harm it.
+                else if (aim -> getType() == CREATURE)
+                {
+                    Action act(HARM_OBJS, this);
+                    act.addParticipant(aim);
+                    actions.push_back(act);
+                }
+
+                // FIXME: Will non-humanoid decide to eat drop or not?
             }
             else
             {
                 go(SLOW_SPEED);
             }
-        }
+        }        
         else
         {
             // ... otherwise roaming and trying to find food.
