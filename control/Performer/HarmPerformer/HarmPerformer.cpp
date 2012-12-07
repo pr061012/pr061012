@@ -54,48 +54,50 @@ void HarmPerformer::perform(Action& action)
     Shape env_shape;
     if (type == CREATURE)
     {
-        Creature* cr = dynamic_cast<Creature*>(actor);
-        env_shape = cr -> getReachArea();
-        env_shape.setCenter(actor -> getCoords());
-        for (uint i = 0; i < participants.size(); i++)
+        if (participants.size() != 0)
         {
-            if (env_shape.hitTest(participants[i] -> getShape()))
+            action.markAsFailed(TOO_MANY_PARTICIPANTS);
+            return;
+        }
+
+        Creature* actor_cr = dynamic_cast<Creature*>(actor);
+        env_shape = actor_cr -> getReachArea();
+        env_shape.setCenter(actor_cr -> getCoords());
+
+        if (env_shape.hitTest(participants[0] -> getShape()))
+        {
+            uint harm = actor_cr -> getForce() /
+                        Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
+            participants[0] -> damage(harm);
+
+            // Send message about attack.
+            Message msg(UNDER_ATTACK, actor_cr);
+            participants[0] -> receiveMessage(msg);
+            if
+            (
+                (participants[0] -> getHealthPoints() == 0) &&
+                (participants[0] -> getType() == CREATURE)
+            )
             {
-                uint harm = cr -> getForce() /
-                            Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
-                participants[i] -> damage(harm);
-
-                // Send message about attack.
-                Message msg(UNDER_ATTACK, actor);
-                participants[i] -> receiveMessage(msg);
-                if
-                (
-                    (participants[i] -> getHealthPoints() == 0) &&
-                    (participants[i] -> getType() == CREATURE) &&
-                    (actor -> getType() == CREATURE)
-                )
+                Creature* cr = dynamic_cast<Creature*>(participants[0]);
+                if (actor_cr -> getSubtype() == HUMANOID)
                 {
-                    Creature* cr = dynamic_cast<Creature*>(participants[i]);
-                    Creature* cr_actor = dynamic_cast<Creature*>(actor);
-                    if (cr_actor -> getSubtype() == HUMANOID)
-                    {
-                        Humanoid* hum = dynamic_cast<Humanoid*>(cr_actor);
+                    Humanoid* hum = dynamic_cast<Humanoid*>(actor_cr);
 
-                        ObjectHeap* drop = cr -> getDropObjects();
-                        ObjectHeap::iterator iter;
-                        for(iter = drop -> begin(); iter != drop -> end(); iter++)
-                        {
-                            hum -> addToInventory(*iter);
-                        }
-                        drop -> clear();
+                    ObjectHeap* drop = cr -> getDropObjects();
+                    ObjectHeap::iterator iter;
+                    for(iter = drop -> begin(); iter != drop -> end(); iter++)
+                    {
+                        hum -> addToInventory(*iter);
                     }
+                    drop -> clear();
                 }
             }
-            else
-            {
-                // Count the amount of error.
-                count_error += 1;
-            }
+        }
+        else
+        {
+            // Count the amount of error.
+            count_error += 1;
         }
     }
 
