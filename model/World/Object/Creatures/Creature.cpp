@@ -42,7 +42,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     hunger(0),
 
     // steps
-    common_steps(CREAT_STEPS),
+    hunger_steps(CREAT_STEPS),
+    sleepiness_steps(CREAT_STEPS),
     age_steps(CREAT_AGE_STEPS),
     health_steps(CREAT_REGEN_HEALTH_STEPS),
     endurance_steps(CREAT_REGEN_ENDURANCE_STEPS),
@@ -843,6 +844,9 @@ void Creature::updateDanger()
 // Update age, hunger, sleepiness, health, danger.
 void Creature::updateCommonAttrs()
 {
+    // Reset reach area.
+    reach_area.setCenter(getCoords());
+
     // Age updating
     if (age_steps <= 0)
     {
@@ -853,25 +857,46 @@ void Creature::updateCommonAttrs()
     {
         age_steps--;
     }
-    
-    // Sleepiness and hunger updating
-    if (common_steps <= 0)
+
+    if (!hunger)
     {
-        increaseHunger(CREAT_DELTA_HUNGER);
-
-        if (current_action != SLEEP)
+        this -> attrs(ATTR_HUNGER, 0) = 0;
+    }
+    
+    // Hunger updating
+    if (hunger_steps <= 0)
+    {
+        // Starving
+        if (hunger == max_hunger)
         {
-            increaseSleepiness(CREAT_DELTA_SLEEP);
+            damage(CREAT_DELTA_HEALTH); 
+            hunger_steps += CREAT_STARVING_STEPS;
         }
-        common_steps += CREAT_STEPS;
-
-        // Update attributes
-        this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
+        else
+        {
+            increaseHunger(CREAT_DELTA_HUNGER);
+            hunger_steps += CREAT_STEPS;
+        }
         this -> attrs(ATTR_HUNGER, 0) = 100 * hunger / max_hunger;
     }
     else
     {
-        common_steps--;
+        hunger_steps--;
+    }
+
+    // Sleepiness updating
+    if (sleepiness_steps <= 0)
+    {
+        if (current_action != SLEEP)
+        {
+            increaseSleepiness(CREAT_DELTA_SLEEP);
+        }
+        sleepiness_steps += CREAT_STEPS;
+        this -> attrs(ATTR_SLEEPINESS, 0) = 100 * sleepiness / max_sleepiness;
+    }
+    else
+    {
+        sleepiness_steps--;
     }
 
     // Regenerating health.
@@ -896,11 +921,6 @@ void Creature::updateCommonAttrs()
         endurance_steps--;
     }
 
-    // Starving
-    if (hunger == max_hunger)
-    {
-        damage(CREAT_DELTA_HEALTH);
-    }
 
     // Danger updating
     if (danger_steps <= 0)

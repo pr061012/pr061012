@@ -405,6 +405,9 @@
 /// Changes of endurance
 #define CREAT_DELTA_ENDUR           1
 
+/// Starving steps.
+#define CREAT_STARVING_STEPS        TM_TICKS_PER_SECOND / 2
+
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40
 
