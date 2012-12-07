@@ -74,11 +74,22 @@
 /// Building side (maximum size).
 #define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM
 
-/// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM
-// TODO: Someday we will need to change this param.
-/// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM
+/// Meteor shower's shape diameter (minimum size).
+#define SZ_WEAT_METEOR_SHOWER_DIAM_MIN  4 * SZ_HUM_DIAM
+/// Meteor shower's shape diameter (maximum size).
+#define SZ_WEAT_METEOR_SHOWER_DIAM_MAX  5 * SZ_HUM_DIAM
+/// Clouds' shape diameter (minimum size).
+#define SZ_WEAT_CLOUDS_DIAM_MIN     10 * SZ_HUM_DIAM
+/// Clouds' shape diameter (maximum size).
+#define SZ_WEAT_CLOUDS_DIAM_MAX     20 * SZ_HUM_DIAM
+/// Rain's shape diameter (minimum size).
+#define SZ_WEAT_RAIN_DIAM_MIN       10 * SZ_HUM_DIAM
+/// Rain's shape diameter (maximum size).
+#define SZ_WEAT_RAIN_DIAM_MAX       20 * SZ_HUM_DIAM
+/// Hurricane's shape diameter (minimum size).
+#define SZ_WEAT_HURRICANE_DIAM_MIN  7 * SZ_HUM_DIAM
+/// Hurricane's shape diameter (maximum size).
+#define SZ_WEAT_HURRICANE_DIAM_MAX  7 * SZ_HUM_DIAM
 
 /// Resource shape diameter (minimum size).
 #define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM

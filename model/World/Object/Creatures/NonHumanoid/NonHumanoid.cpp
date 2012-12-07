@@ -260,8 +260,6 @@ std::vector<Action>* NonHumanoid::getActions()
                     act.addParticipant(aim);
                     actions.push_back(act);
                 }
-
-                // FIXME: Will non-humanoid decide to eat drop or not?
             }
             else
             {

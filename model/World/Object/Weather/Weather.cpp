@@ -21,7 +21,6 @@ Weather::Weather(WeatherType type, uint living_steps) :
     // Initialising inhereted things.
     this -> makeFlying();
     this -> setShapeType(SHP_WEATHER);
-    this -> setShapeSize(Random::double_range(SZ_WEATHER_DIAM_MIN, SZ_WEATHER_DIAM_MAX));
     this -> setWeight(WGHT_WEATHER);
 
     // Setting danger level.
@@ -30,21 +29,25 @@ Weather::Weather(WeatherType type, uint living_steps) :
         case METEOR_SHOWER:
             this -> setDangerLevel(DNGR_WEATHER_METEOR_SHOWER);
             this -> setNormalSpeed(SPD_WEATHER_METEOR_SHOWER);
+            this -> setShapeSize(Random::double_range(SZ_WEAT_METEOR_SHOWER_DIAM_MIN, SZ_WEAT_METEOR_SHOWER_DIAM_MAX));
         break;
 
         case HURRICANE:
             this -> setDangerLevel(DNGR_WEATHER_HURRICANE);
             this -> setNormalSpeed(SPD_WEATHER_HURRICANE);
+            this -> setShapeSize(Random::double_range(SZ_WEAT_HURRICANE_DIAM_MIN, SZ_WEAT_HURRICANE_DIAM_MAX));
         break;
 
         case RAIN:
             this -> setDangerLevel(DNGR_WEATHER_RAIN);
             this -> setNormalSpeed(SPD_WEATHER_RAIN);
+            this -> setShapeSize(Random::double_range(SZ_WEAT_RAIN_DIAM_MIN, SZ_WEAT_RAIN_DIAM_MAX));
         break;
 
         case CLOUDS:
             this -> setDangerLevel(DNGR_WEATHER_CLOUDS);
             this -> setNormalSpeed(SPD_WEATHER_CLOUDS);
+            this -> setShapeSize(Random::double_range(SZ_WEAT_CLOUDS_DIAM_MIN, SZ_WEAT_CLOUDS_DIAM_MAX));
         break;
     }
 
