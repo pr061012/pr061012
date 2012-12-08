@@ -40,6 +40,35 @@ World::World(int rand_seed, uint size, bool generate_objs) :
               std::to_string(rand_seed) + ".");
 
     Creature::world_size = size;
+    
+    // Initialize object parameters
+    object_parameters = new ParamArray*[AMNT_OBJECT_TYPES];
+    
+    // Resources
+    object_parameters[RESOURCE] = new ParamArray[AMNT_RESOURCE_TYPES];
+    object_parameters[RESOURCE][GRASS].addKey<ResourceType>("res_type", GRASS);
+    object_parameters[RESOURCE][TREE].addKey<ResourceType>("res_type", TREE);
+    object_parameters[RESOURCE][MEAT].addKey<ResourceType>("res_type", MEAT);
+    // Creatures
+    object_parameters[CREATURE] = new ParamArray[AMNT_NONHUMANOID_TYPES + 1];
+    object_parameters[CREATURE][AMNT_NONHUMANOID_TYPES].
+                                addKey<CreatureType>("creat_type", HUMANOID);
+    object_parameters[CREATURE][COW].addKey<CreatureType>("creat_type", NON_HUMANOID);
+    object_parameters[CREATURE][COW].addKey<NonHumanoidType>("nhum_type", COW);
+
+    object_parameters[CREATURE][DRAGON].addKey<CreatureType>("creat_type", NON_HUMANOID);
+    object_parameters[CREATURE][DRAGON].addKey<NonHumanoidType>("nhum_type", DRAGON);
+    
+    // Weather
+    object_parameters[WEATHER] = new ParamArray[AMNT_WEATHER_TYPES];
+    object_parameters[WEATHER][METEOR_SHOWER].
+                        addKey<WeatherType>("weat_type", METEOR_SHOWER);
+    object_parameters[WEATHER][RAIN].
+                        addKey<WeatherType>("weat_type", RAIN);
+    object_parameters[WEATHER][CLOUDS].
+                        addKey<WeatherType>("weat_type", CLOUDS);
+    object_parameters[WEATHER][HURRICANE].
+                        addKey<WeatherType>("weat_type", HURRICANE);
 
     this -> createEverything(generate_objs);
 }
@@ -51,125 +80,44 @@ World::World(int rand_seed, uint size, bool generate_objs) :
 // Creating resources!
 void World::genResources()
 {
-    ParamArray food_params;
-    ParamArray building_mat_params;
-
-    food_params.addKey<ResourceType>("res_type", GRASS);
-
-    building_mat_params.addKey<ResourceType>("res_type", TREE);
-
     uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
     {
-        Object* newobj  = object_factory -> createObject(RESOURCE, food_params);
-
-        newobj -> setCoords(Vector(Random::double_range(0, size),
-                                   Random::double_range(0, size)));
-
-        Object* grass = object_factory -> createObject(RESOURCE, building_mat_params);
-
-        grass -> setCoords(Vector(Random::double_range(0, size),
-                                  Random::double_range(0, size)));
-
-        if (checkCoord(newobj))
-        {
-            indexator -> addObject(newobj);
-            visible_objs -> push(newobj);
-        }
-        else
-        {
-            delete newobj;
-        }
-
-        if (checkCoord(grass))
-        {
-            indexator -> addObject(grass);
-            visible_objs -> push(grass);
-        }
-        else
-        {
-            delete grass;
-        }
+        createObject(RESOURCE, GRASS);
+        createObject(RESOURCE, TREE);
     }
 }
 
 // Creating cows!
 void World::genCreatures()
 {
-    ParamArray cow_params;
-    cow_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
-    cow_params.addKey<NonHumanoidType>("nhum_type", COW);
-
-    ParamArray dragon_params;
-    dragon_params.addKey<CreatureType>("creat_type", NON_HUMANOID);
-    dragon_params.addKey<NonHumanoidType>("nhum_type", DRAGON);
-
-    ParamArray hum_params;
-    hum_params.addKey<CreatureType>("creat_type", HUMANOID);
-
-    for (uint k = 0; k < 3; k++)
+    for (uint k = 0; k <= AMNT_NONHUMANOID_TYPES; k++)
     {
         uint amount;
-        if (k == 0) amount = Random::int_range(20, 30);
-        else if (k == 1) amount = Random::int_range(1, 3);
-        else if (k == 2) amount = Random::int_range(10, 20);
+        if (k == COW) amount = Random::int_range(20, 30);
+        else if (k == DRAGON) amount = Random::int_range(1, 3);
+        // humans
+        else if (k == AMNT_NONHUMANOID_TYPES) amount = Random::int_range(10, 20);
+        else amount = 0;
 
         for (uint i = 0; i < amount; i++)
         {
-            Object* new_obj;
-
-            if (k == 0)      new_obj = object_factory -> createObject(CREATURE, cow_params);
-            else if (k == 1) new_obj = object_factory -> createObject(CREATURE, dragon_params);
-            else if (k == 2) new_obj = object_factory -> createObject(CREATURE, hum_params);
-
-            new_obj -> setCoords(Vector(Random::double_range(0, size),
-                                        Random::double_range(0, size)));
-            if (checkCoord(new_obj))
-            {
-                indexator -> addObject(new_obj);
-                visible_objs -> push(new_obj);
-
-                // TODO: Maybe not a good solution. What about to move this code
-                //       to controller and create these objects at the moment of
-                //       death?
-                // Everything is OK. Creating creature's "contents" %)
-                if (k == 0 || k == 1)
-                {
-                    ParamArray drop_params;
-                    drop_params.addKey<ResourceType>("res_type", MEAT);
-
-                    Object* drop = object_factory -> createObject(RESOURCE, drop_params);
-                    this -> addObject(false, drop);
-
-                    dynamic_cast<Creature*>(new_obj) -> getDropObjects() -> push(drop);
-                }
-            }
-            else
-            {
-                delete new_obj;
-            }
+            Object* new_obj = createObject(CREATURE, k);
+            Object* drop = object_factory -> 
+                            createObject(RESOURCE, object_parameters[RESOURCE][MEAT]);
+            this -> addObject(false, drop);
+            dynamic_cast<Creature*>(new_obj) -> getDropObjects() -> push(drop);
         }
     }
 }
 
 void World::genWeather()
 {
-    ParamArray weat_params;
-    weat_params.addKey<WeatherType>("weat_type", METEOR_SHOWER);
-
     uint amount = Random::int_range(5, 10);
     for (uint i = 0; i < amount; i++)
     {
-        Object* new_obj = object_factory -> createObject(WEATHER, weat_params);
-
-        new_obj -> setCoords(Vector(Random::double_range(0, size),
-                                    Random::double_range(0, size)));
-
-        visible_objs -> push(new_obj);
-
+        createObject(WEATHER, Random::int_range(0, AMNT_WEATHER_TYPES));
     }
-
-    indexator -> reindexate(visible_objs);
 }
 
 void World::genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params)
@@ -251,6 +199,50 @@ int World::genTreeAt(double x, double y, double rand_offset, double prob, const 
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
+
+Object* World::createObject(ObjectType type, int subtype,
+                         bool random_place, Vector coords)
+{
+    return createObject(type, object_parameters[type][subtype], random_place, coords);
+}
+
+// Tries to create object with given parameters.
+Object* World::createObject(ObjectType type, const ParamArray& params,
+                         bool random_place, Vector coords)
+{ 
+    bool success = false;
+    Object* new_obj = object_factory -> createObject(type, params);
+    double obj_size = new_obj -> getShape().getSize() / 2;
+
+    // If object can have any coords, try to place them until success.
+    do
+    {
+        if (random_place)
+        {
+            coords = Vector(Random::double_range(obj_size, size - obj_size),
+                            Random::double_range(obj_size, size - obj_size));
+        }
+
+        new_obj -> setCoords(coords);
+        if (checkCoord(new_obj))
+        {
+            indexator -> addObject(new_obj);
+            visible_objs -> push(new_obj);
+            success = true;
+        }
+    } 
+    while (!success && random_place);
+
+    if (!success)
+    {
+        delete new_obj;
+        return nullptr;
+    }
+    else
+    {
+        return new_obj;
+    }
+}
 
 void World::setObjectVisibility(Object *obj, bool visibility)
 {
@@ -401,6 +393,11 @@ Object *World::getObjectByID(uint id) const
 
 bool World::checkCoord(Object *new_obj)
 {
+    if (!new_obj -> isSolid() || new_obj -> isCurrentlyFlying())
+    {
+        return true;
+    }
+
     bool ret = false;
 
     Shape shape = new_obj -> getShape();

@@ -8,9 +8,15 @@
 
 #include <GL/gl.h>
 #include <SOIL/SOIL.h>
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <vector>
 
 #include "../Utilities/ViewUtilities.h"
-#include "../ViewTexture/ViewTexture.h"
+
+#include "../TextureManager/TextureManager.h"
+#include "../TextureManager/Texture/Texture.h"
 
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
@@ -37,6 +43,9 @@ class ViewWorld
     /// Id of currently selected unit.
     uint selected_id;
 
+    /// Number of steps passed.
+    int step;
+
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
     /// required to get information about units that are not
@@ -54,7 +63,8 @@ public:
      * @param width width of screen to render
      * @param height height of screen to render
      */
-    ViewWorld(const IWorld& w, const int& width, const int& height);
+    ViewWorld(const IWorld& w, const int& width, const int& height,
+              TextureManager* texture_manager);
 
     /**
      * @brief Destructor
@@ -66,9 +76,7 @@ private:
     // TEXTURE LOADING.
     //**************************************************************************
 
-    /// vector of loaded textures
-    //GLuint texture_buf[3];
-    std::vector<ViewTexture*> texture_buf;
+    TextureManager* texture_manager;
 
     /**
      * @brief preload game textures in openGL
@@ -90,7 +98,7 @@ private:
     /**
      * @brief draws specific object relative to current coordinates
      */
-    void renderObject(const Object* object); // TODO: Object -> ViewObject
+    void renderObject(const Object* object);
 
     /**
      * @brief render a grass background all over the window
@@ -165,7 +173,7 @@ public:
     void setX(double new_var);
     void setY(double new_var);
 
-    const ViewTexture* getObjectTexture(const Object* obj);
+    const Texture* getObjectTexture(const Object* obj);
 
 };
 

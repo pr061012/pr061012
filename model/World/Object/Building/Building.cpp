@@ -101,7 +101,6 @@ uint Building::heal(uint delta)
     if (this -> health == this -> max_health)
     {
         this -> completeness = true;
-        this -> makeSolid();
     }
 
     return d;
@@ -121,44 +120,28 @@ uint Building::getMaxHealthPoints() const
 // CONTENTS MANIPULATION.
 //******************************************************************************
 
-bool Building::putInside(Object * object)
+bool Building::putInside(Object* object)
 {
-    if (free_space != 0)
+    uint w = object -> getWeight();
+
+    if (this -> free_space >= w && this -> contents -> push(object))
     {
-        if (this -> contents -> push(object))
-        {
-            free_space--;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        this -> free_space -= w;
+        return true;
     }
-    else
-    {
-        return false;
-    }
+
+    return false;
 }
 
-bool Building::takeOut(Object * object)
+bool Building::takeOut(Object* object)
 {
-    if (free_space != max_space)
+    if (this -> contents -> remove(object))
     {
-        if (this -> contents -> remove(object))
-        {
-            free_space++;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        this -> free_space += object -> getWeight();
+        return true;
     }
-    else
-    {
-        return false;
-    }
+
+    return false;
 }
 
 //******************************************************************************
