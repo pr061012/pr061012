@@ -4,7 +4,7 @@
 #include "Creature.h"
 
 #define __creature_generate_route_complete 1
-#define SCALE_FACTOR 3
+#define SCALE_FACTOR 2
 #define NODE_LIMIT 10000
 
 // Class for vertices with which we will build our graph.
@@ -195,7 +195,8 @@ Creature::Path Creature::generateRoute()
         {
             // FIXME Make better check for dangers.
             if (!(*i) -> isDestroyed() && 
-                ((*i) -> isSolid() || (*i) -> getType() == WEATHER) &&
+                ((*i) -> isSolid() || (*i) -> getType() == WEATHER &&
+                                      (*i) -> getDangerLevel()) &&
                 (*i) != this)
             {
                 // Check if we are stuck inside something

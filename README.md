@@ -18,6 +18,7 @@ To compile pr061012 you need following libraries:
 * GLFW (⩾ 2.7.2 or ⩾ 3.0.0)
 * GLC (⩾ 0.7.2)
 * SOIL (⩾ 1.07)
+* JsonCpp (⩾ 0.6.0)
 
 Compilation succeed with following compilers:
 * g++ (⩾ 4.7.2)

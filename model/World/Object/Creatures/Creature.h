@@ -315,7 +315,7 @@ public:
      * @brief get the id of aim
      * @return id of aim
      */
-    const Object* getAim();
+    const Object* getAim() const;
 
     //**************************************************************************
     // DECISION
@@ -460,8 +460,11 @@ private:
     // STEPS
     //**********************************************************
     
-    /// Amount of steps to update common attributes.
-    int common_steps;
+    /// Amount of steps to update hunger.
+    int hunger_steps;
+
+    /// Amount of steps to update sleepiness.
+    int sleepiness_steps;
 
     /// Amount of steps to update age.
     int age_steps;

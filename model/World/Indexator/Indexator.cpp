@@ -2,7 +2,7 @@
 #include <cmath>
 
 const double Indexator::MAX_CELL_SIZE = 25;
-const double Indexator::MIN_CELL_SIZE = 10;
+const double Indexator::MIN_CELL_SIZE = 5;
 
 //******************************************************************************
 // CONSTRUCTORS/DESTRUCTOR.

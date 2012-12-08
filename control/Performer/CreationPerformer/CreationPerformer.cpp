@@ -148,8 +148,6 @@ void CreationPerformer::perform(Action& action)
 
 bool CreationPerformer::checkCoord(Object* new_obj)
 {
-    bool ret = false;
-
     Shape shape = new_obj -> getShape();
     Vector center = new_obj -> getCoords();
     double size =  shape.getSize();
@@ -170,7 +168,7 @@ bool CreationPerformer::checkCoord(Object* new_obj)
         center.getY() + size / 2 >= world -> getSize()
     )
     {
-        ret = false;
+        return false;
     }
     else if (type == BUILDING)
     {
@@ -181,7 +179,7 @@ bool CreationPerformer::checkCoord(Object* new_obj)
             !count_creature
         )
         {
-            ret = true;
+            return true;
         }
     }
     else if (type == CREATURE)
@@ -192,11 +190,10 @@ bool CreationPerformer::checkCoord(Object* new_obj)
             !count_resource
         )
         {
-            ret = true;
+            return true;
         }
     }
-
-    return ret;
+    return false;
 }
 
 Object* CreationPerformer::createBuilding(Action& action, ParamArray& param)

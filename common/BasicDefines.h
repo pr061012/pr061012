@@ -29,7 +29,7 @@
 #define VIEW_SCREEN_HEIGHT          600
 
 /// Aspect ratio of the screen
-#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
+#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT / VIEW_SCREEN_WIDTH)
 
 /// Radius of field of view of game camera
 #define VIEW_CAM_RADIUS             20
@@ -67,18 +67,29 @@
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Coefficient for reach area size.
-#define SZ_REACH_AREA_COEF          2
+#define SZ_REACH_AREA_COEF          1.3
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
 /// Building side (maximum size).
 #define SZ_BUILDING_SIDE_MAX        3 * SZ_HUM_DIAM
 
-/// Weather shape diameter (minimum size).
-#define SZ_WEATHER_DIAM_MIN         10 * SZ_HUM_DIAM
-// TODO: Someday we will need to change this param.
-/// Weather shape diameter (maximum size).
-#define SZ_WEATHER_DIAM_MAX         10 * SZ_HUM_DIAM
+/// Meteor shower's shape diameter (minimum size).
+#define SZ_WEAT_METEOR_SHOWER_DIAM_MIN  4 * SZ_HUM_DIAM
+/// Meteor shower's shape diameter (maximum size).
+#define SZ_WEAT_METEOR_SHOWER_DIAM_MAX  5 * SZ_HUM_DIAM
+/// Clouds' shape diameter (minimum size).
+#define SZ_WEAT_CLOUDS_DIAM_MIN     10 * SZ_HUM_DIAM
+/// Clouds' shape diameter (maximum size).
+#define SZ_WEAT_CLOUDS_DIAM_MAX     20 * SZ_HUM_DIAM
+/// Rain's shape diameter (minimum size).
+#define SZ_WEAT_RAIN_DIAM_MIN       10 * SZ_HUM_DIAM
+/// Rain's shape diameter (maximum size).
+#define SZ_WEAT_RAIN_DIAM_MAX       20 * SZ_HUM_DIAM
+/// Hurricane's shape diameter (minimum size).
+#define SZ_WEAT_HURRICANE_DIAM_MIN  7 * SZ_HUM_DIAM
+/// Hurricane's shape diameter (maximum size).
+#define SZ_WEAT_HURRICANE_DIAM_MAX  7 * SZ_HUM_DIAM
 
 /// Resource shape diameter (minimum size).
 #define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM
@@ -135,7 +146,6 @@
 /// Humanoid's danger level.
 #define DNGR_HUMANOID               5
 
-// TODO: Different values for different types of NonHumanoid.
 /// Cow's s danger level.
 #define DNGR_NHUM_COW               3
 /// Dragon's s danger level.
@@ -168,7 +178,7 @@
 /// Cow's weight.
 #define WGHT_NHUM_COW               30
 /// Dragon's weight.
-#define WGHT_NHUM_DRAGON            5000
+#define WGHT_NHUM_DRAGON            250
 
 // TODO: Different values for different types of Resource.
 /// Resource's weight.
@@ -179,7 +189,7 @@
 #define WGHT_WEATHER                1000
 
 /// Building's weight.
-#define WGHT_BUILDING               1000
+#define WGHT_BUILDING               400
 
 //******************************************************************************
 // SPEED DEFINES.
@@ -197,13 +207,17 @@
 
 // Cow's normal speed.
 #define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)
-
 // Dragon's normal speed.
-#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)
+#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 2 / TM_TICKS_PER_SECOND)
 
-// TODO: Different values for different weather types?
-/// Weather's normal speed.
-#define SPD_WEATHER                 SPD_NHUM_COW / 2
+/// Meteor shower's normal speed.
+#define SPD_WEATHER_METEOR_SHOWER   (SPD_NHUM_COW / 2)
+/// Clouds's normal speed.
+#define SPD_WEATHER_CLOUDS          (SPD_NHUM_COW / 4)
+/// Rain's normal speed.
+#define SPD_WEATHER_RAIN            (SPD_NHUM_COW / 2)
+/// Hurricane's normal speed.
+#define SPD_WEATHER_HURRICANE       SPD_HUM
 
 //******************************************************************************
 // GENERATION DEFINES.
@@ -237,6 +251,12 @@
 
 /// Weather's roaming steps (steps before roam direction changing).
 #define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
+
+/// Weather's action steps (steps before generating new weather action).
+#define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
+
+/// Coefficient of hurricane's twisting force. Value should lie in range [1, 2].
+#define WEAT_HURRICANE_TWIST_COEF   1.5
 
 //******************************************************************************
 // TOOL DEFINES.
@@ -317,11 +337,11 @@
 // Prefix: DMG.
 //******************************************************************************
 
-#define DMG_FORCE_MIN               1
-#define DMG_FORCE_MAX               10
+#define DMG_FORCE_MIN               10
+#define DMG_FORCE_MAX               50
 
-#define DMG_DANGER_MIN              1
-#define DMG_DANGER_MAX              10
+#define DMG_DANGER_MIN              10
+#define DMG_DANGER_MAX              50
 
 //******************************************************************************
 // DECISION MAKER DEFINES.
@@ -398,6 +418,9 @@
 
 /// Changes of endurance
 #define CREAT_DELTA_ENDUR           1
+
+/// Starving steps.
+#define CREAT_STARVING_STEPS        (TM_TICKS_PER_SECOND / 2)
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40

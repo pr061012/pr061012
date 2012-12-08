@@ -49,6 +49,9 @@ enum ObjectType
     RESOURCE, TOOL, WEATHER, BUILDING, CREATURE
 };
 
+/// Amount of weather types.
+#define AMNT_WEATHER_TYPES           4
+
 /**
  * @enum WeatherType
  * @brief The WeatherType enum
@@ -62,6 +65,9 @@ enum WeatherType
     //RAIN, CLOUDS, SNOW, HAIL, STORM, HURRICANE, EARTHQUAKE, METEOR_SHOWER
 };
 
+/// Amount of tool types.
+#define AMNT_TOOL_TYPES               8
+
 /**
  * @enum ToolType
  * @brief The ToolType enum
@@ -74,6 +80,9 @@ enum ToolType
     // Weapons.
     BOW, SWORD, SHIELD, AXE
 };
+
+/// Amount of resource types.
+#define AMNT_RESOURCE_TYPES            4
 
 /**
  * @enum ResourceType
@@ -95,7 +104,7 @@ enum ResourceType
 };
 
 /// Amount of creature types.
-#define AMNT_CREATURE_TYPES         2
+#define AMNT_CREATURE_TYPES             2
 
 /**
  * @enum CreatureType
@@ -106,6 +115,10 @@ enum CreatureType
 {
     HUMANOID, NON_HUMANOID
 };
+
+
+/// Amount of nonhumanoid types.
+#define AMNT_NONHUMANOID_TYPES           3
 
 /**
  * @enum NonHumanoidType

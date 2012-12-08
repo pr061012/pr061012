@@ -6,8 +6,6 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include "dev_glfw.h"
-#include <GL/gl.h>
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -20,9 +18,13 @@
 #include "../model/World/IWorld.h"
 #include "TextField/TextField.h"
 #include "Utilities/ViewUtilities.h"
-#include "ViewTexture/ViewTexture.h"
 
+#include "TextureManager/TextureManager.h"
+#include "TextureManager/Texture/Texture.h"
+
+#include "dev_glfw.h"
 #include <GL/glc.h>
+#include <GL/gl.h>
 
 
 /* VIEW_DEBUG turns on debug mode.
@@ -44,7 +46,10 @@ class View
     /// Key handler for GUI
     InputHandler* input_handler;
 
-    /// Indixates, whether world should be reset
+    /// Texture manager
+    TextureManager* texture_manager;
+
+    /// Indicates, if world reset is necessary
     bool reset;
 
     /// GLC context used to render text
@@ -62,9 +67,6 @@ class View
 
     /// Interface objects that are currently rendered by View
     std::vector<TextField*> rendered;
-
-    /// Vector of currently loaded textures.
-    std::vector<ViewTexture*> texture_buf;
 
     /// Dimensions of program window, in pixels
     int width;
@@ -104,6 +106,8 @@ public:
     //**************************************************************************
     // ACCESSORS
     //**************************************************************************
+
+    Texture* getTexture(std::string name, int index = 0);
 
     /**
      * @brief Returns in-game x coordinate of camera center

@@ -30,12 +30,16 @@ HarmPerformer::~HarmPerformer()
 
 void HarmPerformer::perform(Action& action)
 {
+    // Random))
+    if (Random::int_range(0, 100) > 90)
+    {
+        return;
+    }
     // Get actor and type of actor.
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
 
-    uint harm;
-
+    uint count_error = 0;
     // Check type of actor.
     if ((type != CREATURE) && (type != WEATHER))
     {
@@ -50,50 +54,39 @@ void HarmPerformer::perform(Action& action)
     Shape env_shape;
     if (type == CREATURE)
     {
-        Creature* cr = dynamic_cast<Creature*>(actor);
-        env_shape = cr -> getReachArea();
-        harm = cr -> getForce() / Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
-    }
-
-    if (type == WEATHER)
-    {
-        Weather* weather = dynamic_cast<Weather*>(actor);
-        env_shape = weather -> getShape();
-        harm = weather -> getDangerLevel() / Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
-    }
-
-    // Harm object in view area.
-    uint count_error = 0;
-    for (uint i = 0; i < participants.size(); i++)
-    {
-        if (env_shape.hitTest(participants[i] -> getShape()))
+        if (participants.size() != 1)
         {
-            participants[i] -> damage(harm);
+            action.markAsFailed(TOO_MANY_PARTICIPANTS);
+            return;
+        }
+
+        Creature* actor_cr = dynamic_cast<Creature*>(actor);
+        env_shape = actor_cr -> getReachArea();
+        env_shape.setCenter(actor_cr -> getCoords());
+
+        if (env_shape.hitTest(participants[0] -> getShape()))
+        {
+            uint harm = actor_cr -> getForce() /
+                        Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
+            participants[0] -> damage(harm);
 
             // Send message about attack.
-            Message msg(UNDER_ATTACK, actor);
-            participants[i] -> receiveMessage(msg);
+            Message msg(UNDER_ATTACK, actor_cr);
+            participants[0] -> receiveMessage(msg);
             if
             (
-                (participants[i] -> getHealthPoints() == 0) &&
-                (participants[i] -> getType() == CREATURE) &&
-                (actor -> getType() == CREATURE)
+                (participants[0] -> getHealthPoints() == 0) &&
+                (participants[0] -> getType() == CREATURE)
             )
             {
-                Creature* cr = dynamic_cast<Creature*>(participants[i]);
-                Creature* cr_actor = dynamic_cast<Creature*>(actor);
-                if (cr -> getSubtype() == NON_HUMANOID)
+                Creature* cr = dynamic_cast<Creature*>(participants[0]);
+                if (actor_cr -> getSubtype() == HUMANOID)
                 {
-                    Humanoid* hum = dynamic_cast<Humanoid*>(cr_actor);
+                    Humanoid* hum = dynamic_cast<Humanoid*>(actor_cr);
 
                     ObjectHeap* drop = cr -> getDropObjects();
                     ObjectHeap::iterator iter;
-                    for
-                    (
-                        iter = drop -> begin();
-                        iter != drop -> end();
-                        iter++
-                    )
+                    for(iter = drop -> begin(); iter != drop -> end(); iter++)
                     {
                         hum -> addToInventory(*iter);
                     }
@@ -106,6 +99,32 @@ void HarmPerformer::perform(Action& action)
             // Count the amount of error.
             count_error += 1;
         }
+    }
+
+    else if (type == WEATHER)
+    {
+        Weather* weather = dynamic_cast<Weather*>(actor);
+        env_shape = weather -> getShape();
+
+        for (uint i = 0; i < participants.size(); i++)
+        {
+            if (env_shape.hitTest(participants[i] -> getShape()))
+            {
+                uint harm = weather -> getDangerLevel() /
+                            Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
+                participants[i] -> damage(harm);
+
+                // Send message about attack.
+                Message msg(UNDER_ATTACK, actor);
+                participants[i] -> receiveMessage(msg);
+            }
+            else
+            {
+                // Count the amount of error.
+                count_error += 1;
+            }
+        }
+
     }
 
     // If all objects receive attack, then...

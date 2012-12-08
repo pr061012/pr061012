@@ -300,16 +300,18 @@ bool Shape::squareCircleHitTest(const Shape& square, const Shape& circle) const
     Vector rb = Vector(rt.getX(), lb.getY());
 
     // a square can have circle's center inside
-    if (square.hitTest(circle.getCenter()))
+    // and vice versa
+    if (square.hitTest(circle.getCenter()) ||
+        circle.hitTest(square.getCenter()))
     {
         return true;
     }
 
     // cicle can intersect any side of the square
-    if (hitTest(lt, rt) ||
-          hitTest(lb, rb) ||
-          hitTest(lb, lt) ||
-          hitTest(rb, rt))
+    if (circle.hitTest(lt, rt) ||
+          circle.hitTest(lb, rb) ||
+          circle.hitTest(lb, lt) ||
+          circle.hitTest(rb, rt))
     {
         return true;
     }

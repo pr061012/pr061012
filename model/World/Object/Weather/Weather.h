@@ -94,11 +94,17 @@ private:
     /// Steps for living.
     uint steps;
 
+    /// Maximum amount of steps (initial).
+    uint max_steps;
+
     /// Direction angle.
     double direction_angle;
 
     /// Roam steps.
     uint roam_steps;
+
+    /// Steps for next weather action.
+    uint action_steps;
 };
 
 #endif // WEATHER_H

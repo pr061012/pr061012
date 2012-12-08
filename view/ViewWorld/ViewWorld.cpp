@@ -12,8 +12,10 @@
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
 
-ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
-    world(w)
+ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
+                     TextureManager* texture_manager) :
+    world(w),
+    texture_manager(texture_manager)
 {
     loadTextures();
 
@@ -27,35 +29,27 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height) :
     this -> cam_radius = (double) VIEW_CAM_RADIUS;
 
     this -> is_selected = false;
+
+    this -> step = 0;
 }
 
 ViewWorld::~ViewWorld()
 {
-    for(uint i = 0; i < texture_buf.size(); ++i)
-    {
-        delete texture_buf[i];
-    }
 }
 
 void ViewWorld::loadTextures()
 {
-    uint flags = SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_TEXTURE_REPEATS;
-    texture_buf.push_back(new ViewTexture("res/rock.png", flags));
-
-    flags = SOIL_FLAG_INVERT_Y | SOIL_FLAG_MULTIPLY_ALPHA;
-
-    ViewTexture* tex = new ViewTexture("res/tree.png", flags);
-    tex -> setTextureDimensions(126.0/640, 1.0 - 110.0/480,
-                                70.0/640, 110.0/480);
-    texture_buf.push_back(tex);
-
-    tex = new ViewTexture("res/cow.png", flags);
-    texture_buf.push_back(tex);
 }
 
 void ViewWorld::redraw()
 {
-     this -> renderBackground();
+    this -> step++;
+    if(this -> step > 15)
+    {
+        this -> step = 0;
+    }
+
+    this -> renderBackground();
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
 
@@ -110,7 +104,7 @@ void ViewWorld::setCamRad(double rad)
 {
     this -> cam_radius = rad;
 
-    this -> texture_buf[0] -> setScale(VIEW_CAM_RADIUS / rad);
+    texture_manager -> getTexture("Rock") -> setScale(VIEW_CAM_RADIUS / rad);
 }
 
 double ViewWorld::getX()
@@ -155,7 +149,7 @@ void ViewWorld::setX(double new_var)
 
 void ViewWorld::setY(double new_var)
 {
-    const double y_max_rad = (double)getCamRad() * height / width;
+    const double y_max_rad = getCamRad() * height / width;
     new_var = new_var > y_max_rad ?
               new_var : y_max_rad;
     new_var = new_var < world.getSize() - y_max_rad ?
@@ -163,14 +157,14 @@ void ViewWorld::setY(double new_var)
     this -> y = new_var;
 }
 
-const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
+const Texture* ViewWorld::getObjectTexture(const Object *obj)
 {
-    const ViewTexture* ret = NULL;
+    const Texture* ret = NULL;
 
     switch(obj -> getType())
     {
         case RESOURCE:
-            ret = texture_buf[1];
+            ret = texture_manager -> getTexture("Tree");
             break;
         case CREATURE:
         {
@@ -179,16 +173,72 @@ const ViewTexture* ViewWorld::getObjectTexture(const Object *obj)
             switch(cr -> getSubtype())
             {
                 case HUMANOID:
-                    ret = texture_buf[1];
+                {
+                    const Humanoid* h = static_cast<const Humanoid*>(obj);
+
+                    const Object* aim = h -> getAim();
+                    double ang = M_PI*3/2;
+
+                    if(aim)
+                    {
+                        double hx = h -> getCoords().getX();
+                        double hy = h -> getCoords().getY();
+
+                        double ax = aim -> getCoords().getX();
+                        double ay = aim -> getCoords().getY();
+
+                        ang = atan((hy-ay)/(hx-ax));
+                        ang += M_PI/2;
+
+                        if(ax < hx)
+                        {
+                            ang += M_PI;
+                        }
+                    }
+
+                    TextureManager::Rotation rot = TextureManager::DOWN;
+
+                    if(ang >= M_PI*7/4 || ang < M_PI/4)
+                    {
+                        rot = TextureManager::RIGHT;
+                    }
+                    if(ang >= M_PI/4 && ang < M_PI*3/4)
+                    {
+                        rot = TextureManager::UP;
+                    }
+                    if(ang >= M_PI*3/4 && ang < M_PI*5/4)
+                    {
+                        rot = TextureManager::LEFT;
+                    }
+                    if(ang >= M_PI*5/4 && ang < M_PI*7/4)
+                    {
+                        rot = TextureManager::DOWN;
+                    }
+
+                    uint act = h -> getCurrentDetailedAct();
+
+                    if(act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), 1);
+                    }
+                    else
+                    {
+                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
+                    }
+
                     break;
+                }
                 case NON_HUMANOID:
-                    ret = texture_buf[2];
+                    ret = texture_manager -> getTexture("Cow");
                     break;
             }
             break;
         }
+        case BUILDING:
+            ret = texture_manager -> getTexture("House");
+            break;
         default:
-            ret = texture_buf[2];
+            ret = texture_manager -> getTexture("Cow");
             break;
     }
     return ret;
@@ -295,9 +345,9 @@ void ViewWorld::renderBackground()
     double py = worldToScreenY( y - floor(y) );
 
 
-    texture_buf[0] -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
-                             2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
-                              -px, -py);
+    texture_manager -> getTexture("Rock") -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+                                         2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
+                                         -px, -py);
 
     glColor3f(1.0f, 1.0f, 1.0f);
 #else
