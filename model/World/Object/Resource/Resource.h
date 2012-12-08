@@ -50,6 +50,12 @@ public:
      */
     void increaseMaxAmount(uint delta);
 
+    /**
+     * @brief Set maximum amount
+     * @param max_amount maximal amount.
+     */
+    void setMaxAmount(uint max_amount);
+
     uint damage(uint delta);
     uint heal(uint delta);
     uint getHealthPoints() const;

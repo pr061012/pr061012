@@ -94,6 +94,11 @@ private:
     void genResources();
     void genWeather();
 
+    /**
+     * @brief World generating method that uses Perlin's noise.
+     */
+    void generateWorld();
+
 public:
     /**
      * @brief Generate forest at specific location.
