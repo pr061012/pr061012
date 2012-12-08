@@ -16,6 +16,7 @@ SOURCES   += $(MODEL_DIR)World/Object/Object.cpp
 SOURCES   += $(MODEL_DIR)World/ObjectHeap/ObjectHeap.cpp
 SOURCES   += $(MODEL_DIR)World/Object/Creatures/Humanoid/HumanoidValueMap.cpp
 SOURCES   += $(COMMON_DIR)Math/DoubleComparison.cpp
+SOURCES   += $(COMMON_DIR)Math/Random.cpp
 SOURCES   += $(VIEW_DIR)ViewObject/ViewObject.cpp
 SOURCES   += main.cpp
 

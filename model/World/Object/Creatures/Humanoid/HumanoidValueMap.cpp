@@ -7,6 +7,7 @@
 #include <cassert>
 #include <sstream>
 
+#include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Math/DoubleComparison.h"
 #include "HumanoidValueMap.h"
 
@@ -99,32 +100,53 @@ void HumanoidValueMap::reevaluate()
 Vector HumanoidValueMap::getBestPlace() const
 {
     // Initialising some values.
-    int min_i = -1;
-    int min_j = -1;
+    std::vector<int> min_i;
+    std::vector<int> min_j;
     double min = 0;
 
-    // Searching for the minimum.
+    // Searching for the maximum.
     for (uint i = 0; i < this -> map_rows; i++)
     {
         for (uint j = 0; j < this -> map_columns; j++)
         {
             double value = this -> map[i][j];
 
+            // Found new maximum.
             if
             (
                 DoubleComparison::isGreater(value, min) &&
+                // Ignoring cells with resources inside.
                 DoubleComparison::areNotEqual(value, INFTY)
             )
             {
                 min = value;
-                min_i = i;
-                min_j = j;
+
+                min_i.clear();
+                min_i.push_back(i);
+
+                min_j.clear();
+                min_j.push_back(j);
+            }
+            // Found cell, which is equal to current maximum.
+            else if
+            (
+                DoubleComparison::areEqual(value, min) &&
+                DoubleComparison::areNotEqual(value, 0)
+            )
+            {
+                min_i.push_back(i);
+                min_j.push_back(j);
             }
         }
     }
 
-    // FIXME: What about situation when min_i == -1 and min_j == -1?
-    return Vector(min_i * this -> cell_size, min_j * this -> cell_size);
+    if (min_i.size() == 0)
+    {
+        return Vector(-1, -1);
+    }
+
+    uint id = Random::int_num(min_i.size());
+    return Vector(this -> cell_size * min_i[id], this -> cell_size * min_j[id]);
 }
 
 std::string HumanoidValueMap::print() const

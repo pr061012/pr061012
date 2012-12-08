@@ -22,13 +22,16 @@ public:
 
 int main()
 {
+    srand(time(nullptr));
+
     // Creating heap.
     ObjectHeap heap;
 
     // Creating value map.
     HumanoidValueMap map(&heap, 10, 10, 1);
-    assert(map.getBestPlace().getX() == -1);
-    assert(map.getBestPlace().getY() == -1);
+    Vector coords = map.getBestPlace();
+    assert(coords.getX() == -1);
+    assert(coords.getY() == -1);
 
     // Creating objects.
     Test t1(Vector(4.5, 4.9)); heap.push(&t1);
@@ -39,8 +42,9 @@ int main()
 
     // Reevaluating map.
     map.reevaluate();
-    std::cout << map.print() << std::endl << map.getBestPlace().getX() <<
-                 std::endl << map.getBestPlace().getY() << std::endl;
+    coords = map.getBestPlace();
+    std::cout << map.print() << std::endl << coords.getX() << " " <<
+                 coords.getY() << std::endl;
 
     return 0;
 }
