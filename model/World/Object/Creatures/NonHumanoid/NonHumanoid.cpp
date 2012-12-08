@@ -437,4 +437,3 @@ void NonHumanoid::findFood()
         }
     }
 }
-

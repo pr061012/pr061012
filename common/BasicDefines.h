@@ -147,7 +147,7 @@
 #define DNGR_HUMANOID               5
 
 /// Cow's s danger level.
-#define DNGR_NHUM_COW               3
+#define DNGR_NHUM_COW               1
 /// Dragon's s danger level.
 #define DNGR_NHUM_DRAGON            15
 
@@ -426,7 +426,7 @@
 #define CREAT_CRIT_CONST            40
 
 /// Constant for evaluating danger for creatures.
-#define CREAT_DANGER_FACTOR             2
+#define CREAT_DANGER_FACTOR             5
 
 /// Constant for evaluating distance at which immovable objects are dangerous
 #define CREAT_DANGER_IMMOVABLE_FACTOR   20

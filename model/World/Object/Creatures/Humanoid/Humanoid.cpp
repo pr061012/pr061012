@@ -16,7 +16,6 @@
 #include "HumanoidValueMap.h"
 #include "Humanoid.h"
 
-
 #define  HALF                        50
 #define  HIGH_LEVEL                  80
 #define  START_LEVEL_NEED_IN_HOUSE   70

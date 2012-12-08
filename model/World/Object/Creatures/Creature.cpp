@@ -500,15 +500,14 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
     */
 
-    double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
-                            CREAT_DANGER_FACTOR;
+    double danger_ratio = obj -> getDangerLevel() * CREAT_DANGER_FACTOR;
 
     if (obj -> isMovable())
     {
         // linear dependency: == 0 at bounds of view_area
         //                    == danger_ratio when standing next to the object.
         return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
-            danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
+            danger_ratio * (1 + 1 / (view_radius - my_radius)) - getDangerLevel(), 0);
     }
     else
     {
