@@ -29,7 +29,7 @@
 #define VIEW_SCREEN_HEIGHT          600
 
 /// Aspect ratio of the screen
-#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
+#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT / VIEW_SCREEN_WIDTH)
 
 /// Radius of field of view of game camera
 #define VIEW_CAM_RADIUS             20
@@ -67,7 +67,7 @@
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Coefficient for reach area size.
-#define SZ_REACH_AREA_COEF          2
+#define SZ_REACH_AREA_COEF          1.3
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
@@ -208,7 +208,7 @@
 // Cow's normal speed.
 #define SPD_NHUM_COW                (SZ_NHUM_COW_DIAM * 5 / TM_TICKS_PER_SECOND)
 // Dragon's normal speed.
-#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 5 / TM_TICKS_PER_SECOND)
+#define SPD_NHUM_DRAGON             (SZ_NHUM_DRAGON_DIAM * 2 / TM_TICKS_PER_SECOND)
 
 /// Meteor shower's normal speed.
 #define SPD_WEATHER_METEOR_SHOWER   (SPD_NHUM_COW / 2)
@@ -254,6 +254,9 @@
 
 /// Weather's action steps (steps before generating new weather action).
 #define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
+
+/// Coefficient of hurricane's twisting force. Value should lie in range [1, 2].
+#define WEAT_HURRICANE_TWIST_COEF   1.5
 
 //******************************************************************************
 // TOOL DEFINES.
@@ -417,7 +420,7 @@
 #define CREAT_DELTA_ENDUR           1
 
 /// Starving steps.
-#define CREAT_STARVING_STEPS        TM_TICKS_PER_SECOND / 2
+#define CREAT_STARVING_STEPS        (TM_TICKS_PER_SECOND / 2)
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40

@@ -94,6 +94,9 @@ private:
     /// Steps for living.
     uint steps;
 
+    /// Maximum amount of steps (initial).
+    uint max_steps;
+
     /// Direction angle.
     double direction_angle;
 

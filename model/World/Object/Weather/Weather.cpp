@@ -60,6 +60,7 @@ Weather::Weather(WeatherType type, uint living_steps) :
     {
         this -> steps = living_steps;
     }
+    this -> max_steps = this -> steps;
 
     // Initialising direction angle.
     this -> direction_angle = Random::double_num(2 * M_PI);
@@ -168,7 +169,7 @@ std::vector<Action>* Weather::getActions()
             Vector v2 = this -> getCoords();
 
             act.addParticipant(*iter);
-            act.addParam<double>("angle", v2.getAngle(v1) + 1.5 * M_PI / 2);
+            act.addParam<double>("angle", v2.getAngle(v1) + WEAT_HURRICANE_TWIST_COEF * M_PI / 2);
             act.addParam<SpeedType>("speed", FAST_SPEED);
 
             this -> actions.push_back(act);
@@ -202,11 +203,14 @@ std::string Weather::printObjectInfo(bool full) const
     }
     ss << "\n";
 
-    ss << insertSpaces("Direction angle") << direction_angle << std::endl <<
-          insertSpaces("Roam steps")      << roam_steps << std::endl <<
-          insertSpaces("Covered objects") << std::endl <<
-                                             this -> covered_objs.printIDs() <<
-                                             std::endl;
+    if (full)
+    {
+        ss << insertSpaces("Direction angle") << direction_angle << std::endl <<
+              insertSpaces("Roam steps")      << roam_steps << std::endl <<
+              insertSpaces("Covered objects") << std::endl <<
+                                                 this -> covered_objs.printIDs() <<
+                                                 std::endl;
+    }
 
     return ss.str();
 }
@@ -217,12 +221,24 @@ std::string Weather::printObjectInfo(bool full) const
 
 uint Weather::damage(uint delta)
 {
-    return 0;
+    if (this -> steps < delta)
+    {
+        delta = this -> steps;
+    }
+
+    this -> steps -= delta;
+    return delta;
 }
 
 uint Weather::heal(uint delta)
 {
-    return 0;
+    if (this -> steps + delta > this -> max_steps)
+    {
+        delta = this -> max_steps - this -> steps;
+    }
+
+    this -> steps += delta;
+    return delta;
 }
 
 uint Weather::getHealthPoints() const
@@ -232,7 +248,7 @@ uint Weather::getHealthPoints() const
 
 uint Weather::getMaxHealthPoints() const
 {
-    return this -> steps;
+    return this -> max_steps;
 }
 
 //******************************************************************************

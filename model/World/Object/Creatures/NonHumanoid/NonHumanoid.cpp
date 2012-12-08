@@ -243,6 +243,7 @@ std::vector<Action>* NonHumanoid::getActions()
         // So if aim was found, then...
         if (aim != nullptr)
         {
+            // FIXME: Looks like a Creature::hunt() code.
             // ... check distance to aim.
             if (getReachArea().hitTest(aim -> getShape()))
             {
@@ -258,6 +259,10 @@ std::vector<Action>* NonHumanoid::getActions()
                 {
                     fight();
                 }
+            }
+            else if (getCoords().getDistance(aim -> getCoords()) < CREAT_RUSH_DISTANCE)
+            {
+                go(FAST_SPEED);
             }
             else
             {

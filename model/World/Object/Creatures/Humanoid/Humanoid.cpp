@@ -9,11 +9,12 @@
 #include <sstream>
 #include <string>
 
-#include "Humanoid.h"
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
-#include "../../Resource/Resource.h"
 #include "../../../../../common/Math/DoubleComparison.h"
+#include "../../Resource/Resource.h"
+#include "HumanoidValueMap.h"
+#include "Humanoid.h"
 
 #define  HALF                        50
 #define  HIGH_LEVEL                  80
@@ -541,6 +542,15 @@ std::vector <Action>* Humanoid::getActions()
 
     if(detailed_act == CHOOSE_PLACE_FOR_HOME)
     {
+        // FIXME: In this way it should work. But HumanoidValueMap is terribly
+        //        slow. Need to optimise it and completely rewrite this piece
+        //        of code.
+        // Also: humanoid generates this action firstly, when his visual memory
+        //       is empty. What should I do in this case?
+        //
+        // HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+        // Vector c = map.getBestPlace();
+
         if(!steps_to_choose_place)
         {
             steps_to_choose_place = 20;

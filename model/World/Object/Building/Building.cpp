@@ -58,9 +58,12 @@ std::string Building::printObjectInfo(bool full) const
           insertSpaces("Is complete") << (completeness ? "yes" : "no") <<
                                          std::endl <<
           insertSpaces("Free space")  << free_space << "/" << max_space <<
-                                         std::endl <<
-          "Contents"                  << std::endl << contents -> printIDs() <<
                                          std::endl;
+
+    if (full)
+    {
+        ss << "Contents" << std::endl << contents -> printIDs() << std::endl;
+    }
 
     return ss.str();
 }
