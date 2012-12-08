@@ -203,11 +203,14 @@ std::string Weather::printObjectInfo(bool full) const
     }
     ss << "\n";
 
-    ss << insertSpaces("Direction angle") << direction_angle << std::endl <<
-          insertSpaces("Roam steps")      << roam_steps << std::endl <<
-          insertSpaces("Covered objects") << std::endl <<
-                                             this -> covered_objs.printIDs() <<
-                                             std::endl;
+    if (full)
+    {
+        ss << insertSpaces("Direction angle") << direction_angle << std::endl <<
+              insertSpaces("Roam steps")      << roam_steps << std::endl <<
+              insertSpaces("Covered objects") << std::endl <<
+                                                 this -> covered_objs.printIDs() <<
+                                                 std::endl;
+    }
 
     return ss.str();
 }
