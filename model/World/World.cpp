@@ -83,8 +83,8 @@ void World::genResources()
     uint amount = Random::int_range(30, 50);
     for(uint i = 0; i < amount; i++)
     {
-        createObject(RESOURCE, object_parameters[RESOURCE][GRASS]);
-        createObject(RESOURCE, object_parameters[RESOURCE][TREE]);
+        createObject(RESOURCE, GRASS);
+        createObject(RESOURCE, TREE);
     }
 }
 
@@ -96,12 +96,13 @@ void World::genCreatures()
         uint amount;
         if (k == COW) amount = Random::int_range(20, 30);
         else if (k == DRAGON) amount = Random::int_range(1, 3);
+        // humans
         else if (k == AMNT_NONHUMANOID_TYPES) amount = Random::int_range(10, 20);
         else amount = 0;
 
         for (uint i = 0; i < amount; i++)
         {
-            Object* new_obj = createObject(CREATURE, object_parameters[CREATURE][k]);
+            Object* new_obj = createObject(CREATURE, k);
             Object* drop = object_factory -> 
                             createObject(RESOURCE, object_parameters[RESOURCE][MEAT]);
             this -> addObject(false, drop);
@@ -115,8 +116,7 @@ void World::genWeather()
     uint amount = Random::int_range(5, 10);
     for (uint i = 0; i < amount; i++)
     {
-        Object* new_obj = createObject(WEATHER, 
-            object_parameters[WEATHER][Random::int_range(0, AMNT_WEATHER_TYPES)]);
+        createObject(WEATHER, Random::int_range(0, AMNT_WEATHER_TYPES));
     }
 }
 
@@ -200,8 +200,14 @@ int World::genTreeAt(double x, double y, double rand_offset, double prob, const 
 // BASE METHODS.
 //******************************************************************************
 
+Object* World::createObject(ObjectType type, int subtype,
+                         bool random_place, Vector coords)
+{
+    return createObject(type, object_parameters[type][subtype], random_place, coords);
+}
+
 // Tries to create object with given parameters.
-Object* World::createObject(ObjectType type, const ParamArray& params, 
+Object* World::createObject(ObjectType type, const ParamArray& params,
                          bool random_place, Vector coords)
 { 
     bool success = false;
