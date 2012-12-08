@@ -60,6 +60,7 @@ Weather::Weather(WeatherType type, uint living_steps) :
     {
         this -> steps = living_steps;
     }
+    this -> max_steps = this -> steps;
 
     // Initialising direction angle.
     this -> direction_angle = Random::double_num(2 * M_PI);
@@ -217,12 +218,24 @@ std::string Weather::printObjectInfo(bool full) const
 
 uint Weather::damage(uint delta)
 {
-    return 0;
+    if (this -> steps < delta)
+    {
+        delta = this -> steps;
+    }
+
+    this -> steps -= delta;
+    return delta;
 }
 
 uint Weather::heal(uint delta)
 {
-    return 0;
+    if (this -> steps + delta > this -> max_steps)
+    {
+        delta = this -> max_steps - this -> steps;
+    }
+
+    this -> steps += delta;
+    return delta;
 }
 
 uint Weather::getHealthPoints() const
@@ -232,7 +245,7 @@ uint Weather::getHealthPoints() const
 
 uint Weather::getMaxHealthPoints() const
 {
-    return this -> steps;
+    return this -> max_steps;
 }
 
 //******************************************************************************
