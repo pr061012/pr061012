@@ -72,21 +72,21 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                     double value = this -> map[i][j];
 
                     // New maximum.
-                    if (DoubleComparison::isGreater(value, this -> min))
+                    if (DoubleComparison::isGreater(value, this -> max))
                     {
-                        this -> min = value;
+                        this -> max = value;
 
-                        this -> min_i.clear();
-                        this -> min_i.push_back(i);
+                        this -> max_i.clear();
+                        this -> max_i.push_back(i);
 
-                        this -> min_j.clear();
-                        this -> min_j.push_back(j);
+                        this -> max_j.clear();
+                        this -> max_j.push_back(j);
                     }
                     // Found cell, which is equal to current maximum.
-                    else if (DoubleComparison::areEqual(value, min))
+                    else if (DoubleComparison::areEqual(value, max))
                     {
-                        this -> min_i.push_back(i);
-                        this -> min_j.push_back(j);
+                        this -> max_i.push_back(i);
+                        this -> max_j.push_back(j);
                     }
                 }
                 else
@@ -131,13 +131,13 @@ void HumanoidValueMap::reevaluate()
 
 Vector HumanoidValueMap::getBestPlace() const
 {
-    if (min_i.size() == 0)
+    if (max_i.size() == 0)
     {
         return Vector(-1, -1);
     }
 
-    uint id = Random::int_num(min_i.size());
-    return Vector(this -> cell_size * min_i[id], this -> cell_size * min_j[id]);
+    uint id = Random::int_num(max_i.size());
+    return Vector(this -> cell_size * max_i[id], this -> cell_size * max_j[id]);
 }
 
 std::string HumanoidValueMap::print() const

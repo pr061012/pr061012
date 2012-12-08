@@ -68,9 +68,13 @@ private:
     /// Record radius.
     uint record_radius;
 
-    std::vector<int> min_i;
-    std::vector<int> min_j;
-    double min = 0;
+    /// Current maximum.
+    double max;
+
+    /// Array with maximum's coordinates (rows).
+    std::vector<int> max_i;
+    /// Array with maximum's coordinates (columns).
+    std::vector<int> max_j;
 };
 
 #endif // HUMANOID_VALUE_MAP_H
