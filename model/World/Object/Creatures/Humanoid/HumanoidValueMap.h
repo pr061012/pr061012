@@ -31,7 +31,13 @@ public:
      * @brief  Finds the best place for home.
      * @return best place's coordinates
      */
-    Vector getBestPlace();
+    Vector getBestPlace() const;
+
+    /**
+     * @brief  Prints map to string. (For debug).
+     * @return string with map
+     */
+    std::string print() const;
 
 private:
     /// Pointer to heap.

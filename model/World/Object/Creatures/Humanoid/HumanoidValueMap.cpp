@@ -5,6 +5,7 @@
 
 #include <cmath>
 #include <cassert>
+#include <sstream>
 
 #include "../../../../../common/Math/DoubleComparison.h"
 #include "HumanoidValueMap.h"
@@ -66,14 +67,14 @@ void HumanoidValueMap::reevaluate()
     }
 }
 
-Vector HumanoidValueMap::getBestPlace()
+Vector HumanoidValueMap::getBestPlace() const
 {
     // Initialising some values.
     uint min_i = -1;
     uint min_j = -1;
     double min = 0;
 
-    // Searching for minimum.
+    // Searching for the minimum.
     for (uint i = 0; i < this -> map_rows; i++)
     {
         for (uint j = 0; j < this -> map_columns; j++)
@@ -91,4 +92,20 @@ Vector HumanoidValueMap::getBestPlace()
 
     // FIXME: What about situation when min_i == -1 and min_j == -1?
     return Vector(min_i * CELL_SIZE, min_j * CELL_SIZE);
+}
+
+std::string HumanoidValueMap::print() const
+{
+    std::stringstream ss;
+
+    for (uint i = 0; i < this -> map_rows; i++)
+    {
+        for (uint j = 0; j < this -> map_columns; j++)
+        {
+            ss << this -> map[i][j] << "\t";
+        }
+        ss << std::endl;
+    }
+
+    return ss.str();
 }
