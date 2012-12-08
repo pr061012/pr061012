@@ -3,6 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
+
 #include "World.h"
 
 #include <iostream>
@@ -11,6 +12,14 @@
 #include "../../common/BasicDefines.h"
 #include "../../common/Math/Random.h"
 #include "Object/Creatures/Creature.h"
+
+#define GEN_WEAT_INTENSITY  (WEAT_STEPS_MIN + WEAT_STEPS_MAX) / 2 / TM_TICKS_PER_SECOND
+#define GEN_WEAT_HURRICANE_PROBABILITY      0.3
+#define GEN_WEAT_RAIN_PROBABILITY           0.6
+#define GEN_WEAT_CLOUDS_PROBABILITY         0
+#define GEN_WEAT_METEOR_SHOWER_PROBABILITY  0.1
+#define GEN_WEAT_START_COUNT_MIN            3
+#define GEN_WEAT_START_COUNT_MAX            5
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -70,6 +79,13 @@ World::World(int rand_seed, uint size, bool generate_objs) :
     object_parameters[WEATHER][HURRICANE].
                         addKey<WeatherType>("weat_type", HURRICANE);
 
+    // Weather probabilities
+    weather_probabilities = new double[AMNT_WEATHER_TYPES];
+    weather_probabilities[RAIN]          = GEN_WEAT_RAIN_PROBABILITY;
+    weather_probabilities[CLOUDS]        = GEN_WEAT_CLOUDS_PROBABILITY;
+    weather_probabilities[METEOR_SHOWER] = GEN_WEAT_METEOR_SHOWER_PROBABILITY;
+    weather_probabilities[HURRICANE]     = GEN_WEAT_HURRICANE_PROBABILITY;
+
     this -> createEverything(generate_objs);
 }
 
@@ -111,14 +127,32 @@ void World::genCreatures()
     }
 }
 
-void World::genWeather()
+// Create weather somewhere on the map depending on probability.
+void World::simulateWeather()
 {
-    uint amount = Random::int_range(5, 10);
-    for (uint i = 0; i < amount; i++)
+    double dice = Random::double_num(1.0);
+    double prob = 0;
+    for (int i = 0; i < AMNT_WEATHER_TYPES; i++)
     {
-        createObject(WEATHER, Random::int_range(0, AMNT_WEATHER_TYPES));
+        prob += weather_probabilities[i];
+        if (dice < prob)
+        {
+            createObject(WEATHER, i);
+            return;
+        }
     }
 }
+
+void World::genWeather()
+{
+    uint amount = Random::int_range(GEN_WEAT_START_COUNT_MIN, GEN_WEAT_START_COUNT_MAX);
+    for (uint i = 0; i < amount; i++)
+    {
+        simulateWeather();
+    }
+}
+
+
 
 void World::genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params)
 {

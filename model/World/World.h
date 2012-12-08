@@ -86,6 +86,11 @@ private:
     //**************************************************************************
     // GENERATION METHODS.
     //**************************************************************************
+    
+    /**
+     * @brief Creates weather somewhere on the map.
+     */
+    void simulateWeather();
 
     /**
      * @brief Methods for generating objects of different types.
@@ -270,6 +275,9 @@ private:
 
     /// Object creating matrix of parmeters.
     ParamArray ** object_parameters;
+
+    /// Weather probabilities.
+    double * weather_probabilities;
 
     /// Our world's ObjectFactory
     ObjectFactory* object_factory;

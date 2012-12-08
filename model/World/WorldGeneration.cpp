@@ -39,7 +39,7 @@
 #define GEN_DRAGON_INSIDE_BOUNDS    !
 #define GEN_DRAGON_LOWER_BOUND      0
 #define GEN_DRAGON_UPPER_BOUND      90
-#define GEN_DRAGON_DENSITY          0.75
+#define GEN_DRAGON_DENSITY          0.5
 #define GEN_DRAGON_INTERVAL         0.25
 
 // Perlin 2d noise.
@@ -230,4 +230,7 @@ void World::generateWorld()
                 "COws: "    << cows       << std::endl <<
                 "Humans: "  << humans     << std::endl <<
                 "Dragons: " << dragons    << std::endl;
+
+    // Generate weather
+    genWeather();
 }
