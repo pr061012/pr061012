@@ -150,7 +150,8 @@ void World::genForestAt(double x, double y, int x_trees, int y_trees, const Para
     {
         for(int j = 0; j < y_trees; ++j)
         {
-            genTreeAt(x + (i-x_center)*interval, y + (j-y_center)*interval, shift, probs[i][j], tree_params);
+            genObjectAt(Vector(x + (i-x_center)*interval, y + (j-y_center)*interval),
+                      shift, probs[i][j], RESOURCE, tree_params);
         }
     }
 
@@ -166,30 +167,15 @@ void World::genForestAt(double x, double y)
 
 }
 
-void World::genTreeAt(double x, double y, const ParamArray& tree_params)
-{
-    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
-
-    new_obj -> setCoords(Vector(x, y));
-    if (checkCoord(new_obj))
-    {
-        indexator -> addObject(new_obj);
-        visible_objs -> push(new_obj);
-    }
-    else
-    {
-        delete new_obj;
-    }
-}
-
-int World::genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray &tree_params)
+int World::genObjectAt(Vector point, double rand_offset, double prob,
+                        ObjectType type, const ParamArray &params, bool no_intersect)
 {
     if( DoubleComparison::isGreater(prob, Random::double_num(1.0)) )
     {
-        double x_rand = Random::double_num(2*rand_offset) - rand_offset;
-        double y_rand = Random::double_num(2*rand_offset) - rand_offset;
+        Vector offset(Random::double_num(2*rand_offset) - rand_offset,
+                      Random::double_num(2*rand_offset) - rand_offset);
 
-        this -> genTreeAt(x + x_rand, y + y_rand, tree_params);
+        createObject(type, params, no_intersect, false, point + offset);
 
         return 0;
     }
@@ -200,14 +186,15 @@ int World::genTreeAt(double x, double y, double rand_offset, double prob, const 
 // BASE METHODS.
 //******************************************************************************
 
-Object* World::createObject(ObjectType type, int subtype,
+Object* World::createObject(ObjectType type, int subtype, bool no_intersect,
                          bool random_place, Vector coords)
 {
-    return createObject(type, object_parameters[type][subtype], random_place, coords);
+    return createObject(type, object_parameters[type][subtype], no_intersect,
+                        random_place, coords);
 }
 
 // Tries to create object with given parameters.
-Object* World::createObject(ObjectType type, const ParamArray& params,
+Object* World::createObject(ObjectType type, const ParamArray& params, bool no_intersect,
                          bool random_place, Vector coords)
 { 
     bool success = false;
@@ -224,7 +211,7 @@ Object* World::createObject(ObjectType type, const ParamArray& params,
         }
 
         new_obj -> setCoords(coords);
-        if (checkCoord(new_obj))
+        if (checkCoord(new_obj, no_intersect))
         {
             indexator -> addObject(new_obj);
             visible_objs -> push(new_obj);
@@ -391,31 +378,23 @@ Object *World::getObjectByID(uint id) const
     return NULL;
 }
 
-bool World::checkCoord(Object *new_obj)
+bool World::checkCoord(Object *new_obj, bool no_intersect)
 {
-    if (!new_obj -> isSolid() || new_obj -> isCurrentlyFlying())
+    if ((!new_obj -> isSolid() || new_obj -> isCurrentlyFlying()) &&
+        !no_intersect)
     {
         return true;
     }
 
-    bool ret = false;
-
     Shape shape = new_obj -> getShape();
+
     // Get obstacles
     ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
 
-    uint count_creature = obstacles.getTypeAmount(CREATURE);
-    uint count_resource = obstacles.getTypeAmount(RESOURCE);
-
-    if
-    (
-        !count_creature &&
-        !count_resource
-    )
+    if (!obstacles.getAmount() - obstacles.getTypeAmount(WEATHER))
     {
-        ret = true;
+        return true;
     }
 
-
-    return ret;
+    return false;
 }
