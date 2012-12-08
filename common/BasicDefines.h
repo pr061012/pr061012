@@ -29,7 +29,7 @@
 #define VIEW_SCREEN_HEIGHT          600
 
 /// Aspect ratio of the screen
-#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT) / VIEW_SCREEN_WIDTH
+#define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT / VIEW_SCREEN_WIDTH)
 
 /// Radius of field of view of game camera
 #define VIEW_CAM_RADIUS             20
@@ -67,7 +67,7 @@
 #define SZ_DEFAULT                  SZ_HUM_DIAM
 
 /// Coefficient for reach area size.
-#define SZ_REACH_AREA_COEF          2
+#define SZ_REACH_AREA_COEF          1.2
 
 /// Building side (minimum size).
 #define SZ_BUILDING_SIDE_MIN        3 * SZ_HUM_DIAM
@@ -417,7 +417,7 @@
 #define CREAT_DELTA_ENDUR           1
 
 /// Starving steps.
-#define CREAT_STARVING_STEPS        TM_TICKS_PER_SECOND / 2
+#define CREAT_STARVING_STEPS        (TM_TICKS_PER_SECOND / 2)
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40
