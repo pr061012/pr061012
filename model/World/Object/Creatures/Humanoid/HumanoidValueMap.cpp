@@ -68,8 +68,8 @@ void HumanoidValueMap::reevaluate()
 Vector HumanoidValueMap::getBestPlace() const
 {
     // Initialising some values.
-    uint min_i = -1;
-    uint min_j = -1;
+    int min_i = -1;
+    int min_j = -1;
     double min = 0;
 
     // Searching for the minimum.
