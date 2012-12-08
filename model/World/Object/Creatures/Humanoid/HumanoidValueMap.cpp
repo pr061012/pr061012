@@ -3,10 +3,11 @@
     See the COPYING file for copying permission.
 */
 
-#include "HumanoidValueMap.h"
-
 #include <cmath>
 #include <cassert>
+
+#include "../../../../../common/Math/DoubleComparison.h"
+#include "HumanoidValueMap.h"
 
 // FIXME: Silly.
 #define SIZE                1000
@@ -67,4 +68,27 @@ void HumanoidValueMap::reevaluate()
 
 Vector HumanoidValueMap::getBestPlace()
 {
+    // Initialising some values.
+    uint min_i = -1;
+    uint min_j = -1;
+    double min = 0;
+
+    // Searching for minimum.
+    for (uint i = 0; i < this -> map_rows; i++)
+    {
+        for (uint j = 0; j < this -> map_columns; j++)
+        {
+            double value = this -> map[i][j];
+
+            if (DoubleComparison::isGreater(value, min))
+            {
+                min = value;
+                min_i = i;
+                min_j = j;
+            }
+        }
+    }
+
+    // FIXME: What about situation when min_i == -1 and min_j == -1?
+    return Vector(min_i * CELL_SIZE, min_j * CELL_SIZE);
 }
