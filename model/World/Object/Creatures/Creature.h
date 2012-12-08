@@ -526,13 +526,19 @@ protected:
     // DIRECTION
     //**************************************************************************
     
-    /// The direction of creature
+    /// The direction of creature.
     double angle;
 
-    /// Flag that shows if direction is set
+    /// Flag that shows if direction is set.
     bool direction_is_set;
 
-    /// Current direction (subject) oh NHum
+    /// Flag tha show if we have aim
+    bool aimless;
+
+    /// Goal position.
+    Vector current_goal_point;
+
+    /// Current direction (subject).
     Object* aim;
 
     //**************************************************************************
@@ -583,6 +589,27 @@ protected:
      * @brief Updates hunger, sleepiness, health, age, danger.
      */
     void updateCommonAttrs();
+
+    //**********************************************************
+    // AIM MANAGMENT
+    //**********************************************************
+    
+    /**
+     * @brief Set aim.
+     * @param aim aim.
+     */
+    void setAim(Object * aim);
+
+    /**
+     * @brief Set aim.
+     * @param point goal point.
+     */
+    void setAim(Vector point);
+
+    /**
+     * @brief Reset aim.
+     */
+    void resetAim();
 
     //**************************************************************************
     // GO ACTION

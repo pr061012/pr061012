@@ -168,8 +168,7 @@ std::vector<Action>* NonHumanoid::getActions()
         if (messages[i].getType() == UNDER_ATTACK)
         {
             current_action = ESCAPE;
-            direction_is_set = false;
-            aim = nullptr;
+            resetAim();
         }
     }
     messages.clear();
@@ -184,8 +183,7 @@ std::vector<Action>* NonHumanoid::getActions()
         current_action = brains.makeDecision(attrs);
 
         // Zeroing everything else.
-        direction_is_set = false;
-        aim = nullptr;
+        resetAim();
     }
 
     //**************************************************************************
@@ -209,7 +207,7 @@ std::vector<Action>* NonHumanoid::getActions()
         if (roam_steps == 0)
         {
             roam_steps = NHUM_ROAM_STEPS;
-            direction_is_set = false;
+            resetAim();
         }
         roam_steps--;
 
@@ -225,7 +223,7 @@ std::vector<Action>* NonHumanoid::getActions()
         // If aim was destroyed, reset it and try to find new.
         if (aim != nullptr && aim -> isDestroyed())
         {
-            aim = nullptr;
+            resetAim();
         }
 
         // If aim doesn't exist trying to find food.
@@ -275,7 +273,7 @@ std::vector<Action>* NonHumanoid::getActions()
             if (roam_steps == 0)
             {
                 roam_steps = NHUM_ROAM_STEPS;
-                direction_is_set = false;
+                resetAim();
             }
             roam_steps--;
 
@@ -286,8 +284,7 @@ std::vector<Action>* NonHumanoid::getActions()
         if (getHunger() == 0)
         {
             current_action = NONE;
-            direction_is_set = true;
-            aim = nullptr;
+            resetAim();
         }
     }
 
@@ -381,8 +378,7 @@ void NonHumanoid::findVictim()
             // Check distance to found creature.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
-                this -> aim = creat;
-                direction_is_set = true;
+                setAim(creat);
                 distance = coords.getDistance(this -> getCoords());
             }
         }
@@ -430,8 +426,7 @@ void NonHumanoid::findFood()
             // Check distance to found food.
             if (DoubleComparison::isLess(coords.getDistance(this -> getCoords()), distance))
             {
-                this -> aim = res;
-                direction_is_set = true;
+                setAim(res);
                 distance = coords.getDistance(this -> getCoords());
             }
         }

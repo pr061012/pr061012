@@ -64,6 +64,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // direction
     angle(0),
     direction_is_set(false),
+    aimless(true),
+    current_goal_point(0, 0),
     aim(0),
 
     // decision
@@ -553,6 +555,29 @@ void Creature::chooseDirectionToEscape()
 // ACTIONS
 //**********************************************************
 
+void Creature::setAim(Object * aim)
+{
+    this -> aim = aim;
+    direction_is_set = false;
+    aimless = false;
+}
+
+void Creature::setAim(Vector point)
+{
+    this -> aim = nullptr;
+    direction_is_set = false;
+    aimless = false;
+    current_goal_point = point;
+}
+
+void Creature::resetAim()
+{
+    this -> aim = nullptr;
+    goal = nullptr;
+    direction_is_set = false;
+    aimless = true;
+}
+
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
@@ -581,7 +606,7 @@ void Creature::go(SpeedType speed)
     }
 
     // If we don't have any aim, go the way we went before
-    if (!aim)
+    if (aimless)
     {
         // if there is no direction, then go random
         // or there is an error in angle
@@ -593,15 +618,23 @@ void Creature::go(SpeedType speed)
     }
     else
     {
-        // if we can't go the way we went, or the aim changed,
-        // or the aim moved too far, reset route
-        if (!direction_is_set || !goal || 
-            aim -> getObjectID() != goal -> getObjectID() || 
-            !DoubleComparison::isLess(last_goal_pos.getDistance(goal -> getCoords()),
+        // FIXME Need Refactoring!!!
+        // Check if we have any particular object to move to.
+        if (aim)
+        {
+            if(!goal || aim -> getObjectID() != goal -> getObjectID())
+            {
+                goal = aim;
+            }
+            current_goal_point = goal -> getCoords();
+        }
+
+        // Reset route if we got stuck or the goal has changed.
+        if (!direction_is_set ||
+            !DoubleComparison::isLess(last_goal_pos.getDistance(current_goal_point),
                                         MAX_OFFSET * getShape().getSize()/2))
         {
-            goal = aim;
-            last_goal_pos = goal -> getCoords();
+            last_goal_pos = current_goal_point;
             
             //generate route
             last_route_size = route.size();
@@ -657,7 +690,6 @@ void Creature::hunt()
 {
     if (aim)
     {
-        reach_area.setCenter(getCoords());
         // Hit the aim if it is within our reach
         if (reach_area.hitTest(aim -> getShape()))
         {

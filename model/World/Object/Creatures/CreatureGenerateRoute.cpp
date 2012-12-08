@@ -2,6 +2,7 @@
 #include "../../../../common/Math/DoubleComparison.h"
 #include "../../../../common/BasicDefines.h"
 #include "Creature.h"
+#include <cassert>
 
 #define __creature_generate_route_complete 1
 #define SCALE_FACTOR 2
@@ -122,9 +123,19 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
     ghost.setCenter(point);
 
     // Check if we can hit the goal.
-    if (goal_in_sight && ghost.hitTest(aim -> getShape()))
+    if (goal != nullptr)
     {
-        return 1;
+        if (goal_in_sight && ghost.hitTest(aim -> getShape()))
+        {
+            return 1;
+        }
+    }
+    else
+    {
+        if (goal_in_sight && ghost.hitTest(current_goal_point))
+        {
+            return 1;
+        }
     }
     // Check if we came to the border of our view_area
     if (!view_area.hitTest(point))
@@ -159,7 +170,7 @@ Creature::Path Creature::generateRoute()
 {
     // Default behaviour
     Path result;
-    result.push(goal -> getCoords());
+    result.push(current_goal_point);
 
     // Debug counter
     uint debug_step = 0;
@@ -168,12 +179,18 @@ Creature::Path Creature::generateRoute()
     if (!isCurrentlyFlying() && isSolid())
     {
         // Check if our object lies inside view_area
-        view_area.setCenter(this -> getCoords());
-        Vector goal_point = goal -> getCoords();
-        bool goal_in_sight = view_area.hitTest(goal -> getShape());
-        if (!goal_in_sight)
+        Vector goal_point;
+        bool goal_in_sight;
+
+        if (goal != nullptr)
         {
-            route.pop();
+            goal_point = goal -> getCoords();
+            goal_in_sight = view_area.hitTest(current_goal_point);
+        }
+        else
+        {
+            goal_point = current_goal_point;
+            goal_in_sight = view_area.hitTest(current_goal_point);
         }
 
         // A closed list for vertices already processed.
@@ -278,6 +295,7 @@ Creature::Path Creature::generateRoute()
                         // Make the loops stop
                         open_vertex_set.clear();
                         i = 100;
+                        assert(result.size());
                         continue;
 
                     case 0:
@@ -311,5 +329,6 @@ Creature::Path Creature::generateRoute()
     //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
     //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
+    assert(result.size());
     return result;
 }
