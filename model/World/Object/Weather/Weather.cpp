@@ -168,7 +168,7 @@ std::vector<Action>* Weather::getActions()
             Vector v2 = this -> getCoords();
 
             act.addParticipant(*iter);
-            act.addParam<double>("angle", v2.getAngle(v1) + 1.5 * M_PI / 2);
+            act.addParam<double>("angle", v2.getAngle(v1) + WEAT_HURRICANE_TWIST_COEF * M_PI / 2);
             act.addParam<SpeedType>("speed", FAST_SPEED);
 
             this -> actions.push_back(act);

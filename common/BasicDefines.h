@@ -255,6 +255,9 @@
 /// Weather's action steps (steps before generating new weather action).
 #define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
 
+/// Coefficient of hurricane's twisting force. Value should lie in range [1, 2].
+#define WEAT_HURRICANE_TWIST_COEF   1.5
+
 //******************************************************************************
 // TOOL DEFINES.
 // Prefix: TOOL.
