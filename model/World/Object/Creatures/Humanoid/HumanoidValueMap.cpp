@@ -10,15 +10,13 @@
 #include "../../../../../common/Math/DoubleComparison.h"
 #include "HumanoidValueMap.h"
 
-// FIXME: Silly.
-#define SIZE                1000
 /// Cell size.
 #define CELL_SIZE           0.1
 
-HumanoidValueMap::HumanoidValueMap(ObjectHeap* heap) :
+HumanoidValueMap::HumanoidValueMap(double v_size, double h_size, ObjectHeap* heap) :
     heap(heap),
-    map_rows(ceil(SIZE / CELL_SIZE)),
-    map_columns(ceil(SIZE / CELL_SIZE))
+    map_rows(ceil(v_size / CELL_SIZE)),
+    map_columns(ceil(h_size / CELL_SIZE))
 {
     this -> map.resize(this -> map_rows);
     for (uint i = 0; i < this -> map_rows; i++)

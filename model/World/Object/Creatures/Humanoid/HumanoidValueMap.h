@@ -18,9 +18,11 @@ class HumanoidValueMap
 public:
     /**
      * @brief Constructor.
-     * @param heap  heap with objects
+     * @param v_size    world's vertical size
+     * @param h_size    world's horizontal size
+     * @param heap      heap with objects
      */
-    HumanoidValueMap(ObjectHeap* heap);
+    HumanoidValueMap(double v_size, double h_size, ObjectHeap* heap);
 
     /**
      * @brief Reevaluates map.
