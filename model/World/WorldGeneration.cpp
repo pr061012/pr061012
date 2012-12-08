@@ -15,32 +15,33 @@
 #define GEN_TREE_INSIDE_BOUNDS      
 #define GEN_TREE_LOWER_BOUND        65
 #define GEN_TREE_UPPER_BOUND        100
-#define GEN_TREE_DENSITY            0.5
+#define GEN_TREE_DENSITY            0.15
 #define GEN_TREE_INTERVAL           0.25
 
 #define GEN_GRASS_INSIDE_BOUNDS     
 #define GEN_GRASS_LOWER_BOUND       0
 #define GEN_GRASS_UPPER_BOUND       35
-#define GEN_GRASS_DENSITY           0.1
+#define GEN_GRASS_DENSITY           0.075
 #define GEN_GRASS_INTERVAL          0.25
 
 #define GEN_COW_INSIDE_BOUNDS       
-#define GEN_COW_LOWER_BOUND         0
-#define GEN_COW_UPPER_BOUND         35
-#define GEN_COW_DENSITY             0.1
+#define GEN_COW_LOWER_BOUND         51
+#define GEN_COW_UPPER_BOUND         52
+#define GEN_COW_DENSITY             0.05
 #define GEN_COW_INTERVAL            0.25
 
 #define GEN_HUMAN_INSIDE_BOUNDS    
-#define GEN_HUMAN_LOWER_BOUND       0
-#define GEN_HUMAN_UPPER_BOUND       35
-#define GEN_HUMAN_DENSITY           0.1
+#define GEN_HUMAN_LOWER_BOUND       40
+#define GEN_HUMAN_UPPER_BOUND       42
+#define GEN_HUMAN_DENSITY           0.01
 #define GEN_HUMAN_INTERVAL          0.25
 
 #define GEN_DRAGON_INSIDE_BOUNDS    !
 #define GEN_DRAGON_LOWER_BOUND      0
-#define GEN_DRAGON_UPPER_BOUND      35
-#define GEN_DRAGON_DENSITY          0.1
+#define GEN_DRAGON_UPPER_BOUND      90
+#define GEN_DRAGON_DENSITY          0.75
 #define GEN_DRAGON_INTERVAL         0.25
+
 // Perlin 2d noise.
 // Code from:
 // http://freespace.virgin.net/hugo.elias/models/m_perlin.htm
@@ -141,6 +142,7 @@ void World::generateWorld()
         analysis[i] = 0;
     }
     uint total = 0, max = 0, min = 1000, sum = 0;
+    uint trees = 0, grass = 0, cows = 0, humans = 0, dragons = 0;
 
     // Create resources.
     for (double x = GEN_MAP_RESOLUTION; x < size; x += GEN_MAP_RESOLUTION)
@@ -148,19 +150,19 @@ void World::generateWorld()
         for (double y = GEN_MAP_RESOLUTION; y < size; y += GEN_MAP_RESOLUTION)
         {
             // Normalize.
-            double value = fractalPerlinNoise2D(x, y, seed, GEN_FRACTAL_POWER) * 
+            double value = fractalPerlinNoise2D(x, y, GEN_FRACTAL_POWER, seed) * 
                                         GEN_FIVE_SIGMA + GEN_AVERAGE_NOISE;
 
             if (GEN_TREE_INSIDE_BOUNDS(value > GEN_TREE_LOWER_BOUND && 
                                        value < GEN_TREE_UPPER_BOUND))
             {
-                genObjectAt(Vector(x, y), GEN_TREE_INTERVAL, GEN_TREE_DENSITY,
+                trees += genObjectAt(Vector(x, y), GEN_TREE_INTERVAL, GEN_TREE_DENSITY,
                             RESOURCE, object_parameters[RESOURCE][TREE]);
             }
             else if (GEN_GRASS_INSIDE_BOUNDS(value > GEN_GRASS_LOWER_BOUND && 
                                              value < GEN_GRASS_UPPER_BOUND))
             {
-                genObjectAt(Vector(x, y), GEN_GRASS_INTERVAL, GEN_GRASS_DENSITY,
+                grass += genObjectAt(Vector(x, y), GEN_GRASS_INTERVAL, GEN_GRASS_DENSITY,
                             RESOURCE, object_parameters[RESOURCE][GRASS]);
             }
 
@@ -181,38 +183,6 @@ void World::generateWorld()
             }
         }
     }
-
-    seed = Random::double_num(size * 2) - size;
-    // Create creatures.
-    for (double x = GEN_MAP_RESOLUTION; x < size; x += GEN_MAP_RESOLUTION)
-    {
-        for (double y = GEN_MAP_RESOLUTION; y < size; y += GEN_MAP_RESOLUTION)
-        {
-            double value = fractalPerlinNoise2D(x, y, seed, GEN_FRACTAL_POWER) * 
-                                        GEN_FIVE_SIGMA + GEN_AVERAGE_NOISE;
-
-            if (GEN_COW_INSIDE_BOUNDS(value > GEN_COW_LOWER_BOUND && 
-                                      value < GEN_COW_UPPER_BOUND))
-            {
-                genObjectAt(Vector(x, y), GEN_COW_INTERVAL, GEN_COW_DENSITY,
-                            CREATURE, object_parameters[CREATURE][COW], false);
-            }
-            else if (GEN_HUMAN_INSIDE_BOUNDS(value > GEN_HUMAN_LOWER_BOUND && 
-                                             value < GEN_HUMAN_UPPER_BOUND))
-            {
-                genObjectAt(Vector(x, y), GEN_HUMAN_INTERVAL, GEN_HUMAN_DENSITY,
-                            CREATURE, 
-                            object_parameters[CREATURE][AMNT_NONHUMANOID_TYPES], false);
-            }
-            else if (GEN_DRAGON_INSIDE_BOUNDS(value > GEN_DRAGON_LOWER_BOUND &&
-                                              value < GEN_DRAGON_UPPER_BOUND))
-            {
-                genObjectAt(Vector(x, y), GEN_DRAGON_INTERVAL, GEN_DRAGON_DENSITY,
-                            CREATURE, object_parameters[CREATURE][DRAGON], false);
-            }
-        }
-    }
-
     // Print analysis
     std::cout << "Analysis: Puasson ditribution. Total:" << total << std::endl;
     for (uint i = 0; i < 10; i++)
@@ -222,4 +192,42 @@ void World::generateWorld()
     std::cout << "Max value: " << max << std::endl;
     std::cout << "Min value: " << min << std::endl;
     std::cout << "Average:"    << double(sum) / total << std::endl;
+
+    
+    seed = Random::double_num(size * 2) - size;
+    // Create creatures.
+    for (double x = GEN_MAP_RESOLUTION; x < size; x += GEN_MAP_RESOLUTION)
+    {
+        for (double y = GEN_MAP_RESOLUTION; y < size; y += GEN_MAP_RESOLUTION)
+        {
+            double value = fractalPerlinNoise2D(x, y, GEN_FRACTAL_POWER, seed) * 
+                                        GEN_FIVE_SIGMA + GEN_AVERAGE_NOISE;
+
+            if (GEN_COW_INSIDE_BOUNDS(value > GEN_COW_LOWER_BOUND && 
+                                      value < GEN_COW_UPPER_BOUND))
+            {
+                cows += genObjectAt(Vector(x, y), GEN_COW_INTERVAL, GEN_COW_DENSITY,
+                            CREATURE, object_parameters[CREATURE][COW], false);
+            }
+            else if (GEN_HUMAN_INSIDE_BOUNDS(value > GEN_HUMAN_LOWER_BOUND && 
+                                             value < GEN_HUMAN_UPPER_BOUND))
+            {
+                humans += genObjectAt(Vector(x, y), GEN_HUMAN_INTERVAL, GEN_HUMAN_DENSITY,
+                            CREATURE, 
+                            object_parameters[CREATURE][AMNT_NONHUMANOID_TYPES], false);
+            }
+            else if (GEN_DRAGON_INSIDE_BOUNDS(value > GEN_DRAGON_LOWER_BOUND &&
+                                              value < GEN_DRAGON_UPPER_BOUND))
+            {
+                dragons += genObjectAt(Vector(x, y), GEN_DRAGON_INTERVAL, GEN_DRAGON_DENSITY,
+                            CREATURE, object_parameters[CREATURE][DRAGON], false);
+            }
+        }
+    }
+    std::cout << std::endl << "Analysis: Generated objects." << std::endl <<
+                "Grass: "   << grass      << std::endl <<
+                "Trees: "   << trees      << std::endl <<
+                "COws: "    << cows       << std::endl <<
+                "Humans: "  << humans     << std::endl <<
+                "Dragons: " << dragons    << std::endl;
 }

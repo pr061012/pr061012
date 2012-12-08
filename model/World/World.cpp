@@ -175,11 +175,13 @@ int World::genObjectAt(Vector point, double rand_offset, double prob,
         Vector offset(Random::double_num(2*rand_offset) - rand_offset,
                       Random::double_num(2*rand_offset) - rand_offset);
 
-        createObject(type, params, no_intersect, false, point + offset);
-
-        return 0;
+        if (createObject(type, params, no_intersect, false, point + offset)
+            != nullptr)
+        {
+            return 1;
+        }
     }
-    return 1;
+    return 0;
 }
 
 //******************************************************************************
@@ -387,14 +389,26 @@ bool World::checkCoord(Object *new_obj, bool no_intersect)
     }
 
     Shape shape = new_obj -> getShape();
-
-    // Get obstacles
     ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
 
-    if (!obstacles.getAmount() - obstacles.getTypeAmount(WEATHER))
+    if (no_intersect)
     {
+        if (!obstacles.getAmount() - obstacles.getTypeAmount(WEATHER))
+        {
+            return true;
+        }
+    }
+    else
+    {
+        for (ObjectHeap::iterator i = obstacles.begin();
+             i != obstacles.end(); i++)
+        {
+            if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
+            {
+                return false;
+            }
+        }
         return true;
     }
-
     return false;
 }

@@ -138,7 +138,7 @@ private:
      * @param params object parameters.
      * @param no_intersect check that object doesn't intersect any other.
      * @return if object generation succeeded with current probability,
-     *         0 is returned. Otherwise, 1 is returned.
+     *         1 is returned. Otherwise, 0 is returned.
      */
     int genObjectAt(Vector point, double rand_offset, double prob,
                   ObjectType type, const ParamArray& params, bool no_intersect = true);
