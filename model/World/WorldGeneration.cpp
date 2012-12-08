@@ -5,13 +5,51 @@
 #include "../../common/BasicTypes.h"
 #include <cmath>
 
-#define GEN_OCTAVES                 6
-#define GEN_PERSISTENCE             1/4
-#define GEN_AVERAGE_NOISE           50
-#define GEN_FIVE_SIGMA              50
-#define GEN_FRACTAL_POWER           4
-#define GEN_MAP_RESOLUTION          0.5
+/// Number of ocatves of Perlin noise.
+#define GEN_OCTAVES                         6
 
+/// Persistence of Perlin noise.
+#define GEN_PERSISTENCE                     1/4
+
+/// Average Perlin noise value.
+#define GEN_AVERAGE_NOISE                   50
+
+/// Five sigmas of noise's value distribution.
+#define GEN_FIVE_SIGMA                      50
+
+/// The fractal coefficien for map noise genertation.
+#define GEN_FRACTAL_POWER                   4
+
+/// Discrete step for noise map generation.
+#define GEN_MAP_RESOLUTION                  0.5
+
+/**
+ * @brief Constants for generating different objects in the world.
+ *
+ *        Each point on the noise map has some paticular value.
+ *        Object is generated at some point, if its value lies between
+ *        LOWER_BOUND and UPPER_BOUND, or if it lies outside and
+ *        INSIDE_BOUNDS equals to !.
+ *
+ *        Note the points values satisfy the Gauss distribution with parameters
+ *        defined above.
+ *
+ *        Maps for resources and creatures are generated separately.
+ *
+ *        Bounds for generating are tested in the order they are placed here.
+ *        For example, if bounds for trees are 40 and 60 and bounds for grass are
+ *        30 and 70 and if a point on the map has a value equal to 50, a tree will
+ *        be created because it goes first.
+ *
+ *        DENSITY stands for probability of an object being generated if the
+ *        according point was found. For example, for conditions in previous
+ *        example a tree will be created with probability of 15%, if DENSITY
+ *        equals to 0.15
+ *
+ *        INTERVAL stands for offset from the point at which objects will be 
+ *        generated. For beauty.
+ *
+ */
 #define GEN_TREE_INSIDE_BOUNDS      
 #define GEN_TREE_LOWER_BOUND        65
 #define GEN_TREE_UPPER_BOUND        100
@@ -25,21 +63,21 @@
 #define GEN_GRASS_INTERVAL          0.25
 
 #define GEN_COW_INSIDE_BOUNDS       
-#define GEN_COW_LOWER_BOUND         51
-#define GEN_COW_UPPER_BOUND         52
-#define GEN_COW_DENSITY             0.05
+#define GEN_COW_LOWER_BOUND         80
+#define GEN_COW_UPPER_BOUND         85
+#define GEN_COW_DENSITY             0.5
 #define GEN_COW_INTERVAL            0.25
 
 #define GEN_HUMAN_INSIDE_BOUNDS    
-#define GEN_HUMAN_LOWER_BOUND       40
-#define GEN_HUMAN_UPPER_BOUND       42
-#define GEN_HUMAN_DENSITY           0.01
+#define GEN_HUMAN_LOWER_BOUND       15
+#define GEN_HUMAN_UPPER_BOUND       20
+#define GEN_HUMAN_DENSITY           0.1
 #define GEN_HUMAN_INTERVAL          0.25
 
 #define GEN_DRAGON_INSIDE_BOUNDS    !
-#define GEN_DRAGON_LOWER_BOUND      0
+#define GEN_DRAGON_LOWER_BOUND      10
 #define GEN_DRAGON_UPPER_BOUND      90
-#define GEN_DRAGON_DENSITY          0.5
+#define GEN_DRAGON_DENSITY          0.25
 #define GEN_DRAGON_INTERVAL         0.25
 
 // Perlin 2d noise.
@@ -165,6 +203,7 @@ void World::generateWorld()
                 grass += genObjectAt(Vector(x, y), GEN_GRASS_INTERVAL, GEN_GRASS_DENSITY,
                             RESOURCE, object_parameters[RESOURCE][GRASS]);
             }
+
 
             // Analize
             total++;

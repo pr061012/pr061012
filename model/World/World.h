@@ -29,6 +29,22 @@
 class World : public IWorld
 {
 public:
+
+    /**
+     * @brief Creates weather somewhere on the map.
+     */
+    void simulateWeather();
+
+    /**
+     * @brief Reproduces creatures.
+     */
+    void simulateCreatures();
+
+    /**
+     * @brief Reproduces resources.
+     */
+    void simulateResources();
+
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
@@ -87,11 +103,6 @@ private:
     // GENERATION METHODS.
     //**************************************************************************
     
-    /**
-     * @brief Creates weather somewhere on the map.
-     */
-    void simulateWeather();
-
     /**
      * @brief Methods for generating objects of different types.
      */

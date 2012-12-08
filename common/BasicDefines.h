@@ -101,10 +101,10 @@
 #define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
 
 /// View area for NonHumanoid.
-#define SZ_NHUM_VIEW_DIAM           50 * SZ_HUM_DIAM
+#define SZ_NHUM_VIEW_DIAM           15 * SZ_HUM_DIAM
 
 /// View area for Humanoid.
-#define SZ_HUM_VIEW_DIAM            50 * SZ_HUM_DIAM
+#define SZ_HUM_VIEW_DIAM            30 * SZ_HUM_DIAM
 
 //******************************************************************************
 // SHAPE DEFINES.
@@ -229,7 +229,38 @@
 #define GEN_TREE_PROB_DECAY         0.1
 
 /// Interval in distance of trees generation.
-#define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX
+#define GEN_TREE_INTERVAL                   1.1 * SZ_RESOURCE_DIAM_MAX
+
+/// A possibility that another weather will appear on the map.
+#define GEN_WEAT_INTENSITY                  5
+
+/// Intensity of creatures updating.
+#define GEN_CREATURE_STEPS                 TM_TICKS_PER_SECOND * 180
+
+/// Amount of cows to recreate
+#define GEN_RECREATE_AMOUNT_COWS            10
+
+/// Amount of people to recreate
+#define GEN_RECREATE_AMOUNT_HUMANS          2
+
+/// Intensity of resources updating
+#define GEN_RESOURCE_STEPS                 TM_TICKS_PER_SECOND * 180
+
+/// Amount of wood to recreate
+#define GEN_RECREATE_AMOUNT_TREE            0
+
+/// Amount of food to recreate              
+#define GEN_RECREATE_AMOUNT_GRASS           10
+
+/// Probabilities of different weather types.
+#define GEN_WEAT_HURRICANE_PROBABILITY      0.3
+#define GEN_WEAT_RAIN_PROBABILITY           0.6
+#define GEN_WEAT_CLOUDS_PROBABILITY         0
+#define GEN_WEAT_METEOR_SHOWER_PROBABILITY  0.1
+
+/// Amount of weather objects created at the initialization of the world.
+#define GEN_WEAT_START_COUNT_MIN            3
+#define GEN_WEAT_START_COUNT_MAX            5
 
 //******************************************************************************
 // OBJECT DEFINES.

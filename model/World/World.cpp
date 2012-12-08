@@ -13,14 +13,6 @@
 #include "../../common/Math/Random.h"
 #include "Object/Creatures/Creature.h"
 
-#define GEN_WEAT_INTENSITY  (WEAT_STEPS_MIN + WEAT_STEPS_MAX) / 2 / TM_TICKS_PER_SECOND
-#define GEN_WEAT_HURRICANE_PROBABILITY      0.3
-#define GEN_WEAT_RAIN_PROBABILITY           0.6
-#define GEN_WEAT_CLOUDS_PROBABILITY         0
-#define GEN_WEAT_METEOR_SHOWER_PROBABILITY  0.1
-#define GEN_WEAT_START_COUNT_MIN            3
-#define GEN_WEAT_START_COUNT_MAX            5
-
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
 //******************************************************************************
@@ -140,6 +132,32 @@ void World::simulateWeather()
             createObject(WEATHER, i);
             return;
         }
+    }
+}
+
+// Create creatures.
+void World::simulateCreatures()
+{
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_COWS; i++)
+    {
+        createObject(CREATURE, COW);
+    }
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_HUMANS; i++)
+    {
+        createObject(CREATURE, AMNT_NONHUMANOID_TYPES);
+    }
+}
+
+// Create resources.
+void World::simulateResources()
+{
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_TREE; i++)
+    {
+        createObject(RESOURCE, TREE);
+    }
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_GRASS; i++)
+    {
+        createObject(RESOURCE, GRASS);
     }
 }
 

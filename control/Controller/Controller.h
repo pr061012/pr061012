@@ -68,6 +68,13 @@ private:
 
     /// Actions accumulator
     std::vector<Action*> actions;
+
+    /// Steps to generate weather.
+    int weather_steps;
+    /// Steps to generate resource.
+    int resource_steps;
+    /// Steps to generate creature.
+    int creature_steps;
 };
 
 #endif
