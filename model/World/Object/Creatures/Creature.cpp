@@ -563,10 +563,6 @@ void Creature::go(SpeedType speed)
         decreaseEndurance(1);
     }
     endurance_steps++;
-    if (speed == FAST_SPEED)
-    {
-        decreaseEndurance(1);
-    }
 
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)

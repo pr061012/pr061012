@@ -149,7 +149,7 @@
 /// Cow's s danger level.
 #define DNGR_NHUM_COW               3
 /// Dragon's s danger level.
-#define DNGR_NHUM_DRAGON            10
+#define DNGR_NHUM_DRAGON            15
 
 /// Resource's danger level.
 #define DNGR_RESOURCE               0

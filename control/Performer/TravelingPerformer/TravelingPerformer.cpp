@@ -53,7 +53,7 @@ void TravelingPerformer::perform(Action& action)
             }
             else
             {
-                speed *+ SPD_FAST_SPEED_COEF;
+                speed *= SPD_FAST_SPEED_COEF;
             }
             break;
 
