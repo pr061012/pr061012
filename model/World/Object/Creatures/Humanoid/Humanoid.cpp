@@ -548,8 +548,9 @@ std::vector <Action>* Humanoid::getActions()
         // Also: humanoid generates this action firstly, when his visual memory
         //       is empty. What should I do in this case?
         //
-        // HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
-        // Vector c = map.getBestPlace();
+        //HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+        //Vector c = map.getBestPlace();
+        //std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
 
         if(!steps_to_choose_place)
         {

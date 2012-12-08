@@ -43,9 +43,20 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     uint obj_i = floor(coords.getX() / this -> cell_size);
     uint obj_j = floor(coords.getY() / this -> cell_size);
 
-    for (uint i = 0; i < this -> map_rows; i++)
+    // Calculating begin and end i, j.
+    int begin_i = obj_i - this -> record_radius - 1;
+    int begin_j = obj_j - this -> record_radius - 1;
+    int end_i   = obj_i + this -> record_radius + 1;
+    int end_j   = obj_j + this -> record_radius + 1;
+    begin_i = begin_i < 0 ? 0 : begin_i;
+    begin_j = begin_j < 0 ? 0 : begin_j;
+    end_i   = end_i   >= this -> map_rows    ? this -> map_rows    : end_i;
+    end_j   = end_j   >= this -> map_columns ? this -> map_columns : end_j;
+
+    // Updating cell's values.
+    for (uint i = begin_i; i < end_i; i++)
     {
-        for (uint j = 0; j < this -> map_columns; j++)
+        for (uint j = begin_j; j < end_j; j++)
         {
             // Calculating distance.
             int delta_i = (int) i - (int) obj_i;
