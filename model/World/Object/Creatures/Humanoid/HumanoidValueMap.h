@@ -23,7 +23,7 @@ public:
      * @param h_size    world's horizontal size
      * @param cell_size map's cell size
      */
-    HumanoidValueMap(ObjectHeap* heap, double v_size, double h_size,
+    HumanoidValueMap(const ObjectHeap* heap, double v_size, double h_size,
                      double cell_size = 0.1);
 
     /**
@@ -51,7 +51,7 @@ private:
     void evaluateObject(const Object* obj);
 
     /// Pointer to heap.
-    ObjectHeap* heap;
+    const ObjectHeap* heap;
 
     /// Map with values.
     std::vector< std::vector<double> > map;

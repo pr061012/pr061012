@@ -13,7 +13,7 @@
 
 #define INFTY           1E+11
 
-HumanoidValueMap::HumanoidValueMap(ObjectHeap* heap, double v_size,
+HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
                                    double h_size, double cell_size) :
     heap(heap),
     cell_size(cell_size),
