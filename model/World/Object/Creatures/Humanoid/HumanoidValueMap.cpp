@@ -69,9 +69,30 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 if (distance != 0)
                 {
                     this -> map[i][j] += (double) 1 / distance;
+                    double value = this -> map[i][j];
+
+                    // New maximum.
+                    if (DoubleComparison::isGreater(value, this -> min))
+                    {
+                        this -> min = value;
+
+                        this -> min_i.clear();
+                        this -> min_i.push_back(i);
+
+                        this -> min_j.clear();
+                        this -> min_j.push_back(j);
+                    }
+                    // Found cell, which is equal to current maximum.
+                    else if (DoubleComparison::areEqual(value, min))
+                    {
+                        this -> min_i.push_back(i);
+                        this -> min_j.push_back(j);
+                    }
                 }
                 else
                 {
+                    // Cell with this object in. Setting cell's value to
+                    // infinity.
                     this -> map[i][j] = INFTY;
                 }
             }
@@ -110,47 +131,6 @@ void HumanoidValueMap::reevaluate()
 
 Vector HumanoidValueMap::getBestPlace() const
 {
-    // Initialising some values.
-    std::vector<int> min_i;
-    std::vector<int> min_j;
-    double min = 0;
-
-    // Searching for the maximum.
-    for (uint i = 0; i < this -> map_rows; i++)
-    {
-        for (uint j = 0; j < this -> map_columns; j++)
-        {
-            double value = this -> map[i][j];
-
-            // Found new maximum.
-            if
-            (
-                DoubleComparison::isGreater(value, min) &&
-                // Ignoring cells with resources inside.
-                DoubleComparison::areNotEqual(value, INFTY)
-            )
-            {
-                min = value;
-
-                min_i.clear();
-                min_i.push_back(i);
-
-                min_j.clear();
-                min_j.push_back(j);
-            }
-            // Found cell, which is equal to current maximum.
-            else if
-            (
-                DoubleComparison::areEqual(value, min) &&
-                DoubleComparison::areNotEqual(value, 0)
-            )
-            {
-                min_i.push_back(i);
-                min_j.push_back(j);
-            }
-        }
-    }
-
     if (min_i.size() == 0)
     {
         return Vector(-1, -1);
