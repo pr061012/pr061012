@@ -18,19 +18,29 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     heap(heap),
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
-    map_columns(ceil(h_size / cell_size))
+    map_columns(ceil(h_size / cell_size)),
+    current_index(0),
+    array_size(100)
 {
+    // Initialising map.
     this -> map.resize(this -> map_rows);
     for (uint i = 0; i < this -> map_rows; i++)
     {
         this -> map[i].resize(map_columns);
     }
 
+    // Initialising record radius.
     uint r = 42;
     if (r > this -> map_rows)    r = this -> map_rows / 3 - 1;
     if (r > this -> map_columns) r = this -> map_columns / 3 - 1;
     this -> record_radius = r;
 
+    // Initialising coordinates arrays.
+    this -> max = 0;
+    this -> max_i.resize(this -> array_size);
+    this -> max_j.resize(this -> array_size);
+
+    // Running reevaluation.
     this -> reevaluate();
 }
 
@@ -75,18 +85,19 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                     if (DoubleComparison::isGreater(value, this -> max))
                     {
                         this -> max = value;
-
-                        this -> max_i.clear();
-                        this -> max_i.push_back(i);
-
-                        this -> max_j.clear();
-                        this -> max_j.push_back(j);
+                        this -> max_i[0] = i;
+                        this -> max_j[0] = j;
+                        this -> current_index = 1;
                     }
-                    // Found cell, which is equal to current maximum.
+                    // Found cell with value, that is equal to current maximum.
                     else if (DoubleComparison::areEqual(value, max))
                     {
-                        this -> max_i.push_back(i);
-                        this -> max_j.push_back(j);
+                        if (this -> current_index < this -> array_size)
+                        {
+                            this -> max_i[this -> current_index] = i;
+                            this -> max_j[this -> current_index] = j;
+                            this -> current_index += 1;
+                        }
                     }
                 }
                 else
@@ -131,12 +142,12 @@ void HumanoidValueMap::reevaluate()
 
 Vector HumanoidValueMap::getBestPlace() const
 {
-    if (max_i.size() == 0)
+    if (current_index == 0)
     {
         return Vector(-1, -1);
     }
 
-    uint id = Random::int_num(max_i.size());
+    uint id = Random::int_num(current_index);
     return Vector(this -> cell_size * max_i[id], this -> cell_size * max_j[id]);
 }
 

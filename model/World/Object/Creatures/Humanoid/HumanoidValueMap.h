@@ -75,6 +75,11 @@ private:
     std::vector<int> max_i;
     /// Array with maximum's coordinates (columns).
     std::vector<int> max_j;
+
+    /// Current index in coordinates arrays.
+    uint current_index;
+    /// Size of coordinates arrays.
+    uint array_size;
 };
 
 #endif // HUMANOID_VALUE_MAP_H
