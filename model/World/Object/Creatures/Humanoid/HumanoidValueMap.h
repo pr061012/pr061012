@@ -44,6 +44,12 @@ public:
     std::string print() const;
 
 private:
+    /**
+     * @brief Evaluates one object.
+     * @param obj   Object
+     */
+    void evaluateObject(const Object* obj);
+
     /// Pointer to heap.
     ObjectHeap* heap;
 
@@ -58,6 +64,9 @@ private:
 
     /// Amount of columns in map.
     uint map_columns;
+
+    /// Record radius.
+    uint record_radius;
 };
 
 #endif // HUMANOID_VALUE_MAP_H

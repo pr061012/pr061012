@@ -10,6 +10,8 @@
 #include "../../../../../common/Math/DoubleComparison.h"
 #include "HumanoidValueMap.h"
 
+#define INFTY           1E+11
+
 HumanoidValueMap::HumanoidValueMap(ObjectHeap* heap, double v_size,
                                    double h_size, double cell_size) :
     heap(heap),
@@ -23,7 +25,46 @@ HumanoidValueMap::HumanoidValueMap(ObjectHeap* heap, double v_size,
         this -> map[i].resize(map_columns);
     }
 
+    uint r = 42;
+    if (r > this -> map_rows)    r = this -> map_rows / 3 - 1;
+    if (r > this -> map_columns) r = this -> map_columns / 3 - 1;
+    this -> record_radius = r;
+
     this -> reevaluate();
+}
+
+void HumanoidValueMap::evaluateObject(const Object* obj)
+{
+    // Getting coordinates.
+    Vector coords = obj -> getCoords();
+
+    // Converting 'em to map's indices.
+    uint obj_i = floor(coords.getX() / this -> cell_size);
+    uint obj_j = floor(coords.getY() / this -> cell_size);
+
+    for (uint i = 0; i < this -> map_rows; i++)
+    {
+        for (uint j = 0; j < this -> map_columns; j++)
+        {
+            // Calculating distance.
+            int delta_i = (int) i - (int) obj_i;
+            int delta_j = (int) j - (int) obj_j;
+            uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
+
+            // If this point is in record radius from object, increase counter.
+            if (distance <= this -> record_radius)
+            {
+                if (distance != 0)
+                {
+                    this -> map[i][j] += (double) 1 / distance;
+                }
+                else
+                {
+                    this -> map[i][j] = INFTY;
+                }
+            }
+        }
+    }
 }
 
 void HumanoidValueMap::reevaluate()
@@ -44,22 +85,13 @@ void HumanoidValueMap::reevaluate()
 
     for (iter = begin; iter != end; iter++)
     {
-        Object* obj = *iter;
+        const Object* obj = *iter;
 
         // Evaluating only immovable objects (evaluation for movable objects is
         // strange).
         if (!obj -> isMovable())
         {
-            // Getting coordinates.
-            Vector coords = obj -> getCoords();
-
-            // Converting 'em to map's indices.
-            uint i = floor(coords.getX() / this -> cell_size);
-            uint j = floor(coords.getY() / this -> cell_size);
-
-            // Increasing value of this cell.
-            // FIXME: Rewrite.
-            this -> map[i][j] += 1;
+            this -> evaluateObject(obj);
         }
     }
 }
@@ -78,7 +110,11 @@ Vector HumanoidValueMap::getBestPlace() const
         {
             double value = this -> map[i][j];
 
-            if (DoubleComparison::isGreater(value, min))
+            if
+            (
+                DoubleComparison::isGreater(value, min) &&
+                DoubleComparison::areNotEqual(value, INFTY)
+            )
             {
                 min = value;
                 min_i = i;
