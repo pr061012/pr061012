@@ -10,13 +10,12 @@
 #include "../../../../../common/Math/DoubleComparison.h"
 #include "HumanoidValueMap.h"
 
-/// Cell size.
-#define CELL_SIZE           0.1
-
-HumanoidValueMap::HumanoidValueMap(double v_size, double h_size, ObjectHeap* heap) :
+HumanoidValueMap::HumanoidValueMap(ObjectHeap* heap, double v_size,
+                                   double h_size, double cell_size) :
     heap(heap),
-    map_rows(ceil(v_size / CELL_SIZE)),
-    map_columns(ceil(h_size / CELL_SIZE))
+    cell_size(cell_size),
+    map_rows(ceil(v_size / cell_size)),
+    map_columns(ceil(h_size / cell_size))
 {
     this -> map.resize(this -> map_rows);
     for (uint i = 0; i < this -> map_rows; i++)
@@ -55,8 +54,8 @@ void HumanoidValueMap::reevaluate()
             Vector coords = obj -> getCoords();
 
             // Converting 'em to map's indices.
-            uint i = floor(coords.getX() / CELL_SIZE);
-            uint j = floor(coords.getY() / CELL_SIZE);
+            uint i = floor(coords.getX() / this -> cell_size);
+            uint j = floor(coords.getY() / this -> cell_size);
 
             // Increasing value of this cell.
             // FIXME: Rewrite.
@@ -89,7 +88,7 @@ Vector HumanoidValueMap::getBestPlace() const
     }
 
     // FIXME: What about situation when min_i == -1 and min_j == -1?
-    return Vector(min_i * CELL_SIZE, min_j * CELL_SIZE);
+    return Vector(min_i * this -> cell_size, min_j * this -> cell_size);
 }
 
 std::string HumanoidValueMap::print() const

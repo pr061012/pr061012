@@ -18,11 +18,13 @@ class HumanoidValueMap
 public:
     /**
      * @brief Constructor.
+     * @param heap      heap with objects
      * @param v_size    world's vertical size
      * @param h_size    world's horizontal size
-     * @param heap      heap with objects
+     * @param cell_size map's cell size
      */
-    HumanoidValueMap(double v_size, double h_size, ObjectHeap* heap);
+    HumanoidValueMap(ObjectHeap* heap, double v_size, double h_size,
+                     double cell_size = 0.1);
 
     /**
      * @brief Reevaluates map.
@@ -47,6 +49,9 @@ private:
 
     /// Map with values.
     std::vector< std::vector<double> > map;
+
+    /// Cell size.
+    double cell_size;
 
     /// Amount of rows in map.
     uint map_rows;
