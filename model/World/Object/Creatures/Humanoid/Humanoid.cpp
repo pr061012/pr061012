@@ -1166,7 +1166,8 @@ bool Humanoid::putHomeAux(ResourceType type)
     Object* obj = isResInInventory(type);
     if (obj)
     {
-        if (home -> putInside(obj))
+        bool isOk = home -> putInside(obj);
+        if (isOk)
         {
             removeFromInventory(obj);
             return true;
