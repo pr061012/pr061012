@@ -60,13 +60,13 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     int end_j   = obj_j + this -> record_radius + 1;
     begin_i = begin_i < 0 ? 0 : begin_i;
     begin_j = begin_j < 0 ? 0 : begin_j;
-    end_i   = end_i   >= this -> map_rows    ? this -> map_rows    : end_i;
-    end_j   = end_j   >= this -> map_columns ? this -> map_columns : end_j;
+    end_i   = end_i   >= (int) this -> map_rows    ? (int) this -> map_rows    : end_i;
+    end_j   = end_j   >= (int) this -> map_columns ? (int) this -> map_columns : end_j;
 
     // Updating cell's values.
-    for (uint i = begin_i; i < end_i; i++)
+    for (uint i = (uint) begin_i; i < (uint) end_i; i++)
     {
-        for (uint j = begin_j; j < end_j; j++)
+        for (uint j = (uint) begin_j; j < (uint) end_j; j++)
         {
             // Calculating distance.
             int delta_i = (int) i - (int) obj_i;

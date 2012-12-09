@@ -245,7 +245,7 @@
 
 /// Interval in distance of trees generation.
 
-#define GEN_TREE_INTERVAL                   1.1 * SZ_RESOURCE_DIAM_MAX
+#define GEN_TREE_INTERVAL                   1.1 * SZ_RES_TREE_DIAM_MAX
 
 /// A possibility that another weather will appear on the map.
 #define GEN_WEAT_INTENSITY                  5
