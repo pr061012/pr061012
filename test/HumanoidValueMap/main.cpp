@@ -39,6 +39,7 @@ int main()
     Test t3(Vector(1.2, 9.1)); heap.push(&t3);
     Test t4(Vector(8.9, 2.1)); heap.push(&t4);
     Test t5(Vector(0.1, 2.5)); heap.push(&t5);
+    Test t6(Vector(4.4, 4.2)); heap.push(&t6);
 
     // Reevaluating map.
     map.reevaluate();

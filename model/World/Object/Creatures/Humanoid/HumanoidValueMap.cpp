@@ -18,19 +18,29 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     heap(heap),
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
-    map_columns(ceil(h_size / cell_size))
+    map_columns(ceil(h_size / cell_size)),
+    current_index(0),
+    array_size(100)
 {
+    // Initialising map.
     this -> map.resize(this -> map_rows);
     for (uint i = 0; i < this -> map_rows; i++)
     {
         this -> map[i].resize(map_columns);
     }
 
+    // Initialising record radius.
     uint r = 42;
     if (r > this -> map_rows)    r = this -> map_rows / 3 - 1;
     if (r > this -> map_columns) r = this -> map_columns / 3 - 1;
     this -> record_radius = r;
 
+    // Initialising coordinates arrays.
+    this -> max = 0;
+    this -> max_i.resize(this -> array_size);
+    this -> max_j.resize(this -> array_size);
+
+    // Running reevaluation.
     this -> reevaluate();
 }
 
@@ -43,9 +53,20 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     uint obj_i = floor(coords.getX() / this -> cell_size);
     uint obj_j = floor(coords.getY() / this -> cell_size);
 
-    for (uint i = 0; i < this -> map_rows; i++)
+    // Calculating begin and end i, j.
+    int begin_i = obj_i - this -> record_radius - 1;
+    int begin_j = obj_j - this -> record_radius - 1;
+    int end_i   = obj_i + this -> record_radius + 1;
+    int end_j   = obj_j + this -> record_radius + 1;
+    begin_i = begin_i < 0 ? 0 : begin_i;
+    begin_j = begin_j < 0 ? 0 : begin_j;
+    end_i   = end_i   >= this -> map_rows    ? this -> map_rows    : end_i;
+    end_j   = end_j   >= this -> map_columns ? this -> map_columns : end_j;
+
+    // Updating cell's values.
+    for (uint i = begin_i; i < end_i; i++)
     {
-        for (uint j = 0; j < this -> map_columns; j++)
+        for (uint j = begin_j; j < end_j; j++)
         {
             // Calculating distance.
             int delta_i = (int) i - (int) obj_i;
@@ -58,9 +79,31 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 if (distance != 0)
                 {
                     this -> map[i][j] += (double) 1 / distance;
+                    double value = this -> map[i][j];
+
+                    // New maximum.
+                    if (DoubleComparison::isGreater(value, this -> max))
+                    {
+                        this -> max = value;
+                        this -> max_i[0] = i;
+                        this -> max_j[0] = j;
+                        this -> current_index = 1;
+                    }
+                    // Found cell with value, that is equal to current maximum.
+                    else if (DoubleComparison::areEqual(value, max))
+                    {
+                        if (this -> current_index < this -> array_size)
+                        {
+                            this -> max_i[this -> current_index] = i;
+                            this -> max_j[this -> current_index] = j;
+                            this -> current_index += 1;
+                        }
+                    }
                 }
                 else
                 {
+                    // Cell with this object in. Setting cell's value to
+                    // infinity.
                     this -> map[i][j] = INFTY;
                 }
             }
@@ -99,54 +142,13 @@ void HumanoidValueMap::reevaluate()
 
 Vector HumanoidValueMap::getBestPlace() const
 {
-    // Initialising some values.
-    std::vector<int> min_i;
-    std::vector<int> min_j;
-    double min = 0;
-
-    // Searching for the maximum.
-    for (uint i = 0; i < this -> map_rows; i++)
-    {
-        for (uint j = 0; j < this -> map_columns; j++)
-        {
-            double value = this -> map[i][j];
-
-            // Found new maximum.
-            if
-            (
-                DoubleComparison::isGreater(value, min) &&
-                // Ignoring cells with resources inside.
-                DoubleComparison::areNotEqual(value, INFTY)
-            )
-            {
-                min = value;
-
-                min_i.clear();
-                min_i.push_back(i);
-
-                min_j.clear();
-                min_j.push_back(j);
-            }
-            // Found cell, which is equal to current maximum.
-            else if
-            (
-                DoubleComparison::areEqual(value, min) &&
-                DoubleComparison::areNotEqual(value, 0)
-            )
-            {
-                min_i.push_back(i);
-                min_j.push_back(j);
-            }
-        }
-    }
-
-    if (min_i.size() == 0)
+    if (current_index == 0)
     {
         return Vector(-1, -1);
     }
 
-    uint id = Random::int_num(min_i.size());
-    return Vector(this -> cell_size * min_i[id], this -> cell_size * min_j[id]);
+    uint id = Random::int_num(current_index);
+    return Vector(this -> cell_size * max_i[id], this -> cell_size * max_j[id]);
 }
 
 std::string HumanoidValueMap::print() const
