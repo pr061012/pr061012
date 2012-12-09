@@ -25,23 +25,24 @@
 #define TN_NHUM                     "nh"
 #define TN_NHUM_COW                 "cow"
 #define TN_NHUM_COW_DEMON           "0xDEADBEEF"
-#define TN_NHUM_DRAGON              "drg"
+#define TN_NHUM_DRAGON              "dragon"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
+#define TN_RESOURCE_WATER           "water"
 #define TN_RESOURCE_GRASS           "grass"
 #define TN_RESOURCE_BERRIES         "berries"
 #define TN_RESOURCE_MEAT            "meat"
 #define TN_RESOURCE_TREE            "tree"
 #define TN_WEATHER                  "w"
-#define TN_WEATHER_METEOR_SHOWER    "ms"
-#define TN_WEATHER_RAIN             "rn"
-#define TN_WEATHER_CLOUDS           "clds"
-#define TN_WEATHER_HURRICANE        "hrcn"
+#define TN_WEATHER_METEOR_SHOWER    "meteor-shower"
+#define TN_WEATHER_RAIN             "rain"
+#define TN_WEATHER_CLOUDS           "clouds"
+#define TN_WEATHER_HURRICANE        "hurricane"
 
-#define TN_CLUSTER_BUILDING_MAT     "fr"
+#define TN_CLUSTER_TREE             "forest"
 
-#define TN_SHAPE_CIRCLE             "cr"
-#define TN_SHAPE_SQUARE             "s"
+#define TN_SHAPE_CIRCLE             "circle"
+#define TN_SHAPE_SQUARE             "square"
 
 #define TN_FIELD_CENTER             "center"
 #define TN_FIELD_SHAPE              "shape"
@@ -215,7 +216,7 @@ std::string CLI::generate(std::stringstream& ss)
     // Reading type.
     std::string type = readFromSS<std::string>(ss, "ClusterType");
 
-    if (type == TN_CLUSTER_BUILDING_MAT)
+    if (type == TN_CLUSTER_TREE)
     {
         this -> world -> genForestAt(x, y);
     }
@@ -295,7 +296,11 @@ std::string CLI::create(std::stringstream& ss)
         obj_type = RESOURCE;
 
         std::string res_type = readFromSS<std::string>(ss, "ResourceType");
-        if (res_type == TN_RESOURCE_GRASS)
+        if (res_type == TN_RESOURCE_WATER)
+        {
+            pa.addKey<ResourceType>("res_type", WATER);
+        }
+        else if (res_type == TN_RESOURCE_GRASS)
         {
             pa.addKey<ResourceType>("res_type", GRASS);
         }

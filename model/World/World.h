@@ -137,6 +137,16 @@ private:
      * @param coords coordinates of an object.
      * @return object pointer if creation was successful, nullptr otherwise.
      */
+    Object* createObject(ObjectType type, int subtype, 
+                         bool random_place = true, Vector coords = Vector(0, 0));
+    /**
+     * @brief Creates object at given point.
+     * @param type type of object
+     * @param params the parmeters of object
+     * @param random_place true if we don't need any current place.
+     * @param coords coordinates of an object.
+     * @return object pointer if creation was successful, nullptr otherwise.
+     */
     Object* createObject(ObjectType type, const ParamArray& params, 
                          bool random_place = true, Vector coords = Vector(0, 0));
 

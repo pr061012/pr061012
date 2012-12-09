@@ -87,6 +87,12 @@ uint Building::damage(uint delta)
     }
 
     this -> health -= d;
+
+    if (this -> health <= BLD_COMPLETENESS_COEF * this -> max_health)
+    {
+        this -> completeness = false;
+    }
+
     return d;
 }
 
@@ -125,6 +131,11 @@ uint Building::getMaxHealthPoints() const
 
 bool Building::putInside(Object* object)
 {
+    if (!this -> completeness)
+    {
+        return false;
+    }
+
     uint w = object -> getWeight();
 
     if (this -> free_space >= w && this -> contents -> push(object))

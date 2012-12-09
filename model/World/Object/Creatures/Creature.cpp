@@ -64,6 +64,8 @@ Creature::Creature(CreatureType type, const DecisionMaker & dmaker) :
     // direction
     angle(0),
     direction_is_set(false),
+    aimless(true),
+    current_goal_point(0, 0),
     aim(0),
 
     // decision
@@ -500,15 +502,14 @@ double Creature::evaluateDanger(const Object * obj, const Vector& coords)
     return pow(danger_ratio, 2) * distance_ratio * view_ratio * CREAT_DANGER_FACTOR;
     */
 
-    double danger_ratio = pow(double(obj -> getDangerLevel()) / getDangerLevel(), 2) *
-                            CREAT_DANGER_FACTOR;
+    double danger_ratio = obj -> getDangerLevel() * CREAT_DANGER_FACTOR;
 
     if (obj -> isMovable())
     {
         // linear dependency: == 0 at bounds of view_area
         //                    == danger_ratio when standing next to the object.
         return fmax(- danger_ratio / (view_radius - my_radius) * distance + 
-            danger_ratio * (1 + 1 / (view_radius - my_radius)), 0);
+            danger_ratio * (1 + 1 / (view_radius - my_radius)) - getDangerLevel(), 0);
     }
     else
     {
@@ -554,6 +555,29 @@ void Creature::chooseDirectionToEscape()
 // ACTIONS
 //**********************************************************
 
+void Creature::setAim(Object * aim)
+{
+    this -> aim = aim;
+    direction_is_set = false;
+    aimless = false;
+}
+
+void Creature::setAim(Vector point)
+{
+    this -> aim = nullptr;
+    direction_is_set = false;
+    aimless = false;
+    current_goal_point = point;
+}
+
+void Creature::resetAim()
+{
+    this -> aim = nullptr;
+    goal = nullptr;
+    direction_is_set = false;
+    aimless = true;
+}
+
 // Go with the given speed
 void Creature::go(SpeedType speed)
 {
@@ -563,10 +587,6 @@ void Creature::go(SpeedType speed)
         decreaseEndurance(1);
     }
     endurance_steps++;
-    if (speed == FAST_SPEED)
-    {
-        decreaseEndurance(1);
-    }
 
     // If we could not move, then reset direction
     if (prev_action == GO && prev_action_state == FAILED)
@@ -586,7 +606,7 @@ void Creature::go(SpeedType speed)
     }
 
     // If we don't have any aim, go the way we went before
-    if (!aim)
+    if (aimless)
     {
         // if there is no direction, then go random
         // or there is an error in angle
@@ -598,15 +618,23 @@ void Creature::go(SpeedType speed)
     }
     else
     {
-        // if we can't go the way we went, or the aim changed,
-        // or the aim moved too far, reset route
-        if (!direction_is_set || !goal || 
-            aim -> getObjectID() != goal -> getObjectID() || 
-            !DoubleComparison::isLess(last_goal_pos.getDistance(goal -> getCoords()),
+        // FIXME Need Refactoring!!!
+        // Check if we have any particular object to move to.
+        if (aim)
+        {
+            if(!goal || aim -> getObjectID() != goal -> getObjectID())
+            {
+                goal = aim;
+            }
+            current_goal_point = goal -> getCoords();
+        }
+
+        // Reset route if we got stuck or the goal has changed.
+        if (!direction_is_set ||
+            !DoubleComparison::isLess(last_goal_pos.getDistance(current_goal_point),
                                         MAX_OFFSET * getShape().getSize()/2))
         {
-            goal = aim;
-            last_goal_pos = goal -> getCoords();
+            last_goal_pos = current_goal_point;
             
             //generate route
             last_route_size = route.size();
@@ -662,7 +690,6 @@ void Creature::hunt()
 {
     if (aim)
     {
-        reach_area.setCenter(getCoords());
         // Hit the aim if it is within our reach
         if (reach_area.hitTest(aim -> getShape()))
         {

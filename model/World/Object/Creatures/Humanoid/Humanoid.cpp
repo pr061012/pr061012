@@ -220,15 +220,14 @@ std::vector <Action>* Humanoid::getActions()
     if (current_action == NONE)
     {
         current_action = brains.makeDecision(attrs);
-        this -> direction_is_set = false;
-        aim = nullptr;
+        resetAim();
         detailed_act = chooseAction(current_action);
     }
 
     // Boundary case. Maybe meteor shower killed our victim?
     if (aim && aim -> isDestroyed())
     {
-        aim = nullptr;
+        resetAim();
     }
 
     // Get messages
@@ -245,7 +244,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (aim == nullptr)
         {
-            aim = home;
+            setAim(home);
         }
 
         
@@ -388,7 +387,7 @@ std::vector <Action>* Humanoid::getActions()
     {
         if (aim == nullptr)
         {
-            aim = home;
+            setAim(home);
         }
 
         if (!getReachArea().hitTest(aim -> getShape()))
@@ -433,7 +432,7 @@ std::vector <Action>* Humanoid::getActions()
         {
             if (aim == nullptr)
             {
-                aim = home;
+                setAim(home);
             }
             if (!getReachArea().hitTest(aim -> getShape()))
             {
@@ -467,7 +466,7 @@ std::vector <Action>* Humanoid::getActions()
         }
         if (aim != nullptr && aim -> isDestroyed())
         {
-            aim = nullptr;
+            resetAim();
         }
         if (aim == nullptr)
         {
@@ -501,7 +500,7 @@ std::vector <Action>* Humanoid::getActions()
                         if (home != nullptr && current_action == BUILD)
                         {
                             detailed_act = BUILD_HOUSE;
-                            aim = home;
+                            setAim(home);
                         }
                         else
                         {
@@ -564,8 +563,9 @@ std::vector <Action>* Humanoid::getActions()
         // Also: humanoid generates this action firstly, when his visual memory
         //       is empty. What should I do in this case?
         //
-        // HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
-        // Vector c = map.getBestPlace();
+        //HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+        //Vector c = map.getBestPlace();
+        //std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
 
         if(!steps_to_choose_place)
         {
@@ -762,7 +762,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
     {
         if (isResInInventory(TREE))
         {
-            aim = home;
+            setAim(home);
             return BUILD_HOUSE;
         }
         return MINE_RESOURSES;
@@ -1054,7 +1054,7 @@ void Humanoid::findNearestRes(ResourceType type)
             coords = res -> getCoords();
             if (distance > coords.getDistance(this -> getCoords()))
             {
-                this -> aim = res;
+                setAim(res);
                 distance = coords.getDistance(this -> getCoords());
             }
         }
@@ -1080,7 +1080,7 @@ void Humanoid::findVictim()
             && this -> getDangerLevel() > creat -> getDangerLevel()
         )
         {
-            aim = creat;
+            setAim(creat);
             min_dist = this -> getCoords().getDistance(aim -> getCoords());
         }
     }
@@ -1215,14 +1215,14 @@ void Humanoid::eat()
         Action act(EAT_OBJ, this);
         act.addParticipant(aim);
         this -> actions.push_back(act);
-        aim = nullptr;
+        resetAim();
     }
     else
     {
         Action act(PICK_UP_OBJS, this);
         act.addParticipant(aim);
         this -> actions.push_back(act);
-        aim = nullptr;
+        resetAim();
         current_action = NONE;
     }
 }
