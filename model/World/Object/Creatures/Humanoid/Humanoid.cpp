@@ -184,10 +184,21 @@ std::vector <Action>* Humanoid::getActions()
     }
 
     // check: is humanoid's home ok?
-    if (home != nullptr && home -> isDestroyed())
+    if (home && home -> isDestroyed())
     {
         home = nullptr;
         need_in_house = START_LEVEL_NEED_IN_HOUSE;
+    }
+    if (need_in_house == 0 && home -> getHealthPoints() != home -> getMaxHealthPoints())
+    {
+        if (100 * home -> getHealthPoints() / home -> getMaxHealthPoints() < START_LEVEL_NEED_IN_HOUSE)
+        {
+            need_in_house = START_LEVEL_NEED_IN_HOUSE;
+        }
+        else
+        {
+            need_in_house = 100 * home -> getHealthPoints() / home -> getMaxHealthPoints();
+        }
     }
 
     // Get current errors
@@ -260,9 +271,9 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == TAKE_FOOD_FROM_INVENTORY)
     {
-        if (isResInInventory(GRASS))
+        chooseFood();
+        if (aim)
         {
-            aim = isResInInventory(GRASS);
             Action act(EAT_OBJ, this);
             act.addParticipant(aim);
             this -> actions.push_back(act);
@@ -324,7 +335,11 @@ std::vector <Action>* Humanoid::getActions()
     {
         if ((visual_memory != nullptr) && (aim == nullptr))
         {
-            findNearestRes(GRASS);
+            findNearestRes(BERRIES);
+            if (!aim)
+            {
+                findNearestRes(GRASS);
+            }
         }
         if (aim == nullptr)
         {
@@ -473,11 +488,12 @@ std::vector <Action>* Humanoid::getActions()
                 this -> actions.push_back(act);
                 // if we got some res in inventory, we are checking - is it all
                 // what we need to take?
-                if (isResInInventory(TREE))
+                Object* obj = isResInInventory(TREE);
+                if (obj)
                 {
                     if
                     (
-                        isResInInventory(TREE) -> getHealthPoints() >
+                        obj -> getHealthPoints() >
                         calculateNecessResAmount() * REG_BUILDING_COEF
                     )
                     {
@@ -760,7 +776,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 //******************************************************************************
 DetailedHumAction Humanoid::chooseWayToEat()
 {
-    if (isResInInventory(GRASS))
+    if (isResInInventory(GRASS) || isResInInventory(MEAT) || isResInInventory(BERRIES))
     {
         return TAKE_FOOD_FROM_INVENTORY;
     }
@@ -1152,55 +1168,38 @@ uint Humanoid::calculateNecessResAmount()
 // also put it at home.
 void Humanoid::putInvInHome()
 {
+    if (putHomeAux(TREE))
     {
-        Object* obj = isResInInventory(TREE);
-        if (obj)
+        return ;
+    }
+    else
+    {
+        putHomeAux(MEAT);
+        putHomeAux(BERRIES);
+        // I dont rhink that hum should eat grass
+    }
+}
+
+bool Humanoid::putHomeAux(ResourceType type)
+{
+    Object* obj = isResInInventory(type);
+    if (obj)
+    {
+        bool isOk = home -> putInside(obj);
+        if (isOk)
         {
-            if (home -> putInside(obj))
-            {
-                removeFromInventory(obj);
-            }
-            else
-            {
-                Action act(DROP_OBJS, this);
-                act.addParticipant(obj);
-                this -> actions.push_back(act);
-            }
+            removeFromInventory(obj);
+            return true;
         }
         else
         {
-            obj = isResInInventory(BERRIES);
-            if (obj)
-            {
-                if (home -> putInside(obj))
-                {
-                    removeFromInventory(obj);
-                }
-                else
-                {
-                    Action act(DROP_OBJS, this);
-                    act.addParticipant(obj);
-                    this -> actions.push_back(act);
-                }
-                // just because it is better if some eat will be in inventory
-                return ;
-            }
-            obj = isResInInventory(MEAT);
-            if (obj)
-            {
-                if (home -> putInside(obj))
-                {
-                    removeFromInventory(obj);
-                }
-                else
-                {
-                    Action act(DROP_OBJS, this);
-                    act.addParticipant(obj);
-                    this -> actions.push_back(act);
-                }
-            }
+            Action act(DROP_OBJS, this);
+            act.addParticipant(obj);
+            this -> actions.push_back(act);
+            return true;
         }
     }
+        return false;
 }
 
 //**************************************************************************
@@ -1225,5 +1224,37 @@ void Humanoid::eat()
         this -> actions.push_back(act);
         resetAim();
         current_action = NONE;
+    }
+}
+
+// If he wants to eat his priorities: meat / berries / crass. in other case
+// vice versa
+void Humanoid::chooseFood()
+{
+    ResourceType food[3];
+    food[0] = MEAT;
+    food[1] = BERRIES;
+    food[2] = GRASS;
+    if (100 * getHunger() / getMaxHunger() > HALF)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            aim = isResInInventory(food[i]);
+            if (aim)
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            aim = isResInInventory(food[i]);
+            if (aim)
+            {
+                break;
+            }
+        }
     }
 }
