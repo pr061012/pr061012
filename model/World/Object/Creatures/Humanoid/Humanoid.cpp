@@ -616,15 +616,21 @@ void Humanoid::receiveMessage(Message message)
 // Processing of messages
 void Humanoid::messageProcess()
 {
-    for (uint i=0; i < msgs.size(); i++)
+    for (uint i = 0; i < msgs.size(); i++)
     {
         if (msgs[i].getType() == UNDER_ATTACK)
         {
             this -> current_action = ESCAPE;
             if
             (
-                (getForce() > HALF && bravery > HALF) ||
-                (getForce() > HIGH_LEVEL) || (bravery > HIGH_LEVEL)
+                // Humanoid is strong or bravery enough.
+                (
+                    (getForce() > HALF && bravery > HALF) ||
+                    (getForce() > HIGH_LEVEL) || (bravery > HIGH_LEVEL)
+                ) &&
+                // Aggressor is a creature (cannot fight with somebody/something
+                // else).
+                msgs[i].getReason() -> getType() == CREATURE
             )
             {
                 detailed_act = FIGHT;
@@ -634,7 +640,6 @@ void Humanoid::messageProcess()
                 detailed_act = RUN_FROM_DANGER;
             }
             aim = msgs[i].getReason();
-
         }
     }
 }
