@@ -127,6 +127,9 @@ std::string Humanoid::getTypeName() const
 
 std::vector <Action>* Humanoid::getActions()
 {
+    // Memorising objects around.
+    visualMemorize();
+
     // Checking: is steps greater than 0? And decrease them.
     if (this -> desc_steps)
     {
@@ -247,11 +250,9 @@ std::vector <Action>* Humanoid::getActions()
             setAim(home);
         }
 
-        
         if (!getReachArea().hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
-            visualMemorize();
         }
         else
         {
@@ -304,13 +305,11 @@ std::vector <Action>* Humanoid::getActions()
                 else
                 {
                     go(SLOW_SPEED);
-                    visualMemorize();
                 }
             }
             else
             {
                 go(SLOW_SPEED);
-                visualMemorize();
             }
         }
         else
@@ -353,22 +352,18 @@ std::vector <Action>* Humanoid::getActions()
                 else
                 {
                     go(SLOW_SPEED);
-                    visualMemorize();
                 }
             }
             else
             {
                 go(SLOW_SPEED);
-                visualMemorize();
             }
         }
         else
         {
-
             if (!this -> getShape().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
-                visualMemorize();
             }
             else
             {
@@ -393,7 +388,6 @@ std::vector <Action>* Humanoid::getActions()
         if (!getReachArea().hitTest(aim -> getShape()))
         {
             go(SLOW_SPEED);
-            visualMemorize();
         }
         else
         {
@@ -437,7 +431,6 @@ std::vector <Action>* Humanoid::getActions()
             if (!getReachArea().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
-                visualMemorize();
             }
             else
             {
@@ -471,14 +464,12 @@ std::vector <Action>* Humanoid::getActions()
         if (aim == nullptr)
         {
              go(SLOW_SPEED);
-             visualMemorize();
         }
         else
         {
             if (!getReachArea().hitTest(aim -> getShape()))
             {
                 go(SLOW_SPEED);
-                visualMemorize();
             }
             else
             {
@@ -552,12 +543,10 @@ std::vector <Action>* Humanoid::getActions()
                  decr_sleep_step = HUM_DECR_ENDUR_STEPS;
             }
             go(FAST_SPEED);
-            visualMemorize();
         }
         else
         {
             go(SLOW_SPEED);
-            visualMemorize();
         }
         direction_is_set = true;
     }
