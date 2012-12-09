@@ -125,6 +125,11 @@ uint Building::getMaxHealthPoints() const
 
 bool Building::putInside(Object* object)
 {
+    if (!this -> completeness)
+    {
+        return false;
+    }
+
     uint w = object -> getWeight();
 
     if (this -> free_space >= w && this -> contents -> push(object))
