@@ -259,6 +259,12 @@ private:
      */
     void eat();
 
+    /**
+     * @brief Humanoid choose his food
+     * @param bool is humanoid hungry or not?
+     */
+    void chooseFood();
+
     //**************************************************************************
     // UPDATE STEP
     //**************************************************************************
