@@ -35,9 +35,6 @@ public:
     // INHERETED THINGS.
     //**************************************************************************
 
-    std::vector<Action>* getActions();
-    void receiveMessage(Message message);
-
     std::string printObjectInfo(bool full) const;
     std::string getTypeName() const;
 

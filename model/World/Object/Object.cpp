@@ -38,6 +38,20 @@ Object::~Object()
 {
 }
 
+//******************************************************************************
+// OBJECT'S LIFE.
+//******************************************************************************
+
+std::vector<Action>* Object::getActions()
+{
+    this -> actions.clear();
+    return &(this -> actions);
+}
+
+void Object::receiveMessage(Message message)
+{
+    // Default silly function. Does nothing.
+}
 
 //******************************************************************************
 // OBJECT'S INFORMATION.

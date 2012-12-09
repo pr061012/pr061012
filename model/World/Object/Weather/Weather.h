@@ -35,7 +35,6 @@ public:
     //**************************************************************************
 
     std::vector<Action>* getActions();
-    void receiveMessage(Message message);
 
     std::string getTypeName() const;
     std::string printObjectInfo(bool full) const;
@@ -59,7 +58,6 @@ public:
 
     uint getHealthPoints() const;
     uint getMaxHealthPoints() const;
-
 
     //**************************************************************************
     // ACCESSORS.

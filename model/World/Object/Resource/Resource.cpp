@@ -132,7 +132,6 @@ void Resource::setMaxAmount(uint max_amount)
     this -> max_amount = max_amount;
 }
 
-
 uint Resource::damage(uint delta)
 {
     uint d = delta;
@@ -192,10 +191,6 @@ std::vector<Action>* Resource::getActions()
     }
 
     return &(this -> actions);
-}
-
-void Resource::receiveMessage(Message message)
-{
 }
 
 std::string Resource::printObjectInfo(bool full) const

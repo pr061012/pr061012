@@ -47,12 +47,12 @@ public:
      * @brief  Gets objects pending actions.
      * @return vector with pending actions.
      */
-    virtual std::vector<Action>* getActions() = 0;
+    virtual std::vector<Action>* getActions();
 
     /**
      * @brief Receives message.
      */
-    virtual void receiveMessage(Message message) = 0;
+    virtual void receiveMessage(Message message);
 
     //**************************************************************************
     // OBJECT'S INFORMATION.

@@ -40,16 +40,6 @@ Building::~Building()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::vector<Action>* Building::getActions()
-{
-    this -> actions.clear();
-    return &(this -> actions);
-}
-
-void Building::receiveMessage(Message message)
-{
-}
-
 std::string Building::printObjectInfo(bool full) const
 {
     std::stringstream ss;

@@ -72,18 +72,6 @@ Tool::~Tool()
 // INHERETED THINGS.
 //******************************************************************************
 
-std::vector <Action> * Tool::getActions()
-{
-    // Tool doens't have any actions.
-    this -> actions.clear();
-
-    return &(this -> actions);
-}
-
-void Tool::receiveMessage(Message message)
-{
-}
-
 std::string Tool::getTypeName() const
 {
     return "tool";

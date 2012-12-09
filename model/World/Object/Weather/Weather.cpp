@@ -179,10 +179,6 @@ std::vector<Action>* Weather::getActions()
     return &(this -> actions);
 }
 
-void Weather::receiveMessage(Message message)
-{
-}
-
 std::string Weather::getTypeName() const
 {
     return "weather";
