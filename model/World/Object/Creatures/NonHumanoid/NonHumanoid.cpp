@@ -5,7 +5,6 @@
 
 #include <cstdlib>
 
-
 #include "../../../../../common/BasicDefines.h"
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Log/Log.h"

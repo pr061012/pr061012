@@ -364,6 +364,16 @@ std::string CLI::create(std::stringstream& ss)
     obj -> setCoords(Vector(x, y));
     this -> world -> addObject(true, obj);
 
+    // Creating drop (for creatures).
+    if (obj_type == CREATURE)
+    {
+        ParamArray drop_pa;
+        drop_pa.addKey<ResourceType>("res_type", MEAT);
+        Object* drop = obj_factory -> createObject(RESOURCE, drop_pa);
+        this -> world -> addObject(false, drop);
+        dynamic_cast<Creature*>(obj) -> getDropObjects() -> push(drop);
+    }
+
     // Returning message about success.
     return sformat("Succesfully created object (id is %d).\n",
                    obj -> getObjectID());
