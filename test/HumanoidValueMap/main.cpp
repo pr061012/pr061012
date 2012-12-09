@@ -6,7 +6,9 @@
 class Test : public Object
 {
 public:
-    Test(Vector coords) : Object(RESOURCE, true, false)
+    Test(Vector coords, uint amount) :
+        Object(RESOURCE, true, false),
+        amount(amount)
     {
         this -> setCoords(coords);
     }
@@ -15,9 +17,12 @@ public:
     void receiveMessage(Message msg) {}
     uint damage(uint delta) { return 0; }
     uint heal(uint delta) { return 0; }
-    uint getHealthPoints() const { return 0; }
+    uint getHealthPoints() const { return amount; }
     uint getMaxHealthPoints() const { return 0; }
     std::string getTypeName() const { return "test"; }
+
+private:
+    uint amount;
 };
 
 int main()
@@ -34,12 +39,12 @@ int main()
     assert(coords.getY() == -1);
 
     // Creating objects.
-    Test t1(Vector(4.5, 4.9)); heap.push(&t1);
-    Test t2(Vector(3.1, 7.2)); heap.push(&t2);
-    Test t3(Vector(1.2, 9.1)); heap.push(&t3);
-    Test t4(Vector(8.9, 2.1)); heap.push(&t4);
-    Test t5(Vector(0.1, 2.5)); heap.push(&t5);
-    Test t6(Vector(4.4, 4.2)); heap.push(&t6);
+    Test t1(Vector(4.5, 4.9), 1); heap.push(&t1);
+    Test t2(Vector(3.1, 7.2), 1); heap.push(&t2);
+    Test t3(Vector(1.2, 9.1), 1); heap.push(&t3);
+    Test t4(Vector(8.9, 2.1), 9); heap.push(&t4);
+    Test t5(Vector(0.1, 2.5), 1); heap.push(&t5);
+    Test t6(Vector(4.4, 4.2), 2); heap.push(&t6);
 
     // Reevaluating map.
     map.reevaluate();

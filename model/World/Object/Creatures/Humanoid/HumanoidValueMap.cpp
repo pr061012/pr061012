@@ -78,7 +78,7 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
             {
                 if (distance != 0)
                 {
-                    this -> map[i][j] += (double) 1 / distance;
+                    this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
                     double value = this -> map[i][j];
 
                     // New maximum.
