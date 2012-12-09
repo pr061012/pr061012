@@ -87,6 +87,12 @@ uint Building::damage(uint delta)
     }
 
     this -> health -= d;
+
+    if (this -> health <= BLD_COMPLETENESS_COEF * this -> max_health)
+    {
+        this -> completeness = false;
+    }
+
     return d;
 }
 

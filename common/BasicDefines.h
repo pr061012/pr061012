@@ -343,6 +343,9 @@
 #define BLD_MAX_HEALTH_MIN          100
 #define BLD_MAX_HEALTH_MAX          150
 
+/// Building completeness coefficient.
+#define BLD_COMPLETENESS_COEF       0.8
+
 // Range for building max space.
 #define BLD_MAX_SPACE_MIN           100
 #define BLD_MAX_SPACE_MAX           150
