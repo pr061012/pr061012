@@ -243,10 +243,6 @@
 ///        further from forest center (initial is 1.0 == 100%).
 #define GEN_TREE_PROB_DECAY         0.1
 
-/// Interval in distance of trees generation.
-
-#define GEN_TREE_INTERVAL                   1.1 * SZ_RESOURCE_DIAM_MAX
-
 /// A possibility that another weather will appear on the map.
 #define GEN_WEAT_INTENSITY                  5
 
