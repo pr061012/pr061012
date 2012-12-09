@@ -518,8 +518,21 @@ std::vector <Action>* Humanoid::getActions()
 
     if (detailed_act == FIGHT)
     {
-        if (aim != nullptr)
-        fight();
+        if (aim && !aim -> isDestroyed())
+        {
+            if (!getReachArea().hitTest(aim -> getShape()))
+            {
+                go(FAST_SPEED);
+            }
+            else
+            {
+                fight();
+            }
+        }
+        else
+        {
+            // FIXME: Hm.
+        }
     }
 
     //**************************************************************************
