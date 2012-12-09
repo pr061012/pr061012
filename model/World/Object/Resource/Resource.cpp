@@ -24,8 +24,21 @@ Resource::Resource(ResourceType type, uint res_amount) :
     this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
 
-    // Initialise food resource.
-    if
+    // Initialising environment resource.
+    if (this -> subtype == WATER)
+    {
+        this -> mineable        = false;
+        this -> restorable      = false;
+        this -> makeNonPickable();
+        this -> makeSolid();
+        this -> difficulty      = RES_DEFAULT_DIFFICULTY;
+        this -> amount_per_drop = 0;
+        this -> reg_amount      = 0;
+        this -> amount          = 1;
+        this -> max_amount      = 1;
+    }
+    // Initialising food resource.
+    else if
     (
         this -> subtype == GRASS || this -> subtype == MEAT ||
         this -> subtype == BERRIES
@@ -184,6 +197,7 @@ std::string Resource::printObjectInfo(bool full) const
           insertSpaces("Type");
     switch (subtype)
     {
+        case WATER:            ss << "water";             break;
         case GRASS:            ss << "grass";             break;
         case BERRIES:          ss << "berries";           break;
         case MEAT:             ss << "meat";              break;

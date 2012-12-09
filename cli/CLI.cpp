@@ -28,6 +28,7 @@
 #define TN_NHUM_DRAGON              "dragon"
 #define TN_BUILDING                 "b"
 #define TN_RESOURCE                 "r"
+#define TN_RESOURCE_WATER           "water"
 #define TN_RESOURCE_GRASS           "grass"
 #define TN_RESOURCE_BERRIES         "berries"
 #define TN_RESOURCE_MEAT            "meat"
@@ -38,7 +39,7 @@
 #define TN_WEATHER_CLOUDS           "clouds"
 #define TN_WEATHER_HURRICANE        "hurricane"
 
-#define TN_CLUSTER_BUILDING_MAT     "forest"
+#define TN_CLUSTER_TREE             "forest"
 
 #define TN_SHAPE_CIRCLE             "circle"
 #define TN_SHAPE_SQUARE             "square"
@@ -215,7 +216,7 @@ std::string CLI::generate(std::stringstream& ss)
     // Reading type.
     std::string type = readFromSS<std::string>(ss, "ClusterType");
 
-    if (type == TN_CLUSTER_BUILDING_MAT)
+    if (type == TN_CLUSTER_TREE)
     {
         this -> world -> genForestAt(x, y);
     }
@@ -295,7 +296,11 @@ std::string CLI::create(std::stringstream& ss)
         obj_type = RESOURCE;
 
         std::string res_type = readFromSS<std::string>(ss, "ResourceType");
-        if (res_type == TN_RESOURCE_GRASS)
+        if (res_type == TN_RESOURCE_WATER)
+        {
+            pa.addKey<ResourceType>("res_type", WATER);
+        }
+        else if (res_type == TN_RESOURCE_GRASS)
         {
             pa.addKey<ResourceType>("res_type", GRASS);
         }

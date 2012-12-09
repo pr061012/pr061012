@@ -82,7 +82,7 @@ enum ToolType
 };
 
 /// Amount of resource types.
-#define AMNT_RESOURCE_TYPES            4
+#define AMNT_RESOURCE_TYPES            5
 
 /**
  * @enum ResourceType
@@ -90,6 +90,9 @@ enum ToolType
  */
 enum ResourceType
 {
+    // Environment resources.
+    WATER,
+
     // Food.
     GRASS, BERRIES, MEAT,
 
