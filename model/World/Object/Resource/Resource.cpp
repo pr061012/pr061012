@@ -21,7 +21,6 @@ Resource::Resource(ResourceType type, uint res_amount) :
     steps_to_reg(0)
 {
     this -> setShapeType(SHP_RESOURCE);
-    this -> setShapeSize(Random::double_range(SZ_RESOURCE_DIAM_MIN, SZ_RESOURCE_DIAM_MAX));
     this -> setDangerLevel(DNGR_RESOURCE);
 
     // Initialising environment resource.
@@ -36,6 +35,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         this -> reg_amount      = 0;
         this -> amount          = 1;
         this -> max_amount      = 1;
+        this -> setShapeSize(Random::double_range(SZ_RES_WATER_DIAM_MIN, SZ_RES_WATER_DIAM_MAX));
     }
     // Initialising food resource.
     else if
@@ -52,24 +52,25 @@ Resource::Resource(ResourceType type, uint res_amount) :
         this -> amount_per_drop = 0;
         this -> reg_amount      = 0;
 
-        if (res_amount != 0)
+        switch (this -> subtype)
         {
-            this -> amount = res_amount;
-        }
-        else if (this -> subtype == GRASS)
-        {
-            this -> amount = Random::int_range(RES_GRASS_AMOUNT_MIN,
-                                               RES_GRASS_AMOUNT_MAX);
-        }
-        else if (this -> subtype == BERRIES)
-        {
-            this -> amount = Random::int_range(RES_BERRIES_AMOUNT_MIN,
-                                               RES_BERRIES_AMOUNT_MAX);
-        }
-        else if (this -> subtype == MEAT)
-        {
-            this -> amount = Random::int_range(RES_MEAT_AMOUNT_MIN,
-                                               RES_MEAT_AMOUNT_MAX);
+            case GRASS:
+                this -> amount = res_amount != 0 ? res_amount : Random::int_range(RES_GRASS_AMOUNT_MIN, RES_GRASS_AMOUNT_MAX);
+                this -> setShapeSize(Random::double_range(SZ_RES_GRASS_DIAM_MIN, SZ_RES_GRASS_DIAM_MAX));
+            break;
+
+            case BERRIES:
+                this -> amount = res_amount != 0 ? res_amount : Random::int_range(RES_BERRIES_AMOUNT_MIN, RES_BERRIES_AMOUNT_MAX);
+                this -> setShapeSize(Random::double_range(SZ_RES_BERRIES_DIAM_MIN, SZ_RES_BERRIES_DIAM_MAX));
+            break;
+
+            case MEAT:
+                this -> amount = res_amount != 0 ? res_amount : Random::int_range(RES_MEAT_AMOUNT_MIN, RES_MEAT_AMOUNT_MAX);
+                this -> setShapeSize(Random::double_range(SZ_RES_MEAT_DIAM_MIN, SZ_RES_MEAT_DIAM_MAX));
+            break;
+
+            default:
+            break;
         }
 
         this -> max_amount = this -> amount;
@@ -86,6 +87,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         this -> max_amount      = 1.5 * this -> amount;
         this -> amount_per_drop = Random::int_range(RES_TREE_DROP_MIN, RES_TREE_DROP_MAX);
         this -> reg_amount      = RES_TREE_REG_AMOUNT;
+        this -> setShapeSize(Random::double_range(SZ_RES_TREE_DIAM_MIN, SZ_RES_TREE_DIAM_MAX));
     }
     // Unknown resource type. Using defaults.
     else
@@ -97,6 +99,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         this -> max_amount      = res_amount;
         this -> amount_per_drop = 0;
         this -> reg_amount      = 0;
+        this -> setShapeSize(0);
     }
 
     this -> setWeight(WGHT_RESOURCE * this -> amount);

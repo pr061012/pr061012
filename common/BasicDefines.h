@@ -91,11 +91,26 @@
 /// Hurricane's shape diameter (maximum size).
 #define SZ_WEAT_HURRICANE_DIAM_MAX  7 * SZ_HUM_DIAM
 
-/// Resource shape diameter (minimum size).
-#define SZ_RESOURCE_DIAM_MIN        1 * SZ_HUM_DIAM
-// TODO: Someday we will need to change this param.
-/// Resource shape diameter (maximum size).
-#define SZ_RESOURCE_DIAM_MAX        1 * SZ_HUM_DIAM
+/// Water's shape diameter (minimum size).
+#define SZ_RES_WATER_DIAM_MIN       5 * SZ_HUM_DIAM
+/// Water's shape diameter (maximum size).
+#define SZ_RES_WATER_DIAM_MAX       7 * SZ_HUM_DIAM
+/// Grass' shape diameter (minimum size).
+#define SZ_RES_GRASS_DIAM_MIN       5 * SZ_HUM_DIAM
+/// Grass' shape diameter (maximum size).
+#define SZ_RES_GRASS_DIAM_MAX       7 * SZ_HUM_DIAM
+/// Berries' shape diameter (minimum size).
+#define SZ_RES_BERRIES_DIAM_MIN     0.5 * SZ_HUM_DIAM
+/// Berries' shape diameter (maximum size).
+#define SZ_RES_BERRIES_DIAM_MAX     0.9 * SZ_HUM_DIAM
+/// Meat's shape diameter (minimum size).
+#define SZ_RES_MEAT_DIAM_MIN        0.5 * SZ_HUM_DIAM
+/// Meat's shape diameter (maximum size).
+#define SZ_RES_MEAT_DIAM_MAX        0.9 * SZ_HUM_DIAM
+/// Tree's shape diameter (minimum size).
+#define SZ_RES_TREE_DIAM_MIN        2 * SZ_HUM_DIAM
+/// Tree's shape diameter (maximum size).
+#define SZ_RES_TREE_DIAM_MAX        3 * SZ_HUM_DIAM
 
 /// Tool size (when dropped to ground).
 #define SZ_TOOL_DIAM                SZ_HUM_DIAM * 0.1
@@ -229,7 +244,7 @@
 #define GEN_TREE_PROB_DECAY         0.1
 
 /// Interval in distance of trees generation.
-#define GEN_TREE_INTERVAL           1.1 * SZ_RESOURCE_DIAM_MAX
+#define GEN_TREE_INTERVAL           1.1 * SZ_RES_TREE_DIAM_MAX
 
 //******************************************************************************
 // OBJECT DEFINES.
@@ -290,8 +305,8 @@
 #define RES_TREE_AMOUNT_MIN         10
 #define RES_TREE_AMOUNT_MAX         20
 
-#define RES_GRASS_AMOUNT_MIN        30
-#define RES_GRASS_AMOUNT_MAX        50
+#define RES_GRASS_AMOUNT_MIN        300
+#define RES_GRASS_AMOUNT_MAX        500
 
 #define RES_BERRIES_AMOUNT_MIN      20
 #define RES_BERRIES_AMOUNT_MAX      40
