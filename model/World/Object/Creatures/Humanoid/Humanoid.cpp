@@ -93,7 +93,7 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     decr_endur_step = 0;
 
     this -> detailed_act     = SLEEP_ON_THE_GROUND;
-    steps_to_choose_place = 0; // BAD
+    steps_to_choose_place = 200; // BAD
 
 }
 
@@ -557,48 +557,45 @@ std::vector <Action>* Humanoid::getActions()
     // Better way to choose place for home
     //**************************************************************************
 
-    if(detailed_act == CHOOSE_PLACE_FOR_HOME)
+    if (detailed_act == CHOOSE_PLACE_FOR_HOME)
     {
-        // FIXME: In this way it should work. But HumanoidValueMap is terribly
-        //        slow. Need to optimise it and completely rewrite this piece
-        //        of code.
-        // Also: humanoid generates this action firstly, when his visual memory
-        //       is empty. What should I do in this case?
-        //
-        //HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
-        //Vector c = map.getBestPlace();
-        //std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
-
-        if(!steps_to_choose_place)
+        if (steps_to_choose_place == 0)
         {
-            steps_to_choose_place = 20;
-            direction_is_set = true;
-            this -> special_angle = Random::double_num(2*M_PI);
-        }
-        bool is_all_ok = true;
-        for (uint i = 0; i < current_errors.size(); i++)
-        {
-            if (current_errors[i] == NO_PLACE_TO_PLACE_OBJ_ON)
+            // Okay. Stop examination of surroundings and choosing best place
+            // for home.
+            if (aimless)
             {
-                this -> angle = special_angle;
-                this -> direction_is_set = true;
+                HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+                Vector c = map.getBestPlace();
+                std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
+                setAim(c);
+            }
+
+            // Checking distance to the best place point.
+            double distance = getCoords().getDistance(current_goal_point);
+            if (DoubleComparison::isLess(distance, SZ_HUM_DIAM))
+            {
+                std::cout << getObjectID() << " building house\n";
+                Action act(CREATE_OBJ, this);
+                act.addParam<ObjectType>("obj_type", BUILDING);
+                // TODO: Ugly. Humanoid need to pick max_space and max_health values
+                //       more accuratly.
+                act.addParam<uint>("building_max_space",
+                               Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
+                act.addParam<uint>("building_max_health",
+                               Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
+                this -> actions.push_back(act);
+                current_action = NONE;
+            }
+            else
+            {
                 go(SLOW_SPEED);
-                is_all_ok = false;
-                steps_to_choose_place--;
             }
         }
-        if(is_all_ok)
+        else
         {
-            Action act(CREATE_OBJ, this);
-            act.addParam<ObjectType>("obj_type", BUILDING);
-            // TODO: Ugly. Humanoid need to pick max_space and max_health values
-            //       more accuratly.
-            act.addParam<uint>("building_max_space",
-                           Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
-            act.addParam<uint>("building_max_health",
-                           Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
-            this -> actions.push_back(act);
-            current_action = NONE;
+            steps_to_choose_place--;
+            go(SLOW_SPEED);
         }
     }
 
