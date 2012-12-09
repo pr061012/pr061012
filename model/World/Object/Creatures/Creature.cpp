@@ -800,7 +800,9 @@ std::string Creature::printObjectInfo(bool full) const
 
     if (full)
     {
-        ss << "Drop objects"                   << std::endl << drop_objects.printIDs() <<
+        ss << insertSpaces("Aimless")          << (aimless ? "yes" : "no") << std::endl <<
+              insertSpaces("Goal point")       << current_goal_point.getX() << ", " << current_goal_point.getY() << std::endl <<
+              "Drop objects"                   << std::endl << drop_objects.printIDs() <<
               "Objects around"                 << std::endl << objects_around.printIDs() <<
               "Matrix of attrs"                << printAttrs() <<
               "Matrix of action"               << printActMatrix();
