@@ -29,6 +29,22 @@
 class World : public IWorld
 {
 public:
+
+    /**
+     * @brief Creates weather somewhere on the map.
+     */
+    void simulateWeather();
+
+    /**
+     * @brief Reproduces creatures.
+     */
+    void simulateCreatures();
+
+    /**
+     * @brief Reproduces resources.
+     */
+    void simulateResources();
+
     //**************************************************************************
     // CONSTRUCTOR/DESTRUCTOR.
     //**************************************************************************
@@ -86,13 +102,28 @@ private:
     //**************************************************************************
     // GENERATION METHODS.
     //**************************************************************************
-
+    
     /**
      * @brief Methods for generating objects of different types.
      */
     void genCreatures();
     void genResources();
     void genWeather();
+
+    /**
+     * @brief Generates 2D Perlin noise with fractals.
+     * @param x x coordinate.
+     * @param y y coordinate.
+     * @param power fractal depth.
+     * @param seed seed for random number generator.
+     * @return noise value.
+     */
+    double fractalPerlinNoise2D(double x, double y, double power, double seed);
+
+    /**
+     * @brief World generating method that uses Perlin's noise.
+     */
+    void generateWorld();
 
 public:
     /**
@@ -113,41 +144,43 @@ public:
 private:
 
     /**
-     * @brief Generate tree at specific location with parameters
-     *        specified by tree_params.
-     */
-    void genTreeAt(double x, double y, const ParamArray& tree_params);
-
-    /**
-     * @brief Generate tree at specific location using given position
+     * @brief Generate object at specific location using given position
      *        variance and generation probability.
-     * @param rand_offset this is the range in which tree may be
-     *        generated
-     * @param prob probability of tree generation
-     * @return if tree generation succeeded with current probability,
-     *         0 is returned. Otherwise, 1 is returned.
+     * @param point pointat which to create object.
+     * @param rand_offset this is the range in which object may be
+     *        generated.
+     * @param prob probability of tree generation.
+     * @param type object type.
+     * @param params object parameters.
+     * @param no_intersect check that object doesn't intersect any other.
+     * @return if object generation succeeded with current probability,
+     *         1 is returned. Otherwise, 0 is returned.
      */
-    int genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray& tree_params);
+    int genObjectAt(Vector point, double rand_offset, double prob,
+                  ObjectType type, const ParamArray& params, bool no_intersect = true);
 
     /**
      * @brief Creates object at given point.
      * @param type type of object
      * @param params the parmeters of object
+     * @param no_intersect check that object doesn't intersect any other.
      * @param random_place true if we don't need any current place.
      * @param coords coordinates of an object.
      * @return object pointer if creation was successful, nullptr otherwise.
      */
-    Object* createObject(ObjectType type, int subtype, 
+    Object* createObject(ObjectType type, int subtype, bool no_intersect = false, 
                          bool random_place = true, Vector coords = Vector(0, 0));
     /**
      * @brief Creates object at given point.
      * @param type type of object
      * @param params the parmeters of object
+     * @param no_intersect check that object doesn't intersect any other.
      * @param random_place true if we don't need any current place.
      * @param coords coordinates of an object.
      * @return object pointer if creation was successful, nullptr otherwise.
      */
     Object* createObject(ObjectType type, const ParamArray& params, 
+                         bool no_intersect = false,
                          bool random_place = true, Vector coords = Vector(0, 0));
 
 public:
@@ -254,6 +287,9 @@ private:
     /// Object creating matrix of parmeters.
     ParamArray ** object_parameters;
 
+    /// Weather probabilities.
+    double * weather_probabilities;
+
     /// Our world's ObjectFactory
     ObjectFactory* object_factory;
 
@@ -262,7 +298,14 @@ private:
     /// NonHumanoid decision maker.
     const DecisionMaker nhum_dmaker;
 
-    bool checkCoord(Object* new_obj);
+    /**
+     * @brief Checks if an object can stand on the point.
+     * @param new_obj object to test.
+     * @param no_intersect if true, function will check even
+     *        if an object is flying or it is solid.
+     * @return true, if an object is placed well, false otherwise.
+     */
+    bool checkCoord(Object* new_obj, bool no_intersect = false );
 };
 
 #endif // WORLD_H

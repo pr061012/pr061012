@@ -127,6 +127,12 @@ void Resource::increaseMaxAmount(uint delta)
     this -> max_amount += delta;
 }
 
+void Resource::setMaxAmount(uint max_amount)
+{
+    this -> max_amount = max_amount;
+}
+
+
 uint Resource::damage(uint delta)
 {
     uint d = delta;

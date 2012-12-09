@@ -1,6 +1,6 @@
 # Main compilation parameters.
 CPP         = c++
-CFLAGS      = -g -c -Wall -std=c++11 -march=native
+CFLAGS      = -g -c -Wall -std=c++11 -march=native -O2
 CFLAGS     += -Wextra -pedantic -Wold-style-cast -Woverloaded-virtual -Winit-self -Wparentheses
 LFLAGS      =
 LIBS        = -larmadillo -lGL -lSOIL -lglfw -lGLC -ljsoncpp

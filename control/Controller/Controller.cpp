@@ -20,10 +20,13 @@
 #include "../../model/World/Object/Creatures/Creature.h"
 #include "../../model/World/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../common/BasicDefines.h"
-#include "../../common/Log/Log.h"
+#include "../../common/Math/Random.h"
 
 Controller::Controller(World * world) :
-    world(world)
+    world(world),
+    weather_steps(Random::int_range(WEAT_STEPS_MIN, WEAT_STEPS_MAX) / GEN_WEAT_INTENSITY),
+    resource_steps(GEN_RESOURCE_STEPS),
+    creature_steps(GEN_CREATURE_STEPS)
 {
     performers.resize(AMNT_ACTION_TYPES);
 
@@ -183,5 +186,38 @@ void Controller::step()
     for (uint i = 0; i < actions.size(); i++)
     {
         performers[actions[i] -> getType()] -> perform(*actions[i]);
+    }
+
+    // Try to create weather.
+    if (weather_steps < 0)
+    {
+        world -> simulateWeather();
+        weather_steps = Random::int_range(WEAT_STEPS_MIN, WEAT_STEPS_MAX) /
+                        GEN_WEAT_INTENSITY;
+    }
+    else
+    {
+        weather_steps--;
+    }
+
+    // Reproduce cows and stuff.
+    if (creature_steps < 0)
+    {
+        creature_steps += GEN_CREATURE_STEPS;
+        world -> simulateCreatures();
+    }
+    else
+    {
+        creature_steps--;
+    }
+
+    if (resource_steps < 0)
+    {
+        resource_steps += GEN_RESOURCE_STEPS;
+        world -> simulateResources();
+    }
+    else
+    {
+        resource_steps--;
     }
 }

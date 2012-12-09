@@ -3,6 +3,7 @@
     See the LICENSE file for copying permission.
 */
 
+
 #include "World.h"
 
 #include <iostream>
@@ -70,6 +71,13 @@ World::World(int rand_seed, uint size, bool generate_objs) :
     object_parameters[WEATHER][HURRICANE].
                         addKey<WeatherType>("weat_type", HURRICANE);
 
+    // Weather probabilities
+    weather_probabilities = new double[AMNT_WEATHER_TYPES];
+    weather_probabilities[RAIN]          = GEN_WEAT_RAIN_PROBABILITY;
+    weather_probabilities[CLOUDS]        = GEN_WEAT_CLOUDS_PROBABILITY;
+    weather_probabilities[METEOR_SHOWER] = GEN_WEAT_METEOR_SHOWER_PROBABILITY;
+    weather_probabilities[HURRICANE]     = GEN_WEAT_HURRICANE_PROBABILITY;
+
     this -> createEverything(generate_objs);
 }
 
@@ -111,14 +119,58 @@ void World::genCreatures()
     }
 }
 
-void World::genWeather()
+// Create weather somewhere on the map depending on probability.
+void World::simulateWeather()
 {
-    uint amount = Random::int_range(5, 10);
-    for (uint i = 0; i < amount; i++)
+    double dice = Random::double_num(1.0);
+    double prob = 0;
+    for (int i = 0; i < AMNT_WEATHER_TYPES; i++)
     {
-        createObject(WEATHER, Random::int_range(0, AMNT_WEATHER_TYPES));
+        prob += weather_probabilities[i];
+        if (dice < prob)
+        {
+            createObject(WEATHER, i);
+            return;
+        }
     }
 }
+
+// Create creatures.
+void World::simulateCreatures()
+{
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_COWS; i++)
+    {
+        createObject(CREATURE, COW);
+    }
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_HUMANS; i++)
+    {
+        createObject(CREATURE, AMNT_NONHUMANOID_TYPES);
+    }
+}
+
+// Create resources.
+void World::simulateResources()
+{
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_TREE; i++)
+    {
+        createObject(RESOURCE, TREE);
+    }
+    for (uint i = 0; i < GEN_RECREATE_AMOUNT_GRASS; i++)
+    {
+        createObject(RESOURCE, GRASS);
+    }
+}
+
+void World::genWeather()
+{
+    uint amount = Random::int_range(GEN_WEAT_START_COUNT_MIN, GEN_WEAT_START_COUNT_MAX);
+    for (uint i = 0; i < amount; i++)
+    {
+        simulateWeather();
+    }
+}
+
+
 
 void World::genForestAt(double x, double y, int x_trees, int y_trees, const ParamArray& tree_params)
 {
@@ -150,7 +202,8 @@ void World::genForestAt(double x, double y, int x_trees, int y_trees, const Para
     {
         for(int j = 0; j < y_trees; ++j)
         {
-            genTreeAt(x + (i-x_center)*interval, y + (j-y_center)*interval, shift, probs[i][j], tree_params);
+            genObjectAt(Vector(x + (i-x_center)*interval, y + (j-y_center)*interval),
+                      shift, probs[i][j], RESOURCE, tree_params);
         }
     }
 
@@ -166,48 +219,36 @@ void World::genForestAt(double x, double y)
 
 }
 
-void World::genTreeAt(double x, double y, const ParamArray& tree_params)
-{
-    Object* new_obj = object_factory -> createObject(RESOURCE, tree_params);
-
-    new_obj -> setCoords(Vector(x, y));
-    if (checkCoord(new_obj))
-    {
-        indexator -> addObject(new_obj);
-        visible_objs -> push(new_obj);
-    }
-    else
-    {
-        delete new_obj;
-    }
-}
-
-int World::genTreeAt(double x, double y, double rand_offset, double prob, const ParamArray &tree_params)
+int World::genObjectAt(Vector point, double rand_offset, double prob,
+                        ObjectType type, const ParamArray &params, bool no_intersect)
 {
     if( DoubleComparison::isGreater(prob, Random::double_num(1.0)) )
     {
-        double x_rand = Random::double_num(2*rand_offset) - rand_offset;
-        double y_rand = Random::double_num(2*rand_offset) - rand_offset;
+        Vector offset(Random::double_num(2*rand_offset) - rand_offset,
+                      Random::double_num(2*rand_offset) - rand_offset);
 
-        this -> genTreeAt(x + x_rand, y + y_rand, tree_params);
-
-        return 0;
+        if (createObject(type, params, no_intersect, false, point + offset)
+            != nullptr)
+        {
+            return 1;
+        }
     }
-    return 1;
+    return 0;
 }
 
 //******************************************************************************
 // BASE METHODS.
 //******************************************************************************
 
-Object* World::createObject(ObjectType type, int subtype,
+Object* World::createObject(ObjectType type, int subtype, bool no_intersect,
                          bool random_place, Vector coords)
 {
-    return createObject(type, object_parameters[type][subtype], random_place, coords);
+    return createObject(type, object_parameters[type][subtype], no_intersect,
+                        random_place, coords);
 }
 
 // Tries to create object with given parameters.
-Object* World::createObject(ObjectType type, const ParamArray& params,
+Object* World::createObject(ObjectType type, const ParamArray& params, bool no_intersect,
                          bool random_place, Vector coords)
 { 
     bool success = false;
@@ -224,7 +265,7 @@ Object* World::createObject(ObjectType type, const ParamArray& params,
         }
 
         new_obj -> setCoords(coords);
-        if (checkCoord(new_obj))
+        if (checkCoord(new_obj, no_intersect))
         {
             indexator -> addObject(new_obj);
             visible_objs -> push(new_obj);
@@ -295,9 +336,12 @@ void World::createEverything(bool generate_objs)
 
     if (generate_objs)
     {
+        /*
         genCreatures();
         genResources();
         genWeather();
+        */
+        generateWorld();
     }
 }
 
@@ -388,31 +432,35 @@ Object *World::getObjectByID(uint id) const
     return NULL;
 }
 
-bool World::checkCoord(Object *new_obj)
+bool World::checkCoord(Object *new_obj, bool no_intersect)
 {
-    if (!new_obj -> isSolid() || new_obj -> isCurrentlyFlying())
+    if ((!new_obj -> isSolid() || new_obj -> isCurrentlyFlying()) &&
+        !no_intersect)
     {
         return true;
     }
 
-    bool ret = false;
-
     Shape shape = new_obj -> getShape();
-    // Get obstacles
     ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
 
-    uint count_creature = obstacles.getTypeAmount(CREATURE);
-    uint count_resource = obstacles.getTypeAmount(RESOURCE);
-
-    if
-    (
-        !count_creature &&
-        !count_resource
-    )
+    if (no_intersect)
     {
-        ret = true;
+        if (!obstacles.getAmount() - obstacles.getTypeAmount(WEATHER))
+        {
+            return true;
+        }
     }
-
-
-    return ret;
+    else
+    {
+        for (ObjectHeap::iterator i = obstacles.begin();
+             i != obstacles.end(); i++)
+        {
+            if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
 }

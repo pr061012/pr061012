@@ -77,17 +77,17 @@ void InputHandler::handleKeys()
         {
             view -> setY(view -> getY() + SPEED);
         }
-        if(glfwGetKey('P') && !key_was_pressed['P'])
+        if(glfwGetKey('P') && !key_was_pressed[static_cast<uint>('P')])
         {
             view -> setPaused(!view -> isPaused());
         }
-        if(glfwGetKey('R') && !key_was_pressed['R'])
+        if(glfwGetKey('R') && !key_was_pressed[static_cast<uint>('R')])
         {
             view -> setReset(true);
         }
 
 #ifdef VIEW_DEBUG
-        if(glfwGetKey('G') && !key_was_pressed['G'])
+        if(glfwGetKey('G') && !key_was_pressed[static_cast<uint>('G')])
         {
             view -> display_grid = !view -> display_grid;
         }
