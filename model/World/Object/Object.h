@@ -29,6 +29,11 @@ public:
     /**
      * @brief Constructor.
      * @param type  ObjectType
+     * @param solidity      is object solid or not
+     * @param movable       is it possible to move this object
+     * @param flyable       can this object fly
+     * @param pickable      is it possible to pick up this object or not
+     * @param immortality   is object immortal or not
      */
     Object(ObjectType type, bool solidity = true, bool movable = true,
            bool flyable = false, bool pickable = false,
@@ -422,7 +427,8 @@ protected:
     /**
      * @brief  Returns string in style: str<...spaces...>. Amount of spaces is
      *         equal to indent - str.size().
-     * @param  str  string
+     * @param  str      string
+     * @param  indent   indent
      * @return string with spaces
      */
     std::string insertSpaces(std::string str, uint indent = OBJ_INFO_INDENT) const;
