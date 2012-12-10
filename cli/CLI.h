@@ -12,8 +12,6 @@
 /**
  * @brief Command-Line-Interface class.
  *
- *        **TODO**: Write full `create` description.
- *
  *        **init**
  *
  *          *init <size>* -- initialises clear world with specified size.
@@ -31,6 +29,15 @@
  *
  *          *create <x> <y> <type> [additional args]* -- creates new object.
  *
+ *          List of additional args for different types:
+ *              * *c* (Creature): CreatureType (h/nh), NonHumanoidType (cow/
+ *                dragon) -- nh only.
+ *              * *b* (Building): max health (uint), max space (uint).
+ *              * *r* (Resource): ResourceType (water/grass/berries/meat/tree),
+ *                resource amount (uint).
+ *              * *w* (Weather): WeatherType (clouds/hurricane/meteor-shower/
+ *                rain), weather living steps (uint).
+ *
  *        **list**
  *
  *          *list [type]* -- list objects by type, if specified, otherwise list
@@ -43,6 +50,26 @@
  *        **change**
  *
  *          *change <id> <field> <new_value>* -- changes object's field.
+ *
+ *          List of fields names:
+ *              * center -- two doubles
+ *              * shape -- circle/square
+ *              * size -- double
+ *              * danger -- uint
+ *              * immortality -- toggles immortality
+ *              * solidity -- toggles solidity
+ *              * destroyed -- toggles destroyed flag
+ *              * age/mage (Creature only) -- uint
+ *              * endurance/mendurance (Creature only) -- uint
+ *              * hunger/mhunger (Creature only) -- uint
+ *              * health/mhealth (Creature only) -- uint
+ *              * sleepiness/msleepiness (Creature only) -- uint
+ *              * force (Creature only) -- uint
+ *              * a -- CreatureAction (none/sleep/eat/build/gather/communicate/
+ *                work/realize-dream/escape/do-nothing)
+ *              * da -- HumanoidDetailedAct (hunt/inv-food/find-food/home-relax/
+ *                home-sleep/ground-sleep/mine-res/build-house/choose-hplace/
+ *                fight/run-from-danger)
  *
  *        **step**
  *
