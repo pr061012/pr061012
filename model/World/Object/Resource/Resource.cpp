@@ -36,6 +36,7 @@ Resource::Resource(ResourceType type, uint res_amount) :
         this -> amount          = 1;
         this -> max_amount      = 1;
         this -> setShapeSize(Random::double_range(SZ_RES_WATER_DIAM_MIN, SZ_RES_WATER_DIAM_MAX));
+        this -> makeImmortal();
     }
     // Initialising food resource.
     else if
