@@ -100,7 +100,16 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 // FIXME: Maybe I can do this better?
                 if (DoubleComparison::isLess(distance - obj -> getShape().getSize(), record_radius))
                 {
-                    this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
+                    // Calculating value in depence of object type.
+                    if (obj -> getType() == RESOURCE)
+                    {
+                        this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
+                    }
+                    else
+                    {
+                        // FIXME: Magic const.
+                        this -> map[i][j] += 100;
+                    }
 
                     // New maximum.
                     if (DoubleComparison::isGreater(this -> map[i][j], this -> max))
@@ -137,10 +146,9 @@ void HumanoidValueMap::reevaluate()
         }
     }
 
-    // TODO: Evaluating only resources. Is it a good idea?
     ObjectHeap::const_iterator iter;
-    ObjectHeap::const_iterator begin = this -> heap -> begin(RESOURCE);
-    ObjectHeap::const_iterator end   = this -> heap -> end(RESOURCE);
+    ObjectHeap::const_iterator begin = this -> heap -> begin();
+    ObjectHeap::const_iterator end   = this -> heap -> end();
 
     for (iter = begin; iter != end; iter++)
     {
