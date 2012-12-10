@@ -68,29 +68,43 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     {
         for (uint j = begin_j; j < end_j; j++)
         {
-            // Calculating distance.
-            int delta_i = (int) i - (int) obj_i;
-            int delta_j = (int) j - (int) obj_j;
-            uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
+            // Calculating this cell real coordinates.
+            Vector cell_coords( ( (double) i + 0.5 ) * this -> cell_size,
+                                ( (double) j + 0.5 ) * this -> cell_size);
+            // Creating this cell shape.
+            Shape shape(cell_coords, SQUARE, this -> cell_size);
 
-            // If this point is in record radius from object, increase counter.
-            if (distance <= this -> record_radius)
+            // Checking whether object intersects this cell.
+            if (shape.hitTest(obj -> getShape()))
             {
-                if (distance != 0)
+                // Cell contains part of object in. Setting cell's value to
+                // infinity.
+                this -> map[i][j] = INFTY;
+            }
+            else if (DoubleComparison::areNotEqual(this -> map[i][j], INFTY))
+            {
+                // This cell doesn't contain any other object in, so it's
+                // possible to increase value of this cell.
+
+                // Calculating distance.
+                int delta_i = (int) i - (int) obj_i;
+                int delta_j = (int) j - (int) obj_j;
+                uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
+
+                if (distance <= this -> record_radius)
                 {
                     this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
-                    double value = this -> map[i][j];
 
                     // New maximum.
-                    if (DoubleComparison::isGreater(value, this -> max))
+                    if (DoubleComparison::isGreater(this -> map[i][j], this -> max))
                     {
-                        this -> max = value;
+                        this -> max = this -> map[i][j];
                         this -> max_i[0] = i;
                         this -> max_j[0] = j;
                         this -> current_index = 1;
                     }
                     // Found cell with value, that is equal to current maximum.
-                    else if (DoubleComparison::areEqual(value, max))
+                    else if (DoubleComparison::areEqual(this -> map[i][j], max))
                     {
                         if (this -> current_index < this -> array_size)
                         {
@@ -99,12 +113,6 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                             this -> current_index += 1;
                         }
                     }
-                }
-                else
-                {
-                    // Cell with this object in. Setting cell's value to
-                    // infinity.
-                    this -> map[i][j] = INFTY;
                 }
             }
         }
