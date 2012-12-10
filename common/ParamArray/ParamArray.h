@@ -116,8 +116,8 @@ public:
 
     /**
      * @brief  Gets key value by key.
-     * @param  key              key
-     * @param  suppress_err_msg whether suppress error messages to cerr or not
+     * @param  key                  key
+     * @param  suppress_err_msgs    whether suppress error messages to cerr or not
      * @return key value
      */
     template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayInvalidKey)
@@ -142,8 +142,8 @@ public:
 
     /**
      * @brief  Removes key from param array.
-     * @param  key              key
-     * @param  suppress_err_msg whether suppress error messages to cerr or not
+     * @param  key                  key
+     * @param  suppress_err_msgs    whether suppress error messages to cerr or not
      * @return true, if key was existed and succesfully removed
      * @return false, if key wasn't existed
      */
