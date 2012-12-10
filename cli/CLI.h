@@ -14,20 +14,20 @@
  *
  *        **init**
  *
- *          *init <size>* -- initialises clear world with specified size.
+ *          *init size* -- initialises clear world with specified size.
  *
  *        **random-init**
  *
- *          *random-init <size>* -- initialises world with specified size and
+ *          *random-init size* -- initialises world with specified size and
  *          randomly generated units.
  *
  *        **generate**
- *          *generate <x> <y> <density> <cluster_type>* -- generates a bundle of
- *          objects around (x, y) point.
+ *          *generate x y density cluster_type* -- generates a bundle of objects
+ *          around (x, y) point.
  *
  *        **create**
  *
- *          *create <x> <y> <type> [additional args]* -- creates new object.
+ *          *create x y type [additional args]* -- creates new object.
  *
  *          List of additional args for different types:
  *              * *c* (Creature): CreatureType (h/nh), NonHumanoidType (cow/
@@ -45,11 +45,11 @@
  *
  *        **info**
  *
- *          *info <id>* -- prints object's information by id.
+ *          *info id* -- prints object's information by id.
  *
  *        **change**
  *
- *          *change <id> <field> <new_value>* -- changes object's field.
+ *          *change id field new_value* -- changes object's field.
  *
  *          List of fields names:
  *              * center -- two doubles
