@@ -284,7 +284,6 @@ std::vector <Action>* Humanoid::getActions()
 
     //**************************************************************************
     // DETAILED DECISION : HUNT
-    // FIXME. Nobody put food in inventory
     // First of all, he searching for victim in objects around. If he has
     // founded his victim, he just hunts. If other case he goes in random
     // way serching for victim.
@@ -522,7 +521,8 @@ std::vector <Action>* Humanoid::getActions()
         }
         else
         {
-            // FIXME: Hm.
+            resetAim();
+            current_action = NONE;
         }
     }
 
@@ -1118,7 +1118,7 @@ Object* Humanoid::isResInInventory(ResourceType type)
 // If we mine resource because we build, we calculate it (how many res we need
 // to complete our home?). If we just mining res for best future, we choose
 // amount randomly.
-// TODO What about free space = 0? FIXME BAD
+
 uint Humanoid::calculateNecessResAmount()
 {
     if (current_action == BUILD)
@@ -1255,7 +1255,7 @@ void Humanoid::chooseFood()
     }
     else
     {
-        for (int i = 2; i >= 0; i--)
+        for (int i = 1; i >= 0; i--)
         {
             aim = isResInInventory(food[i]);
             if (aim)
