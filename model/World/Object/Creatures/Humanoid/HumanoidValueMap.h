@@ -65,8 +65,9 @@ private:
     /// Amount of columns in map.
     uint map_columns;
 
-    /// Record radius.
-    uint record_radius;
+    /// @brief Relative record radius (multiplication by object's size give
+    ///        actual record radius).
+    uint relative_record_radius;
 
     /// Current maximum.
     double max;

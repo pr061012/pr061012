@@ -252,8 +252,9 @@ enum ActionType
     ///                           mat_type (*uint*)
     ///                         * for Creature creation: creat_type
     ///                           (*CreatureType*)
-    ///                         * for Building creation: building_max_space
-    ///                           (*uint*), building_max_health (*uint*)
+    ///                         * for Building creation: obj_center (*Vector*),
+    ///                           building_max_space (*uint*),
+    ///                           building_max_health (*uint*)
     CREATE_OBJ,
 
     /// @brief Description:     Drop objects to ground. \n

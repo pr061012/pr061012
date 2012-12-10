@@ -6,6 +6,7 @@
 #include <cmath>
 #include <cassert>
 #include <sstream>
+#include <iomanip>
 
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Math/DoubleComparison.h"
@@ -19,6 +20,7 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
     map_columns(ceil(h_size / cell_size)),
+    relative_record_radius(10),
     current_index(0),
     array_size(100)
 {
@@ -28,12 +30,6 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     {
         this -> map[i].resize(map_columns);
     }
-
-    // Initialising record radius.
-    uint r = 42;
-    if (r > this -> map_rows)    r = this -> map_rows / 3 - 1;
-    if (r > this -> map_columns) r = this -> map_columns / 3 - 1;
-    this -> record_radius = r;
 
     // Initialising coordinates arrays.
     this -> max = 0;
@@ -46,6 +42,15 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
+    // Getting object shape.
+    Shape obj_shape = obj -> getShape();
+    // Make shape more bigger.
+    obj_shape.setSize(obj_shape.getSize() + SZ_BUILDING_SIDE_MAX);
+    obj_shape.setType(SQUARE);
+
+    // Calculating record radius.
+    double record_radius = (double) this -> relative_record_radius * obj_shape.getSize();
+
     // Getting coordinates.
     Vector coords = obj -> getCoords();
 
@@ -54,10 +59,10 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     uint obj_j = floor(coords.getY() / this -> cell_size);
 
     // Calculating begin and end i, j.
-    int begin_i = obj_i - this -> record_radius - 1;
-    int begin_j = obj_j - this -> record_radius - 1;
-    int end_i   = obj_i + this -> record_radius + 1;
-    int end_j   = obj_j + this -> record_radius + 1;
+    int begin_i = obj_i - record_radius - 1;
+    int begin_j = obj_j - record_radius - 1;
+    int end_i   = obj_i + record_radius + 1;
+    int end_j   = obj_j + record_radius + 1;
     begin_i = begin_i < 0 ? 0 : begin_i;
     begin_j = begin_j < 0 ? 0 : begin_j;
     end_i   = end_i   >= (int) this -> map_rows    ? (int) this -> map_rows    : end_i;
@@ -68,29 +73,54 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     {
         for (uint j = (uint) begin_j; j < (uint) end_j; j++)
         {
-            // Calculating distance.
-            int delta_i = (int) i - (int) obj_i;
-            int delta_j = (int) j - (int) obj_j;
-            uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
+            // Calculating this cell real coordinates.
+            Vector cell_coords( ( (double) i + 0.5 ) * this -> cell_size,
+                                ( (double) j + 0.5 ) * this -> cell_size);
+            // Creating this cell shape.
+            Shape shape(cell_coords, SQUARE, this -> cell_size);
 
-            // If this point is in record radius from object, increase counter.
-            if (distance <= this -> record_radius)
+            // Checking whether object intersects this cell.
+            if (shape.hitTest(obj_shape))
             {
-                if (distance != 0)
+                // Cell contains part of object in. Setting cell's value to
+                // infinity.
+                this -> map[i][j] = INFTY;
+            }
+            else if (DoubleComparison::areNotEqual(this -> map[i][j], INFTY))
+            {
+                // This cell doesn't contain any other object in, so it's
+                // possible to increase value of this cell.
+
+                // Calculating distance.
+                int delta_i = (int) i - (int) obj_i;
+                int delta_j = (int) j - (int) obj_j;
+                double distance = sqrt(delta_i * delta_i + delta_j * delta_j) * this -> cell_size;
+
+                // Checking distance (in real sizes).
+                // FIXME: Maybe I can do this better?
+                if (DoubleComparison::isLess(distance - obj -> getShape().getSize(), record_radius))
                 {
-                    this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
-                    double value = this -> map[i][j];
+                    // Calculating value in depence of object type.
+                    if (obj -> getType() == RESOURCE)
+                    {
+                        this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
+                    }
+                    else
+                    {
+                        // FIXME: Magic const.
+                        this -> map[i][j] += 100;
+                    }
 
                     // New maximum.
-                    if (DoubleComparison::isGreater(value, this -> max))
+                    if (DoubleComparison::isGreater(this -> map[i][j], this -> max))
                     {
-                        this -> max = value;
+                        this -> max = this -> map[i][j];
                         this -> max_i[0] = i;
                         this -> max_j[0] = j;
                         this -> current_index = 1;
                     }
                     // Found cell with value, that is equal to current maximum.
-                    else if (DoubleComparison::areEqual(value, max))
+                    else if (DoubleComparison::areEqual(this -> map[i][j], max))
                     {
                         if (this -> current_index < this -> array_size)
                         {
@@ -99,12 +129,6 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                             this -> current_index += 1;
                         }
                     }
-                }
-                else
-                {
-                    // Cell with this object in. Setting cell's value to
-                    // infinity.
-                    this -> map[i][j] = INFTY;
                 }
             }
         }
@@ -122,10 +146,9 @@ void HumanoidValueMap::reevaluate()
         }
     }
 
-    // TODO: Evaluating only resources. Is it a good idea?
     ObjectHeap::const_iterator iter;
-    ObjectHeap::const_iterator begin = this -> heap -> begin(RESOURCE);
-    ObjectHeap::const_iterator end   = this -> heap -> end(RESOURCE);
+    ObjectHeap::const_iterator begin = this -> heap -> begin();
+    ObjectHeap::const_iterator end   = this -> heap -> end();
 
     for (iter = begin; iter != end; iter++)
     {
@@ -159,7 +182,7 @@ std::string HumanoidValueMap::print() const
     {
         for (uint j = 0; j < this -> map_columns; j++)
         {
-            ss << this -> map[i][j] << "\t";
+            ss << std::setprecision(3) << this -> map[i][j] << "\t";
         }
         ss << std::endl;
     }
