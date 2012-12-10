@@ -587,6 +587,7 @@ std::vector <Action>* Humanoid::getActions()
                 {
                     Action act(CREATE_OBJ, this);
                     act.addParam<ObjectType>("obj_type", BUILDING);
+                    act.addParam<Vector>("obj_center", current_goal_point);
                     // TODO: Ugly. Humanoid need to pick max_space and max_health values
                     //       more accurate.
                     act.addParam<uint>("building_max_space",
