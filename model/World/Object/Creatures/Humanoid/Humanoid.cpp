@@ -567,29 +567,42 @@ std::vector <Action>* Humanoid::getActions()
             {
                 HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
                 Vector c = map.getBestPlace();
-                std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
-                setAim(c);
+
+                // Sad but true.
+                if (c == Vector(-1, -1))
+                {
+                    angle = Random::double_num(2 * M_PI);
+                    steps_to_choose_place = 200;
+                }
+                else
+                {
+                    std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
+                    setAim(c);
+                }
             }
 
-            // Checking distance to the best place point.
-            double distance = getCoords().getDistance(current_goal_point);
-            if (DoubleComparison::isLess(distance, SZ_HUM_DIAM))
+            if (!aimless)
             {
-                std::cout << getObjectID() << " building house\n";
-                Action act(CREATE_OBJ, this);
-                act.addParam<ObjectType>("obj_type", BUILDING);
-                // TODO: Ugly. Humanoid need to pick max_space and max_health values
-                //       more accuratly.
-                act.addParam<uint>("building_max_space",
-                               Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
-                act.addParam<uint>("building_max_health",
-                               Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
-                this -> actions.push_back(act);
-                current_action = NONE;
-            }
-            else
-            {
-                go(SLOW_SPEED);
+                // Checking distance to the best place point.
+                double distance = getCoords().getDistance(current_goal_point);
+                if (DoubleComparison::isLess(distance, SZ_HUM_DIAM))
+                {
+                    std::cout << getObjectID() << " building house\n";
+                    Action act(CREATE_OBJ, this);
+                    act.addParam<ObjectType>("obj_type", BUILDING);
+                    // TODO: Ugly. Humanoid need to pick max_space and max_health values
+                    //       more accurate.
+                    act.addParam<uint>("building_max_space",
+                                   Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
+                    act.addParam<uint>("building_max_health",
+                                   Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
+                    this -> actions.push_back(act);
+                    current_action = NONE;
+                }
+                else
+                {
+                    go(SLOW_SPEED);
+                }
             }
         }
         else
