@@ -26,8 +26,8 @@ double Random::double_num(double top_boundary)
         return 0;
     }
 
-    top_boundary *= 1000;
-    return (rand() % ((int) top_boundary)) / 1000.0;
+    top_boundary *= 1000000;
+    return (rand() % ((int) top_boundary)) / 1000000.0;
 }
 
 int Random::int_range(int low_boundary, int top_boundary)

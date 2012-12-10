@@ -21,7 +21,7 @@
 #define GEN_FRACTAL_POWER                   4
 
 /// Discrete step for noise map generation.
-#define GEN_MAP_RESOLUTION                  0.5
+#define GEN_MAP_RESOLUTION                  1
 
 /**
  * @brief Constants for generating different objects in the world.
@@ -51,46 +51,46 @@
  *
  */
 #define GEN_TREE_INSIDE_BOUNDS      
-#define GEN_TREE_LOWER_BOUND        65
-#define GEN_TREE_UPPER_BOUND        100
-#define GEN_TREE_DENSITY            0.15
-#define GEN_TREE_INTERVAL           SZ_RES_TREE_DIAM_MIN / 3
+#define GEN_TREE_LOWER_BOUND            65
+#define GEN_TREE_UPPER_BOUND            100
+#define GEN_TREE_DENSITY                0.15
+#define GEN_TREE_INTERVAL               GEN_MAP_RESOLUTION
 
 #define GEN_GRASS_INSIDE_BOUNDS     
-#define GEN_GRASS_LOWER_BOUND       20
-#define GEN_GRASS_UPPER_BOUND       35
-#define GEN_GRASS_DENSITY           0.1
-#define GEN_GRASS_INTERVAL          SZ_RES_GRASS_DIAM_MIN / 3
+#define GEN_GRASS_LOWER_BOUND           25
+#define GEN_GRASS_UPPER_BOUND           35
+#define GEN_GRASS_DENSITY               0.1
+#define GEN_GRASS_INTERVAL              GEN_MAP_RESOLUTION
 
 #define GEN_BERRIES_INSIDE_BOUNDS     
-#define GEN_BERRIES_LOWER_BOUND       0
-#define GEN_BERRIES_UPPER_BOUND       20
-#define GEN_BERRIES_DENSITY           0.5
-#define GEN_BERRIES_INTERVAL          SZ_RES_BERRIES_DIAM_MIN / 3
+#define GEN_BERRIES_LOWER_BOUND         0
+#define GEN_BERRIES_UPPER_BOUND         25
+#define GEN_BERRIES_DENSITY             0.5
+#define GEN_BERRIES_INTERVAL            GEN_MAP_RESOLUTION
 
-#define GEN_WATER_INSIDE_BOUNDS     !
-#define GEN_WATER_LOWER_BOUND       40
-#define GEN_WATER_UPPER_BOUND       60
-#define GEN_WATER_DENSITY           0.005
-#define GEN_WATER_INTERVAL          SZ_RES_WATER_DIAM_MIN / 3
+#define GEN_WATER_INSIDE_BOUNDS         !
+#define GEN_WATER_LOWER_BOUND           40
+#define GEN_WATER_UPPER_BOUND           60
+#define GEN_WATER_DENSITY               0.005
+#define GEN_WATER_INTERVAL              GEN_MAP_RESOLUTION
 
 #define GEN_COW_INSIDE_BOUNDS       
-#define GEN_COW_LOWER_BOUND         80
-#define GEN_COW_UPPER_BOUND         85
-#define GEN_COW_DENSITY             0.75
-#define GEN_COW_INTERVAL            SZ_NHUM_COW_DIAM / 3
+#define GEN_COW_LOWER_BOUND             80
+#define GEN_COW_UPPER_BOUND             85
+#define GEN_COW_DENSITY                 0.75
+#define GEN_COW_INTERVAL                GEN_MAP_RESOLUTION
 
 #define GEN_HUMAN_INSIDE_BOUNDS    
-#define GEN_HUMAN_LOWER_BOUND       15
-#define GEN_HUMAN_UPPER_BOUND       20
-#define GEN_HUMAN_DENSITY           0.2
-#define GEN_HUMAN_INTERVAL          SZ_HUM_DIAM
+#define GEN_HUMAN_LOWER_BOUND           15
+#define GEN_HUMAN_UPPER_BOUND           20
+#define GEN_HUMAN_DENSITY               0.2
+#define GEN_HUMAN_INTERVAL              GEN_MAP_RESOLUTION
 
-#define GEN_DRAGON_INSIDE_BOUNDS    !
-#define GEN_DRAGON_LOWER_BOUND      10
-#define GEN_DRAGON_UPPER_BOUND      90
-#define GEN_DRAGON_DENSITY          0.25
-#define GEN_DRAGON_INTERVAL         SZ_NHUM_DRAGON_DIAM
+#define GEN_DRAGON_INSIDE_BOUNDS        !
+#define GEN_DRAGON_LOWER_BOUND          10
+#define GEN_DRAGON_UPPER_BOUND          90
+#define GEN_DRAGON_DENSITY              0.25
+#define GEN_DRAGON_INTERVAL             GEN_MAP_RESOLUTION
 
 // Perlin 2d noise.
 // Code from:
@@ -200,8 +200,9 @@ void World::generateWorld()
         for (double y = GEN_MAP_RESOLUTION; y < size; y += GEN_MAP_RESOLUTION)
         {
             // Normalize.
-            double value = fractalPerlinNoise2D(x, y, GEN_FRACTAL_POWER, seed) * 
-                                        GEN_FIVE_SIGMA + GEN_AVERAGE_NOISE;
+            double value = fmax(0, 
+                            fractalPerlinNoise2D(x, y, GEN_FRACTAL_POWER, seed) * 
+                                        GEN_FIVE_SIGMA + GEN_AVERAGE_NOISE);
 
             if (GEN_TREE_INSIDE_BOUNDS(value >= GEN_TREE_LOWER_BOUND && 
                                        value <= GEN_TREE_UPPER_BOUND))
