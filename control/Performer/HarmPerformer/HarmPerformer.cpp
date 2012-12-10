@@ -60,6 +60,12 @@ void HarmPerformer::perform(Action& action)
             return;
         }
 
+        if (participants[0] -> isImmortal())
+        {
+            action.markAsFailed(OBJ_IS_IMMORTAL);
+            return;
+        }
+
         Creature* actor_cr = dynamic_cast<Creature*>(actor);
         env_shape = actor_cr -> getReachArea();
         env_shape.setCenter(actor_cr -> getCoords());
@@ -108,7 +114,11 @@ void HarmPerformer::perform(Action& action)
 
         for (uint i = 0; i < participants.size(); i++)
         {
-            if (env_shape.hitTest(participants[i] -> getShape()))
+            if
+            (
+                env_shape.hitTest(participants[i] -> getShape()) &&
+                !participants[i] -> isImmortal()
+            )
             {
                 uint harm = weather -> getDangerLevel() /
                             Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
@@ -131,17 +141,17 @@ void HarmPerformer::perform(Action& action)
     if (!count_error)
     {
         action.markAsSucceeded();
-        return;
     }
     // If all objects are out of reach, then...
     else if (count_error == participants.size())
     {
+        // FIXME: Setting this error even if error is in immortal objects.
         action.markAsFailed(ALL_OBJS_ARE_OUT_OF_REACH);
-        return;
     }
     // If some objects are out of reach, then...
     else
     {
+        // FIXME: Setting this error even if error is in immortal objects.
         action.markAsSucceededWithErrors(SOME_OBJS_ARE_OUT_OF_REACH);
     }
 }
