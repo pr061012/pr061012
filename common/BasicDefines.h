@@ -52,7 +52,6 @@
 /// Humanoid size.
 #define SZ_HUM_DIAM                 (double) 1
 
-// TODO: Add sizes for different types of NonHums.
 /// Cow size.
 #define SZ_NHUM_COW_DIAM            SZ_HUM_DIAM * 0.5
 /// Dragon size.

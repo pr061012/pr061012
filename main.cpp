@@ -1,4 +1,4 @@
-// FIXME Needed for sleep_for
+// Needed for std::this_thread::sleep_for.
 #define _GLIBCXX_USE_NANOSLEEP
 
 #include <iostream>
