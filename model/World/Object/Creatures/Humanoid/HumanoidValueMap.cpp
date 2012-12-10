@@ -42,8 +42,14 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
+    // Getting object shape.
+    Shape obj_shape = obj -> getShape();
+    // Make shape more bigger.
+    obj_shape.setSize(obj_shape.getSize() + SZ_BUILDING_SIDE_MAX);
+    obj_shape.setType(SQUARE);
+
     // Calculating record radius.
-    double record_radius = (double) this -> relative_record_radius * obj -> getShape().getSize();
+    double record_radius = (double) this -> relative_record_radius * obj_shape.getSize();
 
     // Getting coordinates.
     Vector coords = obj -> getCoords();
@@ -74,7 +80,7 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
             Shape shape(cell_coords, SQUARE, this -> cell_size);
 
             // Checking whether object intersects this cell.
-            if (shape.hitTest(obj -> getShape()))
+            if (shape.hitTest(obj_shape))
             {
                 // Cell contains part of object in. Setting cell's value to
                 // infinity.
