@@ -91,6 +91,7 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 double distance = sqrt(delta_i * delta_i + delta_j * delta_j) * this -> cell_size;
 
                 // Checking distance (in real sizes).
+                // FIXME: Maybe I can do this better?
                 if (DoubleComparison::isLess(distance - obj -> getShape().getSize(), record_radius))
                 {
                     this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
