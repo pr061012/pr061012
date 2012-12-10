@@ -266,6 +266,14 @@ void ViewWorld::renderObject(const Object* object)
             {
                 glColor4d(0.0, 1.0, 0.0, 0.4);
             }
+            else if (res -> getSubtype() == WATER)
+            {
+                glColor4d(0.0, 1.0, 1.0, 0.4);
+            }
+            else if (res -> getSubtype() == BERRIES)
+            {
+                glColor4d(0.7, 0.0, 0.0, 0.4);
+            }
             else
             {
                 glColor4d(1.0, 0.0, 0.0, 0.4);

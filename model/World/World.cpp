@@ -50,6 +50,8 @@ World::World(int rand_seed, uint size, bool generate_objs) :
     object_parameters[RESOURCE][GRASS].addKey<ResourceType>("res_type", GRASS);
     object_parameters[RESOURCE][TREE].addKey<ResourceType>("res_type", TREE);
     object_parameters[RESOURCE][MEAT].addKey<ResourceType>("res_type", MEAT);
+    object_parameters[RESOURCE][WATER].addKey<ResourceType>("res_type", WATER);
+    object_parameters[RESOURCE][BERRIES].addKey<ResourceType>("res_type", BERRIES);
     // Creatures
     object_parameters[CREATURE] = new ParamArray[AMNT_NONHUMANOID_TYPES + 1];
     object_parameters[CREATURE][AMNT_NONHUMANOID_TYPES].
@@ -111,10 +113,6 @@ void World::genCreatures()
         for (uint i = 0; i < amount; i++)
         {
             Object* new_obj = createObject(CREATURE, k);
-            Object* drop = object_factory -> 
-                            createObject(RESOURCE, object_parameters[RESOURCE][MEAT]);
-            this -> addObject(false, drop);
-            dynamic_cast<Creature*>(new_obj) -> getDropObjects() -> push(drop);
         }
     }
 }
@@ -267,8 +265,7 @@ Object* World::createObject(ObjectType type, const ParamArray& params, bool no_i
         new_obj -> setCoords(coords);
         if (checkCoord(new_obj, no_intersect))
         {
-            indexator -> addObject(new_obj);
-            visible_objs -> push(new_obj);
+            addObject(true, new_obj);
             success = true;
         }
     } 
@@ -281,6 +278,13 @@ Object* World::createObject(ObjectType type, const ParamArray& params, bool no_i
     }
     else
     {
+        if (type == CREATURE)
+        {
+            Object* drop = object_factory -> 
+                            createObject(RESOURCE, object_parameters[RESOURCE][MEAT]);
+            this -> addObject(false, drop);
+            dynamic_cast<Creature*>(new_obj) -> getDropObjects() -> push(drop);
+        }
         return new_obj;
     }
 }

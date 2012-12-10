@@ -247,7 +247,7 @@
 
 #define GEN_TREE_INTERVAL                   1.1 * SZ_RES_TREE_DIAM_MAX
 
-/// A possibility that another weather will appear on the map.
+/// An average amount of weather on the map.
 #define GEN_WEAT_INTENSITY                  5
 
 /// Intensity of creatures updating.
@@ -257,16 +257,16 @@
 #define GEN_RECREATE_AMOUNT_COWS            10
 
 /// Amount of people to recreate
-#define GEN_RECREATE_AMOUNT_HUMANS          2
+#define GEN_RECREATE_AMOUNT_HUMANS          1
 
 /// Intensity of resources updating
 #define GEN_RESOURCE_STEPS                 TM_TICKS_PER_SECOND * 180
 
 /// Amount of wood to recreate
-#define GEN_RECREATE_AMOUNT_TREE            0
+#define GEN_RECREATE_AMOUNT_TREE            1
 
 /// Amount of food to recreate              
-#define GEN_RECREATE_AMOUNT_GRASS           10
+#define GEN_RECREATE_AMOUNT_GRASS           5
 
 /// Probabilities of different weather types.
 #define GEN_WEAT_HURRICANE_PROBABILITY      0.3
@@ -292,12 +292,12 @@
 //******************************************************************************
 
 /// Minimum amount of living steps for weather.
-#define WEAT_STEPS_MIN              180 * TM_TICKS_PER_SECOND
+#define WEAT_STEPS_MIN              60 * TM_TICKS_PER_SECOND
 /// Maximum amount of living steps for weather.
-#define WEAT_STEPS_MAX              300 * TM_TICKS_PER_SECOND
+#define WEAT_STEPS_MAX              90 * TM_TICKS_PER_SECOND
 
 /// Weather's roaming steps (steps before roam direction changing).
-#define WEAT_ROAM_STEPS             30 * TM_TICKS_PER_SECOND
+#define WEAT_ROAM_STEPS             15 * TM_TICKS_PER_SECOND
 
 /// Weather's action steps (steps before generating new weather action).
 #define WEAT_ACTION_STEPS           (TM_TICKS_PER_SECOND / 4)
@@ -334,11 +334,11 @@
 
 // Ranges of amount of resource.
 
-#define RES_TREE_AMOUNT_MIN         10
-#define RES_TREE_AMOUNT_MAX         20
+#define RES_TREE_AMOUNT_MIN         5
+#define RES_TREE_AMOUNT_MAX         10
 
-#define RES_GRASS_AMOUNT_MIN        300
-#define RES_GRASS_AMOUNT_MAX        500
+#define RES_GRASS_AMOUNT_MIN        100
+#define RES_GRASS_AMOUNT_MAX        200
 
 #define RES_BERRIES_AMOUNT_MIN      20
 #define RES_BERRIES_AMOUNT_MAX      40
@@ -436,17 +436,17 @@
 #define CREAT_FORCE_MAX             100
 
 /// Amount of steps to update basic attrs for creature.
-#define CREAT_STEPS                 15 * TM_TICKS_PER_SECOND
+#define CREAT_STEPS                 5 * TM_TICKS_PER_SECOND
 /// Amount of steps to update danger.
-#define CREAT_DANGER_STEPS          TM_TICKS_PER_SECOND / 2
+#define CREAT_DANGER_STEPS          TM_TICKS_PER_SECOND / 3
 /// Amount of steps to update health.
-#define CREAT_REGEN_HEALTH_STEPS    30 * TM_TICKS_PER_SECOND
+#define CREAT_REGEN_HEALTH_STEPS    10 * TM_TICKS_PER_SECOND
 /// Amount if steps to update endurance.
-#define CREAT_REGEN_ENDURANCE_STEPS 5  * TM_TICKS_PER_SECOND
+#define CREAT_REGEN_ENDURANCE_STEPS 1  * TM_TICKS_PER_SECOND
 /// Amount of steps to update need_in_descendants.
 #define CREAT_DESC_STEPS            150 * TM_TICKS_PER_SECOND
 /// Amount of steps to update age.
-#define CREAT_AGE_STEPS             500 * TM_TICKS_PER_SECOND
+#define CREAT_AGE_STEPS             100 * TM_TICKS_PER_SECOND
 
 /// Amount of health regeneration steps while sleeping
 #define CREAT_SLEEP_REGEN_HEALTH    9
@@ -470,7 +470,7 @@
 #define CREAT_DELTA_ENDUR           1
 
 /// Starving steps.
-#define CREAT_STARVING_STEPS        (TM_TICKS_PER_SECOND / 2)
+#define CREAT_STARVING_STEPS        (TM_TICKS_PER_SECOND / 3)
 
 /// When delta is more than this const, creature makes new decision
 #define CREAT_CRIT_CONST            40
