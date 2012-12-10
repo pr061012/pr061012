@@ -47,6 +47,9 @@ NonHumanoid::NonHumanoid(NonHumanoidType type, const DecisionMaker& dmaker) :
             this -> setDangerLevel(DNGR_NHUM_DRAGON);
             this -> setWeight(WGHT_NHUM_DRAGON);
             this -> setNormalSpeed(SPD_NHUM_DRAGON);
+            this -> makeFlyable();
+            // TODO: Currently dragon flies all time. Is it good idea or not?
+            this -> makeFlying();
         break;
     }
 
