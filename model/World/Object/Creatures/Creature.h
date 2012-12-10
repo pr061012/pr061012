@@ -57,8 +57,8 @@ public:
     CreatureType getSubtype() const;
 
     /**
-     * @brief Set the value of creature's window.
-     * @param window    the new value of window
+     * @brief Set the value of creature's objects_around.
+     * @param objects_around    the new value of objects_around
      */
     void setObjectsAround(ObjectHeap objects_around);
 
@@ -81,8 +81,8 @@ public:
     Shape getViewArea();
 
     /**
-     * @brief Set the value of reachg_area.
-     * @param view_area the new value of reach_area
+     * @brief Set the value of reach_area.
+     * @param reach_area    the new value of reach_area
      */
     void setReachArea(Shape reach_area);
 
@@ -627,9 +627,8 @@ protected:
     void go(SpeedType speed);
 
     /**
-     * @brief   Generate route to the given object
-     * @param   goal Object to go to
-     * @return  path to the goal
+     * @brief  Generates route.
+     * @return path to the goal
      */
     Path generateRoute();
 
@@ -653,7 +652,6 @@ protected:
     
     /**
      * @brief Damages object.
-     * @param object victim.
      */
     void fight();
 

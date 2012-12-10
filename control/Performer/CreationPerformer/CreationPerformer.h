@@ -53,11 +53,11 @@ private:
     //**************************************************************************
 
     /**
-     * @brief Check coordinate
-     * @param shape
-     * @return possibility creation object with coordinate
+     * @brief  Checks object's coordinates.
+     * @param  new_obj  pointer to object
+     * @return possibility of object creation with specified coordinates
      */
-    bool checkCoord(Object *new_obj);
+    bool checkCoord(Object* new_obj);
 
     /**
      * @brief Auxiliary function for create building
