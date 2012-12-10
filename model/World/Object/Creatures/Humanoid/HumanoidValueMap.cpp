@@ -19,6 +19,7 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
     map_columns(ceil(h_size / cell_size)),
+    relative_record_radius(10),
     current_index(0),
     array_size(100)
 {
@@ -28,12 +29,6 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     {
         this -> map[i].resize(map_columns);
     }
-
-    // Initialising record radius.
-    uint r = 42;
-    if (r > this -> map_rows)    r = this -> map_rows / 3 - 1;
-    if (r > this -> map_columns) r = this -> map_columns / 3 - 1;
-    this -> record_radius = r;
 
     // Initialising coordinates arrays.
     this -> max = 0;
@@ -46,6 +41,9 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
+    // Calculating record radius.
+    uint record_radius = this -> relative_record_radius * obj -> getShape().getSize();
+
     // Getting coordinates.
     Vector coords = obj -> getCoords();
 
@@ -54,10 +52,10 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     uint obj_j = floor(coords.getY() / this -> cell_size);
 
     // Calculating begin and end i, j.
-    int begin_i = obj_i - this -> record_radius - 1;
-    int begin_j = obj_j - this -> record_radius - 1;
-    int end_i   = obj_i + this -> record_radius + 1;
-    int end_j   = obj_j + this -> record_radius + 1;
+    int begin_i = obj_i - record_radius - 1;
+    int begin_j = obj_j - record_radius - 1;
+    int end_i   = obj_i + record_radius + 1;
+    int end_j   = obj_j + record_radius + 1;
     begin_i = begin_i < 0 ? 0 : begin_i;
     begin_j = begin_j < 0 ? 0 : begin_j;
     end_i   = end_i   >= this -> map_rows    ? this -> map_rows    : end_i;
@@ -91,7 +89,7 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 int delta_j = (int) j - (int) obj_j;
                 uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
 
-                if (distance <= this -> record_radius)
+                if (distance <= record_radius)
                 {
                     this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
 
