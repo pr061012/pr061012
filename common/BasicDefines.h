@@ -512,6 +512,11 @@
 /// Amount of steps to decrease sleepiness
 #define HUM_DECR_ENDUR_STEPS        100
 
+/// Amount of steps to choose place for home (min).
+#define HUM_CPFH_STEPS_MIN          150
+/// Amount of steps to choose place for home (max).
+#define HUM_CPFH_STEPS_MAX          200
+
 /// Space in inventory which is necessary in cratical situation
 #define HUM_CRIT_SPACE              2
 

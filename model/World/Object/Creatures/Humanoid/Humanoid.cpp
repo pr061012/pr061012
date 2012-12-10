@@ -92,9 +92,8 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     // Initialize steps
     decr_endur_step = 0;
 
-    this -> detailed_act     = SLEEP_ON_THE_GROUND;
-    steps_to_choose_place = 200; // BAD
-
+    this -> detailed_act  = SLEEP_ON_THE_GROUND;
+    steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
 }
 
 Humanoid::~Humanoid()
@@ -572,11 +571,10 @@ std::vector <Action>* Humanoid::getActions()
                 if (c == Vector(-1, -1))
                 {
                     angle = Random::double_num(2 * M_PI);
-                    steps_to_choose_place = 200;
+                    steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
                 }
                 else
                 {
-                    std::cout << getObjectID() << " " << c.getX() << " " << c.getY() << std::endl;
                     setAim(c);
                 }
             }
@@ -587,7 +585,6 @@ std::vector <Action>* Humanoid::getActions()
                 double distance = getCoords().getDistance(current_goal_point);
                 if (DoubleComparison::isLess(distance, SZ_HUM_DIAM))
                 {
-                    std::cout << getObjectID() << " building house\n";
                     Action act(CREATE_OBJ, this);
                     act.addParam<ObjectType>("obj_type", BUILDING);
                     // TODO: Ugly. Humanoid need to pick max_space and max_health values
