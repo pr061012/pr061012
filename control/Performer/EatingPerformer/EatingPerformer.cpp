@@ -99,8 +99,7 @@ void EatingPerformer::perform(Action& action)
     if (action.isSucceeded())
     {
         // EPIC MEAL TIME!!!
-        // TODO: Magic const.
-        food -> damage(1);
+        food -> damage(RES_FOOD_EATING_DELTA);
         dynamic_cast<Creature*>(actor) -> decreaseHunger(food_value);
         action.markAsSucceeded();
         return;

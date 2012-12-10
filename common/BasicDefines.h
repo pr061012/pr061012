@@ -189,19 +189,16 @@
 /// Humanoid's weight.
 #define WGHT_HUMANOID               50
 
-// TODO: Different values for different types of NonHumanoid.
 /// Cow's weight.
 #define WGHT_NHUM_COW               30
 /// Dragon's weight.
 #define WGHT_NHUM_DRAGON            250
 
-// TODO: Different values for different types of Resource.
 /// Resource's weight.
 #define WGHT_RESOURCE               1
 
-// TODO: Different values for different types of Weather.
 /// Weather's weight.
-#define WGHT_WEATHER                1000
+#define WGHT_WEATHER                10000
 
 /// Building's weight.
 #define WGHT_BUILDING               400
@@ -365,6 +362,9 @@
 #define RES_BERRIES_FOOD_VALUE      2
 #define RES_MEAT_FOOD_VALUE         5
 #define RES_FOOD_VALUE              3
+
+/// Amount of resource which we take from resource while eating.
+#define RES_FOOD_EATING_DELTA       1
 
 //******************************************************************************
 // BUILDING DEFINES
