@@ -17,7 +17,7 @@ class ECLIInvalidInput: public std::exception
 public:
     /**
      * @brief Constructor.
-     * @param res_path  path to resource
+     * @param reason    path to resource
      */
     ECLIInvalidInput(std::string reason);
 

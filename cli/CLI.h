@@ -123,7 +123,8 @@ private:
 
     /**
      * @brief  `init` and `random-init` commands.
-     * @param  ss   stream with args
+     * @param  ss       stream with args
+     * @param  random   use random object generation or not
      * @return command output
      */
     std::string init(std::stringstream& ss, bool random);
@@ -144,7 +145,8 @@ private:
 
     /**
      * @brief  `list` command.
-     * @param  ss   stream with args
+     * @param  ss       stream with args
+     * @param  columns  amount of output columns
      * @return command output
      */
     std::string list(std::stringstream& ss, uint columns = 2);
