@@ -6,6 +6,7 @@
 #include <cmath>
 #include <cassert>
 #include <sstream>
+#include <iomanip>
 
 #include "../../../../../common/Math/Random.h"
 #include "../../../../../common/Math/DoubleComparison.h"
@@ -42,7 +43,7 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
     // Calculating record radius.
-    uint record_radius = this -> relative_record_radius * obj -> getShape().getSize();
+    double record_radius = (double) this -> relative_record_radius * obj -> getShape().getSize();
 
     // Getting coordinates.
     Vector coords = obj -> getCoords();
@@ -87,9 +88,10 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
                 // Calculating distance.
                 int delta_i = (int) i - (int) obj_i;
                 int delta_j = (int) j - (int) obj_j;
-                uint distance = ceil(sqrt(delta_i * delta_i + delta_j * delta_j));
+                double distance = sqrt(delta_i * delta_i + delta_j * delta_j) * this -> cell_size;
 
-                if (distance <= record_radius)
+                // Checking distance (in real sizes).
+                if (DoubleComparison::isLess(distance - obj -> getShape().getSize(), record_radius))
                 {
                     this -> map[i][j] += (double) obj -> getHealthPoints() / distance;
 
@@ -165,7 +167,7 @@ std::string HumanoidValueMap::print() const
     {
         for (uint j = 0; j < this -> map_columns; j++)
         {
-            ss << this -> map[i][j] << "\t";
+            ss << std::setprecision(3) << this -> map[i][j] << "\t";
         }
         ss << std::endl;
     }
