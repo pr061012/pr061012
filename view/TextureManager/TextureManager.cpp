@@ -105,3 +105,27 @@ Texture* TextureManager::getTexture(std::string name, Rotation rotation, int ind
 
     return tex;
 }
+
+Texture *TextureManager::getTexture(std::string name, double angle, int index, int step)
+{
+    Rotation rot = DOWN;
+
+    if(angle >= M_PI*7/4 || angle < M_PI/4)
+    {
+        rot = RIGHT;
+    }
+    if(angle >= M_PI/4 && angle < M_PI*3/4)
+    {
+        rot = UP;
+    }
+    if(angle >= M_PI*3/4 && angle < M_PI*5/4)
+    {
+        rot = LEFT;
+    }
+    if(angle >= M_PI*5/4 && angle < M_PI*7/4)
+    {
+        rot = DOWN;
+    }
+
+    return getTexture(name, rot, index, step);
+}

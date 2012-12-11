@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include <jsoncpp/json/json.h>
 
 #include "Texture/Texture.h"
@@ -31,6 +32,7 @@ public:
     ~TextureManager();
 
     Texture* getTexture(std::string name, Rotation rotation = UP, int index = 0, int step = 0);
+    Texture* getTexture(std::string name, double angle, int index = 0, int step = 0);
 };
 
 #endif // TEXTURE_MANAGER_H
