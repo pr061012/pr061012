@@ -100,14 +100,11 @@ void CreationPerformer::perform(Action& action)
 
                 if (cr -> getSubtype() != NON_HUMANOID)
                 {
-                    // Create new resource.
+                    // Create new building.
                     new_object = createBuilding(action, param);
 
-                    // Check coord new_object and add its in world.
-                    double size = new_object -> getShape().getSize() / 2;
-                    Vector new_center(Random::double_range(size, 1.2 * size) + actor_size,
-                                      Random::double_range(size, 1.2 * size) + actor_size);
-                    new_object -> setCoords(actor -> getCoords() + new_center);
+                    Vector new_center = action.getParam<Vector>("obj_center");
+                    new_object->setCoords(new_center);
 
                     if (checkCoord(new_object))
                     {
