@@ -139,6 +139,12 @@ std::vector <Action>* Humanoid::getActions()
 //        updateNeedInDesc();
     updateCommonAttrs();
 
+    // FIXME: Workaround! Need to find bug origin and fix it.
+    if (steps_to_choose_place > HUM_CPFH_STEPS_MAX)
+    {
+        steps_to_choose_place = HUM_CPFH_STEPS_MAX;
+    }
+
     // Update Need_in_house
     if (this -> home != nullptr)
     {
