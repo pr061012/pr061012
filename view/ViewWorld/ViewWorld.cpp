@@ -52,11 +52,14 @@ void ViewWorld::redraw()
 
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
 
+    rendered_objects.clear();
+
     for(uint i=0; i < objects.size(); i++)
     {
         if(!objects.at(i)->isDestroyed())
         {
-            this -> renderObject(objects.at(i));
+            rendered_objects.push_back(objects[i]);
+            this -> renderObject(objects[i]);
         }
     }
 }
@@ -287,6 +290,8 @@ void ViewWorld::renderObject(const Object* object)
     double px = this->worldToScreenX(p.getX());
     double py = this->worldToScreenY(p.getY());
 
+
+
 #ifdef VIEW_DEBUG // In case of debug mode, circles are drawn instead of objects.
     switch(object -> getType())
     {
@@ -375,6 +380,12 @@ void ViewWorld::renderObject(const Object* object)
     this -> getObjectTexture(object) -> render(px, py, sz, sz);
 #endif
 
+}
+
+const Texture *ViewWorld::getBackgroundTextureAt(double x, double y, double size)
+{
+
+    return NULL;
 }
 
 void ViewWorld::renderBackground()

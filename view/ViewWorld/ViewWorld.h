@@ -51,10 +51,8 @@ class ViewWorld
     bool paused;
 
     /// Objects which are displayed or used in some other
-    /// way by View during the current frame. This is
-    /// required to get information about units that are not
-    /// rendered right now but selected by player.
-    // std::vector<Object*> rendered_objects;
+    /// way by View during the current frame.
+    std::vector<const Object*> rendered_objects;
 
 public:
     //**************************************************************************
@@ -99,6 +97,8 @@ private:
      * @brief draws specific object relative to current coordinates
      */
     void renderObject(const Object* object);
+
+    const Texture* getBackgroundTextureAt(double x, double y, double size);
 
     /**
      * @brief render a grass background all over the window
