@@ -276,24 +276,28 @@ void View::redraw()
 
     if (selection.size() > 0)
     {
-        const Object* obj = selection[0];
-
-        double px = view_world -> worldToScreenX(obj -> getCoords().getX());
-        double py = view_world -> worldToScreenY(obj -> getCoords().getY());
-        double sz = view_world -> worldToScreenDist(obj -> getShape().getSize());
-
-        // TODO: Replace this workaround with more decent method to filter
-        //       out non-rendered objects.
-        bool isGrass = false;
-        if(obj -> getType() == RESOURCE)
+        for (uint i = 0; i < selection.size(); ++i)
         {
-            isGrass = ( static_cast<const Resource*>(obj) -> getSubtype() == GRASS );
-        }
+            const Object* obj = selection[i];
 
-        if(!obj -> isDestroyed() && !isGrass)
-        {
-            drawProgressBar(px-sz, py + sz/4, sz*2,
-                            (double)obj -> getHealthPoints() / obj -> getMaxHealthPoints());
+            // TODO: Replace this workaround with more decent method to filter
+            //       out non-rendered objects.
+            bool isGrass = false;
+            if(obj -> getType() == RESOURCE)
+            {
+                isGrass = ( static_cast<const Resource*>(obj) -> getSubtype() == GRASS );
+            }
+
+            if(!obj -> isDestroyed() && !isGrass)
+            {
+                double px = view_world -> worldToScreenX(obj -> getCoords().getX());
+                double py = view_world -> worldToScreenY(obj -> getCoords().getY());
+                double sz = view_world -> worldToScreenDist(obj -> getShape().getSize());
+
+                drawProgressBar(px-sz, py + sz/4, sz*2,
+                                (double)obj -> getHealthPoints() / obj -> getMaxHealthPoints());
+                break;
+            }
         }
     }
 
