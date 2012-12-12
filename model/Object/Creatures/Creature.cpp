@@ -542,13 +542,13 @@ void Creature::chooseDirectionToEscape()
        )
     {
         angle = getCoords().getAngle((*iter) -> getCoords());
-        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter, coords);
+        escape_vector += Vector(cos(angle), sin(angle)) * 
+                         evaluateDanger(*iter, coords);
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = Vector(0, 0).getAngle(escape_vector) + M_PI;
-    aim = 0;
-    direction_is_set = true;
+    escape_vector = getCoords() - escape_vector * getViewArea().getSize() / 2;
+    setAim(escape_vector);
 }
 
 //**********************************************************
