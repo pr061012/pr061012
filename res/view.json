@@ -10,6 +10,11 @@
             "alpha": true
         },
         {
+            "name": "Berry bush",
+            "file": "berry_bush.png",
+            "alpha": true
+        },
+        {
             "name": "Dragon",
             "file": "dragon.png",
             "split": true,

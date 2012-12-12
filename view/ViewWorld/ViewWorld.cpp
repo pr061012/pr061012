@@ -172,8 +172,23 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
     switch(obj -> getType())
     {
         case RESOURCE:
-            ret = texture_manager -> getTexture("Tree");
+        {
+            const Resource* res = static_cast<const Resource*>(obj);
+            switch(res -> getSubtype())
+            {
+                case BERRIES:
+                    ret = texture_manager -> getTexture("Berry bush");
+                    break;
+                case GRASS:
+                    ret = NULL;
+                    break;
+                default:
+                    ret = texture_manager -> getTexture("Tree");
+                    break;
+            }
+
             break;
+        }
         case CREATURE:
         {
             const Creature* cr = static_cast<const Creature*>(obj);
@@ -378,7 +393,12 @@ void ViewWorld::renderObject(const Object* object)
     px -= sz/2;
     py -= sz/2;
 
-    this -> getObjectTexture(object) -> render(px, py, sz, sz);
+    const Texture* tex = this -> getObjectTexture(object);
+
+    if(tex != NULL)
+    {
+        tex -> render(px, py, sz, sz);
+    }
 #endif
 
 }
@@ -421,11 +441,11 @@ ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
 
     if(greens > 0)
     {
-        return GRASS;
+        return GRASS_TERRAIN;
     }
     else
     {
-        return ROCK;
+        return ROCK_TERRAIN;
     }
 }
 
@@ -488,42 +508,42 @@ void ViewWorld::renderBackground()
             ne = landscape[i+1][j+1];
 
             tex = texture_manager -> getTextureAt("Terrain", 1, 1);
-            if(landscape[i][j] == GRASS)
+            if(landscape[i][j] == GRASS_TERRAIN)
             {
                 int tx = 3;
                 int ty = 2;
 
-                if(e == ROCK && nw != ROCK)
+                if(e == ROCK_TERRAIN && nw != ROCK_TERRAIN)
                 {
                     tx = 0;
                     ty = 1;
                 }
-                else if(n == ROCK && ne == GRASS)
+                else if(n == ROCK_TERRAIN && ne == GRASS_TERRAIN)
                 {
                     tx = 2;
                     ty = 1;
                 }
-                else if(n == ROCK && e == ROCK)
+                else if(n == ROCK_TERRAIN && e == ROCK_TERRAIN)
                 {
                     tx = 3;
                     ty = 0;
                 }
-                else if(n == ROCK)
+                else if(n == ROCK_TERRAIN)
                 {
                     tx = 1;
                     ty = 0;
                 }
-                else if(ne == ROCK)
+                else if(ne == ROCK_TERRAIN)
                 {
                     tx = 0;
                     ty = 0;
                 }
-                else if(se == ROCK && e == GRASS)
+                else if(se == ROCK_TERRAIN && e == GRASS_TERRAIN)
                 {
                     tx = 3;
                     ty = 2;
                 }
-                else if(se == ROCK)
+                else if(se == ROCK_TERRAIN)
                 {
                     tx = 0;
                     ty = 2;
@@ -531,32 +551,32 @@ void ViewWorld::renderBackground()
 
                 tex = texture_manager -> getTextureAt("Terrain", tx, ty);
             }
-            else if(landscape[i][j] == ROCK)
+            else if(landscape[i][j] == ROCK_TERRAIN)
             {
                 int tx = 1;
                 int ty = 1;
 
-                if(e == GRASS && ne == GRASS)
+                if(e == GRASS_TERRAIN && ne == GRASS_TERRAIN)
                 {
                     tx = 2;
                     ty = 1;
                 }
-                else if(se == GRASS && e == GRASS)
+                else if(se == GRASS_TERRAIN && e == GRASS_TERRAIN)
                 {
                     tx = 4;
                     ty = 0;
                 }
-                else if(n == GRASS && ne == GRASS)
+                else if(n == GRASS_TERRAIN && ne == GRASS_TERRAIN)
                 {
                     tx = 1;
                     ty = 2;
                 }
-                else if(n == GRASS)
+                else if(n == GRASS_TERRAIN)
                 {
                     tx = 3;
                     ty = 1;
                 }
-                else if(ne == GRASS)
+                else if(ne == GRASS_TERRAIN)
                 {
                     tx = 4;
                     ty = 1;

@@ -79,7 +79,7 @@ public:
 public:
     enum Terrain
     {
-        GRASS, ROCK
+        GRASS_TERRAIN, ROCK_TERRAIN
     };
 
 private:
