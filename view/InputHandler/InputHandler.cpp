@@ -2,7 +2,7 @@
 
 // TODO: Change name this define
 #define SPEED 1
-#define VIEW_Z_SPEED 0.05
+#define VIEW_Z_SPEED 0.1
 
 #ifdef __glfw3_h__
     #define glfwGetKey(key) glfwGetKey(view -> getWindow(), key)    

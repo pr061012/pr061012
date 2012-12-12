@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "../../common/Math/DoubleComparison.h"
+#include "../../model/Utilities/Shape/Shape.h"
 
 #include "../Utilities/ViewUtilities.h"
 

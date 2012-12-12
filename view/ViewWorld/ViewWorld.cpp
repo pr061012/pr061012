@@ -6,7 +6,7 @@
 #include "../../common/Log/Log.h"
 
 /// Max x and y of screen coordinates
-#define VIEW_CAM_SIZE               8
+#define VIEW_CAM_SIZE              8.0
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.
@@ -388,18 +388,17 @@ ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
     size *= 2.0;
     int greens = 0;
 
+    //const Shape shp(Vector(x, y), SQUARE, size);
+
     for(uint i = 0; i < rendered_objects.size(); ++i)
     {
+        // TODO: Consider adding a shape hitTest here.
+        //       Right now it will make the algorithm laggy.
+
         const Object* obj = rendered_objects[i];
         double rx = abs(obj -> getCoords().getX() - x);
         double ry = abs(obj -> getCoords().getY() - y);
 
-//        double rx = abs(x);
-//        double ry = abs(y);
-//        double rx = obj -> getCoords().getX() - x;
-//        double ry = obj -> getCoords().getY() - y;
-//        rx = rx < 0 ? -rx : rx;
-//        ry = ry < 0 ? -ry : ry;
         if(rx < size && ry < size)
         {
             if(obj -> getType() == RESOURCE)
@@ -417,7 +416,6 @@ ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
                         break;
                 }
             }
-//            greens++;
         }
     }
 
@@ -440,26 +438,11 @@ void ViewWorld::renderBackground()
     double px = this -> getX() / sz;
     double py = this -> getY() / sz;
 
-//    std::cout << floor(px) << " " << px << std::endl;
-
     px = -(px - floor(px)) * sz;
     py = -(py - floor(py)) * sz;
 
-//    px = -worldToScreenDist(px);
-//    py = -worldToScreenDist(py);
+    const Texture* tex;
 
-//    double px = worldToScreenDist( x - floor(x) );
-//    double py = worldToScreenDist( y - floor(y) );
-
-//    px -= floor(px);
-//    py -= floor(py);
-
-    const Texture* tex = texture_manager -> getTexture("Rock");
-
-
-//    tex -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
-//                  2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
-//                                        -px, -py);
 
     double rad = getCamRad();
     int max = 2 * (rad / sz);
@@ -486,7 +469,7 @@ void ViewWorld::renderBackground()
     Terrain e, ne, n, nw, w, sw, s, se;
 
     int min = max/2 - 1;
-    min = min ? min : 0;
+    min = min > 1 ? min : 1;
 
     wx = this -> x - rad - px - sz;
     for(int i = min; i < max*3/2; ++i)
@@ -494,12 +477,12 @@ void ViewWorld::renderBackground()
         wy = this -> y - rad - py - sz;
         for(int j = min; j < max*3/2; ++j)
         {
-            w  = landscape[i-1][j];
-            s  = landscape[i]  [j-1];
+//            w  = landscape[i-1][j];
+//            s  = landscape[i]  [j-1];
             n  = landscape[i]  [j+1];
             e  = landscape[i+1][j];
 
-            sw = landscape[i-1][j-1];
+//            sw = landscape[i-1][j-1];
             nw = landscape[i-1][j+1];
             se = landscape[i+1][j-1];
             ne = landscape[i+1][j+1];
@@ -544,26 +527,6 @@ void ViewWorld::renderBackground()
                     tx = 0;
                     ty = 2;
                 }
-//                else if(nw == ROCK)
-//                {
-//                    tx = 2;
-//                    ty = 0;
-//                }
-//                else if(w == ROCK)
-//                {
-//                    tx = 2;
-//                    ty = 1;
-//                }
-//                else if(sw == ROCK)
-//                {
-//                    tx = 2;
-//                    ty = 2;
-//                }
-//                else if(s == ROCK)
-//                {
-//                    tx = 1;
-//                    ty = 2;
-//                }
 
                 tex = texture_manager -> getTextureAt("Terrain", tx, ty);
             }
@@ -577,21 +540,11 @@ void ViewWorld::renderBackground()
                     tx = 2;
                     ty = 1;
                 }
-//                else if(e == GRASS)
-//                {
-//                    tx = 2;
-//                    ty = 1;
-//                }
                 else if(se == GRASS && e == GRASS)
                 {
                     tx = 4;
                     ty = 0;
                 }
-//                else if(s == GRASS)
-//                {
-//                    tx = 3;
-//                    ty = 0;
-//                }
                 else if(n == GRASS && ne == GRASS)
                 {
                     tx = 1;
@@ -607,26 +560,6 @@ void ViewWorld::renderBackground()
                     tx = 4;
                     ty = 1;
                 }
-//                if(nw == GRASS)
-//                {
-//                    tx = 3;
-//                    ty = 1;
-//                }
-//                else if(w == GRASS)
-//                {
-//                    tx = 0;
-//                    ty = 1;
-//                }
-//                else if(sw == GRASS)
-//                {
-//                    tx = 3;
-//                    ty = 0;
-//                }
-//                else if(s == GRASS)
-//                {
-//                    tx = 1;
-//                    ty = 0;
-//                }
 
                 tex = texture_manager -> getTextureAt("Terrain", tx, ty);
             }
