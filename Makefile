@@ -41,7 +41,7 @@ endif
 # View debug.
 ifeq ($(view), pretty)
 else
-	CFLAGS += -DVIEW_DEBUG
+#	CFLAGS += -DVIEW_DEBUG
 endif
 
 # Rules.

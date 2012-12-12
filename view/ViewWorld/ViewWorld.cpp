@@ -48,13 +48,13 @@ void ViewWorld::redraw()
         this -> step = 0;
     }
 
-    this -> renderBackground();
-
     std::vector<const Object*> objects = world.getViewObjectsInArea(x, y, getCamRad()*2);
+
+    this -> renderBackground();
 
     rendered_objects.clear();
 
-    for(uint i=0; i < objects.size(); i++)
+    for(uint i = 0; i < objects.size(); i++)
     {
         if(!objects.at(i)->isDestroyed())
         {
@@ -62,6 +62,7 @@ void ViewWorld::redraw()
             this -> renderObject(objects[i]);
         }
     }
+
 }
 
 
@@ -384,11 +385,21 @@ void ViewWorld::renderObject(const Object* object)
 
 ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
 {
+    //size = getCamRad();
     int greens = 0;
-    for(int i = 0; i < rendered_objects.size(); ++i)
+
+    for(uint i = 0; i < rendered_objects.size(); ++i)
     {
         const Object* obj = rendered_objects[i];
-        if(DoubleComparison::isGreater(obj -> getCoords().getX() - x, size))
+        double rx = abs(obj -> getCoords().getX() - x);
+        double ry = abs(obj -> getCoords().getY() - y);
+//        double rx = abs(x);
+//        double ry = abs(y);
+//        double rx = obj -> getCoords().getX() - x;
+//        double ry = obj -> getCoords().getY() - y;
+//        rx = rx < 0 ? -rx : rx;
+//        ry = ry < 0 ? -ry : ry;
+        if(rx < size && ry < size)
         {
             if(obj -> getType() == RESOURCE)
             {
@@ -405,7 +416,18 @@ ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
                         break;
                 }
             }
+//            greens++;
+//            std::cout << greens << std::endl;
         }
+    }
+
+    if(greens > 0)
+    {
+        return GRASS;
+    }
+    else
+    {
+        return ROCK;
     }
 }
 
@@ -415,39 +437,160 @@ void ViewWorld::renderBackground()
     double px = worldToScreenX( x - floor(x) );
     double py = worldToScreenY( y - floor(y) );
 
+    px = 0.0;
+    py = 0.0;
+
     const Texture* tex = texture_manager -> getTexture("Rock");
 
-    double sz = SZ_HUM_DIAM;
+    double sz = SZ_HUM_DIAM * 2.0;
+    double sz_scr = worldToScreenDist(sz);
 
 
-    tex -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
-                   2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
-                                          -px, -py);
+//    tex -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
+//                  2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
+//                                        -px, -py);
 
     double rad = getCamRad();
     int max = 2 * (rad / sz);
-    Terrain landscape[max][max];
-    double wx = this -> x;
-    double wy = this -> y;
+    Terrain** landscape = new Terrain*[2*max];
+    double wx = this -> x - 2*rad + px;
+    double wy = this -> y - 2*rad + py;
 
-    for(int i = 0; i < max; ++i)
+    for(int i = 0; i < 2*max; ++i)
     {
-        for(int j = 0; j < max; ++j)
+        landscape[i] = new Terrain[2*max];
+        for(int j = 0; j < 2*max; ++j)
         {
-            landscape[i][j] = getTerrainType();
-            this -> wy += sz;
+            landscape[i][j] = getTerrainType(wx, wy, sz);
+            wy += sz;
         }
-        this -> wx += sz;
+        wx += sz;
     }
 
-    for(int i = 0; i < max; ++i)
+    wx = this -> x - rad + px;
+
+    // Eight directions at neighbouring tiles.
+    Terrain e, ne, n, nw, w, sw, s, se;
+
+    for(int i = max/2; i < max*3/2; ++i)
     {
-        for(int j = 0; j < max; ++j)
+        wy = this -> y - rad + py;
+        for(int j = max/2; j < max*3/2; ++j)
         {
-            landscape[i][j] = getTerrainType();
-            this -> wy += sz;
+            w  = landscape[i-1][j];
+            s  = landscape[i]  [j-1];
+            n  = landscape[i]  [j+1];
+            e  = landscape[i+1][j];
+
+            sw = landscape[i-1][j-1];
+            nw = landscape[i-1][j+1];
+            se = landscape[i+1][j-1];
+            ne = landscape[i+1][j+1];
+
+            if(landscape[i][j] == GRASS)
+            {
+                int tx = 3;
+                int ty = 2;
+
+                if(e == ROCK)
+                {
+                    tx = 0;
+                    ty = 1;
+                }
+                else if(se == ROCK)
+                {
+                    tx = 0;
+                    ty = 2;
+                }
+                else if(ne == ROCK)
+                {
+                    tx = 0;
+                    ty = 0;
+                }
+                else if(n == ROCK)
+                {
+                    tx = 1;
+                    ty = 0;
+                }
+                else if(nw == ROCK)
+                {
+                    tx = 2;
+                    ty = 0;
+                }
+                else if(w == ROCK)
+                {
+                    tx = 2;
+                    ty = 1;
+                }
+                else if(sw == ROCK)
+                {
+                    tx = 2;
+                    ty = 2;
+                }
+                else if(s == ROCK)
+                {
+                    tx = 1;
+                    ty = 2;
+                }
+                std::cout << "Grass" << std::endl;
+
+                tex = texture_manager -> getTextureAt("Terrain", tx, ty);
+            }
+            else if(landscape[i][j] == ROCK)
+            {
+                int tx = 1;
+                int ty = 1;
+
+                if(e == GRASS)
+                {
+                    tx = 2;
+                    ty = 1;
+                }
+                else if(se == GRASS)
+                {
+                    tx = 4;
+                    ty = 0;
+                }
+                else if(ne == GRASS)
+                {
+                    tx = 4;
+                    ty = 1;
+                }
+                else if(n == GRASS)
+                {
+                    tx = 1;
+                    ty = 2;
+                }
+                else if(nw == GRASS)
+                {
+                    tx = 3;
+                    ty = 1;
+                }
+                else if(w == GRASS)
+                {
+                    tx = 0;
+                    ty = 1;
+                }
+                else if(sw == GRASS)
+                {
+                    tx = 3;
+                    ty = 0;
+                }
+                else if(s == GRASS)
+                {
+                    tx = 1;
+                    ty = 0;
+                }
+
+                tex = texture_manager -> getTextureAt("Terrain", tx, ty);
+            }
+
+            tex -> render(worldToScreenX(wx), worldToScreenY(wy),
+                          sz_scr, sz_scr);
+
+            wy += sz;
         }
-        this -> wx += sz;
+        wx += sz;
     }
 
     glColor3f(1.0f, 1.0f, 1.0f);
