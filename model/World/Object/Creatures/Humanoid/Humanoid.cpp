@@ -202,6 +202,15 @@ std::vector <Action>* Humanoid::getActions()
             need_in_house = 100 * home -> getHealthPoints() / home -> getMaxHealthPoints();
         }
     }
+    // Boundary case. Maybe meteor shower killed our victim?
+    if (aim && aim -> isDestroyed())
+    {
+        resetAim();
+        if (detailed_act == FIGHT)
+        {
+            current_action = NONE;
+        }
+    }
 
     // Get current errors
     current_errors.clear();
@@ -224,12 +233,6 @@ std::vector <Action>* Humanoid::getActions()
         current_action = brains.makeDecision(attrs);
         resetAim();
         detailed_act = chooseAction(current_action);
-    }
-
-    // Boundary case. Maybe meteor shower killed our victim?
-    if (aim && aim -> isDestroyed())
-    {
-        resetAim();
     }
 
     // Get messages
@@ -512,6 +515,7 @@ std::vector <Action>* Humanoid::getActions()
             if (!getReachArea().hitTest(aim -> getShape()))
             {
                 go(FAST_SPEED);
+                this -> sociability++;
             }
             else
             {
@@ -847,6 +851,8 @@ DetailedHumAction Humanoid::chooseWayToSleep()
 
 DetailedHumAction Humanoid::chooseWayToEscape()
 {
+    if (detailed_act == FIGHT)
+        return FIGHT;
     return RUN_FROM_DANGER;
 }
 
