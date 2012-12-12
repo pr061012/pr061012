@@ -1,6 +1,6 @@
 /*
-    Copyright (c, std::string text) 2012, pr061012 Team.
-    See the LICENSE file for copying permission.
+    Copyright (C) 2012, pr061012 Team.
+    See the COPYING file for copying permission.
 */
 
 #include <cstdlib>

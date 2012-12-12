@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2012, pr061012 Team.
+    Copyright (C) 2012, pr061012 Team.
     See the COPYING file for copying permission.
 */
 
@@ -35,4 +35,4 @@ private:
     std::string res_path;
 };
 
-#endif // EINVALIDRESPATH_H
+#endif // E_INVALID_RES_PATH_H

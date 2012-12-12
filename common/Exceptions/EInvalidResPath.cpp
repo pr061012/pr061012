@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2012, pr061012 Team.
+    Copyright (C) 2012, pr061012 Team.
     See the COPYING file for copying permission.
 */
 
@@ -21,6 +21,6 @@ std::string EInvalidResPath::getResPath()
 const char* EInvalidResPath::what() const throw()
 {
     std::stringstream ss;
-    ss << "Failed to load resource: invalid path (" << this -> res_path << ")";
+    ss << "Failed to load resource: invalid path (" << this -> res_path << ").";
     return ss.str().c_str();
 }
