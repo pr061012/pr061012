@@ -487,6 +487,7 @@ void ViewWorld::renderBackground()
             se = landscape[i+1][j-1];
             ne = landscape[i+1][j+1];
 
+            tex = texture_manager -> getTextureAt("Terrain", 1, 1);
             if(landscape[i][j] == GRASS)
             {
                 int tx = 3;

@@ -6,7 +6,7 @@
 #ifndef CLI_H
 #define CLI_H
 
-#include "../model/World/World.h"
+#include "../model/World.h"
 #include "../control/Controller/Controller.h"
 
 /**

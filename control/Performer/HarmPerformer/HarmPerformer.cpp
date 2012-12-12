@@ -9,11 +9,11 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../common/BasicTypes.h"
 
-#include "../../../model/World/Message/Message.h"
-#include "../../../model/World/Object/Object.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Weather/Weather.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Message/Message.h"
+#include "../../../model/Object/Object.h"
+#include "../../../model/Object/Weather/Weather.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
 #include <vector>
 
@@ -38,6 +38,7 @@ void HarmPerformer::perform(Action& action)
     // Get actor and type of actor.
     Object* actor = action.getActor();
     ObjectType type = actor -> getType();
+    uint harm = calculateHarm(actor);
 
     uint count_error = 0;
     // Check type of actor.
@@ -72,8 +73,6 @@ void HarmPerformer::perform(Action& action)
 
         if (env_shape.hitTest(participants[0] -> getShape()))
         {
-            uint harm = actor_cr -> getForce() /
-                        Random::int_range(DMG_FORCE_MIN, DMG_FORCE_MAX);
             participants[0] -> damage(harm);
 
             // Send message about attack.
@@ -120,8 +119,6 @@ void HarmPerformer::perform(Action& action)
                 !participants[i] -> isImmortal()
             )
             {
-                uint harm = weather -> getDangerLevel() /
-                            Random::int_range(DMG_DANGER_MIN, DMG_DANGER_MAX);
                 participants[i] -> damage(harm);
 
                 // Send message about attack.
@@ -153,5 +150,62 @@ void HarmPerformer::perform(Action& action)
     {
         // FIXME: Setting this error even if error is in immortal objects.
         action.markAsSucceededWithErrors(SOME_OBJS_ARE_OUT_OF_REACH);
+    }
+}
+
+
+uint HarmPerformer::calculateHarm(Object* actor)
+{
+    ObjectType type = actor -> getType();
+    if (type == CREATURE)
+    {
+        Creature* cr = dynamic_cast<Creature*>(actor);
+        CreatureType subtype = cr -> getSubtype();
+        uint force = cr -> getForce();
+
+        if (subtype == HUMANOID)
+        {
+            return force * Random::int_range(DMG_HUM_MIN, DMG_HUM_MAX);
+        }
+        else
+        {
+            NonHumanoid* nhum = dynamic_cast<NonHumanoid*>(cr);
+            NonHumanoidType sstype = nhum -> getSubsubtype();
+
+            if (sstype == DRAGON)
+            {
+                return force * Random::int_range(DMG_NHUM_DRG_MIN, DMG_NHUM_DRG_MAX);
+            }
+            else if (sstype == COW)
+            {
+                return force * Random::int_range(DMG_NHUM_COW_MIN, DMG_NHUM_COW_MAX);
+            }
+            else
+            {
+                return force * Random::int_range(DMG_NHUM_MIN, DMG_NHUM_MAX);
+            }
+        }
+    }
+    else if (type == WEATHER)
+    {
+        Weather* weat = dynamic_cast<Weather*>(actor);
+        WeatherType type = weat -> getSubtype();
+
+        if (type == HURRICANE)
+        {
+            return Random::int_range(DMG_WEAT_HRCN_MIN, DMG_WEAT_HRCN_MAX);
+        }
+        else if (type == METEOR_SHOWER)
+        {
+            return Random::int_range(DMG_WEAT_MS_MIN, DMG_WEAT_MS_MAX);
+        }
+        else
+        {
+            return Random::int_range(DMG_WEAT_MIN, DMG_WEAT_MAX);
+        }
+    }
+    else
+    {
+        return 0;
     }
 }

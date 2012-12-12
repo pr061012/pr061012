@@ -6,8 +6,8 @@
 #ifndef PERFORMER_H__
 #define PERFORMER_H__
 
-#include "../../model/World/Action/Action.h"
-#include "../../model/World/World.h"
+#include "../../model/Action/Action.h"
+#include "../../model/World.h"
 
 /**
  * @class Performer

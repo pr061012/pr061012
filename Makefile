@@ -14,7 +14,7 @@ CLI_DIR     = $(INPUT_DIR)cli/
 COMMON_DIR  = $(INPUT_DIR)common/
 
 # Files with sources.
-SOURCES     = $(wildcard $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)*/*/*/*.cpp $(MODEL_DIR)*/*/*/*/*.cpp)
+SOURCES     = $(wildcard $(MODEL_DIR)*.cpp $(MODEL_DIR)*/*.cpp $(MODEL_DIR)*/*/*.cpp $(MODEL_DIR)*/*/*/*.cpp)
 SOURCES    += $(wildcard $(CONTROL_DIR)*.cpp $(CONTROL_DIR)*/*.cpp $(CONTROL_DIR)*/*/*.cpp)
 SOURCES    += $(wildcard $(VIEW_DIR)*.cpp $(VIEW_DIR)*/*.cpp $(VIEW_DIR)*/*/*.cpp)
 SOURCES    += $(wildcard $(CLI_DIR)*.cpp)
@@ -41,7 +41,7 @@ endif
 # View debug.
 ifeq ($(view), pretty)
 else
-#	CFLAGS += -DVIEW_DEBUG
+	CFLAGS += -DVIEW_DEBUG
 endif
 
 # Rules.

@@ -15,7 +15,7 @@
 #include "InputHandler/InputHandler.h"
 #include "../common/BasicTypes.h"
 #include "../common/BasicDefines.h"
-#include "../model/World/IWorld.h"
+#include "../model/IWorld.h"
 #include "TextField/TextField.h"
 #include "Utilities/ViewUtilities.h"
 

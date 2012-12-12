@@ -1,6 +1,6 @@
 #include "View.h"
-#include "../model/World/Object/Creatures/Creature.h"
-#include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../model/Object/Creatures/Creature.h"
+#include "../model/Object/Creatures/Humanoid/Humanoid.h"
 
 #include "../common/Log/Log.h"
 
@@ -61,6 +61,7 @@ View::~View()
 {
     delete view_world;
     delete input_handler;
+    delete texture_manager;
 
     for (uint i = 0; i < rendered.size(); i++)
     {

@@ -8,7 +8,7 @@
 
 #include "../Performer.h"
 
-#include "../../../model/World/World.h"
+#include "../../../model/World.h"
 
 /**
  * @class HarmPerformer
@@ -41,6 +41,17 @@ public:
      * @param action a request for harm
      */
     void perform(Action& action);
+
+private:
+    //**************************************************************************
+    // AUXILIARY FUNCTIONS
+    //**************************************************************************
+
+    /**
+     * @brief Calculate Harm
+     * @return harm
+     */
+    uint calculateHarm(Object *actor);
 
 };
 

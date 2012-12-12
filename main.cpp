@@ -10,7 +10,7 @@
 #include "common/Log/Log.h"
 #include "common/Exceptions/EInvalidResPath.h"
 #include "control/Controller/Controller.h"
-#include "model/World/World.h"
+#include "model/World.h"
 #include "view/View.h"
 #include "cli/CLI.h"
 
