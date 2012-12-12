@@ -20,6 +20,13 @@
 World::~World()
 {
     this -> deleteEverything();
+
+    delete[] object_parameters[RESOURCE];
+    delete[] object_parameters[CREATURE];
+    delete[] object_parameters[WEATHER];
+    delete[] object_parameters;
+
+    delete[] weather_probabilities;
 }
 
 World::World(std::string filepath) :

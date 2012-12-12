@@ -61,6 +61,7 @@ View::~View()
 {
     delete view_world;
     delete input_handler;
+    delete texture_manager;
 
     for (uint i = 0; i < rendered.size(); i++)
     {
