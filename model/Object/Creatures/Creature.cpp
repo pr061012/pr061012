@@ -134,6 +134,11 @@ void Creature::setCurrentAction(CreatureAction act)
     this -> current_action = act;
 }
 
+double Creature::getAngle()
+{
+    return angle;
+}
+
 //**********************************************************
 // AGE
 //**********************************************************

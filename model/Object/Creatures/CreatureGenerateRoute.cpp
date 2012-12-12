@@ -173,6 +173,7 @@ Creature::Path Creature::generateRoute()
     // Some creatures can fly
     if (!isCurrentlyFlying() && isSolid())
     {
+        aimless = true;
         // Check if our object lies inside view_area
         Vector goal_point;
         bool goal_in_sight;
@@ -290,7 +291,7 @@ Creature::Path Creature::generateRoute()
                         // Make the loops stop
                         open_vertex_set.clear();
                         i = 100;
-                        assert(result.size());
+                        aimless = false;
                         continue;
 
                     case 0:
@@ -315,7 +316,6 @@ Creature::Path Creature::generateRoute()
                         break;
                 }
             }
-
         }
         // FIXME
         // Think how to process failures (path not found)
@@ -324,6 +324,5 @@ Creature::Path Creature::generateRoute()
     //std::cout << "Creature:" << getObjectID() << ' ' << "Goal:" << 
     //        goal -> getObjectID() << ' ' << "Nodes:" << debug_step << std::endl;
 
-    assert(result.size());
     return result;
 }
