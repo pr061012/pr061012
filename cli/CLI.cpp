@@ -129,6 +129,8 @@ static std::string sformat(const std::string& format, ...)
     return result;
 }
 
+// Reads T from stringstream. Argument name is neaded for exception throwing
+// (if failed).
 template<class T> static T readFromSS(std::stringstream& ss, std::string arg_name) throw(ECLIInvalidInput)
 {
     T t;
