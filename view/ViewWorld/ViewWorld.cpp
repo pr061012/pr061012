@@ -386,7 +386,7 @@ const Texture *ViewWorld::getBackgroundTextureAt(double x, double y, double size
 {
 
 
-    return texture_manager -> getTextureAt("Terrain", 0, 0);
+    return texture_manager -> getTexture("Rock");
 }
 
 void ViewWorld::renderBackground()
@@ -397,10 +397,15 @@ void ViewWorld::renderBackground()
 
     const Texture* tex = getBackgroundTextureAt(x, y, VIEW_CAM_SIZE);
 
+    double sz = worldToScreenDist(1.0);
+
 
     tex -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
                    2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
                                           -px, -py);
+
+    tex = texture_manager -> getTextureAt("Terrain", 0, 0);
+    tex -> render(0.0, 0.0, 1.0, 1.0);
 
     glColor3f(1.0f, 1.0f, 1.0f);
 #else

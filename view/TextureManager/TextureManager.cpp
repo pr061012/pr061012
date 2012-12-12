@@ -131,6 +131,7 @@ Texture *TextureManager::getTexture(std::string name, double angle, int index, i
 
 Texture *TextureManager::getTextureAt(std::string name, int xpart, int ypart)
 {
+    name += "_0";
     Texture* tex = texture_buf.find(name) -> second;
 
     if(!tex)

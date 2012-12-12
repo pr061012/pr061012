@@ -22,7 +22,7 @@
             "file": "terrain.png",
             "split": true,
             "xparts": 5,
-            "yparts": 3,
+            "yparts": 3
         },
         {
             "name": "Human",
