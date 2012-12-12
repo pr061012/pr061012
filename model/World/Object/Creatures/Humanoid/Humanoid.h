@@ -279,30 +279,37 @@ private:
     //**************************************************************************
 
     /**
-     * @brief Processing os actions errors.
+     * @brief  Processing os actions errors.
+     * @return Array with action errors.
      */
     std::vector<ActionError> errorProcess();
 
+    /// Array with current errors.
     std::vector<ActionError> current_errors;
+
     //**************************************************************************
     // MESSAGES
     //**************************************************************************
+
     void messageProcess();
 
     //**************************************************************************
-    // AUXILIARY VARIABLE
-    // FIXME it is really bad idea
+    // HOME CREATION.
     //**************************************************************************
 
     /// How often he change direction when he try to choose place for home
     uint steps_to_choose_place;
 
-    /// Angle wich used only in CHOOSE_PLACE_FOR_HOME
-    double special_angle;
+    /**
+     * @brief Runs HumanoidValueMap and choose the best place for home. (Or
+     *        forces humanoid to roam around, if there is no best place at all.)
+     */
+    void chooseBestPlace();
 
     //**************************************************************************
     // SEARCHING FUNCTION
     //**************************************************************************
+
     /**
      * @brief Searching for resource
      * @param  type type of res.
@@ -314,18 +321,18 @@ private:
     void findVictim();
 
     /**
-     * @brief Searching for res in inventory
-     * @param type Resource type
+     * @brief  Searching for res in inventory
+     * @param  type Resource type
      * @return Object Founded obj
      */
-    Object *isResInInventory(ResourceType type);
+    Object* isResInInventory(ResourceType type);
 
     //**************************************************************************
     // INVENTORY FUNC
     //**************************************************************************
 
     /**
-     * @brief Calculate, how many res amount should humanoid mine
+     * @brief  Calculate, how many res amount should humanoid mine
      * @return uint res amount
      */
     uint calculateNecessResAmount();
@@ -336,7 +343,7 @@ private:
     void putInvInHome();
 
     /**
-     * @brief Drop on ground or put in home
+     * @brief  Drop on ground or put in home
      * @return bool drop - false; home - true
      */
     bool putHomeAux(ResourceType type);

@@ -564,19 +564,7 @@ std::vector <Action>* Humanoid::getActions()
             // for home.
             if (aimless)
             {
-                HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
-                Vector c = map.getBestPlace();
-
-                // Sad but true.
-                if (c == Vector(-1, -1))
-                {
-                    angle = Random::double_num(2 * M_PI);
-                    steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
-                }
-                else
-                {
-                    setAim(c);
-                }
+                chooseBestPlace();
             }
 
             if (!aimless)
@@ -585,17 +573,36 @@ std::vector <Action>* Humanoid::getActions()
                 double distance = getCoords().getDistance(current_goal_point);
                 if (DoubleComparison::isLess(distance, SZ_HUM_DIAM))
                 {
-                    Action act(CREATE_OBJ, this);
-                    act.addParam<ObjectType>("obj_type", BUILDING);
-                    act.addParam<Vector>("obj_center", current_goal_point);
-                    // TODO: Ugly. Humanoid need to pick max_space and max_health values
-                    //       more accurate.
-                    act.addParam<uint>("building_max_space",
-                                   Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
-                    act.addParam<uint>("building_max_health",
-                                   Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
-                    this -> actions.push_back(act);
-                    current_action = NONE;
+                    // Did we try to create building here or not?
+                    bool errors = false;
+                    for (uint i = 0; i < current_errors.size(); i++)
+                    {
+                        if (current_errors[i] == NO_PLACE_TO_PLACE_OBJ_ON)
+                        {
+                            errors = true;
+                        }
+                    }
+
+                    // Choosing another place if there were errors.
+                    if (errors)
+                    {
+                        chooseBestPlace();
+                    }
+                    // No errors: trying to create building.
+                    else
+                    {
+                        Action act(CREATE_OBJ, this);
+                        act.addParam<ObjectType>("obj_type", BUILDING);
+                        act.addParam<Vector>("obj_center", current_goal_point);
+                        // TODO: Ugly. Humanoid need to pick max_space and max_health values
+                        //       more accurate.
+                        act.addParam<uint>("building_max_space",
+                                       Random::int_range(BLD_MAX_SPACE_MIN, BLD_MAX_SPACE_MAX));
+                        act.addParam<uint>("building_max_health",
+                                       Random::int_range(BLD_MAX_HEALTH_MIN, BLD_MAX_HEALTH_MAX));
+                        this -> actions.push_back(act);
+                        current_action = NONE;
+                    }
                 }
                 else
                 {
@@ -658,6 +665,7 @@ void Humanoid::messageProcess()
 // ACTION'S ERRORS
 // Processing of action's errors.
 //******************************************************************************
+
 std::vector<ActionError> Humanoid::errorProcess()
 {
     std::vector<ActionError> error;
@@ -689,6 +697,7 @@ void Humanoid::updateNeedInDesc()
 //TODO Make separate update for sciability
     // this -> sociability += HUM_DELTA_SOC;
     // this -> attrs(ATTR_COMMUNICATION,0)     = 100 * sociability / max_sociability;
+
 //******************************************************************************
 // CHOOSE ACTION
 // Fuтction gets current action (decision) and called other function to make
@@ -723,6 +732,7 @@ DetailedHumAction Humanoid::chooseAction(CreatureAction action)
 // going to sleep on the ground.
 // But they relax too much. So, sometimes they searching for food or resource.
 //******************************************************************************
+
 DetailedHumAction Humanoid::chooseWayToRelax()
 {
     if
@@ -767,6 +777,7 @@ DetailedHumAction Humanoid::chooseWayToRelax()
 // We just check: is his home exsist at all? If it doesn't exist he is going to
 // choose place for home. After that he will mine reciurse and build.
 //******************************************************************************
+
 DetailedHumAction Humanoid::chooseWayToBuild()
 {
     if (this -> home == 0)
@@ -789,6 +800,7 @@ DetailedHumAction Humanoid::chooseWayToBuild()
 // If he is bravery guy he will hunt. In other case, he will search food. But if
 // he already has foon in inventory - he just takes it.
 //******************************************************************************
+
 DetailedHumAction Humanoid::chooseWayToEat()
 {
     if (isResInInventory(GRASS) || isResInInventory(MEAT) || isResInInventory(BERRIES))
@@ -816,6 +828,7 @@ DetailedHumAction Humanoid::chooseWayToEat()
 // The best way to sleep is sleeping at home. But ih humanoid doesn't have home
 // or he is too far from it he will sleep in the ground.
 //******************************************************************************
+
 DetailedHumAction Humanoid::chooseWayToSleep()
 {
     if (this -> home != nullptr)
@@ -831,6 +844,7 @@ DetailedHumAction Humanoid::chooseWayToSleep()
 // Indeed this is case when he just escapes dangerous place. He would figt if
 // somebody tries to attack him or when he hunts.
 //******************************************************************************
+
 DetailedHumAction Humanoid::chooseWayToEscape()
 {
     return RUN_FROM_DANGER;
@@ -914,6 +928,27 @@ std::string Humanoid::printObjectInfo(bool full) const
     }
 
     return ss.str();
+}
+
+//******************************************************************************
+// HOME CREATION.
+//******************************************************************************
+
+void Humanoid::chooseBestPlace()
+{
+    HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+    Vector c = map.getBestPlace();
+
+    // Sad but true.
+    if (c == Vector(-1, -1))
+    {
+        angle = Random::double_num(2 * M_PI);
+        steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
+    }
+    else
+    {
+        setAim(c);
+    }
 }
 
 //******************************************************************************
