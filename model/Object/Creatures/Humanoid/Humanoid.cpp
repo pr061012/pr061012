@@ -93,7 +93,6 @@ Humanoid::Humanoid(const DecisionMaker& dmaker) :
     decr_endur_step = 0;
 
     this -> detailed_act  = SLEEP_ON_THE_GROUND;
-    steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
 }
 
 Humanoid::~Humanoid()
@@ -1203,6 +1202,7 @@ uint Humanoid::calculateNecessResAmount()
         else
         {
             detailed_act = CHOOSE_PLACE_FOR_HOME;
+            steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
             return 0;
         }
     }
