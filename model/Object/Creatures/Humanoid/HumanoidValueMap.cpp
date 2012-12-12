@@ -3,7 +3,11 @@
     See the COPYING file for copying permission.
 */
 
+
+#define _GLIBCXX_USE_NANOSLEEP
+
 #include <cmath>
+#include <chrono>
 #include <cassert>
 #include <sstream>
 #include <iomanip>
@@ -42,6 +46,9 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
+    std::chrono::steady_clock::time_point t1, t2;
+    std::chrono::duration<double> time_span;
+
     // Getting object shape.
     Shape obj_shape = obj -> getShape();
     // Make shape more bigger.
@@ -68,16 +75,17 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     end_i   = end_i   >= (int) this -> map_rows    ? (int) this -> map_rows    : end_i;
     end_j   = end_j   >= (int) this -> map_columns ? (int) this -> map_columns : end_j;
 
+    Shape shape(Vector(0, 0), SQUARE, this -> cell_size);
+
+    t1 = std::chrono::steady_clock::now();
     // Updating cell's values.
     for (uint i = (uint) begin_i; i < (uint) end_i; i++)
     {
         for (uint j = (uint) begin_j; j < (uint) end_j; j++)
         {
-            // Calculating this cell real coordinates.
-            Vector cell_coords( ( (double) i + 0.5 ) * this -> cell_size,
-                                ( (double) j + 0.5 ) * this -> cell_size);
             // Creating this cell shape.
-            Shape shape(cell_coords, SQUARE, this -> cell_size);
+            shape.setCenter(Vector(( (double) i + 0.5 ) * this -> cell_size,
+                                   ( (double) j + 0.5 ) * this -> cell_size));
 
             // Checking whether object intersects this cell.
             if (shape.hitTest(obj_shape))
@@ -133,6 +141,9 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
             }
         }
     }
+    t2 = std::chrono::steady_clock::now();
+    time_span = std::chrono::duration_cast< std::chrono::duration<double> >(t2 - t1);
+    std::cout << time_span.count() << std::endl;
 }
 
 void HumanoidValueMap::reevaluate()
