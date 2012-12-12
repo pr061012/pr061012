@@ -20,11 +20,11 @@
 
 #include "../../common/BasicTypes.h"
 #include "../../common/BasicDefines.h"
-#include "../../model/World/IWorld.h"
-#include "../../model/World/Object/Object.h"
-#include "../../model/World/Object/Creatures/Creature.h"
-#include "../../model/World/Object/Creatures/Humanoid/Humanoid.h"
-#include "../../model/World/Object/Resource/Resource.h"
+#include "../../model/IWorld.h"
+#include "../../model/Object/Object.h"
+#include "../../model/Object/Creatures/Creature.h"
+#include "../../model/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../model/Object/Resource/Resource.h"
 
 class ViewWorld
 {

@@ -7,7 +7,7 @@
 #define EATING_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/World.h"
+#include "../../../model/World.h"
 
 /**
  * @class EatingPerformer

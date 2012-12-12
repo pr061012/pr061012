@@ -7,10 +7,9 @@
 #define MINING_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/World.h"
-#include "../../../model/World/Object/Resource/Resource.h"
-#include "../../../model/World/Object/Tool/Tool.h"
-
+#include "../../../model/World.h"
+#include "../../../model/Object/Resource/Resource.h"
+#include "../../../model/Object/Tool/Tool.h"
 
 /**
  * @class MiningPerformer

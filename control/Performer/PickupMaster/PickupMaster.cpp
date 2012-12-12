@@ -4,8 +4,8 @@
 */
 
 #include "PickupMaster.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
 #include <string>
 #include <cmath>
 

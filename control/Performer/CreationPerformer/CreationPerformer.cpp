@@ -9,9 +9,9 @@
 #include "../../../common/BasicTypes.h"
 #include "../../../common/BasicDefines.h"
 
-#include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
-#include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Object/Resource/Resource.h"
 
 CreationPerformer::CreationPerformer(World* world):
     Performer(world) 
