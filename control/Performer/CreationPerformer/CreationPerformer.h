@@ -10,8 +10,8 @@
 
 #include "../../../common/ParamArray/ParamArray.h"
 
-#include "../../../model/World/World.h"
-#include "../../../model/World/Object/Object.h"
+#include "../../../model/World.h"
+#include "../../../model/Object/Object.h"
 
 /**
  * @class CreationPerformer

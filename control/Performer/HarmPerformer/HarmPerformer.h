@@ -8,7 +8,7 @@
 
 #include "../Performer.h"
 
-#include "../../../model/World/World.h"
+#include "../../../model/World.h"
 
 /**
  * @class HarmPerformer

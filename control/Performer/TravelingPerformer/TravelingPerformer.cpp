@@ -7,7 +7,8 @@
 #include <string>
 
 #include "TravelingPerformer.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 
@@ -70,7 +71,6 @@ void TravelingPerformer::perform(Action& action)
         dest.getY() + size >= world -> getSize()
     )
     {
-        // FIXME: Strange error, isn't it?
         action.markAsFailed(OBJ_IS_OUT_OF_WORLD_BOUNDS);
         return;
     }
@@ -91,15 +91,23 @@ void TravelingPerformer::perform(Action& action)
 
         // Look for all the obstacles and check if actor collides
         // with anything
-        ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(actor -> getShape());
-        for (ObjectHeap::iterator i = obstacles.begin();
-             i != obstacles.end(); i++)
+        ObjectHeap obstacles = world -> getIndexator() -> 
+                        getAreaContents(actor -> getShape(), actor, true);
+        uint amount = obstacles.getAmount();
+
+        // Humanoids can pass through their homes. 
+        // Otherwise objects can't move.
+        if (
+            !(amount == 1 &&
+              actor_type == CREATURE &&
+              dynamic_cast<Creature*>(actor) -> getSubtype() == HUMANOID &&
+              dynamic_cast<Humanoid*>(actor) -> getHome() &&
+              dynamic_cast<Humanoid*>(actor) -> getHome() -> getObjectID() == 
+              (*obstacles.begin()) -> getObjectID()) &&
+             amount
+           )
         {
-            if ((*i) -> isSolid() && (*i) != actor)
-            {
-                action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
-                break;
-            }
+            action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
         }
 
         // if everything is ok, reindexate actor
