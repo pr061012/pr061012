@@ -24,7 +24,9 @@ CreationPerformer::~CreationPerformer()
 
 }
 
-//TODO: Add comments.
+// TODO: Add comments.
+// FIXME: Your architecture is strange. And checks in checkCoord() contain
+//        possible bugs.
 
 void CreationPerformer::perform(Action& action)
 {
@@ -173,7 +175,7 @@ bool CreationPerformer::checkCoord(Object* new_obj)
         (
             !count_building &&
             !count_resource &&
-            !count_creature
+            count_creature == 1
         )
         {
             return true;
