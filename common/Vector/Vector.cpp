@@ -7,8 +7,7 @@
 #include <limits>
 
 #include "Vector.h"
-#include "../../../common/BasicDefines.h"
-#include "../../../common/Math/DoubleComparison.h"
+#include "../Math/DoubleComparison.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.

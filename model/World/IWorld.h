@@ -4,8 +4,8 @@
 #include "Action/Action.h"
 #include "ObjectHeap/ObjectHeap.h"
 #include "Indexator/Indexator.h"
-#include "../Utilities/Shape/Shape.h"
 #include "../World/ObjectFactory/ObjectFactory.h"
+#include "../../common/Shape/Shape.h"
 #include "../../common/BasicTypes.h"
 //#include "../../view/ViewObject/ViewObject.h"
 

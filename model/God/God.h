@@ -7,7 +7,7 @@
 #define GOD_H
 
 #include "../World/World.h"
-#include "../../model/Utilities/Vector/Vector.h"
+#include "../../common/Vector/Vector.h"
 #include <vector>
 
 /**

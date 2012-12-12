@@ -9,7 +9,7 @@
 #include <cstdarg>
 #include <sstream>
 
-#include "../model/Utilities/Vector/Vector.h"
+#include "../common/Vector/Vector.h"
 #include "../model/World/Object/Resource/Resource.h"
 #include "../model/World/Object/Creatures/Creature.h"
 #include "../model/World/Object/Creatures/Humanoid/Humanoid.h"

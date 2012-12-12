@@ -1,6 +1,6 @@
 #include "World.h"
-#include "../Utilities/Vector/Vector.h"
 #include "Object/Resource/Resource.h"
+#include "../../common/Vector/Vector.h"
 #include "../../common/Math/Random.h"
 #include "../../common/BasicTypes.h"
 #include <cmath>

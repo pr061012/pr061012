@@ -3,7 +3,7 @@
 #define SHAPE_H
 
 #include "../Vector/Vector.h"
-#include "../../../common/BasicTypes.h"
+#include "../BasicTypes.h"
 
 /// Intersection flags
 enum IntersectionFlag {NO_INTERSECTION = 16, LEFT = 1, RIGHT = 2,

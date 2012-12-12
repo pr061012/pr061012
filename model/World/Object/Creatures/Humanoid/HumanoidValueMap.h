@@ -6,8 +6,8 @@
 #ifndef HUMANOID_VALUE_MAP_H
 #define HUMANOID_VALUE_MAP_H
 
-#include "../../../../Utilities/Vector/Vector.h"
 #include "../../../ObjectHeap/ObjectHeap.h"
+#include "../../../../../common/Vector/Vector.h"
 
 /**
  * @brief Contains humanoid's map with cells' values. Is used for best home

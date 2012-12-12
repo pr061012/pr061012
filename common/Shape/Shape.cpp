@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "Shape.h"
-#include "../../../common/Math/DoubleComparison.h"
+#include "../Math/DoubleComparison.h"
 
 //******************************************************************************
 // CONSTRUCTOR/DESTRUCTOR.

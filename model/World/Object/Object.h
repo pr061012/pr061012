@@ -10,7 +10,7 @@
 
 #include "../Action/Action.h"
 #include "../Message/Message.h"
-#include "../../Utilities/Shape/Shape.h"
+#include "../../../common/Shape/Shape.h"
 #include "../../../common/BasicTypes.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../view/ViewObject/ViewObject.h"
