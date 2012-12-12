@@ -386,11 +386,26 @@
 // Prefix: DMG.
 //******************************************************************************
 
-#define DMG_FORCE_MIN               10
-#define DMG_FORCE_MAX               50
+#define DMG_NHUM_DRG_MIN            0
+#define DMG_NHUM_DRG_MAX            100
 
-#define DMG_DANGER_MIN              10
-#define DMG_DANGER_MAX              50
+#define DMG_NHUM_COW_MIN            0
+#define DMG_NHUM_COW_MAX            50
+
+#define DMG_NHUM_MIN                0
+#define DMG_NHUM_MAX                30
+
+#define DMG_HUM_MIN                 0
+#define DMG_HUM_MAX                 50
+
+#define DMG_WEAT_MIN                0
+#define DMG_WEAT_MAX                50
+
+#define DMG_WEAT_HRCN_MIN           0
+#define DMG_WEAT_HRCN_MAX           500
+
+#define DMG_WEAT_MS_MIN             0
+#define DMG_WEAT_MS_MAX             500
 
 //******************************************************************************
 // DECISION MAKER DEFINES.

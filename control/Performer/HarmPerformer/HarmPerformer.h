@@ -42,6 +42,17 @@ public:
      */
     void perform(Action& action);
 
+private:
+    //**************************************************************************
+    // AUXILIARY FUNCTIONS
+    //**************************************************************************
+
+    /**
+     * @brief Calculate Harm
+     * @return harm
+     */
+    uint calculateHarm(Object *actor);
+
 };
 
 #endif
