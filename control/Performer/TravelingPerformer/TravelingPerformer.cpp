@@ -7,7 +7,7 @@
 #include <string>
 
 #include "TravelingPerformer.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Creature.h"
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Log/Log.h"
 

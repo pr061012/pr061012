@@ -10,10 +10,10 @@
 #include <sstream>
 
 #include "../common/Vector/Vector.h"
-#include "../model/World/Object/Resource/Resource.h"
-#include "../model/World/Object/Creatures/Creature.h"
-#include "../model/World/Object/Creatures/Humanoid/Humanoid.h"
-#include "../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
+#include "../model/Object/Resource/Resource.h"
+#include "../model/Object/Creatures/Creature.h"
+#include "../model/Object/Creatures/Humanoid/Humanoid.h"
+#include "../model/Object/Creatures/NonHumanoid/NonHumanoid.h"
 
 //******************************************************************************
 // TRUNCATED NAMES.

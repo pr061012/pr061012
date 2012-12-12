@@ -6,7 +6,7 @@
 #ifndef GOD_H
 #define GOD_H
 
-#include "../World/World.h"
+#include "../World.h"
 #include "../../common/Vector/Vector.h"
 #include <vector>
 

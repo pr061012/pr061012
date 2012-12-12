@@ -7,7 +7,6 @@
 #define TRAVELING_PERFORMER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/Indexator/Indexator.h"
 
 /**
  * @class TravelingPerformer
@@ -41,7 +40,6 @@ public:
      * @param action a request for moving
      */
     void perform(Action& action);
-
 };
 
 #endif

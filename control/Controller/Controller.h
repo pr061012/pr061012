@@ -8,7 +8,7 @@
 
 #include <vector>
 
-#include "../../model/World/World.h"
+#include "../../model/World.h"
 #include "../Performer/Performer.h"
 
 /**

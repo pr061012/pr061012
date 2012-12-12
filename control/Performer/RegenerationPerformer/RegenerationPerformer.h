@@ -7,7 +7,7 @@
 #define REGENERATION_PERFORMER_H
 
 #include "../Performer.h"
-#include "../../../model/World/World.h"
+#include "../../../model/World.h"
 
 /**
  * @class RegenerationPerformer
