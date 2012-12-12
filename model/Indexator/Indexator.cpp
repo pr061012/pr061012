@@ -126,7 +126,8 @@ ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer, bool solid_on
                 // if it is solid if neccessary.
                 if (area.hitTest((*i) -> getShape()) && (!viewer ||
                     (*i) -> getObjectID() != viewer -> getObjectID()) &&
-                    (!solid_only || (*i) -> isSolid()))
+                    (!solid_only || 
+                     ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())))
                 {
                     result.push(*i);
                 }

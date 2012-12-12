@@ -55,16 +55,11 @@ void MiningPerformer::perform(Action& action)
     }
 
     Object* res = participants[res_index];
-    // Object* tool = participant[tool_index];
 
-    // Getting object is reach area.
     Shape reach_area = humanoid -> getReachArea();
     reach_area.setCenter(humanoid -> getCoords());
-    ObjectHeap env = world -> getIndexator() -> getAreaContents(reach_area);
 
-    // Trying to find required object.
-    ObjectHeap::const_iterator iter = env.end();
-    if (env.find(res, false) == iter)
+    if (!reach_area.hitTest(res -> getShape()))
     {
         action.markAsFailed(OBJ_IS_OUT_OF_RANGE);
         return;
