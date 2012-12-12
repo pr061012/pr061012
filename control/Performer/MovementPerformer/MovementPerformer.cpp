@@ -94,21 +94,13 @@ void MovementPerformer::perform(Action& action)
     Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
     ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost, 
-                                                                      participant);
+                                                                      participant, true);
     action.markAsSucceeded();
 
-    // Can't place things over creatures and buildings
-    for (ObjectHeap::iterator i = obstacles.begin();
-         i != obstacles.end(); i++)
+    if (obstacles.getAmount())
     {
-        if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
-        {
-            if ((*i) -> getShape().hitTest(ghost))
-            {
-                action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
-                return;
-            }
-        }
+        action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
+        return;
     }
 
     if (action.isSucceeded())
