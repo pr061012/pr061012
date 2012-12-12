@@ -586,7 +586,16 @@ std::vector <Action>* Humanoid::getActions()
                     // Choosing another place if there were errors.
                     if (errors)
                     {
+                        Vector old_best_place = current_goal_point;
                         chooseBestPlace();
+
+                        // If best place didn't change, forcing humanoid to
+                        // roam around one more time.
+                        if (old_best_place == current_goal_point)
+                        {
+                            angle = Random::double_num(2 * M_PI);
+                            steps_to_choose_place = Random::int_range(HUM_CPFH_STEPS_MIN, HUM_CPFH_STEPS_MAX);
+                        }
                     }
                     // No errors: trying to create building.
                     else
