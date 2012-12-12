@@ -10,6 +10,11 @@
             "alpha": true
         },
         {
+            "name": "Water",
+            "file": "water_tiles.png",
+            "alpha": true
+        },
+        {
             "name": "Berry bush",
             "file": "berry_bush.png",
             "alpha": true

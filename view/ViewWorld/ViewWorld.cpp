@@ -43,7 +43,7 @@ void ViewWorld::redraw()
     {
         this -> step++;
     }
-    if(this -> step > 15)
+    if(this -> step > 30)
     {
         this -> step = 0;
     }
@@ -179,6 +179,9 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                 case BERRIES:
                     ret = texture_manager -> getTexture("Berry bush");
                     break;
+                case WATER:
+                    ret = texture_manager -> getTexture("Water");
+                    break;
                 case GRASS:
                     ret = NULL;
                     break;
@@ -286,6 +289,9 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
         }
         case BUILDING:
             ret = texture_manager -> getTexture("House");
+            break;
+        case WEATHER:
+            ret = texture_manager -> getTexture("Cow");
             break;
         default:
             ret = texture_manager -> getTexture("Cow");
