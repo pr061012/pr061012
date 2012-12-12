@@ -31,19 +31,20 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
     this -> is_selected = false;
 
     this -> step = 0;
+
+    this -> paused = false;
 }
 
 ViewWorld::~ViewWorld()
 {
 }
 
-void ViewWorld::loadTextures()
-{
-}
-
 void ViewWorld::redraw()
 {
-    this -> step++;
+    if(!this -> paused)
+    {
+        this -> step++;
+    }
     if(this -> step > 15)
     {
         this -> step = 0;
@@ -115,6 +116,11 @@ double ViewWorld::getX()
 double ViewWorld::getY()
 {
     return this -> y;
+}
+
+void ViewWorld::setPaused(bool new_var)
+{
+    this -> paused = new_var;
 }
 
 void ViewWorld::setSelection(uint id)
@@ -196,41 +202,68 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         }
                     }
 
-                    TextureManager::Rotation rot = TextureManager::DOWN;
-
-                    if(ang >= M_PI*7/4 || ang < M_PI/4)
-                    {
-                        rot = TextureManager::RIGHT;
-                    }
-                    if(ang >= M_PI/4 && ang < M_PI*3/4)
-                    {
-                        rot = TextureManager::UP;
-                    }
-                    if(ang >= M_PI*3/4 && ang < M_PI*5/4)
-                    {
-                        rot = TextureManager::LEFT;
-                    }
-                    if(ang >= M_PI*5/4 && ang < M_PI*7/4)
-                    {
-                        rot = TextureManager::DOWN;
-                    }
-
                     uint act = h -> getCurrentDetailedAct();
 
                     if(act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
                     {
-                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), 1);
+                        ret = texture_manager -> getTexture("Human", ang, h -> getObjectID(), 1);
                     }
                     else
                     {
-                        ret = texture_manager -> getTexture("Human", rot, h -> getObjectID(), this -> step / 5);
+                        ret = texture_manager -> getTexture("Human", ang, h -> getObjectID(), this -> step / 5);
                     }
 
                     break;
                 }
                 case NON_HUMANOID:
-                    ret = texture_manager -> getTexture("Cow");
+                {
+                    const NonHumanoid* nh = static_cast<const NonHumanoid*>(obj);
+
+                    const Object* aim = nh -> getAim();
+                    double ang = M_PI*3/2;
+
+                    if(aim)
+                    {
+                        double hx = nh -> getCoords().getX();
+                        double hy = nh -> getCoords().getY();
+
+                        double ax = aim -> getCoords().getX();
+                        double ay = aim -> getCoords().getY();
+
+                        ang = atan((hy-ay)/(hx-ax));
+                        ang += M_PI/2;
+
+                        if(ax < hx)
+                        {
+                            ang += M_PI;
+                        }
+                    }
+
+                    uint act = nh -> getCurrentAction();
+
+                    switch(nh -> getSubsubtype())
+                    {
+                        case COW:
+                        case COW_DEMON:
+                            ret = texture_manager -> getTexture("Cow");
+                            break;
+                        case DRAGON:
+                        {
+                            if(act == RELAX || act == SLEEP || act == DO_NOTHING)
+                            {
+                                ret = texture_manager -> getTexture("Dragon", ang, nh -> getObjectID(), 1);
+                            }
+                            else
+                            {
+                                ret = texture_manager -> getTexture("Dragon", ang, nh -> getObjectID(), this -> step / 5);
+                            }
+
+                            break;
+                        }
+                    }
+
                     break;
+                }
             }
             break;
         }

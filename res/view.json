@@ -10,6 +10,50 @@
             "alpha": true
         },
         {
+            "name": "Dragon",
+            "file": "dragon.png",
+            "split": true,
+            "xparts": 3,
+            "yparts": 4,
+            "alpha": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png",
+            "split": true,
+            "x0": 0.66,
+            "y0": 0.5,
+            "width": 0.33,
+            "height": 0.5,
+            "xparts": 3,
+            "yparts": 4,
+            "alpha": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png",
+            "split": true,
+            "x0": 0.33,
+            "y0": 0.0,
+            "width": 0.33,
+            "height": 0.5,
+            "xparts": 3,
+            "yparts": 4,
+            "alpha": true
+        },
+        {
+            "name": "Human",
+            "file": "human.png",
+            "split": true,
+            "x0": 0.0,
+            "y0": 0.5,
+            "width": 0.33,
+            "height": 0.5,
+            "xparts": 3,
+            "yparts": 4,
+            "alpha": true
+        },
+        {
             "name": "Human",
             "file": "human.png",
             "split": true,

@@ -24,6 +24,7 @@
 #include "../../model/World/Object/Object.h"
 #include "../../model/World/Object/Creatures/Creature.h"
 #include "../../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../model/World/Object/Creatures/NonHumanoid/NonHumanoid.h"
 #include "../../model/World/Object/Resource/Resource.h"
 
 class ViewWorld
@@ -45,6 +46,9 @@ class ViewWorld
 
     /// Number of steps passed.
     int step;
+
+    /// Flag, if world is paused.
+    bool paused;
 
     /// Objects which are displayed or used in some other
     /// way by View during the current frame. This is
@@ -76,12 +80,8 @@ private:
     // TEXTURE LOADING.
     //**************************************************************************
 
+    /// Texture manager is a texture container, passed as an attribute at class constructor.
     TextureManager* texture_manager;
-
-    /**
-     * @brief preload game textures in openGL
-     */
-    void loadTextures();
 
 private:
     //**************************************************************************
@@ -155,6 +155,8 @@ public:
      */
     double getX();
     double getY();
+
+    void setPaused(bool new_var);
 
     void setSelection(uint id);
 
