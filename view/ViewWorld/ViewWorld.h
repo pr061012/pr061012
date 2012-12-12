@@ -29,6 +29,11 @@
 
 class ViewWorld
 {
+    enum Terrain
+    {
+        GRASS, ROCK
+    };
+
     /// World that is rendered by this class
     const IWorld& world;
 
