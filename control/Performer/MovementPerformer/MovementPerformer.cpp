@@ -3,11 +3,6 @@
     See the LICENSE file for copying permission.
 */
 
-//**********************************************************
-// TODO
-// Add some check for distance between an actor and an object
-//**********************************************************
-
 #include "MovementPerformer.h"
 #include "../../../model/Object/Resource/Resource.h"
 #include "../../../model/Object/Creatures/Creature.h"
@@ -76,8 +71,6 @@ void MovementPerformer::perform(Action& action)
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
 
-    // TODO
-    // Make dependancy on weight.
     double speed = sqrt(actor -> getWeight() / participant -> getWeight()) / TM_TICKS_PER_SECOND;
     
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));

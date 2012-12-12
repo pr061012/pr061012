@@ -741,8 +741,6 @@ void Creature::sleep()
 // Clears actions and saves the result of previous one.
 void Creature::clearActions()
 {
-    // TODO
-    // Make it better (more info, history)
     if (actions.size())
     {
         prev_action = actions[0].getType();
