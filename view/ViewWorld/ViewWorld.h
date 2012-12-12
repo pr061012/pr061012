@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include <vector>
 
+#include "../../common/Math/DoubleComparison.h"
+
 #include "../Utilities/ViewUtilities.h"
 
 #include "../TextureManager/TextureManager.h"
@@ -103,7 +105,7 @@ private:
      */
     void renderObject(const Object* object);
 
-    const Texture* getBackgroundTextureAt(double x, double y, double size);
+    Terrain getTerrainType(double x, double y, double size);
 
     /**
      * @brief render a grass background all over the window

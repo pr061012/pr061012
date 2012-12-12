@@ -382,11 +382,31 @@ void ViewWorld::renderObject(const Object* object)
 
 }
 
-Terrain ViewWorld::getTerrainType(double x, double y, double size)
+ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
 {
-
-
-    return texture_manager -> getTexture("Rock");
+    int greens = 0;
+    for(int i = 0; i < rendered_objects.size(); ++i)
+    {
+        const Object* obj = rendered_objects[i];
+        if(DoubleComparison::isGreater(obj -> getCoords().getX() - x, size))
+        {
+            if(obj -> getType() == RESOURCE)
+            {
+                switch(static_cast<const Resource*>(obj) -> getSubtype())
+                {
+                    case BERRIES:
+                    case TREE:
+                        greens++;
+                        break;
+                    case GRASS:
+                        greens += 2;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
 }
 
 void ViewWorld::renderBackground()
@@ -397,20 +417,37 @@ void ViewWorld::renderBackground()
 
     const Texture* tex = texture_manager -> getTexture("Rock");
 
-    double sz = worldToScreenDist(SZ_HUM_DIAM);
+    double sz = SZ_HUM_DIAM;
 
 
     tex -> render( -VIEW_CAM_SIZE,  -VIEW_CAM_SIZE,
                    2*VIEW_CAM_SIZE, 2*VIEW_CAM_SIZE,
                                           -px, -py);
 
+    double rad = getCamRad();
+    int max = 2 * (rad / sz);
+    Terrain landscape[max][max];
+    double wx = this -> x;
+    double wy = this -> y;
 
-    for(double wx = -VIEW_CAM_RADIUS; wx <= VIEW_CAM_RADIUS; wx += sz)
+    for(int i = 0; i < max; ++i)
     {
-        for(double wy = -VIEW_CAM_RADIUS; wy <= VIEW_CAM_RADIUS; wy += sz)
+        for(int j = 0; j < max; ++j)
         {
-
+            landscape[i][j] = getTerrainType();
+            this -> wy += sz;
         }
+        this -> wx += sz;
+    }
+
+    for(int i = 0; i < max; ++i)
+    {
+        for(int j = 0; j < max; ++j)
+        {
+            landscape[i][j] = getTerrainType();
+            this -> wy += sz;
+        }
+        this -> wx += sz;
     }
 
     glColor3f(1.0f, 1.0f, 1.0f);
