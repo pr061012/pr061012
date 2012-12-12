@@ -3,7 +3,11 @@
     See the COPYING file for copying permission.
 */
 
+
+#define _GLIBCXX_USE_NANOSLEEP
+
 #include <cmath>
+#include <chrono>
 #include <cassert>
 #include <sstream>
 #include <iomanip>
@@ -20,7 +24,7 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
     map_columns(ceil(h_size / cell_size)),
-    relative_record_radius(10),
+    relative_record_radius(5),
     current_index(0),
     array_size(100)
 {
@@ -68,16 +72,16 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
     end_i   = end_i   >= (int) this -> map_rows    ? (int) this -> map_rows    : end_i;
     end_j   = end_j   >= (int) this -> map_columns ? (int) this -> map_columns : end_j;
 
+    Shape shape(Vector(0, 0), SQUARE, this -> cell_size);
+
     // Updating cell's values.
     for (uint i = (uint) begin_i; i < (uint) end_i; i++)
     {
         for (uint j = (uint) begin_j; j < (uint) end_j; j++)
         {
-            // Calculating this cell real coordinates.
-            Vector cell_coords( ( (double) i + 0.5 ) * this -> cell_size,
-                                ( (double) j + 0.5 ) * this -> cell_size);
             // Creating this cell shape.
-            Shape shape(cell_coords, SQUARE, this -> cell_size);
+            shape.setCenter(Vector(( (double) i + 0.5 ) * this -> cell_size,
+                                   ( (double) j + 0.5 ) * this -> cell_size));
 
             // Checking whether object intersects this cell.
             if (shape.hitTest(obj_shape))
