@@ -31,11 +31,6 @@
 
 class ViewWorld
 {
-    enum Terrain
-    {
-        GRASS, ROCK
-    };
-
     /// World that is rendered by this class
     const IWorld& world;
 
@@ -79,6 +74,12 @@ public:
      * @brief Destructor
      */
     ~ViewWorld();
+
+public:
+    enum Terrain
+    {
+        GRASS, ROCK
+    };
 
 private:
     //**************************************************************************
