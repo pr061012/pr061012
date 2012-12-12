@@ -116,24 +116,16 @@ public:
 
     /**
      * @brief  Gets key value by key.
-     * @param  key                  key
-     * @param  suppress_err_msgs    whether suppress error messages to cerr or not
+     * @param  key  key
      * @return key value
      */
-    template <class Type> Type getValue(std::string key, bool suppress_err_msgs = false) const throw(EParamArrayInvalidKey)
+    template <class Type> Type getValue(std::string key) const throw(EParamArrayInvalidKey)
     {
         std::map<std::string, uint>:: const_iterator iter = this -> map.find(key);
 
         if (iter == map.end())
         {
-            if (!suppress_err_msgs)
-            {
-                Log::WARN(std::string("Tried to get value by key, which ") +
-                          std::string("doesn't seem to be existed (key is '") +
-                          key + "').");
-            }
-
-            throw EParamArrayInvalidKey();
+            throw EParamArrayInvalidKey(key);
         }
 
         void* ptr = &(this -> memory[iter -> second]);

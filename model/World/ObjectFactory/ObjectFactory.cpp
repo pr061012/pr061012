@@ -106,7 +106,7 @@ Object * ObjectFactory::createResource(const ParamArray & params)
 
     try
     {
-        amount = params.getValue<uint>("res_amount", true);
+        amount = params.getValue<uint>("res_amount");
     }
     catch (EParamArrayInvalidKey& exc)
     {
@@ -124,7 +124,7 @@ Object * ObjectFactory::createTool(const ParamArray & params)
 
     try
     {
-        max_strength = params.getValue<uint>("tool_str", true);
+        max_strength = params.getValue<uint>("tool_str");
     }
     catch (EParamArrayInvalidKey& exc)
     {
@@ -141,7 +141,7 @@ Object * ObjectFactory::createWeather(const ParamArray & params)
 
     try
     {
-        steps = params.getValue<uint>("weat_steps", true);
+        steps = params.getValue<uint>("weat_steps");
     }
     catch (EParamArrayInvalidKey& exc)
     {
