@@ -47,7 +47,7 @@ public:
      *  @param  viewer an object that mustn't be included in heap
      *  @return heap with objects in given area
      */
-    ObjectHeap getAreaContents(Shape area, Object * viewer = 0);
+    ObjectHeap getAreaContents(Shape area, Object * viewer = 0, bool solid_only = false);
 
     //**************************************************************************
     // REINDEXATING
