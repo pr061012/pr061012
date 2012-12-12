@@ -31,19 +31,20 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
     this -> is_selected = false;
 
     this -> step = 0;
+
+    this -> paused = false;
 }
 
 ViewWorld::~ViewWorld()
 {
 }
 
-void ViewWorld::loadTextures()
-{
-}
-
 void ViewWorld::redraw()
 {
-    this -> step++;
+    if(!this -> paused)
+    {
+        this -> step++;
+    }
     if(this -> step > 15)
     {
         this -> step = 0;
@@ -115,6 +116,11 @@ double ViewWorld::getX()
 double ViewWorld::getY()
 {
     return this -> y;
+}
+
+void ViewWorld::setPaused(bool new_var)
+{
+    this -> paused = new_var;
 }
 
 void ViewWorld::setSelection(uint id)

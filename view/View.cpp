@@ -123,6 +123,7 @@ double View::getDistance()
 void View::setPaused(bool new_state)
 {
     paused = new_state;
+    view_world -> setPaused(paused);
 }
 
 bool View::isPaused()
