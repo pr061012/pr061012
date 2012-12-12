@@ -24,7 +24,7 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
     cell_size(cell_size),
     map_rows(ceil(v_size / cell_size)),
     map_columns(ceil(h_size / cell_size)),
-    relative_record_radius(10),
+    relative_record_radius(5),
     current_index(0),
     array_size(100)
 {
@@ -46,9 +46,6 @@ HumanoidValueMap::HumanoidValueMap(const ObjectHeap* heap, double v_size,
 
 void HumanoidValueMap::evaluateObject(const Object* obj)
 {
-    std::chrono::steady_clock::time_point t1, t2;
-    std::chrono::duration<double> time_span;
-
     // Getting object shape.
     Shape obj_shape = obj -> getShape();
     // Make shape more bigger.
@@ -77,7 +74,6 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
 
     Shape shape(Vector(0, 0), SQUARE, this -> cell_size);
 
-    t1 = std::chrono::steady_clock::now();
     // Updating cell's values.
     for (uint i = (uint) begin_i; i < (uint) end_i; i++)
     {
@@ -141,9 +137,6 @@ void HumanoidValueMap::evaluateObject(const Object* obj)
             }
         }
     }
-    t2 = std::chrono::steady_clock::now();
-    time_span = std::chrono::duration_cast< std::chrono::duration<double> >(t2 - t1);
-    std::cout << time_span.count() << std::endl;
 }
 
 void HumanoidValueMap::reevaluate()
