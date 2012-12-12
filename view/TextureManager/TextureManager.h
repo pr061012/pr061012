@@ -33,6 +33,7 @@ public:
 
     Texture* getTexture(std::string name, Rotation rotation = UP, int index = 0, int step = 0);
     Texture* getTexture(std::string name, double angle, int index = 0, int step = 0);
+    Texture* getTextureAt(std::string name, int xpart = 0, int ypart = 0);
 };
 
 #endif // TEXTURE_MANAGER_H

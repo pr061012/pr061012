@@ -85,7 +85,6 @@ Texture* TextureManager::getTexture(std::string name, Rotation rotation, int ind
     len = len_iter -> second;
     index = index % len;
 
-//    if(name == "Human")std::cout << len << "||" << index << std::endl;
     name += "_" + std::to_string(index);
 
     Texture* tex = texture_buf.find(name) -> second;
@@ -128,4 +127,30 @@ Texture *TextureManager::getTexture(std::string name, double angle, int index, i
     }
 
     return getTexture(name, rot, index, step);
+}
+
+Texture *TextureManager::getTextureAt(std::string name, int xpart, int ypart)
+{
+    Texture* tex = texture_buf.find(name) -> second;
+
+    if(!tex)
+    {
+        Log::ERROR("Texture " + name + " is not loaded.");
+        return NULL;
+    }
+
+    tex -> resetTextureDimensions();
+
+    xpart %= xparts[name];
+    ypart %= yparts[name];
+
+    double width  = tex -> getWidth()  / xparts[name];
+    double height = tex -> getHeight() / yparts[name];
+    double x = tex -> getX() + width * xpart;
+    double y = tex -> getY() + height * ypart;
+
+    tex -> setTextureDimensions(x, y, width, height);
+
+
+    return tex;
 }

@@ -386,7 +386,7 @@ const Texture *ViewWorld::getBackgroundTextureAt(double x, double y, double size
 {
 
 
-    return texture_manager -> getTexture("Rock");
+    return texture_manager -> getTextureAt("Terrain", 0, 0);
 }
 
 void ViewWorld::renderBackground()
