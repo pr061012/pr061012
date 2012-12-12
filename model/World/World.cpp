@@ -294,11 +294,6 @@ void World::setObjectVisibility(Object *obj, bool visibility)
     // visible_objs->hasObject(obj);
 }
 
-void World::save(std::string filepath)
-{
-    // TODO: Create file at filepath and save it (format?)
-}
-
 void World::reset(uint size, bool generate_objs)
 {
     this -> size = size > 0 ? size : DEFAULT_SIZE;

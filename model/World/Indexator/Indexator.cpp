@@ -53,11 +53,12 @@ Indexator::~Indexator()
 //******************************************************************************
 
 // gets objects within given area
-ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
+ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer, bool solid_only)
 {
     // Get cells which our area covers
     uint * cells_area = getCellsArea(area);
 
+    //*************************************************************************
     /**
      *  Toroidal feature
     // Create more areas to check collisions with objects intersecting 
@@ -95,6 +96,7 @@ ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
     areas[3].setCenter(areas[2].getCenter() + Vector(0, -world_size));
 
     */
+    //*************************************************************************
 
     ObjectHeap result;
 
@@ -120,8 +122,11 @@ ObjectHeap Indexator::getAreaContents(Shape area, Object * viewer)
             */
             //*****************************************************************
 
+                // Check if object lies in area, if it is not viewer and
+                // if it is solid if neccessary.
                 if (area.hitTest((*i) -> getShape()) && (!viewer ||
-                    (*i) -> getObjectID() != viewer -> getObjectID()))
+                    (*i) -> getObjectID() != viewer -> getObjectID()) &&
+                    (!solid_only || (*i) -> isSolid()))
                 {
                     result.push(*i);
                 }

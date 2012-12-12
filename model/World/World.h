@@ -72,12 +72,6 @@ public:
     // BASE METHODS.
     //**************************************************************************
 
-	/**
-     * @brief Save world to file.
-     * @param filepath  path to file
-	 */
-    void save(std::string filepath);
-
     /**
      * @brief Deletes all objects and generates world one more time
      * @param generate_objs     flag indicating whether generate objects or not
