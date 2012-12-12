@@ -17,8 +17,6 @@ ViewWorld::ViewWorld(const IWorld& w, const int& width, const int& height,
     world(w),
     texture_manager(texture_manager)
 {
-    loadTextures();
-
     this -> x = 50.0;
     this -> y = 50.0;
 
