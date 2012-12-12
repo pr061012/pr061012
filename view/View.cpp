@@ -224,8 +224,21 @@ void View::redraw()
                         
             }
 
-            this -> view_world -> setSelection(selection.at(0) -> getObjectID());
-            this -> sel_info -> setHidden(false);
+            for (uint i = 0; i < selection.size(); ++i)
+            {
+                bool isGrass = false;
+                if(selection[i] -> getType() == RESOURCE)
+                {
+                    isGrass = ( static_cast<const Resource*>(selection[i]) -> getSubtype() == GRASS );
+                }
+
+                if(!selection[i] -> isDestroyed() && !isGrass)
+                {
+                    this -> view_world -> setSelection(selection[i] -> getObjectID());
+                    this -> sel_info -> setHidden(false);
+                    break;
+                }
+            }
         }
         else
         {
@@ -269,8 +282,19 @@ void View::redraw()
         double py = view_world -> worldToScreenY(obj -> getCoords().getY());
         double sz = view_world -> worldToScreenDist(obj -> getShape().getSize());
 
-        drawProgressBar(px-sz, py + sz/4, sz*2,
-                        (double)obj -> getHealthPoints() / obj -> getMaxHealthPoints());
+        // TODO: Replace this workaround with more decent method to filter
+        //       out non-rendered objects.
+        bool isGrass = false;
+        if(obj -> getType() == RESOURCE)
+        {
+            isGrass = ( static_cast<const Resource*>(obj) -> getSubtype() == GRASS );
+        }
+
+        if(!obj -> isDestroyed() && !isGrass)
+        {
+            drawProgressBar(px-sz, py + sz/4, sz*2,
+                            (double)obj -> getHealthPoints() / obj -> getMaxHealthPoints());
+        }
     }
 
 
