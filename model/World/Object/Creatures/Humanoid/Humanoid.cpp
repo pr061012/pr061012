@@ -936,7 +936,7 @@ std::string Humanoid::printObjectInfo(bool full) const
 
 void Humanoid::chooseBestPlace()
 {
-    HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size);
+    HumanoidValueMap map(visual_memory, Creature::world_size, Creature::world_size, 0.3);
     Vector c = map.getBestPlace();
 
     // Sad but true.
