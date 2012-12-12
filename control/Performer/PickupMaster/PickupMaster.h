@@ -7,7 +7,7 @@
 #define PICKUP_MASTER_H__
 
 #include "../Performer.h"
-#include "../../../model/World/World.h"
+#include "../../../model/World.h"
 
 /**
  * @class PickupMaster

@@ -5,10 +5,10 @@
 
 #include <vector>
 
-#include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
-#include "../../../model/World/Object/Tool/Tool.h"
-#include "../../../model/World/Object/Resource/Resource.h"
+#include "../../../model/Object/Creatures/Creature.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Object/Tool/Tool.h"
+#include "../../../model/Object/Resource/Resource.h"
 #include "../../../common/BasicDefines.h"
 
 #include "MiningPerformer.h"

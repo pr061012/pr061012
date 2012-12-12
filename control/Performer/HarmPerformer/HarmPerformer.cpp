@@ -9,11 +9,11 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../common/BasicTypes.h"
 
-#include "../../../model/World/Message/Message.h"
-#include "../../../model/World/Object/Object.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
-#include "../../../model/World/Object/Weather/Weather.h"
-#include "../../../model/World/Object/Creatures/Humanoid/Humanoid.h"
+#include "../../../model/Message/Message.h"
+#include "../../../model/Object/Object.h"
+#include "../../../model/Object/Creatures/Creature.h"
+#include "../../../model/Object/Weather/Weather.h"
+#include "../../../model/Object/Creatures/Humanoid/Humanoid.h"
 
 #include <vector>
 

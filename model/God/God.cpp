@@ -4,7 +4,7 @@
 */
 
 #include "God.h"
-#include "../World/Action/Action.h"
+#include "../Action/Action.h"
 #include "../../common/BasicDefines.h"
 #include "../../common/BasicTypes.h"
 #include "../../common/Math/Random.h"

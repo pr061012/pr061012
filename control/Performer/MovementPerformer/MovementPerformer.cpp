@@ -9,8 +9,8 @@
 //**********************************************************
 
 #include "MovementPerformer.h"
-#include "../../../model/World/Object/Resource/Resource.h"
-#include "../../../model/World/Object/Creatures/Creature.h"
+#include "../../../model/Object/Resource/Resource.h"
+#include "../../../model/Object/Creatures/Creature.h"
 #include "../../../common/BasicDefines.h"
 #include <cmath>
 #include <string>
