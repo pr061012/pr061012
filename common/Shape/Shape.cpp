@@ -243,47 +243,24 @@ bool Shape::hitTest (const Shape& shape) const
                 // if a corner of one square lies inside another square,
                 // return true (this way won't work for abstract rectangles)
                 case SQUARE:
-                    Vector lb = getLeftBottom();
-                    if (shape.hitTest(lb))
+                    std::vector<Vector> verts = getVertices();
+                    for (int i = 0; i < 4; i++)
                     {
-                        return true;
+                        if (shape.hitTest(verts[i]))
+                        {
+                            return true;
+                        }
                     }
 
-                    Vector rt = getRightTop();
-                    if (shape.hitTest(rt))
+                    verts = shape.getVertices();
+                    for (int i = 0; i < 4; i++)
                     {
-                        return true;
+                        if (this -> hitTest(verts[i]))
+                        {
+                            return true;
+                        }
                     }
 
-                    Vector lt = (Vector(lb.getX(), rt.getY()));
-                    Vector rb = Vector(rt.getX(), lb.getY());
-
-                    if (shape.hitTest(lt) ||
-                        shape.hitTest(rb))
-                    {
-                        return true;
-                    }
-
-                    lb = shape.getLeftBottom();
-                    if (this -> hitTest(lb))
-                    {
-                        return true;
-                    }
-
-                    rt = shape.getRightTop();
-                    if (this -> hitTest(rt))
-                    {
-                        return true;
-                    }
-
-                    lt = (Vector(lb.getX(), rt.getY()));
-                    rb = Vector(rt.getX(), lb.getY());
-
-                    if (this -> hitTest(lt) ||
-                        this -> hitTest(rb))
-                    {
-                        return true;
-                    }
                     break;
             }
             break;

@@ -104,9 +104,6 @@ const double Creature::MAX_OFFSET = 3;
 // METHODS
 //**********************************************************
 
-// TODO
-// Make this virual and split it between humanoids and nonhumanoids.
-//
 // Check whether given point is passable or not, and check if it hits the goal.
 int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 {
@@ -164,8 +161,6 @@ int Creature::checkPointIsPassable(Vector point, bool goal_in_sight)
 
 }
 
-// TODO
-// Make straightening of the route.
 Creature::Path Creature::generateRoute()
 {
     // Default behaviour

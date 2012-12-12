@@ -3,11 +3,6 @@
     See the LICENSE file for copying permission.
 */
 
-//**********************************************************
-// TODO
-// Add some check for distance between an actor and an object
-//**********************************************************
-
 #include "MovementPerformer.h"
 #include "../../../model/Object/Resource/Resource.h"
 #include "../../../model/Object/Creatures/Creature.h"
@@ -76,8 +71,6 @@ void MovementPerformer::perform(Action& action)
     // continue getting data
     double angle = action.getParam<double>(std::string("angle"));
 
-    // TODO
-    // Make dependancy on weight.
     double speed = sqrt(actor -> getWeight() / participant -> getWeight()) / TM_TICKS_PER_SECOND;
     
     Vector dest = participant -> getCoords() + Vector(speed * cos(angle), speed * sin(angle));
@@ -94,21 +87,13 @@ void MovementPerformer::perform(Action& action)
     Shape ghost = participant -> getShape();
     ghost.setCenter(dest);
     ObjectHeap obstacles = world -> getIndexator() -> getAreaContents(ghost, 
-                                                                      participant);
+                                                                      participant, true);
     action.markAsSucceeded();
 
-    // Can't place things over creatures and buildings
-    for (ObjectHeap::iterator i = obstacles.begin();
-         i != obstacles.end(); i++)
+    if (obstacles.getAmount())
     {
-        if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
-        {
-            if ((*i) -> getShape().hitTest(ghost))
-            {
-                action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
-                return;
-            }
-        }
+        action.markAsFailed(NO_PLACE_TO_PLACE_OBJ_ON);
+        return;
     }
 
     if (action.isSucceeded())

@@ -542,13 +542,13 @@ void Creature::chooseDirectionToEscape()
        )
     {
         angle = getCoords().getAngle((*iter) -> getCoords());
-        escape_vector += Vector(cos(angle), sin(angle)) * evaluateDanger(*iter, coords);
+        escape_vector += Vector(cos(angle), sin(angle)) * 
+                         evaluateDanger(*iter, coords);
     }
 
     // go to the opposite direction of biggest danger
-    this -> angle = Vector(0, 0).getAngle(escape_vector) + M_PI;
-    aim = 0;
-    direction_is_set = true;
+    escape_vector = getCoords() - escape_vector * getViewArea().getSize() / 2;
+    setAim(escape_vector);
 }
 
 //**********************************************************
@@ -741,8 +741,6 @@ void Creature::sleep()
 // Clears actions and saves the result of previous one.
 void Creature::clearActions()
 {
-    // TODO
-    // Make it better (more info, history)
     if (actions.size())
     {
         prev_action = actions[0].getType();

@@ -440,26 +440,20 @@ bool World::checkCoord(Object *new_obj, bool no_intersect)
     }
 
     Shape shape = new_obj -> getShape();
-    ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj);
+    ObjectHeap obstacles = indexator -> getAreaContents(shape, new_obj, 
+                                                        !no_intersect);
 
     if (no_intersect)
     {
-        if (!obstacles.getAmount() - obstacles.getTypeAmount(WEATHER))
+        if (!(obstacles.getAmount() - obstacles.getTypeAmount(WEATHER)))
         {
             return true;
         }
     }
-    else
+    else if (!obstacles.getAmount())
     {
-        for (ObjectHeap::iterator i = obstacles.begin();
-             i != obstacles.end(); i++)
-        {
-            if ((*i) -> isSolid() && !(*i) -> isCurrentlyFlying())
-            {
-                return false;
-            }
-        }
         return true;
     }
+
     return false;
 }
