@@ -105,6 +105,8 @@ double ViewWorld::getCamRad()
 
 void ViewWorld::setCamRad(double rad)
 {
+    if(rad < 2.0) rad = 2.0;
+
     this -> cam_radius = rad;
 
     texture_manager -> getTexture("Rock") -> setScale(VIEW_CAM_RADIUS / rad);
