@@ -321,7 +321,7 @@ public:
      * @brief Get angle
      * @return angle
      */
-    double getAngle();
+    double getAngle() const;
 
     //**************************************************************************
     // DECISION

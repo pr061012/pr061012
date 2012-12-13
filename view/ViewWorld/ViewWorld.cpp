@@ -207,25 +207,25 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                 {
                     const Humanoid* h = static_cast<const Humanoid*>(obj);
 
-                    const Object* aim = h -> getAim();
-                    double ang = M_PI*3/2;
+//                    const Object* aim = h -> getAim();
+                    double ang = h -> getAngle();
 
-                    if (aim)
-                    {
-                        double hx = h -> getCoords().getX();
-                        double hy = h -> getCoords().getY();
+//                    if (aim)
+//                    {
+//                        double hx = h -> getCoords().getX();
+//                        double hy = h -> getCoords().getY();
 
-                        double ax = aim -> getCoords().getX();
-                        double ay = aim -> getCoords().getY();
+//                        double ax = aim -> getCoords().getX();
+//                        double ay = aim -> getCoords().getY();
 
-                        ang = atan((hy-ay)/(hx-ax));
-                        ang += M_PI/2;
+//                        ang = atan((hy-ay)/(hx-ax));
+//                        ang += M_PI/2;
 
-                        if(ax < hx)
-                        {
-                            ang += M_PI;
-                        }
-                    }
+//                        if(ax < hx)
+//                        {
+//                            ang += M_PI;
+//                        }
+//                    }
 
                     uint act = h -> getCurrentDetailedAct();
 
@@ -244,25 +244,26 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                 {
                     const NonHumanoid* nh = static_cast<const NonHumanoid*>(obj);
 
-                    const Object* aim = nh -> getAim();
-                    double ang = M_PI*3/2;
+//                    const Object* aim = nh -> getAim();
+//                    double ang = M_PI*3/2;
+                    double ang = nh -> getAngle();
 
-                    if (aim)
-                    {
-                        double hx = nh -> getCoords().getX();
-                        double hy = nh -> getCoords().getY();
+//                    if (aim)
+//                    {
+//                        double hx = nh -> getCoords().getX();
+//                        double hy = nh -> getCoords().getY();
 
-                        double ax = aim -> getCoords().getX();
-                        double ay = aim -> getCoords().getY();
+//                        double ax = aim -> getCoords().getX();
+//                        double ay = aim -> getCoords().getY();
 
-                        ang = atan((hy-ay)/(hx-ax));
-                        ang += M_PI/2;
+//                        ang = atan((hy-ay)/(hx-ax));
+//                        ang += M_PI/2;
 
-                        if(ax < hx)
-                        {
-                            ang += M_PI;
-                        }
-                    }
+//                        if(ax < hx)
+//                        {
+//                            ang += M_PI;
+//                        }
+//                    }
 
                     uint act = nh -> getCurrentAction();
 
@@ -514,11 +515,14 @@ void ViewWorld::renderBackground()
     int min = max/2 - 1;
     min = min > 1 ? min : 1;
 
+    int max2 = max*3/2 + 5;
+    max2 = max2 > 2*max ? 2*max : max2;
+
     wx = this -> x - rad - px - sz;
-    for(int i = min; i < max*3/2; ++i)
+    for(int i = min; i < max2; ++i)
     {
         wy = this -> y - rad - py - sz;
-        for(int j = min; j < max*3/2; ++j)
+        for(int j = min; j < max2; ++j)
         {
 //            w  = landscape[i-1][j];
 //            s  = landscape[i]  [j-1];
