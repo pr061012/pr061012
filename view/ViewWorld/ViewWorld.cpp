@@ -185,6 +185,9 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                 case GRASS:
                     ret = NULL;
                     break;
+                case MEAT:
+                    ret = texture_manager -> getTexture("Meat");
+                    break;
                 default:
                     ret = texture_manager -> getTexture("Tree");
                     break;
@@ -205,7 +208,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                     const Object* aim = h -> getAim();
                     double ang = M_PI*3/2;
 
-                    if(aim)
+                    if (aim)
                     {
                         double hx = h -> getCoords().getX();
                         double hy = h -> getCoords().getY();
@@ -224,7 +227,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
 
                     uint act = h -> getCurrentDetailedAct();
 
-                    if(act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
+                    if (act == SLEEP_AT_HOME || act == SLEEP_ON_THE_GROUND || act == RELAX_AT_HOME)
                     {
                         ret = texture_manager -> getTexture("Human", ang, h -> getObjectID(), 1);
                     }
@@ -242,7 +245,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                     const Object* aim = nh -> getAim();
                     double ang = M_PI*3/2;
 
-                    if(aim)
+                    if (aim)
                     {
                         double hx = nh -> getCoords().getX();
                         double hy = nh -> getCoords().getY();
@@ -271,7 +274,7 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
                         {
                             if(act == RELAX || act == SLEEP || act == DO_NOTHING)
                             {
-                                ret = texture_manager -> getTexture("Dragon", ang, nh -> getObjectID(), 1);
+                                ret = texture_manager -> getTexture("Dragon", ang, nh -> getObjectID(), this -> step / 5);
                             }
                             else
                             {
@@ -291,8 +294,11 @@ const Texture* ViewWorld::getObjectTexture(const Object *obj)
             ret = texture_manager -> getTexture("House");
             break;
         case WEATHER:
-            ret = texture_manager -> getTexture("Cow");
+        {
+//            ret = texture_manager -> getTexture("Cow");
+            ret = NULL;
             break;
+        }
         default:
             ret = texture_manager -> getTexture("Cow");
             break;
@@ -401,9 +407,17 @@ void ViewWorld::renderObject(const Object* object)
 
     const Texture* tex = this -> getObjectTexture(object);
 
-    if(tex != NULL)
+    if(tex)
     {
         tex -> render(px, py, sz, sz);
+    }
+    else if(object -> getType() == WEATHER)
+    {
+//        const Weather* weat = static_cast<const Weather*>(object);
+
+        glColor4d(0.0, 0.0, 0.0, 0.2);
+        ViewUtilities::glCirclef_blend(px, py, sz/2);
+        glColor3d(1.0, 1.0, 1.0);
     }
 #endif
 
@@ -411,6 +425,7 @@ void ViewWorld::renderObject(const Object* object)
 
 ViewWorld::Terrain ViewWorld::getTerrainType(double x, double y, double size)
 {
+
     size *= 2.0;
     int greens = 0;
 
@@ -459,7 +474,7 @@ void ViewWorld::renderBackground()
 {
 #ifndef VIEW_DEBUG
     const double sz = SZ_HUM_DIAM * 2.0;
-    const double sz_scr = worldToScreenDist(sz);
+    const double sz_scr = worldToScreenDist(sz) + 0.06;
 
     double px = this -> getX() / sz;
     double py = this -> getY() / sz;
@@ -591,7 +606,7 @@ void ViewWorld::renderBackground()
                 tex = texture_manager -> getTextureAt("Terrain", tx, ty);
             }
 
-            tex -> render(worldToScreenX(wx), worldToScreenY(wy),
+            tex -> render(worldToScreenX(wx)-0.03, worldToScreenY(wy)-0.03,
                           sz_scr, sz_scr);
 
             wy += sz;

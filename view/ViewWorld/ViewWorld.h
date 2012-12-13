@@ -28,6 +28,7 @@
 #include "../../model/Object/Creatures/Creature.h"
 #include "../../model/Object/Creatures/Humanoid/Humanoid.h"
 #include "../../model/Object/Creatures/NonHumanoid/NonHumanoid.h"
+#include "../../model/Object/Weather/Weather.h"
 #include "../../model/Object/Resource/Resource.h"
 
 class ViewWorld

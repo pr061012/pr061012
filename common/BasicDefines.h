@@ -25,8 +25,8 @@
 // Prefix: VIEW.
 //******************************************************************************
 
-#define VIEW_SCREEN_WIDTH           800
-#define VIEW_SCREEN_HEIGHT          600
+#define VIEW_SCREEN_WIDTH           980
+#define VIEW_SCREEN_HEIGHT          735
 
 /// Aspect ratio of the screen
 #define VIEW_ASPECT_RATIO           ((double) VIEW_SCREEN_HEIGHT / VIEW_SCREEN_WIDTH)

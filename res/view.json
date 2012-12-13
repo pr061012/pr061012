@@ -15,6 +15,11 @@
             "alpha": true
         },
         {
+            "name": "Meat",
+            "file": "meat.png",
+            "alpha": true
+        },
+        {
             "name": "Berry bush",
             "file": "berry_bush.png",
             "alpha": true
