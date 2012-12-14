@@ -9,11 +9,11 @@ Features
 * World with creatures, environment and resource.
 * Two basic types of creatures: humanoid and non-humanoid (non-humanoid has
   subtypes: cow and dragon). Creature lives by itself, independetly from player:
-  it makes own decisions about what to do and how to do it. Humanoid is clever
-  creature and have compilicated decisions, non-humanoid is silly and have only
-  few goals in its life (food and sleep).
+  it makes own decisions about what to do and how to do it. Humanoids are clever
+  creatures and the can make compilicated decisions, non-humanoids are silly and 
+  have only few goals in its life (food and sleep).
 * Several types of food: grass, berries and meat.
-* One type of resource: tree (is needed for house building).
+* One type of resource: tree (it is necessary for house building).
 * Several types of weather: meteor shower (destroys everything), rain (heals
   trees, grass and berries), hurricane (moves moveable objects), clouds (without
   any effects).
