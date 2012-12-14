@@ -19,6 +19,13 @@
 
 int main()
 {
+    // Printing licensing information.
+    std::cout << "pr061012 Copyright (C) 2012, pr061012 Team." << std::endl
+              << "This program comes with ABSOLUTELY NO WARRANTY; for details"
+              << " look for COPYING file." << std::endl
+              << "This is free software, and you are welcome to redistribute it"
+              << " under certain conditions." << std::endl;
+
     // Initializing random.
     srand(time(0));
 
