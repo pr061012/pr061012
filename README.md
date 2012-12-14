@@ -80,6 +80,5 @@ Hot keys
 ToDo
 ====
 
-* Switch to CMake.
 * Try to compile under OS different from Linux.
 * Fix bugs!
