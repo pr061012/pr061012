@@ -148,7 +148,7 @@ std::vector<Action>* Weather::getActions()
         {
             Resource* res = dynamic_cast<Resource*>(*iter);
             ResourceType type = res -> getSubtype();
-            if (type == GRASS || type == TREE)
+            if (type == GRASS || type == TREE || type == BERRIES)
             {
                 Action act(REGENERATE_OBJ, this);
                 act.addParticipant(res);
