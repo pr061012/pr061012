@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>pr061012: model/Utilities/Shape/Shape.cpp Source File</title>
+<title>pr061012: common/Shape/Shape.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('Shape_8cpp_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Shape_8h.html">Shape.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../common/Math/DoubleComparison.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../Math/DoubleComparison.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//******************************************************************************</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// CONSTRUCTOR/DESTRUCTOR.</span></div>
@@ -347,133 +347,112 @@ $(document).ready(function(){initNavTree('Shape_8cpp_source.html','');});
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <span class="comment">// if a corner of one square lies inside another square,</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                <span class="comment">// return true (this way won&#39;t work for abstract rectangles)</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">case</span> <a class="code" href="BasicTypes_8h.html#a5a4538eeab397888d88a4eefcc5a1345a4233fbf0cafb86abcee94b38d769fc59">SQUARE</a>:</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lb = <a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    <span class="keywordflow">if</span> (shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb))</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                    std::vector&lt;Vector&gt; verts = <a class="code" href="classShape.html#adb4e4405af2b1a6ee6977a85f8f8e98e" title="Gets array of vertices.">getVertices</a>();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rt = <a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                    <span class="keywordflow">if</span> (shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rt))</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                    }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lt = (<a class="code" href="classVector.html" title="Vector class.">Vector</a>(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>()));</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rb = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                    <span class="keywordflow">if</span> (shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lt) ||</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                        shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rb))</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                    {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    lb = shape.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb))</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                    {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                    }</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    rt = shape.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rt))</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                    {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                    }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                        <span class="keywordflow">if</span> (shape.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(verts[i]))</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                        {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                        }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                    }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                    verts = shape.<a class="code" href="classShape.html#adb4e4405af2b1a6ee6977a85f8f8e98e" title="Gets array of vertices.">getVertices</a>();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                        <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(verts[i]))</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                        {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                        }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">// hittest of square and circle</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="code" href="classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935">  272</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935" title="Checks square-circle hit test.">Shape::squareCircleHitTest</a>(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; square, <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; circle)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lb = square.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rt = square.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lt = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rb = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                    lt = (<a class="code" href="classVector.html" title="Vector class.">Vector</a>(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>()));</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                    rb = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lt) ||</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                        <span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rb))</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                    {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                    }</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;}</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">// hittest of square and circle</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno"><a class="code" href="classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935">  295</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classShape.html#af5ad0592ae1735b88bc9a1f03dcd0935" title="Checks square-circle hit test.">Shape::squareCircleHitTest</a>(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; square, <span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; circle)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lb = square.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rt = square.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> lt = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> rb = <a class="code" href="classVector.html" title="Vector class.">Vector</a>(rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>(), lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>());</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="comment">// a square can have circle&#39;s center inside</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">if</span> (square.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(circle.<a class="code" href="classShape.html#a1080d17733029fbeb9f041dbe3cf64be" title="Get the value of center.">getCenter</a>()))</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">// cicle can intersect any side of the square</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lt, rt) ||</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;          <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb, rb) ||</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;          <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb, lt) ||</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;          <a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rb, rt))</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">//**********************************************************</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">// UNUSED</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">//**********************************************************</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">// Calculates intersections</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno"><a class="code" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98">  325</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98" title="Get intersections of minimal bounding boxes with another shape.">Shape::intersect</a>(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; shape)</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;{</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">// copy data</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> this_lb = <span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> this_rt = <span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> shape_lb = shape.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> shape_rt = shape.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">double</span> x1 = this_lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">double</span> y1 = this_lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">double</span> x2 = this_rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">double</span> y2 = this_rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">double</span> x3 = shape_lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">double</span> y3 = shape_lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">double</span> x4 = shape_rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">double</span> y4 = shape_rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">// check if MBB don&#39;t intersect</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span> (x4 &lt; x1 || x3 &gt;= x2 || y4 &lt; y1 || y3 &gt;= y2)</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daab93581c38896233b0b7ba8626d976a7">NO_INTERSECTION</a>;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="comment">// check if there is a part of another shape to the left</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">if</span> (x3 &lt; x1 &amp;&amp; x4 &gt; x1)</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943dadb45120aafd37a973140edee24708065">LEFT</a>;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">// to the right</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">if</span> (x3 &lt;= x2 &amp;&amp; x4 &gt;= x2)</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38">RIGHT</a>;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">// to the bottom</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">if</span> (y3 &lt; y1 &amp;&amp; y4 &gt; y1)</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da8c371f4e766fb2c49c219bbc88989461">BOTTOM</a>;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">// to the top</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">if</span> (y3 &lt;= y2 &amp;&amp; y4 &gt;= y2)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da0ad44897a70fba309c24a5b6007de3e3">TOP</a>;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;}</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">// a square can have circle&#39;s center inside</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">// and vice versa</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> (square.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(circle.<a class="code" href="classShape.html#a1080d17733029fbeb9f041dbe3cf64be" title="Get the value of center.">getCenter</a>()) ||</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        circle.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(square.<a class="code" href="classShape.html#a1080d17733029fbeb9f041dbe3cf64be" title="Get the value of center.">getCenter</a>()))</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">// cicle can intersect any side of the square</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (circle.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lt, rt) ||</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;          circle.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb, rb) ||</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;          circle.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(lb, lt) ||</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          circle.<a class="code" href="classShape.html#a2d3e1131603327e5c7e9731c162c9641" title="Tests if a shape includes a point.">hitTest</a>(rb, rt))</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">//**********************************************************</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">// UNUSED</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">//**********************************************************</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">// Calculates intersections</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="code" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98">  304</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classShape.html#ad4e614404ea0276a9eee3d8299b24e98" title="Get intersections of minimal bounding boxes with another shape.">Shape::intersect</a>(<span class="keyword">const</span> <a class="code" href="classShape.html">Shape</a>&amp; shape)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;{</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">// copy data</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> this_lb = <span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> this_rt = <span class="keyword">this</span> -&gt; <a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> shape_lb = shape.<a class="code" href="classShape.html#a9681e8df8d0d14164c994af50b4b6421" title="Gets the left bottom point of the shape.">getLeftBottom</a>();</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <a class="code" href="classVector.html" title="Vector class.">Vector</a> shape_rt = shape.<a class="code" href="classShape.html#ae4f27bc0a76b92eed2d78fed484e24b1" title="Gets the right top point of the shape.">getRightTop</a>();</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">double</span> x1 = this_lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">double</span> y1 = this_lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">double</span> x2 = this_rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">double</span> y2 = this_rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">double</span> x3 = shape_lb.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">double</span> y3 = shape_lb.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordtype">double</span> x4 = shape_rt.<a class="code" href="classVector.html#abaf2f6de1a2d1d8c05167cae8311c41f" title="Get X.">getX</a>();</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordtype">double</span> y4 = shape_rt.<a class="code" href="classVector.html#a2cb972d66d108cb8e9598f2a202a1f27" title="Get Y.">getY</a>();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">// check if MBB don&#39;t intersect</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span> (x4 &lt; x1 || x3 &gt;= x2 || y4 &lt; y1 || y3 &gt;= y2)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daab93581c38896233b0b7ba8626d976a7">NO_INTERSECTION</a>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordtype">int</span> result = 0;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">// check if there is a part of another shape to the left</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span> (x3 &lt; x1 &amp;&amp; x4 &gt; x1)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943dadb45120aafd37a973140edee24708065">LEFT</a>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">// to the right</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> (x3 &lt;= x2 &amp;&amp; x4 &gt;= x2)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943daec8379af7490bb9eaaf579cf17876f38">RIGHT</a>;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">// to the bottom</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">if</span> (y3 &lt; y1 &amp;&amp; y4 &gt; y1)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da8c371f4e766fb2c49c219bbc88989461">BOTTOM</a>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">// to the top</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> (y3 &lt;= y2 &amp;&amp; y4 &gt;= y2)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        result |= <a class="code" href="Shape_8h.html#a5ca5e884b8d72855eee999c01d82943da0ad44897a70fba309c24a5b6007de3e3">TOP</a>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_727fd03e1bdee17994ea42767cf56f03.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_135edd27999c91be0305ec86036e475d.html">Shape</a></li><li class="navelem"><a class="el" href="Shape_8cpp.html">Shape.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li><li class="navelem"><a class="el" href="dir_1cf7177d17683c37425fa056e3615b8b.html">Shape</a></li><li class="navelem"><a class="el" href="Shape_8cpp.html">Shape.cpp</a></li>
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

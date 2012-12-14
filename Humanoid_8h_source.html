@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>pr061012: model/World/Object/Creatures/Humanoid/Humanoid.h Source File</title>
+<title>pr061012: model/Object/Creatures/Humanoid/Humanoid.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -274,60 +274,66 @@ $(document).ready(function(){initNavTree('Humanoid_8h_source.html','');});
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a74ff31421fc31092aa5e161f36cd240e" title="Make hum eat aim.">eat</a>();</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="comment">// UPDATE STEP</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="classHumanoid.html#a937e5c9d0d87bc960ee77de200c53ff1">  267</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#a937e5c9d0d87bc960ee77de200c53ff1" title="Amount of steps before decreasion of sleepiness. When HUM is sleeping.">decr_sleep_step</a>;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="classHumanoid.html#ac00c47e888ac552204b087b9ff7e1ebc">  270</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#ac00c47e888ac552204b087b9ff7e1ebc" title="Amount of steps before decreasion of endurance. When HUM is escaping.">decr_endur_step</a>;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// ACTION ERROR</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    std::vector&lt;ActionError&gt; <a class="code" href="classHumanoid.html#a2aebe1120e9d7d31f608a9edc1302391" title="Processing os actions errors.">errorProcess</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a73d579abf9041339e2a8babe41dc4106" title="Humanoid choose his food.">chooseFood</a>();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">// UPDATE STEP</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="code" href="classHumanoid.html#a937e5c9d0d87bc960ee77de200c53ff1">  272</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#a937e5c9d0d87bc960ee77de200c53ff1" title="Amount of steps before decreasion of sleepiness. When HUM is sleeping.">decr_sleep_step</a>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="code" href="classHumanoid.html#ac00c47e888ac552204b087b9ff7e1ebc">  275</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#ac00c47e888ac552204b087b9ff7e1ebc" title="Amount of steps before decreasion of endurance. When HUM is escaping.">decr_endur_step</a>;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">// ACTION ERROR</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno"><a class="code" href="classHumanoid.html#ae652137cca62fc1b58695eaebc4e8db1">  281</a></span>&#160;    std::vector&lt;ActionError&gt; <a class="code" href="classHumanoid.html#ae652137cca62fc1b58695eaebc4e8db1">current_errors</a>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">// MESSAGES</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a03e352515c8a67538f950c45dfb21d47">messageProcess</a>();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    std::vector&lt;ActionError&gt; <a class="code" href="classHumanoid.html#a2aebe1120e9d7d31f608a9edc1302391" title="Processing os actions errors.">errorProcess</a>();</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// AUXILIARY VARIABLE</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">// FIXME it is really bad idea</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="code" href="classHumanoid.html#ae652137cca62fc1b58695eaebc4e8db1">  288</a></span>&#160;    std::vector&lt;ActionError&gt; <a class="code" href="classHumanoid.html#ae652137cca62fc1b58695eaebc4e8db1" title="Array with current errors.">current_errors</a>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno"><a class="code" href="classHumanoid.html#ad1a18e76483a8a97a95d3a3891e8d944">  293</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#ad1a18e76483a8a97a95d3a3891e8d944" title="How often he change direction when he try to choose place for home.">steps_to_choose_place</a>;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno"><a class="code" href="classHumanoid.html#a5b40301812ff1cffa9bad39942f9f647">  296</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classHumanoid.html#a5b40301812ff1cffa9bad39942f9f647" title="Angle wich used only in CHOOSE_PLACE_FOR_HOME.">special_angle</a>;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="comment">// MESSAGES</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a03e352515c8a67538f950c45dfb21d47">messageProcess</a>();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">// HOME CREATION.</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">// SEARCHING FUNCTION</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a0f04378e1664464131951c25899115f1" title="Searching for resource.">findNearestRes</a>(<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a2b1cd05e95bb889b4c54f740a13a7056" title="Searching for Victim.">findVictim</a>();</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a> *<a class="code" href="classHumanoid.html#af16be2fa6ec9e5f4002635ba9857257e" title="Searching for res in inventory.">isResInInventory</a>(<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">// INVENTORY FUNC</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="comment">//**************************************************************************</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#a7e780f685a2fef72d6d52f5c99cb4754" title="Calculate, how many res amount should humanoid mine.">calculateNecessResAmount</a>();</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#af3462d470007bf083603483659b0129f" title="Move inventory to build inventory.">putInvInHome</a>();</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;};</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="classHumanoid.html#ad1a18e76483a8a97a95d3a3891e8d944">  301</a></span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#ad1a18e76483a8a97a95d3a3891e8d944" title="How often he change direction when he try to choose place for home.">steps_to_choose_place</a>;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a0a77970c5bdde2f6ff0f176888af3cb1" title="Runs HumanoidValueMap and choose the best place for home. (Or forces humanoid to roam around...">chooseBestPlace</a>();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="comment">// SEARCHING FUNCTION</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a0f04378e1664464131951c25899115f1" title="Searching for resource.">findNearestRes</a>(<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#a2b1cd05e95bb889b4c54f740a13a7056" title="Searching for Victim.">findVictim</a>();</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="classObject.html" title="Abstract Object class.">Object</a>* <a class="code" href="classHumanoid.html#af16be2fa6ec9e5f4002635ba9857257e" title="Searching for res in inventory.">isResInInventory</a>(<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">//**************************************************************************</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">// INVENTORY FUNC</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">//**************************************************************************</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif // HUMANOID_H</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="For more shortness of the code.">uint</a> <a class="code" href="classHumanoid.html#a7e780f685a2fef72d6d52f5c99cb4754" title="Calculate, how many res amount should humanoid mine.">calculateNecessResAmount</a>();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHumanoid.html#af3462d470007bf083603483659b0129f" title="Move inventory to build inventory.">putInvInHome</a>();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classHumanoid.html#ab3f0a6752cb1a1fa25827fcde7329558" title="Drop on ground or put in home.">putHomeAux</a>(<a class="code" href="BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1" title="The ResourceType enum.">ResourceType</a> <a class="code" href="classObject.html#ab2e93afb9acf7ee7fd57eab15eb7bd06" title="Object&#39;s type.">type</a>);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;};</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="preprocessor">#endif // HUMANOID_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_b062ee4f11b54a9df2bdeb931fc061c8.html">Creatures</a></li><li class="navelem"><a class="el" href="dir_5289d47507d3ccc51bbff1369355be6f.html">Humanoid</a></li><li class="navelem"><a class="el" href="Humanoid_8h.html">Humanoid.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_27e4afdae0cf137729f65ea6666a5c93.html">Object</a></li><li class="navelem"><a class="el" href="dir_c2bdc56ddb8fb82a5450ddc7ff04619c.html">Creatures</a></li><li class="navelem"><a class="el" href="dir_896f8491c70e5f3ed7694a050005ebf2.html">Humanoid</a></li><li class="navelem"><a class="el" href="Humanoid_8h.html">Humanoid.h</a></li>
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:36 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

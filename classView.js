@@ -10,6 +10,7 @@ var classView =
     [ "getFocus", "classView.html#a5cbb513e24fc483ee6981d9ec5b8883d", null ],
     [ "getMaxScrX", "classView.html#aedd1174511ded49f7d0a072a87d88583", null ],
     [ "getMaxScrY", "classView.html#a768d2e22e1d575e1d09768b41ca267a7", null ],
+    [ "getTexture", "classView.html#af8a9a0f2acbcd73358ab6794e076fa32", null ],
     [ "getUserInput", "classView.html#acf82b655f7bbba9062344564fb330ec5", null ],
     [ "getX", "classView.html#a0540947a23562805676d3731ca1c3521", null ],
     [ "getY", "classView.html#abfb31bd034fc17e3456f1c52dfaf3d95", null ],
@@ -36,7 +37,7 @@ var classView =
     [ "rendered", "classView.html#a15e84d070a53ba8a97e162743e140198", null ],
     [ "reset", "classView.html#a396cc43b7850005092f35e1e26b80689", null ],
     [ "sel_info", "classView.html#a84aba772a400394d1a15fa35e64d81d7", null ],
-    [ "texture_buf", "classView.html#aaa3bc368403d40dd2fd1de5f4affbd3b", null ],
+    [ "texture_manager", "classView.html#aa2e4a8799b11bccaed7e183a2c2ecc24", null ],
     [ "view_world", "classView.html#a6c56041cfd4913597ddab55ad8f9388c", null ],
     [ "width", "classView.html#ae039aa744b085db819ae149705b2c32b", null ]
 ];

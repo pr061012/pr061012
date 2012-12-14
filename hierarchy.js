@@ -11,6 +11,7 @@ var hierarchy =
     [ "EInvalidResPath", "classEInvalidResPath.html", null ],
     [ "EParamArrayInvalidKey", "classEParamArrayInvalidKey.html", null ],
     [ "God", "classGod.html", null ],
+    [ "HumanoidValueMap", "classHumanoidValueMap.html", null ],
     [ "Indexator", "classIndexator.html", null ],
     [ "InputHandler", "classInputHandler.html", null ],
     [ "ObjectHeap::iterator", "classObjectHeap_1_1iterator.html", null ],
@@ -46,13 +47,14 @@ var hierarchy =
     [ "Random", "classRandom.html", null ],
     [ "Shape", "classShape.html", null ],
     [ "TextField", "classTextField.html", null ],
+    [ "Texture", "classTexture.html", null ],
+    [ "TextureManager", "classTextureManager.html", null ],
     [ "Vector", "classVector.html", null ],
     [ "VectorComp", "structVectorComp.html", null ],
     [ "Vertex", "classVertex.html", null ],
     [ "VertexComp", "structVertexComp.html", null ],
     [ "View", "classView.html", null ],
     [ "ViewObject", "classViewObject.html", null ],
-    [ "ViewTexture", "classViewTexture.html", null ],
     [ "ViewUtilities", "classViewUtilities.html", null ],
     [ "ViewWorld", "classViewWorld.html", null ]
 ];

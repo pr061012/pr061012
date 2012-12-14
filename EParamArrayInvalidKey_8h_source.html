@@ -110,21 +110,29 @@ $(document).ready(function(){initNavTree('EParamArrayInvalidKey_8h_source.html',
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef E_PARAM_ARRAY_INVALID_KEY_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define E_PARAM_ARRAY_INVALID_KEY_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classEParamArrayInvalidKey.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEParamArrayInvalidKey.html" title="ParamArray exception – unknown (bad) key was used.">EParamArrayInvalidKey</a> : <span class="keyword">public</span> std::exception</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="classEParamArrayInvalidKey.html#a8afa6052e7f874c00c4da9f4f9ed89d9">what</a>() <span class="keyword">const</span> <span class="keywordflow">throw</span>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // E_PARAM_ARRAY_BAD_KEY_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classEParamArrayInvalidKey.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEParamArrayInvalidKey.html" title="ParamArray exception – unknown (invalid) key was used.">EParamArrayInvalidKey</a> : <span class="keyword">public</span> std::exception</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classEParamArrayInvalidKey.html#a30db58ef531f292253bff04e61f86ead" title="Constructor.">EParamArrayInvalidKey</a>(std::string <a class="code" href="classEParamArrayInvalidKey.html#a60eea4e3b25430f6944fba46f411bfa7" title="Invalid key name.">key_name</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::string <a class="code" href="classEParamArrayInvalidKey.html#aca95c0c577410fcb514881c1355adb1c" title="Gets invalid key name.">getKeyName</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classEParamArrayInvalidKey.html#a8afa6052e7f874c00c4da9f4f9ed89d9">what</a>() <span class="keyword">const</span> <span class="keywordflow">throw</span>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classEParamArrayInvalidKey.html#a60eea4e3b25430f6944fba46f411bfa7">   33</a></span>&#160;    std::string <a class="code" href="classEParamArrayInvalidKey.html#a60eea4e3b25430f6944fba46f411bfa7" title="Invalid key name.">key_name</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif // E_PARAM_ARRAY_BAD_KEY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_693be8a6a53e3965eddec3abffced059.html">common</a></li><li class="navelem"><a class="el" href="dir_8a5fbff53e2297281507883968ed5c29.html">ParamArray</a></li><li class="navelem"><a class="el" href="EParamArrayInvalidKey_8h.html">EParamArrayInvalidKey.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li><li class="navelem"><a class="el" href="dir_e916715318c93932f1f8faf1e651c24f.html">ParamArray</a></li><li class="navelem"><a class="el" href="EParamArrayInvalidKey_8h.html">EParamArrayInvalidKey.h</a></li>
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

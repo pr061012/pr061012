@@ -150,24 +150,48 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Command-Line-Interface class. </p>
-<p><b>TODO</b>: Write full <code>create</code> description.</p>
 <p><b>init</b></p>
-<p><em>init &lt;size&gt;</em> &ndash; initialises clear world with specified size.</p>
+<p><em>init size</em> &ndash; initialises clear world with specified size.</p>
 <p><b>random-init</b></p>
-<p><em>random-init &lt;size&gt;</em> &ndash; initialises world with specified size and randomly generated units.</p>
-<p><b>generate</b> <em>generate &lt;x&gt; &lt;y&gt; &lt;density&gt; &lt;cluster_type&gt;</em> &ndash; generates a bundle of objects around (x, y) point.</p>
+<p><em>random-init size</em> &ndash; initialises world with specified size and randomly generated units.</p>
+<p><b>generate</b> <em>generate x y density cluster_type</em> &ndash; generates a bundle of objects around (x, y) point.</p>
 <p><b>create</b></p>
-<p><em>create &lt;x&gt; &lt;y&gt; &lt;type&gt; [additional args]</em> &ndash; creates new object.</p>
+<p><em>create x y type [additional args]</em> &ndash; creates new object.</p>
+<p>List of additional args for different types:</p>
+<ul>
+<li><em>c</em> (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a>): CreatureType (h/nh), NonHumanoidType (cow/ dragon) &ndash; nh only.</li>
+<li><em>b</em> (<a class="el" href="classBuilding.html" title="Building class contains information about building such as objects inside (including creatures)...">Building</a>): max health (uint), max space (uint).</li>
+<li><em>r</em> (<a class="el" href="classResource.html" title="This class contains information about mineable or pickable resource.">Resource</a>): ResourceType (water/grass/berries/meat/tree), resource amount (uint).</li>
+<li><em>w</em> (<a class="el" href="classWeather.html" title="Weather class.">Weather</a>): WeatherType (clouds/hurricane/meteor-shower/ rain), weather living steps (uint).</li>
+</ul>
 <p><b>list</b></p>
 <p><em>list [type]</em> &ndash; list objects by type, if specified, otherwise list all objects.</p>
 <p><b>info</b></p>
-<p><em>info &lt;id&gt;</em> &ndash; prints object's information by id.</p>
+<p><em>info id</em> &ndash; prints object's information by id.</p>
 <p><b>change</b></p>
-<p><em>change &lt;id&gt; &lt;field&gt; &lt;new_value&gt;</em> &ndash; changes object's field.</p>
+<p><em>change id field new_value</em> &ndash; changes object's field.</p>
+<p>List of fields names:</p>
+<ul>
+<li>center &ndash; two doubles</li>
+<li>shape &ndash; circle/square</li>
+<li>size &ndash; double</li>
+<li>danger &ndash; uint</li>
+<li>immortality &ndash; toggles immortality</li>
+<li>solidity &ndash; toggles solidity</li>
+<li>destroyed &ndash; toggles destroyed flag</li>
+<li>age/mage (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>endurance/mendurance (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>hunger/mhunger (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>health/mhealth (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>sleepiness/msleepiness (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>force (<a class="el" href="classCreature.html" title="Abstract Creature class.">Creature</a> only) &ndash; uint</li>
+<li>a &ndash; CreatureAction (none/sleep/eat/build/gather/communicate/ work/realize-dream/escape/do-nothing)</li>
+<li>da &ndash; HumanoidDetailedAct (hunt/inv-food/find-food/home-relax/ home-sleep/ground-sleep/mine-res/build-house/choose-hplace/ fight/run-from-danger)</li>
+</ul>
 <p><b>step</b></p>
 <p><em>step [amount]</em> &ndash; does <a class="el" href="classController.html" title="Class controls the world!">Controller</a>'s steps (suppose amount = 1, if isn't specified). </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00052">52</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00079">79</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="afe714763a78641628a718b11db90dc35"></a>
 <div class="memitem">
@@ -202,7 +226,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00148">148</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00151">151</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -229,7 +253,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00069">69</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00096">96</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 
 </div>
 </div>
@@ -265,7 +289,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00493">493</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00510">510</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +324,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00235">235</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00238">238</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +359,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00209">209</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00212">212</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -370,7 +394,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00456">456</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00473">473</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,12 +434,13 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+    <tr><td class="paramname">random</td><td>use random object generation or not </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00191">191</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00194">194</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -455,12 +480,13 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ss</td><td>stream with args </td></tr>
+    <tr><td class="paramname">columns</td><td>amount of output columns </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00371">371</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00388">388</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -487,7 +513,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00158">158</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00161">161</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -522,7 +548,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>command output </dd></dl>
 
-<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00476">476</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8cpp_source.html#l00493">493</a> of file <a class="el" href="CLI_8cpp_source.html">CLI.cpp</a>.</p>
 
 </div>
 </div>
@@ -547,7 +573,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to <a class="el" href="classController.html" title="Class controls the world!">Controller</a>. </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00091">91</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00118">118</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 
 </div>
 </div>
@@ -571,7 +597,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to <a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a>. </p>
 
-<p>Definition at line <a class="el" href="CLI_8h_source.html#l00088">88</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
+<p>Definition at line <a class="el" href="CLI_8h_source.html#l00115">115</a> of file <a class="el" href="CLI_8h_source.html">CLI.h</a>.</p>
 
 </div>
 </div>
@@ -585,7 +611,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCLI.html">CLI</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:14 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:37 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

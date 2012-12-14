@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>pr061012: model/World/Object/Creatures/CreatureGenerateRoute.cpp File Reference</title>
+<title>pr061012: model/Object/Creatures/CreatureGenerateRoute.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -106,9 +106,10 @@ $(document).ready(function(){initNavTree('CreatureGenerateRoute_8cpp.html','');}
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;set&gt;</code><br/>
-<code>#include &quot;<a class="el" href="DoubleComparison_8h_source.html">../../../../common/Math/DoubleComparison.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="BasicDefines_8h_source.html">../../../../common/BasicDefines.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="DoubleComparison_8h_source.html">../../../common/Math/DoubleComparison.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="BasicDefines_8h_source.html">../../../common/BasicDefines.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="Creature_8h_source.html">Creature.h</a>&quot;</code><br/>
+<code>#include &lt;cassert&gt;</code><br/>
 </div>
 <p><a href="CreatureGenerateRoute_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,7 +122,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a4205a826d0dd19fc74305b28b880ed93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CreatureGenerateRoute_8cpp.html#a4205a826d0dd19fc74305b28b880ed93">__creature_generate_route_complete</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memitem:adb1f1d5b685f5a444190abe4ac18d972"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CreatureGenerateRoute_8cpp.html#adb1f1d5b685f5a444190abe4ac18d972">SCALE_FACTOR</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:adb1f1d5b685f5a444190abe4ac18d972"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CreatureGenerateRoute_8cpp.html#adb1f1d5b685f5a444190abe4ac18d972">SCALE_FACTOR</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memitem:a62695fb6635910417b4008bf1aa7d3e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CreatureGenerateRoute_8cpp.html#a62695fb6635910417b4008bf1aa7d3e2">NODE_LIMIT</a>&#160;&#160;&#160;10000</td></tr>
 </table>
 <h2>Macro Definition Documentation</h2>
@@ -135,7 +136,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00006">6</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00007">7</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
@@ -149,7 +150,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00008">8</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00009">9</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
@@ -158,12 +159,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCALE_FACTOR&#160;&#160;&#160;3</td>
+          <td class="memname">#define SCALE_FACTOR&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00007">7</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CreatureGenerateRoute_8cpp_source.html#l00008">8</a> of file <a class="el" href="CreatureGenerateRoute_8cpp_source.html">CreatureGenerateRoute.cpp</a>.</p>
 
 </div>
 </div>
@@ -172,8 +173,8 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_78ffc49fd74e7807137f1771e5d88842.html">model</a></li><li class="navelem"><a class="el" href="dir_9bacb82e6298dc01ecba8e3e05d98095.html">World</a></li><li class="navelem"><a class="el" href="dir_eab0b824b701efc41ad00e8eb0bb4287.html">Object</a></li><li class="navelem"><a class="el" href="dir_b062ee4f11b54a9df2bdeb931fc061c8.html">Creatures</a></li><li class="navelem"><a class="el" href="CreatureGenerateRoute_8cpp.html">CreatureGenerateRoute.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:12 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li><li class="navelem"><a class="el" href="dir_27e4afdae0cf137729f65ea6666a5c93.html">Object</a></li><li class="navelem"><a class="el" href="dir_c2bdc56ddb8fb82a5450ddc7ff04619c.html">Creatures</a></li><li class="navelem"><a class="el" href="CreatureGenerateRoute_8cpp.html">CreatureGenerateRoute.cpp</a></li>
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:36 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

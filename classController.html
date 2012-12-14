@@ -141,6 +141,12 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a19065056433edaad5348639f64f92552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap buffer from visible to hidden objects.  <a href="#a19065056433edaad5348639f64f92552"></a><br/></td></tr>
 <tr class="memitem:a0fce31b34a7fd6d08975302211982aab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAction.html">Action</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a0fce31b34a7fd6d08975302211982aab">actions</a></td></tr>
 <tr class="memdesc:a0fce31b34a7fd6d08975302211982aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actions accumulator.  <a href="#a0fce31b34a7fd6d08975302211982aab"></a><br/></td></tr>
+<tr class="memitem:aba954306d9c2857fd52e7c15b9a76521"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#aba954306d9c2857fd52e7c15b9a76521">weather_steps</a></td></tr>
+<tr class="memdesc:aba954306d9c2857fd52e7c15b9a76521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps to generate weather.  <a href="#aba954306d9c2857fd52e7c15b9a76521"></a><br/></td></tr>
+<tr class="memitem:afa1481c71e32f987237330810f83e176"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#afa1481c71e32f987237330810f83e176">resource_steps</a></td></tr>
+<tr class="memdesc:afa1481c71e32f987237330810f83e176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps to generate resource.  <a href="#afa1481c71e32f987237330810f83e176"></a><br/></td></tr>
+<tr class="memitem:a0b90a376150fc51f5d31619a292a6e15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classController.html#a0b90a376150fc51f5d31619a292a6e15">creature_steps</a></td></tr>
+<tr class="memdesc:a0b90a376150fc51f5d31619a292a6e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps to generate creature.  <a href="#a0b90a376150fc51f5d31619a292a6e15"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class controls the world! </p>
@@ -188,7 +194,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00041">41</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00044">44</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -223,7 +229,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00049">49</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00052">52</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +248,7 @@ Private Attributes</h2></td></tr>
 
 <p>Tries to make all requested actions in the world. </p>
 
-<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00081">81</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Controller_8cpp_source.html#l00084">84</a> of file <a class="el" href="Controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,6 +274,30 @@ Private Attributes</h2></td></tr>
 <p>Actions accumulator. </p>
 
 <p>Definition at line <a class="el" href="Controller_8h_source.html#l00070">70</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b90a376150fc51f5d31619a292a6e15"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::creature_steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Steps to generate creature. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00077">77</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
 
 </div>
 </div>
@@ -319,6 +349,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="afa1481c71e32f987237330810f83e176"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::resource_steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Steps to generate resource. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00075">75</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a19065056433edaad5348639f64f92552"></a>
 <div class="memitem">
 <div class="memproto">
@@ -340,6 +394,30 @@ Private Attributes</h2></td></tr>
 <p>Swap buffer from visible to hidden objects. </p>
 
 <p>Definition at line <a class="el" href="Controller_8h_source.html#l00067">67</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba954306d9c2857fd52e7c15b9a76521"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Controller::weather_steps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Steps to generate weather. </p>
+
+<p>Definition at line <a class="el" href="Controller_8h_source.html#l00073">73</a> of file <a class="el" href="Controller_8h_source.html">Controller.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +455,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classController.html">Controller</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:14 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:37 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

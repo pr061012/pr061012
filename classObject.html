@@ -138,10 +138,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aef403a71dc1fe4fbff3c810a0bae2c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aef403a71dc1fe4fbff3c810a0bae2c40"></a><br/></td></tr>
 <tr class="memitem:ae8f5483f459e46687bd01e6f9977afd3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae8f5483f459e46687bd01e6f9977afd3">~Object</a> ()</td></tr>
 <tr class="memdesc:ae8f5483f459e46687bd01e6f9977afd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae8f5483f459e46687bd01e6f9977afd3"></a><br/></td></tr>
-<tr class="memitem:addf0658ee2f8da579d10a6682dc097d7"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#addf0658ee2f8da579d10a6682dc097d7">getActions</a> ()=0</td></tr>
-<tr class="memdesc:addf0658ee2f8da579d10a6682dc097d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#addf0658ee2f8da579d10a6682dc097d7"></a><br/></td></tr>
-<tr class="memitem:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">receiveMessage</a> (<a class="el" href="classMessage.html">Message</a> message)=0</td></tr>
-<tr class="memdesc:ae2ef7889b3a38edfaa63ea243e154ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#ae2ef7889b3a38edfaa63ea243e154ef5"></a><br/></td></tr>
+<tr class="memitem:a34239de3f1d6f38bd27c070fad75b25c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a34239de3f1d6f38bd27c070fad75b25c">getActions</a> ()</td></tr>
+<tr class="memdesc:a34239de3f1d6f38bd27c070fad75b25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets objects pending actions.  <a href="#a34239de3f1d6f38bd27c070fad75b25c"></a><br/></td></tr>
+<tr class="memitem:a02840f331100403e6d67d840ea71f4f9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a02840f331100403e6d67d840ea71f4f9">receiveMessage</a> (<a class="el" href="classMessage.html">Message</a> message)</td></tr>
+<tr class="memdesc:a02840f331100403e6d67d840ea71f4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives message.  <a href="#a02840f331100403e6d67d840ea71f4f9"></a><br/></td></tr>
 <tr class="memitem:a06a7cbb966daffad13f40ee1dff326a2"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a06a7cbb966daffad13f40ee1dff326a2">printObjectInfo</a> (bool full) const </td></tr>
 <tr class="memdesc:a06a7cbb966daffad13f40ee1dff326a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out object's information.  <a href="#a06a7cbb966daffad13f40ee1dff326a2"></a><br/></td></tr>
 <tr class="memitem:a46cd2e05a4f556afa59a2a61b1096fc8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.html#a46cd2e05a4f556afa59a2a61b1096fc8">damage</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> delta)=0</td></tr>
@@ -328,6 +328,11 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>ObjectType </td></tr>
+    <tr><td class="paramname">solidity</td><td>is object solid or not </td></tr>
+    <tr><td class="paramname">movable</td><td>is it possible to move this object </td></tr>
+    <tr><td class="paramname">flyable</td><td>can this object fly </td></tr>
+    <tr><td class="paramname">pickable</td><td>is it possible to pick up this object or not </td></tr>
+    <tr><td class="paramname">immortality</td><td>is object immortal or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -395,11 +400,11 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>amount of done damage </dd></dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#a3c8713e642f1c33fd3559fd332a128c0">Creature</a>, <a class="el" href="classWeather.html#a83a65c72b1aabc8eb99e63819f240bc2">Weather</a>, <a class="el" href="classResource.html#a482366ebe93586628b47100adce81421">Resource</a>, <a class="el" href="classBuilding.html#a26691bcff80498c35d1e77e530998938">Building</a>, and <a class="el" href="classTool.html#a7b34a841f981e63606a3626fb4889986">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a3c8713e642f1c33fd3559fd332a128c0">Creature</a>, <a class="el" href="classResource.html#a482366ebe93586628b47100adce81421">Resource</a>, <a class="el" href="classWeather.html#a83a65c72b1aabc8eb99e63819f240bc2">Weather</a>, <a class="el" href="classBuilding.html#a26691bcff80498c35d1e77e530998938">Building</a>, and <a class="el" href="classTool.html#a7b34a841f981e63606a3626fb4889986">Tool</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="addf0658ee2f8da579d10a6682dc097d7"></a>
+<a class="anchor" id="a34239de3f1d6f38bd27c070fad75b25c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -407,7 +412,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt;<a class="el" href="classAction.html">Action</a>&gt;* Object::getActions </td>
+          <td class="memname">std::vector&lt; <a class="el" href="classAction.html">Action</a> &gt; * Object::getActions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -415,7 +420,7 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -423,7 +428,9 @@ Static Private Attributes</h2></td></tr>
 <p>Gets objects pending actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>vector with pending actions. </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classBuilding.html#a2b0b464d1d8aa158729b5e2f1454ecdf">Building</a>, <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>, and <a class="el" href="classTool.html#a022fd16d7301835eff8324ef8447d90c">Tool</a>.</p>
+<p>Reimplemented in <a class="el" href="classResource.html#a4c4cc169461d76de8787c97276665168">Resource</a>, <a class="el" href="classNonHumanoid.html#abc2fe4b8aeaa0a4bf2732fbdcbaf69bc">NonHumanoid</a>, <a class="el" href="classHumanoid.html#a543dfc658e59e98f5194aa64dd2ae723">Humanoid</a>, and <a class="el" href="classWeather.html#af6a985a031c55cc9d384fe532bbf69ef">Weather</a>.</p>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00045">45</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -443,7 +450,7 @@ Static Private Attributes</h2></td></tr>
 <p>Get the value of angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of angle </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00297">297</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00318">318</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -463,7 +470,7 @@ Static Private Attributes</h2></td></tr>
 <p>Get object's coordinates. </p>
 <dl class="section return"><dt>Returns</dt><dd>object's coordinates </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00307">307</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00328">328</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -483,7 +490,7 @@ Static Private Attributes</h2></td></tr>
 <p>Gets object's danger level. </p>
 <dl class="section return"><dt>Returns</dt><dd>danger level </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00221">221</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00242">242</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -510,7 +517,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Gets current object's heatlh points. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#aa169fd7250aee18a8a5f8b0a9eba843b">Creature</a>, <a class="el" href="classResource.html#afff85a837f53fad98bd43a1851094cf7">Resource</a>, <a class="el" href="classWeather.html#acdafb36eac3292eafd7fdf80f00d0966">Weather</a>, <a class="el" href="classBuilding.html#aebc5432120fc676a62817e9db746172d">Building</a>, and <a class="el" href="classTool.html#ae75625ea225855b11bd93967c5665eb4">Tool</a>.</p>
 
 </div>
 </div>
@@ -537,7 +544,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Gets maximum possible object's health points. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a9b3326520fdf11e5110d25afd90c577a">Creature</a>, <a class="el" href="classResource.html#aeaac763cd594d925374f5ea0240e7161">Resource</a>, <a class="el" href="classWeather.html#a693d5b00c135b62b563eac7e81a9d5ea">Weather</a>, <a class="el" href="classBuilding.html#a83e15fec5da00f24850d59793c9b5be6">Building</a>, and <a class="el" href="classTool.html#a08d54ef47b226faaad1ea5419dbf47c9">Tool</a>.</p>
 
 </div>
 </div>
@@ -557,7 +564,7 @@ Static Private Attributes</h2></td></tr>
 <p>Gets object's normal speed. </p>
 <dl class="section return"><dt>Returns</dt><dd>normal speed </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00249">249</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00270">270</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -577,7 +584,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns object's ID. </p>
 <dl class="section return"><dt>Returns</dt><dd>object's ID. </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00268">268</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00289">289</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +604,7 @@ Static Private Attributes</h2></td></tr>
 <p>Get the value of shape. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of shape </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00287">287</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00308">308</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -617,7 +624,7 @@ Static Private Attributes</h2></td></tr>
 <p>Gets the value of type. </p>
 <dl class="section return"><dt>Returns</dt><dd>the value of type </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00263">263</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00284">284</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -645,7 +652,7 @@ Static Private Attributes</h2></td></tr>
 <p>Gets type's name. </p>
 <dl class="section return"><dt>Returns</dt><dd>the name of the type </dd></dl>
 
-<p>Implemented in <a class="el" href="classResource.html#a5c410a5a52a56918b8bb9ed2f2fcacdc">Resource</a>, <a class="el" href="classHumanoid.html#a0acdee327571e234563e4bb0d74ddf86">Humanoid</a>, <a class="el" href="classBuilding.html#aa2f7d9050b8fa9429c6f4c03a95b09c5">Building</a>, <a class="el" href="classNonHumanoid.html#a4b5c72f2e39ec3507a41e6a9c23f808b">NonHumanoid</a>, <a class="el" href="classWeather.html#a792e245916fe756314f87cb995533a7b">Weather</a>, and <a class="el" href="classTool.html#a8f953ba8b4f921dd03dd74eb07fc41ea">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classResource.html#a5c410a5a52a56918b8bb9ed2f2fcacdc">Resource</a>, <a class="el" href="classHumanoid.html#a0acdee327571e234563e4bb0d74ddf86">Humanoid</a>, <a class="el" href="classNonHumanoid.html#a4b5c72f2e39ec3507a41e6a9c23f808b">NonHumanoid</a>, <a class="el" href="classBuilding.html#aa2f7d9050b8fa9429c6f4c03a95b09c5">Building</a>, <a class="el" href="classWeather.html#a792e245916fe756314f87cb995533a7b">Weather</a>, and <a class="el" href="classTool.html#a8f953ba8b4f921dd03dd74eb07fc41ea">Tool</a>.</p>
 
 </div>
 </div>
@@ -665,7 +672,7 @@ Static Private Attributes</h2></td></tr>
 <p>Gets object's weight. </p>
 <dl class="section return"><dt>Returns</dt><dd>weight </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00235">235</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00256">256</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -700,7 +707,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>amount of done healing </dd></dl>
 
-<p>Implemented in <a class="el" href="classCreature.html#a79f88cfa5524a47b05575d31758126a3">Creature</a>, <a class="el" href="classWeather.html#a5047894ac189777ce9e855d5f37dc96d">Weather</a>, <a class="el" href="classResource.html#a05615895932c33aeba67d7f06847ed75">Resource</a>, <a class="el" href="classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b">Building</a>, and <a class="el" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d">Tool</a>.</p>
+<p>Implemented in <a class="el" href="classCreature.html#a79f88cfa5524a47b05575d31758126a3">Creature</a>, <a class="el" href="classResource.html#a05615895932c33aeba67d7f06847ed75">Resource</a>, <a class="el" href="classWeather.html#a5047894ac189777ce9e855d5f37dc96d">Weather</a>, <a class="el" href="classBuilding.html#aa33bc018988a90c23258e4a2c363bb2b">Building</a>, and <a class="el" href="classTool.html#ac06c987f3518f873f08a33f6a032a96d">Tool</a>.</p>
 
 </div>
 </div>
@@ -740,12 +747,13 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>string </td></tr>
+    <tr><td class="paramname">indent</td><td>indent </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string with spaces </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00084">84</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00105">105</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -765,7 +773,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is currently flying. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object currently flying or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00212">212</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00233">233</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -785,7 +793,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is destroyed. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object destroyed or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00098">98</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00119">119</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -805,7 +813,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is flyable. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object flyable or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00193">193</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00214">214</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -825,7 +833,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is immortal. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object immortal or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00117">117</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00138">138</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -845,7 +853,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is movable. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object movable or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00174">174</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00195">195</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -865,7 +873,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is pickable. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object pickable or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00155">155</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00176">176</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +893,7 @@ Static Private Attributes</h2></td></tr>
 <p>Returns true if object is solid. </p>
 <dl class="section return"><dt>Returns</dt><dd>is object solid or not </dd></dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00136">136</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00157">157</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -904,7 +912,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object flyable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00183">183</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00204">204</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -923,7 +931,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object currently flying. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00202">202</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00223">223</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -942,7 +950,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object immortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00112">112</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00133">133</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -961,7 +969,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object immovable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00169">169</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00190">190</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -980,7 +988,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object mortal. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00107">107</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00128">128</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -999,7 +1007,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object movable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00164">164</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00185">185</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1026,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object non-flyable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00188">188</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00209">209</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1037,7 +1045,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object non-flying. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00207">207</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00228">228</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1064,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object non-pickable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00150">150</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00171">171</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1083,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object non-solid. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00131">131</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00152">152</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1102,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object pickable. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00145">145</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00166">166</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1121,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Makes object solid. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00126">126</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00147">147</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1132,7 +1140,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Marks this object as destroyed. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00093">93</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00114">114</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1159,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Operator to cast an <a class="el" href="classObject.html" title="Abstract Object class.">Object</a> to const <a class="el" href="classViewObject.html">ViewObject</a>. </p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00316">316</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00337">337</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1186,13 +1194,13 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string with information </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classCreature.html#ab880a703a4a83b9e3ff0dce4bf8b2951">Creature</a>, <a class="el" href="classResource.html#a2954e36e161dda4ce686198cc7a8fff1">Resource</a>, <a class="el" href="classHumanoid.html#ade64d810547aef296300f9cee7b18298">Humanoid</a>, <a class="el" href="classBuilding.html#ad7a2c46346924de8b64ddabbf456ee5a">Building</a>, and <a class="el" href="classWeather.html#addf4a3e572795abcd7dbc9139e2b3ee8">Weather</a>.</p>
+<p>Reimplemented in <a class="el" href="classCreature.html#ab880a703a4a83b9e3ff0dce4bf8b2951">Creature</a>, <a class="el" href="classResource.html#a2954e36e161dda4ce686198cc7a8fff1">Resource</a>, <a class="el" href="classHumanoid.html#ade64d810547aef296300f9cee7b18298">Humanoid</a>, <a class="el" href="classNonHumanoid.html#a2998bd7b886b932e01616840afaf7da7">NonHumanoid</a>, <a class="el" href="classWeather.html#addf4a3e572795abcd7dbc9139e2b3ee8">Weather</a>, and <a class="el" href="classBuilding.html#ad7a2c46346924de8b64ddabbf456ee5a">Building</a>.</p>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00046">46</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00060">60</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae2ef7889b3a38edfaa63ea243e154ef5"></a>
+<a class="anchor" id="a02840f331100403e6d67d840ea71f4f9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1200,7 +1208,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Object::receiveMessage </td>
+          <td class="memname">void Object::receiveMessage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classMessage.html">Message</a>&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
@@ -1209,14 +1217,16 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Receives message. </p>
 
-<p>Implemented in <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>, <a class="el" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3">Resource</a>, <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>, <a class="el" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">Building</a>, <a class="el" href="classWeather.html#ac8c475e135a64a6893141f1f3cee5519">Weather</a>, and <a class="el" href="classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f">Tool</a>.</p>
+<p>Reimplemented in <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>, and <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>.</p>
+
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00051">51</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1242,7 +1252,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00292">292</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00313">313</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1268,7 +1278,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00302">302</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00323">323</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1294,7 +1304,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00226">226</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00247">247</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1320,7 +1330,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00254">254</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00275">275</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1346,7 +1356,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00282">282</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00303">303</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1382,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00277">277</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00298">298</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1398,7 +1408,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00240">240</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Object_8cpp_source.html#l00261">261</a> of file <a class="el" href="Object_8cpp_source.html">Object.cpp</a>.</p>
 
 </div>
 </div>
@@ -1423,7 +1433,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Array with actions. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00416">416</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00421">421</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1447,7 +1457,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Angle of rotation. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00377">377</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00382">382</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1479,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00362">362</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00367">367</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1503,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a>'s danger level. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00380">380</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00385">385</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1517,7 +1527,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Is object destroyed or not. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00393">393</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00398">398</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1551,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Can this object fly or not. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00408">408</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00413">413</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1563,7 +1573,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00364">364</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00369">369</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1587,7 +1597,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Immortality. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00396">396</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00401">401</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1611,7 +1621,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Is this object currently flying or not. (Have sence only for objects with flyable == true flag). </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00412">412</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00417">417</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1635,7 +1645,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Can this object move (or can someone move it) or not. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00405">405</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00410">410</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1659,7 +1669,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a>'s normal_speed. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00386">386</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00391">391</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1683,7 +1693,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Is it possible to pick up this object or not. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00402">402</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00407">407</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1707,7 +1717,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a>'s coordinates and shape. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00374">374</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00379">379</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1731,7 +1741,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Whether object is passable or not. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00399">399</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00404">404</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1755,7 +1765,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a>'s type. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00371">371</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00376">376</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
@@ -1779,13 +1789,13 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classObject.html" title="Abstract Object class.">Object</a>'s weight. </p>
 
-<p>Definition at line <a class="el" href="Object_8h_source.html#l00383">383</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
+<p>Definition at line <a class="el" href="Object_8h_source.html#l00388">388</a> of file <a class="el" href="Object_8h_source.html">Object.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>model/World/Object/<a class="el" href="Object_8h_source.html">Object.h</a></li>
-<li>model/World/Object/<a class="el" href="Object_8cpp_source.html">Object.cpp</a></li>
+<li>model/Object/<a class="el" href="Object_8h_source.html">Object.h</a></li>
+<li>model/Object/<a class="el" href="Object_8cpp_source.html">Object.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1793,7 +1803,7 @@ Static Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classObject.html">Object</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:17 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:39 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

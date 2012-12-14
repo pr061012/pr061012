@@ -6,7 +6,7 @@ var classIndexator =
     [ "Indexator", "classIndexator.html#a9dcdada0f0fb6890b0fd10f589b442cc", null ],
     [ "addObject", "classIndexator.html#aebbad325d23422a61443742e2d315f2c", null ],
     [ "destroy", "classIndexator.html#a07a8a821d38a9a802d620e7efa3a8370", null ],
-    [ "getAreaContents", "classIndexator.html#a4565b646f1765747e5fe4fc7b436f42d", null ],
+    [ "getAreaContents", "classIndexator.html#a3ecc141cda731d881cfbd6841b3ad33f", null ],
     [ "getCellsArea", "classIndexator.html#a7f396d84a95cc10edfa560ea820deaa5", null ],
     [ "getRow", "classIndexator.html#aa4b3b388b07b2265b0c9bd87682e9774", null ],
     [ "init", "classIndexator.html#ac530016e5394f663eb05f6d838ea4068", null ],

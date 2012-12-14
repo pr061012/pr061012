@@ -27,6 +27,7 @@ var searchData=
   ['creat_5fsleep_5fregen_5fhealth',['CREAT_SLEEP_REGEN_HEALTH',['../BasicDefines_8h.html#a46da502c39bfa044f9d8ce37a68c320d',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmax',['CREAT_SLEEPINESS_MAX',['../BasicDefines_8h.html#a82d2ccc4b12979ba73ca6462e969de77',1,'BasicDefines.h']]],
   ['creat_5fsleepiness_5fmin',['CREAT_SLEEPINESS_MIN',['../BasicDefines_8h.html#a1ee4d045c113be1ee67969d275103a25',1,'BasicDefines.h']]],
+  ['creat_5fstarving_5fsteps',['CREAT_STARVING_STEPS',['../BasicDefines_8h.html#a17c38fbf699d9e14d14051822611b8bc',1,'BasicDefines.h']]],
   ['creat_5fsteps',['CREAT_STEPS',['../BasicDefines_8h.html#a528909f3e46b45ae517f3609036be273',1,'BasicDefines.h']]],
   ['createcontext',['createContext',['../dev__glfw_8h.html#a8a7adee127451f2bc84f1b609b752d3f',1,'dev_glfw.h']]],
   ['createwindow',['createWindow',['../dev__glfw_8h.html#a82544f303344c0ef5009c99a1f495e67',1,'dev_glfw.h']]]

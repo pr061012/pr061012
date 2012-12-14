@@ -9,7 +9,9 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ]
       ] ]
     ] ],
     [ "Files", null, [
@@ -30,12 +32,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Action_8cpp.html",
-"BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7a66b874d1b01b66d7d474a9ddbab2d351",
-"TextField_8cpp_source.html",
-"classDroppingPerformer.html#a1e3c90d034e5e6a7333484668e3c5cc4",
-"classObjectHeap.html#a78e16a9ebe6bfe6c10f356fdd5cb5704",
-"classViewTexture.html#a77d26388a4667604e28f0e13531099d9",
-"globals_defs_0x64.html"
+"BasicTypes_8h.html#a61e3f1d5a7b3881566a018d80283b26e",
+"MiningPerformer_8cpp.html",
+"classCreature.html#a1065cee616b9a45e941f25ff37044c5b",
+"classIndexator.html#a494d579d9b7444788099ee9f57ba6420",
+"classShape.html#ab545013b4a52ccc4acd7d8a56d45d5c8",
+"classWorld.html#a373106cb238d3ad95241aa211a90691e"
 ];
 
 var navTreeSubIndices = new Array();

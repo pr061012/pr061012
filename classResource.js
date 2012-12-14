@@ -23,7 +23,7 @@ var classResource =
     [ "makeNonRestorable", "classResource.html#a171f1ef1a639e22fafb00a4f1c76ea66", null ],
     [ "makeRestorable", "classResource.html#aec065da0fac8decc9a00be7c3bfe4f32", null ],
     [ "printObjectInfo", "classResource.html#a2954e36e161dda4ce686198cc7a8fff1", null ],
-    [ "receiveMessage", "classResource.html#a57195a6cea3aa37c11cf038119e88de3", null ],
+    [ "setMaxAmount", "classResource.html#af6063794adaff8624c33739f8e3d1386", null ],
     [ "setProgress", "classResource.html#aa93c9044f64f0521eceab41aadcd1188", null ],
     [ "amount", "classResource.html#ad332687c28a88319ea4b8043688fde96", null ],
     [ "amount_per_drop", "classResource.html#a364a4134cadb257082c6b89f2e63d49e", null ],

@@ -76,6 +76,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -89,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
       <li><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_0x6a.html#index_j"><span>j</span></a></li>
       <li><a href="functions_0x6b.html#index_k"><span>k</span></a></li>
       <li><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
@@ -145,14 +148,20 @@ $(document).ready(function(){initNavTree('functions_0x77.html','');});
 <li>Weather()
 : <a class="el" href="classWeather.html#aecb2d4cf892c498e09bf9e8a00ae9cbd">Weather</a>
 </li>
+<li>weather_probabilities
+: <a class="el" href="classWorld.html#a3a536a437b52b6bf07bf871d4aab7726">World</a>
+</li>
+<li>weather_steps
+: <a class="el" href="classController.html#aba954306d9c2857fd52e7c15b9a76521">Controller</a>
+</li>
 <li>weight
 : <a class="el" href="classObject.html#a9842ab76955ad115646eb4b630e76083">Object</a>
 </li>
 <li>what()
-: <a class="el" href="classECLIInvalidInput.html#a647fb8a8f3769ca863bc0643db09ffce">ECLIInvalidInput</a>
-, <a class="el" href="classEInvalidResPath.html#ac68d4757cac64896e31946fe68fef478">EInvalidResPath</a>
-, <a class="el" href="classEParamArrayInvalidKey.html#a8afa6052e7f874c00c4da9f4f9ed89d9">EParamArrayInvalidKey</a>
+: <a class="el" href="classEParamArrayInvalidKey.html#a8afa6052e7f874c00c4da9f4f9ed89d9">EParamArrayInvalidKey</a>
 , <a class="el" href="classEDeprecatedAction.html#ad8c92ef2e20725300f62faf9293b5630">EDeprecatedAction</a>
+, <a class="el" href="classECLIInvalidInput.html#a647fb8a8f3769ca863bc0643db09ffce">ECLIInvalidInput</a>
+, <a class="el" href="classEInvalidResPath.html#ac68d4757cac64896e31946fe68fef478">EInvalidResPath</a>
 </li>
 <li>width
 : <a class="el" href="classTextField.html#acd7383bcc9a665dc9883482476cab4d4">TextField</a>
@@ -160,23 +169,26 @@ $(document).ready(function(){initNavTree('functions_0x77.html','');});
 , <a class="el" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3">ViewWorld</a>
 </li>
 <li>world
-: <a class="el" href="classPerformer.html#a39563f182f3a5670cdb000715407d065">Performer</a>
-, <a class="el" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6">ViewWorld</a>
+: <a class="el" href="classController.html#ab67b8415bc44027ec8bbc939d560ad03">Controller</a>
 , <a class="el" href="classGod.html#a065a784380209dd0061bb8c220c39ba3">God</a>
+, <a class="el" href="classViewWorld.html#a830099988fd6645cd2246cea06bad4a6">ViewWorld</a>
 </li>
 <li>World()
 : <a class="el" href="classWorld.html#ac339c606fb3832d11bcf16ad05685f61">World</a>
 </li>
 <li>world
-: <a class="el" href="classCLI.html#abc0c2dde46571759485abcbb61d2424d">CLI</a>
-, <a class="el" href="classController.html#ab67b8415bc44027ec8bbc939d560ad03">Controller</a>
+: <a class="el" href="classPerformer.html#a39563f182f3a5670cdb000715407d065">Performer</a>
+, <a class="el" href="classCLI.html#abc0c2dde46571759485abcbb61d2424d">CLI</a>
+</li>
+<li>World()
+: <a class="el" href="classWorld.html#a928d6d4e109e3e7294a71536c908d1a6">World</a>
 </li>
 <li>world_shape
 : <a class="el" href="classIndexator.html#a826428a53a5f3d3968565ddfe66c0cb4">Indexator</a>
 </li>
 <li>world_size
-: <a class="el" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0">Indexator</a>
-, <a class="el" href="classCreature.html#a03ef0625b0a27a6366229f1260a228b6">Creature</a>
+: <a class="el" href="classCreature.html#a03ef0625b0a27a6366229f1260a228b6">Creature</a>
+, <a class="el" href="classIndexator.html#ac95af5a3fda4e94aa22cfa3987731df0">Indexator</a>
 </li>
 <li>worldToScreenDist()
 : <a class="el" href="classViewWorld.html#a342d3e7f1032b6e51a8e95eb327f9eb2">ViewWorld</a>
@@ -193,7 +205,7 @@ $(document).ready(function(){initNavTree('functions_0x77.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:20 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

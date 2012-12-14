@@ -6,6 +6,7 @@ var searchData=
   ['res_5fberries_5famount_5fmin',['RES_BERRIES_AMOUNT_MIN',['../BasicDefines_8h.html#a734ac16f7820e768261055dac04b67ef',1,'BasicDefines.h']]],
   ['res_5fberries_5ffood_5fvalue',['RES_BERRIES_FOOD_VALUE',['../BasicDefines_8h.html#a87bc6151318f33b0dc1542f0d499fe67',1,'BasicDefines.h']]],
   ['res_5fdefault_5fdifficulty',['RES_DEFAULT_DIFFICULTY',['../BasicDefines_8h.html#a739211e0f2aff3dc8ce0d02c5310b616',1,'BasicDefines.h']]],
+  ['res_5ffood_5feating_5fdelta',['RES_FOOD_EATING_DELTA',['../BasicDefines_8h.html#aad8679d9a1ceda72683afa3e8d55880f',1,'BasicDefines.h']]],
   ['res_5ffood_5fvalue',['RES_FOOD_VALUE',['../BasicDefines_8h.html#a01b8663f65f62832ecdb9ed56aab86e6',1,'BasicDefines.h']]],
   ['res_5fgrass_5famount_5fmax',['RES_GRASS_AMOUNT_MAX',['../BasicDefines_8h.html#ad3df787cbe013ce91d9a719fc219fdab',1,'BasicDefines.h']]],
   ['res_5fgrass_5famount_5fmin',['RES_GRASS_AMOUNT_MIN',['../BasicDefines_8h.html#a192fcbd7c5db87c625cba2aee5097d04',1,'BasicDefines.h']]],

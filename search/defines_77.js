@@ -1,6 +1,8 @@
 var searchData=
 [
   ['warn',['WARN',['../Log_8h.html#a89c65c373374109d9ac52f6f6f4048fc',1,'Log.h']]],
+  ['weat_5faction_5fsteps',['WEAT_ACTION_STEPS',['../BasicDefines_8h.html#ae32f5e391a45c5b3c5aa52da8d636bbc',1,'BasicDefines.h']]],
+  ['weat_5fhurricane_5ftwist_5fcoef',['WEAT_HURRICANE_TWIST_COEF',['../BasicDefines_8h.html#a14c8146d0178586bd83216f226f85635',1,'BasicDefines.h']]],
   ['weat_5froam_5fsteps',['WEAT_ROAM_STEPS',['../BasicDefines_8h.html#a2c954fd02b350b309131cf39489b9b58',1,'BasicDefines.h']]],
   ['weat_5fsteps_5fmax',['WEAT_STEPS_MAX',['../BasicDefines_8h.html#a35c3e4d0c4144939d35ff2d325290f5c',1,'BasicDefines.h']]],
   ['weat_5fsteps_5fmin',['WEAT_STEPS_MIN',['../BasicDefines_8h.html#a2be278ee9714273c5bafee5a567c119f',1,'BasicDefines.h']]],

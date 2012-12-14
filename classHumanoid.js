@@ -5,6 +5,8 @@ var classHumanoid =
     [ "addToInventory", "classHumanoid.html#a966bea2c6bb12e5710feea34af516f7c", null ],
     [ "calculateNecessResAmount", "classHumanoid.html#a7e780f685a2fef72d6d52f5c99cb4754", null ],
     [ "chooseAction", "classHumanoid.html#a8a4c343b7bad283a22910cb161b9b9c2", null ],
+    [ "chooseBestPlace", "classHumanoid.html#a0a77970c5bdde2f6ff0f176888af3cb1", null ],
+    [ "chooseFood", "classHumanoid.html#a73d579abf9041339e2a8babe41dc4106", null ],
     [ "chooseWayToBuild", "classHumanoid.html#a3ecc59a87166541e58fb98af7a9cbf14", null ],
     [ "chooseWayToEat", "classHumanoid.html#ae2f5cb279bf52b076a04e32ca558840a", null ],
     [ "chooseWayToEscape", "classHumanoid.html#aa4ee8fe3d8afddf2fee0e2340e1e77d5", null ],
@@ -29,6 +31,7 @@ var classHumanoid =
     [ "isResInInventory", "classHumanoid.html#af16be2fa6ec9e5f4002635ba9857257e", null ],
     [ "messageProcess", "classHumanoid.html#a03e352515c8a67538f950c45dfb21d47", null ],
     [ "printObjectInfo", "classHumanoid.html#ade64d810547aef296300f9cee7b18298", null ],
+    [ "putHomeAux", "classHumanoid.html#ab3f0a6752cb1a1fa25827fcde7329558", null ],
     [ "putInvInHome", "classHumanoid.html#af3462d470007bf083603483659b0129f", null ],
     [ "receiveMessage", "classHumanoid.html#a04292a5c4df8a91373585d8120703c10", null ],
     [ "removeFromInventory", "classHumanoid.html#a5e8cde9d46bb782b3cf1263a34a1710a", null ],
@@ -53,7 +56,6 @@ var classHumanoid =
     [ "need_in_house", "classHumanoid.html#a7925eb5be725c6b934bc37d43c612763", null ],
     [ "need_in_points", "classHumanoid.html#ae065fc1d338d700b4a7dfe8f89e63423", null ],
     [ "sociability", "classHumanoid.html#afa61ca96e1949374fca827f736aa99fa", null ],
-    [ "special_angle", "classHumanoid.html#a5b40301812ff1cffa9bad39942f9f647", null ],
     [ "steps_to_choose_place", "classHumanoid.html#ad1a18e76483a8a97a95d3a3891e8d944", null ],
     [ "visual_memory", "classHumanoid.html#a826e0bccae8d8aa94d04c58cdba9f921", null ]
 ];

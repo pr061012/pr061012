@@ -6,6 +6,8 @@ var searchData=
   ['hum_5fage_5fmin',['HUM_AGE_MIN',['../BasicDefines_8h.html#a5c99ab2c218ed4f7bd5da5c886a8aa23',1,'BasicDefines.h']]],
   ['hum_5fbravery_5fmax',['HUM_BRAVERY_MAX',['../BasicDefines_8h.html#af296789b92124b78cdaaf0c5f6f39fca',1,'BasicDefines.h']]],
   ['hum_5fbravery_5fmin',['HUM_BRAVERY_MIN',['../BasicDefines_8h.html#a651508aca44e0c7a48ef70210219f156',1,'BasicDefines.h']]],
+  ['hum_5fcpfh_5fsteps_5fmax',['HUM_CPFH_STEPS_MAX',['../BasicDefines_8h.html#a1fb733960c8aa47a45bde51d2df7c5af',1,'BasicDefines.h']]],
+  ['hum_5fcpfh_5fsteps_5fmin',['HUM_CPFH_STEPS_MIN',['../BasicDefines_8h.html#a34055d7a91aafb9d938e3bdc21a4f31e',1,'BasicDefines.h']]],
   ['hum_5fcrit_5fspace',['HUM_CRIT_SPACE',['../BasicDefines_8h.html#a7acff5e08663b4e5031e335efe529fda',1,'BasicDefines.h']]],
   ['hum_5fdecr_5fendur_5fsteps',['HUM_DECR_ENDUR_STEPS',['../BasicDefines_8h.html#a8ec5920acc2eae18930a70379718bd82',1,'BasicDefines.h']]],
   ['hum_5fdecr_5fsleep_5fsteps',['HUM_DECR_SLEEP_STEPS',['../BasicDefines_8h.html#acbbc012167d619037d7352434cf0b663',1,'BasicDefines.h']]],

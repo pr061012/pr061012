@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('InputHandler_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// TODO: Change name this define</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="InputHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">    4</a></span>&#160;<span class="preprocessor">#define SPEED 1</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="InputHandler_8cpp.html#af7b365029a307019d06a91447fab04b2">    5</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define VIEW_Z_SPEED 0.05</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="InputHandler_8cpp.html#af7b365029a307019d06a91447fab04b2">    5</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define VIEW_Z_SPEED 0.1</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifdef __glfw3_h__</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define glfwGetKey(key) glfwGetKey(view -&gt; getWindow(), key)    </span></div>
@@ -181,17 +181,17 @@ $(document).ready(function(){initNavTree('InputHandler_8cpp_source.html','');});
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; setY(<a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; getY() + <a class="code" href="InputHandler_8cpp.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;P&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[<span class="charliteral">&#39;P&#39;</span>])</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;P&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[static_cast&lt;uint&gt;(<span class="charliteral">&#39;P&#39;</span>)])</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; setPaused(!<a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; isPaused());</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;R&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[<span class="charliteral">&#39;R&#39;</span>])</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;R&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[static_cast&lt;uint&gt;(<span class="charliteral">&#39;R&#39;</span>)])</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; setReset(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#ifdef VIEW_DEBUG</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;G&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[<span class="charliteral">&#39;G&#39;</span>])</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span>(glfwGetKey(<span class="charliteral">&#39;G&#39;</span>) &amp;&amp; !<a class="code" href="classInputHandler.html#ac432058d806d220d51dc8cac494e59c1">key_was_pressed</a>[static_cast&lt;uint&gt;(<span class="charliteral">&#39;G&#39;</span>)])</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; display_grid = !<a class="code" href="classInputHandler.html#a6bd03fe56dadd972e7c0518afb28a845">view</a> -&gt; display_grid;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
@@ -260,8 +260,8 @@ $(document).ready(function(){initNavTree('InputHandler_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_f2a51cd3127c93b57800170255376407.html">view</a></li><li class="navelem"><a class="el" href="dir_60a713ef8e97c0e7487794c0625b70f3.html">InputHandler</a></li><li class="navelem"><a class="el" href="InputHandler_8cpp.html">InputHandler.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
+    <li class="navelem"><a class="el" href="dir_b2f003339c516cc00c8cadcafbe82f13.html">view</a></li><li class="navelem"><a class="el" href="dir_3bd8869a1a18f2d8c8c3a4d5da1d8bba.html">InputHandler</a></li><li class="navelem"><a class="el" href="InputHandler_8cpp.html">InputHandler.cpp</a></li>
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:36 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

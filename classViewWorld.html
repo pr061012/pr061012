@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('classViewWorld.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -112,10 +113,16 @@ $(document).ready(function(){initNavTree('classViewWorld.html','');});
 
 <p><code>#include &lt;<a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a67d4a45316643ca7c841df36782ce8db"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8db">Terrain</a> { <a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8dba1d819a2d7a789f5b214812ff8f142008">GRASS_TERRAIN</a>, 
+<a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8dba4bd7ffb04741e16bc785713acd3d2fb7">ROCK_TERRAIN</a>
+ }</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5100ab32e80e97a26b5d3ab2d3e09c01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a5100ab32e80e97a26b5d3ab2d3e09c01">ViewWorld</a> (const <a class="el" href="classIWorld.html">IWorld</a> &amp;w, const int &amp;<a class="el" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3">width</a>, const int &amp;<a class="el" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>)</td></tr>
-<tr class="memdesc:a5100ab32e80e97a26b5d3ab2d3e09c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame. This is required to get information about units that are not rendered right now but selected by player.  <a href="#a5100ab32e80e97a26b5d3ab2d3e09c01"></a><br/></td></tr>
+<tr class="memitem:a43ee0af0336cff9a99a484ad6b0dc96d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a43ee0af0336cff9a99a484ad6b0dc96d">ViewWorld</a> (const <a class="el" href="classIWorld.html">IWorld</a> &amp;w, const int &amp;<a class="el" href="classViewWorld.html#aff19745959037d5626bc8ebace83acb3">width</a>, const int &amp;<a class="el" href="classViewWorld.html#a1ae5f6d6120c014bef14e105962cb7ef">height</a>, <a class="el" href="classTextureManager.html">TextureManager</a> *<a class="el" href="classViewWorld.html#a4e8002859e8127a518fb6bee73cb96e1">texture_manager</a>)</td></tr>
+<tr class="memdesc:a43ee0af0336cff9a99a484ad6b0dc96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a43ee0af0336cff9a99a484ad6b0dc96d"></a><br/></td></tr>
 <tr class="memitem:abb9df78187bde4033e76a0b54040bf7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#abb9df78187bde4033e76a0b54040bf7c">~ViewWorld</a> ()</td></tr>
 <tr class="memdesc:abb9df78187bde4033e76a0b54040bf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#abb9df78187bde4033e76a0b54040bf7c"></a><br/></td></tr>
 <tr class="memitem:aad2482a6e97ebf49c0c2c6be94790ed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6">redraw</a> ()</td></tr>
@@ -134,6 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aba76c52554aa4c07004d3ac910556393"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aba76c52554aa4c07004d3ac910556393">getX</a> ()</td></tr>
 <tr class="memdesc:aba76c52554aa4c07004d3ac910556393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current coordinates of game camera center.  <a href="#aba76c52554aa4c07004d3ac910556393"></a><br/></td></tr>
 <tr class="memitem:a6486c2eabc3be2c5d65856076642b492"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a6486c2eabc3be2c5d65856076642b492">getY</a> ()</td></tr>
+<tr class="memitem:a39d828c74d55d3b22b09c5d725423b54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a39d828c74d55d3b22b09c5d725423b54">setPaused</a> (bool new_var)</td></tr>
 <tr class="memitem:a40352af1891ad8f961af8e5cb06926fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a40352af1891ad8f961af8e5cb06926fb">setSelection</a> (<a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> id)</td></tr>
 <tr class="memitem:a1337370e8fed452ee49d99d11d9957ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a1337370e8fed452ee49d99d11d9957ae">clearSelection</a> ()</td></tr>
 <tr class="memitem:a011103e9c775ae4792275a10e24aff38"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a011103e9c775ae4792275a10e24aff38">getSelection</a> ()</td></tr>
@@ -142,14 +150,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ebce26c23ecfd8440b963bca91bb5bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb">setX</a> (double new_var)</td></tr>
 <tr class="memdesc:a7ebce26c23ecfd8440b963bca91bb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">set coordinates of center of the game cam  <a href="#a7ebce26c23ecfd8440b963bca91bb5bb"></a><br/></td></tr>
 <tr class="memitem:afde0728835545722c51fcf1c88eba6d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">setY</a> (double new_var)</td></tr>
-<tr class="memitem:ac34028c48e87706a99ddabf7417d78d4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classViewTexture.html">ViewTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#ac34028c48e87706a99ddabf7417d78d4">getObjectTexture</a> (const <a class="el" href="classObject.html">Object</a> *obj)</td></tr>
+<tr class="memitem:a45e5dfdae3c515dcfaa69553d6cfc392"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTexture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a45e5dfdae3c515dcfaa69553d6cfc392">getObjectTexture</a> (const <a class="el" href="classObject.html">Object</a> *obj)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a7d8ab72c9a3f3d668cb1a0c1008479f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a7d8ab72c9a3f3d668cb1a0c1008479f2">loadTextures</a> ()</td></tr>
-<tr class="memdesc:a7d8ab72c9a3f3d668cb1a0c1008479f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">preload game textures in openGL  <a href="#a7d8ab72c9a3f3d668cb1a0c1008479f2"></a><br/></td></tr>
 <tr class="memitem:a85e72af51ccee5298d1c2e92d8819ccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc">renderObject</a> (const <a class="el" href="classObject.html">Object</a> *object)</td></tr>
 <tr class="memdesc:a85e72af51ccee5298d1c2e92d8819ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">draws specific object relative to current coordinates  <a href="#a85e72af51ccee5298d1c2e92d8819ccc"></a><br/></td></tr>
+<tr class="memitem:a3c99150f0a3aafa3287459a6a37aa476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8db">Terrain</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a3c99150f0a3aafa3287459a6a37aa476">getTerrainType</a> (double <a class="el" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0">x</a>, double <a class="el" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a>, double size)</td></tr>
 <tr class="memitem:aa6adb46a58461b80b826f01b71c88f8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e">renderBackground</a> ()</td></tr>
 <tr class="memdesc:aa6adb46a58461b80b826f01b71c88f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">render a grass background all over the window  <a href="#aa6adb46a58461b80b826f01b71c88f8e"></a><br/></td></tr>
 </table><table class="memberdecls">
@@ -165,8 +172,14 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:af6cfa93485eb3051d0fa96ffb4dbc56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to indicate if someone is selected.  <a href="#af6cfa93485eb3051d0fa96ffb4dbc56c"></a><br/></td></tr>
 <tr class="memitem:aade1a62fb9c4066da61ab966da6abde3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aade1a62fb9c4066da61ab966da6abde3">selected_id</a></td></tr>
 <tr class="memdesc:aade1a62fb9c4066da61ab966da6abde3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of currently selected unit.  <a href="#aade1a62fb9c4066da61ab966da6abde3"></a><br/></td></tr>
-<tr class="memitem:a878092f3afe66013d8db08c1b03903b7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classViewTexture.html">ViewTexture</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a878092f3afe66013d8db08c1b03903b7">texture_buf</a></td></tr>
-<tr class="memdesc:a878092f3afe66013d8db08c1b03903b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of loaded textures  <a href="#a878092f3afe66013d8db08c1b03903b7"></a><br/></td></tr>
+<tr class="memitem:ab0dff6c6b5e1b0bb2afc10182ffb8f11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#ab0dff6c6b5e1b0bb2afc10182ffb8f11">step</a></td></tr>
+<tr class="memdesc:ab0dff6c6b5e1b0bb2afc10182ffb8f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of steps passed.  <a href="#ab0dff6c6b5e1b0bb2afc10182ffb8f11"></a><br/></td></tr>
+<tr class="memitem:af8928cd7782fa68fdf10741e9a9a7e4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#af8928cd7782fa68fdf10741e9a9a7e4c">paused</a></td></tr>
+<tr class="memdesc:af8928cd7782fa68fdf10741e9a9a7e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag, if world is paused.  <a href="#af8928cd7782fa68fdf10741e9a9a7e4c"></a><br/></td></tr>
+<tr class="memitem:adb18e2e37e22191ac67cc06f09f9ba76"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classObject.html">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#adb18e2e37e22191ac67cc06f09f9ba76">rendered_objects</a></td></tr>
+<tr class="memdesc:adb18e2e37e22191ac67cc06f09f9ba76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame.  <a href="#adb18e2e37e22191ac67cc06f09f9ba76"></a><br/></td></tr>
+<tr class="memitem:a4e8002859e8127a518fb6bee73cb96e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTextureManager.html">TextureManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#a4e8002859e8127a518fb6bee73cb96e1">texture_manager</a></td></tr>
+<tr class="memdesc:a4e8002859e8127a518fb6bee73cb96e1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTexture.html">Texture</a> manager is a texture container, passed as an attribute at class constructor.  <a href="#a4e8002859e8127a518fb6bee73cb96e1"></a><br/></td></tr>
 <tr class="memitem:aa8bb317b6b9535cdfb1f1252a7e595c0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#aa8bb317b6b9535cdfb1f1252a7e595c0">x</a></td></tr>
 <tr class="memdesc:aa8bb317b6b9535cdfb1f1252a7e595c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">X and Y coordinates of center of the game cam.  <a href="#aa8bb317b6b9535cdfb1f1252a7e595c0"></a><br/></td></tr>
 <tr class="memitem:ac74bc0ec5e121e5c0df0c39001b9a221"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewWorld.html#ac74bc0ec5e121e5c0df0c39001b9a221">y</a></td></tr>
@@ -175,9 +188,32 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00023">23</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
-</div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5100ab32e80e97a26b5d3ab2d3e09c01"></a>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00034">34</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+</div><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="a67d4a45316643ca7c841df36782ce8db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8db">ViewWorld::Terrain</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a67d4a45316643ca7c841df36782ce8dba1d819a2d7a789f5b214812ff8f142008"></a>GRASS_TERRAIN</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a67d4a45316643ca7c841df36782ce8dba4bd7ffb04741e16bc785713acd3d2fb7"></a>ROCK_TERRAIN</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00081">81</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+
+</div>
+</div>
+<h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a43ee0af0336cff9a99a484ad6b0dc96d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -197,7 +233,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTextureManager.html">TextureManager</a> *&#160;</td>
+          <td class="paramname"><em>texture_manager</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -207,8 +249,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame. This is required to get information about units that are not rendered right now but selected by player. </p>
-<p>Constructor </p>
+<p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">w</td><td>world to render </td></tr>
@@ -237,7 +278,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00032">32</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00036">36</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +296,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00132">132</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00136">136</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,16 +315,16 @@ Private Attributes</h2></td></tr>
 
 <p>Returns current radius of game cam, in game length units. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00104">104</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00101">101</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac34028c48e87706a99ddabf7417d78d4"></a>
+<a class="anchor" id="a45e5dfdae3c515dcfaa69553d6cfc392"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classViewTexture.html">ViewTexture</a> * ViewWorld::getObjectTexture </td>
+          <td class="memname">const <a class="el" href="classTexture.html">Texture</a> * ViewWorld::getObjectTexture </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classObject.html">Object</a> *&#160;</td>
           <td class="paramname"><em>obj</em></td><td>)</td>
@@ -292,7 +333,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00166">166</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00170">170</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +350,49 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00137">137</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00141">141</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3c99150f0a3aafa3287459a6a37aa476"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classViewWorld.html#a67d4a45316643ca7c841df36782ce8db">ViewWorld::Terrain</a> ViewWorld::getTerrainType </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00428">428</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -346,7 +429,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00072">72</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00069">69</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +448,7 @@ Private Attributes</h2></td></tr>
 
 <p>Returns current coordinates of game camera center. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00116">116</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00115">115</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -382,34 +465,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00121">121</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7d8ab72c9a3f3d668cb1a0c1008479f2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ViewWorld::loadTextures </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>preload game textures in openGL </p>
-
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00040">40</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00120">120</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +484,7 @@ Private Attributes</h2></td></tr>
 
 <p>redraw background and all objects in range of the game camera </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00056">56</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00040">40</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -455,7 +511,7 @@ Private Attributes</h2></td></tr>
 
 <p>render a grass background all over the window </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00291">291</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00475">475</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -483,7 +539,7 @@ Private Attributes</h2></td></tr>
 
 <p>draws specific object relative to current coordinates </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00202">202</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00316">316</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +557,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00089">89</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00086">86</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -519,7 +575,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00094">94</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00091">91</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +601,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00109">109</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00106">106</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -575,7 +631,25 @@ Private Attributes</h2></td></tr>
 
 <p>changes current width and height attributes </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00308">308</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00625">625</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39d828c74d55d3b22b09c5d725423b54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ViewWorld::setPaused </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>new_var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00125">125</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -593,7 +667,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00126">126</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00130">130</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -613,7 +687,7 @@ Private Attributes</h2></td></tr>
 
 <p>set coordinates of center of the game cam </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00147">147</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00151">151</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -631,7 +705,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00156">156</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00160">160</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -649,7 +723,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00099">99</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00096">96</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -667,7 +741,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00077">77</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00074">74</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +759,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00083">83</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8cpp_source.html#l00080">80</a> of file <a class="el" href="ViewWorld_8cpp_source.html">ViewWorld.cpp</a>.</p>
 
 </div>
 </div>
@@ -708,7 +782,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00032">32</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00043">43</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -732,7 +806,7 @@ Private Attributes</h2></td></tr>
 
 <p>number of frames drawn </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00088">88</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00104">104</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -754,7 +828,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00030">30</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00041">41</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +852,55 @@ Private Attributes</h2></td></tr>
 
 <p>Flag to indicate if someone is selected. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00035">35</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00046">46</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8928cd7782fa68fdf10741e9a9a7e4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ViewWorld::paused</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag, if world is paused. </p>
+
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00055">55</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb18e2e37e22191ac67cc06f09f9ba76"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;const <a class="el" href="classObject.html">Object</a>*&gt; ViewWorld::rendered_objects</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Objects which are displayed or used in some other way by <a class="el" href="classView.html">View</a> during the current frame. </p>
+
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00059">59</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -802,11 +924,11 @@ Private Attributes</h2></td></tr>
 
 <p>Id of currently selected unit. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00038">38</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00049">49</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a878092f3afe66013d8db08c1b03903b7"></a>
+<a class="anchor" id="ab0dff6c6b5e1b0bb2afc10182ffb8f11"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -814,7 +936,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classViewTexture.html">ViewTexture</a>*&gt; ViewWorld::texture_buf</td>
+          <td class="memname">int ViewWorld::step</td>
         </tr>
       </table>
   </td>
@@ -824,9 +946,33 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>vector of loaded textures </p>
+<p>Number of steps passed. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00071">71</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00052">52</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e8002859e8127a518fb6bee73cb96e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTextureManager.html">TextureManager</a>* ViewWorld::texture_manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classTexture.html">Texture</a> manager is a texture container, passed as an attribute at class constructor. </p>
+
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00092">92</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +996,7 @@ Private Attributes</h2></td></tr>
 
 <p>Screen dimensions given by <a class="el" href="classView.html">View</a>. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00029">29</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00040">40</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -874,7 +1020,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classWorld.html" title="Class containing methods for primary model interaction.">World</a> that is rendered by this class. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00026">26</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00037">37</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -898,7 +1044,7 @@ Private Attributes</h2></td></tr>
 
 <p>X and Y coordinates of center of the game cam. </p>
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00084">84</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00100">100</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -920,7 +1066,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00085">85</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
+<p>Definition at line <a class="el" href="ViewWorld_8h_source.html#l00101">101</a> of file <a class="el" href="ViewWorld_8h_source.html">ViewWorld.h</a>.</p>
 
 </div>
 </div>
@@ -934,7 +1080,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classViewWorld.html">ViewWorld</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:19 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:40 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

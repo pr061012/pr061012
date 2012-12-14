@@ -26,6 +26,7 @@ var searchData=
   ['object_2ecpp',['Object.cpp',['../Object_8cpp.html',1,'']]],
   ['object_2eh',['Object.h',['../Object_8h.html',1,'']]],
   ['object_5ffactory',['object_factory',['../classWorld.html#a978baa528ee14482f558678612d6339c',1,'World']]],
+  ['object_5fparameters',['object_parameters',['../classWorld.html#a550fb1e7d8d093c17cbd82a4a6dcdbcb',1,'World']]],
   ['objectfactory',['ObjectFactory',['../classObjectFactory.html',1,'ObjectFactory'],['../classObjectFactory.html#a3a732c533e17d2f62b753138d9da0eb4',1,'ObjectFactory::ObjectFactory()']]],
   ['objectfactory_2ecpp',['ObjectFactory.cpp',['../ObjectFactory_8cpp.html',1,'']]],
   ['objectfactory_2eh',['ObjectFactory.h',['../ObjectFactory_8h.html',1,'']]],

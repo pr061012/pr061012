@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html','');});
 <div class="title">main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// FIXME Needed for sleep_for</span></div>
+<a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Needed for std::this_thread::sleep_for.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno"><a class="code" href="main_8cpp.html#aab3a6bd62369bcbf8021ead5a86cdf76">    2</a></span>&#160;<span class="preprocessor">#define _GLIBCXX_USE_NANOSLEEP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Log_8h.html">common/Log/Log.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="EInvalidResPath_8h.html">common/Exceptions/EInvalidResPath.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Controller_8h.html">control/Controller/Controller.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">model/World/World.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="World_8h.html">model/World.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="View_8h.html">view/View.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CLI_8h.html">cli/CLI.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html','');});
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Catching exceptions.</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp; exc)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="Log_8h.html#aac9d06502938110618f0326b5fec8a80">Log::ERROR</a>(exc.what());</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="Log_8h.html#aac9d06502938110618f0326b5fec8a80" title="ERROR define.">Log::ERROR</a>(exc.what());</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;An error occurred during game execution. Look for LOG &quot;</span> &lt;&lt;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                     <span class="stringliteral">&quot;file for details.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> 1;</div>
@@ -211,7 +211,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:11 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:35 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -76,6 +76,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -136,9 +138,6 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>save()
-: <a class="el" href="classWorld.html#af56d4516a5cf72c93f3e5bb34cd7d5cd">World</a>
-</li>
 <li>scalarProduct()
 : <a class="el" href="classVector.html#a49d6545f5150425663941028102def05">Vector</a>
 </li>
@@ -150,6 +149,9 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 </li>
 <li>setAge()
 : <a class="el" href="classCreature.html#a218e2238145d382fb76727618db5d0d1">Creature</a>
+</li>
+<li>setAim()
+: <a class="el" href="classCreature.html#aaa21abd0a7f771160f971c439148cce5">Creature</a>
 </li>
 <li>setAngle()
 : <a class="el" href="classObject.html#a075891336e08ea144917d8468f8480f1">Object</a>
@@ -211,6 +213,9 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 <li>setMaxAge()
 : <a class="el" href="classCreature.html#a0182ce7212cc37901927fc9ebb26a359">Creature</a>
 </li>
+<li>setMaxAmount()
+: <a class="el" href="classResource.html#af6063794adaff8624c33739f8e3d1386">Resource</a>
+</li>
 <li>setMaxEndurance()
 : <a class="el" href="classCreature.html#a7f271804279e3eb11af9af2d2a8d8bc5">Creature</a>
 </li>
@@ -234,6 +239,7 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 </li>
 <li>setPaused()
 : <a class="el" href="classView.html#aaf7b022a42b09309a6a7e0260e8b7895">View</a>
+, <a class="el" href="classViewWorld.html#a39d828c74d55d3b22b09c5d725423b54">ViewWorld</a>
 </li>
 <li>setProgress()
 : <a class="el" href="classResource.html#aa93c9044f64f0521eceab41aadcd1188">Resource</a>
@@ -245,7 +251,7 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classView.html#a26909c3b833e47444e756a9015b563c8">View</a>
 </li>
 <li>setScale()
-: <a class="el" href="classViewTexture.html#a0085f31464ba87a9abebeefbecde3cf5">ViewTexture</a>
+: <a class="el" href="classTexture.html#abb0b9f34f3e3489e854e1d32d42e6ceb">Texture</a>
 </li>
 <li>setSelection()
 : <a class="el" href="classViewWorld.html#a40352af1891ad8f961af8e5cb06926fb">ViewWorld</a>
@@ -266,7 +272,7 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classTextField.html#a18aaee6d823711fef05bd2b6293549a4">TextField</a>
 </li>
 <li>setTextureDimensions()
-: <a class="el" href="classViewTexture.html#a77d26388a4667604e28f0e13531099d9">ViewTexture</a>
+: <a class="el" href="classTexture.html#a3d8d22918d3b3ca7e0a4a25176b93322">Texture</a>
 </li>
 <li>setType()
 : <a class="el" href="classShape.html#a40fb28db112936018c58f718ce527150">Shape</a>
@@ -285,19 +291,28 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classObject.html#a17c4c5b00d5144659887191780af540a">Object</a>
 </li>
 <li>setX()
-: <a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">ViewObject</a>
+: <a class="el" href="classVector.html#af979b4e93ca3b4f0e0c5f92e4698e776">Vector</a>
 , <a class="el" href="classViewWorld.html#a7ebce26c23ecfd8440b963bca91bb5bb">ViewWorld</a>
 , <a class="el" href="classView.html#ab1fc5db943b079055cf570f496ed5eba">View</a>
-, <a class="el" href="classVector.html#af979b4e93ca3b4f0e0c5f92e4698e776">Vector</a>
+, <a class="el" href="classViewObject.html#a280ef0f29dd3a14d285e816b1798639d">ViewObject</a>
 </li>
 <li>setY()
-: <a class="el" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">View</a>
-, <a class="el" href="classVector.html#a48ae8b759a04ca3a7ea696fbf0375bd6">Vector</a>
+: <a class="el" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">ViewWorld</a>
 , <a class="el" href="classViewObject.html#af7e0d64500d95544654420876d7f85b8">ViewObject</a>
-, <a class="el" href="classViewWorld.html#afde0728835545722c51fcf1c88eba6d0">ViewWorld</a>
+, <a class="el" href="classVector.html#a48ae8b759a04ca3a7ea696fbf0375bd6">Vector</a>
+, <a class="el" href="classView.html#a1b8d36e29fc73390ac7fa8251b74f20e">View</a>
 </li>
 <li>Shape()
 : <a class="el" href="classShape.html#aaa8d87171e65e0d8ba3c5459978992a7">Shape</a>
+</li>
+<li>simulateCreatures()
+: <a class="el" href="classWorld.html#aa2386662978488bbba93fe3c619bde55">World</a>
+</li>
+<li>simulateResources()
+: <a class="el" href="classWorld.html#a7ed756596dd16c136f5e95c33725f781">World</a>
+</li>
+<li>simulateWeather()
+: <a class="el" href="classWorld.html#ae45ac0238769468778bdb07bec691a8c">World</a>
 </li>
 <li>sleep()
 : <a class="el" href="classCreature.html#a8f12768e84547f6863747cfb8c930138">Creature</a>
@@ -315,7 +330,7 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:20 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

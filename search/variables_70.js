@@ -2,7 +2,7 @@ var searchData=
 [
   ['params',['params',['../classAction.html#a16d86b1e6495e9be0e2b99641a09cbbd',1,'Action']]],
   ['participants',['participants',['../classAction.html#a52ca96685f3ef6b5d2dedf2a7160916c',1,'Action']]],
-  ['paused',['paused',['../classView.html#abdbeae0f8d3998fdc8b8e90f75166781',1,'View']]],
+  ['paused',['paused',['../classView.html#abdbeae0f8d3998fdc8b8e90f75166781',1,'View::paused()'],['../classViewWorld.html#af8928cd7782fa68fdf10741e9a9a7e4c',1,'ViewWorld::paused()']]],
   ['performers',['performers',['../classController.html#af3e9aef7b80f96c9538dfd6be6a10345',1,'Controller']]],
   ['pickable',['pickable',['../classObject.html#ab715870abab50ef4d8ab4a730d43997e',1,'Object']]],
   ['point',['point',['../classVertex.html#a6c5d23be18391870999b167162236749',1,'Vertex']]],

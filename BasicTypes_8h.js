@@ -4,8 +4,12 @@ var BasicTypes_8h =
     [ "AMNT_CREATURE_ACTS", "BasicTypes_8h.html#a61e3f1d5a7b3881566a018d80283b26e", null ],
     [ "AMNT_CREATURE_TYPES", "BasicTypes_8h.html#ade99668a0687706f722b2b9b3f7eec62", null ],
     [ "AMNT_DET_HUM_ACTS", "BasicTypes_8h.html#a8a22ac8586bb28c52f6c39aa492f3b2b", null ],
+    [ "AMNT_NONHUMANOID_TYPES", "BasicTypes_8h.html#aa617ed2c1e454c74996cd9987f3a91f4", null ],
     [ "AMNT_OBJECT_TYPES", "BasicTypes_8h.html#ab832f1efbeb4e430c55c605e2993d768", null ],
+    [ "AMNT_RESOURCE_TYPES", "BasicTypes_8h.html#a9db091ba0328d7dbe79cbf907670fd89", null ],
     [ "AMNT_SHAPE_TYPES", "BasicTypes_8h.html#a631294ec44ed927aeca29878908cf102", null ],
+    [ "AMNT_TOOL_TYPES", "BasicTypes_8h.html#a771820ca32ff539a53366ec23343250b", null ],
+    [ "AMNT_WEATHER_TYPES", "BasicTypes_8h.html#af1a655c1dcb0060b9911d407d0904893", null ],
     [ "uint", "BasicTypes_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
     [ "ActionError", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7", [
       [ "NO_ERROR", "BasicTypes_8h.html#ac3fb235cc63a1f343293ba0e8b83f9e7abf350750d0d4fabd8954c0f1e9bbae94", null ],
@@ -103,6 +107,7 @@ var BasicTypes_8h =
       [ "CREATURE", "BasicTypes_8h.html#a842c5e2e69277690b064bf363c017980a0ae8ea0c55a461ed09a4ebe0c803d0c8", null ]
     ] ],
     [ "ResourceType", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1", [
+      [ "WATER", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a9ac7d5e5851d7a2bc186a1c3341589f6", null ],
       [ "GRASS", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1adbed8401e35adba25dab2e1729ee55fa", null ],
       [ "BERRIES", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444", null ],
       [ "MEAT", "BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1a762b0c1d81e03ca0afd9ffe51c31a202", null ],

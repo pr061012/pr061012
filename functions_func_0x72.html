@@ -76,6 +76,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -137,18 +139,17 @@ $(document).ready(function(){initNavTree('functions_func_0x72.html','');});
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>receiveMessage()
-: <a class="el" href="classBuilding.html#a14d3e43a10e522356ea0022663a63d01">Building</a>
-, <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>
-, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>
-, <a class="el" href="classWeather.html#ac8c475e135a64a6893141f1f3cee5519">Weather</a>
-, <a class="el" href="classObject.html#ae2ef7889b3a38edfaa63ea243e154ef5">Object</a>
+: <a class="el" href="classCreature.html#a1e3f76d1a74435c7311f42a81fcbf77b">Creature</a>
 , <a class="el" href="classHumanoid.html#a04292a5c4df8a91373585d8120703c10">Humanoid</a>
-, <a class="el" href="classResource.html#a57195a6cea3aa37c11cf038119e88de3">Resource</a>
-, <a class="el" href="classTool.html#a15f22d0b74d2b74670cafe8fa1532a8f">Tool</a>
+, <a class="el" href="classObject.html#a02840f331100403e6d67d840ea71f4f9">Object</a>
+, <a class="el" href="classNonHumanoid.html#a4be29a7d7705795bf8f6a91fbc9747a9">NonHumanoid</a>
 </li>
 <li>redraw()
 : <a class="el" href="classView.html#a2e088b57c015d551b27605cab3530187">View</a>
 , <a class="el" href="classViewWorld.html#aad2482a6e97ebf49c0c2c6be94790ed6">ViewWorld</a>
+</li>
+<li>reevaluate()
+: <a class="el" href="classHumanoidValueMap.html#aad8fd20da1c59c6df0e467012961dd5b">HumanoidValueMap</a>
 </li>
 <li>RegenerationPerformer()
 : <a class="el" href="classRegenerationPerformer.html#a44769e3105fc39821f932e51fdb0ca3d">RegenerationPerformer</a>
@@ -173,7 +174,7 @@ $(document).ready(function(){initNavTree('functions_func_0x72.html','');});
 </li>
 <li>render()
 : <a class="el" href="classTextField.html#a5253e78693f7a8ebae7fe883fe030104">TextField</a>
-, <a class="el" href="classViewTexture.html#a8ac5a4b14856269b9b61605cfc372525">ViewTexture</a>
+, <a class="el" href="classTexture.html#a1697ea93246fc7eea70a8678f4b85042">Texture</a>
 </li>
 <li>renderBackground()
 : <a class="el" href="classViewWorld.html#aa6adb46a58461b80b826f01b71c88f8e">ViewWorld</a>
@@ -182,10 +183,16 @@ $(document).ready(function(){initNavTree('functions_func_0x72.html','');});
 : <a class="el" href="classViewWorld.html#a85e72af51ccee5298d1c2e92d8819ccc">ViewWorld</a>
 </li>
 <li>renderText()
-: <a class="el" href="classViewUtilities.html#aa65e1414d236ece709164ed83749d534">ViewUtilities</a>
+: <a class="el" href="classViewUtilities.html#a4373789ebabc30a35b53c19528f920de">ViewUtilities</a>
 </li>
 <li>reset()
 : <a class="el" href="classWorld.html#a8e8dbb884b0d3169981f6c7f24fcbdfa">World</a>
+</li>
+<li>resetAim()
+: <a class="el" href="classCreature.html#ab834f5a61997909054dda3469f6e9f77">Creature</a>
+</li>
+<li>resetTextureDimensions()
+: <a class="el" href="classTexture.html#a8a07d79c097de9106353be18316117e9">Texture</a>
 </li>
 <li>Resource()
 : <a class="el" href="classResource.html#a5740e20b90ce4cc9dd8cdb96947bd298">Resource</a>
@@ -199,7 +206,7 @@ $(document).ready(function(){initNavTree('functions_func_0x72.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:20 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

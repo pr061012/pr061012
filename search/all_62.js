@@ -4,6 +4,7 @@ var searchData=
   ['basictypes_2eh',['BasicTypes.h',['../BasicTypes_8h.html',1,'']]],
   ['begin',['begin',['../classObjectHeap.html#ae7be29d4f5049397b3c2dff7bd27016b',1,'ObjectHeap::begin()'],['../classObjectHeap.html#a3fa3502f08c4016bbcfcf8578e245d15',1,'ObjectHeap::begin(ObjectType type)'],['../classObjectHeap.html#aa27cac54482c7bf5aab561eddbcaa97a',1,'ObjectHeap::begin() const '],['../classObjectHeap.html#ac0c481b7e2d2d1901f73073d453b9b35',1,'ObjectHeap::begin(ObjectType type) const ']]],
   ['berries',['BERRIES',['../BasicTypes_8h.html#a8571efa4409be32e28abf3ea74a0dbb1af2b2793b08abdd2caecb4b48cea6c444',1,'BasicTypes.h']]],
+  ['bld_5fcompleteness_5fcoef',['BLD_COMPLETENESS_COEF',['../BasicDefines_8h.html#ac8c5f18d99d491bc871c31c4e291fd2e',1,'BasicDefines.h']]],
   ['bld_5fmax_5fhealth_5fmax',['BLD_MAX_HEALTH_MAX',['../BasicDefines_8h.html#afc9e5f7e6415aa2977649e646e15079f',1,'BasicDefines.h']]],
   ['bld_5fmax_5fhealth_5fmin',['BLD_MAX_HEALTH_MIN',['../BasicDefines_8h.html#ab82b72baf62bb5c404a3bb0a1d7681f5',1,'BasicDefines.h']]],
   ['bld_5fmax_5fspace_5fmax',['BLD_MAX_SPACE_MAX',['../BasicDefines_8h.html#adf951f3c00529f0c6d72082a33366b1c',1,'BasicDefines.h']]],

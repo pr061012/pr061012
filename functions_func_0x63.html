@@ -76,6 +76,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -136,6 +138,9 @@ $(document).ready(function(){initNavTree('functions_func_0x63.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>calculateHarm()
+: <a class="el" href="classHarmPerformer.html#a2e83d8ff6f954ab83ad1640c2c15cd4d">HarmPerformer</a>
+</li>
 <li>calculateNecessResAmount()
 : <a class="el" href="classHumanoid.html#a7e780f685a2fef72d6d52f5c99cb4754">Humanoid</a>
 </li>
@@ -143,8 +148,8 @@ $(document).ready(function(){initNavTree('functions_func_0x63.html','');});
 : <a class="el" href="classCLI.html#ab51776ef158afc60e1741539a765c1b8">CLI</a>
 </li>
 <li>checkCoord()
-: <a class="el" href="classWorld.html#a4d736ad16f50d363d9f961e9fb5360a0">World</a>
-, <a class="el" href="classCreationPerformer.html#a8a08de8178403f1e9da9130b9b809d38">CreationPerformer</a>
+: <a class="el" href="classCreationPerformer.html#a8a08de8178403f1e9da9130b9b809d38">CreationPerformer</a>
+, <a class="el" href="classWorld.html#ab6e251fa69cb0ca90208e13893dd1a25">World</a>
 </li>
 <li>checkPointIsPassable()
 : <a class="el" href="classCreature.html#a861d0d434ea480780f539f8b7456db17">Creature</a>
@@ -152,8 +157,14 @@ $(document).ready(function(){initNavTree('functions_func_0x63.html','');});
 <li>chooseAction()
 : <a class="el" href="classHumanoid.html#a8a4c343b7bad283a22910cb161b9b9c2">Humanoid</a>
 </li>
+<li>chooseBestPlace()
+: <a class="el" href="classHumanoid.html#a0a77970c5bdde2f6ff0f176888af3cb1">Humanoid</a>
+</li>
 <li>chooseDirectionToEscape()
 : <a class="el" href="classCreature.html#ac8ba51bbe062c6924bd202d36f3a6af4">Creature</a>
+</li>
+<li>chooseFood()
+: <a class="el" href="classHumanoid.html#a73d579abf9041339e2a8babe41dc4106">Humanoid</a>
 </li>
 <li>chooseWayToBuild()
 : <a class="el" href="classHumanoid.html#a3ecc59a87166541e58fb98af7a9cbf14">Humanoid</a>
@@ -213,14 +224,15 @@ $(document).ready(function(){initNavTree('functions_func_0x63.html','');});
 : <a class="el" href="classWorld.html#a3d1d6deaafd3733fe0120ea15f962a7c">World</a>
 </li>
 <li>createObject()
-: <a class="el" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">ObjectFactory</a>
+: <a class="el" href="classWorld.html#aa20032d8e1e3f61a9d239a8d3313e12f">World</a>
+, <a class="el" href="classObjectFactory.html#a6c7102f01ee8e5bf6a3ca562e2b2aba0">ObjectFactory</a>
 </li>
 <li>createResource()
 : <a class="el" href="classObjectFactory.html#a59a5a2cd7bba2aad1d6b560dbcb06e53">ObjectFactory</a>
 </li>
 <li>createTool()
-: <a class="el" href="classObjectFactory.html#ad3060544678e76dc736c701ae4ef476a">ObjectFactory</a>
-, <a class="el" href="classCreationPerformer.html#aa4f716ce1b5f25cdd6102411c30cc327">CreationPerformer</a>
+: <a class="el" href="classCreationPerformer.html#aa4f716ce1b5f25cdd6102411c30cc327">CreationPerformer</a>
+, <a class="el" href="classObjectFactory.html#ad3060544678e76dc736c701ae4ef476a">ObjectFactory</a>
 </li>
 <li>createWeather()
 : <a class="el" href="classCreationPerformer.html#a98de4d181cc1168f0603468461c446b3">CreationPerformer</a>
@@ -238,7 +250,7 @@ $(document).ready(function(){initNavTree('functions_func_0x63.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 7 2012 01:00:20 for pr061012 by
+    <li class="footer">Generated on Fri Dec 14 2012 15:08:41 for pr061012 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
