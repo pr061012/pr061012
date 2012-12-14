@@ -16,6 +16,13 @@ doxygen/*
 *.la
 *.a
 
+# CMake files.
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.user
+cmake_install.cmake
+Makefile
+
 # Compiled binaries.
 pr061012*
 *.out
