@@ -405,13 +405,13 @@ void ViewWorld::renderObject(const Object* object)
 
     double sz = object -> getShape().getSize();
     sz  = worldToScreenDist(sz);
-    px -= sz/2;
-    py -= sz/2;
 
     const Texture* tex = this -> getObjectTexture(object);
 
     if(tex)
     {
+        px -= sz/2;
+        py -= sz/2;
         tex -> render(px, py, sz, sz);
     }
     else if(object -> getType() == WEATHER)
