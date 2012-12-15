@@ -17,14 +17,12 @@ add_executable(pr061012 main.cpp ${SOURCES})
 target_link_libraries(pr061012 armadillo
                                GL
                                SOIL
+                               glfw
                                GLC
                                jsoncpp)
 
 # Check for glfw version
 find_file(GLFW glfw.h /usr/include/GL/)
-if(GLFW)
-    target_link_libraries(pr061012 glfw)
-else()
-    target_link_libraries(pr061012 glfw3)
+if(!GLFW)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUSE_GLFW3")
 endif()
