@@ -1,3 +1,8 @@
+/*
+    Copyright (c) 2012, pr061012 Team.
+    See the COPYING file for copying permission.
+*/
+
 // Needed for std::this_thread::sleep_for.
 #define _GLIBCXX_USE_NANOSLEEP
 
