@@ -1,9 +1,4 @@
-// GLFW 3.0 check
-#ifdef USE_GLFW3
-    #include <GL/glfw3.h>
-#else
-    #include <GL/glfw.h>
-#endif
+#include <GL/glfw3.h>
 
 // Defines for glfw compatibility
 #ifdef __glfw3_h__
