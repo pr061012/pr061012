@@ -1,7 +1,9 @@
-#include <GL/glfw3.h>
+#include "../config.h"
 
-// Defines for glfw compatibility
-#ifdef __glfw3_h__
+//Defines for glfw compatibility
+#ifdef HAVE_GLFW3_H
+    #include <GL/glfw3.h>
+//#ifdef __glfw3_h__
     #define _VIEW_WINDOW window
     #define glfwSwapBuffers() glfwSwapBuffers(window); glfwPollEvents()
     #define createWindow(width, height)  (_VIEW_WINDOW = glfwCreateWindow(width, \
@@ -15,6 +17,7 @@
     #define glfwGetMousePos(x,y)    glfwGetCursorPos(_VIEW_WINDOW, x,y)
     #define glfwGetMouseButton(button) glfwGetMouseButton(_VIEW_WINDOW, button)
 #else
+    #include <GL/glfw.h>
     #define createWindow(width, height)  glfwOpenWindow(width, height, \
                                            0, 0, 0, 0, 0, 0, GLFW_WINDOW)
     #define createContext() 

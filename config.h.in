@@ -1,0 +1,1 @@
+#cmakedefine HAVE_GLFW3_H

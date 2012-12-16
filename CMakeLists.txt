@@ -12,8 +12,10 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11")
 endif()
 
-# Adding include directory.
-include_directories(inc/)
+INCLUDE (CheckIncludeFiles)
+CHECK_INCLUDE_FILES("GL/glfw3.h" HAVE_GLFW3_H)
+CONFIGURE_FILE(config.h.in config.h)
+
 
 # Getting file list.
 file(GLOB_RECURSE SOURCES common/*.cpp model/*.cpp view/*.cpp control/*.cpp cli/*.cpp)
