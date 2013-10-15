@@ -4,6 +4,7 @@
 */
 
 #include <cmath>
+#include <assert.h>
 
 #include "Creature.h"
 #include "../Resource/Resource.h"
