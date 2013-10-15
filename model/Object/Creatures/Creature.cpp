@@ -11,6 +11,7 @@
 #include "../../../common/BasicDefines.h"
 #include "../../../common/Math/Random.h"
 #include "../../../common/Math/DoubleComparison.h"
+#include <assert.h>
 
 double Creature::world_size = SZ_WORLD_HSIDE;
 
